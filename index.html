@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+<!-- Google Analytics - Delayed loading after user interaction -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
+  let gaLoaded = false;
+  function loadGA() {
+    if (gaLoaded) return;
+    gaLoaded = true;
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MC3L7RRXMF';
+    script.async = true;
+    script.onload = function() {
+      gtag('js', new Date());
+      gtag('config', 'G-MC3L7RRXMF');
+    };
+    document.head.appendChild(script);
+  }
+  
+  // Load on first interaction
+  ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(event) {
+    window.addEventListener(event, loadGA, { once: true, passive: true });
+  });
+  
+  // Fallback: load after idle or 3s
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadGA, { timeout: 3000 });
+  } else {
+    setTimeout(loadGA, 3000);
+  }
+</script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Prerender.io / Rendertron support -->
+    <meta name="fragment" content="!">
+
+    <!-- Title (fallback, will be overwritten by react-helmet-async) -->
+    <title>Avtotestlar 2026 - Avtotestu | Avtomaktab Online Imtihonlar</title>
+
+    <!-- SEO Meta (fallback) -->
+    <meta name="description" content="Avtotest – haydovchilik guvohnomasini olish uchun YHQ testlari. 2026 yil yangilangan savollar, yo&#39;l belgilari va onlayn avtotestlar bazasi. Prava olish uchun zamonaviy platforma.">
+    <meta name="keywords" content="avtotest, avtotestu, avtotest 2026, e avtomaktab, avtomaktab , YHQ testlari, yo'l belgilari,prava test, avto test" />
+    <meta name="author" content="Avtotestu.uz" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="uz" />
+    <meta name="geo.region" content="UZ" />
+    <meta name="geo.placename" content="Uzbekistan" />
+
+    <!-- Canonical (fallback) -->
+    <link rel="canonical" href="https://www.avtotestu.uz/" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
+    
+    <!-- Preload hero image - responsive -->
+    <link rel="preload" as="image" href="/hero-bg-640.webp" imagesrcset="/hero-bg-640.webp 640w, /hero-bg-1024.webp 1024w, /hero-bg-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    
+    <!-- Inline critical CSS for spinner -->
+    <style>
+      @keyframes spin{to{transform:rotate(360deg)}}
+    </style>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Avtotestu.uz" />
+    <meta property="og:locale" content="uz_UZ" />
+    
+    
+    <meta property="og:url" content="https://www.avtotestu.uz/" />
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/NR1r7qJ8wuR5nefnkxx0asPIQHJ2/social-images/social-1775120420993-ChatGPT_Image_Mar_31,_2026,_03_24_21_PM.webp">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    
+    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/NR1r7qJ8wuR5nefnkxx0asPIQHJ2/social-images/social-1775120420993-ChatGPT_Image_Mar_31,_2026,_03_24_21_PM.webp">
+
+    <!-- Structured Data - WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Avtotestu.uz",
+        "alternateName": ["AvtoTest", "Avto Test", "Avtotestu"],
+        "url": "https://www.avtotestu.uz",
+        "description": "Haydovchilik guvohnomasini olish uchun YHQ testlari va avtomaktab imtihonlariga tayyorgarlik platformasi",
+        "inLanguage": "uz",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.avtotestu.uz/belgilar?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- Structured Data - EducationalOrganization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Avtotestu.uz",
+        "url": "https://www.avtotestu.uz",
+        "logo": "https://www.avtotestu.uz/rasm1.webp",
+        "description": "O'zbekistonda haydovchilik guvohnomasini olish uchun onlayn test platformasi",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "UZ"
+        },
+        "sameAs": []
+      }
+    </script>
+
+    <!-- Structured Data - FAQPage for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Haydovchilik guvohnomasi olish uchun qanday tayyorlanish kerak?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Avtotestu.uz platformasida YHQ testlarini yechish, yo'l belgilarini o'rganish va variant testlarini topshirish orqali tayyorlanishingiz mumkin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "YHQ testlarida nechta savol bo'ladi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Har bir test variantida 20 ta savol mavjud. Imtihondan o'tish uchun kamida 18 ta to'g'ri javob berish kerak."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Avtotestu.uz bepulmi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ha, asosiy testlar va yo'l belgilari bepul. Pro obuna qo'shimcha imkoniyatlar beradi."
+            }
+          }
+        ]
+      }
+    </script>
+
+    
+  
+  
+  
+  <meta property="og:title" content="Avtotestlar 2026 - Avtotestu | Avtomaktab Online Imtihonlar">
+  <meta name="twitter:title" content="Avtotestlar 2026 - Avtotestu | Avtomaktab Online Imtihonlar">
+  <meta property="og:description" content="Avtotest – haydovchilik guvohnomasini olish uchun YHQ testlari. 2026 yil yangilangan savollar, yo&#39;l belgilari va onlayn avtotestlar bazasi. Prava olish uchun zamonaviy platforma.">
+  <meta name="twitter:description" content="Avtotest – haydovchilik guvohnomasini olish uchun YHQ testlari. 2026 yil yangilangan savollar, yo&#39;l belgilari va onlayn avtotestlar bazasi. Prava olish uchun zamonaviy platforma.">
+</head>
+
+  <body>
+    <div id="root">
+      <!-- SEO: Static content for search engine bots (will be replaced by React) -->
+      <noscript>
+        <header style="padding: 20px; background: #1a365d; color: white; text-align: center;">
+          <h1>Avtotestu.uz - Haydovchilik guvohnomasi uchun YHQ testlari</h1>
+        </header>
+        <main style="max-width: 800px; margin: 0 auto; padding: 20px; font-family: system-ui, sans-serif;">
+          <h2>Avtotestu.uz — Onlayn test platformasi</h2>
+          <p>Professional haydovchilik guvohnomasini olish uchun zamonaviy platforma</p>
+          
+          <h3>Asosiy bo'limlar</h3>
+          <nav>
+            <ul>
+              <li><a href="/test-ishlash">Test ishlash - YHQ onlayn testlari</a></li>
+              <li><a href="/belgilar">Yo'l belgilari - Barcha kategoriyalar</a></li>
+              <li><a href="/variant">Test variantlari - 40 ta variant</a></li>
+              <li><a href="/mavzuli">Mavzuli testlar - Mavzu bo'yicha o'rganing</a></li>
+              <li><a href="/darslik">YHQ Darslik - To'liq qo'llanma</a></li>
+              <li><a href="/qoshimcha">Qo'shimcha ma'lumotlar</a></li>
+              <li><a href="/pro">Pro obuna</a></li>
+              <li><a href="/contact">Aloqa</a></li>
+            </ul>
+          </nav>
+          
+          <h3>Bizning Afzalliklar</h3>
+          <ul>
+            <li><strong>Professional Avtomaktab</strong> - Tajribali ustozlar rahbarligida sifatli ta'lim oling.</li>
+            <li><strong>Zamonaviy Avto Texnika</strong> - Eng so'nggi texnologiyalar bilan jihozlangan avtomobillar.</li>
+          </ul>
+          
+          <h3>Avtotestu.uz haqida</h3>
+          <p>Avtotestu.uz — bu haydovchilik guvohnomasi olishni xohlovchilar uchun yaratilgan zamonaviy onlayn platforma bo'lib, foydalanuvchilarga Yo'l harakati qoidalari (YHQ) bo'yicha test savollarini interaktiv tarzda yechish imkonini beradi. Platforma o'quv jarayonini qulay, tushunarli va samarali qilish maqsadida ishlab chiqilgan.</p>
+          
+          <p>Platformadagi barcha testlar O'zbekiston Respublikasi Yo'l harakati qoidalariga asoslangan bo'lib, har bir savolga yagona to'g'ri javob keltirilgan. Savollar muntazam yangilanib boriladi.</p>
+          
+          <p><strong>JavaScript yoqilmagan.</strong> To'liq funksionallik uchun JavaScript'ni yoqing.</p>
+        </main>
+        <footer style="padding: 20px; background: #f7fafc; text-align: center; margin-top: 40px;">
+          <p>© 2026 Avtotestu.uz - O'zbekistonda haydovchilik guvohnomasi olish uchun YHQ testlari</p>
+        </footer>
+      </noscript>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+# Avtotestu.uz - Robots.txt
+User-agent: *
+Allow: /
+
+# Disallow auth and profile pages (user-specific)
+Disallow: /auth
+Disallow: /profile
+
+# Sitemap
+Sitemap: https://www.avtotestu.uz/sitemap.xml

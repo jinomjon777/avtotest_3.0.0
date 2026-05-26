@@ -1,0 +1,1912 @@
+[
+    {
+        "task_info": {
+            "global_id": "t_1_q_5",
+            "ticket_num": 1,
+            "order": 1
+        },
+        "media_url": "v9uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Harakatlanish taqiqlanadi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Qizil va oq avtomobillarga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ko'k, yashil va oq avtomobillarga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Oq, ko'k va sariq avtomobillarga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳаракатланиш таъқиқланади:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Қизил ва оқ автомобилларга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Кўк, яшил ва оқ автомобилларга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оқ, кўк ва сариқ автомобилларга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Движение запрещено:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Красному и белому автомобилям",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Синему, зеленому и белому автомобилям",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Белому, синему и желтому автомобилям",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_1_q_15",
+            "ticket_num": 1,
+            "order": 2
+        },
+        "media_url": "v5uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositasi haydovchisi to'g'riga harakatlanish huquqiga ega?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Avtobus va motosikl haydovchilari",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Engil va yuk avtomobillari haydovchilari",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Engil avtomobil haydovchisi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситаси ҳайдовчиси тўғрига ҳаракатланиш ҳуқуқига эга?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Автобус ва мотоцикл ҳайдовчилари",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Енгил ва юк автомобиллари ҳайдовчилари",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Енгил автомобил ҳайдовчиси",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Кто из водителей имеет право двигаться в прямом направлении?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Водители автобуса и мотоцикла",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Водители легкового и грузового автомобилей",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Водитель легкового автомобиля",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_2_q_15",
+            "ticket_num": 2,
+            "order": 3
+        },
+        "media_url": "v131uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi  transport vositasiga harakatlanish ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Motosiklga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yuk avtomobiliga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtobusga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Engil avtomobilga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Engil va yuk avtomobillariga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси  транспорт воситасига ҳаракатланиш рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Мотоциклга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Юк автомобилига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автобусга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Енгил автомобилга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Енгил ва юк автомобилларига",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Каким транспортным средствам разрешено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Мотоциклу",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Грузовому автомобилю",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автобусу",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Легковому автомобилю",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Легковому и и грузовому автомобилям",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_3_q_6",
+            "ticket_num": 3,
+            "order": 4
+        },
+        "media_url": "v272uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Tartibga soluvchining mazkur ishorasi  qo'yidagini bildiradi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ko'k, yashil avtomobillarga harakatlanishga ruxsat etiladi. Qizil, sariq, oq avtomobillarga taqiqlanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ko'k, qizil, yashil avtomobillarga harakatlanishga ruxsat etiladi. Sariq, oq avtomobillarga taqiqlanadi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Тартибга солувчининг мазкур ишораси  қўйидагини билдиради:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Кўк, яшил автомобилларга ҳаракатланишга рухсат этилади. Қизил, сариқ, оқ автомобилларга таъқиқланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Кўк, қизил, яшил автомобилларга ҳаракатланишга рухсат этилади. Сариқ, оқ автомобилларга таъқиқланади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Этот сигнал регулировщика означает; что:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешено движение синему, зеленому автомобилям. Запрещено красному, желтому, белому",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешено движение синему, красному, зеленому автомобилям. Запрещено желтому, белому",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_3_q_16",
+            "ticket_num": 3,
+            "order": 5
+        },
+        "media_url": "v265uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositalariga harakatlanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat qizil avtomobilga.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Barcha transport vositalariga.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qizil, ko'k va yashil avtomobillarga.",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситаларига ҳаракатланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат қизил автомобилга.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Барча транспорт воситаларига.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қизил, кўк ва яшил автомобилларга.",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Каким транспортным средствам разрешается повернуть направо?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только красному автомобилю",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Всем транспортным средствам",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Красному и зеленому автомобилям",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_4_q_6",
+            "ticket_num": 4,
+            "order": 6
+        },
+        "media_url": "v377uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Harakatlanish kimga ruxsat etilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Barcha transport vositalariga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Motosiklga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtomobil va motosiklga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳаракатланиш кимга рухсат этилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Барча транспорт воситаларига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Мотоциклга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобил ва мотоциклга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Движение разрешено:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Всем транспортным средствам",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Мотоциклу",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобилю и мотоциклу",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_4_q_15",
+            "ticket_num": 4,
+            "order": 7
+        },
+        "media_url": "v372uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositalariga harakatlanish ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yashil, ko'k va qora avtomobillarga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Qizil, sariq va yashil avtomobillarga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yashil, ko'k va qizil",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситаларига ҳаракатланиш рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Яшил, кўк ва қора автомобилларга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Қизил, сариқ ва яшил автомобилларга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Яшил, кўк ва қизил",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Каким транспортным средствам движение разрешено?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Зеленому, синему и черному автомобилям",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Красному, желтому и зеленому автомобилям",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Зеленому, синему и красному автомобилям",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_1",
+            "ticket_num": 6,
+            "order": 8
+        },
+        "media_url": "v634uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Avtomobil qaysi yo'nalishlarda harakatlanishi mumkin?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat o'ngga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "To'xtash va svetoforning yashil chirog'ini kutish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat to'g'riga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barcha yo'nalishlar bo'yicha",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Автомобил қайси йўналишларда ҳаракатланиши мумкин?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат ўнгга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тўхташ ва светофорнинг яшил чироғини кутиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат тўғрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча йўналишлар бўйича",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каких направлениях может двигаться автомобиль?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Остановиться и ждать зеленого сигнала светофора",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Во всех направлениях",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_7_q_14",
+            "ticket_num": 7,
+            "order": 9
+        },
+        "media_url": "v673uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositalariga harakatlanish uchun ruxsat berilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Engil va yuk avtomobillariga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Motosiklga, engil va yuk avtomobillariga\n",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Engil avtomobilga va motosiklga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситаларига ҳаракатланиш учун рухсат берилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Енгил ва юк автомобилларига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Мотоциклга, енгил ва юк автомобилларига\n",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Енгил автомобилга ва мотоциклга",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Каким транспортным средствам разрешено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Легковому и грузовому автомобилям",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Мотоциклу, легковому и грузовому автомобилям",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Легковому автомобилю и мотоциклу",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_8_q_4",
+            "ticket_num": 8,
+            "order": 10
+        },
+        "media_url": "v688uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Harakatlanishga ruxsat berilgan:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "To'g'riga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "O'ngga birinchi yo'lga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "O'ngga ikkinchi yo'lga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "O'ngga birinchi va ikkinchi yo'llarga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳаракатланишга рухсат берилган:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тўғрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ўнгга биринчи йўлга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ўнгга иккинчи йўлга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ўнгга биринчи ва иккинчи йўлларга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Движение разрешено:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Направо в первый проезд",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Направо во второй проезд",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Направо в первый и второй проезды",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_21_q_15",
+            "ticket_num": 21,
+            "order": 11
+        },
+        "media_url": "v155uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Harakatlanish kimga ruxsat etilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yuk avtomobili va motosiklga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Barcha transport vositalariga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tramvayga va engil avtomobilga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Engil va yuk avtomobiliga, motosiklga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳаракатланиш кимга рухсат этилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Юк автомобили ва мотоциклга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Барча транспорт воситаларига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвайга ва енгил автомобилга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Енгил ва юк автомобилига, мотоциклга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Движение разрешено:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Грузовому автомобилю и мотоциклу",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Всем транспортным средствам",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамваю и легковому автомобилю",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Легковому и грузовому автомобилям, мотоциклу",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_23_q_15",
+            "ticket_num": 23,
+            "order": 12
+        },
+        "media_url": "v180uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Motosiklning haydovchisi qanday holda chapga to'g'ri burildi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Chorrahaga chiqdi, yuk avtomobilini o'tkazib yubordi, burilishni tugalladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Chorrahaga chiqdi va tartibga soluvchining ruxsat etuvchi ishorasini kutib, burilishni tugalladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "To'xtadi va tartibga soluvchining ruxsat etuvchi ishorasida to'xtamay chapga burildi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Мотоциклнинг ҳайдовчиси қандай ҳолда чапга тўғри бурилди?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Чорраҳага чиқди, юк автомобилини ўтказиб юборди, бурилишни тугаллади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Чорраҳага чиқди ва тартибга солувчининг рухсат этувчи ишорасини кутиб, бурилишни тугаллади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тўхтади ва тартибга солувчининг рухсат этувчи ишорасида тўхтамай чапга бурилди",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком случае водитель мотоцикла повернул налево правильно?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Выехал на перекресток, пропустил грузовой автомобиль, закончил поворот",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Выехал на перекресток и, дождавшись разрешающего жеста регулировщика, закончил поворот",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Остановится и при разрешающем жесте регулировщика повернёт налево",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_24_q_5",
+            "ticket_num": 24,
+            "order": 13
+        },
+        "media_url": "v196uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Harakatlanishga ruxsat etilgan barcha transport vositalari qaysi javobda to'g'ri ko'rsatilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Avtomobillar va motosikl",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Barcha transport vositalari",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtomobillar va tramvay",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳаракатланишга рухсат этилган барча транспорт воситалари қайси жавобда тўғри кўрсатилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Автомобиллар ва мотоцикл",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Барча транспорт воситалари",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобиллар ва трамвай",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком ответе правильно названы все транспортные средства; которым разрешено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Автомобили и мотоцикл",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Все транспортные средства",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобили и трамвай",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_24_q_15",
+            "ticket_num": 24,
+            "order": 14
+        },
+        "media_url": "v190uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi rasmda haydovchi to'g'ri burilmoqda?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Chapdagi rasmda",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "O'ngdagi rasmda",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси расмда ҳайдовчи тўғри бурилмоқда?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Чапдаги расмда",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ўнгдаги расмда",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "На каком рисунке водитель поворачивает правильно?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "На левом рисунке",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "На правом рисунке",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_25_q_5",
+            "ticket_num": 25,
+            "order": 15
+        },
+        "media_url": "v211uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Harakatlanish taqiqlangan:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ko'k-sariq avtomobilga chapga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ko'k-sariq avtomobilga to'g'riga, qizil avtomobilga to'g'riga va o'ngga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qizil avtomobilga - to'g'riga va o'ngga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳаракатланиш тақиқланган:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Кўк-сариқ автомобилга чапга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Кўк-сариқ автомобилга тўғрига, қизил автомобилга тўғрига ва ўнгга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қизил автомобилга - тўғрига ва ўнгга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Движение запрещено:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Сине-желтому автомобилю - налево",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Сине-желтому автомобилю - прямо, красному автомобилю — прямо и направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Красному автомобилю — прямо и направо",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_25_q_15",
+            "ticket_num": 25,
+            "order": 16
+        },
+        "media_url": "v205uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Harakatlanish ruxsat etilgan:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Qizil avtomobilga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Motosiklga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tramvayga va qizil avtomobilga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Tramvayga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Ko'k avtomobilga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳаракатланиш рухсат этилган:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Қизил автомобилга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Мотоциклга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвайга ва қизил автомобилга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Трамвайга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Кўк автомобилга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Движение разрешено:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Красному автомобилю",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Мотоциклу",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамваю и красному автомобилю",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Трамваю",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Синему автомобилю",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_26_q_5",
+            "ticket_num": 26,
+            "order": 17
+        },
+        "media_url": "v223uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositasiga harakatlanish ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Sariq va qizil avtomobilga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yashil, qizil va oq avtomobilgatosiklga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Oq va yashil avtomobilga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситасига ҳаракатланиш рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Сариқ ва қизил автомобилга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Яшил, қизил ва оқ автомобилгатоциклга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оқ ва яшил автомобилга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Каким транспортным средствам разрешено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Желтому и красному автомобилям",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Зеленому, красному и белому автомобилям",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Белому и зеленому автомобилю",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_26_q_15",
+            "ticket_num": 26,
+            "order": 18
+        },
+        "media_url": "v217uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Transport vositalariga qaysi yo'nalish bo'yicha harakatlanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Tramvayga chapga yoki to'g'riga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat avtomobilga chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tramvay va avtomobilga chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Tramvayga chapga yoki to'g'riga, avtomobilga tramvaydan so'ng",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Tramvayga chapga, avtomobilga chapga va teskari yo'nalishga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Транспорт воситаларига қайси йўналиш бўйича ҳаракатланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Трамвайга чапга ёки тўғрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат автомобилга чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвай ва автомобилга чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Трамвайга чапга ёки тўғрига, автомобилга трамвайдан сўнг",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Трамвайга чапга, автомобилга чапга ва тескари йўналишга",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "По каким направлениям разрешено движение транспортных средств?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Трамваю налево или прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только автомобилю налево",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамваю и автомобилю налево",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Трамваю налево или прямо, автомобилю после трамвая",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Трамваю налево, автомобилю налево и в обратном направлении",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_31_q_1",
+            "ticket_num": 31,
+            "order": 19
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Yo'lda harakatlanishni tartibga solish uchun vakolatli shaxsda o'zi bilan bo'lishi kerak:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Tegishli guvohnoma va taniqlik belgisi qo'l bog'ichi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Jezl",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qizil chiroq (yorug'lik qaytargich) gardish yoki bayroqcha",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barcha sanab o'tilgan belgilar",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Йўлда ҳаракатланишни тартибга солиш учун ваколатли шахсда ўзи билан бўлиши керак:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тегишли гувоҳнома ва таниқлик белгиси қўл боғичи",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Жезл",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қизил чироқ (ёруғлик қайтаргич) гардиш ёки байроқча",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча санаб ўтилган белгилар",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Лица; уполномоченные регулировать дорожное движение; должны иметь при себе:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Соответствующее удостоверение и отличительный знак- нарукавную повязку",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Жезл",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Диск с красным сигналом (светоотражателем) или флажок",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Все перечисленные отличительные знаки",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_31_q_16",
+            "ticket_num": 31,
+            "order": 20
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Tartibga soluvchining xushtak ishorasi xizmat qiladi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Harakat ishtirokchilarining etiborini jalb etish uchun",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Zarar hollarda «қўлни юқорига кўтариш» ishorasining o'rnini bosish uchun",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Piyodalar uchun ruxsat etuvchi ishora bo'lib",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Тартибга солувчининг хуштак ишораси хизмат қилади:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳаракат иштирокчиларининг эътиборини жалб этиш учун",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Зарар ҳолларда «қўлни юқорига кўтариш» ишорасининг ўрнини босиш учун",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Пиёдалар учун рухсат этувчи ишора бўлиб",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Сигнал регулировщика свистком служит:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Для привлечения внимания участников движения",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Для замены в необходимых случаях сигнала «рука поднята вверх»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешающим сигналом для пешеходов",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_36_q_20",
+            "ticket_num": 36,
+            "order": 21
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Chorrahaga kirganingizda tartibga soluvchi qo'lini yuqoriga ko'tardi, sizga harakatlanishga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ruxsat etilmaydi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ruxsat etiladi, agarda siz o'ngga buriladigan bo'lsangiz",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Чорраҳага кирганингизда тартибга солувчи қўлини юқорига кўтарди, сизга ҳаракатланишга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Рухсат этилмайди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Рухсат этилади, агарда сиз ўнгга буриладиган бўлсангиз",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Рухсат этилади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешается ли Вам продолжить движение, если регулировщик поднял руку вверх после того, как Вы въехали на перекресток?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Не разрешается",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешается, только если Вы поворачиваете направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_41_q_7",
+            "ticket_num": 41,
+            "order": 22
+        },
+        "media_url": "v395uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Harakatlanishga ruxsat berilgan:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Qizil, ko'k, yashil va sariq avtomobilga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Qizil va sariq avtomobilga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qizil, sariq va yashil avtomobilga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳаракатланишга рухсат берилган:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Қизил, кўк, яшил ва сариқ автомобилга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Қизил ва сариқ автомобилга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қизил, сариқ ва яшил автомобилга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешается движение:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Красному, синему, зеленому и желтому автомобилям",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Красному и желтому автомобилям",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Красному, желтому и зеленому автомобилям",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_46_q_18",
+            "ticket_num": 46,
+            "order": 23
+        },
+        "media_url": "v439uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositalariga harakatlanishga ruxsat berilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Motosiklga o'nga va engil avtomobilga barcha yo'nalishlarga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Engil avtomobilga o'nga va to'g'riga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Motosiklga o'nga, engil avtomobilga to'g'riga va o'nga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситаларига ҳаракатланишга рухсат берилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Мотоциклга ўнга ва енгил автомобилга барча йўналишларга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Енгил автомобилга ўнга ва тўғрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Мотоциклга ўнга, енгил автомобилга тўғрига ва ўнга",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Каким транспортным средством разрешено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Мотоциклу направо, легковому автомобилю на все направления",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Легковому автомобилю на право и прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Мотоциклу направо, легковому автомобилю прямо и направо",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_48_q_4",
+            "ticket_num": 48,
+            "order": 24
+        },
+        "media_url": "v469uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositasiga harakatlanish taqiqlangan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Motosiklga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Xech kimga taqiqlanmagan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yuk avtomobiliga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситасига ҳаракатланиш тақиқланган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Мотоциклга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Хеч кимга тақиқланмаган",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Юк автомобилига",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какому транспортному средству движение запрещено?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Мотоциклу",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Никому незапрещено",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Грузовому автомобилю",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_47_q_15",
+            "ticket_num": 47,
+            "order": 25
+        },
+        "media_url": "v452uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Avtomobil haydovchisi qayrilib olmoqchi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Chorrahadan birinchi bo'lib o'tadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tramvayga yo'l berib qayrilib oladi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Автомобил ҳайдовчиси қайрилиб олмоқчи:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Чорраҳадан биринчи бўлиб ўтади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Трамвайга йўл бериб қайрилиб олади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Водитель автомобиля намерен развернуться:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Проедет перекресток первым",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Выпольняет разворот, уступив дорогу трамваю",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_52_q_13",
+            "ticket_num": 52,
+            "order": 26
+        },
+        "media_url": "v511uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Mayoqchasi yokilangan transport vositasiga harakatni to'g'riga davom ettirishga ruxsat beriladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ruxsat beriladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Маёқчаси ёкиланган транспорт воситасига ҳаракатни тўғрига давом еттиришга рухсат бериладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Рухсат берилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тақиқланади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешается ли транспортному средству с включенным маячком двигаться прямо?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Запрещается",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    }
+]
