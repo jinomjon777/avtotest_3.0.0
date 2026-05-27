@@ -159,6 +159,58 @@
       }
     </style>
 
+    <style>
+      /* Mobile-first responsive fixes -- ensure layout adapts to any device width */
+      @media (max-width: 1023px) {
+        /* Full-width centered containers with comfortable padding */
+        .max-w-7xl, .max-w-5xl, .max-w-3xl, .max-w-lg, .max-w-xl {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+
+        /* Ensure main layout doesn't keep desktop sidebar space on small screens */
+        .flex-1 {
+          margin-left: 0 !important;
+          padding-left: 0 !important;
+        }
+
+        /* Make cards and panels take available width */
+        .test-panel, .question-card, .card, .bg-card, .answers-list, .answers {
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+        }
+
+        /* Reserve space for the bottom navigation and safe-area on phones */
+        body, #root, main {
+          padding-bottom: calc(72px + env(safe-area-inset-bottom));
+        }
+
+        /* Increase tap targets on mobile */
+        .answer-option, .option-button, .variant-button {
+          padding: 14px 16px !important;
+          font-size: 16px !important;
+        }
+
+        /* Make top mobile bar and nav elements wrap correctly */
+        nav.flex { flex-wrap: wrap !important; }
+      }
+
+      /* Generic media and overflow safety */
+      img, picture, video, svg { max-width: 100% !important; height: auto !important; display: block; }
+
+      /* Small-screen visual simplifications */
+      @media (max-width: 420px) {
+        .shadow-2xl, .shadow-lg, .shadow-sm { box-shadow: none !important; }
+        .rounded-3xl { border-radius: 12px !important; }
+        .rounded-2xl { border-radius: 10px !important; }
+      }
+    </style>
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Smartavto.uz" />

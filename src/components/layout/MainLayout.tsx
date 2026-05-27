@@ -134,7 +134,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   <span>{currentLangDisplay}</span>
                 </button>
                 {langMenuOpen && (
-                  <div className="absolute top-full right-0 mt-1 w-36 bg-card rounded-xl shadow-xl border border-border py-1 z-50 animate-scale-in lang-menu-root"
+                  <div className="lang-menu-root absolute top-full right-0 mt-1 w-36 bg-card rounded-xl shadow-xl border border-border py-1 z-50 animate-scale-in"
                     onMouseLeave={() => setLangMenuOpen(false)}>
                     {languages.map((l) => (
                       <button key={l.code} onClick={() => handleLanguageChange(l.code)}
@@ -188,7 +188,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <ChevronDown className={`w-3 h-3 transition-transform ${langMenuOpen ? "rotate-180" : ""}`} />
               </button>
               {langMenuOpen && (
-                <div className="absolute top-full right-0 mt-1 w-40 bg-card rounded-xl shadow-xl border border-border py-1 z-50 animate-scale-in lang-menu-root"
+                <div className="lang-menu-root absolute top-full right-0 mt-1 w-40 bg-card rounded-xl shadow-xl border border-border py-1 z-50 animate-scale-in"
                   onMouseLeave={() => setLangMenuOpen(false)}>
                   {languages.map((l) => (
                     <button key={l.code} onClick={() => handleLanguageChange(l.code)}
