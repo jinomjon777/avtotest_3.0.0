@@ -285,5 +285,46 @@
       </noscript>
     </div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Responsive adjustments for static/noscript content and general mobile fixes -->
+    <style>
+      /* Prevent horizontal overflow on small devices */
+      html,body{overflow-x:hidden}
+
+      /* Make media scale correctly */
+      img, picture, video, svg { max-width:100%; height:auto; display:block; }
+
+      /* Noscript / static fallback responsiveness */
+      #root noscript { display: block; box-sizing: border-box; }
+      #root noscript header, #root noscript main, #root noscript footer { padding-left: 20px; padding-right: 20px; box-sizing: border-box; }
+      #root noscript header img { max-width: 100%; height: auto; margin: 0 auto 12px; }
+      #root noscript header h1 { font-size: 20px; margin: 8px 0; }
+      #root noscript main { max-width: 920px; margin: 0 auto; }
+
+      /* Make the nav list wrap and be touch-friendly */
+      #root noscript nav ul { display: flex; flex-wrap: wrap; gap: 8px; padding-left: 0; margin: 0; list-style: none; }
+      #root noscript nav ul li { flex: 1 1 auto; min-width: 140px; }
+      #root noscript nav ul li a { display: block; padding: 10px 8px; word-break: break-word; }
+
+      /* Contact cards and info boxes stack on small screens */
+      #root noscript .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+      #root noscript .contact-card { width: 100%; box-sizing: border-box; }
+
+      /* Ensure long text doesn't overflow */
+      #root noscript *, #root noscript p, #root noscript li, #root noscript a { word-break: break-word; hyphens: auto; }
+
+      /* Reduce paddings and font sizes on very small screens */
+      @media (max-width: 800px) {
+        #root noscript header, #root noscript main, #root noscript footer { padding-left: 14px; padding-right: 14px; }
+        #root noscript header h1 { font-size: 18px; }
+        #root noscript main h2 { font-size: 16px; }
+      }
+
+      @media (max-width: 420px) {
+        #root noscript nav ul li { min-width: 100%; }
+        #root noscript header h1 { font-size: 17px; }
+        #root noscript main { padding-left: 12px; padding-right: 12px; }
+      }
+    </style>
   </body>
 </html>
