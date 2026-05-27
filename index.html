@@ -40,7 +40,7 @@
     <meta name="fragment" content="!">
 
     <!-- Title (fallback, will be overwritten by react-helmet-async) -->
-    <title>Avtotestlar 2026 - smartavto | Avtomaktab Online Imtihonlar</title>
+    <title>Avtotestlar 2026 - Smartavto | Avtomaktab Online Imtihonlar</title>
 
     <!-- SEO Meta (fallback) -->
     <meta name="description" content="Avtotest – YHQ (Yo'l harakati qoidalari) va prava testlari uchun onlayn platforma. 2026 yilgi yangilangan savollar, yo'l belgilari, variant testlari va darsliklar. Prava olishga tayyorlaning - onlayn testlar, amaliy maslahatlar va interaktiv mashqlar.">
@@ -61,12 +61,84 @@
     <link rel="preload" as="image" href="/hero-bg-640.webp" imagesrcset="/hero-bg-640.webp 640w, /hero-bg-1024.webp 1024w, /hero-bg-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/favicon.png">
-    
+    <link rel="icon" type="image/png" href="/logo.ico">
+    <link rel="apple-touch-icon" href="/logo-premium.png">
+
     <!-- Inline critical CSS for spinner -->
     <style>
       @keyframes spin{to{transform:rotate(360deg)}}
+    </style>
+
+    <!-- Accessibility & UI fixes: simpler system fonts and answer-button visibility -->
+    <style>
+      /* Use a simple system font stack for improved readability and faster load */
+      :root{
+        --main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        --accent: #7C6FFF;
+      }
+
+      html,body,#root{
+        font-family: var(--main-font) !important;
+        font-weight: 400 !important;
+        line-height: 1.45 !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+      }
+
+      /* Make answer/variant buttons occupy full width and stay visible */
+      .answer-option,
+      .option-button,
+      .variant-button,
+      button.answer,
+      .answers-list li,
+      .answer {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 12px 16px !important;
+        margin: 8px 0 !important;
+        border-radius: 10px !important;
+        background: rgba(255,255,255,0.03) !important;
+        color: inherit !important;
+        text-align: left !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        min-height: 46px !important;
+      }
+
+      /* Ensure the test panel and question card are not clipped and are stacked above background */
+      .question-card,
+      .test-panel,
+      .answers,
+      .question-panel {
+        z-index: 9999 !important;
+        overflow: visible !important;
+      }
+
+      /* Radio/checkbox alignment inside options */
+      .answer-option input[type="radio"],
+      .answer-option input[type="checkbox"]{
+        margin-right: 12px !important;
+        vertical-align: middle !important;
+      }
+
+      /* Selected / hover states for better visibility */
+      .answer-option.selected,
+      .answer-option:focus,
+      .answer-option:hover{
+        outline: 2px solid rgba(124,111,255,0.14) !important;
+        background: rgba(124,111,255,0.06) !important;
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 900px){
+        .answer-option,
+        .variant-button,
+        .option-button{
+          padding: 10px 12px !important;
+          font-size: 15px !important;
+        }
+      }
     </style>
 
     <!-- Open Graph -->
@@ -76,15 +148,13 @@
     
     
     <meta property="og:url" content="https://smartavto.uz/" />
-    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/NR1r7qJ8wuR5nefnkxx0asPIQHJ2/social-images/social-1775120420993-ChatGPT_Image_Mar_31,_2026,_03_24_21_PM.webp">
+    <meta property="og:image" content="https://smartavto.uz/logo-premium.png">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    
-    
-    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/NR1r7qJ8wuR5nefnkxx0asPIQHJ2/social-images/social-1775120420993-ChatGPT_Image_Mar_31,_2026,_03_24_21_PM.webp">
+    <meta name="twitter:image" content="https://smartavto.uz/logo-premium.png">
 
     <!-- Structured Data - WebSite -->
     <script type="application/ld+json">
@@ -92,7 +162,7 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "smartavto.uz",
-        "alternateName": ["AvtoTest", "Avto Test", "smartavto"],
+        "alternateName": ["AvtoTest", "Avto Test", "Avtotestu"],
         "url": "https://smartavto.uz",
         "description": "Haydovchilik guvohnomasini olish uchun YHQ testlari va avtomaktab imtihonlariga tayyorgarlik platformasi",
         "inLanguage": "uz",
@@ -114,7 +184,7 @@
         "@type": "EducationalOrganization",
         "name": "smartavto.uz",
         "url": "https://smartavto.uz",
-        "logo": "https://smartavto.uz/rasm1.webp",
+        "logo": "https://smartavto.uz/logo-premium.png",
         "description": "O'zbekistonda haydovchilik guvohnomasini olish uchun onlayn test platformasi",
         "address": {
           "@type": "PostalAddress",
