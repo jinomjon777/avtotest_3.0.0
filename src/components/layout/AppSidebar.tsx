@@ -37,7 +37,7 @@ export function AppSidebar() {
   };
 
   return (
-    <aside className="hidden lg:flex flex-col h-screen sticky top-0 bg-[hsl(230_25%_12%)] border-r border-[hsl(230_20%_18%)] w-[260px] transition-all duration-300">
+    <aside className="hidden lg:flex flex-col fixed left-0 top-0 bottom-0 bg-[hsl(230_25%_12%)] border-r border-[hsl(230_20%_18%)] w-[260px] z-50">
       {/* Logo */}
       <div className="flex items-center gap-2.5 px-4 h-16 border-b border-[hsl(230_20%_18%)] flex-shrink-0">
         <img src={logoImg} alt="Logo" className="w-9 h-9 rounded-xl object-contain flex-shrink-0" width="36" height="36" />
@@ -104,7 +104,7 @@ export function AppSidebar() {
                 <p className="text-sm font-medium text-white truncate">
                   {profile?.full_name || profile?.username || "Foydalanuvchi"}
                 </p>
-                <p className="text-xs text-[hsl(220_20%_55%)] truncate">{user.email}</p>
+                <p className="text-xs text-[hsl(220_20%_55%] truncate">{user.email}</p>
               </div>
             </button>
             <Button
