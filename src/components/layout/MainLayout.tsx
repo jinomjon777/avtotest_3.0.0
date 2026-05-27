@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info, Car, FileText, Layers } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -19,6 +19,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const langBtnRef = useRef<HTMLButtonElement | null>(null);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -64,16 +65,25 @@ export function MainLayout({ children }: MainLayoutProps) {
     setLangMenuOpen(false);
   }, [setLanguage]);
 
-  // Close language menu on outside click
+  // Close language menu on outside click or touch/pointer events
   useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest || !document) return;
+    const handleOutside = (e: Event) => {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+      // If click/touch started on the language button, do nothing (toggle handled by button)
+      if (langBtnRef.current && langBtnRef.current.contains(target)) return;
       const menu = document.querySelector('.lang-menu-root');
       if (menu && !menu.contains(target)) setLangMenuOpen(false);
     };
-    window.addEventListener('click', handleClick);
-    return () => window.removeEventListener('click', handleClick);
+
+    window.addEventListener('click', handleOutside, { passive: true });
+    window.addEventListener('pointerdown', handleOutside, { passive: true });
+    window.addEventListener('touchstart', handleOutside, { passive: true });
+    return () => {
+      window.removeEventListener('click', handleOutside as EventListener);
+      window.removeEventListener('pointerdown', handleOutside as EventListener);
+      window.removeEventListener('touchstart', handleOutside as EventListener);
+    };
   }, []);
 
   // Force update when language change event fired (some components rely on document.lang)
@@ -125,25 +135,35 @@ export function MainLayout({ children }: MainLayoutProps) {
               {/* Language */}
               <div className="relative">
                 <button
+                  ref={langBtnRef}
+                  id="lang-toggle-btn"
+                  aria-haspopup="menu"
+                  aria-expanded={langMenuOpen}
                   onClick={() => setLangMenuOpen(!langMenuOpen)}
                   className={`flex items-center gap-1 py-1.5 px-2 text-xs font-semibold transition-all rounded-lg ${
                     scrolled ? 'text-muted-foreground hover:bg-muted' : 'text-white/70 hover:bg-white/10'
                   }`}
+                  // ensure the button is above overlays
+                  style={{ zIndex: 60 }}
                 >
                   <Globe className="w-3.5 h-3.5" />
                   <span>{currentLangDisplay}</span>
                 </button>
                 {langMenuOpen && (
-                  <div className="lang-menu-root absolute top-full right-0 mt-1 w-36 bg-card rounded-xl shadow-xl border border-border py-1 z-50 animate-scale-in"
-                    onMouseLeave={() => setLangMenuOpen(false)}>
-                    {languages.map((l) => (
-                      <button key={l.code} onClick={() => handleLanguageChange(l.code)}
-                        className={`w-full text-left px-3 py-2 text-sm transition-colors ${
-                          language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted"
-                        }`}>{l.label}</button>
-                    ))}
-                  </div>
-                )}
+                  // Use a fixed, high-z-index panel so it isn't hidden by other fixed elements on mobile or desktop
+                  <div className="lang-menu-root fixed right-3 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
+                    role="menu"
+                    aria-labelledby="lang-toggle-btn"
+                    onMouseLeave={() => setLangMenuOpen(false)}
+                    style={{ zIndex: 9999, pointerEvents: 'auto', width: '240px', maxWidth: 'calc(100% - 32px)' }}>
+                     {languages.map((l) => (
+                       <button key={l.code} onClick={() => handleLanguageChange(l.code)}
+                         className={`w-full text-left px-3 py-2 text-sm transition-colors ${
+                           language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted"
+                         }`}>{l.label}</button>
+                     ))}
+                   </div>
+                 )}
               </div>
 
               {/* Premium */}
@@ -180,24 +200,32 @@ export function MainLayout({ children }: MainLayoutProps) {
             {/* Language */}
             <div className="relative">
               <button
+                ref={langBtnRef}
+                id="lang-toggle-btn-desktop"
+                aria-haspopup="menu"
+                aria-expanded={langMenuOpen}
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
                 className="flex items-center gap-1.5 py-1.5 px-2.5 text-xs font-semibold text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+                style={{ zIndex: 60 }}
               >
                 <Globe className="w-4 h-4" />
                 <span>{currentLangDisplay}</span>
                 <ChevronDown className={`w-3 h-3 transition-transform ${langMenuOpen ? "rotate-180" : ""}`} />
               </button>
               {langMenuOpen && (
-                <div className="lang-menu-root absolute top-full right-0 mt-1 w-40 bg-card rounded-xl shadow-xl border border-border py-1 z-50 animate-scale-in"
-                  onMouseLeave={() => setLangMenuOpen(false)}>
-                  {languages.map((l) => (
-                    <button key={l.code} onClick={() => handleLanguageChange(l.code)}
-                      className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                        language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted font-medium"
-                      }`}>{l.label}</button>
-                  ))}
-                </div>
-              )}
+                <div className="lang-menu-root fixed right-6 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
+                  role="menu"
+                  aria-labelledby="lang-toggle-btn-desktop"
+                  onMouseLeave={() => setLangMenuOpen(false)}
+                  style={{ zIndex: 9999, pointerEvents: 'auto', width: '260px', maxWidth: 'calc(100% - 32px)' }}>
+                   {languages.map((l) => (
+                     <button key={l.code} onClick={() => handleLanguageChange(l.code)}
+                       className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                         language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted font-medium"
+                       }`}>{l.label}</button>
+                   ))}
+                 </div>
+               )}
             </div>
           </div>
         </header>
