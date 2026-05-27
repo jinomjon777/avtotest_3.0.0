@@ -38,6 +38,23 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     try { localStorage.setItem('language', language); } catch { /* ignore quota/security errors */ }
   }, [language]);
 
+  // Update document language attribute and notify listeners when language changes
+  useEffect(() => {
+    try {
+      const langAttr = language === 'uz-lat' ? 'uz-Latn' : language === 'uz' ? 'uz' : 'ru';
+      document.documentElement.lang = langAttr;
+    } catch (e) {
+      // ignore
+    }
+
+    try {
+      const ev = new CustomEvent('app:languagechange', { detail: { language } });
+      window.dispatchEvent(ev);
+    } catch (e) {
+      // ignore
+    }
+  }, [language]);
+
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
   }, []);

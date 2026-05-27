@@ -64,6 +64,25 @@ export function MainLayout({ children }: MainLayoutProps) {
     setLangMenuOpen(false);
   }, [setLanguage]);
 
+  // Close language menu on outside click
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest || !document) return;
+      const menu = document.querySelector('.lang-menu-root');
+      if (menu && !menu.contains(target)) setLangMenuOpen(false);
+    };
+    window.addEventListener('click', handleClick);
+    return () => window.removeEventListener('click', handleClick);
+  }, []);
+
+  // Force update when language change event fired (some components rely on document.lang)
+  useEffect(() => {
+    const onLang = () => setLangMenuOpen(false);
+    window.addEventListener('app:languagechange', onLang as EventListener);
+    return () => window.removeEventListener('app:languagechange', onLang as EventListener);
+  }, []);
+
   const isMavzuliSection = useMemo(
     () => location.pathname === '/mavzuli' || location.pathname.startsWith('/mavzuli/'),
     [location.pathname]
@@ -115,7 +134,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   <span>{currentLangDisplay}</span>
                 </button>
                 {langMenuOpen && (
-                  <div className="absolute top-full right-0 mt-1 w-36 bg-card rounded-xl shadow-xl border border-border py-1 z-50 animate-scale-in"
+                  <div className="absolute top-full right-0 mt-1 w-36 bg-card rounded-xl shadow-xl border border-border py-1 z-50 animate-scale-in lang-menu-root"
                     onMouseLeave={() => setLangMenuOpen(false)}>
                     {languages.map((l) => (
                       <button key={l.code} onClick={() => handleLanguageChange(l.code)}
@@ -169,7 +188,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <ChevronDown className={`w-3 h-3 transition-transform ${langMenuOpen ? "rotate-180" : ""}`} />
               </button>
               {langMenuOpen && (
-                <div className="absolute top-full right-0 mt-1 w-40 bg-card rounded-xl shadow-xl border border-border py-1 z-50 animate-scale-in"
+                <div className="absolute top-full right-0 mt-1 w-40 bg-card rounded-xl shadow-xl border border-border py-1 z-50 animate-scale-in lang-menu-root"
                   onMouseLeave={() => setLangMenuOpen(false)}>
                   {languages.map((l) => (
                     <button key={l.code} onClick={() => handleLanguageChange(l.code)}

@@ -89,8 +89,7 @@ export const TestResults = ({
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3">
           <Button
-            variant="outline"
-            className="flex-1 h-12 md:h-14 text-base md:text-lg border-white/20 text-white hover:bg-white/10"
+            className="flex-1 h-12 md:h-14 text-base md:text-lg bg-white/5 hover:bg-white/10 text-white border border-white/10 shadow-sm"
             onClick={onBackToHome}
           >
             <Home className="w-5 h-5 mr-2" />
