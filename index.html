@@ -145,6 +145,20 @@
       }
     </style>
 
+    <style>
+      /* Ensure large centered containers align to the right of the fixed sidebar */
+      @media (min-width: 1024px) {
+        .max-w-7xl {
+          margin-left: 260px !important;
+          margin-right: 0 !important;
+        }
+        /* Also ensure main content wrapper doesn't add extra left margin */
+        .flex-1 {
+          padding-left: 0 !important;
+        }
+      }
+    </style>
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Smartavto.uz" />
