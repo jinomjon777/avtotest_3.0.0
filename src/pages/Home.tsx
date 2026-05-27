@@ -374,9 +374,9 @@ export default function Home() {
           <p style={{ margin: "0 0 24px", fontSize: 14, color: CS.textSecondary, textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>Bizning ijtimoiy tarmoqlar</p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             {[
-              { icon: <MessageCircle size={18} />, name: "Telegram Kanal", handle: "@avtotestu_ad", link: "https://t.me/avtotestu_ad" },
-              { icon: <Send size={18} />, name: "Telegram Bot", handle: "@Avtotesturganchbot", link: "https://t.me/Avtotesturganchbot" },
-              { icon: <Phone size={18} />, name: "Maktab Bot", handle: "@maktabavtobot", link: "https://t.me/maktabavtobot" },
+              { icon: <MessageCircle size={18} />, name: "Telegram Kanal", handle: "@jumanazarov_0501", link: "https://t.me/jumanazarov_0501" },
+              { icon: <Send size={18} />, name: "Telegram Bot", handle: "@jumanazarov_0501", link: "https://t.me/jumanazarov_0501" },
+              { icon: <Phone size={18} />, name: "Maktab Bot", handle: "@jumanazarov_0501", link: "https://t.me/jumanazarov_0501" },
             ].map((s, i) => (
               <a key={i} href={s.link} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 20px", borderRadius: 14, background: CS.card, border: `1px solid ${CS.border}`, color: CS.textSecondary, textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={e => { (e.currentTarget.style.borderColor = `rgba(124,111,255,0.4)`); (e.currentTarget.style.color = CS.textPrimary); }}

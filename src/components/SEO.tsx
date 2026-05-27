@@ -9,8 +9,8 @@ interface SEOProps {
   noIndex?: boolean;
 }
 
-const BASE_URL = "https://www.avtotestu.uz";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/rasm1.webp`;
+const BASE_URL = "https://smartavto.uz";
+const DEFAULT_OG_IMAGE = `${BASE_URL}/logo-premium.png`;
 
 export function SEO({
   title,
@@ -21,7 +21,7 @@ export function SEO({
   noIndex = false,
 }: SEOProps) {
   const fullUrl = `${BASE_URL}${path}`;
-  const fullTitle = path === "/" ? title : `${title} | Avtotestu`;
+  const fullTitle = path === "/" ? title : `${title} | Smartavto`;
 
   return (
     <Helmet>
@@ -30,7 +30,7 @@ export function SEO({
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <meta name="author" content="Avtotestu.uz" />
+      <meta name="author" content="Smartavto.uz" />
 
       {/* Robots */}
       <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
@@ -45,7 +45,7 @@ export function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:locale" content="uz_UZ" />
-      <meta property="og:site_name" content="Avtotestu.uz" />
+      <meta property="og:site_name" content="Smartavto.uz" />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

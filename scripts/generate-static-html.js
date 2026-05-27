@@ -18,7 +18,7 @@ const distDir = join(__dirname, '..', 'dist');
 const routes = [
   {
     path: '/',
-    title: 'Avtotestlar 2026 - Avtotestu | Avtomaktab Online Imtihonlar',
+    title: 'Avtotestlar 2026 - Smartavto | Avtomaktab Online Imtihonlar',
     description: 'Haydovchilik guvohnomasini olish uchun YHQ testlari, yo\'l belgilari va onlayn avtotestlar. 2026 yil yangilangan savollar bilan prava olishga tayyorlaning.',
     h1: 'Avtoexclusive o\'quv markazi!',
     content: `
@@ -34,7 +34,7 @@ const routes = [
   },
   {
     path: '/belgilar',
-    title: 'Yo\'l Belgilari 2026 | Avtotestu - Barcha Kategoriyalar',
+    title: 'Yo\'l Belgilari 2026 | Smartavto - Barcha Kategoriyalar',
     description: 'O\'zbekiston yo\'l belgilari to\'liq ro\'yxati: ogohlantiruvchi, taqiqlovchi, buyuruvchi, axborot belgilari. Rasmlar va tushuntirishlar bilan.',
     h1: 'Yo\'l Belgilari',
     content: `
@@ -51,7 +51,7 @@ const routes = [
   },
   {
     path: '/variant',
-    title: 'Test Variantlari 2026 | Avtotestu - 40 ta Variant',
+    title: 'Test Variantlari 2026 | Smartavto - 40 ta Variant',
     description: 'YHQ test variantlari - 40 ta variant, har birida 20 ta savol. Haqiqiy imtihonga tayyorgarlik uchun.',
     h1: 'Test Variantlari',
     content: `
@@ -68,7 +68,7 @@ const routes = [
   },
   {
     path: '/mavzuli',
-    title: 'Mavzuli Testlar 2026 | Avtotestu - Mavzu bo\'yicha o\'rganing',
+    title: 'Mavzuli Testlar 2026 | Smartavto - Mavzu bo\'yicha o\'rganing',
     description: 'YHQ mavzulari bo\'yicha testlar: yo\'l belgilari, svetofor, ustunlik, to\'xtash va to\'xtab turish qoidalari.',
     h1: 'Mavzuli Testlar',
     content: `
@@ -86,7 +86,7 @@ const routes = [
   },
   {
     path: '/test-ishlash',
-    title: 'Test Ishlash 2026 | Avtotestu - Onlayn YHQ Testi',
+    title: 'Test Ishlash 2026 | Smartavto - Onlayn YHQ Testi',
     description: 'YHQ onlayn test - tezkor rejimda 20 ta tasodifiy savol. Natijani darhol ko\'ring va xatolarni tahlil qiling.',
     h1: 'Test Ishlash',
     content: `
@@ -104,7 +104,7 @@ const routes = [
   },
   {
     path: '/darslik',
-    title: 'YHQ Darslik 2026 | Avtotestu - Yo\'l Harakati Qoidalari Kitobi',
+    title: 'YHQ Darslik 2026 | Smartavto - Yo\'l Harakati Qoidalari Kitobi',
     description: 'Yo\'l harakati qoidalari to\'liq darslik - barcha boblar, qoidalar va tushuntirishlar. Prava olish uchun nazariy bilim.',
     h1: 'YHQ Darslik',
     content: `
@@ -122,7 +122,7 @@ const routes = [
   },
   {
     path: '/qoshimcha',
-    title: 'Qo\'shimcha Ma\'lumotlar | Avtotestu - Foydali Resurslar',
+    title: 'Qo\'shimcha Ma\'lumotlar | Smartavto - Foydali Resurslar',
     description: 'Haydovchilik guvohnomasi olish uchun qo\'shimcha ma\'lumotlar: hujjatlar, talablar, manzillar.',
     h1: 'Qo\'shimcha Ma\'lumotlar',
     content: `
@@ -138,7 +138,7 @@ const routes = [
   },
   {
     path: '/pro',
-    title: 'Pro Obuna | Avtotestu - Premium Imkoniyatlar',
+    title: 'Pro Obuna | Smartavto - Premium Imkoniyatlar',
     description: 'Avtotestu Pro obunasi - cheksiz testlar, statistika, reklama yo\'q. Premium imkoniyatlar bilan tezroq tayyorlaning.',
     h1: 'Pro Obuna',
     content: `
@@ -154,15 +154,15 @@ const routes = [
   },
   {
     path: '/contact',
-    title: 'Aloqa | Avtotestu - Bog\'lanish',
+    title: 'Aloqa | Smartavto - Bog\'lanish',
     description: 'Avtotestu bilan bog\'laning - savollar, takliflar va hamkorlik uchun. Telegram, email va ijtimoiy tarmoqlar.',
     h1: 'Bog\'lanish',
     content: `
       <p>Biz bilan bog'laning</p>
       <h2>Aloqa ma'lumotlari</h2>
       <ul>
-        <li>Telegram: @avtotestu</li>
-        <li>Email: info@avtotestu.uz</li>
+        <li>Telegram: @jumanazarov_0501</li>
+        <li>Email: info@smartavto.uz</li>
       </ul>
       <h2>Ish vaqti</h2>
       <p>Dushanba - Shanba: 9:00 - 18:00</p>
@@ -171,7 +171,7 @@ const routes = [
 ];
 
 function generateStaticHTML(route) {
-  const canonical = `https://www.avtotestu.uz${route.path}`;
+  const canonical = `https://smartavto.uz${route.path}`;
   
   return `<!DOCTYPE html>
 <html lang="uz">
@@ -188,7 +188,7 @@ function generateStaticHTML(route) {
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${route.title}">
   <meta property="og:description" content="${route.description}">
-  <meta property="og:image" content="https://www.avtotestu.uz/rasm1.webp">
+  <meta property="og:image" content="https://smartavto.uz/logo-premium.png">
   <meta property="og:locale" content="uz_UZ">
   
   <!-- Prerender.io hint -->
@@ -218,7 +218,7 @@ function generateStaticHTML(route) {
     ${route.content}
   </main>
   <footer>
-    <p>© 2026 Avtotestu.uz - Haydovchilik guvohnomasi olish uchun YHQ testlari</p>
+    <p>© 2026 Smartavto.uz - Haydovchilik guvohnomasi olish uchun YHQ testlari</p>
   </footer>
 </body>
 </html>`;

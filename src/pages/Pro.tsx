@@ -201,7 +201,7 @@ function PlanCard({ plan, onSelect }: { plan: Plan; onSelect: (p: Plan) => void 
 
       <div style={{ marginTop: 20, fontSize: 12, color: CS.textHint, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
         <Send size={11} />
-        Obuna uchun: @avtotestu_ad
+        Obuna uchun: @jumanazarov_0501
       </div>
     </div>
   );
@@ -217,7 +217,7 @@ export default function Pro() {
 
   const handleSelect = (plan: Plan) => {
     setSelected(plan);
-    window.open("https://t.me/avtotestu_ad", "_blank");
+    window.open("https://t.me/jumanazarov_0501", "_blank");
   };
 
   if (isLoading) {
@@ -408,8 +408,8 @@ export default function Pro() {
             <Lock size={14} color={CS.textHint} />
             <span style={{ fontSize: 13, color: CS.textHint }}>
               To'lov Telegram orqali qabul qilinadi. Savollar uchun{" "}
-              <a href="https://t.me/avtotestu_ad" target="_blank" rel="noopener noreferrer" style={{ color: CS.accent, fontWeight: 600 }}>
-                @avtotestu_ad
+              <a href="https://t.me/jumanazarov_0501" target="_blank" rel="noopener noreferrer" style={{ color: CS.accent, fontWeight: 600 }}>
+                @jumanazarov_0501
               </a>
               {" "}ga murojaat qiling.
             </span>
@@ -429,7 +429,7 @@ export default function Pro() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
             {[
               { step: "01", icon: <Crown size={22} color={CS.accent} />, title: "Tarifni tanlang", desc: "Yuqoridan o'zingizga qulay haftalik, oylik yoki 3 oylik obuna variantini tanlang." },
-              { step: "02", icon: <MessageCircle size={22} color={CS.accentB} />, title: "Telegram'ga yozing", desc: "@avtotestu_ad kanaliga murojaat qiling. Admin siz bilan bog'lanadi." },
+              { step: "02", icon: <MessageCircle size={22} color={CS.accentB} />, title: "Telegram'ga yozing", desc: "@jumanazarov_0501 kanaliga murojaat qiling. Admin siz bilan bog'lanadi." },
               { step: "03", icon: <Zap size={22} color={CS.accentC} />, title: "Kirishni oling", desc: "To'lovdan so'ng 5 daqiqa ichida akkauntingiz aktivatsiya qilinadi." },
             ].map((s, i) => (
               <div key={i} style={{ position: "relative", background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "28px 24px" }}>
@@ -467,7 +467,7 @@ export default function Pro() {
             </p>
             <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
               <a
-                href="https://t.me/avtotestu_ad"
+                href="https://t.me/jumanazarov_0501"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
