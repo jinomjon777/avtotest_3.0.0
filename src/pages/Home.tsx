@@ -84,9 +84,9 @@ export default function Home() {
   };
 
   const tabs = [
-    { icon: <BarChart3 size={16} />, label: "Variantlar", desc: "61 ta to'liq variant", route: "/variant" },
-    { icon: <BookOpen size={16} />, label: "Mavzuli test", desc: "Mavzu bo'yicha mashq", route: "/mavzuli" },
-    { icon: <ShieldCheck size={16} />, label: "Yo'l belgilari", desc: "Barcha belgilar", route: "/belgilar" },
+    { icon: <BarChart3 size={16} />, label: t("home.btnVariantlar"), desc: t("home.proSectionDesc"), route: "/variant" },
+    { icon: <BookOpen size={16} />, label: t("home.btnMavzuli"), desc: t("home.proSectionDesc"), route: "/mavzuli" },
+    { icon: <ShieldCheck size={16} />, label: t("home.btnBelgilar"), desc: t("home.proSectionDesc"), route: "/belgilar" },
   ];
 
   const testimonials = [
@@ -168,15 +168,11 @@ export default function Home() {
               </div>
 
               <h1 style={{ margin: "0 0 20px", fontSize: "clamp(36px, 5vw, 60px)", fontWeight: 800, color: CS.textPrimary, lineHeight: 1.08, fontFamily: "'Syne', sans-serif", letterSpacing: "-0.02em" }}>
-                Prava imtihoniga{" "}
-                <span style={{ background: `linear-gradient(90deg, ${CS.accent}, ${CS.accentB})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  haqiqiy
-                </span>{" "}
-                tayyorgarlik
+                {t("home.heroTitle")}
               </h1>
 
               <p style={{ margin: "0 0 36px", fontSize: 18, color: CS.textSecondary, lineHeight: 1.7, maxWidth: 440 }}>
-                Haydovchilik guvohnomasi imtihoniga tayyorlanish uchun eng keng savol bazasi, video darsliklar va real sinov sharoiti.
+                {t("home.heroSubtitle") || t("home.aboutText1")}
               </p>
 
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 48 }}>
@@ -184,13 +180,13 @@ export default function Home() {
                   onClick={() => navigate("/test-ishlash")}
                   style={{ display: "flex", alignItems: "center", gap: 10, padding: "14px 28px", borderRadius: 14, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 16, cursor: "pointer", boxShadow: `0 8px 32px rgba(124,111,255,0.35)` }}
                 >
-                  <Play size={18} fill="#fff" /> Test ishlash
+                  <Play size={18} fill="#fff" /> {t("home.btnTest")}
                 </button>
                 <button
                   onClick={() => handleProRoute("/variant")}
                   style={{ display: "flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: 14, background: "rgba(255,255,255,0.06)", border: `1px solid ${CS.border}`, color: CS.textPrimary, fontWeight: 600, fontSize: 16, cursor: "pointer" }}
                 >
-                  Variantlar <ArrowRight size={16} />
+                  {t("home.btnVariantlar")} <ArrowRight size={16} />
                 </button>
               </div>
 
@@ -230,7 +226,7 @@ export default function Home() {
                 </div>
 
                 <div style={{ fontSize: 15, color: CS.textPrimary, lineHeight: 1.6, marginBottom: 20, fontWeight: 500 }}>
-                  Yo'lovchi avtomobil boshqaruvchi haydovchi uchun ruxsat etilgan maksimal tezlik necchi km/soat?
+                  {t("test.questionExample") || "Yo'lovchi avtomobil boshqaruvchi haydovchi uchun ruxsat etilgan maksimal tezlik necchi km/soat?"}
                 </div>
 
                 {[

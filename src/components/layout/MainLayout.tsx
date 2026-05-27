@@ -122,9 +122,9 @@ export function MainLayout({ children }: MainLayoutProps) {
           <div className="px-4 flex justify-between items-center h-14">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
-              <img src={logoImg} alt="Logo" className="w-8 h-8 rounded-lg object-contain" width="32" height="32" />
+              <img src={logoImg} alt={t("common.siteName")} className="w-8 h-8 rounded-lg object-contain" width="32" height="32" />
               <span className={`font-bold text-base tracking-tight font-montserrat ${scrolled ? 'text-foreground' : 'text-white'}`}>
-                AVTOTEST
+                {t("common.siteName")}
               </span>
             </Link>
 
