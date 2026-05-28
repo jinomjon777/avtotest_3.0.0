@@ -43,9 +43,9 @@ export function MainLayout({ children }: MainLayoutProps) {
 
   const navLinks = useMemo(() => [
     { path: "/", label: t("nav.home"), icon: Home },
-    { path: "/variant", label: "Variantlar", icon: FileText },
-    { path: "/mavzuli", label: "Mavzuli testlar", icon: Layers },
-    { path: "/belgilar", label: t("home.btnBelgilar"), icon: Car },
+    { path: "/variant", label: t("nav.variantlar"), icon: FileText },
+    { path: "/mavzuli", label: t("nav.mavzuliTestlar"), icon: Layers },
+    { path: "/belgilar", label: t("nav.belgilar"), icon: Car },
     { path: "/darslik", label: t("nav.darslik"), icon: BookOpen },
     { path: "/contact", label: t("nav.contact"), icon: Phone },
   ], [t]);

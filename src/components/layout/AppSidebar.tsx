@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { 
   Home, Car, BookOpen, Phone, Info, Crown, User, LogOut, 
-  FileText, Layers, Globe, Settings
+  FileText, Layers
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -10,21 +10,21 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import logoImg from "@/assets/logo.png";
 
-const mainNav = [
-  { path: "/", icon: Home, labelKey: "nav.home" },
-  { path: "/variant", icon: FileText, label: "Variantlar" },
-  { path: "/mavzuli", icon: Layers, label: "Mavzuli testlar" },
-  { path: "/belgilar", icon: Car, labelKey: "home.btnBelgilar" },
-  { path: "/darslik", icon: BookOpen, labelKey: "nav.darslik" },
-  { path: "/qoshimcha", icon: Info, labelKey: "nav.qoshimcha" },
-  { path: "/contact", icon: Phone, labelKey: "nav.contact" },
-];
-
 export function AppSidebar() {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, profile, signOut } = useAuth();
   const { t } = useLanguage();
+
+  const mainNav = [
+    { path: "/", icon: Home, labelKey: "nav.home" },
+    { path: "/variant", icon: FileText, labelKey: "nav.variantlar" },
+    { path: "/mavzuli", icon: Layers, labelKey: "nav.mavzuliTestlar" },
+    { path: "/belgilar", icon: Car, labelKey: "nav.belgilar" },
+    { path: "/darslik", icon: BookOpen, labelKey: "nav.darslik" },
+    { path: "/qoshimcha", icon: Info, labelKey: "nav.qoshimcha" },
+    { path: "/contact", icon: Phone, labelKey: "nav.contact" },
+  ];
 
   const getInitials = (name: string | null | undefined) => {
     if (!name) return "U";
@@ -51,7 +51,6 @@ export function AppSidebar() {
         {mainNav.map((item) => {
           const Icon = item.icon;
           const isActive = location.pathname === item.path;
-          const label = item.label || t(item.labelKey!);
           return (
             <Link
               key={item.path}
@@ -64,7 +63,7 @@ export function AppSidebar() {
               )}
             >
               <Icon className="w-5 h-5 flex-shrink-0" />
-              <span>{label}</span>
+              <span>{t(item.labelKey)}</span>
             </Link>
           );
         })}
@@ -80,7 +79,7 @@ export function AppSidebar() {
           )}
         >
           <Crown className="w-5 h-5 flex-shrink-0" />
-          <span>PREMIUM</span>
+          <span>{t("nav.premium")}</span>
         </Link>
       </nav>
 
@@ -102,9 +101,9 @@ export function AppSidebar() {
               </Avatar>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-white truncate">
-                  {profile?.full_name || profile?.username || "Foydalanuvchi"}
+                  {profile?.full_name || profile?.username || t("nav.user")}
                 </p>
-                <p className="text-xs text-[hsl(220_20%_55%] truncate">{user.email}</p>
+                <p className="text-xs text-[hsl(220_20%_55%)] truncate">{user.email}</p>
               </div>
             </button>
             <Button
@@ -114,7 +113,7 @@ export function AppSidebar() {
               className="w-full justify-start gap-2 text-[hsl(220_20%_55%)] hover:text-[hsl(0_72%_55%)] hover:bg-[hsl(0_72%_55%/0.1)]"
             >
               <LogOut className="w-4 h-4" />
-              Chiqish
+              {t("nav.logout")}
             </Button>
           </div>
         ) : (
@@ -123,7 +122,7 @@ export function AppSidebar() {
             className="w-full gap-2 bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white rounded-xl border-0"
           >
             <User className="w-4 h-4" />
-            Kirish
+            {t("nav.login")}
           </Button>
         )}
       </div>
