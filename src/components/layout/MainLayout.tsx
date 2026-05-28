@@ -124,11 +124,24 @@ export function MainLayout({ children }: MainLayoutProps) {
           <div className="px-4 flex justify-between items-center h-14">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
-              <img src={logoImg} alt={t("common.siteName")} className="w-8 h-8 rounded-lg object-contain" width="32" height="32" />
-              <span className={`font-bold text-base tracking-tight font-montserrat ${scrolled ? 'text-foreground' : 'text-white'}`}>
-                {t("common.siteName")}
-              </span>
-            </Link>
+              <img
+                src={logoImg}
+                alt={t("common.siteName")}
+                className="w-8 h-8 rounded-lg object-contain"
+                width={32}
+                height={32}
+                onError={(e) => {
+                  const el = e.currentTarget as HTMLImageElement;
+                  if (!el.dataset.fallback) {
+                    el.dataset.fallback = '1';
+                    el.src = '/logo-premium.png';
+                  }
+                }}
+              />
+               <span className={`font-bold text-base tracking-tight font-montserrat ${scrolled ? 'text-foreground' : 'text-white'}`}>
+                 {t("common.siteName")}
+               </span>
+             </Link>
 
             {/* Right */}
             <div className="flex items-center gap-1.5">
@@ -243,7 +256,20 @@ export function MainLayout({ children }: MainLayoutProps) {
             <div className="grid grid-cols-12 gap-8">
               <div className="col-span-5">
                 <div className="flex items-center gap-3 mb-3">
-                  <img src={logoImg} alt="Logo" className="w-9 h-9 rounded-xl object-contain" width="36" height="36" />
+                  <img
+                    src={logoImg}
+                    alt="Logo"
+                    className="w-9 h-9 rounded-xl object-contain"
+                    width={36}
+                    height={36}
+                    onError={(e) => {
+                      const el = e.currentTarget as HTMLImageElement;
+                      if (!el.dataset.fallback) {
+                        el.dataset.fallback = '1';
+                        el.src = '/logo-premium.png';
+                      }
+                    }}
+                  />
                   <span className="font-bold text-lg font-montserrat gradient-text">
                     {t("common.siteName")}
                   </span>
@@ -254,7 +280,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <h3 className="font-semibold text-sm mb-3 text-[hsl(190_80%_55%)] uppercase tracking-wider">{t("footer.quickLinksTitle")}</h3>
                 <div className="space-y-2">
                   {navLinks.map((item) => (
-                    <Link key={item.path} to={item.path} className="block text-white/50 hover:text-[hsl(190_80%_55%)] transition-colors text-sm">{item.label}</Link>
+                    <Link key={item.path} to={item.path} className="block text-white/50 hover:text-[hsl(190_80%_55%] transition-colors text-sm">{item.label}</Link>
                   ))}
                 </div>
               </div>

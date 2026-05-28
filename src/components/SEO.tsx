@@ -37,7 +37,14 @@ export function SEO({
 
       {/* Canonical URL */}
       <link rel="canonical" href={fullUrl} />
-      
+      {/* Favicon and platform icons (ensure visible when pages rendered via React) */}
+      <link rel="icon" type="image/png" href={`${BASE_URL}/favicon.png`} />
+      <link rel="shortcut icon" href={`${BASE_URL}/favicon.png`} />
+      <link rel="apple-touch-icon" href={`${BASE_URL}/favicon.png`} />
+      <link rel="mask-icon" href={`${BASE_URL}/favicon.png`} color="#7C6FFF" />
+      <meta name="msapplication-TileImage" content={`${BASE_URL}/favicon.png`} />
+      <meta name="theme-color" content="#7C6FFF" />
+
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={fullUrl} />
