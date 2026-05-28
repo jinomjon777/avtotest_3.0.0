@@ -19,7 +19,8 @@ export function MainLayout({ children }: MainLayoutProps) {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
-  const langBtnRef = useRef<HTMLButtonElement | null>(null);
+  const langBtnRefMobile = useRef<HTMLButtonElement | null>(null);
+  const langBtnRefDesktop = useRef<HTMLButtonElement | null>(null);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -71,7 +72,8 @@ export function MainLayout({ children }: MainLayoutProps) {
       const target = e.target as HTMLElement | null;
       if (!target) return;
       // If click/touch started on the language button, do nothing (toggle handled by button)
-      if (langBtnRef.current && langBtnRef.current.contains(target)) return;
+      if (langBtnRefMobile.current && langBtnRefMobile.current.contains(target)) return;
+      if (langBtnRefDesktop.current && langBtnRefDesktop.current.contains(target)) return;
       const menu = document.querySelector('.lang-menu-root');
       if (menu && !menu.contains(target)) setLangMenuOpen(false);
     };
@@ -135,7 +137,7 @@ export function MainLayout({ children }: MainLayoutProps) {
               {/* Language */}
               <div className="relative">
                 <button
-                  ref={langBtnRef}
+                  ref={langBtnRefMobile}
                   id="lang-toggle-btn"
                   aria-haspopup="menu"
                   aria-expanded={langMenuOpen}
@@ -155,6 +157,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                     role="menu"
                     aria-labelledby="lang-toggle-btn"
                     onMouseLeave={() => setLangMenuOpen(false)}
+                    onClick={(e) => e.stopPropagation()}
                     style={{ zIndex: 9999, pointerEvents: 'auto', width: '240px', maxWidth: 'calc(100% - 32px)' }}>
                      {languages.map((l) => (
                        <button key={l.code} onClick={() => handleLanguageChange(l.code)}
@@ -200,7 +203,7 @@ export function MainLayout({ children }: MainLayoutProps) {
             {/* Language */}
             <div className="relative">
               <button
-                ref={langBtnRef}
+                ref={langBtnRefDesktop}
                 id="lang-toggle-btn-desktop"
                 aria-haspopup="menu"
                 aria-expanded={langMenuOpen}
@@ -217,6 +220,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   role="menu"
                   aria-labelledby="lang-toggle-btn-desktop"
                   onMouseLeave={() => setLangMenuOpen(false)}
+                  onClick={(e) => e.stopPropagation()}
                   style={{ zIndex: 9999, pointerEvents: 'auto', width: '260px', maxWidth: 'calc(100% - 32px)' }}>
                    {languages.map((l) => (
                      <button key={l.code} onClick={() => handleLanguageChange(l.code)}
