@@ -9,11 +9,11 @@ const CS = {
 };
 
 export default function AdminLogin({ onLogin }: { onLogin: (s: boolean) => void }) {
-  const [login, setLogin]       = useState("");
-  const [parol, setParol]       = useState("");
-  const [show, setShow]         = useState(false);
-  const [loading, setLoading]   = useState(false);
-  const [error, setError]       = useState("");
+  const [login, setLogin]     = useState("");
+  const [parol, setParol]     = useState("");
+  const [show, setShow]       = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError]     = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ export default function AdminLogin({ onLogin }: { onLogin: (s: boolean) => void 
         .from("admin")
         .select("id, login, parol")
         .eq("login", login.trim())
-        .single();
+        .maybeSingle();
 
       if (dbErr || !data) {
         setError("Login yoki parol noto'g'ri");
@@ -32,8 +32,7 @@ export default function AdminLogin({ onLogin }: { onLogin: (s: boolean) => void 
         return;
       }
 
-      // Oddiy tekshirish (hash bo'lmagan holat uchun)
-      if (data.parol !== parol) {
+      if (data.parol.trim() !== parol.trim()) {
         setError("Login yoki parol noto'g'ri");
         setLoading(false);
         return;
@@ -51,7 +50,6 @@ export default function AdminLogin({ onLogin }: { onLogin: (s: boolean) => void 
       <style>{`@keyframes spin{to{transform:rotate(360deg)}} input::placeholder{color:rgba(255,255,255,0.25)}`}</style>
 
       <div style={{ width: "100%", maxWidth: 400 }}>
-        {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: 40 }}>
           <div style={{ width: 64, height: 64, borderRadius: 20, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
             <Shield size={30} color="#fff" />
@@ -60,7 +58,6 @@ export default function AdminLogin({ onLogin }: { onLogin: (s: boolean) => void 
           <p style={{ margin: "6px 0 0", fontSize: 14, color: CS.textSecondary }}>Avtotest boshqaruv tizimi</p>
         </div>
 
-        {/* Card */}
         <div style={{ background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "32px 28px" }}>
           <form onSubmit={handleSubmit}>
             {/* Login */}
@@ -72,7 +69,7 @@ export default function AdminLogin({ onLogin }: { onLogin: (s: boolean) => void 
                   type="text"
                   value={login}
                   onChange={e => setLogin(e.target.value)}
-                  placeholder="admin"
+                  placeholder="Login"
                   required
                   style={{ width: "100%", padding: "12px 14px 12px 42px", background: "rgba(255,255,255,0.05)", border: `1px solid ${CS.border}`, borderRadius: 12, color: CS.textPrimary, fontSize: 15, outline: "none", boxSizing: "border-box" }}
                   onFocus={e => (e.target.style.borderColor = "rgba(124,111,255,0.5)")}
