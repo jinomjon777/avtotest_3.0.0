@@ -57,6 +57,8 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
+    try { document.documentElement.setAttribute('data-app-language', lang); } catch {}
+    try { (window as any).__setAppLanguage = (l: Language) => setLanguageState(l); } catch {}
   }, []);
 
   const t = useCallback((key: string): string => {

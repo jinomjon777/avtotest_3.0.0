@@ -392,5 +392,129 @@
         #root noscript main { padding-left: 12px; padding-right: 12px; }
       }
     </style>
+
+    <style>
+      /* Ensure language toggle and language menu are on top and clickable
+         (fixes cases where other fixed elements or the sidebar overlay block clicks) */
+      #lang-toggle-btn, #lang-toggle-btn-desktop, .lang-menu-root {
+        z-index: 11000 !important;
+        pointer-events: auto !important;
+      }
+    </style>
+
+    <style>
+      /* Mobile-friendly language menu tweaks */
+      .lang-menu-root {
+        z-index: 11000 !important;
+        pointer-events: auto !important;
+        box-sizing: border-box !important;
+        max-height: calc(100vh - 120px) !important;
+        overflow: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+
+      .lang-menu-root button {
+        text-align: left !important;
+        padding: 12px 14px !important;
+        font-size: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Ensure toggle button sits above all fixed elements on phones */
+      #lang-toggle-btn, #lang-toggle-btn-desktop {
+        z-index: 12000 !important;
+        pointer-events: auto !important;
+      }
+
+      /* On small screens make the menu wider and anchored below the toggle so it won't be cut off */
+      @media (max-width: 768px) {
+        .lang-menu-root {
+          position: fixed !important;
+          right: 12px !important;
+          top: 56px !important;
+          width: calc(100% - 24px) !important;
+          max-width: none !important;
+          border-radius: 12px !important;
+          padding: 6px !important;
+        }
+
+        /* Increase bottom padding of page so fixed bottom nav doesn't overlap interactive elements */
+        body, #root, main {
+          padding-bottom: calc(96px + env(safe-area-inset-bottom)) !important;
+        }
+      }
+    </style>
+
+    <style>
+      /* Strong mobile layout corrections to avoid half-hidden content */
+      @media (max-width: 1023px) {
+        /* Ensure central containers take full width and are not offset by desktop sidebar */
+        .max-w-7xl, .max-w-5xl, .max-w-3xl, .max-w-lg, .max-w-xl, .container, .site-wrapper {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+        }
+
+        /* Remove any leftover desktop offset on main content */
+        .flex-1, main, header, footer, .content {
+          margin-left: 0 !important;
+          padding-left: 0 !important;
+        }
+
+        /* Hide fixed/desktop sidebars that can overlap mobile content */
+        .app-sidebar, .sidebar, .left-rail, .desktop-only, .sidebar-fixed {
+          display: none !important;
+          visibility: hidden !important;
+          pointer-events: none !important;
+        }
+
+        /* Ensure hero and cards are fully visible */
+        .hero, .hero-section, .card-row, .cards-grid, .feature-cards {
+          padding-left: 8px !important;
+          padding-right: 8px !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+
+        /* Prevent very tall elements from being clipped by bottom nav */
+        body, #root, main {
+          padding-bottom: calc(112px + env(safe-area-inset-bottom)) !important;
+        }
+      }
+
+      /* Also guard against accidental large transforms or left shifts */
+      [style*="transform: translateX(-"], [style*="left:"] {
+        max-width: 100% !important;
+      }
+    </style>
+
+    <style>
+      /* Reduce homepage H1 size (desktop and responsive overrides) */
+      .home-hero h1, .hero h1, .landing h1, header.hero h1, #root h1 {
+        font-size: 56px !important;
+        line-height: 1.05 !important;
+        letter-spacing: -0.02em !important;
+        font-weight: 700 !important;
+      }
+
+      @media (max-width: 1023px) {
+        .home-hero h1, .hero h1, .landing h1, header.hero h1, #root h1 {
+          font-size: 36px !important;
+          line-height: 1.08 !important;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .home-hero h1, .hero h1, .landing h1, header.hero h1, #root h1 {
+          font-size: 28px !important;
+          line-height: 1.1 !important;
+        }
+      }
+    </style>
   </body>
 </html>
