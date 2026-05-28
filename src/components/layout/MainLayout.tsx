@@ -62,6 +62,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   );
 
   const handleLanguageChange = useCallback((code: typeof language) => {
+    console.log('language selected', code);
     setLanguage(code);
     setLangMenuOpen(false);
   }, [setLanguage]);
@@ -152,6 +153,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <button
                   ref={langBtnRefMobile}
                   id="lang-toggle-btn"
+                  type="button"
                   aria-haspopup="menu"
                   aria-expanded={langMenuOpen}
                   onClick={() => setLangMenuOpen(!langMenuOpen)}
@@ -169,11 +171,11 @@ export function MainLayout({ children }: MainLayoutProps) {
                   <div className="lang-menu-root fixed right-3 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
                     role="menu"
                     aria-labelledby="lang-toggle-btn"
-                    onMouseLeave={() => setLangMenuOpen(false)}
+                    onPointerDown={(e) => e.stopPropagation()}
                     onClick={(e) => e.stopPropagation()}
                     style={{ zIndex: 9999, pointerEvents: 'auto', width: '240px', maxWidth: 'calc(100% - 32px)' }}>
                      {languages.map((l) => (
-                       <button key={l.code} onClick={() => handleLanguageChange(l.code)}
+                       <button type="button" key={l.code} onClick={() => handleLanguageChange(l.code)}
                          className={`w-full text-left px-3 py-2 text-sm transition-colors ${
                            language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted"
                          }`}>{l.label}</button>
@@ -218,6 +220,7 @@ export function MainLayout({ children }: MainLayoutProps) {
               <button
                 ref={langBtnRefDesktop}
                 id="lang-toggle-btn-desktop"
+                type="button"
                 aria-haspopup="menu"
                 aria-expanded={langMenuOpen}
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
@@ -232,11 +235,11 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <div className="lang-menu-root fixed right-6 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
                   role="menu"
                   aria-labelledby="lang-toggle-btn-desktop"
-                  onMouseLeave={() => setLangMenuOpen(false)}
+                  onPointerDown={(e) => e.stopPropagation()}
                   onClick={(e) => e.stopPropagation()}
                   style={{ zIndex: 9999, pointerEvents: 'auto', width: '260px', maxWidth: 'calc(100% - 32px)' }}>
                    {languages.map((l) => (
-                     <button key={l.code} onClick={() => handleLanguageChange(l.code)}
+                     <button type="button" key={l.code} onClick={() => handleLanguageChange(l.code)}
                        className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
                          language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted font-medium"
                        }`}>{l.label}</button>
