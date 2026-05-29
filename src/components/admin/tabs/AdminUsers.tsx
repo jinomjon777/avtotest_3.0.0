@@ -159,12 +159,41 @@ function CreateModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
     setSaving(true); setError("");
 
     try {
+      // --- Duplication checks: username and email ---
+      const uname = username.trim();
+      if (uname) {
+        const { data: existingU } = await supabase
+          .from('profiles')
+          .select('id')
+          .eq('username', uname)
+          .limit(1)
+          .maybeSingle();
+        if (existingU) {
+          setError("Username mavjud — boshqa username tanlang");
+          setSaving(false);
+          return;
+        }
+      }
+
+      const em = email.trim().toLowerCase();
+      const { data: existingE } = await supabase
+        .from('profiles')
+        .select('id')
+        .eq('email', em)
+        .limit(1)
+        .maybeSingle();
+      if (existingE) {
+        setError("Bu email allaqachon ro'yxatdan o'tgan");
+        setSaving(false);
+        return;
+      }
+
       // RPC orqali user yaratish
       const { data, error: rpcErr } = await (supabase as any).rpc("admin_create_user", {
-        p_email:    email.trim(),
+        p_email:    em,
         p_password: password.trim(),
         p_name:     fullName.trim() || null,
-        p_username: username.trim() || null,
+        p_username: uname || null,
       });
 
       if (rpcErr) { setError(rpcErr.message); setSaving(false); return; }
