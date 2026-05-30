@@ -60,7 +60,7 @@
     <!-- Preload hero image - responsive -->
     <link rel="preload" as="image" href="/hero-bg-640.webp" imagesrcset="/hero-bg-640.webp 640w, /hero-bg-1024.webp 1024w, /hero-bg-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
 
-    <!-- Favicon and icons - use Smartavto branding -->
+    <!-- Favicon and icons -->
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
@@ -73,9 +73,8 @@
       @keyframes spin{to{transform:rotate(360deg)}}
     </style>
 
-    <!-- Accessibility & UI fixes: simpler system fonts and answer-button visibility -->
+    <!-- Accessibility & UI fixes -->
     <style>
-      /* Use a simple system font stack for improved readability and faster load */
       :root{
         --main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         --accent: #7C6FFF;
@@ -89,7 +88,6 @@
         -moz-osx-font-smoothing: grayscale !important;
       }
 
-      /* Make answer/variant buttons occupy full width and stay visible */
       .answer-option,
       .option-button,
       .variant-button,
@@ -110,7 +108,6 @@
         min-height: 46px !important;
       }
 
-      /* Ensure the test panel and question card are not clipped and are stacked above background */
       .question-card,
       .test-panel,
       .answers,
@@ -119,14 +116,12 @@
         overflow: visible !important;
       }
 
-      /* Radio/checkbox alignment inside options */
       .answer-option input[type="radio"],
       .answer-option input[type="checkbox"]{
         margin-right: 12px !important;
         vertical-align: middle !important;
       }
 
-      /* Selected / hover states for better visibility */
       .answer-option.selected,
       .answer-option:focus,
       .answer-option:hover{
@@ -134,7 +129,6 @@
         background: rgba(124,111,255,0.06) !important;
       }
 
-      /* Mobile adjustments */
       @media (max-width: 900px){
         .answer-option,
         .variant-button,
@@ -145,14 +139,13 @@
       }
     </style>
 
+    <!-- ✅ TO'G'IRLANGAN: max-w-7xl o'rtada turishi uchun -->
     <style>
-      /* Ensure large centered containers align to the right of the fixed sidebar */
       @media (min-width: 1024px) {
         .max-w-7xl {
-          margin-left: 260px !important;
-          margin-right: 0 !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
         }
-        /* Also ensure main content wrapper doesn't add extra left margin */
         .flex-1 {
           padding-left: 0 !important;
         }
@@ -160,9 +153,7 @@
     </style>
 
     <style>
-      /* Mobile-first responsive fixes -- ensure layout adapts to any device width */
       @media (max-width: 1023px) {
-        /* Full-width centered containers with comfortable padding */
         .max-w-7xl, .max-w-5xl, .max-w-3xl, .max-w-lg, .max-w-xl {
           margin-left: 0 !important;
           margin-right: 0 !important;
@@ -172,38 +163,31 @@
           box-sizing: border-box !important;
         }
 
-        /* Ensure main layout doesn't keep desktop sidebar space on small screens */
         .flex-1 {
           margin-left: 0 !important;
           padding-left: 0 !important;
         }
 
-        /* Make cards and panels take available width */
         .test-panel, .question-card, .card, .bg-card, .answers-list, .answers {
           width: 100% !important;
           max-width: 100% !important;
           box-sizing: border-box !important;
         }
 
-        /* Reserve space for the bottom navigation and safe-area on phones */
         body, #root, main {
           padding-bottom: calc(72px + env(safe-area-inset-bottom));
         }
 
-        /* Increase tap targets on mobile */
         .answer-option, .option-button, .variant-button {
           padding: 14px 16px !important;
           font-size: 16px !important;
         }
 
-        /* Make top mobile bar and nav elements wrap correctly */
         nav.flex { flex-wrap: wrap !important; }
       }
 
-      /* Generic media and overflow safety */
       img, picture, video, svg { max-width: 100% !important; height: auto !important; display: block; }
 
-      /* Small-screen visual simplifications */
       @media (max-width: 420px) {
         .shadow-2xl, .shadow-lg, .shadow-sm { box-shadow: none !important; }
         .rounded-3xl { border-radius: 12px !important; }
@@ -262,7 +246,7 @@
       }
     </script>
 
-    <!-- Structured Data - FAQPage for SEO -->
+    <!-- Structured Data - FAQPage -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -296,10 +280,6 @@
       }
     </script>
 
-    
-  
-  
-  
   <meta property="og:title" content="Avtotestlar 2026 - smartavto | Avtomaktab Online Imtihonlar">
   <meta name="twitter:title" content="Avtotestlar 2026 - smartavto | Avtomaktab Online Imtihonlar">
   <meta property="og:description" content="Avtotest – haydovchilik guvohnomasini olish uchun YHQ testlari. 2026 yil yangilangan savollar, yo&#39;l belgilari va onlayn avtotestlar bazasi. Prava olish uchun zamonaviy platforma.">
@@ -308,7 +288,6 @@
 
   <body>
     <div id="root">
-      <!-- SEO: Static content for search engine bots (will be replaced by React) -->
       <noscript>
         <header style="padding: 20px; background: #1a365d; color: white; text-align: center;">
           <img src="/logo-premium.png" alt="Smartavto logo" style="max-width:220px; display:block; margin:0 auto 12px;">
@@ -317,7 +296,6 @@
         <main style="max-width: 800px; margin: 0 auto; padding: 20px; font-family: system-ui, sans-serif;">
           <h2>Smartavto.uz — Onlayn test platformasi</h2>
           <p>Professional haydovchilik guvohnomasini olish uchun zamonaviy platforma</p>
-          
           <h3>Asosiy bo'limlar</h3>
           <nav>
             <ul>
@@ -331,18 +309,6 @@
               <li><a href="/contact">Aloqa</a></li>
             </ul>
           </nav>
-          
-          <h3>Bizning Afzalliklar</h3>
-          <ul>
-            <li><strong>Professional Avtomaktab</strong> - Tajribali ustozlar rahbarligida sifatli ta'lim oling.</li>
-            <li><strong>Zamonaviy Avto Texnika</strong> - Eng so'nggi texnologiyalar bilan jihozlangan avtomobillar.</li>
-          </ul>
-          
-          <h3>Smartavto.uz haqida</h3>
-          <p>Smartavto.uz — bu haydovchilik guvohnomasini olishni xohlovchilar uchun yaratilgan zamonaviy onlayn platforma bo'lib, foydalanuvchilarga Yo'l harakati qoidalari (YHQ) bo'yicha test savollarini interaktiv tarzda yechish imkonini beradi. Platforma o'quv jarayonini qulay, tushunarli va samarali qilish maqsadida ishlab chiqilgan.</p>
-          
-          <p>Platformadagi barcha testlar O'zbekiston Respublikasi Yo'l harakati qoidalariga asoslangan bo'lib, har bir savolga yagona to'g'ri javob keltirilgan. Savollar muntazam yangilanib boriladi.</p>
-          
           <p><strong>JavaScript yoqilmagan.</strong> To'liq funksionallik uchun JavaScript'ni yoqing.</p>
         </main>
         <footer style="padding: 20px; background: #f7fafc; text-align: center; margin-top: 40px;">
@@ -352,50 +318,12 @@
     </div>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Responsive adjustments for static/noscript content and general mobile fixes -->
     <style>
-      /* Prevent horizontal overflow on small devices */
       html,body{overflow-x:hidden}
-
-      /* Make media scale correctly */
       img, picture, video, svg { max-width:100%; height:auto; display:block; }
-
-      /* Noscript / static fallback responsiveness */
-      #root noscript { display: block; box-sizing: border-box; }
-      #root noscript header, #root noscript main, #root noscript footer { padding-left: 20px; padding-right: 20px; box-sizing: border-box; }
-      #root noscript header img { max-width: 100%; height: auto; margin: 0 auto 12px; }
-      #root noscript header h1 { font-size: 20px; margin: 8px 0; }
-      #root noscript main { max-width: 920px; margin: 0 auto; }
-
-      /* Make the nav list wrap and be touch-friendly */
-      #root noscript nav ul { display: flex; flex-wrap: wrap; gap: 8px; padding-left: 0; margin: 0; list-style: none; }
-      #root noscript nav ul li { flex: 1 1 auto; min-width: 140px; }
-      #root noscript nav ul li a { display: block; padding: 10px 8px; word-break: break-word; }
-
-      /* Contact cards and info boxes stack on small screens */
-      #root noscript .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
-      #root noscript .contact-card { width: 100%; box-sizing: border-box; }
-
-      /* Ensure long text doesn't overflow */
-      #root noscript *, #root noscript p, #root noscript li, #root noscript a { word-break: break-word; hyphens: auto; }
-
-      /* Reduce paddings and font sizes on very small screens */
-      @media (max-width: 800px) {
-        #root noscript header, #root noscript main, #root noscript footer { padding-left: 14px; padding-right: 14px; }
-        #root noscript header h1 { font-size: 18px; }
-        #root noscript main h2 { font-size: 16px; }
-      }
-
-      @media (max-width: 420px) {
-        #root noscript nav ul li { min-width: 100%; }
-        #root noscript header h1 { font-size: 17px; }
-        #root noscript main { padding-left: 12px; padding-right: 12px; }
-      }
     </style>
 
     <style>
-      /* Ensure language toggle and language menu are on top and clickable
-         (fixes cases where other fixed elements or the sidebar overlay block clicks) */
       #lang-toggle-btn, #lang-toggle-btn-desktop, .lang-menu-root {
         z-index: 11000 !important;
         pointer-events: auto !important;
@@ -403,7 +331,6 @@
     </style>
 
     <style>
-      /* Mobile-friendly language menu tweaks */
       .lang-menu-root {
         z-index: 11000 !important;
         pointer-events: auto !important;
@@ -421,13 +348,11 @@
         box-sizing: border-box !important;
       }
 
-      /* Ensure toggle button sits above all fixed elements on phones */
       #lang-toggle-btn, #lang-toggle-btn-desktop {
         z-index: 12000 !important;
         pointer-events: auto !important;
       }
 
-      /* On small screens make the menu wider and anchored below the toggle so it won't be cut off */
       @media (max-width: 768px) {
         .lang-menu-root {
           position: fixed !important;
@@ -439,7 +364,6 @@
           padding: 6px !important;
         }
 
-        /* Increase bottom padding of page so fixed bottom nav doesn't overlap interactive elements */
         body, #root, main {
           padding-bottom: calc(96px + env(safe-area-inset-bottom)) !important;
         }
@@ -447,9 +371,7 @@
     </style>
 
     <style>
-      /* Strong mobile layout corrections to avoid half-hidden content */
       @media (max-width: 1023px) {
-        /* Ensure central containers take full width and are not offset by desktop sidebar */
         .max-w-7xl, .max-w-5xl, .max-w-3xl, .max-w-lg, .max-w-xl, .container, .site-wrapper {
           margin-left: 0 !important;
           margin-right: 0 !important;
@@ -460,20 +382,17 @@
           box-sizing: border-box !important;
         }
 
-        /* Remove any leftover desktop offset on main content */
         .flex-1, main, header, footer, .content {
           margin-left: 0 !important;
           padding-left: 0 !important;
         }
 
-        /* Hide fixed/desktop sidebars that can overlap mobile content */
         .app-sidebar, .sidebar, .left-rail, .desktop-only, .sidebar-fixed {
           display: none !important;
           visibility: hidden !important;
           pointer-events: none !important;
         }
 
-        /* Ensure hero and cards are fully visible */
         .hero, .hero-section, .card-row, .cards-grid, .feature-cards {
           padding-left: 8px !important;
           padding-right: 8px !important;
@@ -481,20 +400,13 @@
           margin-right: 0 !important;
         }
 
-        /* Prevent very tall elements from being clipped by bottom nav */
         body, #root, main {
           padding-bottom: calc(112px + env(safe-area-inset-bottom)) !important;
         }
       }
-
-      /* Also guard against accidental large transforms or left shifts */
-      [style*="transform: translateX(-"], [style*="left:"] {
-        max-width: 100% !important;
-      }
     </style>
 
     <style>
-      /* Reduce homepage H1 size (desktop and responsive overrides) */
       .home-hero h1, .hero h1, .landing h1, header.hero h1, #root h1 {
         font-size: 56px !important;
         line-height: 1.05 !important;
