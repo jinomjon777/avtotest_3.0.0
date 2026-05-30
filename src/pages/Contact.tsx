@@ -5,48 +5,58 @@ import { QuickContactLinks } from "@/components/contact/QuickContactLinks";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Mail } from "lucide-react";
 
+const CS = {
+  bg: "#0A0B14", card: "#16172a",
+  border: "rgba(255,255,255,0.07)", accent: "#7C6FFF",
+  textPrimary: "#FFFFFF", textSecondary: "rgba(255,255,255,0.55)",
+};
+
 export default function Contact() {
   const { t } = useLanguage();
   return (
     <MainLayout>
-      <SEO 
+      <SEO
         title={t("contact.seoTitle")}
         description={t("contact.seoDescription")}
         path="/contact"
-        keywords="aloqa, bog'lanish, yordam, savol javob, avtotestu kontakt"
+        keywords="aloqa, bog'lanish, yordam, savol javob, avtotest kontakt"
       />
-      
+
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[hsl(222_47%_8%)] via-[hsl(222_35%_14%)] to-[hsl(222_47%_8%)] py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-14 h-14 mx-auto mb-5 bg-primary/15 rounded-2xl flex items-center justify-center border border-primary/20">
-            <Mail className="w-7 h-7 text-amber-400" />
+      <section style={{ background: `linear-gradient(135deg, #0A0B14 0%, #111220 50%, #0A0B14 100%)`, padding: "56px 20px 48px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "10%", left: "30%", width: 400, height: 400, background: "radial-gradient(circle, rgba(124,111,255,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "relative" }}>
+          <div style={{ width: 56, height: 56, margin: "0 auto 16px", background: "rgba(124,111,255,0.12)", border: "1px solid rgba(124,111,255,0.25)", borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <Mail size={26} color="#F5A623" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-3">
+          <h1 style={{ margin: "0 0 10px", fontSize: "clamp(28px, 5vw, 42px)", fontWeight: 800, color: CS.textPrimary }}>
             {t("contact.seoTitle")}
           </h1>
-          <p className="text-white/50 text-base max-w-md mx-auto">
+          <p style={{ fontSize: 15, color: CS.textSecondary, maxWidth: 400, margin: "0 auto" }}>
             Savollaringiz bo'lsa, biz doimo yordam berishga tayyormiz
           </p>
         </div>
       </section>
 
-      <section className="py-12 md:py-16 bg-background">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-stretch">
-            <div className="order-2 lg:order-1 flex flex-col h-full">
-              <div className="flex-1 rounded-2xl border border-border/60 bg-card shadow-sm p-6 md:p-8 flex flex-col">
-                <QuickContactLinks />
-              </div>
+      {/* Main */}
+      <section style={{ background: CS.bg, padding: "48px 20px 64px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }} className="contact-grid">
+            <div style={{ background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "28px 24px" }}>
+              <QuickContactLinks />
             </div>
-            <div className="order-1 lg:order-2 flex flex-col h-full">
-              <div className="flex-1 rounded-2xl border border-border/60 bg-card shadow-sm p-6 md:p-8 flex flex-col">
-                <ContactForm />
-              </div>
+            <div style={{ background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "28px 24px" }}>
+              <ContactForm />
             </div>
           </div>
         </div>
       </section>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .contact-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </MainLayout>
   );
 }
