@@ -177,7 +177,7 @@ export default function Home() {
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
                   <div>
                     <div style={{ fontSize: 10, color: CS.textSecondary, marginBottom: 2 }}>VARIANT 14</div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: CS.textPrimary }}>Savol 7 / 30</div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: CS.textPrimary }}>Savol 7 / 20</div>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 5, background: "rgba(255,95,109,0.15)", border: "1px solid rgba(255,95,109,0.2)", borderRadius: 100, padding: "4px 10px" }}>
                     <Clock size={11} color={CS.accentC} />
