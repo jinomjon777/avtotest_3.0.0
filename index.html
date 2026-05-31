@@ -20,12 +20,10 @@
     document.head.appendChild(script);
   }
   
-  // Load on first interaction
   ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(event) {
     window.addEventListener(event, loadGA, { once: true, passive: true });
   });
   
-  // Fallback: load after idle or 3s
   if ('requestIdleCallback' in window) {
     requestIdleCallback(loadGA, { timeout: 3000 });
   } else {
@@ -35,32 +33,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Prerender.io / Rendertron support -->
     <meta name="fragment" content="!">
-
-    <!-- Title (fallback, will be overwritten by react-helmet-async) -->
     <title>Avtotestlar 2026 - Smartavto | Avtomaktab Online Imtihonlar</title>
-
-    <!-- SEO Meta (fallback) -->
     <meta name="description" content="Avtotest – YHQ (Yo'l harakati qoidalari) va prava testlari uchun onlayn platforma. 2026 yilgi yangilangan savollar, yo'l belgilari, variant testlari va darsliklar. Prava olishga tayyorlaning - onlayn testlar, amaliy maslahatlar va interaktiv mashqlar.">
     <meta name="keywords" content="avtotest, avtotestu, prava, prava test, YHQ testlari, haydovchilik guvohnomasi, yo'l belgilari, onlayn testlar, avtomaktab, imtihon testlari, test variantlar, darslik, pro obuna, trafik qoidalari, test tayyorlash">
     <meta name="author" content="Smartavto.uz" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="alternate" hreflang="uz" href="https://smartavto.uz/" />
     <meta name="theme-color" content="#7C6FFF">
-
-    <!-- Canonical (fallback) -->
     <link rel="canonical" href="https://smartavto.uz/" />
-
-    <!-- Preload critical fonts -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
-    
-    <!-- Preload hero image - responsive -->
     <link rel="preload" as="image" href="/hero-bg-640.webp" imagesrcset="/hero-bg-640.webp 640w, /hero-bg-1024.webp 1024w, /hero-bg-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
-
-    <!-- Favicon and icons -->
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
@@ -68,24 +52,30 @@
     <meta name="msapplication-TileImage" content="/favicon.png">
     <meta itemprop="image" content="https://smartavto.uz/favicon.png">
 
-    <!-- Inline critical CSS for spinner -->
     <style>
       @keyframes spin{to{transform:rotate(360deg)}}
     </style>
 
-    <!-- Accessibility & UI fixes -->
     <style>
       :root{
         --main-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         --accent: #7C6FFF;
       }
 
-      html,body,#root{
+      html, body, #root {
         font-family: var(--main-font) !important;
         font-weight: 400 !important;
-        line-height: 1.45 !important;
+        line-height: 1.5 !important;
         -webkit-font-smoothing: antialiased !important;
         -moz-osx-font-smoothing: grayscale !important;
+      }
+
+      /* ✅ Barcha sarlavhalar oddiy og'irlikda */
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--main-font) !important;
+        font-weight: 600 !important;
+        line-height: 1.3 !important;
+        letter-spacing: -0.01em !important;
       }
 
       .answer-option,
@@ -108,38 +98,32 @@
         min-height: 46px !important;
       }
 
-      .question-card,
-      .test-panel,
-      .answers,
-      .question-panel {
+      .question-card, .test-panel, .answers, .question-panel {
         z-index: 9999 !important;
         overflow: visible !important;
       }
 
       .answer-option input[type="radio"],
-      .answer-option input[type="checkbox"]{
+      .answer-option input[type="checkbox"] {
         margin-right: 12px !important;
         vertical-align: middle !important;
       }
 
       .answer-option.selected,
       .answer-option:focus,
-      .answer-option:hover{
+      .answer-option:hover {
         outline: 2px solid rgba(124,111,255,0.14) !important;
         background: rgba(124,111,255,0.06) !important;
       }
 
-      @media (max-width: 900px){
-        .answer-option,
-        .variant-button,
-        .option-button{
+      @media (max-width: 900px) {
+        .answer-option, .variant-button, .option-button {
           padding: 10px 12px !important;
           font-size: 15px !important;
         }
       }
     </style>
 
-    <!-- ✅ TO'G'IRLANGAN: max-w-7xl o'rtada turishi uchun -->
     <style>
       @media (min-width: 1024px) {
         .max-w-7xl {
@@ -203,88 +187,17 @@
     <meta property="og:image" content="https://smartavto.uz/logo-premium.png">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://smartavto.uz/logo-premium.png">
 
-    <!-- Structured Data - WebSite -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Smartavto.uz",
-        "alternateName": ["AvtoTest", "Avto Test", "Smartavto"],
-        "url": "https://smartavto.uz",
-        "description": "Haydovchilik guvohnomasini olish uchun YHQ testlari va avtomaktab imtihonlariga tayyorgarlik platformasi",
-        "inLanguage": "uz",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://www.avtotestu.uz/belgilar?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
-      }
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Smartavto.uz","alternateName":["AvtoTest","Avto Test","Smartavto"],"url":"https://smartavto.uz","description":"Haydovchilik guvohnomasini olish uchun YHQ testlari va avtomaktab imtihonlariga tayyorgarlik platformasi","inLanguage":"uz"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Smartavto.uz","url":"https://smartavto.uz","logo":"https://smartavto.uz/logo-premium.png","description":"O'zbekistonda haydovchilik guvohnomasini olish uchun onlayn test platformasi","address":{"@type":"PostalAddress","addressCountry":"UZ"}}</script>
 
-    <!-- Structured Data - EducationalOrganization -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "Smartavto.uz",
-        "url": "https://smartavto.uz",
-        "logo": "https://smartavto.uz/logo-premium.png",
-        "description": "O'zbekistonda haydovchilik guvohnomasini olish uchun onlayn test platformasi",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "UZ"
-        },
-        "sameAs": []
-      }
-    </script>
-
-    <!-- Structured Data - FAQPage -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Haydovchilik guvohnomasi olish uchun qanday tayyorlanish kerak?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "smartavto.uz platformasida YHQ testlarini yechish, yo'l belgilarini o'rganish va variant testlarini topshirish orqali tayyorlanishingiz mumkin."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "YHQ testlarida nechta savol bo'ladi?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Har bir test variantida 20 ta savol mavjud. Imtihondan o'tish uchun kamida 18 ta to'g'ri javob berish kerak."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "smartavto.uz bepulmi?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ha, asosiy testlar va yo'l belgilari bepul. Pro obuna qo'shimcha imkoniyatlar beradi."
-            }
-          }
-        ]
-      }
-    </script>
-
-  <meta property="og:title" content="Avtotestlar 2026 - smartavto | Avtomaktab Online Imtihonlar">
-  <meta name="twitter:title" content="Avtotestlar 2026 - smartavto | Avtomaktab Online Imtihonlar">
-  <meta property="og:description" content="Avtotest – haydovchilik guvohnomasini olish uchun YHQ testlari. 2026 yil yangilangan savollar, yo&#39;l belgilari va onlayn avtotestlar bazasi. Prava olish uchun zamonaviy platforma.">
-  <meta name="twitter:description" content="Avtotest – haydovchilik guvohnomasini olish uchun YHQ testlari. 2026 yil yangilangan savollar, yo&#39;l belgilari va onlayn avtotestlar bazasi. Prava olish uchun zamonaviy platforma.">
-</head>
+    <meta property="og:title" content="Avtotestlar 2026 - smartavto | Avtomaktab Online Imtihonlar">
+    <meta name="twitter:title" content="Avtotestlar 2026 - smartavto | Avtomaktab Online Imtihonlar">
+    <meta property="og:description" content="Avtotest – haydovchilik guvohnomasini olish uchun YHQ testlari. 2026 yil yangilangan savollar, yo&#39;l belgilari va onlayn avtotestlar bazasi.">
+    <meta name="twitter:description" content="Avtotest – haydovchilik guvohnomasini olish uchun YHQ testlari. 2026 yil yangilangan savollar, yo&#39;l belgilari va onlayn avtotestlar bazasi.">
+  </head>
 
   <body>
     <div id="root">
@@ -312,15 +225,15 @@
           <p><strong>JavaScript yoqilmagan.</strong> To'liq funksionallik uchun JavaScript'ni yoqing.</p>
         </main>
         <footer style="padding: 20px; background: #f7fafc; text-align: center; margin-top: 40px;">
-          <p>© 2026 Smartavto.uz - O'zbekistonda haydovchilik guvohnomasi olish uchun YHQ testlari</p>
+          <p>© 2026 Smartavto.uz</p>
         </footer>
       </noscript>
     </div>
     <script type="module" src="/src/main.tsx"></script>
 
     <style>
-      html,body{overflow-x:hidden}
-      img, picture, video, svg { max-width:100%; height:auto; display:block; }
+      html, body { overflow-x: hidden; }
+      img, picture, video, svg { max-width: 100%; height: auto; display: block; }
     </style>
 
     <style>
@@ -328,12 +241,8 @@
         z-index: 11000 !important;
         pointer-events: auto !important;
       }
-    </style>
 
-    <style>
       .lang-menu-root {
-        z-index: 11000 !important;
-        pointer-events: auto !important;
         box-sizing: border-box !important;
         max-height: calc(100vh - 120px) !important;
         overflow: auto !important;
@@ -346,11 +255,6 @@
         font-size: 15px !important;
         width: 100% !important;
         box-sizing: border-box !important;
-      }
-
-      #lang-toggle-btn, #lang-toggle-btn-desktop {
-        z-index: 12000 !important;
-        pointer-events: auto !important;
       }
 
       @media (max-width: 768px) {
@@ -393,38 +297,8 @@
           pointer-events: none !important;
         }
 
-        .hero, .hero-section, .card-row, .cards-grid, .feature-cards {
-          padding-left: 8px !important;
-          padding-right: 8px !important;
-          margin-left: 0 !important;
-          margin-right: 0 !important;
-        }
-
         body, #root, main {
           padding-bottom: calc(112px + env(safe-area-inset-bottom)) !important;
-        }
-      }
-    </style>
-
-    <style>
-      .home-hero h1, .hero h1, .landing h1, header.hero h1, #root h1 {
-        font-size: 56px !important;
-        line-height: 1.05 !important;
-        letter-spacing: -0.02em !important;
-        font-weight: 700 !important;
-      }
-
-      @media (max-width: 1023px) {
-        .home-hero h1, .hero h1, .landing h1, header.hero h1, #root h1 {
-          font-size: 36px !important;
-          line-height: 1.08 !important;
-        }
-      }
-
-      @media (max-width: 420px) {
-        .home-hero h1, .hero h1, .landing h1, header.hero h1, #root h1 {
-          font-size: 28px !important;
-          line-height: 1.1 !important;
         }
       }
     </style>
