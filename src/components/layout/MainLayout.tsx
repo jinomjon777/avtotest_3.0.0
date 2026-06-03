@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info, Car, FileText, Layers } from "lucide-react";
+import { Crown, Globe, ChevronDown, Home, Phone, BookOpen, Car, FileText, Layers, Sun, Moon } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -18,6 +18,12 @@ export function MainLayout({ children }: MainLayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      return document.documentElement.classList.contains("dark");
+    }
+    return true;
+  });
   const { language, setLanguage, t } = useLanguage();
   const langBtnRefMobile = useRef<HTMLButtonElement | null>(null);
   const langBtnRefDesktop = useRef<HTMLButtonElement | null>(null);
@@ -62,10 +68,22 @@ export function MainLayout({ children }: MainLayoutProps) {
   );
 
   const handleLanguageChange = useCallback((code: typeof language) => {
-    console.log('language selected', code);
     setLanguage(code);
     setLangMenuOpen(false);
   }, [setLanguage]);
+
+  const toggleTheme = useCallback(() => {
+    const html = document.documentElement;
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      setIsDark(false);
+    } else {
+      html.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setIsDark(true);
+    }
+  }, []);
 
   // Close language menu on outside click or touch/pointer events
   useEffect(() => {
@@ -125,35 +143,32 @@ export function MainLayout({ children }: MainLayoutProps) {
           <div className="px-4 flex justify-between items-center h-14">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
-              <img
-                src={logoImg}
-                alt={t("common.siteName")}
-                className="w-8 h-8 rounded-lg object-contain"
-                width={32}
-                height={32}
-                onError={(e) => {
-                  const el = e.currentTarget as HTMLImageElement;
-                  if (!el.dataset.fallback) {
-                    el.dataset.fallback = '1';
-                    el.src = '/logo-premium.png';
-                  }
-                }}
-              />
-               <span className={`font-bold text-base tracking-tight font-montserrat ${scrolled ? 'text-foreground' : 'text-white'}`}>
-                 {t("common.siteName")}
-               </span>
-             </Link>
+              <img src={logoImg} alt={t("common.siteName")} className="w-8 h-8 rounded-lg object-contain" width="32" height="32" />
+              <span className={`font-bold text-base tracking-tight font-montserrat ${scrolled ? 'text-foreground' : 'text-white'}`}>
+                {t("common.siteName")}
+              </span>
+            </Link>
 
             {/* Right */}
             <div className="flex items-center gap-1.5">
               <TrialTimer />
               
+              {/* Theme toggle */}
+              <button
+                onClick={toggleTheme}
+                className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all ${
+                  scrolled ? 'text-muted-foreground hover:bg-muted' : 'text-white/70 hover:bg-white/10'
+                }`}
+                title={isDark ? "Kunduzgi rejim" : "Tungi rejim"}
+              >
+                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </button>
+
               {/* Language */}
               <div className="relative">
                 <button
                   ref={langBtnRefMobile}
                   id="lang-toggle-btn"
-                  type="button"
                   aria-haspopup="menu"
                   aria-expanded={langMenuOpen}
                   onClick={() => setLangMenuOpen(!langMenuOpen)}
@@ -171,11 +186,11 @@ export function MainLayout({ children }: MainLayoutProps) {
                   <div className="lang-menu-root fixed right-3 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
                     role="menu"
                     aria-labelledby="lang-toggle-btn"
-                    onPointerDown={(e) => e.stopPropagation()}
+                    onMouseLeave={() => setLangMenuOpen(false)}
                     onClick={(e) => e.stopPropagation()}
                     style={{ zIndex: 9999, pointerEvents: 'auto', width: '240px', maxWidth: 'calc(100% - 32px)' }}>
                      {languages.map((l) => (
-                       <button type="button" key={l.code} onClick={() => handleLanguageChange(l.code)}
+                       <button key={l.code} onClick={() => handleLanguageChange(l.code)}
                          className={`w-full text-left px-3 py-2 text-sm transition-colors ${
                            language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted"
                          }`}>{l.label}</button>
@@ -213,14 +228,30 @@ export function MainLayout({ children }: MainLayoutProps) {
               );
             })}
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <TrialTimer />
+
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              className="flex items-center justify-center w-8 h-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              title={isDark ? "Kunduzgi rejim" : "Tungi rejim"}
+            >
+              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+
+            {/* Premium button */}
+            <Link to="/pro">
+              <Button size="sm" className="bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white font-bold px-3 h-8 rounded-lg gap-1.5 border-0 text-xs">
+                <Crown className="w-3.5 h-3.5" /> Premium
+              </Button>
+            </Link>
+
             {/* Language */}
             <div className="relative">
               <button
                 ref={langBtnRefDesktop}
                 id="lang-toggle-btn-desktop"
-                type="button"
                 aria-haspopup="menu"
                 aria-expanded={langMenuOpen}
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
@@ -235,11 +266,11 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <div className="lang-menu-root fixed right-6 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
                   role="menu"
                   aria-labelledby="lang-toggle-btn-desktop"
-                  onPointerDown={(e) => e.stopPropagation()}
+                  onMouseLeave={() => setLangMenuOpen(false)}
                   onClick={(e) => e.stopPropagation()}
                   style={{ zIndex: 9999, pointerEvents: 'auto', width: '260px', maxWidth: 'calc(100% - 32px)' }}>
                    {languages.map((l) => (
-                     <button type="button" key={l.code} onClick={() => handleLanguageChange(l.code)}
+                     <button key={l.code} onClick={() => handleLanguageChange(l.code)}
                        className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
                          language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted font-medium"
                        }`}>{l.label}</button>
@@ -259,20 +290,7 @@ export function MainLayout({ children }: MainLayoutProps) {
             <div className="grid grid-cols-12 gap-8">
               <div className="col-span-5">
                 <div className="flex items-center gap-3 mb-3">
-                  <img
-                    src={logoImg}
-                    alt="Logo"
-                    className="w-9 h-9 rounded-xl object-contain"
-                    width={36}
-                    height={36}
-                    onError={(e) => {
-                      const el = e.currentTarget as HTMLImageElement;
-                      if (!el.dataset.fallback) {
-                        el.dataset.fallback = '1';
-                        el.src = '/logo-premium.png';
-                      }
-                    }}
-                  />
+                  <img src={logoImg} alt="Logo" className="w-9 h-9 rounded-xl object-contain" width="36" height="36" />
                   <span className="font-bold text-lg font-montserrat gradient-text">
                     {t("common.siteName")}
                   </span>
@@ -283,7 +301,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <h3 className="font-semibold text-sm mb-3 text-[hsl(190_80%_55%)] uppercase tracking-wider">{t("footer.quickLinksTitle")}</h3>
                 <div className="space-y-2">
                   {navLinks.map((item) => (
-                    <Link key={item.path} to={item.path} className="block text-white/50 hover:text-[hsl(190_80%_55%] transition-colors text-sm">{item.label}</Link>
+                    <Link key={item.path} to={item.path} className="block text-white/50 hover:text-[hsl(190_80%_55%)] transition-colors text-sm">{item.label}</Link>
                   ))}
                 </div>
               </div>
