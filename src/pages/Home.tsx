@@ -4,6 +4,7 @@ import { SEO } from "@/components/SEO";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
+import { useTheme } from "@/contexts/ThemeContext";
 import { useState, useEffect, useRef } from "react";
 import {
   Play, ArrowRight, CheckCircle, Crown, X, BookOpen,
@@ -57,6 +58,7 @@ export default function Home() {
   const { t } = useLanguage();
   const navigate = useNavigate();
   const { isPremium, loading: accessLoading } = useAccessState();
+  const { CS } = useTheme();
 
   const handleProRoute = (route: string) => {
     if (accessLoading && user) { navigate(route); return; }
@@ -83,13 +85,6 @@ export default function Home() {
     { icon: <Users size={22} />, title: t("home.feat5Title"), desc: t("home.feat5Desc"), color: "#00C9C4" },
     { icon: <Trophy size={22} />, title: t("home.feat6Title"), desc: t("home.feat6Desc"), color: "#FF5F6D" },
   ];
-
-  const CS = {
-    bg: "#0A0B14", surface: "#111220", card: "#16172a",
-    border: "rgba(255,255,255,0.07)", accent: "#7C6FFF",
-    accentB: "#00C9C4", accentC: "#FF5F6D",
-    textPrimary: "#FFFFFF", textSecondary: "rgba(255,255,255,0.55)",
-  };
 
   return (
     <MainLayout>
@@ -177,7 +172,7 @@ export default function Home() {
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
                   <div>
                     <div style={{ fontSize: 10, color: CS.textSecondary, marginBottom: 2 }}>VARIANT 14</div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: CS.textPrimary }}>Savol 7 / 20</div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: CS.textPrimary }}>Savol 7 / 30</div>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 5, background: "rgba(255,95,109,0.15)", border: "1px solid rgba(255,95,109,0.2)", borderRadius: 100, padding: "4px 10px" }}>
                     <Clock size={11} color={CS.accentC} />

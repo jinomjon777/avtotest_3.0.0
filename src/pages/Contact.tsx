@@ -3,16 +3,12 @@ import { SEO } from "@/components/SEO";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { QuickContactLinks } from "@/components/contact/QuickContactLinks";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 import { Mail } from "lucide-react";
-
-const CS = {
-  bg: "#0A0B14", card: "#16172a",
-  border: "rgba(255,255,255,0.07)", accent: "#7C6FFF",
-  textPrimary: "#FFFFFF", textSecondary: "rgba(255,255,255,0.55)",
-};
 
 export default function Contact() {
   const { t } = useLanguage();
+  const { CS } = useTheme();
   return (
     <MainLayout>
       <SEO

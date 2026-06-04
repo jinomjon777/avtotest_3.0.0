@@ -3,6 +3,7 @@ import { SEO } from "@/components/SEO";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useState } from "react";
 import {
@@ -10,23 +11,6 @@ import {
   PlayCircle, Database, Send, Star, Users, ArrowRight,
   MessageCircle, Sparkles, Lock,
 } from "lucide-react";
-
-
-const CS = {
-  bg:            "#0A0B14",
-  surface:       "#111220",
-  card:          "#16172a",
-  cardHover:     "#1c1d35",
-  border:        "rgba(255,255,255,0.07)",
-  borderHover:   "rgba(124,111,255,0.35)",
-  accent:        "#7C6FFF",
-  accentB:       "#00C9C4",
-  accentC:       "#FF5F6D",
-  gold:          "#F5A623",
-  textPrimary:   "#FFFFFF",
-  textSecondary: "rgba(255,255,255,0.55)",
-  textHint:      "rgba(255,255,255,0.30)",
-};
 
 const FEATURES = [
   { icon: Database,    label: "1200+ ta yopiq savollar bazasi",    pro: true, free: false },
@@ -52,6 +36,7 @@ const PLANS: Plan[] = [
 
 function PlanCard({ plan, onSelect }: { plan: Plan; onSelect: (p: Plan) => void }) {
   const [hovered, setHovered] = useState(false);
+  const { CS } = useTheme();
   return (
     <div
       onMouseEnter={() => setHovered(true)}
@@ -129,6 +114,7 @@ export default function Pro() {
   const navigate = useNavigate();
   const { user, isLoading } = useAuth();
   const { t } = useLanguage();
+  const { CS } = useTheme();
   const { isPremium, expiresAt } = useAccessState();
 
   const handleSelect = (plan: Plan) => {
