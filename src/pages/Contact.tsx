@@ -19,7 +19,7 @@ export default function Contact() {
       />
 
       {/* Hero */}
-      <section style={{ background: `linear-gradient(135deg, #0A0B14 0%, #111220 50%, #0A0B14 100%)`, padding: "56px 20px 48px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+      <section style={{ background: `linear-gradient(135deg, ${CS.bg} 0%, ${CS.surface} 50%, ${CS.bg} 100%)`, padding: "56px 20px 48px", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "10%", left: "30%", width: 400, height: 400, background: "radial-gradient(circle, rgba(124,111,255,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "relative" }}>
           <div style={{ width: 56, height: 56, margin: "0 auto 16px", background: "rgba(124,111,255,0.12)", border: "1px solid rgba(124,111,255,0.25)", borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -28,7 +28,7 @@ export default function Contact() {
           <h1 style={{ margin: "0 0 10px", fontSize: "clamp(28px, 5vw, 42px)", fontWeight: 800, color: CS.textPrimary }}>
             {t("contact.seoTitle")}
           </h1>
-          <p style={{ fontSize: 15, color: CS.textSecondary, maxWidth: 400, margin: "0 auto" }}>
+          <p style={{ margin: "0 auto", fontSize: 15, color: CS.textSecondary, maxWidth: 400 }}>
             Savollaringiz bo'lsa, biz doimo yordam berishga tayyormiz
           </p>
         </div>
