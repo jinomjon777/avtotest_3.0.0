@@ -36,7 +36,7 @@ export default function Qoshimcha() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[hsl(230_25%_10%)] via-[hsl(250_40%_16%)] to-[hsl(230_25%_10%)] py-14 md:py-20">
+      <section className="hero-bg py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="w-14 h-14 mx-auto mb-5 bg-[hsl(250_70%_56%/0.15)] rounded-2xl flex items-center justify-center border border-[hsl(250_70%_56%/0.2)]">
             <Info className="w-7 h-7 text-[hsl(250_70%_75%)]" />
@@ -59,9 +59,9 @@ export default function Qoshimcha() {
       </section>
 
       {/* PREMIUM */}
-      <section className="py-12 bg-gradient-to-r from-[hsl(230_25%_10%)] via-[hsl(250_40%_14%)] to-[hsl(230_25%_10%)] border-y border-[hsl(250_70%_56%/0.15)]">
+      <section className="py-12 hero-bg border-y border-primary/15">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <Card className="border border-[hsl(250_70%_56%/0.3)] bg-[hsl(230_25%_12%)] rounded-2xl overflow-hidden">
+          <Card className="border border-primary/30 bg-card rounded-2xl overflow-hidden">
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] rounded-xl flex items-center justify-center shadow-md shadow-[hsl(250_70%_56%/0.3)]">

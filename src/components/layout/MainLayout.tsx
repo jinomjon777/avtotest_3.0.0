@@ -11,9 +11,7 @@ import { BottomNav } from "./BottomNav";
 import { Crown, Globe, ChevronDown, Home, Phone, BookOpen, Car, FileText, Layers, Sun, Moon } from "lucide-react";
 import logoImg from "@/assets/logo.png";
 
-interface MainLayoutProps {
-  children: React.ReactNode;
-}
+interface MainLayoutProps { children: React.ReactNode; }
 
 export function MainLayout({ children }: MainLayoutProps) {
   const { isDark, toggleTheme } = useTheme();
@@ -32,30 +30,30 @@ export function MainLayout({ children }: MainLayoutProps) {
 
   useEffect(() => {
     const orig = document.body.style.overflow;
-    if (mobileMenuOpen) document.body.style.overflow = 'hidden';
+    if (mobileMenuOpen) document.body.style.overflow = "hidden";
     else document.body.style.overflow = orig;
     return () => { document.body.style.overflow = orig; };
   }, [mobileMenuOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navLinks = useMemo(() => [
-    { path: "/", label: t("nav.home"), icon: Home },
-    { path: "/variant", label: t("nav.variantlar"), icon: FileText },
-    { path: "/mavzuli", label: t("nav.mavzuliTestlar"), icon: Layers },
-    { path: "/belgilar", label: t("nav.belgilar"), icon: Car },
-    { path: "/darslik", label: t("nav.darslik"), icon: BookOpen },
-    { path: "/contact", label: t("nav.contact"), icon: Phone },
+    { path: "/",         label: t("nav.home"),           icon: Home },
+    { path: "/variant",  label: t("nav.variantlar"),     icon: FileText },
+    { path: "/mavzuli",  label: t("nav.mavzuliTestlar"), icon: Layers },
+    { path: "/belgilar", label: t("nav.belgilar"),       icon: Car },
+    { path: "/darslik",  label: t("nav.darslik"),        icon: BookOpen },
+    { path: "/contact",  label: t("nav.contact"),        icon: Phone },
   ], [t]);
 
   const languages = useMemo(() => [
     { code: "uz-lat" as const, display: "UZ", label: t("nav.langLatin") },
-    { code: "uz" as const, display: "ЎЗ", label: t("nav.langCyrillic") },
-    { code: "ru" as const, display: "RU", label: t("nav.langRussian") },
+    { code: "uz"     as const, display: "ЎЗ", label: t("nav.langCyrillic") },
+    { code: "ru"     as const, display: "RU", label: t("nav.langRussian") },
   ], [t]);
 
   const currentLangDisplay = useMemo(
@@ -68,37 +66,33 @@ export function MainLayout({ children }: MainLayoutProps) {
     setLangMenuOpen(false);
   }, [setLanguage]);
 
-  // Close language menu on outside click or touch/pointer events
   useEffect(() => {
     const handleOutside = (e: Event) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
-      // If click/touch started on the language button, do nothing (toggle handled by button)
-      if (langBtnRefMobile.current && langBtnRefMobile.current.contains(target)) return;
-      if (langBtnRefDesktop.current && langBtnRefDesktop.current.contains(target)) return;
-      const menu = document.querySelector('.lang-menu-root');
+      if (langBtnRefMobile.current?.contains(target)) return;
+      if (langBtnRefDesktop.current?.contains(target)) return;
+      const menu = document.querySelector(".lang-menu-root");
       if (menu && !menu.contains(target)) setLangMenuOpen(false);
     };
-
-    window.addEventListener('click', handleOutside, { passive: true });
-    window.addEventListener('pointerdown', handleOutside, { passive: true });
-    window.addEventListener('touchstart', handleOutside, { passive: true });
+    window.addEventListener("click", handleOutside, { passive: true });
+    window.addEventListener("pointerdown", handleOutside, { passive: true });
+    window.addEventListener("touchstart", handleOutside, { passive: true });
     return () => {
-      window.removeEventListener('click', handleOutside as EventListener);
-      window.removeEventListener('pointerdown', handleOutside as EventListener);
-      window.removeEventListener('touchstart', handleOutside as EventListener);
+      window.removeEventListener("click", handleOutside as EventListener);
+      window.removeEventListener("pointerdown", handleOutside as EventListener);
+      window.removeEventListener("touchstart", handleOutside as EventListener);
     };
   }, []);
 
-  // Force update when language change event fired (some components rely on document.lang)
   useEffect(() => {
     const onLang = () => setLangMenuOpen(false);
-    window.addEventListener('app:languagechange', onLang as EventListener);
-    return () => window.removeEventListener('app:languagechange', onLang as EventListener);
+    window.addEventListener("app:languagechange", onLang as EventListener);
+    return () => window.removeEventListener("app:languagechange", onLang as EventListener);
   }, []);
 
   const isMavzuliSection = useMemo(
-    () => location.pathname === '/mavzuli' || location.pathname.startsWith('/mavzuli/'),
+    () => location.pathname === "/mavzuli" || location.pathname.startsWith("/mavzuli/"),
     [location.pathname]
   );
 
@@ -119,15 +113,15 @@ export function MainLayout({ children }: MainLayoutProps) {
       <div className="flex-1 flex flex-col min-h-screen lg:ml-[260px]">
         {/* Mobile Top Bar */}
         <nav className={`lg:hidden sticky top-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-card/95 backdrop-blur-xl shadow-sm border-b border-border' 
-            : 'bg-gradient-to-r from-[hsl(230_25%_10%)] via-[hsl(250_40%_16%)] to-[hsl(230_25%_10%)] border-b border-white/10'
+          scrolled
+            ? "bg-card/95 backdrop-blur-xl shadow-sm border-b border-border"
+            : "hero-bg border-b border-white/10"
         }`}>
           <div className="px-4 flex justify-between items-center h-14">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
               <img src={logoImg} alt={t("common.siteName")} className="w-8 h-8 rounded-lg object-contain" width="32" height="32" />
-              <span className={`font-bold text-base tracking-tight font-montserrat ${scrolled ? 'text-foreground' : 'text-white'}`}>
+              <span className={`font-bold text-base tracking-tight font-montserrat ${scrolled ? "text-foreground" : "text-white"}`}>
                 {t("common.siteName")}
               </span>
             </Link>
@@ -135,12 +129,12 @@ export function MainLayout({ children }: MainLayoutProps) {
             {/* Right */}
             <div className="flex items-center gap-1.5">
               <TrialTimer />
-              
+
               {/* Theme toggle */}
               <button
                 onClick={toggleTheme}
                 className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all ${
-                  scrolled ? 'text-muted-foreground hover:bg-muted' : 'text-white/70 hover:bg-white/10'
+                  scrolled ? "text-muted-foreground hover:bg-muted" : "text-white/80 hover:bg-white/10"
                 }`}
                 title={isDark ? "Kunduzgi rejim" : "Tungi rejim"}
               >
@@ -156,30 +150,28 @@ export function MainLayout({ children }: MainLayoutProps) {
                   aria-expanded={langMenuOpen}
                   onClick={() => setLangMenuOpen(!langMenuOpen)}
                   className={`flex items-center gap-1 py-1.5 px-2 text-xs font-semibold transition-all rounded-lg ${
-                    scrolled ? 'text-muted-foreground hover:bg-muted' : 'text-white/70 hover:bg-white/10'
+                    scrolled ? "text-muted-foreground hover:bg-muted" : "text-white/80 hover:bg-white/10"
                   }`}
-                  // ensure the button is above overlays
                   style={{ zIndex: 60 }}
                 >
                   <Globe className="w-3.5 h-3.5" />
                   <span>{currentLangDisplay}</span>
                 </button>
                 {langMenuOpen && (
-                  // Use a fixed, high-z-index panel so it isn't hidden by other fixed elements on mobile or desktop
                   <div className="lang-menu-root fixed right-3 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
                     role="menu"
                     aria-labelledby="lang-toggle-btn"
                     onMouseLeave={() => setLangMenuOpen(false)}
                     onClick={(e) => e.stopPropagation()}
-                    style={{ zIndex: 9999, pointerEvents: 'auto', width: '240px', maxWidth: 'calc(100% - 32px)' }}>
-                     {languages.map((l) => (
-                       <button key={l.code} onClick={() => handleLanguageChange(l.code)}
-                         className={`w-full text-left px-3 py-2 text-sm transition-colors ${
-                           language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted"
-                         }`}>{l.label}</button>
-                     ))}
-                   </div>
-                 )}
+                    style={{ zIndex: 9999, pointerEvents: "auto", width: "240px", maxWidth: "calc(100% - 32px)" }}>
+                    {languages.map((l) => (
+                      <button key={l.code} onClick={() => handleLanguageChange(l.code)}
+                        className={`w-full text-left px-3 py-2 text-sm transition-colors ${
+                          language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted"
+                        }`}>{l.label}</button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Premium */}
@@ -194,7 +186,6 @@ export function MainLayout({ children }: MainLayoutProps) {
 
         {/* Desktop Top Bar */}
         <header className="hidden lg:flex items-center justify-between h-14 px-6 border-b border-border bg-card/50 sticky top-0 z-40">
-          {/* Desktop nav links */}
           <nav className="flex items-center gap-1">
             {navLinks.slice(1, 4).map((link) => {
               const isActive = location.pathname === link.path;
@@ -203,7 +194,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   key={link.path}
                   to={link.path}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                    isActive ? "bg-primary/10 text-primary" : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                 >
                   {link.label}
@@ -213,15 +204,6 @@ export function MainLayout({ children }: MainLayoutProps) {
           </nav>
           <div className="flex items-center gap-2">
             <TrialTimer />
-
-            {/* Theme toggle */}
-            <button
-              onClick={toggleTheme}
-              className="flex items-center justify-center w-8 h-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              title={isDark ? "Kunduzgi rejim" : "Tungi rejim"}
-            >
-              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </button>
 
             {/* Premium button */}
             <Link to="/pro">
@@ -251,15 +233,15 @@ export function MainLayout({ children }: MainLayoutProps) {
                   aria-labelledby="lang-toggle-btn-desktop"
                   onMouseLeave={() => setLangMenuOpen(false)}
                   onClick={(e) => e.stopPropagation()}
-                  style={{ zIndex: 9999, pointerEvents: 'auto', width: '260px', maxWidth: 'calc(100% - 32px)' }}>
-                   {languages.map((l) => (
-                     <button key={l.code} onClick={() => handleLanguageChange(l.code)}
-                       className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                         language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted font-medium"
-                       }`}>{l.label}</button>
-                   ))}
-                 </div>
-               )}
+                  style={{ zIndex: 9999, pointerEvents: "auto", width: "260px", maxWidth: "calc(100% - 32px)" }}>
+                  {languages.map((l) => (
+                    <button key={l.code} onClick={() => handleLanguageChange(l.code)}
+                      className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                        language === l.code ? "bg-primary/10 text-primary font-bold" : "text-foreground hover:bg-muted font-medium"
+                      }`}>{l.label}</button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </header>
@@ -267,8 +249,8 @@ export function MainLayout({ children }: MainLayoutProps) {
         {/* Main Content */}
         <main className="flex-1 pb-20 lg:pb-0">{children}</main>
 
-        {/* Footer - desktop only */}
-        <footer className="hidden lg:block bg-[hsl(230_25%_10%)] text-white border-t border-white/10">
+        {/* Footer — desktop only, dark in both modes */}
+        <footer className="hidden lg:block bg-[hsl(var(--hero-bg))] text-white border-t border-white/10">
           <div className="max-w-7xl mx-auto px-6 py-10">
             <div className="grid grid-cols-12 gap-8">
               <div className="col-span-5">

@@ -28,7 +28,7 @@ export default function Admin() {
 
   if (checking) {
     return (
-      <div style={{ minHeight: "100vh", background: "#0A0B14", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ minHeight: "100vh", background: "hsl(var(--background))", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ width: 36, height: 36, border: "3px solid rgba(124,111,255,0.2)", borderTopColor: "#7C6FFF", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
         <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
       </div>

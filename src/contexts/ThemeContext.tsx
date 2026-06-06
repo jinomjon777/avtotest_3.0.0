@@ -15,10 +15,10 @@ export const DARK: ThemeColors = {
 };
 
 export const LIGHT: ThemeColors = {
-  bg: "#F0F2FA", surface: "#E8EBF5", card: "#FFFFFF", cardHover: "#F5F7FF",
-  border: "rgba(0,0,0,0.08)", borderHover: "rgba(108,95,245,0.4)",
-  accent: "#6C5FF5", accentB: "#00A8A4", accentC: "#E04F5F", gold: "#D4900A",
-  textPrimary: "#0D0E1A", textSecondary: "rgba(13,14,26,0.55)", textHint: "rgba(13,14,26,0.35)",
+  bg: "#F0F2FA", surface: "#E8EBF5", card: "#FFFFFF", cardHover: "#F0F2FF",
+  border: "rgba(0,0,0,0.09)", borderHover: "rgba(108,95,245,0.4)",
+  accent: "#6C5FF5", accentB: "#009E9A", accentC: "#D94F5E", gold: "#C47F0A",
+  textPrimary: "#0D0E1A", textSecondary: "rgba(13,14,26,0.58)", textHint: "rgba(13,14,26,0.36)",
 };
 
 interface ThemeCtx {
@@ -40,8 +40,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const html = document.documentElement;
-    if (isDark) { html.classList.add("dark"); html.classList.remove("light"); }
-    else         { html.classList.remove("dark"); html.classList.add("light"); }
+    if (isDark) {
+      html.classList.add("dark");
+      html.classList.remove("light");
+    } else {
+      html.classList.remove("dark");
+      html.classList.add("light");
+    }
     try { localStorage.setItem("theme", isDark ? "dark" : "light"); } catch {}
   }, [isDark]);
 

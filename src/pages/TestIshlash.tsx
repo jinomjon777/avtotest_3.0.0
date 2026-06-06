@@ -166,7 +166,7 @@ export default function TestIshlash() {
 
       <div className="min-h-screen bg-gradient-to-br from-[hsl(230_25%_97%)] to-[hsl(250_30%_95%)] flex flex-col font-sans">
         {/* Header */}
-        <header className="w-full bg-gradient-to-r from-[hsl(230_25%_10%)] via-[hsl(250_40%_16%)] to-[hsl(230_25%_10%)] border-b border-[hsl(250_70%_56%/0.2)] px-6 py-3 sticky top-0 z-20">
+        <header className="w-full hero-bg border-b border-[hsl(250_70%_56%/0.2)] px-6 py-3 sticky top-0 z-20">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
             <Link to="/">
               <Button variant="ghost" size="sm" className="gap-2 font-bold text-white/80 hover:text-white hover:bg-white/10">
@@ -225,7 +225,7 @@ export default function TestIshlash() {
 
           {/* Main card */}
           <div className="bg-card rounded-3xl border border-border shadow-2xl shadow-[hsl(250_70%_56%/0.08)] overflow-hidden">
-            <div className="px-8 py-6 border-b border-border flex items-center gap-4 bg-gradient-to-r from-[hsl(230_25%_10%)] via-[hsl(250_40%_16%)] to-[hsl(230_25%_10%)]">
+            <div className="px-8 py-6 border-b border-border flex items-center gap-4 hero-bg">
               <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] flex items-center justify-center shadow-md shadow-[hsl(250_70%_56%/0.3)]">
                 <Play className="w-5 h-5 text-white fill-current" />
               </div>
