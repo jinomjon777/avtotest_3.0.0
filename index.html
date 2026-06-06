@@ -1,44 +1,15 @@
 <!doctype html>
 <html lang="uz" class="dark">
   <head>
-<!-- Google Analytics - Delayed loading after user interaction -->
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEWGSS9J8T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PEWGSS9J8T');
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  
-  let gaLoaded = false;
-  function loadGA() {
-    if (gaLoaded) return;
-    gaLoaded = true;
-    const script = document.createElement('script');
-    script.src = 'https://googletagmanager.com/gtag/js?id=G-MC3L7RRXMF';
-    script.async = true;
-    script.onload = function() {
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PEWGSS9J8T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-MC3L7RRXMF');
-    };
-    document.head.appendChild(script);
-  }
-  
-  ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(event) {
-    window.addEventListener(event, loadGA, { once: true, passive: true });
-  });
-  
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadGA, { timeout: 3000 });
-  } else {
-    setTimeout(loadGA, 3000);
-  }
-</script>
+      gtag('config', 'G-PEWGSS9J8T');
+    </script>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -79,7 +50,6 @@
         -moz-osx-font-smoothing: grayscale !important;
       }
 
-      /* ✅ Barcha sarlavhalar oddiy og'irlikda */
       h1, h2, h3, h4, h5, h6 {
         font-family: var(--main-font) !important;
         font-weight: 600 !important;
