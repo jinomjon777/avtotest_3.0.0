@@ -68,16 +68,16 @@ export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) =
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col min-h-screen">
         {/* Header */}
-        <div className="bg-gradient-to-r from-gray-950 via-gray-900 to-gray-950 border-b border-amber-500/20 p-4 sticky top-0 z-10">
+        <div className="bg-[hsl(var(--sidebar-background))] border-b border-[hsl(var(--sidebar-border))] p-4 sticky top-0 z-10">
           <div className="flex items-center justify-between mb-3">
             <Link to="/">
-              <Button variant="ghost" size="sm" className="gap-2 text-white/80 hover:text-white hover:bg-white/10">
+              <Button variant="ghost" size="sm" className="gap-2 text-[hsl(var(--sidebar-foreground))] hover:text-[hsl(var(--sidebar-accent-foreground))] hover:bg-[hsl(var(--sidebar-accent))]">
                 <Home className="w-4 h-4" />
                 Bosh sahifa
               </Button>
             </Link>
             {user ? (
-              <Button variant="ghost" size="sm" onClick={() => navigate('/profile')} className="gap-2 text-white/80 hover:text-white hover:bg-white/10">
+              <Button variant="ghost" size="sm" onClick={() => navigate('/profile')} className="gap-2 text-[hsl(var(--sidebar-foreground))] hover:text-[hsl(var(--sidebar-accent-foreground))] hover:bg-[hsl(var(--sidebar-accent))]">
                 <User className="w-4 h-4" />
                 <span className="text-xs">{profile?.full_name || profile?.username || 'Profil'}</span>
               </Button>
@@ -97,7 +97,7 @@ export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) =
                 className={`flex-1 text-xs ${
                   language === lang.id 
                     ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-bold" 
-                    : "text-white/60 hover:text-white hover:bg-white/10"
+                    : "text-[hsl(var(--sidebar-foreground))] hover:text-[hsl(var(--sidebar-accent-foreground))] hover:bg-[hsl(var(--sidebar-accent))]"
                 }`}
                 onClick={() => setLanguage(lang.id)}
               >
@@ -185,11 +185,11 @@ export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) =
       {/* Desktop Layout */}
       <div className="hidden lg:flex h-screen overflow-hidden">
         {/* Left Side */}
-        <div className="w-[30%] bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 border-r border-amber-500/20 p-6 flex flex-col">
+        <div className="w-[30%] bg-[hsl(var(--sidebar-background))] border-r border-[hsl(var(--sidebar-border))] p-6 flex flex-col">
           <div className="flex-1 flex flex-col">
             <div className="mb-4">
               <Link to="/">
-                <Button variant="ghost" size="sm" className="gap-2 text-white/80 hover:text-white hover:bg-white/10">
+                <Button variant="ghost" size="sm" className="gap-2 text-[hsl(var(--sidebar-foreground))] hover:text-[hsl(var(--sidebar-accent-foreground))] hover:bg-[hsl(var(--sidebar-accent))]">
                   <Home className="w-4 h-4" />
                   Bosh sahifa
                 </Button>
@@ -202,15 +202,15 @@ export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) =
                 <Button
                   variant="ghost"
                   onClick={() => navigate('/profile')}
-                  className="w-full flex items-center gap-2 h-auto py-2.5 px-3 justify-start text-white/80 hover:text-white hover:bg-white/10"
+                  className="w-full flex items-center gap-2 h-auto py-2.5 px-3 justify-start text-[hsl(var(--sidebar-foreground))] hover:text-[hsl(var(--sidebar-accent-foreground))] hover:bg-[hsl(var(--sidebar-accent))]"
                 >
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center flex-shrink-0">
                     <User className="w-4 h-4 text-white" />
                   </div>
                   <div className="flex-1 text-left min-w-0">
-                    <div className="font-semibold text-xs truncate text-white">{profile?.full_name || profile?.username || 'Profil'}</div>
+                    <div className="font-semibold text-xs truncate text-[hsl(var(--sidebar-accent-foreground))]">{profile?.full_name || profile?.username || 'Profil'}</div>
                     {profile?.username && profile?.full_name && (
-                      <div className="text-[10px] text-white/50 truncate">@{profile.username}</div>
+                      <div className="text-[10px] text-[hsl(var(--sidebar-foreground))] truncate">@{profile.username}</div>
                     )}
                   </div>
                 </Button>
@@ -224,7 +224,7 @@ export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) =
 
             {/* Language */}
             <div className="mb-4">
-              <h3 className="text-[10px] font-medium text-white/40 mb-1.5">{t("test.selectLanguage")}</h3>
+              <h3 className="text-[10px] font-medium text-[hsl(var(--muted-foreground))] mb-1.5">{t("test.selectLanguage")}</h3>
               <div className="flex gap-1.5">
                 {languages.map((lang) => (
                   <Button
@@ -234,7 +234,7 @@ export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) =
                     className={`flex-1 text-[11px] h-8 ${
                       language === lang.id 
                         ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-bold" 
-                        : "text-white/50 hover:text-white hover:bg-white/10"
+                        : "text-[hsl(var(--sidebar-foreground))] hover:text-[hsl(var(--sidebar-accent-foreground))] hover:bg-[hsl(var(--sidebar-accent))]"
                     }`}
                     onClick={() => setLanguage(lang.id)}
                   >
@@ -249,12 +249,12 @@ export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) =
               <div className="mb-4 p-6 bg-primary/10 rounded-xl border-2 border-primary/30 shadow-sm shadow-primary/10">
                 <div className="text-center">
                   <div className="text-6xl font-bold text-primary mb-1">{selectedVariant}</div>
-                  <div className="text-[11px] font-medium text-white/50">{t("test.variant")} {selectedVariant}</div>
+                  <div className="text-[11px] font-medium text-[hsl(var(--muted-foreground))]">{t("test.variant")} {selectedVariant}</div>
                 </div>
               </div>
             ) : (
-              <div className="mb-4 p-6 bg-white/5 rounded-xl border-2 border-dashed border-white/20">
-                <div className="text-center text-white/40 text-xs">
+              <div className="mb-4 p-6 bg-[hsl(var(--sidebar-accent))] rounded-xl border-2 border-dashed border-[hsl(var(--sidebar-border))]">
+                <div className="text-center text-[hsl(var(--muted-foreground))] text-xs">
                   {language === 'ru' ? 'Выберите вариант справа' : language === 'uz' ? 'Ўнг томондан вариант танланг' : 'O\'ng tomondan variant tanlang'}
                 </div>
               </div>
@@ -294,12 +294,12 @@ export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) =
             </Button>
 
             {/* Instructions */}
-            <div className="p-3 bg-white/5 rounded-lg border border-white/10">
-              <h3 className="text-[10px] font-semibold text-white/80 mb-1.5 flex items-center gap-1.5">
+            <div className="p-3 bg-[hsl(var(--sidebar-accent))] rounded-lg border border-[hsl(var(--sidebar-border))]">
+              <h3 className="text-[10px] font-semibold text-[hsl(var(--sidebar-accent-foreground))] mb-1.5 flex items-center gap-1.5">
                 <div className="w-1 h-1 rounded-full bg-amber-400" />
                 {t("test.instructions")}
               </h3>
-              <div className="text-[10px] text-white/40 space-y-1">
+              <div className="text-[10px] text-[hsl(var(--muted-foreground))] space-y-1">
                 <div className="flex items-start gap-1.5">
                   <span className="text-amber-400 mt-0.5">•</span>
                   <span>{t("test.instruction1")}</span>

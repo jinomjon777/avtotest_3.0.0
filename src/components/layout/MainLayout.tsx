@@ -258,8 +258,8 @@ export function MainLayout({ children }: MainLayoutProps) {
         {/* Main Content */}
         <main className="flex-1 pb-20 lg:pb-0">{children}</main>
 
-        {/* Footer — desktop only, dark in both modes */}
-        <footer className="hidden lg:block bg-[hsl(var(--hero-bg))] text-white border-t border-white/10">
+        {/* Footer — desktop only, theme-aware */}
+        <footer className="hidden lg:block bg-[hsl(var(--sidebar-background))] border-t border-[hsl(var(--sidebar-border))]">
           <div className="max-w-7xl mx-auto px-6 py-10">
             <div className="grid grid-cols-12 gap-8">
               <div className="col-span-5">
@@ -269,19 +269,19 @@ export function MainLayout({ children }: MainLayoutProps) {
                     {t("common.siteName")}
                   </span>
                 </div>
-                <p className="text-white/50 text-sm leading-relaxed max-w-sm">{t("footer.aboutText")}</p>
+                <p className="text-[hsl(var(--sidebar-foreground))] text-sm leading-relaxed max-w-sm">{t("footer.aboutText")}</p>
               </div>
               <div className="col-span-3">
-                <h3 className="font-semibold text-sm mb-3 text-[hsl(190_80%_55%)] uppercase tracking-wider">{t("footer.quickLinksTitle")}</h3>
+                <h3 className="font-semibold text-sm mb-3 text-[hsl(var(--accent))] uppercase tracking-wider">{t("footer.quickLinksTitle")}</h3>
                 <div className="space-y-2">
                   {navLinks.map((item) => (
-                    <Link key={item.path} to={item.path} className="block text-white/50 hover:text-[hsl(190_80%_55%)] transition-colors text-sm">{item.label}</Link>
+                    <Link key={item.path} to={item.path} className="block text-[hsl(var(--sidebar-foreground))] hover:text-[hsl(var(--accent))] transition-colors text-sm">{item.label}</Link>
                   ))}
                 </div>
               </div>
               <div className="col-span-4">
-                <h3 className="font-semibold text-sm mb-3 text-[hsl(190_80%_55%)] uppercase tracking-wider">{t("footer.contactTitle")}</h3>
-                <div className="space-y-2 text-sm text-white/50">
+                <h3 className="font-semibold text-sm mb-3 text-[hsl(var(--accent))] uppercase tracking-wider">{t("footer.contactTitle")}</h3>
+                <div className="space-y-2 text-sm text-[hsl(var(--sidebar-foreground))]">
                   <p>{t("footer.telegramLabel")}</p>
                   <p>{t("footer.botLabel")}</p>
                   <p>{t("footer.workingHoursLabel")}</p>
@@ -289,7 +289,7 @@ export function MainLayout({ children }: MainLayoutProps) {
               </div>
             </div>
             <div className="section-divider mt-8 mb-4" />
-            <div className="text-center text-white/30 text-xs">{t("footer.copyright")}</div>
+            <div className="text-center text-[hsl(var(--muted-foreground))] text-xs">{t("footer.copyright")}</div>
           </div>
         </footer>
 
