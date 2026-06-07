@@ -45,7 +45,7 @@ export default function Qoshimcha() {
           <p className="text-lg text-white/50 max-w-2xl mx-auto mb-8">Testga tayyorlanish bo'yicha batafsil yo'riqnoma, amaliy maslahatlar va qo'llanmalar.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link to="/darslik">
-              <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 gap-2 px-6 py-5 rounded-xl">
+              <Button variant="outline" className="border-white/30 text-white/90 hover:bg-white/10 gap-2 px-6 py-5 rounded-xl bg-white/10 backdrop-blur-sm">
                 <BookOpen className="w-5 h-5" />Darslik
               </Button>
             </Link>
@@ -59,23 +59,23 @@ export default function Qoshimcha() {
       </section>
 
       {/* PREMIUM */}
-      <section className="py-12 hero-bg border-y border-primary/15">
+      <section className="py-12 bg-muted/40 border-y border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <Card className="border border-primary/30 bg-card rounded-2xl overflow-hidden">
+          <Card className="border border-primary/20 bg-card rounded-2xl overflow-hidden shadow-sm">
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] rounded-xl flex items-center justify-center shadow-md shadow-[hsl(250_70%_56%/0.3)]">
                   <Crown className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-extrabold text-white">PREMIUM Bo'limi Haqida</h2>
+                <h2 className="text-2xl font-extrabold text-foreground">PREMIUM Bo'limi Haqida</h2>
               </div>
-              <p className="text-white/60 leading-relaxed text-sm mb-6">
+              <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                 PREMIUM bo'limi oddiy testdan farq qiladi va savollar to'g'riligi to'g'ridan to'g'ri admin tomonidan tekshiriladi. Imtihonda ushbu testlarning tushish ehtimoli yuqori.
               </p>
               {user && profile?.is_pro ? (
-                <div className="flex items-center gap-3 bg-[hsl(250_70%_56%/0.1)] border border-[hsl(250_70%_56%/0.25)] rounded-xl px-5 py-3 w-fit">
+                <div className="flex items-center gap-3 bg-primary/10 border border-primary/25 rounded-xl px-5 py-3 w-fit">
                   <Crown className="w-5 h-5 text-[hsl(250_70%_75%)]" />
-                  <span className="font-semibold text-white">{profile.full_name || profile.username || 'PREMIUM'}</span>
+                  <span className="font-semibold text-foreground">{profile.full_name || profile.username || 'PREMIUM'}</span>
                   <span className="text-xs bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white px-2 py-0.5 rounded-full font-bold">PREMIUM</span>
                 </div>
               ) : (

@@ -85,7 +85,7 @@ export default function Belgilar() {
               placeholder="Belgilarni qidirish..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 py-5 text-base rounded-xl bg-white border-none shadow-lg"
+              className="pl-12 py-5 text-base rounded-xl bg-card text-foreground border-border shadow-lg"
             />
           </div>
         </div>

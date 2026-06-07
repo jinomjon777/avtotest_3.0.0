@@ -56,7 +56,7 @@ function PlanCard({ plan, onSelect }: { plan: Plan; onSelect: (p: Plan) => void 
         transition:   "all 0.25s ease",
         boxShadow:    plan.highlight
           ? "0 24px 60px rgba(124,111,255,0.25)"
-          : hovered ? "0 12px 32px rgba(0,0,0,0.4)" : "none",
+          : hovered ? "0 12px 32px rgba(0,0,0,0.15)" : "none",
       }}
     >
       {plan.badge && (
@@ -90,19 +90,31 @@ function PlanCard({ plan, onSelect }: { plan: Plan; onSelect: (p: Plan) => void 
         <span style={{ fontSize: 14, color: CS.textSecondary }}>so'm</span>
       </div>
       <div style={{ fontSize: 13, color: CS.textHint, marginBottom: 24 }}>{plan.period} davomida</div>
+
+      {/* ── Tugma: border FAQAT bir marta, shartli ── */}
       <button
         style={{
-          width: "100%", padding: "13px 0", borderRadius: 14, border: "none",
+          width: "100%",
+          padding: "13px 0",
+          borderRadius: 14,
+          border: plan.highlight ? "none" : `1px solid ${CS.border}`,
           background: plan.highlight
             ? `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`
-            : "rgba(255,255,255,0.08)",
-          color: "#fff", fontWeight: 700, fontSize: 15, cursor: "pointer",
-          display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+            : CS.surface,
+          color: plan.highlight ? "#fff" : CS.textPrimary,
+          fontWeight: 700,
+          fontSize: 15,
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 8,
           boxShadow: plan.highlight ? `0 8px 24px rgba(124,111,255,0.35)` : "none",
         }}
       >
         <Crown size={16} /> {plan.name} olish <ArrowRight size={14} />
       </button>
+
       <div style={{ marginTop: 16, fontSize: 12, color: CS.textHint, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
         <Send size={11} /> Obuna uchun: @jumanazarov_0501
       </div>
@@ -117,7 +129,7 @@ export default function Pro() {
   const { CS } = useTheme();
   const { isPremium, expiresAt } = useAccessState();
 
-  const handleSelect = (plan: Plan) => {
+  const handleSelect = (_plan: Plan) => {
     window.open("https://t.me/jumanazarov_0501", "_blank");
   };
 
@@ -144,67 +156,23 @@ export default function Pro() {
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 
-      {/* ── Responsive styles ── */}
       <style>{`
-        .pro-plans-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-        .pro-steps-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
-        .pro-compare-table {
-          display: none;
-        }
-        .pro-compare-mobile {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-        .pro-hero-trust {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 12px;
-        }
-        .pro-cta-btns {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-        }
+        .pro-plans-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .pro-steps-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        .pro-compare-table  { display: none; }
+        .pro-compare-mobile { display: flex; flex-direction: column; gap: 10px; }
+        .pro-hero-trust  { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .pro-cta-btns    { display: flex; flex-direction: column; align-items: center; gap: 10px; }
         @media (min-width: 640px) {
-          .pro-plans-grid {
-            grid-template-columns: 1fr 1fr;
-          }
-          .pro-hero-trust {
-            flex-direction: row;
-            justify-content: center;
-            gap: 28px;
-          }
-          .pro-cta-btns {
-            flex-direction: row;
-            justify-content: center;
-          }
+          .pro-plans-grid  { grid-template-columns: 1fr 1fr; }
+          .pro-hero-trust  { flex-direction: row; justify-content: center; gap: 28px; }
+          .pro-cta-btns    { flex-direction: row; justify-content: center; }
         }
         @media (min-width: 900px) {
-          .pro-plans-grid {
-            grid-template-columns: repeat(3, 1fr);
-            align-items: center;
-          }
-          .pro-steps-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-          }
-          .pro-compare-table {
-            display: block;
-          }
-          .pro-compare-mobile {
-            display: none;
-          }
+          .pro-plans-grid     { grid-template-columns: repeat(3, 1fr); align-items: center; }
+          .pro-steps-grid     { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+          .pro-compare-table  { display: block; }
+          .pro-compare-mobile { display: none; }
         }
       `}</style>
 
@@ -224,7 +192,10 @@ export default function Pro() {
           {expiresAt && (
             <span style={{ fontSize: 13, color: CS.textSecondary }}>· {expiresAt.toLocaleDateString("uz-UZ")} gacha</span>
           )}
-          <button onClick={() => navigate("/dashboard")} style={{ padding: "7px 16px", borderRadius: 10, background: "rgba(255,255,255,0.08)", border: `1px solid ${CS.border}`, color: CS.textPrimary, cursor: "pointer", fontSize: 13, fontWeight: 600 }}>
+          <button
+            onClick={() => navigate("/dashboard")}
+            style={{ padding: "7px 16px", borderRadius: 10, background: CS.surface, border: `1px solid ${CS.border}`, color: CS.textPrimary, cursor: "pointer", fontSize: 13, fontWeight: 600 }}
+          >
             Dashboard →
           </button>
         </div>
@@ -232,11 +203,7 @@ export default function Pro() {
 
       {/* ═══ HERO ═══ */}
       <section style={{ background: CS.bg, position: "relative", overflow: "hidden", padding: "72px 20px 56px" }}>
-        <div style={{
-          position: "absolute", inset: 0, pointerEvents: "none",
-          backgroundImage: `linear-gradient(rgba(124,111,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(124,111,255,0.04) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }} />
+        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", backgroundImage: `linear-gradient(rgba(124,111,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(124,111,255,0.04) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
         <div style={{ position: "absolute", top: 0, left: "30%", width: "min(600px, 100vw)", height: 400, background: "radial-gradient(ellipse, rgba(124,111,255,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center", position: "relative" }}>
@@ -272,7 +239,7 @@ export default function Pro() {
         </div>
       </section>
 
-      {/* ═══ COMPARISON — Desktop table ═══ */}
+      {/* ═══ COMPARISON ═══ */}
       <section style={{ background: CS.surface, borderTop: `1px solid ${CS.border}`, borderBottom: `1px solid ${CS.border}`, padding: "64px 20px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <h2 style={{ textAlign: "center", margin: "0 0 40px", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, color: CS.textPrimary, fontFamily: "'Syne', sans-serif" }}>
@@ -353,7 +320,7 @@ export default function Pro() {
             ))}
           </div>
 
-          <div style={{ marginTop: 32, textAlign: "center", padding: "18px 20px", background: "rgba(255,255,255,0.03)", border: `1px solid ${CS.border}`, borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
+          <div style={{ marginTop: 32, textAlign: "center", padding: "18px 20px", background: CS.surface, border: `1px solid ${CS.border}`, borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
             <Lock size={14} color={CS.textHint} />
             <span style={{ fontSize: 13, color: CS.textHint }}>
               To'lov Telegram orqali qabul qilinadi. Savollar uchun{" "}
@@ -374,15 +341,15 @@ export default function Pro() {
           </h2>
           <div className="pro-steps-grid">
             {[
-              { step: "01", icon: <Crown size={22} color={CS.accent} />, title: "Tarifni tanlang", desc: "Yuqoridan o'zingizga qulay haftalik, oylik yoki 3 oylik obuna variantini tanlang." },
-              { step: "02", icon: <MessageCircle size={22} color={CS.accentB} />, title: "Telegram'ga yozing", desc: "@jumanazarov_0501 kanaliga murojaat qiling. Admin siz bilan bog'lanadi." },
-              { step: "03", icon: <Zap size={22} color={CS.accentC} />, title: "Kirishni oling", desc: "To'lovdan so'ng 5 daqiqa ichida akkauntingiz aktivatsiya qilinadi." },
+              { step: "01", icon: <Crown size={22} color={CS.accent} />,        title: "Tarifni tanlang",      desc: "Yuqoridan o'zingizga qulay haftalik, oylik yoki 3 oylik obuna variantini tanlang." },
+              { step: "02", icon: <MessageCircle size={22} color={CS.accentB} />, title: "Telegram'ga yozing",   desc: "@jumanazarov_0501 kanaliga murojaat qiling. Admin siz bilan bog'lanadi." },
+              { step: "03", icon: <Zap size={22} color={CS.accentC} />,          title: "Kirishni oling",        desc: "To'lovdan so'ng 5 daqiqa ichida akkauntingiz aktivatsiya qilinadi." },
             ].map((s, i) => (
               <div key={i} style={{ position: "relative", background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "24px 20px" }}>
-                <div style={{ position: "absolute", top: 16, right: 16, fontSize: 28, fontWeight: 800, color: "rgba(255,255,255,0.05)", fontFamily: "'Syne', sans-serif", lineHeight: 1 }}>
+                <div style={{ position: "absolute", top: 16, right: 16, fontSize: 28, fontWeight: 800, color: CS.textHint, opacity: 0.15, fontFamily: "'Syne', sans-serif", lineHeight: 1 }}>
                   {s.step}
                 </div>
-                <div style={{ width: 48, height: 48, borderRadius: 14, background: "rgba(255,255,255,0.05)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
+                <div style={{ width: 48, height: 48, borderRadius: 14, background: CS.surface, border: `1px solid ${CS.border}`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
                   {s.icon}
                 </div>
                 <h3 style={{ margin: "0 0 8px", fontSize: 16, fontWeight: 700, color: CS.textPrimary }}>{s.title}</h3>
@@ -425,7 +392,7 @@ export default function Pro() {
                 onClick={() => navigate("/test-ishlash")}
                 style={{
                   padding: "14px 24px", borderRadius: 14,
-                  background: "rgba(255,255,255,0.06)",
+                  background: CS.card,
                   border: `1px solid ${CS.border}`,
                   color: CS.textPrimary, fontWeight: 600, fontSize: 15,
                   cursor: "pointer", width: "100%", maxWidth: 280,
