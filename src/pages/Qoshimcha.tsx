@@ -45,7 +45,7 @@ export default function Qoshimcha() {
           <p className="text-lg text-white/50 max-w-2xl mx-auto mb-8">Testga tayyorlanish bo'yicha batafsil yo'riqnoma, amaliy maslahatlar va qo'llanmalar.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link to="/darslik">
-              <Button variant="outline" className="border-white/30 text-white/90 hover:bg-white/10 gap-2 px-6 py-5 rounded-xl bg-white/10 backdrop-blur-sm">
+              <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 gap-2 px-6 py-5 rounded-xl backdrop-blur-sm">
                 <BookOpen className="w-5 h-5" />Darslik
               </Button>
             </Link>

@@ -29,7 +29,7 @@ export default function Darslik() {
     <MainLayout>
       <SEO title="Video Darslik - YHQ bo'yicha video darslar" description="Yo'l harakati qoidalari bo'yicha video darsliklar." path="/darslik" keywords="YHQ darslik, video darslar" />
 
-      <section className="bg-gradient-to-br from-[hsl(222_47%_8%)] via-[hsl(222_35%_14%)] to-[hsl(222_47%_8%)] py-6 md:py-8 border-b border-white/10">
+      <section className="hero-bg py-6 md:py-8 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center border border-primary/20">

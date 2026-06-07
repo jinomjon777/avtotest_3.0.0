@@ -77,7 +77,7 @@ export default function Belgilar() {
             <AlertTriangle className="w-7 h-7 text-amber-400" />
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Yo'l belgilari</h1>
-          <p className="text-white/60 text-base mb-8">Yangi yo'l belgilari 2026 — {totalSigns} ta belgi</p>
+          <p className="text-white/50 text-base mb-8">Yangi yo'l belgilari 2026 — {totalSigns} ta belgi</p>
           <div className="max-w-md mx-auto relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input
@@ -85,7 +85,7 @@ export default function Belgilar() {
               placeholder="Belgilarni qidirish..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 py-5 text-base rounded-xl bg-card text-foreground border-border shadow-lg"
+              className="pl-12 py-5 text-base rounded-xl bg-white border-none shadow-lg"
             />
           </div>
         </div>
