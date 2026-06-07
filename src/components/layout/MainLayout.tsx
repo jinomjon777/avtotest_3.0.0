@@ -205,6 +205,15 @@ export function MainLayout({ children }: MainLayoutProps) {
           <div className="flex items-center gap-2">
             <TrialTimer />
 
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              title={isDark ? "Kunduzgi rejim" : "Tungi rejim"}
+              className="flex items-center justify-center w-8 h-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            >
+              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+
             {/* Premium button */}
             <Link to="/pro">
               <Button size="sm" className="bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white font-bold px-3 h-8 rounded-lg gap-1.5 border-0 text-xs">

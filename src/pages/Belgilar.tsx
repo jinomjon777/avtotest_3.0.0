@@ -71,13 +71,13 @@ export default function Belgilar() {
         keywords="yo'l belgilari, ogohlantiruvchi belgilar, taqiqlovchi belgilar"
       />
 
-      <section className="bg-gradient-to-br from-[hsl(222_47%_8%)] via-[hsl(222_35%_14%)] to-[hsl(222_47%_8%)] py-12 md:py-16">
+      <section className="hero-bg py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="w-14 h-14 mx-auto mb-5 bg-amber-500/15 rounded-2xl flex items-center justify-center border border-amber-500/20">
             <AlertTriangle className="w-7 h-7 text-amber-400" />
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Yo'l belgilari</h1>
-          <p className="text-white/50 text-base mb-8">Yangi yo'l belgilari 2026 — {totalSigns} ta belgi</p>
+          <p className="text-white/60 text-base mb-8">Yangi yo'l belgilari 2026 — {totalSigns} ta belgi</p>
           <div className="max-w-md mx-auto relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input

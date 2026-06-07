@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import {
-  Home, Car, BookOpen, Phone, Info, Crown, User, LogOut,
+import { 
+  Home, Car, BookOpen, Phone, Info, Crown, User, LogOut, 
   FileText, Layers, Sun, Moon
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -19,13 +19,13 @@ export function AppSidebar() {
   const { isDark, toggleTheme } = useTheme();
 
   const mainNav = [
-    { path: "/",         icon: Home,      labelKey: "nav.home" },
-    { path: "/variant",  icon: FileText,  labelKey: "nav.variantlar" },
-    { path: "/mavzuli",  icon: Layers,    labelKey: "nav.mavzuliTestlar" },
-    { path: "/belgilar", icon: Car,       labelKey: "nav.belgilar" },
-    { path: "/darslik",  icon: BookOpen,  labelKey: "nav.darslik" },
-    { path: "/qoshimcha",icon: Info,      labelKey: "nav.qoshimcha" },
-    { path: "/contact",  icon: Phone,     labelKey: "nav.contact" },
+    { path: "/",          icon: Home,     labelKey: "nav.home" },
+    { path: "/variant",   icon: FileText,  labelKey: "nav.variantlar" },
+    { path: "/mavzuli",   icon: Layers,    labelKey: "nav.mavzuliTestlar" },
+    { path: "/belgilar",  icon: Car,       labelKey: "nav.belgilar" },
+    { path: "/darslik",   icon: BookOpen,  labelKey: "nav.darslik" },
+    { path: "/qoshimcha", icon: Info,      labelKey: "nav.qoshimcha" },
+    { path: "/contact",   icon: Phone,     labelKey: "nav.contact" },
   ];
 
   const getInitials = (name: string | null | undefined) => {
@@ -35,7 +35,7 @@ export function AppSidebar() {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/auth");
+    navigate('/auth');
   };
 
   return (
@@ -91,7 +91,10 @@ export function AppSidebar() {
           onClick={toggleTheme}
           className="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm font-medium text-[hsl(var(--sidebar-foreground))] hover:bg-[hsl(var(--sidebar-accent))] hover:text-[hsl(var(--sidebar-accent-foreground))] transition-all"
         >
-          {isDark ? <Sun className="w-5 h-5 flex-shrink-0" /> : <Moon className="w-5 h-5 flex-shrink-0" />}
+          {isDark
+            ? <Sun  className="w-5 h-5 flex-shrink-0" />
+            : <Moon className="w-5 h-5 flex-shrink-0" />
+          }
           <span>{isDark ? "Kunduzgi rejim" : "Tungi rejim"}</span>
         </button>
       </div>
@@ -101,7 +104,7 @@ export function AppSidebar() {
         {user ? (
           <div className="space-y-2">
             <button
-              onClick={() => navigate("/profile")}
+              onClick={() => navigate('/profile')}
               className={cn(
                 "flex items-center gap-3 w-full px-3 py-2.5 rounded-xl hover:bg-[hsl(var(--sidebar-accent))] transition-colors text-left",
                 location.pathname === "/profile" && "bg-[hsl(var(--sidebar-accent))]"
@@ -131,7 +134,7 @@ export function AppSidebar() {
           </div>
         ) : (
           <Button
-            onClick={() => navigate("/auth")}
+            onClick={() => navigate('/auth')}
             className="w-full gap-2 bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white rounded-xl border-0"
           >
             <User className="w-4 h-4" />

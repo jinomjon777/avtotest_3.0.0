@@ -39,12 +39,13 @@ function useCounter(target: number, duration = 1800) {
 
 function StatChip({ target, suffix, label }: { target: number; suffix: string; label: string }) {
   const { count, ref } = useCounter(target);
+  const { CS } = useTheme();
   return (
     <div ref={ref} style={{ textAlign: "center", padding: "8px 0" }}>
-      <div style={{ fontSize: "clamp(26px, 5vw, 36px)", fontWeight: 700, color: "#fff", lineHeight: 1 }}>
+      <div style={{ fontSize: "clamp(26px, 5vw, 36px)", fontWeight: 700, color: CS.textPrimary, lineHeight: 1 }}>
         {count.toLocaleString()}{suffix}
       </div>
-      <div style={{ fontSize: "clamp(10px, 2.5vw, 12px)", color: "rgba(255,255,255,0.55)", marginTop: 4, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+      <div style={{ fontSize: "clamp(10px, 2.5vw, 12px)", color: CS.textSecondary, marginTop: 4, letterSpacing: "0.06em", textTransform: "uppercase" }}>
         {label}
       </div>
     </div>
@@ -210,7 +211,7 @@ export default function Home() {
       </section>
 
       {/* STATS */}
-      <section style={{ background: "#0A0B14", borderTop: "1px solid rgba(124,111,255,0.2)", borderBottom: "1px solid rgba(124,111,255,0.2)" }}>
+      <section style={{ background: CS.bg, borderTop: `1px solid ${CS.border}`, borderBottom: `1px solid ${CS.border}` }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 20px", display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "20px 16px" }} className="stats-grid">
           <StatChip target={1200} suffix="+" label={t("home.statQuestions")} />
           <StatChip target={61} suffix="" label={t("home.statVariants")} />
