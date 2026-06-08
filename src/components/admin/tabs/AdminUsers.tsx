@@ -7,9 +7,10 @@ import {
 } from "lucide-react";
 
 const CS = {
-  bg: "#0A0B14", card: "#16172a", border: "rgba(255,255,255,0.07)",
-  accent: "#7C6FFF", accentB: "#00C9C4", accentC: "#FF5F6D", gold: "#F5A623",
-  textPrimary: "#FFFFFF", textSecondary: "rgba(255,255,255,0.55)",
+  bg: "#F4F6FB", card: "#FFFFFF", surface: "#F8FAFC",
+  border: "#E2E8F0", borderHover: "#C7D2FE",
+  accent: "#6C5FF5", accentB: "#00A8A5", accentC: "#EF4444", gold: "#D97706",
+  textPrimary: "#0F172A", textSecondary: "#64748B", textHint: "#94A3B8",
 };
 
 interface Profile {
@@ -57,7 +58,7 @@ function StatusBadge({ status }: { status: string }) {
 
 const inp: React.CSSProperties = {
   width: "100%", padding: "10px 14px",
-  background: "rgba(255,255,255,0.05)", border: `1px solid ${CS.border}`,
+  background: "#F8FAFC", border: `1px solid ${CS.border}`,
   borderRadius: 10, color: CS.textPrimary, fontSize: 14,
   outline: "none", boxSizing: "border-box",
 };
@@ -67,7 +68,7 @@ const lbl: React.CSSProperties = {
 };
 const btnSm: React.CSSProperties = {
   width: 28, height: 28, display: "flex", alignItems: "center", justifyContent: "center",
-  background: "rgba(255,255,255,0.07)", border: `1px solid ${CS.border}`,
+  background: "rgba(124,111,255,0.12)", border: "1px solid rgba(124,111,255,0.3)",
   borderRadius: 8, cursor: "pointer", color: CS.textSecondary,
 };
 
@@ -127,8 +128,8 @@ function PremiumConfig({
             <button type="button" onClick={() => onChange({ ...value, days: Math.max(1, value.days - 1) })} style={btnSm}><Minus size={12} /></button>
             <input
               type="number" min={1} max={999} value={value.days}
-              onChange={e => onChange({ ...value, days: Number(e.target.value) })}
-              style={{ width: 60, padding: "6px 8px", background: "rgba(255,255,255,0.06)", border: `1px solid ${CS.border}`, borderRadius: 8, color: CS.textPrimary, fontSize: 13, textAlign: "center" }}
+              onChange={e => { const v = parseInt(e.target.value, 10); if (!isNaN(v) && v >= 1 && v <= 999) onChange({ ...value, days: v }); }}
+              style={{ width: 60, padding: "6px 8px", background: "#F8FAFC", border: `1px solid ${CS.border}`, borderRadius: 8, color: CS.textPrimary, fontSize: 13, textAlign: "center" }}
             />
             <button type="button" onClick={() => onChange({ ...value, days: Math.min(999, value.days + 1) })} style={btnSm}><Plus size={12} /></button>
             <span style={{ fontSize: 12, color: CS.textSecondary }}>
@@ -224,7 +225,7 @@ function CreateModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
     <div style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
       <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)" }} onClick={onClose} />
       <div style={{ position: "relative", background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "28px 24px", width: "100%", maxWidth: 480, maxHeight: "90vh", overflowY: "auto", boxShadow: "0 40px 80px rgba(0,0,0,0.6)" }}>
-        <button onClick={onClose} style={{ position: "absolute", top: 14, right: 14, background: "rgba(255,255,255,0.07)", border: "none", borderRadius: 8, width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: CS.textSecondary }}>
+        <button onClick={onClose} style={{ position: "absolute", top: 14, right: 14, background: "#F1F5F9", border: "1px solid #E2E8F0", borderRadius: 8, width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: CS.textSecondary }}>
           <X size={15} />
         </button>
 
@@ -312,7 +313,7 @@ function EditModal({ user, onClose, onSaved }: { user: Profile; onClose: () => v
     <div style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
       <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)" }} onClick={onClose} />
       <div style={{ position: "relative", background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "28px 24px", width: "100%", maxWidth: 400, boxShadow: "0 40px 80px rgba(0,0,0,0.6)" }}>
-        <button onClick={onClose} style={{ position: "absolute", top: 14, right: 14, background: "rgba(255,255,255,0.07)", border: "none", borderRadius: 8, width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: CS.textSecondary }}>
+        <button onClick={onClose} style={{ position: "absolute", top: 14, right: 14, background: "#F1F5F9", border: "1px solid #E2E8F0", borderRadius: 8, width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: CS.textSecondary }}>
           <X size={15} />
         </button>
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 22 }}>
@@ -451,8 +452,8 @@ function PremiumPanel({ user, onSaved }: { user: Profile; onSaved: () => void })
         <span style={{ fontSize: 12, color: CS.textSecondary }}>Maxsus:</span>
         <button onClick={() => setDays(d => Math.max(1, d - 1))} style={btnSm}><Minus size={12} /></button>
         <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
-          <input type="number" min={1} max={999} value={days} onChange={e => setDays(Number(e.target.value))}
-            style={{ width: 52, padding: "5px 8px", background: "rgba(255,255,255,0.06)", border: `1px solid ${CS.border}`, borderRadius: 8, color: CS.textPrimary, fontSize: 13, textAlign: "center" }} />
+          <input type="number" min={1} max={999} value={days} onChange={e => { const v = parseInt(e.target.value, 10); if (!isNaN(v) && v >= 1 && v <= 999) setDays(v); }}
+            style={{ width: 52, padding: "5px 8px", background: "rgba(124,111,255,0.08)", border: "1px solid rgba(124,111,255,0.35)", borderRadius: 8, color: CS.textPrimary, fontSize: 13, textAlign: "center" }} />
           <span style={{ fontSize: 12, color: CS.textSecondary }}>kun</span>
         </div>
         <button onClick={() => setDays(d => Math.min(999, d + 1))} style={btnSm}><Plus size={12} /></button>

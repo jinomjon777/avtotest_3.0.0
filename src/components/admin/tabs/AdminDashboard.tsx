@@ -3,9 +3,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { Users, Crown, Clock, MessageSquare, TrendingUp, Activity, CheckCircle, AlertCircle } from "lucide-react";
 
 const CS = {
-  bg: "#0A0B14", card: "#16172a", border: "rgba(255,255,255,0.07)",
-  accent: "#7C6FFF", accentB: "#00C9C4", accentC: "#FF5F6D", gold: "#F5A623",
-  textPrimary: "#FFFFFF", textSecondary: "rgba(255,255,255,0.55)",
+  bg: "#F4F6FB", surface: "#F8FAFC", card: "#FFFFFF",
+  border: "#E2E8F0", accent: "#6C5FF5", accentB: "#00A8A5",
+  accentC: "#EF4444", gold: "#D97706",
+  textPrimary: "#0F172A", textSecondary: "#64748B", textHint: "#94A3B8",
 };
 
 interface Stats {
@@ -143,7 +144,7 @@ export default function AdminDashboard() {
           {[
             { label: "Premium",  value: stats?.premiumUsers ?? 0, color: CS.gold },
             { label: "Trial",    value: stats?.trialUsers ?? 0,   color: CS.accentB },
-            { label: "Bepul",    value: stats?.freeUsers ?? 0,    color: "rgba(255,255,255,0.2)" },
+            { label: "Bepul",    value: stats?.freeUsers ?? 0,    color: "#F1F5F9" },
           ].map((item, i) => {
             const total = stats?.totalUsers || 1;
             const pct   = Math.round((item.value / total) * 100);
@@ -153,7 +154,7 @@ export default function AdminDashboard() {
                   <span style={{ fontSize: 13, color: CS.textSecondary }}>{item.label}</span>
                   <span style={{ fontSize: 13, fontWeight: 700, color: CS.textPrimary }}>{item.value} ({pct}%)</span>
                 </div>
-                <div style={{ height: 6, background: "rgba(255,255,255,0.06)", borderRadius: 4, overflow: "hidden" }}>
+                <div style={{ height: 6, background: "#F8FAFC", borderRadius: 4, overflow: "hidden" }}>
                   <div style={{ height: "100%", width: `${pct}%`, background: item.color, borderRadius: 4, transition: "width 1s ease" }} />
                 </div>
               </div>
@@ -193,7 +194,7 @@ export default function AdminDashboard() {
             <tbody>
               {recent.map((u, i) => (
                 <tr key={u.id} style={{ borderBottom: i < recent.length - 1 ? `1px solid ${CS.border}` : "none" }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.02)")}
+                  onMouseEnter={e => (e.currentTarget.style.background = "#F8FAFC")}
                   onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
                 >
                   <td style={{ padding: "12px 20px" }}>
@@ -209,7 +210,7 @@ export default function AdminDashboard() {
                     <span style={{
                       display: "inline-flex", alignItems: "center", gap: 5,
                       padding: "4px 10px", borderRadius: 100, fontSize: 12, fontWeight: 600,
-                      background: isPremium(u) ? "rgba(245,166,35,0.12)" : "rgba(255,255,255,0.06)",
+                      background: isPremium(u) ? "rgba(245,166,35,0.12)" : "#F8FAFC",
                       color: isPremium(u) ? CS.gold : CS.textSecondary,
                       border: `1px solid ${isPremium(u) ? "rgba(245,166,35,0.25)" : CS.border}`,
                     }}>

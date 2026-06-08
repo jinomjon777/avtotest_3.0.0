@@ -6,9 +6,10 @@ import {
 } from "lucide-react";
 
 const CS = {
-  bg: "#0A0B14", card: "#16172a", border: "rgba(255,255,255,0.07)",
-  accent: "#7C6FFF", accentB: "#00C9C4", accentC: "#FF5F6D", gold: "#F5A623",
-  textPrimary: "#FFFFFF", textSecondary: "rgba(255,255,255,0.55)",
+  bg: "#F4F6FB", surface: "#F8FAFC", card: "#FFFFFF",
+  border: "#E2E8F0", accent: "#6C5FF5", accentB: "#00A8A5",
+  accentC: "#EF4444", gold: "#D97706",
+  textPrimary: "#0F172A", textSecondary: "#64748B", textHint: "#94A3B8",
 };
 
 interface Chek {
@@ -60,7 +61,7 @@ function ActivateModal({ chek, onClose, onDone }: { chek: Chek; onClose: () => v
         <h3 style={{ margin: "0 0 20px", fontSize: 17, fontWeight: 700, color: CS.textPrimary }}>To'lovni tasdiqlash</h3>
 
         {/* Chek info */}
-        <div style={{ background: "rgba(255,255,255,0.04)", borderRadius: 12, padding: 14, marginBottom: 18, fontSize: 13 }}>
+        <div style={{ background: "#F8FAFC", borderRadius: 12, padding: 14, marginBottom: 18, fontSize: 13 }}>
           <div style={{ marginBottom: 6 }}><span style={{ color: CS.textSecondary }}>Email: </span><span style={{ color: CS.textPrimary, fontWeight: 600 }}>{chek.email}</span></div>
           <div style={{ marginBottom: 6 }}>
             <span style={{ color: CS.textSecondary }}>Chek: </span>
@@ -91,14 +92,14 @@ function ActivateModal({ chek, onClose, onDone }: { chek: Chek; onClose: () => v
           <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: CS.textSecondary, marginBottom: 10 }}>Tarif muddati</label>
           <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
             {[7, 30, 90].map(d => (
-              <button key={d} onClick={() => setDays(d)} style={{ flex: 1, padding: "9px 0", borderRadius: 10, border: days === d ? `1px solid rgba(124,111,255,0.5)` : `1px solid ${CS.border}`, background: days === d ? "rgba(124,111,255,0.15)" : "rgba(255,255,255,0.04)", color: days === d ? CS.accent : CS.textSecondary, fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
+              <button key={d} onClick={() => setDays(d)} style={{ flex: 1, padding: "9px 0", borderRadius: 10, border: days === d ? `1px solid rgba(124,111,255,0.5)` : `1px solid ${CS.border}`, background: days === d ? "rgba(124,111,255,0.15)" : "#F8FAFC", color: days === d ? CS.accent : CS.textSecondary, fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
                 {d} kun
               </button>
             ))}
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <input type="number" min={1} max={365} value={days} onChange={e => setDays(Number(e.target.value))}
-              style={{ width: 80, padding: "8px 12px", background: "rgba(255,255,255,0.06)", border: `1px solid ${CS.border}`, borderRadius: 10, color: CS.textPrimary, fontSize: 14, textAlign: "center" }} />
+              style={{ width: 80, padding: "8px 12px", background: "#F8FAFC", border: `1px solid ${CS.border}`, borderRadius: 10, color: CS.textPrimary, fontSize: 14, textAlign: "center" }} />
             <span style={{ fontSize: 13, color: CS.textSecondary }}>kun (maxsus kiritish)</span>
           </div>
         </div>
@@ -205,7 +206,7 @@ export default function AdminPayments() {
                 )}
                 {filtered.map((c, i) => (
                   <tr key={c.id} style={{ borderBottom: i < filtered.length - 1 ? `1px solid ${CS.border}` : "none" }}
-                    onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.02)")}
+                    onMouseEnter={e => (e.currentTarget.style.background = "#F8FAFC")}
                     onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
                   >
                     <td style={{ padding: "13px 18px" }}>

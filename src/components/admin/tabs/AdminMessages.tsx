@@ -3,9 +3,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { MessageSquare, Search, RefreshCw, Trash2, ChevronDown, ChevronUp, Phone, User, Mail } from "lucide-react";
 
 const CS = {
-  bg: "#0A0B14", card: "#16172a", border: "rgba(255,255,255,0.07)",
-  accent: "#7C6FFF", accentB: "#00C9C4", accentC: "#FF5F6D",
-  textPrimary: "#FFFFFF", textSecondary: "rgba(255,255,255,0.55)",
+  bg: "#F4F6FB", surface: "#F8FAFC", card: "#FFFFFF",
+  border: "#E2E8F0", accent: "#6C5FF5", accentB: "#00A8A5",
+  accentC: "#EF4444", gold: "#D97706",
+  textPrimary: "#0F172A", textSecondary: "#64748B", textHint: "#94A3B8",
 };
 
 interface Message {
@@ -149,7 +150,7 @@ export default function AdminMessages() {
                 {isOpen && (
                   <div style={{ padding: "0 18px 18px", borderTop: `1px solid ${CS.border}`, paddingTop: 16 }}>
                     {/* Message body */}
-                    <div style={{ background: "rgba(255,255,255,0.03)", borderRadius: 12, padding: 16, marginBottom: 14 }}>
+                    <div style={{ background: "#F8FAFC", borderRadius: 12, padding: 16, marginBottom: 14 }}>
                       <p style={{ margin: 0, fontSize: 14, color: CS.textPrimary, lineHeight: 1.7, whiteSpace: "pre-wrap" }}>{m.message}</p>
                     </div>
 
@@ -161,7 +162,7 @@ export default function AdminMessages() {
                         </a>
                       )}
                       {m.user_id && (
-                        <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 14px", background: "rgba(255,255,255,0.04)", borderRadius: 10, fontSize: 12, color: CS.textSecondary }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 14px", background: "#F8FAFC", borderRadius: 10, fontSize: 12, color: CS.textSecondary }}>
                           <User size={12} /> Ro'yxatdan o'tgan foydalanuvchi
                         </div>
                       )}
