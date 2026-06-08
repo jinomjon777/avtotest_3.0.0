@@ -71,13 +71,13 @@ export default function Belgilar() {
         keywords="yo'l belgilari, ogohlantiruvchi belgilar, taqiqlovchi belgilar"
       />
 
-      <section className="hero-bg py-12 md:py-16">
+      <section className="bg-[hsl(var(--sidebar-background))] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-14 h-14 mx-auto mb-5 bg-amber-500/15 rounded-2xl flex items-center justify-center border border-amber-500/20">
+          <div className="w-14 h-14 mx-auto mb-5 bg-amber-500/15 dark:bg-amber-500/15 rounded-2xl flex items-center justify-center border border-amber-500/30">
             <AlertTriangle className="w-7 h-7 text-amber-400" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Yo'l belgilari</h1>
-          <p className="text-white/50 text-base mb-8">Yangi yo'l belgilari 2026 — {totalSigns} ta belgi</p>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-[hsl(var(--sidebar-accent-foreground))] mb-3">Yo'l belgilari</h1>
+          <p className="text-[hsl(var(--sidebar-foreground))] text-base mb-8">Yangi yo'l belgilari 2026 — {totalSigns} ta belgi</p>
           <div className="max-w-md mx-auto relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input
@@ -85,7 +85,7 @@ export default function Belgilar() {
               placeholder="Belgilarni qidirish..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 py-5 text-base rounded-xl bg-white border-none shadow-lg"
+              className="pl-12 py-5 text-base rounded-xl bg-background text-foreground border-border shadow-lg"
             />
           </div>
         </div>

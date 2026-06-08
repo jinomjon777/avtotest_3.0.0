@@ -29,20 +29,20 @@ export default function Darslik() {
     <MainLayout>
       <SEO title="Video Darslik - YHQ bo'yicha video darslar" description="Yo'l harakati qoidalari bo'yicha video darsliklar." path="/darslik" keywords="YHQ darslik, video darslar" />
 
-      <section className="hero-bg py-6 md:py-8 border-b border-white/10">
+      <section className="bg-[hsl(var(--sidebar-background))] py-6 md:py-8 border-b border-[hsl(var(--sidebar-border))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center border border-primary/20">
               <Video className="w-5 h-5 text-amber-400" />
             </div>
             <div>
-              <h1 className="text-xl md:text-2xl font-bold text-white">Video Darslik</h1>
-              <p className="text-xs text-white/40 hidden md:block">YHQ bo'yicha video darsliklar</p>
+              <h1 className="text-xl md:text-2xl font-bold text-[hsl(var(--sidebar-accent-foreground))]">Video Darslik</h1>
+              <p className="text-xs text-[hsl(var(--sidebar-foreground))] hidden md:block">YHQ bo'yicha video darsliklar</p>
             </div>
           </div>
           <div className="inline-flex items-center gap-1.5 bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20">
             <BookOpen className="w-3.5 h-3.5 text-amber-400" />
-            <span className="text-xs text-amber-300/80">{chapters.length} bo'lim · {chapters.reduce((sum, c) => sum + c.data.length, 0)} video</span>
+            <span className="text-xs text-amber-600 dark:text-amber-300/80">{chapters.length} bo'lim · {chapters.reduce((sum, c) => sum + c.data.length, 0)} video</span>
           </div>
         </div>
       </section>

@@ -36,16 +36,16 @@ export default function Qoshimcha() {
       />
 
       {/* Hero */}
-      <section className="hero-bg py-14 md:py-20">
+      <section className="bg-[hsl(var(--sidebar-background))] py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-14 h-14 mx-auto mb-5 bg-[hsl(250_70%_56%/0.15)] rounded-2xl flex items-center justify-center border border-[hsl(250_70%_56%/0.2)]">
-            <Info className="w-7 h-7 text-[hsl(250_70%_75%)]" />
+          <div className="w-14 h-14 mx-auto mb-5 bg-primary/15 rounded-2xl flex items-center justify-center border border-primary/25">
+            <Info className="w-7 h-7 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4">Qo'shimcha ma'lumotlar</h1>
-          <p className="text-lg text-white/50 max-w-2xl mx-auto mb-8">Testga tayyorlanish bo'yicha batafsil yo'riqnoma, amaliy maslahatlar va qo'llanmalar.</p>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-[hsl(var(--sidebar-accent-foreground))] mb-4">Qo'shimcha ma'lumotlar</h1>
+          <p className="text-lg text-[hsl(var(--sidebar-foreground))] max-w-2xl mx-auto mb-8">Testga tayyorlanish bo'yicha batafsil yo'riqnoma, amaliy maslahatlar va qo'llanmalar.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link to="/darslik">
-              <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 gap-2 px-6 py-5 rounded-xl backdrop-blur-sm">
+              <Button variant="outline" className="bg-[hsl(var(--sidebar-accent))] border-[hsl(var(--sidebar-border))] text-[hsl(var(--sidebar-accent-foreground))] hover:bg-[hsl(var(--sidebar-border))] gap-2 px-6 py-5 rounded-xl">
                 <BookOpen className="w-5 h-5" />Darslik
               </Button>
             </Link>
