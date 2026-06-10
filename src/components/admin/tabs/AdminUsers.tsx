@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import {
   Search, Crown, Clock, ChevronDown, ChevronUp,
   RefreshCw, Plus, Minus, Check, X, UserPlus,
-  Trash2, Edit3, Eye, EyeOff, Save, Calendar,
+  Trash2, Edit3, Eye, EyeOff, Save,
 } from "lucide-react";
 
 const C = {
