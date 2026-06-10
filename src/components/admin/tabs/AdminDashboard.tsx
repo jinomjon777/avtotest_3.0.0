@@ -149,9 +149,9 @@ export default function AdminDashboard() {
 
   const CARDS = [
     { icon: <Users size={20} color="#4F46E5" />,        iconBg: "#EEF2FF", label: "Jami foydalanuvchilar", value: stats?.totalUsers ?? 0,     sub: `+${stats?.newUsersToday ?? 0} bugun` },
-    { icon: <Crown size={20} color="#D97706" />,         iconBg: "#FEF3C7", label: "Aktiv Premium",         value: stats?.premiumUsers ?? 0,    sub: "" },
-    { icon: <Activity size={20} color="#06B6D4" />,      iconBg: "#CFFAFE", label: "Aktiv Trial",           value: stats?.trialUsers ?? 0,      sub: "" },
-    { icon: <AlertCircle size={20} color="#EF4444" />,   iconBg: "#FEE2E2", label: "Muddati o'tgan",        value: stats?.expiredUsers ?? 0,    sub: "" },
+    { icon: <Crown size={20} color="#D97706" />,         iconBg: "#FEF3C7", label: "Aktiv Premium",         value: stats?.premiumUsers ?? 0,    sub: "tariff_end_date > hozir" },
+    { icon: <Activity size={20} color="#06B6D4" />,      iconBg: "#CFFAFE", label: "Aktiv Trial",           value: stats?.trialUsers ?? 0,      sub: "trial_end_date > hozir" },
+    { icon: <AlertCircle size={20} color="#EF4444" />,   iconBg: "#FEE2E2", label: "Muddati o'tgan",        value: stats?.expiredUsers ?? 0,    sub: "premium / trial tugagan" },
     { icon: <Users size={20} color="#8B5CF6" />,         iconBg: "#EDE9FE", label: "Bepul",                 value: stats?.freeUsers ?? 0,       sub: "obuna yo'q" },
     { icon: <Clock size={20} color="#0EA5E9" />,         iconBg: "#E0F2FE", label: "Bugungi yangi",         value: stats?.newUsersToday ?? 0,   sub: "bugun ro'yxatdan o'tgan" },
     { icon: <TrendingUp size={20} color="#10B981" />,    iconBg: "#D1FAE5", label: "Jami test natijalari",  value: stats?.totalTests ?? 0,      sub: `O'rtacha: ${stats?.avgScore ?? 0}%` },
