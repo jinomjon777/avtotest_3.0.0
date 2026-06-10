@@ -1,5 +1,5 @@
 import { useEffect, useState, Fragment } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase, supabaseAdmin } from "@/integrations/supabase/client";
 import {
   Search, Crown, Clock, ChevronDown, ChevronUp,
   RefreshCw, Plus, Minus, Check, X, UserPlus,
@@ -142,7 +142,7 @@ function CreateModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
       const userId = (data as any)?.id ?? (data as any)?.user_id ?? (typeof data === "string" ? data : null);
       if (premium.enabled && userId) {
         const start = new Date(); const end = new Date(Date.now() + premium.days * 86400000);
-        const { error: premErr } = await supabase.from("profiles").update({ tariff_days: premium.days, tariff_start_date: start.toISOString(), tariff_end_date: end.toISOString() }).eq("id", userId);
+        const { error: premErr } = await supabaseAdmin.from("profiles").update({ tariff_days: premium.days, tariff_start_date: start.toISOString(), tariff_end_date: end.toISOString() }).eq("id", userId);
         if (premErr) console.warn("Premium berish xatosi:", premErr.message);
       }
       onSaved(); onClose();
@@ -202,7 +202,7 @@ function EditModal({ user, onClose, onSaved }: { user: Profile; onClose: () => v
 
   const handleSave = async () => {
     setSaving(true); setError("");
-    const { error: err } = await supabase.from("profiles").update({ full_name: fullName.trim() || null, username: username.trim() || null }).eq("id", user.id);
+    const { error: err } = await supabaseAdmin.from("profiles").update({ full_name: fullName.trim() || null, username: username.trim() || null }).eq("id", user.id);
     if (err) { setError(err.message); setSaving(false); return; }
     onSaved(); onClose();
   };
@@ -239,7 +239,7 @@ function DeleteModal({ user, onClose, onDeleted }: { user: Profile; onClose: () 
     setDeleting(true);
     const { error: err } = await (supabase as any).rpc("admin_delete_user", { p_user_id: user.id });
     if (err) {
-      const { error: err2 } = await supabase.from("profiles").delete().eq("id", user.id);
+      const { error: err2 } = await supabaseAdmin.from("profiles").delete().eq("id", user.id);
       if (err2) { setError(err2.message); setDeleting(false); return; }
     }
     onDeleted(); onClose();
@@ -285,7 +285,7 @@ function PremiumPanel({ userId, users, onSaved }: { userId: string; users: Profi
       endDate = new Date(Date.now() + d * 86400000);
     }
     const start = new Date();
-    const { error } = await supabase.from("profiles").update({
+    const { error } = await supabaseAdmin.from("profiles").update({
       tariff_days: d,
       tariff_start_date: start.toISOString(),
       tariff_end_date: endDate.toISOString(),
@@ -296,7 +296,7 @@ function PremiumPanel({ userId, users, onSaved }: { userId: string; users: Profi
   };
   const revokePremium = async () => {
     setSaving(true); setMsg("");
-    const { error } = await supabase.from("profiles").update({ tariff_days: 0, tariff_end_date: null, tariff_start_date: null }).eq("id", user.id);
+    const { error } = await supabaseAdmin.from("profiles").update({ tariff_days: 0, tariff_end_date: null, tariff_start_date: null }).eq("id", user.id);
     if (error) setMsg("Xatolik: " + error.message);
     else { setMsg("✓ Premium bekor qilindi"); onSaved(); }
     setSaving(false);

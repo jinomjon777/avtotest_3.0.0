@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { supabaseAdmin } from "@/integrations/supabase/client";
 import { Users, Crown, Clock, MessageSquare, TrendingUp, Activity, AlertCircle, RefreshCw } from "lucide-react";
 
 const C = {
@@ -73,9 +73,9 @@ export default function AdminDashboard() {
       // Fetch all three tables in parallel — each handled independently so one failure
       // doesn't block the others
       const [profilesRes, testsRes, messagesRes] = await Promise.all([
-        supabase.from("profiles").select("id, tariff_days, tariff_end_date, tariff_start_date, is_trial_used, trial_end_date, created_at, full_name, email"),
-        supabase.from("test_results").select("correct_answers, total_questions"),
-        supabase.from("contact_messages").select("id"),
+        supabaseAdmin.from("profiles").select("id, tariff_days, tariff_end_date, tariff_start_date, is_trial_used, trial_end_date, created_at, full_name, email"),
+        supabaseAdmin.from("test_results").select("correct_answers, total_questions"),
+        supabaseAdmin.from("contact_messages").select("id"),
       ]);
 
       // Log errors for debugging but keep going with empty arrays
