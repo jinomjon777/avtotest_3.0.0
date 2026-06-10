@@ -139,10 +139,11 @@ function CreateModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
       const { data, error: rpcErr } = await (supabase as any).rpc("admin_create_user", { p_email: em, p_password: password.trim(), p_name: fullName.trim() || null, p_username: uname || null });
       if (rpcErr) { setError(rpcErr.message); setSaving(false); return; }
       if ((data as any)?.error) { setError((data as any).error); setSaving(false); return; }
-      const userId = (data as any)?.id;
+      const userId = (data as any)?.id ?? (data as any)?.user_id ?? (typeof data === "string" ? data : null);
       if (premium.enabled && userId) {
         const start = new Date(); const end = new Date(Date.now() + premium.days * 86400000);
-        await supabase.from("profiles").update({ tariff_days: premium.days, tariff_start_date: start.toISOString(), tariff_end_date: end.toISOString() }).eq("id", userId);
+        const { error: premErr } = await supabase.from("profiles").update({ tariff_days: premium.days, tariff_start_date: start.toISOString(), tariff_end_date: end.toISOString() }).eq("id", userId);
+        if (premErr) console.warn("Premium berish xatosi:", premErr.message);
       }
       onSaved(); onClose();
     } catch (e: any) { setError(e.message || "Xatolik yuz berdi"); }
@@ -265,18 +266,32 @@ function DeleteModal({ user, onClose, onDeleted }: { user: Profile; onClose: () 
   );
 }
 
-function PremiumPanel({ user, onSaved }: { user: Profile; onSaved: () => void }) {
+function PremiumPanel({ userId, users, onSaved }: { userId: string; users: Profile[]; onSaved: () => void }) {
+  const user = users.find(u => u.id === userId)!;
   const [days, setDays] = useState(30);
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState("");
-  const status = getStatus(user);
+  const status = user ? getStatus(user) : "free";
+
+  if (!user) return null;
 
   const givePremium = async (d: number) => {
     setSaving(true); setMsg("");
-    const start = new Date(); const end = new Date(Date.now() + d * 86400000);
-    const { error } = await supabase.from("profiles").update({ tariff_days: d, tariff_start_date: start.toISOString(), tariff_end_date: end.toISOString() }).eq("id", user.id);
+    // Agar hozir premium faol bo'lsa — muddatni uzaytirish (qo'shish)
+    let endDate: Date;
+    if (status === "premium" && user.tariff_end_date && new Date(user.tariff_end_date) > new Date()) {
+      endDate = new Date(new Date(user.tariff_end_date).getTime() + d * 86400000);
+    } else {
+      endDate = new Date(Date.now() + d * 86400000);
+    }
+    const start = new Date();
+    const { error } = await supabase.from("profiles").update({
+      tariff_days: d,
+      tariff_start_date: start.toISOString(),
+      tariff_end_date: endDate.toISOString(),
+    }).eq("id", user.id);
     if (error) setMsg("Xatolik: " + error.message);
-    else { setMsg(`✓ ${d} kun premium berildi`); onSaved(); }
+    else { setMsg(`✓ ${d} kun premium berildi (${endDate.toLocaleDateString("uz-UZ")} gacha)`); onSaved(); }
     setSaving(false);
   };
   const revokePremium = async () => {
@@ -299,10 +314,12 @@ function PremiumPanel({ user, onSaved }: { user: Profile; onSaved: () => void })
         </div>
       )}
       <div style={{ display: "flex", alignItems: "center", gap: 9, flexWrap: "wrap", marginBottom: 8 }}>
-        <span style={{ fontSize: 13, fontWeight: 600, color: C.text }}>Premium berish:</span>
+        <span style={{ fontSize: 13, fontWeight: 600, color: C.text }}>
+          {status === "premium" ? "Uzaytirish:" : "Premium berish:"}
+        </span>
         {[7, 30, 90].map(d => (
           <button key={d} onClick={() => givePremium(d)} disabled={saving}
-            style={{ padding: "5px 13px", borderRadius: 7, border: "none", background: "linear-gradient(135deg,#4F46E5,#06B6D4)", color: "#fff", fontWeight: 700, fontSize: 12, cursor: "pointer" }}>
+            style={{ padding: "5px 13px", borderRadius: 7, border: "none", background: "linear-gradient(135deg,#4F46E5,#06B6D4)", color: "#fff", fontWeight: 700, fontSize: 12, cursor: saving ? "not-allowed" : "pointer", opacity: saving ? 0.7 : 1 }}>
             {d} kun
           </button>
         ))}
@@ -479,7 +496,7 @@ export default function AdminUsers() {
                         </td>
                       </tr>
                       {isOpen && (
-                        <tr key={u.id + "_p"}><td colSpan={6} style={{ padding: 0 }}><PremiumPanel user={u} onSaved={fetchUsers} /></td></tr>
+                        <tr key={u.id + "_p"}><td colSpan={6} style={{ padding: 0 }}><PremiumPanel userId={u.id} users={users} onSaved={fetchUsers} /></td></tr>
                       )}
                     </>
                   );

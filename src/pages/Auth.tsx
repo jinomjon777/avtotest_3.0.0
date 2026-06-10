@@ -102,7 +102,7 @@ const Auth = () => {
         </div>
 
         {/* ── Right — Login form ── */}
-        <div className="flex-1 flex flex-col items-center justify-center p-6">
+        <div className="flex-1 flex flex-col items-center justify-center min-h-screen p-6 py-10">
           <div style={{ width: "100%", maxWidth: 420 }}>
 
             {/* Mobile logo */}
