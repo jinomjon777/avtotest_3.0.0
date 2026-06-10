@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import {
   Search, Crown, Clock, ChevronDown, ChevronUp,
@@ -456,8 +456,8 @@ export default function AdminUsers() {
                     ? Math.max(0, Math.ceil((new Date(u.tariff_end_date).getTime() - Date.now()) / 86400000))
                     : null;
                   return (
-                    <>
-                      <tr key={u.id} style={{ borderBottom: `1px solid ${C.border}`, transition: "background 0.1s" }}
+                    <Fragment key={u.id}>
+                      <tr style={{ borderBottom: `1px solid ${C.border}`, transition: "background 0.1s" }}
                         onMouseEnter={e => { e.currentTarget.style.background = "#F8FAFC"; }}
                         onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}>
                         <td style={{ padding: "11px 16px", fontSize: 13, color: C.muted, maxWidth: 200 }}>
@@ -498,7 +498,7 @@ export default function AdminUsers() {
                       {isOpen && (
                         <tr key={u.id + "_p"}><td colSpan={6} style={{ padding: 0 }}><PremiumPanel userId={u.id} users={users} onSaved={fetchUsers} /></td></tr>
                       )}
-                    </>
+                    </Fragment>
                   );
                 })}
               </tbody>
@@ -513,13 +513,13 @@ export default function AdminUsers() {
           <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1}
             style={{ padding: "6px 14px", borderRadius: 9, border: `1px solid ${C.border}`, background: C.card, color: C.muted, cursor: page === 1 ? "not-allowed" : "pointer", opacity: page === 1 ? 0.4 : 1, fontSize: 13 }}>← Oldingi</button>
           {Array.from({ length: totalPages }, (_, i) => i + 1).filter(p => p === 1 || p === totalPages || Math.abs(p - page) <= 1).map((p, i, arr) => (
-            <>
+            <Fragment key={p}>
               {i > 0 && arr[i-1] !== p - 1 && <span style={{ color: C.hint }}>...</span>}
-              <button key={p} onClick={() => setPage(p)}
+              <button onClick={() => setPage(p)}
                 style={{ width: 34, height: 34, borderRadius: 9, border: `1px solid ${page === p ? C.accent : C.border}`, background: page === p ? C.accent : C.card, color: page === p ? "#fff" : C.muted, cursor: "pointer", fontWeight: page === p ? 700 : 400, fontSize: 13 }}>
                 {p}
               </button>
-            </>
+            </Fragment>
           ))}
           <button onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page === totalPages}
             style={{ padding: "6px 14px", borderRadius: 9, border: `1px solid ${C.border}`, background: C.card, color: C.muted, cursor: page === totalPages ? "not-allowed" : "pointer", opacity: page === totalPages ? 0.4 : 1, fontSize: 13 }}>Keyingi →</button>
