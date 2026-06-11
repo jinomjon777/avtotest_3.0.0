@@ -4,7 +4,6 @@ import type { Database } from './types';
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder';
-const SUPABASE_SERVICE_KEY = import.meta.env.VITE_SUPABASE_SERVICE_KEY || '';
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
@@ -17,10 +16,3 @@ export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABL
   }
 });
 
-// Admin client — RLS ni bypass qiladi (faqat server/admin panel uchun)
-// VITE_SUPABASE_SERVICE_KEY .env ga qo'shilishi kerak
-export const supabaseAdmin = SUPABASE_SERVICE_KEY
-  ? createClient<Database>(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
-      auth: { persistSession: false, autoRefreshToken: false },
-    })
-  : supabase; // fallback: service key yo'q bo'lsa oddiy client

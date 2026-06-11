@@ -1,10 +1,28 @@
 import { useEffect, useState, Fragment } from "react";
-import { supabase, supabaseAdmin } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Search, Crown, Clock, ChevronDown, ChevronUp,
   RefreshCw, Plus, Minus, Check, X, UserPlus,
   Trash2, Edit3, Eye, EyeOff, Save,
 } from "lucide-react";
+
+// Edge Function orqali xavfsiz admin operatsiyalari
+const ADMIN_SECRET = import.meta.env.VITE_ADMIN_SECRET as string;
+const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-premium`;
+
+async function adminApi(action: string, payload: Record<string, unknown>) {
+  const res = await fetch(EDGE_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-admin-secret": ADMIN_SECRET,
+    },
+    body: JSON.stringify({ action, ...payload }),
+  });
+  const data = await res.json();
+  if (!res.ok || data.error) throw new Error(data.error || "Server xatosi");
+  return data;
+}
 
 const C = {
   bg: "#F1F5F9", card: "#FFFFFF", surface: "#F8FAFC",
@@ -141,9 +159,9 @@ function CreateModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
       if ((data as any)?.error) { setError((data as any).error); setSaving(false); return; }
       const userId = (data as any)?.id ?? (data as any)?.user_id ?? (typeof data === "string" ? data : null);
       if (premium.enabled && userId) {
-        const start = new Date(); const end = new Date(Date.now() + premium.days * 86400000);
-        const { error: premErr } = await supabaseAdmin.from("profiles").update({ tariff_days: premium.days, tariff_start_date: start.toISOString(), tariff_end_date: end.toISOString() }).eq("id", userId);
-        if (premErr) console.warn("Premium berish xatosi:", premErr.message);
+        try {
+          await adminApi("give_premium", { userId, days: premium.days });
+        } catch (e: any) { console.warn("Premium berish xatosi:", e.message); }
       }
       onSaved(); onClose();
     } catch (e: any) { setError(e.message || "Xatolik yuz berdi"); }
@@ -202,9 +220,10 @@ function EditModal({ user, onClose, onSaved }: { user: Profile; onClose: () => v
 
   const handleSave = async () => {
     setSaving(true); setError("");
-    const { error: err } = await supabaseAdmin.from("profiles").update({ full_name: fullName.trim() || null, username: username.trim() || null }).eq("id", user.id);
-    if (err) { setError(err.message); setSaving(false); return; }
-    onSaved(); onClose();
+    try {
+      await adminApi("update_profile", { userId: user.id, full_name: fullName.trim() || null, username: username.trim() || null });
+      onSaved(); onClose();
+    } catch (e: any) { setError(e.message); setSaving(false); }
   };
 
   return (
@@ -237,12 +256,13 @@ function DeleteModal({ user, onClose, onDeleted }: { user: Profile; onClose: () 
   const [error, setError] = useState("");
   const handleDelete = async () => {
     setDeleting(true);
-    const { error: err } = await (supabase as any).rpc("admin_delete_user", { p_user_id: user.id });
-    if (err) {
-      const { error: err2 } = await supabaseAdmin.from("profiles").delete().eq("id", user.id);
-      if (err2) { setError(err2.message); setDeleting(false); return; }
-    }
-    onDeleted(); onClose();
+    try {
+      // Avval RPC orqali auth user ni o'chirish
+      await (supabase as any).rpc("admin_delete_user", { p_user_id: user.id }).catch(() => {});
+      // Keyin profile ni o'chirish
+      await adminApi("delete_user", { userId: user.id });
+      onDeleted(); onClose();
+    } catch (e: any) { setError(e.message); setDeleting(false); }
   };
   return (
     <ModalWrap onClose={onClose}>
@@ -277,28 +297,20 @@ function PremiumPanel({ userId, users, onSaved }: { userId: string; users: Profi
 
   const givePremium = async (d: number) => {
     setSaving(true); setMsg("");
-    // Agar hozir premium faol bo'lsa — muddatni uzaytirish (qo'shish)
-    let endDate: Date;
-    if (status === "premium" && user.tariff_end_date && new Date(user.tariff_end_date) > new Date()) {
-      endDate = new Date(new Date(user.tariff_end_date).getTime() + d * 86400000);
-    } else {
-      endDate = new Date(Date.now() + d * 86400000);
-    }
-    const start = new Date();
-    const { error } = await supabaseAdmin.from("profiles").update({
-      tariff_days: d,
-      tariff_start_date: start.toISOString(),
-      tariff_end_date: endDate.toISOString(),
-    }).eq("id", user.id);
-    if (error) setMsg("Xatolik: " + error.message);
-    else { setMsg(`✓ ${d} kun premium berildi (${endDate.toLocaleDateString("uz-UZ")} gacha)`); onSaved(); }
+    try {
+      const result = await adminApi("give_premium", { userId: user.id, days: d });
+      const endDate = new Date(result.endDate);
+      setMsg(`✓ ${d} kun premium berildi (${endDate.toLocaleDateString("uz-UZ")} gacha)`);
+      onSaved();
+    } catch (e: any) { setMsg("Xatolik: " + e.message); }
     setSaving(false);
   };
   const revokePremium = async () => {
     setSaving(true); setMsg("");
-    const { error } = await supabaseAdmin.from("profiles").update({ tariff_days: 0, tariff_end_date: null, tariff_start_date: null }).eq("id", user.id);
-    if (error) setMsg("Xatolik: " + error.message);
-    else { setMsg("✓ Premium bekor qilindi"); onSaved(); }
+    try {
+      await adminApi("revoke_premium", { userId: user.id });
+      setMsg("✓ Premium bekor qilindi"); onSaved();
+    } catch (e: any) { setMsg("Xatolik: " + e.message); }
     setSaving(false);
   };
 
