@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabaseAdmin } from "@/integrations/supabase/client";
+import { supabase as supabaseAdmin } from "@/integrations/supabase/client";
 import { Users, Crown, Clock, MessageSquare, TrendingUp, Activity, AlertCircle, RefreshCw } from "lucide-react";
 
 const C = {
