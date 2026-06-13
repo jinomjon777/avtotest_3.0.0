@@ -1,88 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Bosh sahifa -->
   <url>
     <loc>https://smartavto.uz/</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://smartavto.uz/test-ishlash</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://smartavto.uz/belgilar</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
+  <!-- Variant testlar -->
   <url>
     <loc>https://smartavto.uz/variant</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Mavzuli testlar -->
   <url>
     <loc>https://smartavto.uz/mavzuli</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
+
+  <!-- Yo'l belgilari -->
   <url>
-    <loc>https://smartavto.uz/darslik</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://smartavto.uz/belgilar</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Darslik -->
+  <url>
+    <loc>https://smartavto.uz/darslik</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Premium -->
+  <url>
+    <loc>https://smartavto.uz/pro</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Qo'shimcha -->
   <url>
     <loc>https://smartavto.uz/qoshimcha</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://smartavto.uz/pro</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
+
+  <!-- Bog'lanish -->
   <url>
     <loc>https://smartavto.uz/contact</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <!-- Additional important informational pages -->
-  <url>
-    <loc>https://smartavto.uz/about</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://smartavto.uz/faq</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://smartavto.uz/privacy-policy</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://smartavto.uz/terms</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <!-- Static HTML versions for bots -->
-  <url>
-    <loc>https://smartavto.uz/static/index.html</loc>
-    <lastmod>2026-05-27</lastmod>
-    <priority>0.3</priority>
-  </url>
+
 </urlset>

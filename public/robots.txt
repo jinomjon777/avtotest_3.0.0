@@ -1,38 +1,11 @@
-# Smartavto.uz - Robots.txt (updated for SEO and crawl control)
 User-agent: *
+Allow: /
 
-# Allow public assets and core pages
-Allow: /$
-Allow: /index.html
-Allow: /static/
-Allow: /images/
-Allow: /public/
-Allow: /fonts/
-
-# Disallow user-specific, admin and backend routes
+# Admin va shaxsiy sahifalar
 Disallow: /admin
 Disallow: /admin/
-Disallow: /login
-Disallow: /signup
-Disallow: /profile
 Disallow: /auth
-Disallow: /api/
-Disallow: /functions/
-Disallow: /_next/
-Disallow: /sockjs-node
+Disallow: /profile
+Disallow: /dashboard
 
-# Prevent crawlers indexing query-parameter variants (reduces duplicate content)
-Disallow: /*?*
-
-# Crawl rate guidance (honored by some crawlers)
-Crawl-delay: 2
-
-# Recommended for Google and other engines
-User-agent: Googlebot
-Allow: /$
-Allow: /index.html
-Crawl-delay: 1
-
-# Sitemap and host
 Sitemap: https://smartavto.uz/sitemap.xml
-Host: https://smartavto.uz
