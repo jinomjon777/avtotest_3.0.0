@@ -76,12 +76,8 @@ export function MainLayout({ children }: MainLayoutProps) {
       if (menu && !menu.contains(target)) setLangMenuOpen(false);
     };
     window.addEventListener("click", handleOutside, { passive: true });
-    window.addEventListener("pointerdown", handleOutside, { passive: true });
-    window.addEventListener("touchstart", handleOutside, { passive: true });
     return () => {
       window.removeEventListener("click", handleOutside as EventListener);
-      window.removeEventListener("pointerdown", handleOutside as EventListener);
-      window.removeEventListener("touchstart", handleOutside as EventListener);
     };
   }, []);
 
@@ -161,7 +157,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   <div className="lang-menu-root fixed right-3 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
                     role="menu"
                     aria-labelledby="lang-toggle-btn"
-                    onMouseLeave={() => setLangMenuOpen(false)}
+                    
                     onClick={(e) => e.stopPropagation()}
                     style={{ zIndex: 9999, pointerEvents: "auto", width: "240px", maxWidth: "calc(100% - 32px)" }}>
                     {languages.map((l) => (
@@ -240,7 +236,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <div className="lang-menu-root fixed right-6 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
                   role="menu"
                   aria-labelledby="lang-toggle-btn-desktop"
-                  onMouseLeave={() => setLangMenuOpen(false)}
+                  
                   onClick={(e) => e.stopPropagation()}
                   style={{ zIndex: 9999, pointerEvents: "auto", width: "260px", maxWidth: "calc(100% - 32px)" }}>
                   {languages.map((l) => (
