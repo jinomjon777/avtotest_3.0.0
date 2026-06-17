@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,6 +10,7 @@ interface SignItem { src: string; title: string; }
 interface SignGroup { title: string; items: SignItem[]; }
 
 export default function Belgilar() {
+  const { t } = useLanguage();
   const [groups, setGroups] = useState<SignGroup[]>([]);
   const [loading, setLoading] = useState(true);
   const [modal, setModal] = useState<{ open: boolean; src: string; title: string }>({ open: false, src: "", title: "" });
@@ -65,8 +67,8 @@ export default function Belgilar() {
   return (
     <MainLayout>
       <SEO 
-        title="Yo'l belgilari 2026 - Barcha yangi belgilar"
-        description="O'zbekiston yo'l belgilari 2026 yil uchun."
+        title={t("belgilar.seoTitle")}
+        description={t("belgilar.seoDesc")}
         path="/belgilar"
         keywords="yo'l belgilari, ogohlantiruvchi belgilar, taqiqlovchi belgilar"
       />
@@ -76,13 +78,13 @@ export default function Belgilar() {
           <div className="w-14 h-14 mx-auto mb-5 bg-amber-500/15 dark:bg-amber-500/15 rounded-2xl flex items-center justify-center border border-amber-500/30">
             <AlertTriangle className="w-7 h-7 text-amber-400" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-[hsl(var(--sidebar-accent-foreground))] mb-3">Yo'l belgilari</h1>
-          <p className="text-[hsl(var(--sidebar-foreground))] text-base mb-8">Yangi yo'l belgilari 2026 — {totalSigns} ta belgi</p>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-[hsl(var(--sidebar-accent-foreground))] mb-3">{t("belgilar.title")}</h1>
+          <p className="text-[hsl(var(--sidebar-foreground))] text-base mb-8">{t("belgilar.subtitle").replace("{count}", String(totalSigns))}</p>
           <div className="max-w-md mx-auto relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Belgilarni qidirish..."
+              placeholder={t("belgilar.searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-12 py-5 text-base rounded-xl bg-background text-foreground border-border shadow-lg"

@@ -4,33 +4,35 @@ import { SEO } from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { 
   BookOpen, ListChecks, Target, Lightbulb, Play, FileText, Crown, CheckCircle, Info
 } from "lucide-react";
 
-const cards = [
-  { icon: FileText, title: "Test tuzilishi", description: "Test savollari mavzular bo'yicha guruhlangan: belgilar, qoidalar, harakatlanish holatlari va birinchi yordamga oid savollar.", gradient: "from-[hsl(250_70%_56%)] to-[hsl(250_70%_45%)]", iconColor: "text-white" },
-  { icon: Target, title: "O'rganish strategiyalari", description: "Belgilarni vizual tarzda yodlash, testlarni mashaqqat bilan yechish va noto'g'ri javoblarni alohida qayta ko'rib chiqish.", gradient: "from-[hsl(190_80%_45%)] to-[hsl(190_80%_35%)]", iconColor: "text-white" },
-  { icon: ListChecks, title: "Amaliy mashqlar", description: "20 va 50 savollik mashqlar mavjud — boshlanish uchun 20 savol rejimidan boshlash tavsiya etiladi.", gradient: "from-[hsl(217_91%_60%)] to-[hsl(217_91%_50%)]", iconColor: "text-white" },
-  { icon: Lightbulb, title: "Resurslar", description: "Grafik materiallar, rasmlar va video qo'llanmalar yordamida murakkab vaziyatlarni osonroq tushunishingiz mumkin.", gradient: "from-[hsl(160_60%_45%)] to-[hsl(160_60%_35%)]", iconColor: "text-white" }
-];
-
-const tips = [
-  "Kuzatuvchi belgilarni diqqat bilan o'qing.",
-  "Har bir savolga 30-45 soniya ajrating.",
-  "Amaliy savollarni qayta ko'rib, xatolarni tahlil qiling.",
-  "Kuniga kamida 1-2 ta variant yechib boring.",
-  "Yo'l belgilarini tasvirlar bilan birga yodlang."
-];
-
 export default function Qoshimcha() {
   const { user, profile } = useAuth();
-  
+  const { t } = useLanguage();
+
+  const cards = [
+    { icon: FileText, title: t("qoshimcha.card1Title"), description: t("qoshimcha.card1Desc"), gradient: "from-[hsl(250_70%_56%)] to-[hsl(250_70%_45%)]", iconColor: "text-white" },
+    { icon: Target, title: t("qoshimcha.card2Title"), description: t("qoshimcha.card2Desc"), gradient: "from-[hsl(190_80%_45%)] to-[hsl(190_80%_35%)]", iconColor: "text-white" },
+    { icon: ListChecks, title: t("qoshimcha.card3Title"), description: t("qoshimcha.card3Desc"), gradient: "from-[hsl(217_91%_60%)] to-[hsl(217_91%_50%)]", iconColor: "text-white" },
+    { icon: Lightbulb, title: t("qoshimcha.card4Title"), description: t("qoshimcha.card4Desc"), gradient: "from-[hsl(160_60%_45%)] to-[hsl(160_60%_35%)]", iconColor: "text-white" }
+  ];
+
+  const tips = [
+    t("qoshimcha.tip1"),
+    t("qoshimcha.tip2"),
+    t("qoshimcha.tip3"),
+    t("qoshimcha.tip4"),
+    t("qoshimcha.tip5"),
+  ];
+
   return (
     <MainLayout>
       <SEO 
-        title="Qo'shimcha ma'lumotlar - Test tayyorgarlik yo'riqnomasi"
-        description="Haydovchilik testiga tayyorlanish bo'yicha batafsil yo'riqnoma."
+        title={t("qoshimcha.seoTitle")}
+        description={t("qoshimcha.seoDesc")}
         path="/qoshimcha"
         keywords="test tayyorgarlik, o'rganish strategiyasi, imtihon maslahatlari"
       />
@@ -41,17 +43,17 @@ export default function Qoshimcha() {
           <div className="w-14 h-14 mx-auto mb-5 bg-primary/15 rounded-2xl flex items-center justify-center border border-primary/25">
             <Info className="w-7 h-7 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-[hsl(var(--sidebar-accent-foreground))] mb-4">Qo'shimcha ma'lumotlar</h1>
-          <p className="text-lg text-[hsl(var(--sidebar-foreground))] max-w-2xl mx-auto mb-8">Testga tayyorlanish bo'yicha batafsil yo'riqnoma, amaliy maslahatlar va qo'llanmalar.</p>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-[hsl(var(--sidebar-accent-foreground))] mb-4">{t("qoshimcha.title")}</h1>
+          <p className="text-lg text-[hsl(var(--sidebar-foreground))] max-w-2xl mx-auto mb-8">{t("qoshimcha.subtitle")}</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link to="/darslik">
               <Button variant="outline" className="bg-[hsl(var(--sidebar-accent))] border-[hsl(var(--sidebar-border))] text-[hsl(var(--sidebar-accent-foreground))] hover:bg-[hsl(var(--sidebar-border))] gap-2 px-6 py-5 rounded-xl">
-                <BookOpen className="w-5 h-5" />Darslik
+                <BookOpen className="w-5 h-5" />{t("qoshimcha.btnDarslik")}
               </Button>
             </Link>
             <Link to="/variant">
               <Button className="bg-gradient-to-r from-[hsl(190_80%_45%)] to-[hsl(190_80%_38%)] hover:from-[hsl(190_80%_38%)] hover:to-[hsl(190_80%_32%)] text-white gap-2 px-6 py-5 rounded-xl border-0">
-                <Play className="w-5 h-5" />Testlarni boshlash
+                <Play className="w-5 h-5" />{t("qoshimcha.btnStart")}
               </Button>
             </Link>
           </div>
@@ -67,10 +69,10 @@ export default function Qoshimcha() {
                 <div className="w-12 h-12 bg-gradient-to-br from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] rounded-xl flex items-center justify-center shadow-md shadow-[hsl(250_70%_56%/0.3)]">
                   <Crown className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-extrabold text-foreground">PREMIUM Bo'limi Haqida</h2>
+                <h2 className="text-2xl font-extrabold text-foreground">{t("qoshimcha.premiumTitle")}</h2>
               </div>
               <p className="text-muted-foreground leading-relaxed text-sm mb-6">
-                PREMIUM bo'limi oddiy testdan farq qiladi va savollar to'g'riligi to'g'ridan to'g'ri admin tomonidan tekshiriladi. Imtihonda ushbu testlarning tushish ehtimoli yuqori.
+                {t("qoshimcha.premiumDesc")}
               </p>
               {user && profile?.is_pro ? (
                 <div className="flex items-center gap-3 bg-primary/10 border border-primary/25 rounded-xl px-5 py-3 w-fit">
@@ -81,7 +83,7 @@ export default function Qoshimcha() {
               ) : (
                 <Link to="/pro">
                   <Button className="bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] hover:from-[hsl(250_70%_48%)] hover:to-[hsl(190_80%_38%)] text-white gap-2 px-6 py-5 rounded-xl font-bold border-0">
-                    <Crown className="w-5 h-5" />PREMIUM obunaga o'tish
+                    <Crown className="w-5 h-5" />{t("qoshimcha.premiumBtn")}
                   </Button>
                 </Link>
               )}
@@ -117,7 +119,7 @@ export default function Qoshimcha() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <Card className="border border-border/60 rounded-2xl shadow-sm">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-extrabold text-foreground mb-6 text-center">Tez maslahatlar</h2>
+              <h2 className="text-2xl font-extrabold text-foreground mb-6 text-center">{t("qoshimcha.tipsTitle")}</h2>
               <ul className="space-y-4">
                 {tips.map((tip, index) => (
                   <li key={index} className="flex items-start gap-3">

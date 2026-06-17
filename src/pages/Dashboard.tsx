@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { SEO } from "@/components/SEO";
 import { MainLayout } from "@/components/layout/MainLayout";
@@ -23,7 +24,6 @@ interface TestResult {
   completed_at: string;
 }
 
-// Color palette
 const PURPLE = "hsl(250 70% 56%)";
 const BLUE = "hsl(220 80% 55%)";
 const CYAN = "hsl(190 80% 50%)";
@@ -31,14 +31,13 @@ const BEIGE = "hsl(40 30% 95%)";
 
 export default function Dashboard() {
   const { user, profile, isLoading } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [results, setResults] = useState<TestResult[]>([]);
   const [loadingResults, setLoadingResults] = useState(true);
 
   useEffect(() => {
-    if (!isLoading && !user) {
-      navigate("/auth", { replace: true });
-    }
+    if (!isLoading && !user) navigate("/auth", { replace: true });
   }, [user, isLoading, navigate]);
 
   useEffect(() => {
@@ -83,20 +82,20 @@ export default function Dashboard() {
     return `${Math.floor(s / 60).toString().padStart(2, "0")}:${(s % 60).toString().padStart(2, "0")}`;
   };
 
-  const displayName = profile?.full_name || profile?.username || "Foydalanuvchi";
+  const displayName = profile?.full_name || profile?.username || t("nav.user");
 
   const stats = [
-    { icon: Trophy, label: "Jami testlar", value: totalTests, color: PURPLE, bg: "hsl(250 70% 56% / 0.1)" },
-    { icon: CheckCircle, label: "To'g'ri javoblar", value: totalCorrect, color: CYAN, bg: "hsl(190 80% 50% / 0.1)" },
-    { icon: XCircle, label: "Noto'g'ri javoblar", value: totalWrong, color: "hsl(0 70% 60%)", bg: "hsl(0 70% 60% / 0.1)" },
-    { icon: TrendingUp, label: "O'rtacha ball", value: `${avgScore}%`, color: BLUE, bg: "hsl(220 80% 55% / 0.1)" },
+    { icon: Trophy, label: t("dashboard.statTests"), value: totalTests, color: PURPLE, bg: "hsl(250 70% 56% / 0.1)" },
+    { icon: CheckCircle, label: t("dashboard.statCorrect"), value: totalCorrect, color: CYAN, bg: "hsl(190 80% 50% / 0.1)" },
+    { icon: XCircle, label: t("dashboard.statWrong"), value: totalWrong, color: "hsl(0 70% 60%)", bg: "hsl(0 70% 60% / 0.1)" },
+    { icon: TrendingUp, label: t("dashboard.statAvg"), value: `${avgScore}%`, color: BLUE, bg: "hsl(220 80% 55% / 0.1)" },
   ];
 
   const quickActions = [
-    { icon: Play, label: "Test boshlash", path: "/test-ishlash", primary: true },
-    { icon: FileText, label: "Variantlar", path: "/variant" },
-    { icon: Layers, label: "Mavzuli test", path: "/mavzuli" },
-    { icon: BookOpen, label: "Darslik", path: "/darslik" },
+    { icon: Play, label: t("dashboard.actionTest"), path: "/test-ishlash", primary: true },
+    { icon: FileText, label: t("dashboard.actionVariant"), path: "/variant" },
+    { icon: Layers, label: t("dashboard.actionMavzuli"), path: "/mavzuli" },
+    { icon: BookOpen, label: t("dashboard.actionDarslik"), path: "/darslik" },
   ];
 
   return (
@@ -112,15 +111,15 @@ export default function Dashboard() {
             <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full opacity-20" style={{ background: "white", filter: "blur(60px)" }} />
             <div className="absolute -bottom-20 -left-10 w-48 h-48 rounded-full opacity-10" style={{ background: "white", filter: "blur(40px)" }} />
             <div className="relative z-10">
-              <p className="text-white/80 text-sm font-medium mb-1">Xush kelibsiz</p>
+              <p className="text-white/80 text-sm font-medium mb-1">{t("dashboard.welcome")}</p>
               <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 font-montserrat">
                 {displayName} 👋
               </h1>
-              <p className="text-white/70 text-sm md:text-base">Bugungi tayyorgarlik holatiga ko'z tashlang</p>
+              <p className="text-white/70 text-sm md:text-base">{t("dashboard.todayReady")}</p>
               {profile?.is_pro && (
                 <div className="inline-flex items-center gap-1.5 mt-4 bg-white/15 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/30">
                   <Crown className="w-3.5 h-3.5 text-white" />
-                  <span className="text-xs font-bold text-white">PREMIUM faol</span>
+                  <span className="text-xs font-bold text-white">{t("dashboard.premiumActive")}</span>
                 </div>
               )}
             </div>
@@ -183,11 +182,11 @@ export default function Dashboard() {
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(250 70% 56% / 0.1)" }}>
                       <BarChart3 className="w-4 h-4" style={{ color: PURPLE }} />
                     </div>
-                    So'nggi natijalar
+                    {t("dashboard.recentResults")}
                   </h2>
                   {results.length > 5 && (
                     <Button variant="ghost" size="sm" onClick={() => navigate("/profile")} className="gap-1 text-[hsl(250_70%_56%)] hover:bg-[hsl(250_70%_56%/0.08)]">
-                      Barchasi <ArrowRight className="w-4 h-4" />
+                      {t("dashboard.seeAll")} <ArrowRight className="w-4 h-4" />
                     </Button>
                   )}
                 </div>
@@ -208,9 +207,9 @@ export default function Dashboard() {
                   ) : recentResults.length === 0 ? (
                     <EmptyState
                       icon={Trophy}
-                      title="Hali test ishlanmagan"
-                      description="Birinchi testingizni boshlang va natijalaringizni bu yerda kuzating"
-                      actionLabel="Test boshlash"
+                      title={t("dashboard.noTests")}
+                      description={t("dashboard.noTestsDesc")}
+                      actionLabel={t("dashboard.noTestsAction")}
                       onAction={() => navigate("/test-ishlash")}
                     />
                   ) : (
@@ -226,9 +225,9 @@ export default function Dashboard() {
                               {result.variant}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="font-semibold text-[hsl(230_25%_15%)] text-sm">Variant {result.variant}</p>
+                              <p className="font-semibold text-[hsl(230_25%_15%)] text-sm">{t("dashboard.resultVariant")} {result.variant}</p>
                               <div className="flex items-center gap-3 text-xs text-[hsl(230_15%_50%)]">
-                                <span>{result.correct_answers}/{result.total_questions} to'g'ri</span>
+                                <span>{result.correct_answers}/{result.total_questions} {t("dashboard.resultCorrect")}</span>
                                 <span>⏱ {formatTime(result.time_taken_seconds)}</span>
                               </div>
                             </div>
@@ -255,12 +254,12 @@ export default function Dashboard() {
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(190 80% 50% / 0.1)" }}>
                     <Target className="w-4 h-4" style={{ color: CYAN }} />
                   </div>
-                  Tayyorgarlik
+                  {t("dashboard.preparation")}
                 </h3>
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-[hsl(230_15%_50%)]">Variantlar</span>
+                      <span className="text-[hsl(230_15%_50%)]">{t("dashboard.variants")}</span>
                       <span className="font-semibold text-[hsl(230_25%_15%)]">{uniqueVariants}/61</span>
                     </div>
                     <div className="h-2 rounded-full overflow-hidden bg-[hsl(40_30%_94%)]">
@@ -272,7 +271,7 @@ export default function Dashboard() {
                   </div>
                   <div>
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-[hsl(230_15%_50%)]">O'rtacha ball</span>
+                      <span className="text-[hsl(230_15%_50%)]">{t("dashboard.avgScore")}</span>
                       <span className="font-semibold text-[hsl(230_25%_15%)]">{avgScore}%</span>
                     </div>
                     <div className="h-2 rounded-full overflow-hidden bg-[hsl(40_30%_94%)]">
@@ -297,16 +296,16 @@ export default function Dashboard() {
                         <Crown className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-white text-sm">PREMIUM</h3>
-                        <p className="text-xs text-white/70">To'liq imkoniyatlar</p>
+                        <h3 className="font-bold text-white text-sm">{t("dashboard.premiumCta")}</h3>
+                        <p className="text-xs text-white/70">{t("dashboard.premiumCtaDesc")}</p>
                       </div>
                     </div>
-                    <p className="text-xs text-white/80 mb-4">Barcha variantlar va mavzuli testlarga to'liq kirish</p>
+                    <p className="text-xs text-white/80 mb-4">{t("dashboard.premiumCtaText")}</p>
                     <Button
                       onClick={() => navigate("/pro")}
                       className="w-full bg-white hover:bg-white/90 text-[hsl(250_70%_45%)] font-bold rounded-xl"
                     >
-                      Batafsil ko'rish
+                      {t("dashboard.premiumCtaBtn")}
                     </Button>
                   </div>
                 </Card>
@@ -322,8 +321,8 @@ export default function Dashboard() {
                       <Crown className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-[hsl(230_25%_15%)] text-sm">PREMIUM faol</h3>
-                      <p className="text-xs text-[hsl(230_15%_50%)]">Barcha imkoniyatlar ochiq</p>
+                      <h3 className="font-bold text-[hsl(230_25%_15%)] text-sm">{t("dashboard.premiumActive")}</h3>
+                      <p className="text-xs text-[hsl(230_15%_50%)]">{t("dashboard.premiumActiveDesc")}</p>
                     </div>
                   </div>
                 </Card>
