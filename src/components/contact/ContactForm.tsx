@@ -28,9 +28,13 @@ export function ContactForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      const contactValue = contactMethod === "phone" ? `+998${phone}` : `@${telegram.replace(/^@/, '')}`;
       const { error } = await supabase.from('contact_messages').insert({
-        name: name.trim(), phone: contactValue, subject: `Aloqa: ${contactMethod.toUpperCase()}`, message: message.trim(), user_id: user?.id || null
+        name: name.trim(),
+        contact_method: contactMethod,
+        phone: contactMethod === "phone" ? `+998${phone}` : null,
+        telegram_username: contactMethod === "telegram" ? `@${telegram.replace(/^@/, '')}` : null,
+        subject: `Aloqa: ${contactMethod.toUpperCase()}`,
+        message: message.trim(),
       });
       if (error) throw error;
       toast({ title: t("contact.toastSuccess"), description: t("contact.toastSuccessDesc") });
