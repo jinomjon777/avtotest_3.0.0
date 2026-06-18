@@ -16,6 +16,19 @@ export default function Belgilar() {
   const [modal, setModal] = useState<{ open: boolean; src: string; title: string }>({ open: false, src: "", title: "" });
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Translate group title using flat locale keys
+  const SIGN_CAT_MAP: Record<string, string> = {
+    "Ogohlantiruvchi belgilar":       t("signCat_warning"),
+    "Imtiyozli belgilari":            t("signCat_priority"),
+    "Ta'qiqlovchi belgilar":          t("signCat_prohibit"),
+    "Buyuruvchi belgilar":            t("signCat_mandatory"),
+    "Axborot-ishora belgilari":       t("signCat_info"),
+    "Servis belgilari":               t("signCat_service"),
+    "Qo'shimcha axborot belgilari":   t("signCat_extra"),
+  };
+  const translateGroupTitle = (originalTitle: string): string =>
+    SIGN_CAT_MAP[originalTitle] || originalTitle;
+
   useEffect(() => {
     let cancelled = false;
     async function loadFromHtml() {
@@ -104,8 +117,12 @@ export default function Belgilar() {
               {filteredGroups.map((group, idx) => (
                 <div key={idx}>
                   <div className="flex items-center gap-3 mb-6">
-                    <h2 className="text-xl md:text-2xl font-bold text-foreground">{group.title}</h2>
-                    <span className="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full text-xs font-semibold">{group.items.length} ta</span>
+                    <h2 className="text-xl md:text-2xl font-bold text-foreground">
+                      {translateGroupTitle(group.title)}
+                    </h2>
+                    <span className="px-2.5 py-0.5 bg-primary/10 text-primary rounded-full text-xs font-semibold">
+                      {group.items.length} {t("belgilar.countUnit")}
+                    </span>
                   </div>
                   <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3">
                     {group.items.map((item, i) => (
@@ -126,7 +143,7 @@ export default function Belgilar() {
               ))}
               {filteredGroups.length === 0 && !loading && (
                 <div className="text-center py-20">
-                  <p className="text-muted-foreground text-lg">"{searchQuery}" bo'yicha hech narsa topilmadi</p>
+                  <p className="text-muted-foreground text-lg">"{searchQuery}" {t("common.notFound") || "bo'yicha hech narsa topilmadi"}</p>
                 </div>
               )}
             </div>

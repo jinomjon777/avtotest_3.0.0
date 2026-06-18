@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { SEO } from '@/components/SEO';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { useUserValidation } from '@/hooks/useUserValidation';
@@ -36,6 +37,7 @@ const BEIGE = "hsl(40 30% 95%)";
 
 const Profile = () => {
   const { user, profile, signOut, isLoading, refreshProfile } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const registrationDays = useRegistrationAge(user?.id);
   const trialStatus = useTrialStatus();
@@ -92,9 +94,9 @@ const Profile = () => {
         username: editUsername.trim() || null,
         full_name: editFullName.trim() || null,
       }).eq('id', user.id);
-      if (error) toast.error('Profil yangilanmadi: ' + error.message);
-      else { toast.success('Profil muvaffaqiyatli yangilandi'); await refreshProfile(); setIsEditing(false); }
-    } catch { toast.error('Xatolik yuz berdi'); }
+      if (error) toast.error(t('profile.updateFailed') + ': ' + error.message);
+      else { toast.success(t('profile.updateSuccess')); await refreshProfile(); setIsEditing(false); }
+    } catch { toast.error(t('profile.genericError')); }
     finally { setIsSaving(false); }
   };
 
@@ -127,21 +129,21 @@ const Profile = () => {
 
   if (!user) return null;
 
-  const displayName = profile?.full_name || profile?.username || 'Foydalanuvchi';
+  const displayName = profile?.full_name || profile?.username || t('profile.defaultName');
   const totalCorrect = results.reduce((s, r) => s + r.correct_answers, 0);
   const totalQuestions = results.reduce((s, r) => s + r.total_questions, 0);
   const initials = displayName.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
 
   const stats = [
-    { icon: Trophy, label: "Jami testlar", value: results.length, color: PURPLE, bg: "hsl(250 70% 56% / 0.1)" },
-    { icon: FileText, label: "Variantlar", value: sortedVariants.length, color: BLUE, bg: "hsl(220 80% 55% / 0.1)" },
-    { icon: CheckCircle, label: "To'g'ri", value: totalCorrect, color: CYAN, bg: "hsl(190 80% 50% / 0.1)" },
-    { icon: XCircle, label: "Noto'g'ri", value: totalQuestions - totalCorrect, color: "hsl(0 70% 60%)", bg: "hsl(0 70% 60% / 0.1)" },
+    { icon: Trophy, label: t('profile.statTotal'), value: results.length, color: PURPLE, bg: "hsl(250 70% 56% / 0.1)" },
+    { icon: FileText, label: t('profile.statVariants'), value: sortedVariants.length, color: BLUE, bg: "hsl(220 80% 55% / 0.1)" },
+    { icon: CheckCircle, label: t('profile.statCorrect'), value: totalCorrect, color: CYAN, bg: "hsl(190 80% 50% / 0.1)" },
+    { icon: XCircle, label: t('profile.statWrong'), value: totalQuestions - totalCorrect, color: "hsl(0 70% 60%)", bg: "hsl(0 70% 60% / 0.1)" },
   ];
 
   return (
     <MainLayout>
-      <SEO title="Profilim" description="Avtotest Premium foydalanuvchi profili." path="/profile" noIndex />
+      <SEO title={t('profile.seoTitle')} description={t('profile.seoDesc')} path="/profile" noIndex />
 
       <div className="min-h-screen" style={{ background: `linear-gradient(180deg, ${BEIGE} 0%, hsl(0 0% 100%) 100%)` }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 md:py-10">
@@ -174,7 +176,7 @@ const Profile = () => {
                   className="hidden md:flex bg-white/15 hover:bg-white/25 text-white border-0 rounded-xl gap-2"
                 >
                   <LogOut className="w-4 h-4" />
-                  Chiqish
+                  {t('profile.logout')}
                 </Button>
               </div>
             </div>
@@ -194,8 +196,8 @@ const Profile = () => {
                     <Clock className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-[hsl(230_25%_15%)]">Sinov muddati</h3>
-                    <p className="text-xs text-[hsl(230_15%_50%)]">PREMIUM funksiyalar uchun</p>
+                    <h3 className="font-bold text-[hsl(230_25%_15%)]">{t('profile.trialTitle')}</h3>
+                    <p className="text-xs text-[hsl(230_15%_50%)]">{t('profile.trialDesc')}</p>
                   </div>
                 </div>
                 <div className="text-2xl font-bold" style={{ color: BLUE }}>{formatTimeRemaining(trialStatus.timeRemaining)}</div>
@@ -208,15 +210,15 @@ const Profile = () => {
               <div className="flex items-center gap-3">
                 <AlertCircle className="w-10 h-10 text-[hsl(0_70%_55%)] flex-shrink-0" />
                 <div className="flex-1">
-                  <h3 className="font-bold text-[hsl(230_25%_15%)] mb-1">Sinov muddati tugadi</h3>
-                  <p className="text-sm text-[hsl(230_15%_50%)] mb-2">PREMIUM uchun obuna sotib oling</p>
+                  <h3 className="font-bold text-[hsl(230_25%_15%)] mb-1">{t('profile.trialEndedTitle')}</h3>
+                  <p className="text-sm text-[hsl(230_15%_50%)] mb-2">{t('profile.trialEndedDesc')}</p>
                   <Button
                     size="sm"
                     onClick={() => navigate('/pro')}
                     className="rounded-xl text-white font-bold border-0"
                     style={{ background: `linear-gradient(135deg, ${PURPLE}, ${BLUE})` }}
                   >
-                    PREMIUM olish
+                    {t('profile.getPremium')}
                   </Button>
                 </div>
               </div>
@@ -243,16 +245,16 @@ const Profile = () => {
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(250 70% 56% / 0.1)" }}>
                   <User className="w-4 h-4" style={{ color: PURPLE }} />
                 </div>
-                Profil ma'lumotlari
+                {t('profile.infoTitle')}
               </h2>
               {!isEditing ? (
                 <Button variant="outline" size="sm" onClick={() => setIsEditing(true)} className="gap-1.5 rounded-xl border-[hsl(230_20%_88%)]">
-                  <Edit2 className="w-3.5 h-3.5" /> Tahrirlash
+                  <Edit2 className="w-3.5 h-3.5" /> {t('profile.edit')}
                 </Button>
               ) : (
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" onClick={handleCancelEdit} disabled={isSaving} className="rounded-xl">
-                    <X className="w-3.5 h-3.5 mr-1" /> Bekor
+                    <X className="w-3.5 h-3.5 mr-1" /> {t('profile.cancel')}
                   </Button>
                   <Button
                     size="sm"
@@ -262,7 +264,7 @@ const Profile = () => {
                     style={{ background: `linear-gradient(135deg, ${PURPLE}, ${BLUE})` }}
                   >
                     {isSaving ? <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-1" /> : <Save className="w-3.5 h-3.5 mr-1" />}
-                    Saqlash
+                    {t('profile.save')}
                   </Button>
                 </div>
               )}
@@ -271,30 +273,30 @@ const Profile = () => {
             {isEditing ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <Label htmlFor="fullName" className="text-sm">To'liq ism</Label>
-                  <Input id="fullName" placeholder="Ismingiz" value={editFullName} onChange={(e) => setEditFullName(e.target.value)} disabled={isSaving} className="rounded-xl" />
+                  <Label htmlFor="fullName" className="text-sm">{t('profile.fullNameLabel')}</Label>
+                  <Input id="fullName" placeholder={t('profile.fullNamePlaceholder')} value={editFullName} onChange={(e) => setEditFullName(e.target.value)} disabled={isSaving} className="rounded-xl" />
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="username" className="text-sm">Foydalanuvchi nomi</Label>
+                  <Label htmlFor="username" className="text-sm">{t('profile.usernameLabel')}</Label>
                   <Input id="username" placeholder="@username" value={editUsername} onChange={(e) => setEditUsername(e.target.value)} disabled={isSaving} className="rounded-xl" />
                 </div>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {[
-                  { icon: User, label: "To'liq ism", value: profile?.full_name || '-' },
-                  { icon: User, label: "Username", value: profile?.username ? `@${profile.username}` : '-' },
-                  { icon: Mail, label: "Email", value: user.email || '-' },
-                  { icon: Phone, label: "Telefon", value: user.phone || '-' },
-                  { icon: FileText, label: "Chek", value: checkLink && checkLink !== 'yuklanmagan' ? checkLink : null, isLink: true },
-                  { icon: Calendar, label: "Ro'yxatdan", value: registrationDays !== null ? `${registrationDays} kun oldin` : '-' },
+                  { icon: User, label: t('profile.fieldFullName'), value: profile?.full_name || '-' },
+                  { icon: User, label: t('profile.fieldUsername'), value: profile?.username ? `@${profile.username}` : '-' },
+                  { icon: Mail, label: t('profile.fieldEmail'), value: user.email || '-' },
+                  { icon: Phone, label: t('profile.fieldPhone'), value: user.phone || '-' },
+                  { icon: FileText, label: t('profile.fieldCheck'), value: checkLink && checkLink !== 'yuklanmagan' ? checkLink : null, isLink: true },
+                  { icon: Calendar, label: t('profile.fieldRegistered'), value: registrationDays !== null ? `${registrationDays} ${t('profile.daysAgo')}` : '-' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-[hsl(40_30%_97%)]">
                     <item.icon className="w-4 h-4 text-[hsl(230_15%_55%)] mt-0.5 flex-shrink-0" />
                     <div className="min-w-0 flex-1">
                       <p className="text-xs text-[hsl(230_15%_50%)]">{item.label}</p>
                       {item.isLink && item.value ? (
-                        <a href={item.value} target="_blank" rel="noopener noreferrer" className="text-sm font-medium hover:underline" style={{ color: PURPLE }}>Yuklab olish</a>
+                        <a href={item.value} target="_blank" rel="noopener noreferrer" className="text-sm font-medium hover:underline" style={{ color: PURPLE }}>{t('profile.download')}</a>
                       ) : (
                         <p className="text-sm font-medium text-[hsl(230_25%_15%)] truncate">{item.value || '-'}</p>
                       )}
@@ -312,7 +314,7 @@ const Profile = () => {
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(190 80% 50% / 0.1)" }}>
                   <Trophy className="w-4 h-4" style={{ color: CYAN }} />
                 </div>
-                Eng yaxshi natijalar
+                {t('profile.bestResultsTitle')}
               </h2>
             </div>
             <div className="p-5">
@@ -329,9 +331,9 @@ const Profile = () => {
               ) : sortedVariants.length === 0 ? (
                 <EmptyState
                   icon={Trophy}
-                  title="Hali natijalar yo'q"
-                  description="Testni boshlang va natijalaringizni bu yerda kuzating"
-                  actionLabel="Test boshlash"
+                  title={t('profile.noResultsTitle')}
+                  description={t('profile.noResultsDesc')}
+                  actionLabel={t('profile.startTestAction')}
                   onAction={() => navigate('/test-ishlash')}
                 />
               ) : (
@@ -348,7 +350,7 @@ const Profile = () => {
                           {variant}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="font-semibold text-[hsl(230_25%_15%)] text-sm">Variant {variant}</p>
+                          <p className="font-semibold text-[hsl(230_25%_15%)] text-sm">{t('profile.variantLabel')} {variant}</p>
                           <div className="flex items-center gap-3 text-xs text-[hsl(230_15%_50%)]">
                             <span>{r.correct_answers}/{r.total_questions}</span>
                             <span>⏱ {formatTime(r.time_taken_seconds)}</span>
@@ -375,7 +377,7 @@ const Profile = () => {
             className="md:hidden w-full gap-2 rounded-xl border-[hsl(0_70%_60%/0.3)] text-[hsl(0_70%_55%)] hover:bg-[hsl(0_70%_60%/0.08)]"
           >
             <LogOut className="w-4 h-4" />
-            Hisobdan chiqish
+            {t('profile.logoutFull')}
           </Button>
         </div>
       </div>

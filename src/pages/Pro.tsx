@@ -12,31 +12,15 @@ import {
   MessageCircle, Sparkles, Lock,
 } from "lucide-react";
 
-const FEATURES = [
-  { icon: Database,    label: "1200+ ta yopiq savollar bazasi",    pro: true, free: false },
-  { icon: PlayCircle,  label: "To'liq maxsus video darsliklar",     pro: true, free: false },
-  { icon: BookOpen,    label: "61 ta to'liq test variant",          pro: true, free: true  },
-  { icon: Zap,         label: "Imtihonbop yopiq testlar",           pro: true, free: false },
-  { icon: Users,       label: "Admin ko'magi va Premium guruh",     pro: true, free: false },
-  { icon: Clock,       label: "Cheksiz vaqt va urinishlar",         pro: true, free: false },
-  { icon: ShieldCheck, label: "Mavzuli testlar (barcha bo'limlar)", pro: true, free: true  },
-  { icon: Star,        label: "Natijalar tahlili va statistika",    pro: true, free: false },
-];
-
 interface Plan {
   id: string; name: string; price: string; period: string;
   badge?: string; savings?: string; highlight: boolean;
 }
 
-const PLANS: Plan[] = [
-  { id: "weekly",    name: "Haftalik",  price: "15 000", period: "7 kun",  highlight: false },
-  { id: "monthly",   name: "Oylik",     price: "33 000", period: "30 kun", badge: "ENG MASHHUR", highlight: true },
-  { id: "quarterly", name: "3 Oylik",   price: "83 000", period: "90 kun", savings: "21% tejaysiz", highlight: false },
-];
-
 function PlanCard({ plan, onSelect }: { plan: Plan; onSelect: (p: Plan) => void }) {
   const [hovered, setHovered] = useState(false);
   const { CS } = useTheme();
+  const { t } = useLanguage();
   return (
     <div
       onMouseEnter={() => setHovered(true)}
@@ -87,11 +71,10 @@ function PlanCard({ plan, onSelect }: { plan: Plan; onSelect: (p: Plan) => void 
         <span style={{ fontSize: 36, fontWeight: 800, color: CS.textPrimary, fontFamily: "'Syne', sans-serif", lineHeight: 1 }}>
           {plan.price}
         </span>
-        <span style={{ fontSize: 14, color: CS.textSecondary }}>so'm</span>
+        <span style={{ fontSize: 14, color: CS.textSecondary }}>{t("common.som")}</span>
       </div>
-      <div style={{ fontSize: 13, color: CS.textHint, marginBottom: 24 }}>{plan.period} davomida</div>
+      <div style={{ fontSize: 13, color: CS.textHint, marginBottom: 24 }}>{plan.period} {t("pro.planPeriod")}</div>
 
-      {/* ── Tugma: border FAQAT bir marta, shartli ── */}
       <button
         style={{
           width: "100%",
@@ -112,11 +95,11 @@ function PlanCard({ plan, onSelect }: { plan: Plan; onSelect: (p: Plan) => void 
           boxShadow: plan.highlight ? `0 8px 24px rgba(124,111,255,0.35)` : "none",
         }}
       >
-        <Crown size={16} /> {plan.name} olish <ArrowRight size={14} />
+        <Crown size={16} /> {plan.name} {t("pro.planGetBtn")} <ArrowRight size={14} />
       </button>
 
       <div style={{ marginTop: 16, fontSize: 12, color: CS.textHint, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-        <Send size={11} /> Obuna uchun: @jumanazarov_0501
+        <Send size={11} /> {t("pro.planContact")}
       </div>
     </div>
   );
@@ -128,6 +111,23 @@ export default function Pro() {
   const { t } = useLanguage();
   const { CS } = useTheme();
   const { isPremium, expiresAt } = useAccessState();
+
+  const FEATURES = [
+    { icon: Database,    label: t("pro.feat1"),    pro: true, free: false },
+    { icon: PlayCircle,  label: t("pro.feat2"),    pro: true, free: false },
+    { icon: BookOpen,    label: t("pro.feat3"),    pro: true, free: true  },
+    { icon: Zap,         label: t("pro.feat4"),    pro: true, free: false },
+    { icon: Users,       label: t("pro.feat5"),    pro: true, free: false },
+    { icon: Clock,       label: t("pro.feat6"),    pro: true, free: false },
+    { icon: ShieldCheck, label: t("pro.feat7"),    pro: true, free: true  },
+    { icon: Star,        label: t("pro.feat8"),    pro: true, free: false },
+  ];
+
+  const PLANS: Plan[] = [
+    { id: "weekly",    name: t("pro.planWeeklyName"),    price: "15 000", period: t("pro.planWeeklyPeriod"),    highlight: false },
+    { id: "monthly",   name: t("pro.planMonthlyName"),   price: "33 000", period: t("pro.planMonthlyPeriod"),   badge: t("pro.planBadge"), highlight: true },
+    { id: "quarterly", name: t("pro.planQuarterlyName"), price: "83 000", period: t("pro.planQuarterlyPeriod"), savings: t("pro.planSavings"), highlight: false },
+  ];
 
   const handleSelect = (_plan: Plan) => {
     window.open("https://t.me/jumanazarov_0501", "_blank");
@@ -188,15 +188,15 @@ export default function Pro() {
           <div style={{ width: 32, height: 32, borderRadius: 10, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Crown size={16} color="#fff" />
           </div>
-          <span style={{ fontSize: 14, fontWeight: 700, color: CS.textPrimary }}>PREMIUM faol</span>
+          <span style={{ fontSize: 14, fontWeight: 700, color: CS.textPrimary }}>{t("pro.premiumActive")}</span>
           {expiresAt && (
-            <span style={{ fontSize: 13, color: CS.textSecondary }}>· {expiresAt.toLocaleDateString("uz-UZ")} gacha</span>
+            <span style={{ fontSize: 13, color: CS.textSecondary }}>· {expiresAt.toLocaleDateString("uz-UZ")} {t("pro.premiumActiveUntil")}</span>
           )}
           <button
             onClick={() => navigate("/dashboard")}
             style={{ padding: "7px 16px", borderRadius: 10, background: CS.surface, border: `1px solid ${CS.border}`, color: CS.textPrimary, cursor: "pointer", fontSize: 13, fontWeight: 600 }}
           >
-            Dashboard →
+            {t("pro.dashboardBtn")}
           </button>
         </div>
       )}
@@ -213,22 +213,22 @@ export default function Pro() {
           </div>
 
           <h1 style={{ margin: "0 0 18px", fontSize: "clamp(30px, 5vw, 58px)", fontWeight: 800, color: CS.textPrimary, lineHeight: 1.1, fontFamily: "'Syne', sans-serif", letterSpacing: "-0.02em" }}>
-            Imtihondan{" "}
+            {t("pro.heroTitle1")}{" "}
             <span style={{ background: `linear-gradient(90deg, ${CS.accent}, ${CS.accentB})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              birinchi urinishda
+              {t("pro.heroTitle2")}
             </span>{" "}
-            o'ting
+            {t("pro.heroTitle3")}
           </h1>
 
           <p style={{ margin: "0 0 36px", fontSize: "clamp(14px, 2.5vw, 17px)", color: CS.textSecondary, lineHeight: 1.7 }}>
-            Haqiqiy imtihonda tushish ehtimoli eng yuqori bo'lgan yopiq bazaga va maxsus video darsliklarga faqat PREMIUM orqali kirish huquqiga ega bo'lasiz.
+            {t("pro.heroSubtitle")}
           </p>
 
           <div className="pro-hero-trust">
             {[
-              { icon: <Users size={14} />, text: "5000+ foydalanuvchi" },
-              { icon: <Star size={14} />, text: "4.9 / 5 reyting" },
-              { icon: <ShieldCheck size={14} />, text: "Xavfsiz to'lov" },
+              { icon: <Users size={14} />, text: t("pro.trust1") },
+              { icon: <Star size={14} />, text: t("pro.trust2") },
+              { icon: <ShieldCheck size={14} />, text: t("pro.trust3") },
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: 7, color: CS.textSecondary, fontSize: 13 }}>
                 <span style={{ color: CS.accentB }}>{item.icon}</span>
@@ -243,16 +243,16 @@ export default function Pro() {
       <section style={{ background: CS.surface, borderTop: `1px solid ${CS.border}`, borderBottom: `1px solid ${CS.border}`, padding: "64px 20px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <h2 style={{ textAlign: "center", margin: "0 0 40px", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, color: CS.textPrimary, fontFamily: "'Syne', sans-serif" }}>
-            Oddiy vs Premium
+            {t("pro.compareTitle")}
           </h2>
 
           {/* Desktop table */}
           <div className="pro-compare-table">
             <div style={{ display: "grid", gridTemplateColumns: "1fr 140px 140px", background: CS.card, borderRadius: "20px 20px 0 0", border: `1px solid ${CS.border}`, borderBottom: "none", padding: "16px 24px" }}>
-              <div style={{ fontSize: 13, color: CS.textHint, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Xususiyat</div>
-              <div style={{ textAlign: "center", fontSize: 14, fontWeight: 700, color: CS.textSecondary }}>Oddiy</div>
+              <div style={{ fontSize: 13, color: CS.textHint, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>{t("pro.compareFeature")}</div>
+              <div style={{ textAlign: "center", fontSize: 14, fontWeight: 700, color: CS.textSecondary }}>{t("pro.compareBasic")}</div>
               <div style={{ textAlign: "center", fontSize: 14, fontWeight: 700, color: CS.accent, display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-                <Crown size={14} /> PREMIUM
+                <Crown size={14} /> {t("pro.comparePro")}
               </div>
             </div>
             {FEATURES.map((f, i) => (
@@ -287,7 +287,7 @@ export default function Pro() {
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 16, flexShrink: 0 }}>
                   <div style={{ textAlign: "center" }}>
-                    <div style={{ fontSize: 10, color: CS.textHint, marginBottom: 3 }}>Oddiy</div>
+                    <div style={{ fontSize: 10, color: CS.textHint, marginBottom: 3 }}>{t("pro.compareBasic")}</div>
                     {f.free ? <Check size={16} color={CS.accentB} /> : <X size={14} color="rgba(255,95,109,0.6)" />}
                   </div>
                   <div style={{ textAlign: "center" }}>
@@ -305,12 +305,12 @@ export default function Pro() {
       <section style={{ background: CS.bg, padding: "72px 20px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", color: CS.accentB, textTransform: "uppercase" }}>Narxlar</span>
+            <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", color: CS.accentB, textTransform: "uppercase" }}>{t("pro.pricingLabel")}</span>
             <h2 style={{ margin: "12px 0 12px", fontSize: "clamp(24px, 4vw, 42px)", fontWeight: 800, color: CS.textPrimary, fontFamily: "'Syne', sans-serif" }}>
-              O'zingizga mos tarifni tanlang
+              {t("pro.pricingSubtitle")}
             </h2>
             <p style={{ margin: 0, fontSize: 15, color: CS.textSecondary }}>
-              Barcha tariflarda to'liq PREMIUM imkoniyatlar kiradi
+              {t("pro.pricingNote")}
             </p>
           </div>
 
@@ -323,11 +323,11 @@ export default function Pro() {
           <div style={{ marginTop: 32, textAlign: "center", padding: "18px 20px", background: CS.surface, border: `1px solid ${CS.border}`, borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
             <Lock size={14} color={CS.textHint} />
             <span style={{ fontSize: 13, color: CS.textHint }}>
-              To'lov Telegram orqali qabul qilinadi. Savollar uchun{" "}
+              {t("pro.paymentNote")}{" "}
               <a href="https://t.me/jumanazarov_0501" target="_blank" rel="noopener noreferrer" style={{ color: CS.accent, fontWeight: 600 }}>
-                @jumanazarov_0501
+                {t("pro.paymentContact")}
               </a>
-              {" "}ga murojaat qiling.
+              {" "}{t("pro.paymentNote2")}
             </span>
           </div>
         </div>
@@ -337,13 +337,13 @@ export default function Pro() {
       <section style={{ background: CS.surface, borderTop: `1px solid ${CS.border}`, padding: "72px 20px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <h2 style={{ textAlign: "center", margin: "0 0 40px", fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, color: CS.textPrimary, fontFamily: "'Syne', sans-serif" }}>
-            Qanday olish mumkin?
+            {t("pro.howTitle")}
           </h2>
           <div className="pro-steps-grid">
             {[
-              { step: "01", icon: <Crown size={22} color={CS.accent} />,        title: "Tarifni tanlang",      desc: "Yuqoridan o'zingizga qulay haftalik, oylik yoki 3 oylik obuna variantini tanlang." },
-              { step: "02", icon: <MessageCircle size={22} color={CS.accentB} />, title: "Telegram'ga yozing",   desc: "@jumanazarov_0501 kanaliga murojaat qiling. Admin siz bilan bog'lanadi." },
-              { step: "03", icon: <Zap size={22} color={CS.accentC} />,          title: "Kirishni oling",        desc: "To'lovdan so'ng 5 daqiqa ichida akkauntingiz aktivatsiya qilinadi." },
+              { step: "01", icon: <Crown size={22} color={CS.accent} />,         title: t("pro.step1Title"), desc: t("pro.step1Desc") },
+              { step: "02", icon: <MessageCircle size={22} color={CS.accentB} />, title: t("pro.step2Title"), desc: t("pro.step2Desc") },
+              { step: "03", icon: <Zap size={22} color={CS.accentC} />,           title: t("pro.step3Title"), desc: t("pro.step3Desc") },
             ].map((s, i) => (
               <div key={i} style={{ position: "relative", background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "24px 20px" }}>
                 <div style={{ position: "absolute", top: 16, right: 16, fontSize: 28, fontWeight: 800, color: CS.textHint, opacity: 0.15, fontFamily: "'Syne', sans-serif", lineHeight: 1 }}>
@@ -366,10 +366,10 @@ export default function Pro() {
           <div style={{ background: `linear-gradient(135deg, rgba(124,111,255,0.15), rgba(0,201,196,0.08))`, border: `1px solid rgba(124,111,255,0.2)`, borderRadius: 24, padding: "40px 24px" }}>
             <div style={{ fontSize: 40, marginBottom: 16 }}>🚗</div>
             <h2 style={{ margin: "0 0 12px", fontSize: "clamp(22px, 4vw, 34px)", fontWeight: 800, color: CS.textPrimary, fontFamily: "'Syne', sans-serif" }}>
-              Bugun boshlang!
+              {t("pro.ctaTitle")}
             </h2>
             <p style={{ margin: "0 0 28px", fontSize: 15, color: CS.textSecondary, lineHeight: 1.7 }}>
-              5000+ o'quvchi allaqachon Premium'dan foydalanmoqda. Sizning navbatingiz!
+              {t("pro.ctaSubtitle")}
             </p>
             <div className="pro-cta-btns">
               <a
@@ -386,7 +386,7 @@ export default function Pro() {
                   width: "100%", maxWidth: 280, justifyContent: "center",
                 }}
               >
-                <MessageCircle size={17} /> Telegram'ga yozish
+                <MessageCircle size={17} /> {t("pro.ctaTelegram")}
               </a>
               <button
                 onClick={() => navigate("/test-ishlash")}
@@ -398,7 +398,7 @@ export default function Pro() {
                   cursor: "pointer", width: "100%", maxWidth: 280,
                 }}
               >
-                Bepul test ishlash
+                {t("pro.ctaFree")}
               </button>
             </div>
           </div>

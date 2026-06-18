@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { VideoChapter } from "@/data/videoDarslar";
 import { VideoPlayer } from "./VideoPlayer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ChapterAccordionProps {
   chapters: VideoChapter[];
@@ -9,6 +10,7 @@ interface ChapterAccordionProps {
 
 export function ChapterAccordion({ chapters }: ChapterAccordionProps) {
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
+  const { t } = useLanguage();
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
@@ -46,7 +48,7 @@ export function ChapterAccordion({ chapters }: ChapterAccordionProps) {
                       {chapter.title}
                     </p>
                     <p className="text-[10px] text-muted-foreground mt-0.5">
-                      {chapter.data.length} ta video
+                      {chapter.data.length} {t("common.ta")} {t("common.video")}
                     </p>
                   </div>
                 </div>
