@@ -214,7 +214,14 @@ export default function Pro() {
 
           <h1 style={{ margin: "0 0 18px", fontSize: "clamp(30px, 5vw, 58px)", fontWeight: 800, color: CS.textPrimary, lineHeight: 1.1, fontFamily: "'Syne', sans-serif", letterSpacing: "-0.02em" }}>
             {t("pro.heroTitle1")}{" "}
-            <span style={{ background: `linear-gradient(90deg, ${CS.accent}, ${CS.accentB})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            <span style={{
+              display: "inline-block",
+              backgroundImage: `linear-gradient(90deg, ${CS.accent}, ${CS.accentB})`,
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+              WebkitTextFillColor: "transparent",
+            }}>
               {t("pro.heroTitle2")}
             </span>{" "}
             {t("pro.heroTitle3")}
