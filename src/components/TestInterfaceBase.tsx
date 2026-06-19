@@ -653,10 +653,10 @@ export const TestInterfaceBase = ({
             {t("test.question")} {currentQuestion} / {totalQuestions}
           </div>
 
-          {/* Desktop: 60/40 split layout */}
-          <div className="md:flex md:gap-8 md:items-start">
-            {/* Left Column: Question + Answers (60%) */}
-            <div className="md:w-[60%] md:flex-shrink-0">
+          {/* Desktop: 60/40 split layout when image exists, centered single column otherwise */}
+          <div className={question.image ? "md:flex md:gap-8 md:items-start" : "max-w-2xl mx-auto"}>
+            {/* Left Column: Question + Answers (60% with image, full width centered without) */}
+            <div className={question.image ? "md:w-[60%] md:flex-shrink-0" : ""}>
               {/* Question Text */}
               <Card className="p-4 md:p-5 bg-card border-border mb-4">
                 <p className="text-base md:text-lg font-medium text-foreground leading-relaxed">

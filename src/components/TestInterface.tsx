@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -7,7 +8,6 @@ import { useTestResults } from "@/hooks/useTestResults";
 import {
   getInitialTimeRemaining,
   getInitialStartedAt,
-  getSavedTestState,
   clearTestState,
 } from "@/lib/testPersistence";
 import { Button } from "@/components/ui/button";
@@ -25,51 +25,27 @@ import {
 import { Clock, ChevronLeft, ChevronRight, X, Check, Maximize, Minimize, SkipForward } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
 
-// Eski format (lesson + data)
 interface QuestionData {
-  id: number;
-  bilet_id: number;
-  question_id: number;
-  name: string | null;
-  question: { oz: string; uz: string; ru: string };
-  photo: string | null;
+  id?: number;
+  bilet_id?: number;
+  question_id?: number;
+  name?: string | null;
+  question: {
+    oz?: string;
+    uz?: string;
+    ru?: string;
+  };
+  photo?: string | null;
+  image?: string | null;
   answers: {
     status: number;
-    answer_id: number;
-    answer: { oz: string[]; uz: string[]; ru: string[] };
+    answer_id?: number;
+    answer: {
+      oz?: string[];
+      uz?: string[];
+      ru?: string[];
+    };
   };
-}
-
-interface VariantData {
-  lesson: string;
-  data: QuestionData[];
-}
-
-// Yangi format: task_info, media_url, content.uz_lat / uz_cyr / ru
-type ContentLangKey = 'uz_lat' | 'uz_cyr' | 'ru';
-
-interface VariantTaskNew {
-  task_info?: { global_id?: string; ticket_num?: number; order?: number };
-  media_url?: string;
-  content: {
-    uz_lat?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
-    uz_cyr?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
-    ru?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
-  };
-}
-
-function isNewVariantFormat(raw: unknown): raw is VariantTaskNew[] {
-  return Array.isArray(raw) && raw.length > 0 && !!raw[0] && typeof (raw[0] as VariantTaskNew).content === 'object' && (
-    'uz_lat' in (raw[0] as VariantTaskNew).content ||
-    'uz_cyr' in (raw[0] as VariantTaskNew).content ||
-    'ru' in (raw[0] as VariantTaskNew).content
-  );
-}
-
-function getContentKey(questionLang: string): ContentLangKey {
-  if (questionLang === 'oz') return 'uz_lat';
-  if (questionLang === 'uz') return 'uz_cyr';
-  return 'ru';
 }
 
 interface Question {
@@ -80,47 +56,47 @@ interface Question {
   answers: { id: number; text: string }[];
 }
 
-interface TestInterfaceProps {
+interface MavzuliTestInterfaceProps {
   onExit: () => void;
-  variant: number;
+  topicId: string;
+  topicName: string;
   sessionId?: string | null;
   isPremiumSession?: boolean;
 }
 
-export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSession = true }: TestInterfaceProps) => {
+export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = null, isPremiumSession = false }: MavzuliTestInterfaceProps) => {
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
   const { saveTestResult } = useTestResults();
+  const navigate = useNavigate();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  // storageKey must be declared first – used in lazy useState initialisers below
-  const storageKey = `testState_variant_${variant}`;
-
+  // storageKey must be defined first – used in lazy state initialisers below
+  const storageKey = `testState_mavzuli_${topicId}`;
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [correctAnswers, setCorrectAnswers] = useState<Record<number, boolean>>({});
   const [revealedQuestions, setRevealedQuestions] = useState<Record<number, boolean>>({});
   // Init from endsAt so refresh doesn't reset the timer
   const [timeRemaining, setTimeRemaining] = useState(() =>
-    getInitialTimeRemaining(storageKey, 30 * 60)
+    getInitialTimeRemaining(storageKey, 60 * 60)
   );
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
   // Restored from localStorage so timeTaken stays accurate after refresh
   const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
-  const [resultSaved, setResultSaved] = useState(false);
-  // Increment to restart the timer interval (used by onTryAgain)
-  const [timerKey, setTimerKey] = useState(0);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const autoAdvanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   // Persist autoAdvance like language setting – survives page refresh
   const [autoAdvance, setAutoAdvance] = useState(() => {
     try { return localStorage.getItem('autoAdvance') === 'true'; } catch { return false; }
   });
-
-  const autoAdvanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // Increment to restart the timer interval (used by onTryAgain)
+  const [timerKey, setTimerKey] = useState(0);
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
   const isSwiping = useRef<boolean>(false);
@@ -151,28 +127,29 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
   // Fetch test data from JSON file
   useEffect(() => {
     const fetchTestData = async () => {
+      let parsedQuestions: Question[] = [];
       try {
         setLoading(true);
         setError(null);
         
-        const response = await fetch(`/data/variants/v${variant}.json`);
+        // Map topic id to filename - handle special cases
+        let filename = `${topicId}.json`;
+        if (topicId === '34') {
+          filename = '34tengaxamiyatli.json';
+        }
+        
+        const response = await fetch(`/mavzuli2/${filename}`);
         
         if (!response.ok) {
           throw new Error(t("test.errorLoadingData"));
         }
         
-        const raw = await response.json();
-        const contentKey = getContentKey(questionLang);
-
-        let transformedQuestions: Question[];
-
-        if (isNewVariantFormat(raw)) {
-          // Yangi format: [{ task_info, media_url, content: { uz_lat, uz_cyr, ru } }]
-          const tasks = raw as VariantTaskNew[];
-          if (tasks.length === 0) throw new Error(t("test.noQuestionsFound"));
-          // Rasmlar images papkasida webp formatda
-          const imageBase = "/images/";
-          transformedQuestions = tasks.map((task, idx) => {
+        const jsonData = await response.json();
+        
+        // New format: array of tasks with content.uz_lat/uz_cyr/ru structure
+        if (Array.isArray(jsonData) && jsonData.length > 0 && jsonData[0].content) {
+          const contentKey = questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
+          const tQuestions: Question[] = jsonData.map((task: any, idx: number) => {
             const langContent = task.content[contentKey] || task.content.uz_lat || task.content.uz_cyr || task.content.ru;
             if (!langContent || !langContent.options?.length) {
               return {
@@ -182,71 +159,75 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
                 correctAnswer: 1,
               };
             }
-            const options = langContent.options;
-            const correctOption = options.find((o) => o.is_correct);
-            const correctAnswer = correctOption ? correctOption.id : options[0].id;
+            const correctOption = langContent.options.find((o: any) => o.is_correct);
+            const correctAnswer = correctOption ? correctOption.id : langContent.options[0].id;
             let image: string | undefined;
             if (task.media_url?.trim()) {
-              if (task.media_url.startsWith("http")) {
-                image = task.media_url;
-              } else {
-                const path = task.media_url.replace(/^\//, "");
-                image = imageBase + (path.endsWith(".webp") ? path : path.replace(/\.[^.]+$/, "") + ".webp");
-              }
-            } else {
-              image = undefined;
+              const path = task.media_url.replace(/^\//, "");
+              image = "/images/" + path;
             }
             return {
               id: idx + 1,
               text: langContent.text || "",
               image,
               correctAnswer,
-              answers: options.map((o) => ({ id: o.id, text: o.text })),
+              answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
             };
           });
+          parsedQuestions = tQuestions;
         } else {
-          // Eski format: { lesson, data: QuestionData[] }
-          const variantData = raw as VariantData;
-          if (!variantData.data || variantData.data.length === 0) {
+          // Old format fallback
+          let questionsArray: QuestionData[] = [];
+          if (jsonData.data && Array.isArray(jsonData.data)) {
+            questionsArray = jsonData.data;
+          } else if (Array.isArray(jsonData)) {
+            questionsArray = jsonData;
+          } else if (jsonData.questions && Array.isArray(jsonData.questions)) {
+            questionsArray = jsonData.questions;
+          }
+          
+          if (questionsArray.length === 0) {
             throw new Error(t("test.noQuestionsFound"));
           }
-          const resolveImage = (obj: any) => {
-            if (obj?.media?.exist && obj.media.name) return `/images/${obj.media.name}.png`;
-            if (obj?.photo) return `/images/${obj.photo}`;
-            if (obj?.image) return `/images/${obj.image}`;
-            return undefined;
-          };
-          const answerLang = questionLang as 'oz' | 'uz' | 'ru';
-          transformedQuestions = variantData.data.map((q, idx) => {
-            const answers = q.answers?.answer?.[answerLang] || q.answers?.answer?.uz || [];
+
+          const tQuestions: Question[] = questionsArray.map((q, idx) => {
+            const answerLang = questionLang as 'oz' | 'uz' | 'ru';
+            const answers = q.answers.answer[answerLang] || q.answers.answer.uz || q.answers.answer.oz || [];
+            const questionText = q.question[answerLang] || q.question.uz || q.question.oz || '';
+            const photoField = q.photo || q.image;
+            
             return {
               id: idx + 1,
-              text: (q.question as any)?.[questionLang] || q.question?.uz || "",
-              image: resolveImage(q),
-              correctAnswer: q.answers?.status ?? 1,
-              answers: answers.map((answerText: string, ansIdx: number) => ({
+              text: questionText,
+              image: photoField ? `/images/${photoField}` : undefined,
+              correctAnswer: q.answers.status,
+              answers: answers.map((answerText, ansIdx) => ({
                 id: ansIdx + 1,
                 text: answerText,
               })),
             };
           });
+          parsedQuestions = tQuestions;
         }
 
-        const saved = getSavedTestState(storageKey);
-        if (
-          saved?.questions &&
-          Array.isArray(saved.questions) &&
-          saved.questions.length === transformedQuestions.length
-        ) {
-          // Use saved questions (preserves order/randomisation from first load)
-          setQuestions(saved.questions as typeof transformedQuestions);
-          setCurrentQuestion(saved.currentQuestion ?? 1);
-          setSelectedAnswers((saved.selectedAnswers as Record<number, number>) ?? {});
-          setCorrectAnswers((saved.correctAnswers as Record<number, boolean>) ?? {});
-          setRevealedQuestions((saved.revealedQuestions as Record<number, boolean>) ?? {});
-          // timeRemaining already initialized from endsAt via useState lazy init
-        } else {
-          setQuestions(transformedQuestions);
+        setQuestions(parsedQuestions);
+
+        // Restore in-progress test state from localStorage
+        try {
+          const savedRaw = localStorage.getItem(storageKey);
+          if (savedRaw) {
+            const parsed = JSON.parse(savedRaw);
+            if (parsed && parsed.questions && Array.isArray(parsed.questions) && parsed.questions.length === parsedQuestions.length) {
+              setCurrentQuestion(parsed.currentQuestion || 1);
+              setSelectedAnswers(parsed.selectedAnswers || {});
+              setCorrectAnswers(parsed.correctAnswers || {});
+              setRevealedQuestions(parsed.revealedQuestions || {});
+              // timeRemaining already initialised from endsAt via useState lazy init
+              // Do NOT restore showResults here – finished tests are cleared from storage
+            }
+          }
+        } catch (e) {
+          console.warn('Error restoring test state:', e);
         }
       } catch (err: any) {
         console.error('Error fetching test data:', err);
@@ -257,11 +238,11 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
     };
 
     fetchTestData();
-  }, [variant, questionLang, t]);
+  }, [topicId, questionLang, t]);
 
   // Timer – restarted whenever timerKey changes (e.g. after onTryAgain)
   useEffect(() => {
-    if (showResults) return; // Don't tick on results screen
+    if (showResults) return;
     timerRef.current = setInterval(() => {
       setTimeRemaining(prev => (prev <= 1 ? 0 : prev - 1));
     }, 1000);
@@ -314,13 +295,13 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const totalQuestions = questions.length || 20;
+  const totalQuestions = questions.length;
   const question = questions[currentQuestion - 1];
   const isRevealed = revealedQuestions[currentQuestion];
   const selectedAnswer = selectedAnswers[currentQuestion];
 
   const handleAnswerSelect = (answerId: number) => {
-    if (isRevealed || isSwiping.current) return;
+    if (isRevealed) return;
     
     const isCorrect = answerId === question.correctAnswer;
     
@@ -339,21 +320,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
       [currentQuestion]: true
     }));
 
-    // Check if this was the last question - auto-submit after brief delay
-    const answeredCount = Object.keys(selectedAnswers).length + 1;
-    if (answeredCount >= totalQuestions) {
-      if (autoAdvanceTimeoutRef.current) {
-        clearTimeout(autoAdvanceTimeoutRef.current);
-      }
-      autoAdvanceTimeoutRef.current = setTimeout(() => {
-        if (timerRef.current) clearInterval(timerRef.current);
-        clearTestState(storageKey);
-        setShowResults(true);
-      }, 1500);
-      return;
-    }
-
-    // Auto-advance to next question (only if enabled)
+    // Auto-advance (only if enabled)
     if (autoAdvance && currentQuestion < totalQuestions) {
       if (autoAdvanceTimeoutRef.current) {
         clearTimeout(autoAdvanceTimeoutRef.current);
@@ -361,6 +328,24 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
       autoAdvanceTimeoutRef.current = setTimeout(() => {
         setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
       }, 1100);
+    }
+  };
+
+  const handleSwipe = () => {
+    const swipeThreshold = 60;
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > swipeThreshold) {
+      isSwiping.current = true;
+      if (diff > 0 && currentQuestion < totalQuestions) {
+        if (autoAdvanceTimeoutRef.current) clearTimeout(autoAdvanceTimeoutRef.current);
+        setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
+      } else if (diff < 0 && currentQuestion > 1) {
+        if (autoAdvanceTimeoutRef.current) clearTimeout(autoAdvanceTimeoutRef.current);
+        setCurrentQuestion(prev => Math.max(1, prev - 1));
+      }
+      setTimeout(() => { isSwiping.current = false; }, 100);
+    } else {
+      isSwiping.current = false;
     }
   };
 
@@ -380,6 +365,20 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
     if (timerRef.current) clearInterval(timerRef.current);
     clearTestState(storageKey);
     exitFullscreen();
+
+    // Save result before showing results screen
+    let correct = 0;
+    Object.values(correctAnswers).forEach(isCorrect => { if (isCorrect) correct++; });
+    const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+    saveTestResult(
+      parseInt(topicId, 10) || 0,
+      correct,
+      questions.length,
+      timeTaken,
+      sessionId,
+      isPremiumSession,
+    );
+
     setShowResults(true);
   };
 
@@ -395,40 +394,6 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
     return { correct, incorrect };
   };
 
-  const handleSwipe = () => {
-    const swipeThreshold = 60;
-    const diff = touchStartX.current - touchEndX.current;
-    
-    if (Math.abs(diff) > swipeThreshold) {
-      isSwiping.current = true;
-      if (diff > 0 && currentQuestion < totalQuestions) {
-        if (autoAdvanceTimeoutRef.current) {
-          clearTimeout(autoAdvanceTimeoutRef.current);
-        }
-        setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
-      } else if (diff < 0 && currentQuestion > 1) {
-        if (autoAdvanceTimeoutRef.current) {
-          clearTimeout(autoAdvanceTimeoutRef.current);
-        }
-        setCurrentQuestion(prev => Math.max(1, prev - 1));
-      }
-      // Reset swiping flag after a short delay to prevent answer selection
-      setTimeout(() => { isSwiping.current = false; }, 100);
-    } else {
-      isSwiping.current = false;
-    }
-  };
-
-  // Save result when showing results
-  useEffect(() => {
-    if (showResults && user && !resultSaved) {
-      const stats = getTestStats();
-      const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
-      saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession);
-      setResultSaved(true);
-    }
-  }, [showResults, user, resultSaved]);
-
   // Show results screen
   if (showResults) {
     const stats = getTestStats();
@@ -441,7 +406,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
         correctAnswers={stats.correct}
         incorrectAnswers={stats.incorrect}
         timeTaken={timeTaken}
-        variant={variant}
+        variant={0}
         onBackToHome={onExit}
         onTryAgain={() => {
           clearTestState(storageKey);
@@ -449,9 +414,8 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
           setCorrectAnswers({});
           setRevealedQuestions({});
           setCurrentQuestion(1);
-          setTimeRemaining(30 * 60);
+          setTimeRemaining(60 * 60);
           setShowResults(false);
-          setResultSaved(false);
           setTimerKey(k => k + 1); // restart timer interval
         }}
       />
@@ -463,7 +427,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <div className="w-10 h-10 md:w-12 md:h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-muted-foreground text-lg">{t("test.variant")} {variant} {t("test.loading")}</p>
+          <p className="text-muted-foreground text-lg">{topicName} {t("test.loading")}</p>
         </div>
       </div>
     );
@@ -497,7 +461,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
       <header className="bg-card border-b border-border px-3 py-2 md:px-4 md:py-2.5 shrink-0">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3 md:gap-4">
-            <span className="text-xs md:text-sm font-medium text-muted-foreground">{t("test.variant")} {variant}</span>
+            <span className="text-xs md:text-sm font-medium text-muted-foreground line-clamp-1">{topicName}</span>
             <div className="flex items-center gap-1.5 text-muted-foreground">
               <Clock className="w-3.5 h-3.5 md:w-4 md:h-4" />
               <span className="text-sm md:text-base font-medium">{formatTime(timeRemaining)}</span>
@@ -560,35 +524,21 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
         }}
       />
 
-      {/* Main Content - Full width usage */}
       <main 
         className="flex-1 px-4 py-4 md:px-8 md:py-5 w-full overflow-y-auto"
-        onTouchStart={(e) => {
-          touchStartX.current = e.touches[0].clientX;
-          isSwiping.current = false;
-        }}
-        onTouchMove={(e) => {
-          const diff = Math.abs(e.touches[0].clientX - touchStartX.current);
-          if (diff > 30) isSwiping.current = true;
-        }}
-        onTouchEnd={(e) => {
-          touchEndX.current = e.changedTouches[0].clientX;
-          if (isSwiping.current) {
-            e.preventDefault();
-            handleSwipe();
-          }
-        }}
+        onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; isSwiping.current = false; }}
+        onTouchMove={(e) => { if (Math.abs(e.touches[0].clientX - touchStartX.current) > 30) isSwiping.current = true; }}
+        onTouchEnd={(e) => { touchEndX.current = e.changedTouches[0].clientX; if (isSwiping.current) { e.preventDefault(); handleSwipe(); } }}
       >
         <div className="max-w-7xl mx-auto">
-          {/* Question Number */}
           <div className="text-sm md:text-base text-muted-foreground mb-3 font-medium">
             {t("test.question")} {currentQuestion} / {totalQuestions}
           </div>
 
-          {/* Desktop: 60/40 split layout */}
-          <div className="md:flex md:gap-8 md:items-start">
-            {/* Left Column: Question + Answers (60%) */}
-            <div className="md:w-[60%] md:flex-shrink-0">
+          {/* Desktop: 60/40 split layout when image exists, centered single column otherwise */}
+          <div className={question.image ? "md:flex md:gap-8 md:items-start" : "max-w-2xl mx-auto"}>
+            {/* Left Column: Question + Answers (60% with image, full width centered without) */}
+            <div className={question.image ? "md:w-[60%] md:flex-shrink-0" : ""}>
               {/* Question Text */}
               <Card className="p-4 md:p-5 bg-card border-border mb-4">
                 <p className="text-base md:text-lg font-medium text-foreground leading-relaxed">
@@ -598,31 +548,9 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
 
               {/* Mobile Only: Question Image - bosilsa kattalashadi */}
               {question.image && (
-                <Card key={`mobile-img-${currentQuestion}`} className="md:hidden p-3 bg-card border-border mb-4 overflow-hidden">
-                  <button
-                    type="button"
-                    className="block w-full cursor-zoom-in focus:outline-none focus:ring-0"
-                    onClick={() => setZoomImage(question.image!)}
-                  >
-                    {/\.(png|jpe?g|webp)$/i.test(question.image || "") ? (
-                      <img
-                        key={question.image}
-                        src={question.image}
-                        alt="Question illustration"
-                        className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
-                      />
-                    ) : (
-                      <picture key={question.image}>
-                        <source srcSet={`${question.image}.png`} type="image/png" />
-                        <source srcSet={`${question.image}.jpg`} type="image/jpeg" />
-                        <source srcSet={`${question.image}.jpeg`} type="image/jpeg" />
-                        <img
-                          src={`${question.image}.png`}
-                          alt="Question illustration"
-                          className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
-                        />
-                      </picture>
-                    )}
+                <Card className="md:hidden p-3 bg-card border-border mb-4 overflow-hidden">
+                  <button type="button" className="block w-full cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
+                    <img src={question.image} alt="Question illustration" className="w-full max-w-[300px] h-auto mx-auto object-contain rounded" />
                   </button>
                 </Card>
               )}
@@ -636,7 +564,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
                   return (
                     <button
                       key={answer.id}
-                      onClick={() => handleAnswerSelect(answer.id)}
+                      onClick={() => { if (!isSwiping.current) handleAnswerSelect(answer.id); }}
                       disabled={isRevealed}
                       className={`
                         w-full p-4 md:p-4 rounded-lg border text-left transition-all duration-200
@@ -675,32 +603,10 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
 
             {/* Right Column: Image (Desktop only - 40%) - bosilsa kattalashadi */}
             {question.image && (
-              <div key={`desktop-img-${currentQuestion}`} className="hidden md:block md:w-[40%] md:flex-shrink-0">
+              <div className="hidden md:block md:w-[40%] md:flex-shrink-0">
                 <Card className="p-4 bg-card border-border overflow-hidden sticky top-4">
-                  <button
-                    type="button"
-                    className="block w-full cursor-zoom-in focus:outline-none focus:ring-0"
-                    onClick={() => setZoomImage(question.image!)}
-                  >
-                    {/\.(png|jpe?g|webp)$/i.test(question.image || "") ? (
-                      <img
-                        key={question.image}
-                        src={question.image}
-                        alt="Question illustration"
-                        className="w-full h-auto object-contain rounded max-h-[60vh]"
-                      />
-                    ) : (
-                      <picture key={question.image}>
-                        <source srcSet={`${question.image}.png`} type="image/png" />
-                        <source srcSet={`${question.image}.jpg`} type="image/jpeg" />
-                        <source srcSet={`${question.image}.jpeg`} type="image/jpeg" />
-                        <img
-                          src={`${question.image}.png`}
-                          alt="Question illustration"
-                          className="w-full h-auto object-contain rounded max-h-[60vh]"
-                        />
-                      </picture>
-                    )}
+                  <button type="button" className="block w-full cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
+                    <img src={question.image} alt="Question illustration" className="w-full h-auto object-contain rounded max-h-[60vh]" />
                   </button>
                 </Card>
               </div>
@@ -770,7 +676,6 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-
       <ImageLightbox imageUrl={zoomImage} onClose={() => setZoomImage(null)} />
     </div>
   );

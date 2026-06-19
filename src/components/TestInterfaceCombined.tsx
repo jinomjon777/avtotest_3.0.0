@@ -483,8 +483,8 @@ export const TestInterfaceCombined = ({
           <div className="text-sm md:text-base text-muted-foreground mb-3 font-medium">
           </div>
 
-          <div className="md:flex md:gap-8 md:items-start">
-            <div className="md:w-[60%] md:flex-shrink-0">
+          <div className={question.image ? "md:flex md:gap-8 md:items-start" : "max-w-2xl mx-auto"}>
+            <div className={question.image ? "md:w-[60%] md:flex-shrink-0" : ""}>
               <Card className="p-4 md:p-5 bg-card border-border mb-4">
                 <p className="text-base md:text-lg font-medium text-foreground leading-relaxed">
                   {question.text}
