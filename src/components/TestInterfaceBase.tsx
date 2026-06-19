@@ -654,7 +654,10 @@ export const TestInterfaceBase = ({
           </div>
 
           {/* Desktop: 60/40 split layout when image exists, centered single column otherwise */}
-          <div className={question.image ? "md:flex md:gap-8 md:items-start" : "max-w-2xl mx-auto"}>
+          <div
+            className={question.image ? "md:flex md:gap-8 md:items-start" : ""}
+            style={question.image ? undefined : { maxWidth: 672, marginLeft: "auto", marginRight: "auto" }}
+          >
             {/* Left Column: Question + Answers (60% with image, full width centered without) */}
             <div className={question.image ? "md:w-[60%] md:flex-shrink-0" : ""}>
               {/* Question Text */}
