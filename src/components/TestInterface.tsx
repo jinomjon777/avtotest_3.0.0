@@ -581,7 +581,10 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
       >
         <div className="max-w-7xl mx-auto">
           {/* Question Number */}
-          <div className="text-sm md:text-base text-muted-foreground mb-3 font-medium">
+          <div
+            className="text-sm md:text-base text-muted-foreground mb-3 font-medium"
+            style={question.image ? undefined : { maxWidth: 672, marginLeft: "auto", marginRight: "auto" }}
+          >
             {t("test.question")} {currentQuestion} / {totalQuestions}
           </div>
 
