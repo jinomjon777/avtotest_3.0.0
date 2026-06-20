@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import AdminLogin from "@/components/admin/AdminLogin";
 import AdminLayout from "@/components/admin/AdminLayout";
@@ -8,21 +7,44 @@ export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [checking, setChecking] = useState(true);
 
+  // Sahifa yangilanganda haqiqiy Supabase Auth sessiyasi va
+  // profiles.role = 'admin' ekanini qayta tekshiramiz.
+  // sessionStorage flag'iga ishonib bo'lmaydi — u DevTools'da
+  // bir qatorda qalbakilashtirilishi mumkin edi.
   useEffect(() => {
-    const auth = sessionStorage.getItem("admin_auth");
-    if (auth === "true") setIsAuthenticated(true);
-    setChecking(false);
+    const verify = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session?.user) {
+        setIsAuthenticated(false);
+        setChecking(false);
+        return;
+      }
+
+      const { data: isAdmin } = await supabase.rpc("has_role", {
+        _user_id: session.user.id,
+        _role: "admin",
+      });
+
+      setIsAuthenticated(!!isAdmin);
+      setChecking(false);
+    };
+
+    verify();
+
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session) setIsAuthenticated(false);
+    });
+
+    return () => listener.subscription.unsubscribe();
   }, []);
 
   const handleLogin = (success: boolean) => {
-    if (success) {
-      sessionStorage.setItem("admin_auth", "true");
-      setIsAuthenticated(true);
-    }
+    if (success) setIsAuthenticated(true);
   };
 
-  const handleLogout = () => {
-    sessionStorage.removeItem("admin_auth");
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
     setIsAuthenticated(false);
   };
 

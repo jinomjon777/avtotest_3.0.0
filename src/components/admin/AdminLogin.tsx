@@ -20,20 +20,29 @@ export default function AdminLogin({ onLogin }: { onLogin: (s: boolean) => void 
     setError("");
     setLoading(true);
     try {
-      const { data, error: dbErr } = await supabase
-        .from("admin")
-        .select("id, login, parol")
-        .eq("login", login.trim())
-        .maybeSingle();
+      // 1) Haqiqiy Supabase Auth orqali kirish (login maydoniga email kiritiladi)
+      const { data: authData, error: authErr } = await supabase.auth.signInWithPassword({
+        email: login.trim(),
+        password: parol,
+      });
 
-      if (dbErr || !data) {
+      if (authErr || !authData.user) {
         setError("Login yoki parol noto'g'ri");
         setLoading(false);
         return;
       }
 
-      if (data.parol.trim() !== parol.trim()) {
-        setError("Login yoki parol noto'g'ri");
+      // 2) Bu hisobning haqiqatan ham admin ekanini has_role() orqali
+      //    tekshiramiz. user_roles jadvali profiles'dan ALOHIDA —
+      //    oddiy foydalanuvchi bu yerga o'zi yoza olmaydi.
+      const { data: isAdmin, error: roleErr } = await supabase.rpc("has_role", {
+        _user_id: authData.user.id,
+        _role: "admin",
+      });
+
+      if (roleErr || !isAdmin) {
+        await supabase.auth.signOut();
+        setError("Bu hisobda admin huquqi yo'q");
         setLoading(false);
         return;
       }

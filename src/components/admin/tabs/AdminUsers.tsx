@@ -6,16 +6,21 @@ import {
   Trash2, Edit3, Eye, EyeOff, Save,
 } from "lucide-react";
 
-// Edge Function orqali xavfsiz admin operatsiyalari
-const ADMIN_SECRET = import.meta.env.VITE_ADMIN_SECRET as string;
+// Edge Function orqali xavfsiz admin operatsiyalari.
+// Statik secret o'rniga joriy admin sessiyasining haqiqiy JWT'si
+// yuboriladi — edge function uni server tomonda tekshiradi va
+// profiles.role === 'admin' ekanini tasdiqlaydi.
 const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-premium`;
 
 async function adminApi(action: string, payload: Record<string, unknown>) {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) throw new Error("Sessiya tugagan, qayta kiring");
+
   const res = await fetch(EDGE_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "x-admin-secret": ADMIN_SECRET,
+      "Authorization": `Bearer ${session.access_token}`,
     },
     body: JSON.stringify({ action, ...payload }),
   });
