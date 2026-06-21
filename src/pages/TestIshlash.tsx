@@ -19,6 +19,14 @@ import {
 } from "lucide-react";
 import { TestInterfaceBase } from "@/components/TestInterfaceBase";
 import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
+import { PREMIUM_QUESTIONS_URL } from "@/lib/fetchQuestionSource";
+
+// Premium fayl ("barcha.json") endi public papkada emas — faqat
+// get-premium-questions Edge Function orqali, server tomonida
+// tasdiqlangan premium foydalanuvchiga beriladi.
+function resolveDataSource(file: string): string {
+  return file === "barcha.json" ? PREMIUM_QUESTIONS_URL : `/${file}`;
+}
 
 const languages = [
   { id: "uz-lat" as const, label: "Lotin", file: "700baza2.json", proFile: "barcha.json" },
@@ -130,7 +138,7 @@ export default function TestIshlash() {
   };
 
   const effectiveDataFile = (testStarted && activeSession) ? (activeSession.dataFile ?? dataFile) : dataFile;
-  const dataSources = useMemo(() => [`/${effectiveDataFile}`], [effectiveDataFile]);
+  const dataSources = useMemo(() => [resolveDataSource(effectiveDataFile)], [effectiveDataFile]);
 
   if (testStarted && activeSession !== null) {
     if (questionCount === 50) {
@@ -148,7 +156,7 @@ export default function TestIshlash() {
     return (
       <TestInterfaceBase
         onExit={() => { setTestStarted(false); setActiveSession(null); }}
-        dataSource={`/${effectiveDataFile}`}
+        dataSource={resolveDataSource(effectiveDataFile)}
         testName="Test (20 ta)"
         questionCount={20}
         timeLimit={25 * 60}

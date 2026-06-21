@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Clock, ChevronLeft, ChevronRight, X, Check, SkipForward } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
+import { fetchQuestionSource } from "@/lib/fetchQuestionSource";
 
 interface QuestionDataFormat2 {
   id: number;
@@ -108,7 +109,7 @@ export const TestInterfaceCombined = ({
 
       // Fetch all data sources in parallel
       const responses = await Promise.all(
-        dataSources.map(source => fetch(source).then(res => res.json()))
+        dataSources.map(source => fetchQuestionSource(source).then(res => res.json()))
       );
 
       // Merge all questions from all sources

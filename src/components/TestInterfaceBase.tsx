@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Clock, ChevronLeft, ChevronRight, X, Check, SkipForward } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
+import { fetchQuestionSource } from "@/lib/fetchQuestionSource";
 
 // Format 1: Original format with nested question/answers objects
 interface QuestionDataFormat1 {
@@ -160,7 +161,7 @@ export const TestInterfaceBase = ({
         setLoading(true);
         setError(null);
         
-        const response = await fetch(dataSource);
+        const response = await fetchQuestionSource(dataSource);
         
         if (!response.ok) {
           throw new Error(t("test.errorLoadingData"));
@@ -465,7 +466,7 @@ export const TestInterfaceBase = ({
           setTimerKey(k => k + 1); // restart timer interval
           setLoading(true);
           // Trigger re-fetch by calling fetchTestData again
-          fetch(dataSource)
+          fetchQuestionSource(dataSource)
             .then(res => res.json())
             .then(jsonData => {
               let rawArray: any[] = [];
