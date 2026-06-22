@@ -102,11 +102,11 @@ export function MainLayout({ children }: MainLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen flex bg-background">
+    <div className="flex bg-background lg:min-h-screen">
       {/* Desktop Sidebar */}
       <AppSidebar />
 
-      <div className="flex-1 flex flex-col min-h-screen lg:ml-[260px]">
+      <div className="flex-1 flex flex-col lg:min-h-screen lg:ml-[260px]">
         {/* Mobile Top Bar */}
         <nav className={`lg:hidden sticky top-0 z-50 transition-all duration-300 ${
           scrolled
@@ -157,7 +157,6 @@ export function MainLayout({ children }: MainLayoutProps) {
                   <div className="lang-menu-root fixed right-3 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
                     role="menu"
                     aria-labelledby="lang-toggle-btn"
-                    
                     onClick={(e) => e.stopPropagation()}
                     style={{ zIndex: 9999, pointerEvents: "auto", width: "240px", maxWidth: "calc(100% - 32px)" }}>
                     {languages.map((l) => (
@@ -236,7 +235,6 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <div className="lang-menu-root fixed right-6 top-[56px] bg-card rounded-xl shadow-xl border border-border py-1 animate-scale-in"
                   role="menu"
                   aria-labelledby="lang-toggle-btn-desktop"
-                  
                   onClick={(e) => e.stopPropagation()}
                   style={{ zIndex: 9999, pointerEvents: "auto", width: "260px", maxWidth: "calc(100% - 32px)" }}>
                   {languages.map((l) => (
@@ -252,22 +250,22 @@ export function MainLayout({ children }: MainLayoutProps) {
         </header>
 
         {/* Main Content */}
-        <main className="flex-1 pb-20 lg:pb-0">{children}</main>
+        <main className="lg:flex-1">{children}</main>
 
         {/* Footer — desktop only, theme-aware */}
-        <footer className="hidden lg:block bg-[hsl(var(--sidebar-background))] border-t border-[hsl(var(--sidebar-border))]">
+        <footer className="block bg-[hsl(var(--sidebar-background))] border-t border-[hsl(var(--sidebar-border))] pb-20 lg:pb-0">
           <div className="max-w-7xl mx-auto px-6 py-10">
-            <div className="grid grid-cols-12 gap-8">
-              <div className="col-span-5">
-                <div className="flex items-center gap-3 mb-3">
+            <div className="grid grid-cols-1 gap-8 text-center lg:grid-cols-12 lg:gap-8 lg:text-left">
+              <div className="lg:col-span-5">
+                <div className="flex items-center justify-center gap-3 mb-3 lg:justify-start">
                   <img src={logoImg} alt="Logo" className="w-9 h-9 rounded-xl object-contain" width="36" height="36" />
                   <span className="font-bold text-lg font-montserrat gradient-text">
                     {t("common.siteName")}
                   </span>
                 </div>
-                <p className="text-[hsl(var(--sidebar-foreground))] text-sm leading-relaxed max-w-sm">{t("footer.aboutText")}</p>
+                <p className="text-[hsl(var(--sidebar-foreground))] text-sm leading-relaxed max-w-sm mx-auto lg:mx-0">{t("footer.aboutText")}</p>
               </div>
-              <div className="col-span-3">
+              <div className="lg:col-span-3">
                 <h3 className="font-semibold text-sm mb-3 text-[hsl(var(--accent))] uppercase tracking-wider">{t("footer.quickLinksTitle")}</h3>
                 <div className="space-y-2">
                   {navLinks.map((item) => (
@@ -275,7 +273,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   ))}
                 </div>
               </div>
-              <div className="col-span-4">
+              <div className="lg:col-span-4">
                 <h3 className="font-semibold text-sm mb-3 text-[hsl(var(--accent))] uppercase tracking-wider">{t("footer.contactTitle")}</h3>
                 <div className="space-y-2 text-sm text-[hsl(var(--sidebar-foreground))]">
                   <p>{t("footer.telegramLabel")}</p>

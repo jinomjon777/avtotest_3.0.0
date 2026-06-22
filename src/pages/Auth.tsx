@@ -54,14 +54,12 @@ const Auth = () => {
 
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
-        .auth-left { display: none; }
-        @media (min-width: 1024px) { .auth-left { display: flex !important; } }
       `}</style>
 
       <div className="min-h-screen flex bg-[hsl(var(--auth-bg))]">
 
         {/* ── Left — Branding (desktop only) ── */}
-        <div className="auth-left flex-col items-center justify-center p-12 relative overflow-hidden" style={{ flex: 1 }}>
+        <div className="hidden lg:flex flex-col items-center justify-center p-12 relative overflow-hidden" style={{ flex: 1 }}>
           <div style={{ position: "absolute", top: "15%", left: "5%", width: 300, height: 300, background: "radial-gradient(circle, rgba(124,111,255,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
           <div style={{ position: "absolute", bottom: "10%", right: "5%", width: 250, height: 250, background: "radial-gradient(circle, rgba(0,201,196,0.10) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -102,8 +100,8 @@ const Auth = () => {
         </div>
 
         {/* ── Right — Login form ── */}
-        <div className="flex-1 flex flex-col items-center justify-center min-h-screen p-6 py-10">
-          <div style={{ width: "100%", maxWidth: 420 }}>
+        <div className="w-full lg:flex-1 flex flex-col items-center justify-center min-h-screen p-6 py-10">
+          <div className="w-full mx-auto" style={{ maxWidth: 420 }}>
 
             {/* Mobile logo */}
             <div className="flex items-center justify-center gap-2.5 mb-8">

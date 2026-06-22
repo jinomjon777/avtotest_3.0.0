@@ -321,3 +321,23 @@
   border-color: hsla(250, 70%, 56%, 0.6);
   outline: none;
 }
+
+/* ──────────────────────────────────────────────────────────────
+   Mobil 100vh muammosi: ba'zi mobil brauzerlarda 100vh manzil
+   panelini (URL bar) hisobga olib hisoblanadi, lekin u
+   ko'rsatilganda haqiqiy ko'rinadigan balandlik kichikroq bo'lib
+   qoladi — natijada test interfeysida pastda bo'sh joy paydo
+   bo'ladi va "Oldingi/Keyingi" tugmalari sahifa torayganda
+   yuqoriga siljiydi. 100dvh (dynamic viewport height) buni
+   to'g'ri hal qiladi — brauzer panelining haqiqiy holatini
+   hisobga oladi. Eski brauzerlar (dvh qo'llamaydigan) uchun
+   100vh fallback sifatida qoladi.
+   ────────────────────────────────────────────────────────────── */
+.h-screen {
+  height: 100vh;
+}
+@supports (height: 100dvh) {
+  .h-screen {
+    height: 100dvh;
+  }
+}
