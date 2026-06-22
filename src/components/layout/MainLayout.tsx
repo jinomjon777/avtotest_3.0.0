@@ -102,11 +102,11 @@ export function MainLayout({ children }: MainLayoutProps) {
   }
 
   return (
-    <div className="flex bg-background lg:min-h-screen">
+    <div className="flex bg-background min-h-screen">
       {/* Desktop Sidebar */}
       <AppSidebar />
 
-      <div className="flex-1 flex flex-col lg:min-h-screen lg:ml-[260px]">
+      <div className="flex-1 flex flex-col min-h-screen lg:ml-[260px]">
         {/* Mobile Top Bar */}
         <nav className={`lg:hidden sticky top-0 z-50 transition-all duration-300 ${
           scrolled
@@ -250,7 +250,7 @@ export function MainLayout({ children }: MainLayoutProps) {
         </header>
 
         {/* Main Content */}
-        <main className="lg:flex-1">{children}</main>
+        <main className="flex-1">{children}</main>
 
         {/* Footer — desktop only, theme-aware */}
         <footer className="block bg-[hsl(var(--sidebar-background))] border-t border-[hsl(var(--sidebar-border))] pb-20 lg:pb-0">
