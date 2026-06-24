@@ -122,8 +122,12 @@ Deno.serve(async (req) => {
 
       // haqiqiy auth.users hisobini ham o'chiramiz, aks holda
       // foydalanuvchi hali ham tizimga kira oladi.
+      // "User not found" xatosi bo'lsa ham davom etamiz —
+      // auth user RPC orqali allaqachon o'chirilgan bo'lishi mumkin.
       const { error: authDeleteErr } = await supabase.auth.admin.deleteUser(userId);
-      if (authDeleteErr) throw authDeleteErr;
+      if (authDeleteErr && !authDeleteErr.message.toLowerCase().includes("not found")) {
+        throw authDeleteErr;
+      }
 
       return json({ success: true });
     }
