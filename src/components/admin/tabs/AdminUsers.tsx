@@ -263,7 +263,12 @@ function DeleteModal({ user, onClose, onDeleted }: { user: Profile; onClose: () 
     setDeleting(true);
     try {
       // Avval RPC orqali auth user ni o'chirish
-      await (supabase as any).rpc("admin_delete_user", { p_user_id: user.id }).catch(() => {});
+      try {
+        const { error: rpcErr } = await (supabase as any).rpc("admin_delete_user", { p_user_id: user.id });
+        if (rpcErr) console.warn("admin_delete_user RPC xatosi:", rpcErr.message);
+      } catch {
+        // RPC xatosi bo'lsa ham davom etamiz
+      }
       // Keyin profile ni o'chirish
       await adminApi("delete_user", { userId: user.id });
       onDeleted(); onClose();
