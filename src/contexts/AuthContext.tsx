@@ -4,6 +4,60 @@ import { User, Session } from '@supabase/supabase-js';
 import { clearAllUserData } from '@/hooks/useUserValidation';
 import { toast } from '@/hooks/use-toast';
 
+const DEVICE_EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/check-device`;
+
+function getOrCreateDeviceId(): string {
+  const KEY = "avtotest_device_id";
+  let id = localStorage.getItem(KEY);
+  if (!id) {
+    id = crypto.randomUUID();
+    localStorage.setItem(KEY, id);
+  }
+  return id;
+}
+
+function getDeviceInfo(): string {
+  return navigator.userAgent.slice(0, 120);
+}
+
+async function registerDevice(accessToken: string): Promise<{ error?: string }> {
+  try {
+    const res = await fetch(DEVICE_EDGE_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        action: "register_device",
+        device_id: getOrCreateDeviceId(),
+        device_info: getDeviceInfo(),
+      }),
+    });
+    const data = await res.json();
+    if (!res.ok) return { error: data.error || "Qurilma tekshiruvida xato" };
+    return {};
+  } catch {
+    return {};
+  }
+}
+
+async function removeDevice(accessToken: string): Promise<void> {
+  try {
+    await fetch(DEVICE_EDGE_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        action: "remove_device",
+        device_id: getOrCreateDeviceId(),
+      }),
+    });
+  } catch { /* ignore */ }
+}
+
 interface Profile {
   id: string;
   username: string | null;
@@ -191,8 +245,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signIn = useCallback(async (email: string, password: string): Promise<{ error: Error | null }> => {
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) return { error };
+
+      // Qurilma cheklovi tekshiruvi
+      if (data.session?.access_token) {
+        const deviceCheck = await registerDevice(data.session.access_token);
+        if (deviceCheck.error) {
+          // Limit oshib ketgan — darhol chiqish
+          await supabase.auth.signOut();
+          return { error: new Error(deviceCheck.error) };
+        }
+      }
+
       return { error: null };
     } catch (err) {
       return { error: err as Error };
@@ -215,6 +280,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signOut = useCallback(async () => {
     try {
+      // Chiqishdan oldin qurilmani ro'yxatdan o'chirish
+      const { data: { session: currentSession } } = await supabase.auth.getSession();
+      if (currentSession?.access_token) {
+        await removeDevice(currentSession.access_token);
+      }
       await supabase.auth.signOut();
     } catch (err) {
       console.error('Sign out error:', err);
