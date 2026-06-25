@@ -1,13 +1,14 @@
 import { useState } from "react";
 import {
   LayoutDashboard, Users, CreditCard, MessageSquare,
-  LogOut, Shield, Menu, X, TrendingUp,
+  LogOut, Shield, Menu, X, TrendingUp, Trophy,
 } from "lucide-react";
 import AdminDashboard from "./tabs/AdminDashboard";
 import AdminUsers     from "./tabs/AdminUsers";
 import AdminPayments  from "./tabs/AdminPayments";
 import AdminMessages  from "./tabs/AdminMessages";
 import AdminFinance   from "./tabs/AdminFinance";
+import AdminResults  from "./tabs/AdminResults";
 
 const NAV = [
   { id: "dashboard", label: "Dashboard",       icon: LayoutDashboard },
@@ -15,6 +16,7 @@ const NAV = [
   { id: "payments",  label: "To'lovlar",        icon: CreditCard },
   { id: "finance",   label: "Moliya",           icon: TrendingUp },
   { id: "messages",  label: "Xabarlar",         icon: MessageSquare },
+  { id: "results",   label: "Natijalar",        icon: Trophy },
 ];
 
 export default function AdminLayout({ onLogout }: { onLogout: () => void }) {
@@ -132,6 +134,7 @@ export default function AdminLayout({ onLogout }: { onLogout: () => void }) {
         {tab === "payments"  && <AdminPayments />}
         {tab === "finance"   && <AdminFinance />}
         {tab === "messages"  && <AdminMessages />}
+        {tab === "results"   && <AdminResults />}
       </main>
     </div>
   );
