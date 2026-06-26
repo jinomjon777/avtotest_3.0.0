@@ -45,7 +45,7 @@ export default function AdminLayout({ onLogout }: { onLogout: () => void }) {
         @media (min-width: 801px) {
           .anav-desktop { display: flex !important; }
           .anav-mobile-btn { display: none !important; }
-          .anav-mobile-menu { display: none !important; }
+          .anav-mobile-menu { display: none !important; }    
         }
       `}</style>
 
