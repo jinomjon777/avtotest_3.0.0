@@ -1,22 +1,24 @@
 import { useState } from "react";
 import {
   LayoutDashboard, Users, CreditCard, MessageSquare,
-  LogOut, Shield, Menu, X, TrendingUp, Trophy,
+  LogOut, Shield, Menu, X, TrendingUp, FileText, Settings,
 } from "lucide-react";
 import AdminDashboard from "./tabs/AdminDashboard";
 import AdminUsers     from "./tabs/AdminUsers";
 import AdminPayments  from "./tabs/AdminPayments";
 import AdminMessages  from "./tabs/AdminMessages";
 import AdminFinance   from "./tabs/AdminFinance";
-import AdminResults  from "./tabs/AdminResults";
+import AdminChek      from "./tabs/AdminChek";
+import AdminSettings  from "./tabs/AdminSettings";
 
 const NAV = [
   { id: "dashboard", label: "Dashboard",       icon: LayoutDashboard },
   { id: "users",     label: "Foydalanuvchilar", icon: Users },
   { id: "payments",  label: "To'lovlar",        icon: CreditCard },
   { id: "finance",   label: "Moliya",           icon: TrendingUp },
+  { id: "chek",      label: "Chek",             icon: FileText },
   { id: "messages",  label: "Xabarlar",         icon: MessageSquare },
-  { id: "results",   label: "Natijalar",        icon: Trophy },
+  { id: "settings",  label: "Sozlamalar",       icon: Settings },
 ];
 
 export default function AdminLayout({ onLogout }: { onLogout: () => void }) {
@@ -45,7 +47,7 @@ export default function AdminLayout({ onLogout }: { onLogout: () => void }) {
         @media (min-width: 801px) {
           .anav-desktop { display: flex !important; }
           .anav-mobile-btn { display: none !important; }
-          .anav-mobile-menu { display: none !important; }    
+          .anav-mobile-menu { display: none !important; }
         }
       `}</style>
 
@@ -133,8 +135,9 @@ export default function AdminLayout({ onLogout }: { onLogout: () => void }) {
         {tab === "users"     && <AdminUsers />}
         {tab === "payments"  && <AdminPayments />}
         {tab === "finance"   && <AdminFinance />}
+        {tab === "chek"      && <AdminChek />}
         {tab === "messages"  && <AdminMessages />}
-        {tab === "results"   && <AdminResults />}
+        {tab === "settings"  && <AdminSettings />}
       </main>
     </div>
   );

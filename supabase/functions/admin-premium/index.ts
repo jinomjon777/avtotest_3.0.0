@@ -51,6 +51,15 @@ Deno.serve(async (req) => {
     return json({ error: "Admin huquqi yo'q" }, 403);
   }
 
+  // ── helper: amallar tarixini audit_log'ga yozish ─────────────────────
+  async function logAction(action: string, details: Record<string, unknown> = {}) {
+    try {
+      await supabase.from("audit_log").insert({ user_id: user.id, action, details });
+    } catch (_e) {
+      // audit yozuvi muvaffaqiyatsiz bo'lsa ham asosiy amal davom etadi
+    }
+  }
+
   // ── 3. So'rovni qayta ishlaymiz ──────────────────────────────────────
   try {
     const body = await req.json();
@@ -86,6 +95,7 @@ Deno.serve(async (req) => {
       }).eq("id", userId);
 
       if (error) throw error;
+      await logAction("give_premium", { userId, days, endDate: endDate.toISOString() });
       return json({ success: true, endDate: endDate.toISOString() });
     }
 
@@ -99,6 +109,7 @@ Deno.serve(async (req) => {
       }).eq("id", userId);
 
       if (error) throw error;
+      await logAction("revoke_premium", { userId });
       return json({ success: true });
     }
 
@@ -111,24 +122,104 @@ Deno.serve(async (req) => {
       }).eq("id", userId);
 
       if (error) throw error;
+      await logAction("update_profile", { userId, full_name, username });
       return json({ success: true });
     }
 
     if (action === "delete_user") {
       if (!userId) return json({ error: "userId kerak" }, 400);
 
+      const { data: delProfile } = await supabase.from("profiles").select("email, full_name").eq("id", userId).single();
+
       const { error: profileErr } = await supabase.from("profiles").delete().eq("id", userId);
       if (profileErr) throw profileErr;
 
       // haqiqiy auth.users hisobini ham o'chiramiz, aks holda
       // foydalanuvchi hali ham tizimga kira oladi.
-      // "User not found" xatosi bo'lsa ham davom etamiz —
-      // auth user RPC orqali allaqachon o'chirilgan bo'lishi mumkin.
       const { error: authDeleteErr } = await supabase.auth.admin.deleteUser(userId);
-      if (authDeleteErr && !authDeleteErr.message.toLowerCase().includes("not found")) {
-        throw authDeleteErr;
-      }
+      if (authDeleteErr) throw authDeleteErr;
 
+      await logAction("delete_user", { userId, email: delProfile?.email, full_name: delProfile?.full_name });
+      return json({ success: true });
+    }
+
+    // ── CHEK (kvitansiyalar) boshqaruvi ──────────────────────────────
+
+    if (action === "list_chek") {
+      const { data, error } = await supabase.from("chek").select("*").order("created_at", { ascending: false });
+      if (error) throw error;
+      return json({ success: true, data });
+    }
+
+    if (action === "update_chek") {
+      const { chekId, amount, tariff_days, processed } = body;
+      if (!chekId) return json({ error: "chekId kerak" }, 400);
+      const patch: Record<string, unknown> = {};
+      if (amount !== undefined) patch.amount = amount;
+      if (tariff_days !== undefined) patch.tariff_days = tariff_days;
+      if (processed !== undefined) patch.processed = processed;
+      const { error } = await supabase.from("chek").update(patch).eq("id", chekId);
+      if (error) throw error;
+      await logAction("update_chek", { chekId, ...patch });
+      return json({ success: true });
+    }
+
+    if (action === "delete_chek") {
+      const { chekId } = body;
+      if (!chekId) return json({ error: "chekId kerak" }, 400);
+      const { data: oldChek } = await supabase.from("chek").select("*").eq("id", chekId).single();
+      const { error } = await supabase.from("chek").delete().eq("id", chekId);
+      if (error) throw error;
+      await logAction("delete_chek", oldChek ?? { chekId });
+      return json({ success: true });
+    }
+
+    // ── TO'LOV TURLARI boshqaruvi ─────────────────────────────────────
+
+    if (action === "list_payment_methods") {
+      const { data, error } = await supabase.from("payment_methods").select("*").order("created_at", { ascending: true });
+      if (error) throw error;
+      return json({ success: true, data });
+    }
+
+    if (action === "add_payment_method") {
+      const { name } = body;
+      if (!name) return json({ error: "name kerak" }, 400);
+      const { data, error } = await supabase.from("payment_methods").insert({ name }).select().single();
+      if (error) throw error;
+      await logAction("add_payment_method", { name });
+      return json({ success: true, data });
+    }
+
+    if (action === "delete_payment_method") {
+      const { methodId } = body;
+      if (!methodId) return json({ error: "methodId kerak" }, 400);
+      const { error } = await supabase.from("payment_methods").delete().eq("id", methodId);
+      if (error) throw error;
+      await logAction("delete_payment_method", { methodId });
+      return json({ success: true });
+    }
+
+    // ── AUDIT LOG ──────────────────────────────────────────────────────
+
+    if (action === "list_audit") {
+      const { data, error } = await supabase
+        .from("audit_log")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(300);
+      if (error) throw error;
+      return json({ success: true, data });
+    }
+
+    // ── ADMIN PROFIL / PAROL ─────────────────────────────────────────
+
+    if (action === "change_admin_password") {
+      const { newPassword } = body;
+      if (!newPassword || newPassword.length < 6) return json({ error: "Parol kamida 6 belgi bo'lishi kerak" }, 400);
+      const { error } = await supabase.auth.admin.updateUserById(user.id, { password: newPassword });
+      if (error) throw error;
+      await logAction("change_admin_password", {});
       return json({ success: true });
     }
 
@@ -138,5 +229,3 @@ Deno.serve(async (req) => {
     return json({ error: e.message }, 500);
   }
 });
-
-

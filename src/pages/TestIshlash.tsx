@@ -172,16 +172,16 @@ export default function TestIshlash() {
     <>
       <SEO title="Test ishlash" description="YHQ imtihon testlari" path="/test-ishlash" />
 
-      <div className="min-h-screen bg-gradient-to-br from-[hsl(230_25%_97%)] to-[hsl(250_30%_95%)] flex flex-col font-sans">
+      <div className="min-h-screen bg-background flex flex-col font-sans">
         {/* Header */}
-        <header className="w-full hero-bg border-b border-[hsl(250_70%_56%/0.2)] px-6 py-3 sticky top-0 z-20">
+        <header className="w-full bg-card border-b border-border px-6 py-3 sticky top-0 z-20">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
             <Link to="/">
-              <Button variant="ghost" size="sm" className="gap-2 font-bold text-white/80 hover:text-white hover:bg-white/10">
+              <Button variant="ghost" size="sm" className="gap-2 font-bold text-foreground/70 hover:text-foreground hover:bg-muted">
                 <Home className="w-4 h-4" /> Bosh sahifa
               </Button>
             </Link>
-            <div className="flex bg-white/10 rounded-lg p-1">
+            <div className="flex bg-muted rounded-lg p-1">
               {languages.map((lang) => (
                 <button
                   key={lang.id}
@@ -189,7 +189,7 @@ export default function TestIshlash() {
                   className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${
                     language === lang.id
                       ? "bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white shadow-sm"
-                      : "text-white/50 hover:text-white/80"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {lang.label}
@@ -199,7 +199,7 @@ export default function TestIshlash() {
           </div>
         </header>
 
-        <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-8 flex flex-col gap-6">
+        <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-8 flex flex-col justify-center gap-6">
           {/* Premium Banner */}
           {showProBanner && !accessLoading && (
             <Link to="/pro" className="group flex items-center gap-4 bg-gradient-to-r from-[hsl(250_70%_56%/0.08)] to-[hsl(190_80%_45%/0.05)] border-2 border-[hsl(250_70%_56%/0.25)] rounded-2xl px-5 py-4 hover:border-[hsl(250_70%_56%/0.5)] transition-all active:scale-[0.99]">
@@ -233,13 +233,13 @@ export default function TestIshlash() {
 
           {/* Main card */}
           <div className="bg-card rounded-3xl border border-border shadow-2xl shadow-[hsl(250_70%_56%/0.08)] overflow-hidden">
-            <div className="px-8 py-6 border-b border-border flex items-center gap-4 hero-bg">
+            <div className="px-8 py-6 border-b border-border flex items-center gap-4 bg-primary/5">
               <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] flex items-center justify-center shadow-md shadow-[hsl(250_70%_56%/0.3)]">
                 <Play className="w-5 h-5 text-white fill-current" />
               </div>
               <div>
-                <h1 className="text-2xl font-black tracking-tight text-white">Test ishlash</h1>
-                <p className="text-white/50 text-sm font-semibold">
+                <h1 className="text-2xl font-black tracking-tight text-foreground">Test ishlash</h1>
+                <p className="text-muted-foreground text-sm font-semibold">
                   {questionCount} ta tasodifiy savol • {questionCount === 20 ? "25" : "50"} daqiqa
                 </p>
               </div>
