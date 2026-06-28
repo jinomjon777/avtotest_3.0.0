@@ -194,8 +194,17 @@ function TolovTurlariTab() {
       </div>
 
       <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
-        <input value={newName} onChange={e => setNewName(e.target.value)} placeholder="Yangi to'lov turi nomi (masalan: Click)"
-          onKeyDown={e => e.key === "Enter" && addMethod()} style={inp} />
+        <input
+          type="text"
+          name="usul-nomi"
+          autoComplete="off"
+          data-form-type="other"
+          value={newName}
+          onChange={e => setNewName(e.target.value)}
+          placeholder="Yangi to'lov turi nomi (masalan: Click)"
+          onKeyDown={e => e.key === "Enter" && addMethod()}
+          style={inp}
+        />
         <button type="button" onClick={addMethod}
           style={{ display: "flex", alignItems: "center", gap: 6, padding: "9px 16px", borderRadius: 10, border: "none", background: C.accent, color: "#fff", fontWeight: 700, fontSize: 13, cursor: adding ? "wait" : "pointer", whiteSpace: "nowrap", opacity: adding ? 0.7 : 1 }}>
           <Plus size={14} /> {adding ? "Qo'shilmoqda..." : "Qo'shish"}
