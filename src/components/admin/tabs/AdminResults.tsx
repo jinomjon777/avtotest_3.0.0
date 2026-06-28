@@ -2,6 +2,21 @@ import { useEffect, useState, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Trophy, Clock, User, ChevronDown, ChevronUp, Search, RefreshCw, Activity } from "lucide-react";
 
+const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-premium`;
+
+async function adminApi(action: string, payload: Record<string, unknown> = {}) {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) throw new Error("Sessiya tugagan, qayta kiring");
+  const res = await fetch(EDGE_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
+    body: JSON.stringify({ action, ...payload }),
+  });
+  const data = await res.json();
+  if (!res.ok || data.error) throw new Error(data.error || "Server xatosi");
+  return data;
+}
+
 // ── Types ──────────────────────────────────────────────────────────────────
 interface TestResult {
   id: string;
@@ -86,20 +101,32 @@ export default function AdminResults() {
 function ResultsTab() {
   const [rows, setRows]         = useState<TestResult[]>([]);
   const [loading, setLoading]   = useState(true);
+  const [error, setError]       = useState("");
   const [search, setSearch]     = useState("");
   const [sortBy, setSortBy]     = useState<"created_at" | "correct_answers" | "variant">("created_at");
   const [sortAsc, setSortAsc]   = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
 
   const load = useCallback(async () => {
-    setLoading(true);
-    const { data, error } = await supabase
-      .from("test_results")
-      .select("*, profiles(full_name, email)")
-      .order("created_at", { ascending: false })
-      .limit(500);
-    if (!error && data) setRows(data as any);
-    setLoading(false);
+    setLoading(true); setError("");
+    try {
+      const [resultsRes, profilesRes] = await Promise.all([
+        supabase.from("test_results").select("*").order("created_at", { ascending: false }).limit(500),
+        supabase.from("profiles").select("id, full_name, email"),
+      ]);
+      if (resultsRes.error) throw resultsRes.error;
+      if (profilesRes.error) throw profilesRes.error;
+
+      const profileMap: Record<string, { full_name: string | null; email: string | null }> = {};
+      (profilesRes.data ?? []).forEach((p: any) => { profileMap[p.id] = { full_name: p.full_name, email: p.email }; });
+
+      const merged = (resultsRes.data ?? []).map((r: any) => ({ ...r, profile: profileMap[r.user_id] }));
+      setRows(merged as TestResult[]);
+    } catch (e: any) {
+      setError(e.message ?? "Ma'lumotlarni yuklashda xatolik");
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => { load(); }, [load]);
@@ -135,11 +162,10 @@ function ResultsTab() {
 
   return (
     <div style={{ background: C.card, borderRadius: 14, border: `1px solid ${C.border}`, overflow: "hidden" }}>
-      {/* Toolbar */}
       <div style={{ padding: "14px 18px", borderBottom: `1px solid ${C.border}`, display: "flex", gap: 10, alignItems: "center" }}>
         <div style={{ position: "relative", flex: 1, maxWidth: 300 }}>
           <Search size={14} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", color: C.sub }} />
-          <input value={search} onChange={e => setSearch(e.target.value)}
+          <input value={search} onChange={e => setSearch(e.target.value)} autoComplete="off" name="results-search"
             placeholder="Ism yoki email qidirish..."
             style={{ width: "100%", paddingLeft: 32, paddingRight: 10, height: 34, border: `1px solid ${C.border}`, borderRadius: 8, fontSize: 13, color: C.text, background: C.bg }} />
         </div>
@@ -149,7 +175,10 @@ function ResultsTab() {
         </button>
       </div>
 
-      {/* Table */}
+      {error && (
+        <div style={{ margin: 14, padding: "10px 14px", borderRadius: 10, background: "#FEE2E2", color: C.red, fontSize: 13 }}>{error}</div>
+      )}
+
       {loading ? (
         <div style={{ padding: 40, textAlign: "center", color: C.sub }}>Yuklanmoqda...</div>
       ) : filtered.length === 0 ? (
@@ -183,7 +212,6 @@ function ResultsTab() {
                       style={{ cursor: "pointer", borderBottom: `1px solid ${C.border}`, transition: "background 0.1s" }}
                       onMouseEnter={e => (e.currentTarget.style.background = "#F8FAFC")}
                       onMouseLeave={e => (e.currentTarget.style.background = "")}>
-                      {/* User */}
                       <td style={{ padding: "10px 14px" }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                           <div style={{ width: 30, height: 30, borderRadius: "50%", background: "linear-gradient(135deg,#4F46E5,#06B6D4)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
@@ -195,13 +223,11 @@ function ResultsTab() {
                           </div>
                         </div>
                       </td>
-                      {/* Variant */}
                       <td style={{ padding: "10px 14px" }}>
                         <span style={{ padding: "3px 10px", borderRadius: 100, background: "#EEF2FF", color: C.accent, fontWeight: 700, fontSize: 12 }}>
                           #{r.variant}
                         </span>
                       </td>
-                      {/* Score */}
                       <td style={{ padding: "10px 14px" }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                           <div style={{ width: 50, height: 6, borderRadius: 3, background: "#E2E8F0", overflow: "hidden" }}>
@@ -211,13 +237,11 @@ function ResultsTab() {
                           <span style={{ fontSize: 11, color: C.sub }}>({p}%)</span>
                         </div>
                       </td>
-                      {/* Time */}
                       <td style={{ padding: "10px 14px", color: C.sub }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
                           <Clock size={12} />{fmt(r.time_taken_seconds)}
                         </div>
                       </td>
-                      {/* Date */}
                       <td style={{ padding: "10px 14px", color: C.sub, fontSize: 12 }}>{fmtDate(r.created_at)}</td>
                     </tr>
                     {isExp && (
@@ -258,54 +282,57 @@ function Stat({ label, value, color }: { label: string; value: string; color: st
 function ActivityTab() {
   const [rows, setRows]       = useState<UserActivity[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError]     = useState("");
   const [search, setSearch]   = useState("");
 
   const load = useCallback(async () => {
-    setLoading(true);
+    setLoading(true); setError("");
+    try {
+      const [profilesRes, statsRes] = await Promise.all([
+        supabase.from("profiles").select("id, full_name, email, created_at"),
+        supabase.from("test_results").select("user_id, correct_answers, total_questions"),
+      ]);
+      if (profilesRes.error) throw profilesRes.error;
+      if (statsRes.error) throw statsRes.error;
 
-    // Profillar + auth.users last_sign_in_at
-    const { data: profiles } = await supabase
-      .from("profiles")
-      .select("id, full_name, email, created_at");
+      let authMap: Record<string, string> = {};
+      try {
+        const { data: activity } = await adminApi("list_user_activity");
+        (activity ?? []).forEach((u: any) => { if (u.last_sign_in_at) authMap[u.id] = u.last_sign_in_at; });
+      } catch (_e) {
+        // Oxirgi kirish ma'lumoti ixtiyoriy — bo'lmasa ham jadval ko'rsatiladi
+      }
 
-    // Test statistikasi
-    const { data: stats } = await supabase
-      .from("test_results")
-      .select("user_id, correct_answers, total_questions");
+      const statMap: Record<string, { count: number; best: number }> = {};
+      (statsRes.data ?? []).forEach((s: any) => {
+        if (!statMap[s.user_id]) statMap[s.user_id] = { count: 0, best: 0 };
+        statMap[s.user_id].count++;
+        const p = pct(s.correct_answers, s.total_questions);
+        if (p > statMap[s.user_id].best) statMap[s.user_id].best = p;
+      });
 
-    // auth.users dan last_sign_in_at olish
-    const { data: authData } = await (supabase as any).auth.admin.listUsers({ perPage: 1000 });
-    const authMap: Record<string, string> = {};
-    authData?.users?.forEach((u: any) => {
-      if (u.last_sign_in_at) authMap[u.id] = u.last_sign_in_at;
-    });
+      const result: UserActivity[] = (profilesRes.data ?? []).map((p: any) => ({
+        user_id:         p.id,
+        full_name:       p.full_name,
+        email:           p.email,
+        last_sign_in_at: authMap[p.id] || null,
+        created_at:      p.created_at,
+        test_count:      statMap[p.id]?.count || 0,
+        best_score:      statMap[p.id]?.best  || 0,
+      }));
 
-    const statMap: Record<string, { count: number; best: number }> = {};
-    stats?.forEach(s => {
-      if (!statMap[s.user_id]) statMap[s.user_id] = { count: 0, best: 0 };
-      statMap[s.user_id].count++;
-      const p = pct(s.correct_answers, s.total_questions);
-      if (p > statMap[s.user_id].best) statMap[s.user_id].best = p;
-    });
+      result.sort((a, b) => {
+        const at = a.last_sign_in_at ? new Date(a.last_sign_in_at).getTime() : 0;
+        const bt = b.last_sign_in_at ? new Date(b.last_sign_in_at).getTime() : 0;
+        return bt - at;
+      });
 
-    const result: UserActivity[] = (profiles || []).map(p => ({
-      user_id:         p.id,
-      full_name:       p.full_name,
-      email:           p.email,
-      last_sign_in_at: authMap[p.id] || null,
-      created_at:      p.created_at,
-      test_count:      statMap[p.id]?.count || 0,
-      best_score:      statMap[p.id]?.best  || 0,
-    }));
-
-    result.sort((a, b) => {
-      const at = a.last_sign_in_at ? new Date(a.last_sign_in_at).getTime() : 0;
-      const bt = b.last_sign_in_at ? new Date(b.last_sign_in_at).getTime() : 0;
-      return bt - at;
-    });
-
-    setRows(result);
-    setLoading(false);
+      setRows(result);
+    } catch (e: any) {
+      setError(e.message ?? "Ma'lumotlarni yuklashda xatolik");
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => { load(); }, [load]);
@@ -318,11 +345,10 @@ function ActivityTab() {
 
   return (
     <div style={{ background: C.card, borderRadius: 14, border: `1px solid ${C.border}`, overflow: "hidden" }}>
-      {/* Toolbar */}
       <div style={{ padding: "14px 18px", borderBottom: `1px solid ${C.border}`, display: "flex", gap: 10, alignItems: "center" }}>
         <div style={{ position: "relative", flex: 1, maxWidth: 300 }}>
           <Search size={14} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", color: C.sub }} />
-          <input value={search} onChange={e => setSearch(e.target.value)}
+          <input value={search} onChange={e => setSearch(e.target.value)} autoComplete="off" name="activity-search"
             placeholder="Ism yoki email..."
             style={{ width: "100%", paddingLeft: 32, paddingRight: 10, height: 34, border: `1px solid ${C.border}`, borderRadius: 8, fontSize: 13, color: C.text, background: C.bg }} />
         </div>
@@ -331,6 +357,10 @@ function ActivityTab() {
           <RefreshCw size={12} /> Yangilash
         </button>
       </div>
+
+      {error && (
+        <div style={{ margin: 14, padding: "10px 14px", borderRadius: 10, background: "#FEE2E2", color: C.red, fontSize: 13 }}>{error}</div>
+      )}
 
       {loading ? (
         <div style={{ padding: 40, textAlign: "center", color: C.sub }}>Yuklanmoqda...</div>
@@ -350,7 +380,6 @@ function ActivityTab() {
                   style={{ borderBottom: `1px solid ${C.border}` }}
                   onMouseEnter={e => (e.currentTarget.style.background = "#F8FAFC")}
                   onMouseLeave={e => (e.currentTarget.style.background = "")}>
-                  {/* User */}
                   <td style={{ padding: "10px 14px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                       <div style={{ width: 30, height: 30, borderRadius: "50%", background: "linear-gradient(135deg,#4F46E5,#06B6D4)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
@@ -362,9 +391,7 @@ function ActivityTab() {
                       </div>
                     </div>
                   </td>
-                  {/* Registered */}
                   <td style={{ padding: "10px 14px", color: C.sub, fontSize: 12 }}>{fmtDate(r.created_at)}</td>
-                  {/* Last sign in */}
                   <td style={{ padding: "10px 14px" }}>
                     {r.last_sign_in_at ? (
                       <div>
@@ -375,13 +402,11 @@ function ActivityTab() {
                       <span style={{ color: C.sub, fontSize: 12 }}>Hech kirmagan</span>
                     )}
                   </td>
-                  {/* Test count */}
                   <td style={{ padding: "10px 14px" }}>
                     <span style={{ padding: "3px 10px", borderRadius: 100, background: r.test_count > 0 ? "#EEF2FF" : "#F1F5F9", color: r.test_count > 0 ? C.accent : C.sub, fontWeight: 700, fontSize: 12 }}>
                       {r.test_count} ta
                     </span>
                   </td>
-                  {/* Best score */}
                   <td style={{ padding: "10px 14px" }}>
                     {r.test_count > 0 ? (
                       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
