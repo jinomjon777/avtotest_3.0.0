@@ -158,12 +158,14 @@ function TolovTurlariTab() {
   useEffect(() => { fetchMethods(); }, []);
 
   const addMethod = async () => {
-    if (!newName.trim()) return;
+    const trimmed = newName.trim();
+    if (!trimmed) { setErr("Avval to'lov turi nomini kiriting"); return; }
+    setErr("");
     setAdding(true);
     try {
-      await adminApi("add_payment_method", { name: newName.trim() });
+      const { data } = await adminApi("add_payment_method", { name: trimmed });
       setNewName("");
-      await fetchMethods();
+      setMethods(prev => [...prev, data]);
     } catch (e: any) {
       setErr(e.message);
     } finally { setAdding(false); }
@@ -194,9 +196,9 @@ function TolovTurlariTab() {
       <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
         <input value={newName} onChange={e => setNewName(e.target.value)} placeholder="Yangi to'lov turi nomi (masalan: Click)"
           onKeyDown={e => e.key === "Enter" && addMethod()} style={inp} />
-        <button onClick={addMethod} disabled={adding || !newName.trim()}
-          style={{ display: "flex", alignItems: "center", gap: 6, padding: "9px 16px", borderRadius: 10, border: "none", background: C.accent, color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer", whiteSpace: "nowrap", opacity: !newName.trim() ? 0.6 : 1 }}>
-          <Plus size={14} /> Qo'shish
+        <button type="button" onClick={addMethod}
+          style={{ display: "flex", alignItems: "center", gap: 6, padding: "9px 16px", borderRadius: 10, border: "none", background: C.accent, color: "#fff", fontWeight: 700, fontSize: 13, cursor: adding ? "wait" : "pointer", whiteSpace: "nowrap", opacity: adding ? 0.7 : 1 }}>
+          <Plus size={14} /> {adding ? "Qo'shilmoqda..." : "Qo'shish"}
         </button>
       </div>
 
