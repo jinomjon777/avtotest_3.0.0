@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import {
   FileText, CheckCircle, Clock, Wallet, Search, RefreshCw,
-  ExternalLink, Edit3, Trash2, X, Save, Plus, Upload,
+  ExternalLink, Edit3, Trash2, X, Save, Plus,
 } from "lucide-react";
 
 const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-premium`;
@@ -108,28 +108,26 @@ function EditModal({ chek, onClose, onSaved }: { chek: Chek; onClose: () => void
 
 function AddChekModal({ onClose, onSaved }: { onClose: () => void; onSaved: () => void }) {
   const [email, setEmail] = useState("");
+  const [link, setLink] = useState("");
   const [amount, setAmount] = useState(0);
   const [days, setDays] = useState(7);
   const [processed, setProcessed] = useState(true);
-  const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
+
+  const isSoliqLink = (url: string) => /^https?:\/\/(www\.)?(ofd\.)?soliq\.uz\//i.test(url.trim());
 
   const save = async () => {
     setErr("");
     if (!email.trim()) return setErr("Email kiritilishi shart");
-    if (!file) return setErr("Chek fayli (rasm yoki PDF) yuklanishi shart");
+    const trimmedLink = link.trim();
+    if (!trimmedLink) return setErr("Chek havolasi (soliq.uz) kiritilishi shart");
+    if (!isSoliqLink(trimmedLink)) return setErr("Havola soliq.uz domenidan bo'lishi kerak (masalan: https://ofd.soliq.uz/check/...)");
     setLoading(true);
     try {
-      const ext = file.name.split(".").pop();
-      const path = `${email.trim()}/${Date.now()}.${ext}`;
-      const { error: upErr } = await supabase.storage.from("cheklar").upload(path, file, { upsert: false });
-      if (upErr) throw new Error("Yuklashda xato: " + upErr.message);
-      const { data: pub } = supabase.storage.from("cheklar").getPublicUrl(path);
-
       await adminApi("create_chek", {
         email: email.trim(),
-        link: pub.publicUrl,
+        link: trimmedLink,
         amount,
         tariff_days: days,
         processed,
@@ -151,15 +149,13 @@ function AddChekModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =
         <div style={{ fontSize: 13, color: C.muted, marginBottom: 16 }}>To'lov qabul qilingach, foydalanuvchiga chek yuklang</div>
 
         <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 5 }}>Foydalanuvchi email</label>
-        <input value={email} onChange={e => setEmail(e.target.value)} placeholder="user@gmail.com"
+        <input value={email} onChange={e => setEmail(e.target.value)} placeholder="user@gmail.com" autoComplete="off" name="user-email-field"
           style={{ width: "100%", padding: "9px 12px", background: C.surface, border: `1px solid ${C.border}`, borderRadius: 10, color: C.text, fontSize: 13, outline: "none", boxSizing: "border-box", marginBottom: 12 }} />
 
-        <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 5 }}>Chek fayli (rasm yoki PDF)</label>
-        <label style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 12px", background: C.surface, border: `1px dashed ${C.border}`, borderRadius: 10, cursor: "pointer", marginBottom: 12, fontSize: 13, color: file ? C.text : C.hint }}>
-          <Upload size={15} color={C.accent} />
-          {file ? file.name : "Faylni tanlang..."}
-          <input type="file" accept="image/*,application/pdf" onChange={e => setFile(e.target.files?.[0] ?? null)} style={{ display: "none" }} />
-        </label>
+        <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 5 }}>Chek havolasi (soliq.uz)</label>
+        <input value={link} onChange={e => setLink(e.target.value)} placeholder="https://ofd.soliq.uz/check/..." autoComplete="off" name="receipt-link-field"
+          style={{ width: "100%", padding: "9px 12px", background: C.surface, border: `1px solid ${C.border}`, borderRadius: 10, color: C.text, fontSize: 13, outline: "none", boxSizing: "border-box", marginBottom: 4 }} />
+        <div style={{ fontSize: 11, color: C.hint, marginBottom: 12 }}>Faqat soliq.uz (ofd.soliq.uz) tekshiruv havolasi qabul qilinadi</div>
 
         <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 5 }}>To'lov summasi (so'm)</label>
         <input type="number" value={amount} onChange={e => setAmount(Number(e.target.value))}
