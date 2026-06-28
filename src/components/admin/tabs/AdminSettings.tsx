@@ -233,7 +233,7 @@ interface AuditEntry { id: string; user_id: string; action: string; details: any
 const ACTION_LABELS: Record<string, string> = {
   give_premium: "Premium berildi", revoke_premium: "Premium bekor qilindi",
   update_profile: "Profil tahrirlandi", delete_user: "Foydalanuvchi o'chirildi",
-  update_chek: "Chek tahrirlandi", delete_chek: "Chek o'chirildi",
+  create_chek: "Chek qo'shildi", update_chek: "Chek tahrirlandi", delete_chek: "Chek o'chirildi",
   add_payment_method: "To'lov turi qo'shildi", delete_payment_method: "To'lov turi o'chirildi",
   change_admin_password: "Admin parol o'zgartirildi",
 };

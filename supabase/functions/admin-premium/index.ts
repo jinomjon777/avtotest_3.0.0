@@ -145,6 +145,25 @@ Deno.serve(async (req) => {
 
     // ── CHEK (kvitansiyalar) boshqaruvi ──────────────────────────────
 
+    if (action === "create_chek") {
+      const { email, link, amount, tariff_days, processed } = body;
+      if (!email || !link) return json({ error: "email va link kerak" }, 400);
+      const { data, error } = await supabase
+        .from("chek")
+        .insert({
+          email,
+          link,
+          amount: amount ?? null,
+          tariff_days: tariff_days ?? null,
+          processed: processed ?? false,
+        })
+        .select()
+        .single();
+      if (error) throw error;
+      await logAction("create_chek", { email, amount, tariff_days });
+      return json({ success: true, data });
+    }
+
     if (action === "list_chek") {
       const { data, error } = await supabase.from("chek").select("*").order("created_at", { ascending: false });
       if (error) throw error;

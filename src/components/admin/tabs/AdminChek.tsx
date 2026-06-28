@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import {
   FileText, CheckCircle, Clock, Wallet, Search, RefreshCw,
-  ExternalLink, Edit3, Trash2, X, Save,
+  ExternalLink, Edit3, Trash2, X, Save, Plus, Upload,
 } from "lucide-react";
 
 const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-premium`;
@@ -106,6 +106,97 @@ function EditModal({ chek, onClose, onSaved }: { chek: Chek; onClose: () => void
   );
 }
 
+function AddChekModal({ onClose, onSaved }: { onClose: () => void; onSaved: () => void }) {
+  const [email, setEmail] = useState("");
+  const [amount, setAmount] = useState(0);
+  const [days, setDays] = useState(7);
+  const [processed, setProcessed] = useState(true);
+  const [file, setFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState("");
+
+  const save = async () => {
+    setErr("");
+    if (!email.trim()) return setErr("Email kiritilishi shart");
+    if (!file) return setErr("Chek fayli (rasm yoki PDF) yuklanishi shart");
+    setLoading(true);
+    try {
+      const ext = file.name.split(".").pop();
+      const path = `${email.trim()}/${Date.now()}.${ext}`;
+      const { error: upErr } = await supabase.storage.from("cheklar").upload(path, file, { upsert: false });
+      if (upErr) throw new Error("Yuklashda xato: " + upErr.message);
+      const { data: pub } = supabase.storage.from("cheklar").getPublicUrl(path);
+
+      await adminApi("create_chek", {
+        email: email.trim(),
+        link: pub.publicUrl,
+        amount,
+        tariff_days: days,
+        processed,
+      });
+      onSaved(); onClose();
+    } catch (e: any) {
+      setErr(e.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
+      <div style={{ position: "absolute", inset: 0, background: "rgba(15,23,42,0.5)", backdropFilter: "blur(6px)" }} onClick={onClose} />
+      <div style={{ position: "relative", background: C.card, borderRadius: 18, padding: "24px 22px", maxWidth: 440, width: "100%", zIndex: 1, boxShadow: "0 24px 60px rgba(0,0,0,0.16)" }}>
+        <button onClick={onClose} style={{ position: "absolute", top: 14, right: 14, background: "#F1F5F9", border: "none", borderRadius: 8, width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: C.muted }}><X size={14} /></button>
+        <h3 style={{ margin: "0 0 4px", fontSize: 17, fontWeight: 700, color: C.text }}>Yangi chek qo'shish</h3>
+        <div style={{ fontSize: 13, color: C.muted, marginBottom: 16 }}>To'lov qabul qilingach, foydalanuvchiga chek yuklang</div>
+
+        <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 5 }}>Foydalanuvchi email</label>
+        <input value={email} onChange={e => setEmail(e.target.value)} placeholder="user@gmail.com"
+          style={{ width: "100%", padding: "9px 12px", background: C.surface, border: `1px solid ${C.border}`, borderRadius: 10, color: C.text, fontSize: 13, outline: "none", boxSizing: "border-box", marginBottom: 12 }} />
+
+        <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 5 }}>Chek fayli (rasm yoki PDF)</label>
+        <label style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 12px", background: C.surface, border: `1px dashed ${C.border}`, borderRadius: 10, cursor: "pointer", marginBottom: 12, fontSize: 13, color: file ? C.text : C.hint }}>
+          <Upload size={15} color={C.accent} />
+          {file ? file.name : "Faylni tanlang..."}
+          <input type="file" accept="image/*,application/pdf" onChange={e => setFile(e.target.files?.[0] ?? null)} style={{ display: "none" }} />
+        </label>
+
+        <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 5 }}>To'lov summasi (so'm)</label>
+        <input type="number" value={amount} onChange={e => setAmount(Number(e.target.value))}
+          style={{ width: "100%", padding: "9px 12px", background: C.surface, border: `1px solid ${C.border}`, borderRadius: 10, color: C.text, fontSize: 13, outline: "none", boxSizing: "border-box", marginBottom: 12 }} />
+
+        <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 5 }}>Tarif muddati (kun)</label>
+        <div style={{ display: "flex", gap: 7, marginBottom: 14 }}>
+          {[7, 30, 90].map(d => (
+            <button key={d} onClick={() => setDays(d)}
+              style={{ flex: 1, padding: "8px 0", borderRadius: 9, border: `1px solid ${days === d ? C.accent : C.border}`, background: days === d ? C.accent : C.surface, color: days === d ? "#fff" : C.muted, fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
+              {d} kun
+            </button>
+          ))}
+        </div>
+
+        <label style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer", marginBottom: 18 }}>
+          <div onClick={() => setProcessed(v => !v)}
+            style={{ width: 38, height: 21, borderRadius: 11, background: processed ? C.green : "#CBD5E1", position: "relative", cursor: "pointer", flexShrink: 0 }}>
+            <div style={{ position: "absolute", top: 3, left: processed ? 19 : 3, width: 15, height: 15, borderRadius: "50%", background: "#fff", transition: "left 0.2s" }} />
+          </div>
+          <span style={{ fontSize: 13, fontWeight: 600, color: C.text }}>Yuklangan (ko'rib chiqilgan) deb belgilash</span>
+        </label>
+
+        {err && <div style={{ marginBottom: 12, padding: "8px 12px", borderRadius: 9, background: "#FEE2E2", fontSize: 13, color: C.accentC }}>{err}</div>}
+
+        <div style={{ display: "flex", gap: 9 }}>
+          <button onClick={onClose} style={{ flex: 1, padding: "10px 0", borderRadius: 10, border: `1px solid ${C.border}`, background: C.surface, color: C.muted, cursor: "pointer", fontSize: 13 }}>Bekor qilish</button>
+          <button onClick={save} disabled={loading}
+            style={{ flex: 2, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "10px 0", borderRadius: 10, border: "none", background: "linear-gradient(135deg,#4F46E5,#06B6D4)", color: "#fff", fontWeight: 700, fontSize: 13, cursor: loading ? "not-allowed" : "pointer" }}>
+            <Save size={14} /> {loading ? "Yuklanmoqda..." : "Saqlash"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AdminChek() {
   const [cheks, setCheks] = useState<Chek[]>([]);
   const [loading, setLoading] = useState(true);
@@ -115,6 +206,7 @@ export default function AdminChek() {
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
   const [editing, setEditing] = useState<Chek | null>(null);
+  const [adding, setAdding] = useState(false);
   const [deleting, setDeleting] = useState<string | null>(null);
   const [err, setErr] = useState("");
 
@@ -175,10 +267,17 @@ export default function AdminChek() {
     <div>
       <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
       {editing && <EditModal chek={editing} onClose={() => setEditing(null)} onSaved={fetchCheks} />}
+      {adding && <AddChekModal onClose={() => setAdding(false)} onSaved={fetchCheks} />}
 
-      <div style={{ marginBottom: 4 }}>
-        <h2 style={{ margin: 0, fontSize: 20, fontWeight: 800, color: C.text }}>Cheklar</h2>
-        <div style={{ fontSize: 13, color: C.muted, marginBottom: 16 }}>Faqat PRO foydalanuvchilar cheklari</div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 4 }}>
+        <div>
+          <h2 style={{ margin: 0, fontSize: 20, fontWeight: 800, color: C.text }}>Cheklar</h2>
+          <div style={{ fontSize: 13, color: C.muted, marginBottom: 16 }}>Faqat PRO foydalanuvchilar cheklari</div>
+        </div>
+        <button onClick={() => setAdding(true)}
+          style={{ display: "flex", alignItems: "center", gap: 6, padding: "9px 16px", borderRadius: 10, border: "none", background: "linear-gradient(135deg,#4F46E5,#06B6D4)", color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
+          <Plus size={15} /> Yangi chek qo'shish
+        </button>
       </div>
 
       {/* Stats */}
