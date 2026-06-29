@@ -221,6 +221,16 @@ Deno.serve(async (req) => {
 
     // ── AUDIT LOG ──────────────────────────────────────────────────────
 
+    if (action === "list_user_activity") {
+      const { data, error } = await supabase.auth.admin.listUsers({ perPage: 1000 });
+      if (error) throw error;
+      const activity = (data?.users ?? []).map((u: any) => ({
+        id: u.id,
+        last_sign_in_at: u.last_sign_in_at ?? null,
+      }));
+      return json({ success: true, data: activity });
+    }
+
     if (action === "list_audit") {
       const { data, error } = await supabase
         .from("audit_log")
