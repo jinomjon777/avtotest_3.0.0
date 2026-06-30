@@ -374,7 +374,16 @@
    o'zgarishsiz qoladi.
    ────────────────────────────────────────────────────────────── */
 body.test-interface-active,
-body.test-interface-active #root,
-body.test-interface-active main {
+body.test-interface-active #root {
   padding-bottom: 0 !important;
+}
+
+/* main'ning pastki bo'shligi endi 0 emas — JS orqali o'lchangan
+   fixed footer balandligiga moslab --test-footer-clearance
+   o'zgaruvchisi orqali beriladi (TestInterfaceBase.tsx). Shunday
+   qilib uzun savol/javob matni fixed footer ostida yashirinib
+   qolmaydi, lekin asl saytdagi (boshqa sahifalardagi) bo'shliq
+   bilan to'qnashmaydi. */
+body.test-interface-active main {
+  padding-bottom: var(--test-footer-clearance, 88px) !important;
 }

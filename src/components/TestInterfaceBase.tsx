@@ -120,6 +120,7 @@ export const TestInterfaceBase = ({
   isPremiumSession = false,
 }: TestInterfaceBaseProps) => {
   useAppViewportHeight();
+  const footerRef = useRef<HTMLElement>(null);
 
   // index.html'da SAYTNING BOSHQA SAHIFALARI uchun mobil holatda
   // body/#root/main elementlariga majburiy (!important) pastki
@@ -132,6 +133,22 @@ export const TestInterfaceBase = ({
   useEffect(() => {
     document.body.classList.add("test-interface-active");
     return () => { document.body.classList.remove("test-interface-active"); };
+  }, []);
+
+  // Footer endi position:fixed (viewport pastiga doim mahkamlangan) —
+  // shu sabab uning haqiqiy balandligini o'lchab, <main> ostiga xuddi
+  // shuncha bo'shliq qo'shamiz, aks holda uzun savol/javob matni
+  // footer ostida yashirinib qolardi.
+  useEffect(() => {
+    const measure = () => {
+      if (footerRef.current) {
+        const h = footerRef.current.offsetHeight;
+        document.documentElement.style.setProperty("--test-footer-clearance", `${h + 16}px`);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
   }, []);
 
   const { t, questionLang } = useLanguage();
@@ -765,8 +782,11 @@ export const TestInterfaceBase = ({
         </div>
       </main>
 
-      {/* Bottom Navigation */}
-      <footer className="bg-card border-t border-border px-3 py-2.5 md:px-4 md:py-3 shrink-0 sticky bottom-0 z-20">
+      {/* Bottom Navigation — viewport pastiga doim mahkamlangan, hech qachon siljimaydi */}
+      <footer
+        ref={footerRef}
+        className="bg-card border-t border-border px-3 py-2.5 md:px-4 md:py-3 fixed bottom-0 left-0 right-0 z-30"
+      >
         <div className="max-w-5xl mx-auto flex items-center justify-between gap-2">
           <Button
             variant="outline"
