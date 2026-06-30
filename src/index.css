@@ -357,3 +357,24 @@
     min-height: 100dvh;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────
+   index.html'da SAYTNING BOSHQA SAHIFALARI (pastki navigatsiya
+   uchun joy ochish maqsadida) uchun body/#root/main elementlariga
+   majburiy (!important) padding-bottom qo'shilgan:
+     @media (max-width: 768px)  { padding-bottom: 96px  }
+     @media (max-width: 1023px) { padding-bottom: 112px }
+
+   Bu Test ishlash ekranida pastki "Oldingi/Keyingi" qatori bilan
+   to'qnashib, bo'sh joy/sakrash muammosiga sabab bo'lgan. Test
+   ekrani komponenti ochilganda <body>ga "test-interface-active"
+   klassi qo'shadi (TestInterfaceBase.tsx) — shu yerda o'sha
+   bo'shliqni FAQAT shu ekran uchun bekor qilamiz, qolgan barcha
+   sahifalarda asl xulq-atvor (pastki navigatsiya uchun joy)
+   o'zgarishsiz qoladi.
+   ────────────────────────────────────────────────────────────── */
+body.test-interface-active,
+body.test-interface-active #root,
+body.test-interface-active main {
+  padding-bottom: 0 !important;
+}

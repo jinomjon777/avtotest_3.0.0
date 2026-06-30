@@ -120,6 +120,20 @@ export const TestInterfaceBase = ({
   isPremiumSession = false,
 }: TestInterfaceBaseProps) => {
   useAppViewportHeight();
+
+  // index.html'da SAYTNING BOSHQA SAHIFALARI uchun mobil holatda
+  // body/#root/main elementlariga majburiy (!important) pastki
+  // bo'shliq (padding-bottom) qo'shib qo'yiladi (pastki navigatsiya
+  // uchun joy ochish maqsadida). Bu test ekranida pastdagi
+  // "Oldingi/Keyingi" qatori bilan to'qnashib, bo'sh joy/sakrash
+  // muammosiga sabab bo'lyapti. Shu sabab test ekrani ochiq
+  // turganda <body>ga maxsus klass qo'shib, o'sha bo'shliqni
+  // index.css orqali bekor qilamiz (faqat shu sahifada).
+  useEffect(() => {
+    document.body.classList.add("test-interface-active");
+    return () => { document.body.classList.remove("test-interface-active"); };
+  }, []);
+
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
   const { saveTestResult } = useTestResults();
