@@ -583,9 +583,10 @@ export const TestInterfaceBase = ({
   }
 
   return (
-    <div className="h-screen bg-background flex flex-col overflow-hidden">
-      {/* Header */}
-      <header className="bg-card border-b border-border px-3 py-2 md:px-4 md:py-2.5 shrink-0">
+    <div className="min-h-screen bg-background flex flex-col">
+      <div className="sticky top-0 z-20">
+        {/* Header */}
+        <header className="bg-card border-b border-border px-3 py-2 md:px-4 md:py-2.5 shrink-0">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3 md:gap-4">
             <span className="text-xs md:text-sm font-medium text-muted-foreground">{testName}</span>
@@ -641,10 +642,11 @@ export const TestInterfaceBase = ({
           setCurrentQuestion(num);
         }}
       />
+      </div>
 
       {/* Main Content */}
       <main 
-        className="flex-1 px-4 py-4 md:px-8 md:py-5 w-full overflow-y-auto"
+        className="flex-1 px-4 py-4 md:px-8 md:py-5 w-full"
         onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; isSwiping.current = false; }}
         onTouchMove={(e) => { if (Math.abs(e.touches[0].clientX - touchStartX.current) > 30) isSwiping.current = true; }}
         onTouchEnd={(e) => { touchEndX.current = e.changedTouches[0].clientX; if (isSwiping.current) { e.preventDefault(); handleSwipe(); } }}
@@ -745,7 +747,7 @@ export const TestInterfaceBase = ({
       </main>
 
       {/* Bottom Navigation */}
-      <footer className="bg-card border-t border-border px-3 py-2.5 md:px-4 md:py-3 shrink-0">
+      <footer className="bg-card border-t border-border px-3 py-2.5 md:px-4 md:py-3 shrink-0 sticky bottom-0 z-20">
         <div className="max-w-5xl mx-auto flex items-center justify-between gap-2">
           <Button
             variant="outline"
