@@ -327,26 +327,33 @@
    panelini (URL bar) hisobga olib hisoblanadi, lekin u
    ko'rsatilganda haqiqiy ko'rinadigan balandlik kichikroq bo'lib
    qoladi — natijada test interfeysida pastda bo'sh joy paydo
-   bo'ladi va "Oldingi/Keyingi" tugmalari sahifa torayganda
-   yuqoriga siljiydi. 100dvh (dynamic viewport height) buni
-   to'g'ri hal qiladi — brauzer panelining haqiqiy holatini
-   hisobga oladi. Eski brauzerlar (dvh qo'llamaydigan) uchun
-   100vh fallback sifatida qoladi.
+   bo'ladi.
+
+   ESLATMA: 100dvh (dynamic viewport height) bu yerda ATAYLAB
+   ishlatilmaydi — dvh qiymati foydalanuvchi skroll qilganda
+   (manzil paneli yashirinib/chiqib turganda) REAL VAQTDA
+   o'zgaradi, bu esa "Oldingi/Keyingi" tugmalari joylashgan
+   pastki blokning skroll paytida sakrab turishiga olib keladi.
+
+   100svh (small viewport height) — brauzer paneli doim ko'rinib
+   turgan holatdagi eng kichik, BARQAROR balandlik. U skroll
+   paytida o'zgarmaydi, shu sabab tugmalar pastda qimirlamasdan
+   turadi.
    ────────────────────────────────────────────────────────────── */
 .h-screen {
   height: 100vh;
 }
-@supports (height: 100dvh) {
+@supports (height: 100svh) {
   .h-screen {
-    height: 100dvh;
+    height: 100svh;
   }
 }
 
 .min-h-screen {
   min-height: 100vh;
 }
-@supports (height: 100dvh) {
+@supports (height: 100svh) {
   .min-h-screen {
-    min-height: 100dvh;
+    min-height: 100svh;
   }
 }
