@@ -26,6 +26,7 @@ import {
 import { Clock, ChevronLeft, ChevronRight, X, Check, SkipForward } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
 import { fetchQuestionSource } from "@/lib/fetchQuestionSource";
+import { useAppViewportHeight } from "@/hooks/use-app-viewport-height";
 
 // Format 1: Original format with nested question/answers objects
 interface QuestionDataFormat1 {
@@ -118,6 +119,7 @@ export const TestInterfaceBase = ({
   sessionId = null,
   isPremiumSession = false,
 }: TestInterfaceBaseProps) => {
+  useAppViewportHeight();
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
   const { saveTestResult } = useTestResults();
@@ -583,7 +585,10 @@ export const TestInterfaceBase = ({
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div
+      className="bg-background flex flex-col"
+      style={{ minHeight: "calc(var(--app-vh, 1vh) * 100)" }}
+    >
       <div className="sticky top-0 z-20">
         {/* Header */}
         <header className="bg-card border-b border-border px-3 py-2 md:px-4 md:py-2.5 shrink-0">

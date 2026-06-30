@@ -326,34 +326,34 @@
    Mobil 100vh muammosi: ba'zi mobil brauzerlarda 100vh manzil
    panelini (URL bar) hisobga olib hisoblanadi, lekin u
    ko'rsatilganda haqiqiy ko'rinadigan balandlik kichikroq bo'lib
-   qoladi — natijada test interfeysida pastda bo'sh joy paydo
-   bo'ladi.
+   qoladi.
 
-   ESLATMA: 100dvh (dynamic viewport height) bu yerda ATAYLAB
-   ishlatilmaydi — dvh qiymati foydalanuvchi skroll qilganda
-   (manzil paneli yashirinib/chiqib turganda) REAL VAQTDA
-   o'zgaradi, bu esa "Oldingi/Keyingi" tugmalari joylashgan
-   pastki blokning skroll paytida sakrab turishiga olib keladi.
+   100dvh (dynamic viewport height) — brauzer panelining HAQIQIY,
+   joriy holatini doim aniq aks ettiradi, shu sabab bu yerda
+   ENG TO'G'RI tanlov hisoblanadi (sahifa overflow:hidden bilan
+   emas, balki oddiy tabiiy skroll + sticky footer yondashuvi
+   bilan ishlatilgani uchun — bunda dvh hech qanday "sakrash"
+   muammosini keltirib chiqarmaydi).
 
-   100svh (small viewport height) — brauzer paneli doim ko'rinib
-   turgan holatdagi eng kichik, BARQAROR balandlik. U skroll
-   paytida o'zgarmaydi, shu sabab tugmalar pastda qimirlamasdan
-   turadi.
+   100svh (statik, brauzer paneli doim ko'rinib turgan deb
+   hisoblanadigan eng kichik qiymat) ATAYLAB ishlatilmaydi —
+   chunki manzil paneli yashiringanda haqiqiy ekran undan KATTA
+   bo'lib qoladi va konteyner pastida bo'sh joy qoldiradi.
    ────────────────────────────────────────────────────────────── */
 .h-screen {
   height: 100vh;
 }
-@supports (height: 100svh) {
+@supports (height: 100dvh) {
   .h-screen {
-    height: 100svh;
+    height: 100dvh;
   }
 }
 
 .min-h-screen {
   min-height: 100vh;
 }
-@supports (height: 100svh) {
+@supports (height: 100dvh) {
   .min-h-screen {
-    min-height: 100svh;
+    min-height: 100dvh;
   }
 }
