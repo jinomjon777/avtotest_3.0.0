@@ -389,16 +389,34 @@ body.test-interface-active main {
 }
 
 /* TestIshlash boshlash sahifasi (test hali boshlanmagan holat) —
-   index.html'dagi mobil qoidasi .flex-1, main, header, footer
-   elementlariga padding-left: 0 !important qo'shib, chap tomonni
-   o'ng tomondan torroq qilib qo'yadi. Bu klass bilan o'sha
-   ta'sirni bekor qilamiz, sahifa har tomondan teng ko'rinadi. */
+   index.html'da IKKITA qatlamli qoida bor:
+     1) .max-w-3xl { padding-left:16px !important; padding-right:16px !important; }
+     2) .flex-1, main, header { padding-left:0 !important; }  (faqat CHAP!)
+   <main> elementida "flex-1" VA "max-w-3xl" klasslari birga bor,
+   ikkala qoida ham bir xil specificity (0,1,0) ga ega, shu sabab
+   faylda KEYINROQ yozilgan (2)-qoida g'olib chiqib, faqat CHAP
+   tomonni 0 ga tushiradi — O'NG tomon 16px'da qolib, assimetriya
+   paydo bo'ladi.
+
+   OLDINGI URINISH XATOSI: "padding-left: initial !important" —
+   `initial` CSS kalit so'zi "Tailwind qiymatiga qaytarish" emas,
+   balki "spetsifikatsiyadagi standart qiymat"ga (padding uchun 0)
+   qaytaradi — ya'ni bu qoida amalda HECH NARSANI TUZATMAGAN edi.
+
+   TO'G'RI YECHIM: aniq piksel qiymati + yuqoriroq specificity
+   (body.klass + element + klass = 3 komponent), bu index.html'dagi
+   past-specificity qoidalarni tartibidan qat'iy nazar yengadi. */
 @media (max-width: 1023px) {
-  body.test-start-active main,
-  body.test-start-active header,
-  body.test-start-active footer,
-  body.test-start-active .flex-1 {
-    padding-left: initial !important;
-    margin-left: initial !important;
+  body.test-start-active main.flex-1 {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  body.test-start-active header {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
