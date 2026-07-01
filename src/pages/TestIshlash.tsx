@@ -179,7 +179,7 @@ export default function TestIshlash() {
 
       <div className="min-h-screen bg-background flex flex-col items-center font-sans">
         {/* Header */}
-        <header className="w-full bg-card border-b border-border px-6 py-3 sticky top-0 z-20">
+        <header className="w-full bg-card border-b border-border px-6 py-3 sticky top-0 z-20" style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
           <div className="max-w-3xl mx-auto flex items-center justify-between">
             <Link to="/">
               <Button variant="ghost" size="sm" className="gap-2 font-bold text-foreground/70 hover:text-foreground hover:bg-muted">
@@ -204,7 +204,10 @@ export default function TestIshlash() {
           </div>
         </header>
 
-        <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-8 flex flex-col justify-center items-stretch gap-6 self-center">
+        <main
+          className="flex-1 max-w-3xl mx-auto w-full px-4 py-8 flex flex-col justify-center items-stretch gap-6 self-center"
+          style={{ paddingLeft: '1rem', paddingRight: '1rem' }}
+        >
           {/* Premium Banner */}
           {showProBanner && !accessLoading && (
             <Link to="/pro" className="group flex items-center gap-4 bg-gradient-to-r from-[hsl(250_70%_56%/0.08)] to-[hsl(190_80%_45%/0.05)] border-2 border-[hsl(250_70%_56%/0.25)] rounded-2xl px-5 py-4 hover:border-[hsl(250_70%_56%/0.5)] transition-all active:scale-[0.99]">
