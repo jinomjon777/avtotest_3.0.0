@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { TrialTimer } from "@/components/TrialTimer";
 import { AppSidebar } from "./AppSidebar";
 import { BottomNav } from "./BottomNav";
-import { Crown, Globe, ChevronDown, Home, Phone, BookOpen, Car, FileText, Layers, Sun, Moon } from "lucide-react";
+import { Crown, Globe, ChevronDown, Home, Phone, BookOpen, Car, FileText, Layers, Sun, Moon, Send, Bot, Clock } from "lucide-react";
 import logoImg from "@/assets/logo.png";
 
 interface MainLayoutProps { children: React.ReactNode; }
@@ -252,11 +252,13 @@ export function MainLayout({ children }: MainLayoutProps) {
         {/* Main Content */}
         <main className="flex-1 app-main-content">{children}</main>
 
-        {/* Footer — desktop only, theme-aware */}
+        {/* Footer — theme-aware, tartibli va ikonalar bilan */}
         <footer className="block bg-[hsl(var(--sidebar-background))] border-t border-[hsl(var(--sidebar-border))] pb-20 lg:pb-0">
           <div className="max-w-7xl mx-auto px-6 py-10">
-            <div className="grid grid-cols-1 gap-8 text-center lg:grid-cols-12 lg:gap-8 lg:text-left">
-              <div className="lg:col-span-5">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
+
+              {/* Brand */}
+              <div className="lg:col-span-5 text-center lg:text-left">
                 <div className="flex items-center justify-center gap-3 mb-3 lg:justify-start">
                   <img src={logoImg} alt="Logo" className="w-9 h-9 rounded-xl object-contain" width="36" height="36" />
                   <span className="font-bold text-lg font-montserrat gradient-text">
@@ -265,23 +267,51 @@ export function MainLayout({ children }: MainLayoutProps) {
                 </div>
                 <p className="text-[hsl(var(--sidebar-foreground))] text-sm leading-relaxed max-w-sm mx-auto lg:mx-0">{t("footer.aboutText")}</p>
               </div>
+
+              {/* Quick links — icon + label chips, 2 ustunli grid */}
               <div className="lg:col-span-3">
-                <h3 className="font-semibold text-sm mb-3 text-[hsl(var(--accent))] uppercase tracking-wider">{t("footer.quickLinksTitle")}</h3>
-                <div className="space-y-2">
-                  {navLinks.map((item) => (
-                    <Link key={item.path} to={item.path} className="block text-[hsl(var(--sidebar-foreground))] hover:text-[hsl(var(--accent))] transition-colors text-sm">{item.label}</Link>
+                <h3 className="font-semibold text-sm mb-4 text-[hsl(var(--accent))] uppercase tracking-wider text-center lg:text-left">
+                  {t("footer.quickLinksTitle")}
+                </h3>
+                <div className="grid grid-cols-2 gap-2 lg:grid-cols-1 lg:gap-1.5 max-w-xs mx-auto lg:max-w-none lg:mx-0">
+                  {navLinks.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <Link
+                        key={item.path}
+                        to={item.path}
+                        className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-[hsl(var(--sidebar-foreground))] hover:text-[hsl(var(--accent))] hover:bg-[hsl(var(--sidebar-accent))] transition-colors text-sm"
+                      >
+                        <Icon className="w-4 h-4 shrink-0 opacity-70" />
+                        <span className="truncate">{item.label}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Contact — icon-badge qatorlari */}
+              <div className="lg:col-span-4">
+                <h3 className="font-semibold text-sm mb-4 text-[hsl(var(--accent))] uppercase tracking-wider text-center lg:text-left">
+                  {t("footer.contactTitle")}
+                </h3>
+                <div className="flex flex-col gap-2.5 max-w-xs mx-auto lg:max-w-none lg:mx-0">
+                  {[
+                    { icon: Send,  text: t("footer.telegramLabel") },
+                    { icon: Bot,   text: t("footer.botLabel") },
+                    { icon: Clock, text: t("footer.workingHoursLabel") },
+                  ].map(({ icon: Icon, text }, i) => (
+                    <div key={i} className="flex items-center gap-3 rounded-lg px-2.5 py-2 bg-[hsl(var(--sidebar-accent))]/40 text-sm text-[hsl(var(--sidebar-foreground))]">
+                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[hsl(var(--accent))]/15 text-[hsl(var(--accent))] shrink-0">
+                        <Icon className="w-3.5 h-3.5" />
+                      </span>
+                      <span className="truncate">{text}</span>
+                    </div>
                   ))}
                 </div>
               </div>
-              <div className="lg:col-span-4">
-                <h3 className="font-semibold text-sm mb-3 text-[hsl(var(--accent))] uppercase tracking-wider">{t("footer.contactTitle")}</h3>
-                <div className="space-y-2 text-sm text-[hsl(var(--sidebar-foreground))]">
-                  <p>{t("footer.telegramLabel")}</p>
-                  <p>{t("footer.botLabel")}</p>
-                  <p>{t("footer.workingHoursLabel")}</p>
-                </div>
-              </div>
             </div>
+
             <div className="section-divider mt-8 mb-4" />
             <div className="text-center text-[hsl(var(--muted-foreground))] text-xs">{t("footer.copyright")}</div>
           </div>
