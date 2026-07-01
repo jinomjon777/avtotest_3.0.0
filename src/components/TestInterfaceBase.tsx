@@ -462,12 +462,20 @@ export const TestInterfaceBase = ({
     return { correct, incorrect };
   };
 
+  // timeTaken ni saqlash uchun: testStartTime asosida emas, balki
+  // timer qoldig'i asosida hisoblash zarur — chunki startTime
+  // o'zgaruvchisi sahifa birinchi ochilganidan boshlab hisoblanadi,
+  // lekin foydalanuvchi tab'ni yopib, soatlar o'tib qaytsa,
+  // Date.now() - testStartTime juda katta bo'lib qoladi (424:03
+  // kabi anomal qiymatlar). Vaqt limiti MINUS qolgan vaqt esa
+  // har doim aniq, haqiqiy test vaqtini beradi.
+  const getTimeTaken = () => Math.max(0, timeLimit - timeRemaining);
+
   // Save result when showing results — uses backend RPC which re-validates access
   useEffect(() => {
     if (showResults && user && !resultSaved && variant > 0) {
       const stats = getTestStats();
-      const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
-      // Pass sessionId + isPremiumSession so backend enforces access at submit time
+      const timeTaken = getTimeTaken();
       saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession);
       setResultSaved(true);
     }
@@ -476,7 +484,7 @@ export const TestInterfaceBase = ({
   // Show results screen
   if (showResults) {
     const stats = getTestStats();
-    const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+    const timeTaken = getTimeTaken();
     
     return (
       <TestResults
