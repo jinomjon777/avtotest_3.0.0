@@ -457,3 +457,28 @@ body.test-interface-active main {
 main.app-main-content {
   padding-bottom: 0 !important;
 }
+
+/* ──────────────────────────────────────────────────────────────
+   index.html'dagi qoida FAQAT <main>ga emas, balki <body> VA
+   <#root>ga ham bir vaqtda 112px majburiy pastki bo'shliq beradi:
+     body, #root, main { padding-bottom: calc(112px+...) !important; }
+
+   Yuqoridagi `main.app-main-content` qoidasi faqat <main>ni
+   tuzatadi — #root va body hali ham 112px bilan qolaveradi, va
+   BottomNav/test-footer HAR DOIM position:fixed bo'lgani uchun
+   (hech qachon oddiy oqim — normal flow — ichida joy egallamaydi),
+   bu 112px hech qachon kerak emas — u shunchaki sahifa oxirida
+   ortiqcha bo'sh joy sifatida qoladi.
+
+   Yechim: #root va body uchun ID/element'dan YUQORIROQ
+   specificity beruvchi qoida — bu index.html'dagi qoidadan
+   (u hujjatda TARTIB bo'yicha keyinroq joylashgan bo'lsa ham)
+   har doim g'olib chiqadi, chunki CSS'da specificity tartibdan
+   ustun turadi.
+   ────────────────────────────────────────────────────────────── */
+:root #root {
+  padding-bottom: 0 !important;
+}
+html body {
+  padding-bottom: 0 !important;
+}
