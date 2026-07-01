@@ -250,7 +250,7 @@ export function MainLayout({ children }: MainLayoutProps) {
         </header>
 
         {/* Main Content */}
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 app-main-content">{children}</main>
 
         {/* Footer — desktop only, theme-aware */}
         <footer className="block bg-[hsl(var(--sidebar-background))] border-t border-[hsl(var(--sidebar-border))] pb-20 lg:pb-0">

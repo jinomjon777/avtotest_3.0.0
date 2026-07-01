@@ -434,3 +434,26 @@ body.test-interface-active main {
     padding-right: 24px !important;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────
+   BUTUN SAYT bo'ylab (Bosh sahifa, Variantlar, Belgilar va h.k. —
+   MainLayout ishlatuvchi barcha sahifalar) muammo:
+
+   index.html'da har qanday <main> uchun majburiy qoida bor:
+     main { padding-bottom: calc(112px + safe-area) !important; }
+
+   Lekin MainLayout.tsx'dagi <footer> elementi allaqachon O'ZINING
+   pb-20 (80px) bilan pastki (fixed) BottomNav uchun joy ochib
+   qo'ygan. Ikkalasi QO'SHILIB (112px + 80px = 192px), sahifa
+   pastida katta, keraksiz bo'sh joy hosil qilardi.
+
+   MainLayout'dagi <main> elementiga "app-main-content" klassi
+   berilgan — shu orqali FAQAT shu asosiy layout'dagi main uchun
+   forced 112px'ni bekor qilamiz (klass qo'shilgani specificity'ni
+   0,0,1 dan 0,1,1 ga oshiradi, index.html qoidasidan yuqori
+   bo'ladi). Test ekrani (TestInterfaceBase) o'zining alohida
+   mexanizmi orqali ishlayveradi, bu yerga tegishli emas.
+   ────────────────────────────────────────────────────────────── */
+main.app-main-content {
+  padding-bottom: 0 !important;
+}
