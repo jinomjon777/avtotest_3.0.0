@@ -387,3 +387,18 @@ body.test-interface-active #root {
 body.test-interface-active main {
   padding-bottom: var(--test-footer-clearance, 88px) !important;
 }
+
+/* TestIshlash boshlash sahifasi (test hali boshlanmagan holat) —
+   index.html'dagi mobil qoidasi .flex-1, main, header, footer
+   elementlariga padding-left: 0 !important qo'shib, chap tomonni
+   o'ng tomondan torroq qilib qo'yadi. Bu klass bilan o'sha
+   ta'sirni bekor qilamiz, sahifa har tomondan teng ko'rinadi. */
+@media (max-width: 1023px) {
+  body.test-start-active main,
+  body.test-start-active header,
+  body.test-start-active footer,
+  body.test-start-active .flex-1 {
+    padding-left: initial !important;
+    margin-left: initial !important;
+  }
+}

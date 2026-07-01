@@ -39,6 +39,11 @@ const FREE_VARIANT = 99;
 export default function TestIshlash() {
   const testIshlashStorageKey = 'testIshlash_activeTest';
 
+  useEffect(() => {
+    document.body.classList.add("test-start-active");
+    return () => { document.body.classList.remove("test-start-active"); };
+  }, []);
+
   const getInitialState = () => {
     try {
       const saved = localStorage.getItem(testIshlashStorageKey);
