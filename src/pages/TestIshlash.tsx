@@ -179,19 +179,20 @@ export default function TestIshlash() {
 
       <div className="min-h-screen bg-background flex flex-col items-center font-sans">
         {/* Header */}
-        <header className="w-full bg-card border-b border-border px-6 py-3 sticky top-0 z-20" style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
-          <div className="max-w-3xl mx-auto flex items-center justify-between">
-            <Link to="/">
-              <Button variant="ghost" size="sm" className="gap-2 font-bold text-foreground/70 hover:text-foreground hover:bg-muted">
-                <Home className="w-4 h-4" /> Bosh sahifa
+        <header className="w-full bg-card border-b border-border px-3 sm:px-6 py-2.5 sm:py-3 sticky top-0 z-20">
+          <div className="max-w-3xl mx-auto flex items-center justify-between gap-2">
+            <Link to="/" className="shrink-0">
+              <Button variant="ghost" size="sm" className="gap-1.5 sm:gap-2 px-2 sm:px-3 font-bold text-foreground/70 hover:text-foreground hover:bg-muted">
+                <Home className="w-4 h-4 shrink-0" />
+                <span className="hidden sm:inline">Bosh sahifa</span>
               </Button>
             </Link>
-            <div className="flex bg-muted rounded-lg p-1">
+            <div className="flex bg-muted rounded-lg p-1 shrink-0">
               {languages.map((lang) => (
                 <button
                   key={lang.id}
                   onClick={() => setLanguage(lang.id as any)}
-                  className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${
+                  className={`px-2 sm:px-4 py-1.5 rounded-md text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap ${
                     language === lang.id
                       ? "bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
@@ -206,7 +207,6 @@ export default function TestIshlash() {
 
         <main
           className="flex-1 max-w-3xl mx-auto w-full px-4 py-8 flex flex-col justify-center items-stretch gap-6 self-center"
-          style={{ paddingLeft: '1rem', paddingRight: '1rem' }}
         >
           {/* Premium Banner */}
           {showProBanner && !accessLoading && (
