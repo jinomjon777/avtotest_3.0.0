@@ -259,7 +259,7 @@ export default function Home() {
                   <div style={{ width: 34, height: 34, borderRadius: "50%", background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 700, color: "#fff", flexShrink: 0 }}>{tm.avatar}</div>
                   <div>
                     <div style={{ fontWeight: 600, fontSize: 13, color: CS.textPrimary }}>{tm.name}</div>
-                    <div style={{ fontSize: 11, color: CS.textSecondary }}>Natija: <span style={{ color: CS.accentB, fontWeight: 700 }}>{tm.score}</span></div>
+                    <div style={{ fontSize: 11, color: CS.textSecondary }}>{t("home.resultLabel")}: <span style={{ color: CS.accentB, fontWeight: 700 }}>{tm.score}</span></div>
                   </div>
                 </div>
               </div>
