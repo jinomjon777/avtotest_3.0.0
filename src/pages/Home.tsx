@@ -172,8 +172,8 @@ export default function Home() {
               <div style={{ background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "20px 18px", boxShadow: "0 32px 64px rgba(0,0,0,0.4)" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
                   <div>
-                    <div style={{ fontSize: 10, color: CS.textSecondary, marginBottom: 2 }}>VARIANT 14</div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: CS.textPrimary }}>Savol 7 / 30</div>
+                    <div style={{ fontSize: 10, color: CS.textSecondary, marginBottom: 2 }}>{t("home.demoVariantLabel")}</div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: CS.textPrimary }}>{t("home.demoQuestionLabel")}</div>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 5, background: "rgba(255,95,109,0.15)", border: "1px solid rgba(255,95,109,0.2)", borderRadius: 100, padding: "4px 10px" }}>
                     <Clock size={11} color={CS.accentC} />
@@ -184,26 +184,26 @@ export default function Home() {
                   <div style={{ height: "100%", width: "23%", background: `linear-gradient(90deg, ${CS.accent}, ${CS.accentB})`, borderRadius: 4 }} />
                 </div>
                 <div style={{ fontSize: 13, color: CS.textPrimary, lineHeight: 1.6, marginBottom: 12, fontWeight: 500 }}>
-                  {t("test.questionExample") || "Yo'lovchi avtomobil haydovchi uchun ruxsat etilgan maksimal tezlik?"}
+                  {t("home.demoQuestionText")}
                 </div>
                 {[
-                  { text: "60 km/soat", correct: false },
-                  { text: "90 km/soat", correct: true },
-                  { text: "110 km/soat", correct: false },
-                  { text: "120 km/soat", correct: false },
+                  { text: t("home.demoAnswer1"), correct: false },
+                  { text: t("home.demoAnswer2"), correct: true },
+                  { text: t("home.demoAnswer3"), correct: false },
+                  { text: t("home.demoAnswer4"), correct: false },
                 ].map((ans, i) => (
                   <div key={i} style={{ padding: "9px 12px", borderRadius: 9, border: ans.correct ? `1px solid rgba(0,201,196,0.5)` : `1px solid ${CS.border}`, background: ans.correct ? "rgba(0,201,196,0.08)" : "rgba(255,255,255,0.03)", marginBottom: 6, display: "flex", alignItems: "center", gap: 8 }}>
                     <div style={{ width: 18, height: 18, borderRadius: "50%", border: `1.5px solid ${ans.correct ? CS.accentB : "rgba(255,255,255,0.2)"}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                       {ans.correct && <CheckCircle size={11} color={CS.accentB} />}
                     </div>
                     <span style={{ fontSize: 12, color: ans.correct ? CS.accentB : CS.textSecondary }}>{ans.text}</span>
-                    {ans.correct && <span style={{ marginLeft: "auto", fontSize: 10, color: CS.accentB, fontWeight: 600 }}>TO'G'RI</span>}
+                    {ans.correct && <span style={{ marginLeft: "auto", fontSize: 10, color: CS.accentB, fontWeight: 600 }}>{t("home.demoCorrectLabel")}</span>}
                   </div>
                 ))}
               </div>
               <div style={{ position: "absolute", top: -12, right: -12, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, borderRadius: 10, padding: "7px 12px", display: "flex", alignItems: "center", gap: 5, boxShadow: `0 6px 20px rgba(124,111,255,0.4)` }}>
                 <Trophy size={13} color="#fff" />
-                <span style={{ fontSize: 11, fontWeight: 700, color: "#fff" }}>1200+ savol</span>
+                <span style={{ fontSize: 11, fontWeight: 700, color: "#fff" }}>{t("home.demoBadge")}</span>
               </div>
             </div>
           </div>
