@@ -27,7 +27,6 @@ interface TestResult {
 const PURPLE = "hsl(250 70% 56%)";
 const BLUE = "hsl(220 80% 55%)";
 const CYAN = "hsl(190 80% 50%)";
-const BEIGE = "hsl(40 30% 95%)";
 
 export default function Dashboard() {
   const { user, profile, isLoading } = useAuth();
@@ -102,7 +101,7 @@ export default function Dashboard() {
     <MainLayout>
       <SEO title="Dashboard" description="Avtotest Premium - Shaxsiy boshqaruv paneli" path="/dashboard" noIndex />
       
-      <div className="min-h-screen" style={{ background: `linear-gradient(180deg, ${BEIGE} 0%, hsl(0 0% 100%) 100%)` }}>
+      <div className="min-h-screen bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
           {/* Greeting Hero */}
           <div className="relative mb-8 rounded-3xl overflow-hidden p-6 md:p-8" style={{
@@ -131,19 +130,17 @@ export default function Dashboard() {
               <button
                 key={i}
                 onClick={() => navigate(action.path)}
-                className="group relative h-auto py-5 px-4 flex flex-col items-center gap-2.5 rounded-2xl font-semibold text-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className={`group relative h-auto py-5 px-4 flex flex-col items-center gap-2.5 rounded-2xl font-semibold text-sm transition-all hover:-translate-y-1 hover:shadow-lg ${
+                  action.primary ? "" : "bg-card border border-border"
+                }`}
                 style={action.primary ? {
                   background: `linear-gradient(135deg, ${PURPLE} 0%, ${BLUE} 100%)`,
                   color: "white",
                   boxShadow: "0 4px 20px hsl(250 70% 56% / 0.3)"
-                } : {
-                  background: "white",
-                  color: "hsl(230 25% 20%)",
-                  border: "1px solid hsl(230 20% 90%)"
-                }}
+                } : undefined}
               >
                 <action.icon className="w-5 h-5" style={!action.primary ? { color: PURPLE } : undefined} />
-                <span>{action.label}</span>
+                <span className={!action.primary ? "text-foreground" : undefined}>{action.label}</span>
               </button>
             ))}
           </div>
@@ -152,7 +149,7 @@ export default function Dashboard() {
           {loadingResults ? (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {Array.from({ length: 4 }).map((_, i) => (
-                <Card key={i} className="p-5 border-0 rounded-2xl bg-white shadow-sm">
+                <Card key={i} className="p-5 border-0 rounded-2xl bg-card shadow-sm">
                   <Skeleton className="w-10 h-10 rounded-xl mb-3" />
                   <Skeleton className="w-16 h-7 mb-1" />
                   <Skeleton className="w-20 h-4" />
@@ -162,12 +159,12 @@ export default function Dashboard() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {stats.map((stat, i) => (
-                <Card key={i} className="p-5 border-0 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow">
+                <Card key={i} className="p-5 border-0 rounded-2xl bg-card shadow-sm hover:shadow-md transition-shadow">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style={{ background: stat.bg }}>
                     <stat.icon className="w-5 h-5" style={{ color: stat.color }} />
                   </div>
-                  <div className="text-2xl font-bold text-[hsl(230_25%_15%)] mb-0.5">{stat.value}</div>
-                  <div className="text-xs text-[hsl(230_15%_50%)]">{stat.label}</div>
+                  <div className="text-2xl font-bold text-foreground mb-0.5">{stat.value}</div>
+                  <div className="text-xs text-muted-foreground">{stat.label}</div>
                 </Card>
               ))}
             </div>
@@ -176,9 +173,9 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Recent Results */}
             <div className="lg:col-span-2">
-              <Card className="border-0 rounded-2xl bg-white shadow-sm overflow-hidden">
-                <div className="flex items-center justify-between p-5 border-b border-[hsl(230_20%_94%)]">
-                  <h2 className="font-bold text-[hsl(230_25%_15%)] flex items-center gap-2">
+              <Card className="border-0 rounded-2xl bg-card shadow-sm overflow-hidden">
+                <div className="flex items-center justify-between p-5 border-b border-border">
+                  <h2 className="font-bold text-foreground flex items-center gap-2">
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(250 70% 56% / 0.1)" }}>
                       <BarChart3 className="w-4 h-4" style={{ color: PURPLE }} />
                     </div>
@@ -218,15 +215,15 @@ export default function Dashboard() {
                         const score = Math.round((result.correct_answers / result.total_questions) * 100);
                         const passed = score >= 80;
                         return (
-                          <div key={result.id} className="flex items-center gap-4 p-3 rounded-xl hover:bg-[hsl(40_30%_97%)] transition-colors">
+                          <div key={result.id} className="flex items-center gap-4 p-3 rounded-xl hover:bg-muted transition-colors">
                             <div className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-bold text-white" style={{
                               background: passed ? `linear-gradient(135deg, ${CYAN}, ${BLUE})` : "linear-gradient(135deg, hsl(0 70% 65%), hsl(0 70% 55%))"
                             }}>
                               {result.variant}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="font-semibold text-[hsl(230_25%_15%)] text-sm">{t("dashboard.resultVariant")} {result.variant}</p>
-                              <div className="flex items-center gap-3 text-xs text-[hsl(230_15%_50%)]">
+                              <p className="font-semibold text-foreground text-sm">{t("dashboard.resultVariant")} {result.variant}</p>
+                              <div className="flex items-center gap-3 text-xs text-muted-foreground">
                                 <span>{result.correct_answers}/{result.total_questions} {t("dashboard.resultCorrect")}</span>
                                 <span>⏱ {formatTime(result.time_taken_seconds)}</span>
                               </div>
@@ -249,8 +246,8 @@ export default function Dashboard() {
             {/* Side panel */}
             <div className="space-y-6">
               {/* Progress */}
-              <Card className="p-5 border-0 rounded-2xl bg-white shadow-sm">
-                <h3 className="font-bold text-[hsl(230_25%_15%)] mb-4 flex items-center gap-2">
+              <Card className="p-5 border-0 rounded-2xl bg-card shadow-sm">
+                <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(190 80% 50% / 0.1)" }}>
                     <Target className="w-4 h-4" style={{ color: CYAN }} />
                   </div>
@@ -259,10 +256,10 @@ export default function Dashboard() {
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-[hsl(230_15%_50%)]">{t("dashboard.variants")}</span>
-                      <span className="font-semibold text-[hsl(230_25%_15%)]">{uniqueVariants}/61</span>
+                      <span className="text-muted-foreground">{t("dashboard.variants")}</span>
+                      <span className="font-semibold text-foreground">{uniqueVariants}/61</span>
                     </div>
-                    <div className="h-2 rounded-full overflow-hidden bg-[hsl(40_30%_94%)]">
+                    <div className="h-2 rounded-full overflow-hidden bg-muted">
                       <div className="h-full rounded-full transition-all" style={{
                         width: `${(uniqueVariants / 61) * 100}%`,
                         background: `linear-gradient(90deg, ${PURPLE}, ${BLUE})`
@@ -271,10 +268,10 @@ export default function Dashboard() {
                   </div>
                   <div>
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-[hsl(230_15%_50%)]">{t("dashboard.avgScore")}</span>
-                      <span className="font-semibold text-[hsl(230_25%_15%)]">{avgScore}%</span>
+                      <span className="text-muted-foreground">{t("dashboard.avgScore")}</span>
+                      <span className="font-semibold text-foreground">{avgScore}%</span>
                     </div>
-                    <div className="h-2 rounded-full overflow-hidden bg-[hsl(40_30%_94%)]">
+                    <div className="h-2 rounded-full overflow-hidden bg-muted">
                       <div className="h-full rounded-full transition-all" style={{
                         width: `${avgScore}%`,
                         background: `linear-gradient(90deg, ${BLUE}, ${CYAN})`
@@ -321,8 +318,8 @@ export default function Dashboard() {
                       <Crown className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-[hsl(230_25%_15%)] text-sm">{t("dashboard.premiumActive")}</h3>
-                      <p className="text-xs text-[hsl(230_15%_50%)]">{t("dashboard.premiumActiveDesc")}</p>
+                      <h3 className="font-bold text-foreground text-sm">{t("dashboard.premiumActive")}</h3>
+                      <p className="text-xs text-muted-foreground">{t("dashboard.premiumActiveDesc")}</p>
                     </div>
                   </div>
                 </Card>
