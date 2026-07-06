@@ -497,8 +497,8 @@ export const TestInterfaceCombined = ({
 
               {question.image && (
                 <Card className="md:hidden p-3 bg-card border-border mb-4 overflow-hidden">
-                  <button type="button" className="block w-full cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
-                    <img src={question.image} alt="Question illustration" className="w-full max-w-[300px] h-auto mx-auto object-contain rounded" />
+                  <button type="button" className="block w-full aspect-[4/3] max-w-[300px] mx-auto cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
+                    <img src={question.image} alt="Question illustration" className="w-full h-full object-contain rounded" />
                   </button>
                 </Card>
               )}
@@ -548,8 +548,8 @@ export const TestInterfaceCombined = ({
             {question.image && (
               <div className="hidden md:block md:w-[40%]">
                 <Card className="p-4 bg-card border-border overflow-hidden">
-                  <button type="button" className="block w-full cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
-                    <img src={question.image} alt="Question illustration" className="w-full h-auto object-contain rounded" />
+                  <button type="button" className="block w-full aspect-[4/3] cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
+                    <img src={question.image} alt="Question illustration" className="w-full h-full object-contain rounded" />
                   </button>
                 </Card>
               </div>

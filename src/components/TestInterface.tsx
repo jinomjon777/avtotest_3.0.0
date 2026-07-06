@@ -607,7 +607,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
                 <Card key={`mobile-img-${currentQuestion}`} className="md:hidden p-3 bg-card border-border mb-4 overflow-hidden">
                   <button
                     type="button"
-                    className="block w-full cursor-zoom-in focus:outline-none focus:ring-0"
+                    className="block w-full aspect-[4/3] max-w-[300px] mx-auto cursor-zoom-in focus:outline-none focus:ring-0"
                     onClick={() => setZoomImage(question.image!)}
                   >
                     {/\.(png|jpe?g|webp)$/i.test(question.image || "") ? (
@@ -615,7 +615,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
                         key={question.image}
                         src={question.image}
                         alt="Question illustration"
-                        className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
+                        className="w-full h-full object-contain rounded"
                       />
                     ) : (
                       <picture key={question.image}>
@@ -625,7 +625,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
                         <img
                           src={`${question.image}.png`}
                           alt="Question illustration"
-                          className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
+                          className="w-full h-full object-contain rounded"
                         />
                       </picture>
                     )}
@@ -685,7 +685,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
                 <Card className="p-4 bg-card border-border overflow-hidden sticky top-4">
                   <button
                     type="button"
-                    className="block w-full cursor-zoom-in focus:outline-none focus:ring-0"
+                    className="block w-full aspect-[4/3] max-h-[60vh] cursor-zoom-in focus:outline-none focus:ring-0"
                     onClick={() => setZoomImage(question.image!)}
                   >
                     {/\.(png|jpe?g|webp)$/i.test(question.image || "") ? (
@@ -693,7 +693,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
                         key={question.image}
                         src={question.image}
                         alt="Question illustration"
-                        className="w-full h-auto object-contain rounded max-h-[60vh]"
+                        className="w-full h-full object-contain rounded"
                       />
                     ) : (
                       <picture key={question.image}>
@@ -703,7 +703,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
                         <img
                           src={`${question.image}.png`}
                           alt="Question illustration"
-                          className="w-full h-auto object-contain rounded max-h-[60vh]"
+                          className="w-full h-full object-contain rounded"
                         />
                       </picture>
                     )}

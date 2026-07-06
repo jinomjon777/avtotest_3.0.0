@@ -129,6 +129,7 @@ export function MainLayout({ children }: MainLayoutProps) {
               {/* Theme toggle */}
               <button
                 onClick={toggleTheme}
+                aria-label={isDark ? "Kunduzgi rejim" : "Tungi rejim"}
                 className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all ${
                   scrolled ? "text-muted-foreground hover:bg-muted" : "text-white/80 hover:bg-white/10"
                 }`}
@@ -204,6 +205,7 @@ export function MainLayout({ children }: MainLayoutProps) {
             <button
               onClick={toggleTheme}
               title={isDark ? "Kunduzgi rejim" : "Tungi rejim"}
+              aria-label={isDark ? "Kunduzgi rejim" : "Tungi rejim"}
               className="flex items-center justify-center w-8 h-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
             >
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}

@@ -101,7 +101,7 @@ export default function Home() {
         <div style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
           <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)" }} onClick={() => setShowProPopup(false)} />
           <div style={{ position: "relative", background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "32px 24px", maxWidth: 360, width: "100%", boxShadow: "0 40px 80px rgba(0,0,0,0.6)" }}>
-            <button onClick={() => setShowProPopup(false)} style={{ position: "absolute", top: 14, right: 14, background: "rgba(255,255,255,0.08)", border: "none", borderRadius: 8, width: 32, height: 32, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: CS.textSecondary }}>
+            <button onClick={() => setShowProPopup(false)} aria-label={t("common.close")} style={{ position: "absolute", top: 14, right: 14, background: "rgba(255,255,255,0.08)", border: "none", borderRadius: 8, width: 32, height: 32, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: CS.textSecondary }}>
               <X size={16} />
             </button>
             <div style={{ width: 52, height: 52, borderRadius: 14, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
