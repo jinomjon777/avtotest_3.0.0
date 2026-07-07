@@ -38,11 +38,11 @@ export function SEO({
       {/* Canonical URL */}
       <link rel="canonical" href={fullUrl} />
       {/* Favicon and platform icons (ensure visible when pages rendered via React) */}
-      <link rel="icon" type="image/png" href={`${BASE_URL}/favicon.png`} />
-      <link rel="shortcut icon" href={`${BASE_URL}/favicon.png`} />
-      <link rel="apple-touch-icon" href={`${BASE_URL}/favicon.png`} />
-      <link rel="mask-icon" href={`${BASE_URL}/favicon.png`} color="#7C6FFF" />
-      <meta name="msapplication-TileImage" content={`${BASE_URL}/favicon.png`} />
+      <link rel="icon" type="image/png" sizes="32x32" href={`${BASE_URL}/favicon-32.png`} />
+      <link rel="shortcut icon" href={`${BASE_URL}/favicon-32.png`} />
+      <link rel="apple-touch-icon" sizes="180x180" href={`${BASE_URL}/apple-touch-icon.png`} />
+      <link rel="mask-icon" href={`${BASE_URL}/favicon-192.png`} color="#7C6FFF" />
+      <meta name="msapplication-TileImage" content={`${BASE_URL}/favicon-192.png`} />
       <meta name="theme-color" content="#7C6FFF" />
 
       {/* Open Graph / Facebook */}
