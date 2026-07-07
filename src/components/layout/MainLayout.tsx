@@ -171,11 +171,11 @@ export function MainLayout({ children }: MainLayoutProps) {
               </div>
 
               {/* Premium */}
-              <Link to="/pro">
-                <Button size="sm" className="bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white font-bold px-2.5 h-8 rounded-lg gap-1 border-0">
+              <Button asChild size="sm" className="bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white font-bold px-2.5 h-8 rounded-lg gap-1 border-0">
+                <Link to="/pro" aria-label={t("common.pro")}>
                   <Crown className="w-3.5 h-3.5" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </nav>
@@ -212,11 +212,11 @@ export function MainLayout({ children }: MainLayoutProps) {
             </button>
 
             {/* Premium button */}
-            <Link to="/pro">
-              <Button size="sm" className="bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white font-bold px-3 h-8 rounded-lg gap-1.5 border-0 text-xs">
-                <Crown className="w-3.5 h-3.5" /> Premium
-              </Button>
-            </Link>
+            <Button asChild size="sm" className="bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white font-bold px-3 h-8 rounded-lg gap-1.5 border-0 text-xs">
+              <Link to="/pro">
+                <Crown className="w-3.5 h-3.5" /> {t("common.pro")}
+              </Link>
+            </Button>
 
             {/* Language */}
             <div className="relative">
