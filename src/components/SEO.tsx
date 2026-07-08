@@ -44,6 +44,7 @@ export function SEO({
       <link rel="mask-icon" href={`${BASE_URL}/favicon-192.png`} color="#7C6FFF" />
       <meta name="msapplication-TileImage" content={`${BASE_URL}/favicon-192.png`} />
       <meta name="theme-color" content="#7C6FFF" />
+      <meta name="yandex-verification" content="90e3fdcad9b7e3fd" />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
