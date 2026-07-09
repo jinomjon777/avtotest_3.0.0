@@ -82,7 +82,7 @@ export default function TestIshlash() {
     } catch (e) { /* ignore */ }
   }, [testStarted, activeSession, questionCount]);
 
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const { user } = useAuth();
   const { state: accessState, isPremium, loading: accessLoading, backendConfirmed } = useAccessState();
   const { starting, startSession } = useTestSession();
@@ -103,7 +103,7 @@ export default function TestIshlash() {
 
     if (isPremium) {
       if (!backendConfirmed) {
-        setSessionError('Serverga ulanib bo\'lmadi. Iltimos, sahifani yangilang.');
+        setSessionError(t('test.errorNoConnection'));
         return;
       }
       const result = await startSession({
@@ -113,11 +113,11 @@ export default function TestIshlash() {
       });
       if (!result.ok) {
         if (result.error === 'no_premium_access') {
-          setSessionError('Bu test uchun PREMIUM obuna kerak.');
+          setSessionError(t('test.errorNeedPremium'));
         } else if (result.error === 'not_authenticated') {
-          setSessionError('Iltimos, avval tizimga kiring.');
+          setSessionError(t('test.errorNeedLogin'));
         } else {
-          setSessionError('Serverga ulanishda xatolik. Qayta urinib ko\'ring.');
+          setSessionError(t('test.errorConnectionFailed'));
         }
         return;
       }
@@ -151,7 +151,7 @@ export default function TestIshlash() {
         <TestInterfaceCombined
           onExit={() => { setTestStarted(false); setActiveSession(null); }}
           dataSources={dataSources}
-          testName="Test (50 ta)"
+          testName={t('test.testName50')}
           questionCount={50}
           timeLimit={50 * 60}
           randomize={true}
@@ -162,7 +162,7 @@ export default function TestIshlash() {
       <TestInterfaceBase
         onExit={() => { setTestStarted(false); setActiveSession(null); }}
         dataSource={resolveDataSource(effectiveDataFile)}
-        testName="Test (20 ta)"
+        testName={t('test.testName20')}
         questionCount={20}
         timeLimit={25 * 60}
         randomize={true}
@@ -184,7 +184,7 @@ export default function TestIshlash() {
             <Link to="/" className="shrink-0">
               <Button variant="ghost" size="sm" className="gap-1.5 sm:gap-2 px-2 sm:px-3 font-bold text-foreground/70 hover:text-foreground hover:bg-muted">
                 <Home className="w-4 h-4 shrink-0" />
-                <span className="hidden sm:inline">Bosh sahifa</span>
+                <span className="hidden sm:inline">{t('nav.home')}</span>
               </Button>
             </Link>
             <div className="flex bg-muted rounded-lg p-1 shrink-0">
@@ -215,8 +215,8 @@ export default function TestIshlash() {
                 <Crown className="w-5 h-5 text-white" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-primary font-bold text-base leading-tight">PREMIUM VERSIYA <span className="text-[hsl(190_80%_45%)]">✦</span></p>
-                <p className="text-muted-foreground text-sm mt-0.5"><span className="font-bold text-foreground">1200+</span> savol bilan imtihonga tayyor bo'ling</p>
+                <p className="text-primary font-bold text-base leading-tight">{t('test.premiumBannerTitle')} <span className="text-[hsl(190_80%_45%)]">✦</span></p>
+                <p className="text-muted-foreground text-sm mt-0.5"><span className="font-bold text-foreground">1200+</span> {t('test.premiumBannerDesc')}</p>
               </div>
             </Link>
           )}
@@ -226,7 +226,7 @@ export default function TestIshlash() {
             <div className="flex items-center gap-3 bg-[hsl(250_70%_56%/0.08)] border border-[hsl(250_70%_56%/0.2)] rounded-xl px-4 py-3">
               <ServerCrash className="w-4 h-4 text-primary flex-shrink-0" />
               <p className="text-sm text-foreground">
-                Server bilan aloqa yo'q. Bepul rejimda test ishlash mumkin.
+                {t('test.noServerWarning')}
               </p>
             </div>
           )}
@@ -246,9 +246,9 @@ export default function TestIshlash() {
                 <Play className="w-5 h-5 text-white fill-current" />
               </div>
               <div>
-                <h1 className="text-2xl font-black tracking-tight text-foreground">Test ishlash</h1>
+                <h1 className="text-2xl font-black tracking-tight text-foreground">{t('test.startPageTitle')}</h1>
                 <p className="text-muted-foreground text-sm font-semibold">
-                  {questionCount} ta tasodifiy savol • {questionCount === 20 ? "25" : "50"} daqiqa
+                  {questionCount} {t('test.randomQuestionsSuffix')} • {questionCount === 20 ? "25" : "50"} {t('test.minutes')}
                 </p>
               </div>
             </div>
@@ -257,7 +257,7 @@ export default function TestIshlash() {
               {/* Question count */}
               <div className="flex-1">
                 <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-3 text-center">
-                  Savollar sonini tanlang
+                  {t('test.chooseQuestionCount')}
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   {([20, 50] as const).map((num) => (
@@ -278,8 +278,8 @@ export default function TestIshlash() {
                       <span className={`text-4xl font-black leading-none ${questionCount === num ? "text-primary" : "text-muted-foreground"}`}>
                         {num}
                       </span>
-                      <span className="text-sm font-semibold text-muted-foreground mt-1">savollar</span>
-                      <span className="text-sm text-muted-foreground/70">{num === 20 ? "25 daqiqa" : "50 daqiqa"}</span>
+                      <span className="text-sm font-semibold text-muted-foreground mt-1">{t('test.questionsLower')}</span>
+                      <span className="text-sm text-muted-foreground/70">{num === 20 ? "25" : "50"} {t('test.minutes')}</span>
                     </button>
                   ))}
                 </div>
@@ -289,9 +289,9 @@ export default function TestIshlash() {
               <div className="flex-1 flex flex-col gap-4">
                 <div className="grid grid-cols-3 gap-2">
                   {[
-                    { icon: HelpCircle, value: questionCount, label: "Savollar", color: "text-primary" },
-                    { icon: Clock, value: questionCount === 20 ? 25 : 50, label: "Daqiqa", color: "text-[hsl(217_91%_60%)]" },
-                    { icon: CheckCircle, value: "90%", label: "O'tish", color: "text-[hsl(160_60%_45%)]" },
+                    { icon: HelpCircle, value: questionCount, label: t('test.questions'), color: "text-primary" },
+                    { icon: Clock, value: questionCount === 20 ? 25 : 50, label: t('test.minutes'), color: "text-[hsl(217_91%_60%)]" },
+                    { icon: CheckCircle, value: "90%", label: t('test.passRate'), color: "text-[hsl(160_60%_45%)]" },
                   ].map(({ icon: Icon, value, label, color }) => (
                     <div key={label} className="flex flex-col items-center gap-2 bg-muted/30 rounded-2xl py-4 border border-border/50">
                       <div className="w-8 h-8 rounded-xl bg-card shadow-sm flex items-center justify-center border border-border/50">
@@ -314,14 +314,14 @@ export default function TestIshlash() {
                     ? <Loader2 className="w-5 h-5 animate-spin" />
                     : <Play className="w-4 h-4 fill-current" />
                   }
-                  {starting ? "Yuklanmoqda..." : "Testni boshlash"}
+                  {starting ? t('test.loading') : t('test.startTest')}
                 </Button>
               </div>
             </div>
           </div>
 
           <p className="text-center text-xs text-muted-foreground">
-            Testni boshlash uchun ro'yxatdan o'tish shart emas
+            {t('test.startButtonNote')}
           </p>
         </main>
       </div>
