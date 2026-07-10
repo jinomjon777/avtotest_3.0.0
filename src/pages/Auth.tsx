@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { Crown, LogIn, Eye, EyeOff, AlertCircle, Mail, Lock, Shield, Zap, Star } from "lucide-react";
+import { Crown, LogIn, UserPlus, Eye, EyeOff, AlertCircle, CheckCircle2, Mail, Lock, User, Shield, Zap, Star } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import logoImg from "@/assets/logo.png";
 
 const Auth = () => {
+  const [mode,       setMode]       = useState<"login" | "signup">("login");
+  const [fullName,   setFullName]   = useState("");
   const [email,      setEmail]      = useState("");
   const [password,   setPassword]   = useState("");
+  const [confirmPw,  setConfirmPw]  = useState("");
   const [showPw,     setShowPw]     = useState(false);
   const [error,      setError]      = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [signupDone, setSignupDone] = useState(false);
 
-  const { user, isLoading, signIn } = useAuth();
+  const { user, isLoading, signIn, signUp } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const returnTo = (location.state as { returnTo?: string })?.returnTo || "/";
@@ -21,12 +25,39 @@ const Auth = () => {
     if (!isLoading && user) navigate(returnTo, { replace: true });
   }, [user, isLoading, navigate, returnTo]);
 
+  const switchMode = (next: "login" | "signup") => {
+    setMode(next);
+    setError("");
+    setSignupDone(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
     if (!email.trim())       { setError("Email kiriting"); return; }
     if (!password.trim())    { setError("Parol kiriting"); return; }
     if (password.length < 6) { setError("Parol kamida 6 ta belgi bo'lishi kerak"); return; }
+
+    if (mode === "signup") {
+      if (!fullName.trim())        { setError("Ismingizni kiriting"); return; }
+      if (password !== confirmPw)  { setError("Parollar mos kelmadi"); return; }
+
+      setSubmitting(true);
+      const { error: signUpError } = await signUp(email.trim(), password, undefined, fullName.trim());
+      if (signUpError) {
+        if (signUpError.message.includes("already registered") || signUpError.message.includes("already exists")) {
+          setError("Bu email bilan hisob allaqachon mavjud. Kirish tabiga o'ting.");
+        } else {
+          setError(signUpError.message);
+        }
+        setSubmitting(false);
+        return;
+      }
+      setSubmitting(false);
+      setSignupDone(true);
+      return;
+    }
 
     setSubmitting(true);
     const { error: signInError } = await signIn(email.trim(), password);
@@ -117,9 +148,59 @@ const Auth = () => {
 
             {/* Card */}
             <div className="rounded-2xl p-7 border shadow-2xl bg-[hsl(var(--auth-card))] border-[hsl(var(--auth-card-border))]">
+
+              {/* Mode tabs */}
+              <div className="flex bg-muted rounded-xl p-1 mb-6">
+                <button
+                  type="button"
+                  onClick={() => switchMode("login")}
+                  className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${
+                    mode === "login"
+                      ? "bg-[hsl(var(--auth-card))] text-[hsl(var(--auth-text))] shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Kirish
+                </button>
+                <button
+                  type="button"
+                  onClick={() => switchMode("signup")}
+                  className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${
+                    mode === "signup"
+                      ? "bg-[hsl(var(--auth-card))] text-[hsl(var(--auth-text))] shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Ro'yxatdan o'tish
+                </button>
+              </div>
+
+              {signupDone ? (
+                <div className="text-center py-4">
+                  <div className="w-14 h-14 rounded-full bg-[hsl(160_60%_45%/0.12)] flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle2 className="w-7 h-7 text-[hsl(160_60%_45%)]" />
+                  </div>
+                  <h2 className="text-lg font-bold mb-2 text-[hsl(var(--auth-text))]">Deyarli tayyor!</h2>
+                  <p className="text-sm text-[hsl(var(--auth-text-muted))] mb-6 leading-relaxed">
+                    <span className="font-semibold text-[hsl(var(--auth-text))]">{email}</span> manziliga tasdiqlash havolasi yuborildi.
+                    Hisobingizni faollashtirish uchun emailingizni tekshiring.
+                  </p>
+                  <button
+                    onClick={() => switchMode("login")}
+                    className="text-sm text-primary font-semibold hover:underline bg-transparent border-none cursor-pointer"
+                  >
+                    Kirish sahifasiga qaytish
+                  </button>
+                </div>
+              ) : (
+              <>
               <div className="text-center mb-6">
-                <h2 className="text-xl font-bold mb-1.5 text-[hsl(var(--auth-text))]">Xush kelibsiz!</h2>
-                <p className="text-sm text-[hsl(var(--auth-text-muted))]">Hisobingizga kiring</p>
+                <h2 className="text-xl font-bold mb-1.5 text-[hsl(var(--auth-text))]">
+                  {mode === "login" ? "Xush kelibsiz!" : "Ro'yxatdan o'ting"}
+                </h2>
+                <p className="text-sm text-[hsl(var(--auth-text-muted))]">
+                  {mode === "login" ? "Hisobingizga kiring" : "Bepul hisob yarating va testni boshlang"}
+                </p>
               </div>
 
               {error && (
@@ -130,6 +211,25 @@ const Auth = () => {
               )}
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                {/* Full name — signup only */}
+                {mode === "signup" && (
+                  <div>
+                    <label className="block text-xs font-semibold text-[hsl(var(--auth-text-muted))] mb-1.5">To'liq ism</label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[hsl(var(--muted-foreground))]" />
+                      <input
+                        type="text"
+                        value={fullName}
+                        onChange={e => setFullName(e.target.value)}
+                        placeholder="Ism Familiya"
+                        disabled={submitting}
+                        className="auth-input w-full pl-9 pr-3 py-2.5 rounded-xl text-sm outline-none transition-colors"
+                        style={{ boxSizing: "border-box" }}
+                      />
+                    </div>
+                  </div>
+                )}
+
                 {/* Email */}
                 <div>
                   <label className="block text-xs font-semibold text-[hsl(var(--auth-text-muted))] mb-1.5">Email</label>
@@ -168,6 +268,25 @@ const Auth = () => {
                   </div>
                 </div>
 
+                {/* Confirm password — signup only */}
+                {mode === "signup" && (
+                  <div>
+                    <label className="block text-xs font-semibold text-[hsl(var(--auth-text-muted))] mb-1.5">Parolni tasdiqlash</label>
+                    <div className="relative">
+                      <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[hsl(var(--muted-foreground))]" />
+                      <input
+                        type={showPw ? "text" : "password"}
+                        value={confirmPw}
+                        onChange={e => setConfirmPw(e.target.value)}
+                        placeholder="Parolni qayta kiriting"
+                        disabled={submitting}
+                        className="auth-input w-full pl-9 pr-3 py-2.5 rounded-xl text-sm outline-none transition-colors"
+                        style={{ boxSizing: "border-box" }}
+                      />
+                    </div>
+                  </div>
+                )}
+
                 {/* Submit */}
                 <button
                   type="submit"
@@ -183,10 +302,12 @@ const Auth = () => {
                   {submitting ? (
                     <>
                       <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
-                      Tekshirilmoqda...
+                      {mode === "login" ? "Tekshirilmoqda..." : "Yaratilmoqda..."}
                     </>
-                  ) : (
+                  ) : mode === "login" ? (
                     <><LogIn className="w-4 h-4" /> Kirish</>
+                  ) : (
+                    <><UserPlus className="w-4 h-4" /> Ro'yxatdan o'tish</>
                   )}
                 </button>
               </form>
@@ -197,15 +318,19 @@ const Auth = () => {
                   ← Bosh sahifaga qaytish
                 </button>
               </div>
+              </>
+              )}
             </div>
 
+            {mode === "login" && !signupDone && (
             <p className="mt-5 text-center text-xs text-muted-foreground leading-relaxed">
-              Akkaunt ochish uchun adminstratorga murojaat qiling:<br />
-              <a href="https://t.me/jumanazarov_0501" target="_blank" rel="noopener noreferrer"
-                className="text-primary font-semibold no-underline hover:underline">
-                @jumanazarov_0501
-              </a>
+              Hisobingiz yo'qmi?{" "}
+              <button onClick={() => switchMode("signup")}
+                className="text-primary font-semibold no-underline hover:underline bg-transparent border-none cursor-pointer p-0">
+                Ro'yxatdan o'ting
+              </button>
             </p>
+            )}
           </div>
         </div>
       </div>
