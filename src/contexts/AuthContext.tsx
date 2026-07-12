@@ -76,7 +76,7 @@ interface AuthContextType {
   profile: Profile | null;
   isLoading: boolean;
   profileLoading: boolean;
-  signUp: (email: string, password: string, username?: string, fullName?: string) => Promise<{ error: Error | null }>;
+  signUp: (email: string, password: string, username?: string, fullName?: string) => Promise<{ error: Error | null; autoLoggedIn?: boolean }>;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signInWithGoogle: () => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
@@ -225,10 +225,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     password: string,
     username?: string,
     fullName?: string
-  ): Promise<{ error: Error | null }> => {
+  ): Promise<{ error: Error | null; autoLoggedIn?: boolean }> => {
     try {
       const redirectUrl = `${window.location.origin}/`;
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -237,7 +237,39 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
       });
       if (error) return { error };
-      return { error: null };
+
+      const userId = data.user?.id;
+
+      // Foydalanuvchini kutdirmaslik uchun: tasdiqlash havolasi email orqali
+      // fon rejimida yuboriladi (Supabase tomonidan avtomatik), lekin biz
+      // hisobni serverda darhol tasdiqlab, foydalanuvchini bemalol
+      // tizimga kirgizamiz.
+      if (userId) {
+        try {
+          const { error: confirmErr } = await supabase.functions.invoke("auto-confirm-signup", {
+            body: { user_id: userId },
+          });
+
+          if (!confirmErr) {
+            const { data: signInData, error: signInErr } = await supabase.auth.signInWithPassword({ email, password });
+            if (!signInErr) {
+              if (signInData.session?.access_token) {
+                const deviceCheck = await registerDevice(signInData.session.access_token);
+                if (deviceCheck.error) {
+                  await supabase.auth.signOut();
+                  return { error: new Error(deviceCheck.error) };
+                }
+              }
+              return { error: null, autoLoggedIn: true };
+            }
+          }
+        } catch {
+          // Fon rejimidagi avto-tasdiq muvaffaqiyatsiz bo'lsa — pastdagi
+          // oddiy "emailni tekshiring" oqimiga tushamiz.
+        }
+      }
+
+      return { error: null, autoLoggedIn: false };
     } catch (err) {
       return { error: err as Error };
     }

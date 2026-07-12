@@ -44,7 +44,7 @@ const Auth = () => {
       if (password !== confirmPw)  { setError("Parollar mos kelmadi"); return; }
 
       setSubmitting(true);
-      const { error: signUpError } = await signUp(email.trim(), password, undefined, fullName.trim());
+      const { error: signUpError, autoLoggedIn } = await signUp(email.trim(), password, undefined, fullName.trim());
       if (signUpError) {
         if (signUpError.message.includes("already registered") || signUpError.message.includes("already exists")) {
           setError("Bu email bilan hisob allaqachon mavjud. Kirish tabiga o'ting.");
@@ -55,6 +55,14 @@ const Auth = () => {
         return;
       }
       setSubmitting(false);
+      if (autoLoggedIn) {
+        // Foydalanuvchi darhol tizimga kirdi — yuqoridagi useEffect uni
+        // returnTo manziliga o'zi yo'naltiradi. Tasdiqlash havolasi
+        // emailga fon rejimida yuborilgan bo'ladi.
+        return;
+      }
+      // Zaxira oqim: avto-tasdiq/kirish muvaffaqiyatsiz bo'lsa, odatiy
+      // "emailni tekshiring" ekranini ko'rsatamiz.
       setSignupDone(true);
       return;
     }
