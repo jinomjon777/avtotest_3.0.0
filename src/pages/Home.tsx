@@ -8,7 +8,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { useState, useEffect, useRef } from "react";
 import {
   Play, ArrowRight, CheckCircle, Crown, X, BookOpen,
-  ShieldCheck, Zap, Trophy, MessageCircle, Send, Phone,
+  ShieldCheck, Zap, Trophy, MessageCircle, Send,
   Star, ChevronRight, Users, BarChart3, Clock,
 } from "lucide-react";
 
@@ -293,9 +293,8 @@ export default function Home() {
           <p style={{ margin: "0 0 18px", fontSize: 11, color: CS.textSecondary, textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>{t("home.socialsTitle")}</p>
           <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
             {[
-              { icon: <MessageCircle size={16} />, name: t("home.social1Name"), handle: "@jumanazarov_0501", link: "https://t.me/jumanazarov_0501" },
+              { icon: <MessageCircle size={16} />, name: t("home.social1Name"), handle: "@jumanazarov_0501", link: "https://t.me/+C1uA2w8irLozNWFi" },
               { icon: <Send size={16} />, name: t("home.social2Name"), handle: "@jumanazarov_0501", link: "https://t.me/jumanazarov_0501" },
-              { icon: <Phone size={16} />, name: t("home.social3Name"), handle: "@jumanazarov_0501", link: "https://t.me/jumanazarov_0501" },
             ].map((s, i) => (
               <a key={i} href={s.link} target="_blank" rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", borderRadius: 12, background: CS.card, border: `1px solid ${CS.border}`, color: CS.textSecondary, textDecoration: "none", transition: "all 0.2s" }}

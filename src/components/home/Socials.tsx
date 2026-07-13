@@ -1,12 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, Send, Phone, Instagram } from "lucide-react";
+import { MessageCircle, Send, Instagram } from "lucide-react";
 
 const socials = [
 	{
 		icon: MessageCircle,
 		name: "Telegram Kanal",
 		handle: "@jumanazarov_0501",
-		link: "https://t.me/jumanazarov_0501",
+		link: "https://t.me/+C1uA2w8irLozNWFi",
 		color: "from-blue-400 to-blue-600",
 		description: "Yangiliklar va e'lonlar",
 	},
@@ -17,14 +17,6 @@ const socials = [
 		link: "https://t.me/jumanazarov_0501",
 		color: "from-cyan-400 to-cyan-600",
 		description: "Avtomatik yordam",
-	},
-	{
-		icon: Phone,
-		name: "Maktab Bot",
-		handle: "@jumanazarov_0501",
-		link: "https://t.me/jumanazarov_0501",
-		color: "from-green-400 to-green-600",
-		description: "O'quv markaz bilan bog'lanish",
 	},
 ];
 
