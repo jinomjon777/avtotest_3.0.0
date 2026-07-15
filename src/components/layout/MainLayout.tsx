@@ -181,23 +181,7 @@ export function MainLayout({ children }: MainLayoutProps) {
         </nav>
 
         {/* Desktop Top Bar */}
-        <header className="hidden lg:flex items-center justify-between h-14 px-6 border-b border-border bg-card/50 sticky top-0 z-40">
-          <nav className="flex items-center gap-1">
-            {navLinks.slice(1, 4).map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? "bg-primary/10 text-primary" : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
+        <header className="hidden lg:flex items-center justify-end h-14 px-6 border-b border-border bg-card/50 sticky top-0 z-40">
           <div className="flex items-center gap-2">
             <TrialTimer />
 
