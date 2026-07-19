@@ -135,16 +135,18 @@ export default function Home() {
               {t("home.heroSubtitle")}
             </p>
 
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
-              <button onClick={() => navigate("/test-ishlash")} style={{ display: "flex", alignItems: "center", gap: 8, padding: "13px 26px", borderRadius: 12, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 15, cursor: "pointer", boxShadow: `0 6px 24px rgba(124,111,255,0.3)` }}>
-                <Play size={16} fill="#fff" /> {t("home.btnTest")}
+            <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "center" }}>
+              <button onClick={() => navigate("/test-ishlash")} style={{ display: "flex", alignItems: "center", gap: 10, padding: "18px 40px", borderRadius: 14, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 18, cursor: "pointer", boxShadow: `0 10px 34px rgba(124,111,255,0.4)` }}>
+                <Play size={20} fill="#fff" /> {t("home.btnTest")}
               </button>
-              <button onClick={() => handleProRoute("/variant")} style={{ display: "flex", alignItems: "center", gap: 8, padding: "13px 22px", borderRadius: 12, background: "rgba(255,255,255,0.06)", border: `1px solid ${CS.border}`, color: CS.textPrimary, fontWeight: 600, fontSize: 15, cursor: "pointer" }}>
-                {t("home.variantlarBtn")} <ArrowRight size={16} />
-              </button>
-              <button onClick={() => handleProRoute("/mavzuli")} style={{ display: "flex", alignItems: "center", gap: 8, padding: "13px 22px", borderRadius: 12, background: "rgba(255,255,255,0.06)", border: `1px solid ${CS.border}`, color: CS.textPrimary, fontWeight: 600, fontSize: 15, cursor: "pointer" }}>
-                <BookOpen size={16} /> {t("home.btnMavzuli")}
-              </button>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
+                <button onClick={() => handleProRoute("/variant")} style={{ display: "flex", alignItems: "center", gap: 6, padding: "9px 16px", borderRadius: 10, background: "transparent", border: `1px solid ${CS.border}`, color: CS.textSecondary, fontWeight: 500, fontSize: 13, cursor: "pointer" }}>
+                  {t("home.variantlarBtn")} <ArrowRight size={13} />
+                </button>
+                <button onClick={() => handleProRoute("/mavzuli")} style={{ display: "flex", alignItems: "center", gap: 6, padding: "9px 16px", borderRadius: 10, background: "transparent", border: `1px solid ${CS.border}`, color: CS.textSecondary, fontWeight: 500, fontSize: 13, cursor: "pointer" }}>
+                  <BookOpen size={13} /> {t("home.btnMavzuli")}
+                </button>
+              </div>
             </div>
           </div>
         </div>
