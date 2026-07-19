@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import {
   Play, ArrowRight, Crown, X, BookOpen,
   ShieldCheck, Zap, Trophy, MessageCircle, Send,
-  Star, ChevronRight, Users, BarChart3,
+  Star, ChevronRight, Users,
 } from "lucide-react";
 
 function useCounter(target: number, duration = 1800) {
@@ -54,7 +54,6 @@ function StatChip({ target, suffix, label }: { target: number; suffix: string; l
 
 export default function Home() {
   const [showProPopup, setShowProPopup] = useState(false);
-  const [activeTab, setActiveTab] = useState(0);
   const { user } = useAuth();
   const { t } = useLanguage();
   const navigate = useNavigate();
@@ -65,12 +64,6 @@ export default function Home() {
     if (accessLoading && user) { navigate(route); return; }
     if (user && isPremium) { navigate(route); } else { setShowProPopup(true); }
   };
-
-  const tabs = [
-    { icon: <BarChart3 size={16} />, label: t("home.btnVariantlar"), route: "/variant" },
-    { icon: <BookOpen size={16} />, label: t("home.btnMavzuli"), route: "/mavzuli" },
-    { icon: <ShieldCheck size={16} />, label: t("home.btnBelgilar"), route: "/belgilar" },
-  ];
 
   const testimonials = [
     { name: t("home.test1Name"), score: t("home.test1Score"), text: t("home.test1Text"), avatar: "SM" },
@@ -142,25 +135,16 @@ export default function Home() {
               {t("home.heroSubtitle")}
             </p>
 
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center", marginBottom: 28 }}>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
               <button onClick={() => navigate("/test-ishlash")} style={{ display: "flex", alignItems: "center", gap: 8, padding: "13px 26px", borderRadius: 12, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 15, cursor: "pointer", boxShadow: `0 6px 24px rgba(124,111,255,0.3)` }}>
                 <Play size={16} fill="#fff" /> {t("home.btnTest")}
               </button>
               <button onClick={() => handleProRoute("/variant")} style={{ display: "flex", alignItems: "center", gap: 8, padding: "13px 22px", borderRadius: 12, background: "rgba(255,255,255,0.06)", border: `1px solid ${CS.border}`, color: CS.textPrimary, fontWeight: 600, fontSize: 15, cursor: "pointer" }}>
                 {t("home.variantlarBtn")} <ArrowRight size={16} />
               </button>
-            </div>
-
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
-              {tabs.map((tab, i) => (
-                <button key={i} onClick={() => { setActiveTab(i); handleProRoute(tab.route); }}
-                  style={{ flex: "0 1 150px", minWidth: 120, padding: "12px 14px", borderRadius: 12, background: activeTab === i ? "rgba(124,111,255,0.15)" : "rgba(255,255,255,0.04)", border: activeTab === i ? `1px solid rgba(124,111,255,0.4)` : `1px solid ${CS.border}`, cursor: "pointer", transition: "all 0.2s" }}>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 7, color: activeTab === i ? CS.accent : CS.textSecondary }}>
-                    {tab.icon}
-                    <span style={{ fontSize: 13, fontWeight: 600 }}>{tab.label}</span>
-                  </div>
-                </button>
-              ))}
+              <button onClick={() => handleProRoute("/mavzuli")} style={{ display: "flex", alignItems: "center", gap: 8, padding: "13px 22px", borderRadius: 12, background: "rgba(255,255,255,0.06)", border: `1px solid ${CS.border}`, color: CS.textPrimary, fontWeight: 600, fontSize: 15, cursor: "pointer" }}>
+                <BookOpen size={16} /> {t("home.btnMavzuli")}
+              </button>
             </div>
           </div>
         </div>
