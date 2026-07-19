@@ -7,9 +7,9 @@ import { useAccessState } from "@/hooks/useAccessState";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useState, useEffect, useRef } from "react";
 import {
-  Play, ArrowRight, CheckCircle, Crown, X, BookOpen,
+  Play, ArrowRight, Crown, X, BookOpen,
   ShieldCheck, Zap, Trophy, MessageCircle, Send,
-  Star, ChevronRight, Users, BarChart3, Clock,
+  Star, ChevronRight, Users, BarChart3,
 } from "lucide-react";
 
 function useCounter(target: number, duration = 1800) {
@@ -127,84 +127,40 @@ export default function Home() {
         <div style={{ position: "absolute", top: "10%", left: "-10%", width: "min(500px, 80vw)", height: "min(500px, 80vw)", background: "radial-gradient(circle, rgba(124,111,255,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "5%", right: "-5%", width: "min(400px, 60vw)", height: "min(400px, 60vw)", background: "radial-gradient(circle, rgba(0,201,196,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "36px 20px 36px", width: "100%", position: "relative" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 40 }} className="hero-grid">
-
-            {/* Chap — matn */}
-            <div>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(124,111,255,0.12)", border: "1px solid rgba(124,111,255,0.25)", borderRadius: 100, padding: "5px 14px", marginBottom: 18 }}>
-                <span style={{ width: 7, height: 7, borderRadius: "50%", background: CS.accentB, boxShadow: "0 0 8px rgba(0,201,196,0.8)", display: "inline-block" }} />
-                <span style={{ fontSize: 12, color: "rgba(124,111,255,0.9)", fontWeight: 600, letterSpacing: "0.04em" }}>{t("home.badgeText")}</span>
-              </div>
-
-              <h1 style={{ margin: "0 0 14px", fontSize: "clamp(20px, 3.5vw, 44px)", fontWeight: 700, color: CS.textPrimary, lineHeight: 1.2, letterSpacing: "-0.01em" }}>
-                {t("home.heroTitle")}
-              </h1>
-
-              <p style={{ margin: "0 0 28px", fontSize: "clamp(14px, 2vw, 16px)", color: CS.textSecondary, lineHeight: 1.7, maxWidth: 420 }}>
-                {t("home.heroSubtitle")}
-              </p>
-
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 24 }}>
-                <button onClick={() => navigate("/test-ishlash")} style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 20px", borderRadius: 12, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 14, cursor: "pointer", boxShadow: `0 6px 24px rgba(124,111,255,0.3)` }}>
-                  <Play size={15} fill="#fff" /> {t("home.btnTest")}
-                </button>
-                <button onClick={() => handleProRoute("/variant")} style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 18px", borderRadius: 12, background: "rgba(255,255,255,0.06)", border: `1px solid ${CS.border}`, color: CS.textPrimary, fontWeight: 600, fontSize: 14, cursor: "pointer" }}>
-                  {t("home.variantlarBtn")} <ArrowRight size={15} />
-                </button>
-              </div>
-
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                {tabs.map((tab, i) => (
-                  <button key={i} onClick={() => { setActiveTab(i); handleProRoute(tab.route); }}
-                    style={{ flex: "1 1 90px", minWidth: 80, padding: "9px 10px", borderRadius: 10, background: activeTab === i ? "rgba(124,111,255,0.15)" : "rgba(255,255,255,0.04)", border: activeTab === i ? `1px solid rgba(124,111,255,0.4)` : `1px solid ${CS.border}`, cursor: "pointer", transition: "all 0.2s", textAlign: "left" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 6, color: activeTab === i ? CS.accent : CS.textSecondary }}>
-                      {tab.icon}
-                      <span style={{ fontSize: 11, fontWeight: 600 }}>{tab.label}</span>
-                    </div>
-                  </button>
-                ))}
-              </div>
+        <div style={{ maxWidth: 720, margin: "0 auto", padding: "48px 20px 44px", width: "100%", position: "relative" }}>
+          <div style={{ textAlign: "center" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(124,111,255,0.12)", border: "1px solid rgba(124,111,255,0.25)", borderRadius: 100, padding: "5px 14px", marginBottom: 18 }}>
+              <span style={{ width: 7, height: 7, borderRadius: "50%", background: CS.accentB, boxShadow: "0 0 8px rgba(0,201,196,0.8)", display: "inline-block" }} />
+              <span style={{ fontSize: 12, color: "rgba(124,111,255,0.9)", fontWeight: 600, letterSpacing: "0.04em" }}>{t("home.badgeText")}</span>
             </div>
 
-            {/* O'ng — test card */}
-            <div style={{ position: "relative" }} className="hero-card-wrap">
-              <div style={{ background: CS.card, border: `1px solid ${CS.border}`, borderRadius: 20, padding: "20px 18px", boxShadow: "0 32px 64px rgba(0,0,0,0.4)" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-                  <div>
-                    <div style={{ fontSize: 10, color: CS.textSecondary, marginBottom: 2 }}>{t("home.demoVariantLabel")}</div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: CS.textPrimary }}>{t("home.demoQuestionLabel")}</div>
+            <h1 style={{ margin: "0 0 14px", fontSize: "clamp(24px, 4.5vw, 44px)", fontWeight: 700, color: CS.textPrimary, lineHeight: 1.2, letterSpacing: "-0.01em" }}>
+              {t("home.heroTitle")}
+            </h1>
+
+            <p style={{ margin: "0 auto 32px", fontSize: "clamp(14px, 2vw, 16px)", color: CS.textSecondary, lineHeight: 1.7, maxWidth: 480 }}>
+              {t("home.heroSubtitle")}
+            </p>
+
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center", marginBottom: 28 }}>
+              <button onClick={() => navigate("/test-ishlash")} style={{ display: "flex", alignItems: "center", gap: 8, padding: "13px 26px", borderRadius: 12, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 15, cursor: "pointer", boxShadow: `0 6px 24px rgba(124,111,255,0.3)` }}>
+                <Play size={16} fill="#fff" /> {t("home.btnTest")}
+              </button>
+              <button onClick={() => handleProRoute("/variant")} style={{ display: "flex", alignItems: "center", gap: 8, padding: "13px 22px", borderRadius: 12, background: "rgba(255,255,255,0.06)", border: `1px solid ${CS.border}`, color: CS.textPrimary, fontWeight: 600, fontSize: 15, cursor: "pointer" }}>
+                {t("home.variantlarBtn")} <ArrowRight size={16} />
+              </button>
+            </div>
+
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
+              {tabs.map((tab, i) => (
+                <button key={i} onClick={() => { setActiveTab(i); handleProRoute(tab.route); }}
+                  style={{ flex: "0 1 150px", minWidth: 120, padding: "12px 14px", borderRadius: 12, background: activeTab === i ? "rgba(124,111,255,0.15)" : "rgba(255,255,255,0.04)", border: activeTab === i ? `1px solid rgba(124,111,255,0.4)` : `1px solid ${CS.border}`, cursor: "pointer", transition: "all 0.2s" }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 7, color: activeTab === i ? CS.accent : CS.textSecondary }}>
+                    {tab.icon}
+                    <span style={{ fontSize: 13, fontWeight: 600 }}>{tab.label}</span>
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 5, background: "rgba(255,95,109,0.15)", border: "1px solid rgba(255,95,109,0.2)", borderRadius: 100, padding: "4px 10px" }}>
-                    <Clock size={11} color={CS.accentC} />
-                    <span style={{ fontSize: 12, fontWeight: 700, color: CS.accentC }}>18:43</span>
-                  </div>
-                </div>
-                <div style={{ height: 3, background: "rgba(255,255,255,0.08)", borderRadius: 4, marginBottom: 16, overflow: "hidden" }}>
-                  <div style={{ height: "100%", width: "23%", background: `linear-gradient(90deg, ${CS.accent}, ${CS.accentB})`, borderRadius: 4 }} />
-                </div>
-                <div style={{ fontSize: 13, color: CS.textPrimary, lineHeight: 1.6, marginBottom: 12, fontWeight: 500 }}>
-                  {t("home.demoQuestionText")}
-                </div>
-                {[
-                  { text: t("home.demoAnswer1"), correct: false },
-                  { text: t("home.demoAnswer2"), correct: true },
-                  { text: t("home.demoAnswer3"), correct: false },
-                  { text: t("home.demoAnswer4"), correct: false },
-                ].map((ans, i) => (
-                  <div key={i} style={{ padding: "9px 12px", borderRadius: 9, border: ans.correct ? `1px solid rgba(0,201,196,0.5)` : `1px solid ${CS.border}`, background: ans.correct ? "rgba(0,201,196,0.08)" : "rgba(255,255,255,0.03)", marginBottom: 6, display: "flex", alignItems: "center", gap: 8 }}>
-                    <div style={{ width: 18, height: 18, borderRadius: "50%", border: `1.5px solid ${ans.correct ? CS.accentB : "rgba(255,255,255,0.2)"}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      {ans.correct && <CheckCircle size={11} color={CS.accentB} />}
-                    </div>
-                    <span style={{ fontSize: 12, color: ans.correct ? CS.accentB : CS.textSecondary }}>{ans.text}</span>
-                    {ans.correct && <span style={{ marginLeft: "auto", fontSize: 10, color: CS.accentB, fontWeight: 600 }}>{t("home.demoCorrectLabel")}</span>}
-                  </div>
-                ))}
-              </div>
-              <div style={{ position: "absolute", top: -12, right: -12, background: `linear-gradient(135deg, ${CS.accent}, ${CS.accentB})`, borderRadius: 10, padding: "7px 12px", display: "flex", alignItems: "center", gap: 5, boxShadow: `0 6px 20px rgba(124,111,255,0.4)` }}>
-                <Trophy size={13} color="#fff" />
-                <span style={{ fontSize: 11, fontWeight: 700, color: "#fff" }}>{t("home.demoBadge")}</span>
-              </div>
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -314,11 +270,7 @@ export default function Home() {
 
       <style>{`
         @media (min-width: 900px) {
-          .hero-grid { grid-template-columns: 1fr 1fr !important; gap: 56px !important; }
           .stats-grid { grid-template-columns: repeat(4, 1fr) !important; }
-        }
-        @media (max-width: 480px) {
-          .hero-card-wrap { display: none; }
         }
       `}</style>
     </MainLayout>
