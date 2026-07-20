@@ -27,8 +27,9 @@ const C = {
 };
 
 interface Chek {
-  id: string; email: string; link: string; created_at: string;
+  id: string; email: string | null; link: string; created_at: string;
   amount: number | null; tariff_days: number | null; processed: boolean;
+  source?: string; telegram_username?: string | null; telegram_chat_id?: number | null;
 }
 
 type PeriodFilter = "all" | 7 | 30 | 90;
@@ -63,7 +64,12 @@ function EditModal({ chek, onClose, onSaved }: { chek: Chek; onClose: () => void
       <div style={{ position: "relative", background: C.card, borderRadius: 18, padding: "24px 22px", maxWidth: 420, width: "100%", zIndex: 1, boxShadow: "0 24px 60px rgba(0,0,0,0.16)" }}>
         <button onClick={onClose} style={{ position: "absolute", top: 14, right: 14, background: "#F1F5F9", border: "none", borderRadius: 8, width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: C.muted }}><X size={14} /></button>
         <h3 style={{ margin: "0 0 4px", fontSize: 17, fontWeight: 700, color: C.text }}>Chekni tahrirlash</h3>
-        <div style={{ fontSize: 13, color: C.muted, marginBottom: 16 }}>{chek.email}</div>
+        <div style={{ fontSize: 13, color: C.muted, marginBottom: 16, display: "flex", alignItems: "center", gap: 6 }}>
+          {chek.email || (chek.telegram_username ? `@${chek.telegram_username}` : "Noma'lum foydalanuvchi")}
+          {chek.source === "telegram" && (
+            <span style={{ fontSize: 10, fontWeight: 700, color: "#0EA5E9", background: "rgba(14,165,233,0.12)", padding: "2px 7px", borderRadius: 100 }}>TELEGRAM</span>
+          )}
+        </div>
 
         <a href={chek.link} target="_blank" rel="noopener noreferrer"
           style={{ display: "inline-flex", alignItems: "center", gap: 5, color: C.accent, fontSize: 13, textDecoration: "none", marginBottom: 16 }}>
@@ -245,7 +251,8 @@ export default function AdminChek() {
 
   const filtered = useMemo(() => {
     return cheks.filter(c => {
-      if (search && !c.email.toLowerCase().includes(search.toLowerCase())) return false;
+      const q = search.toLowerCase();
+      if (search && !(c.email?.toLowerCase().includes(q) || c.telegram_username?.toLowerCase().includes(q))) return false;
       if (statusFilter === "processed" && !c.processed) return false;
       if (statusFilter === "pending" && c.processed) return false;
       if (period !== "all" && c.tariff_days !== period) return false;
@@ -363,7 +370,7 @@ export default function AdminChek() {
                     onMouseEnter={e => (e.currentTarget.style.background = C.surface)}
                     onMouseLeave={e => (e.currentTarget.style.background = "transparent")}>
                     <td style={{ padding: "12px 16px", fontSize: 13, color: C.hint }}>{i + 1}</td>
-                    <td style={{ padding: "12px 16px", fontSize: 13, fontWeight: 600, color: C.text }}>{c.email}</td>
+                    <td style={{ padding: "12px 16px", fontSize: 13, fontWeight: 600, color: C.text }}>{c.email || (c.telegram_username ? `@${c.telegram_username}` : "—")}</td>
                     <td style={{ padding: "12px 16px" }}>
                       <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "3px 9px", borderRadius: 100, fontSize: 11, fontWeight: 600,
                         color: c.processed ? C.green : C.gold, background: c.processed ? "#DCFCE7" : "#FEF3C7", border: `1px solid ${c.processed ? "#BBF7D0" : "#FDE68A"}` }}>
