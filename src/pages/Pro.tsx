@@ -129,8 +129,12 @@ export default function Pro() {
     { id: "quarterly", name: t("pro.planQuarterlyName"), price: "83 000", period: t("pro.planQuarterlyPeriod"), savings: t("pro.planSavings"), highlight: false },
   ];
 
-  const handleSelect = (_plan: Plan) => {
-    window.open("https://t.me/jumanazarov_0501", "_blank");
+  const PLAN_DAYS: Record<string, number> = { weekly: 7, monthly: 30, quarterly: 90 };
+
+  const handleSelect = (plan: Plan) => {
+    const days = PLAN_DAYS[plan.id];
+    const startParam = days ? `plan_${days}` : "";
+    window.open(`https://t.me/avtotestsPremium_bot${startParam ? `?start=${startParam}` : ""}`, "_blank");
   };
 
   if (isLoading) {
@@ -331,7 +335,7 @@ export default function Pro() {
             <Lock size={14} color={CS.textHint} />
             <span style={{ fontSize: 13, color: CS.textHint }}>
               {t("pro.paymentNote")}{" "}
-              <a href="https://t.me/jumanazarov_0501" target="_blank" rel="noopener noreferrer" style={{ color: CS.accent, fontWeight: 600 }}>
+              <a href="https://t.me/avtotestsPremium_bot" target="_blank" rel="noopener noreferrer" style={{ color: CS.accent, fontWeight: 600 }}>
                 {t("pro.paymentContact")}
               </a>
               {" "}{t("pro.paymentNote2")}
@@ -380,7 +384,7 @@ export default function Pro() {
             </p>
             <div className="pro-cta-btns">
               <a
-                href="https://t.me/jumanazarov_0501"
+                href="https://t.me/avtotestsPremium_bot"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
