@@ -8,7 +8,7 @@ export function QuickContactLinks() {
 
   const contactLinks = [
     { icon: Send, labelKey: "contact.telegram", value: "@jumanazarov_0501", href: "https://t.me/+C1uA2w8irLozNWFi" },
-    { icon: Bot, labelKey: "contact.telegramBot", value: "@jumanazarov_0501", href: "https://t.me/jumanazarov_0501" },
+    { icon: Bot, labelKey: "contact.telegramBot", value: "@avtotestsPremium_bot", href: "https://t.me/avtotestsPremium_bot" },
   ];
 
   return (
