@@ -10,6 +10,10 @@ const WEBHOOK_SECRET = Deno.env.get("TELEGRAM_WEBHOOK_SECRET"); // ixtiyoriy, le
 const CARD_NUMBER = Deno.env.get("TELEGRAM_CARD_NUMBER") || "8600 XXXX XXXX XXXX";
 const CARD_HOLDER = Deno.env.get("TELEGRAM_CARD_HOLDER") || "ISM FAMILIYA";
 
+// Sizning shaxsiy Telegram chat ID'ingiz — cheklarni shu yerga yuboradi.
+// Olish uchun: @userinfobot ga /start yozing, u sizga ID raqamini beradi.
+const ADMIN_CHAT_ID = Deno.env.get("TELEGRAM_ADMIN_CHAT_ID");
+
 const TG_API = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
 const PLANS: Record<string, { days: number; amount: number; label: string }> = {
@@ -42,6 +46,25 @@ function sendMessage(chatId: number, text: string, replyMarkup?: unknown) {
   });
 }
 
+function sendPhoto(chatId: number, photoFileId: string, caption: string, replyMarkup?: unknown) {
+  return tg("sendPhoto", {
+    chat_id: chatId,
+    photo: photoFileId,
+    caption,
+    parse_mode: "HTML",
+    reply_markup: replyMarkup,
+  });
+}
+
+function editMessageCaption(chatId: number, messageId: number, caption: string) {
+  return tg("editMessageCaption", {
+    chat_id: chatId,
+    message_id: messageId,
+    caption,
+    parse_mode: "HTML",
+  });
+}
+
 function answerCallback(callbackQueryId: string, text?: string) {
   return tg("answerCallbackQuery", { callback_query_id: callbackQueryId, text });
 }
@@ -58,6 +81,8 @@ interface Session {
   plan_days: number | null;
   plan_amount: number | null;
   site_email: string | null;
+  receipt_file_id: string | null;
+  receipt_url: string | null;
 }
 
 async function getSession(chatId: number): Promise<Session> {
@@ -72,6 +97,7 @@ async function getSession(chatId: number): Promise<Session> {
   const fresh: Session = {
     chat_id: chatId, username: null, first_name: null,
     step: "idle", plan_days: null, plan_amount: null, site_email: null,
+    receipt_file_id: null, receipt_url: null,
   };
   return fresh;
 }
@@ -149,6 +175,55 @@ Deno.serve(async (req) => {
         return new Response("ok");
       }
 
+      // ── Admin cheklarni tasdiqlash/rad etish tugmalari ────────────────
+      if (data.startsWith("approve_") || data.startsWith("reject_")) {
+        const isAdmin = ADMIN_CHAT_ID && String(cq.from.id) === String(ADMIN_CHAT_ID);
+        if (!isAdmin) {
+          return new Response("ok"); // faqat admin bosishi mumkin
+        }
+
+        const targetChatId = Number(data.split("_")[1]);
+        const targetSession = await getSession(targetChatId);
+
+        if (data.startsWith("approve_")) {
+          const email = targetSession.site_email;
+          const url = targetSession.receipt_url;
+          const days = targetSession.plan_days;
+
+          if (url && email) {
+            await supabase.from("chek").insert({
+              email,
+              link: url,
+              amount: targetSession.plan_amount,
+              tariff_days: days,
+              processed: true,
+              source: "telegram",
+              telegram_chat_id: targetChatId,
+              telegram_username: targetSession.username,
+            });
+
+            await sendMessage(
+              targetChatId,
+              `✅ To'lovingiz tasdiqlandi!\n\nAdminlarimiz tez orada Premium obunangizni qo'shadi. Rahmat! 🎉`,
+            );
+          }
+          await saveSession({
+            chat_id: targetChatId, username: targetSession.username, first_name: targetSession.first_name,
+            step: "idle", plan_days: null, plan_amount: null, site_email: null,
+            receipt_file_id: null, receipt_url: null,
+          });
+          await editMessageCaption(chatId, cq.message.message_id, `${cq.message.caption}\n\n✅ <b>TASDIQLANDI</b>`);
+        } else {
+          await sendMessage(
+            targetChatId,
+            `❌ Kechirasiz, yuborgan chekingiz tasdiqlanmadi.\n\nIltimos, to'lovni tekshirib, chekning aniq skrinshotini qaytadan yuboring 📷`,
+          );
+          await saveSession({ ...targetSession, step: "awaiting_receipt" });
+          await editMessageCaption(chatId, cq.message.message_id, `${cq.message.caption}\n\n❌ <b>RAD ETILDI</b>`);
+        }
+        return new Response("ok");
+      }
+
       return new Response("ok");
     }
 
@@ -216,27 +291,35 @@ Deno.serve(async (req) => {
 
         const { data: pub } = supabase.storage.from("receipts").getPublicUrl(storagePath);
 
-        const { error: insertErr } = await supabase.from("chek").insert({
-          email: session.site_email,
-          link: pub.publicUrl,
-          amount: session.plan_amount,
-          tariff_days: session.plan_days,
-          processed: false,
-          source: "telegram",
-          telegram_chat_id: chatId,
-          telegram_username: session.username,
+        await saveSession({
+          ...session, step: "awaiting_admin_review",
+          receipt_file_id: fileId, receipt_url: pub.publicUrl,
         });
-        if (insertErr) throw insertErr;
 
         await sendMessage(
           chatId,
-          `✅ Rahmat! To'lov chekingiz qabul qilindi.\n\n` +
+          `✅ Rahmat! Chekingiz qabul qilindi.\n\n` +
           `Tez orada adminlarimiz ko'rib chiqib, Premium obunangizni faollashtiradi. 🎉`,
         );
-        await saveSession({
-          chat_id: chatId, username: session.username, first_name: session.first_name,
-          step: "idle", plan_days: null, plan_amount: null, site_email: null,
-        });
+
+        // Adminga (sizga) tekshirish uchun yuboramiz
+        if (ADMIN_CHAT_ID) {
+          const plan = session.plan_days ? `${session.plan_days} kun — ${fmtSom(session.plan_amount || 0)}` : "noma'lum";
+          await sendPhoto(
+            Number(ADMIN_CHAT_ID),
+            fileId,
+            `🧾 <b>Yangi to'lov cheki</b>\n\n` +
+            `👤 ${session.first_name || "—"} (@${session.username || "—"})\n` +
+            `📧 ${session.site_email}\n` +
+            `💳 Tarif: ${plan}`,
+            {
+              inline_keyboard: [[
+                { text: "✅ Tasdiqlash", callback_data: `approve_${chatId}` },
+                { text: "❌ Rad etish", callback_data: `reject_${chatId}` },
+              ]],
+            },
+          );
+        }
         return new Response("ok");
       }
 
