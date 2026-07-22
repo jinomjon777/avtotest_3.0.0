@@ -152,7 +152,7 @@ Deno.serve(async (req) => {
         .from("chek")
         .insert({
           email,
-          link,
+          chek_link: link,
           amount: amount ?? null,
           tariff_days: tariff_days ?? null,
           processed: processed ?? false,

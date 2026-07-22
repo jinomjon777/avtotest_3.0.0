@@ -198,7 +198,7 @@ Deno.serve(async (req) => {
 
           const { error: insertErr } = await supabase.from("chek").insert({
             email,
-            link: url,
+            chek_link: url,
             amount: targetSession.plan_amount,
             tariff_days: days,
             processed: true,

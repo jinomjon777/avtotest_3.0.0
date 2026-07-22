@@ -23,7 +23,7 @@ const C = {
   text: "#0F172A", muted: "#64748B", hint: "#94A3B8",
 };
 
-interface Chek { id: string; email: string | null; link: string; created_at: string; telegram_username?: string | null; source?: string; }
+interface Chek { id: string; email: string | null; chek_link: string | null; created_at: string; telegram_username?: string | null; source?: string; }
 interface Profile { id: string; email: string | null; full_name: string | null; tariff_end_date: string | null; tariff_days: number | null; }
 
 function ActivateModal({ chek, onClose, onDone }: { chek: Chek; onClose: () => void; onDone: () => void }) {
@@ -56,7 +56,7 @@ function ActivateModal({ chek, onClose, onDone }: { chek: Chek; onClose: () => v
         <h3 style={{ margin: "0 0 18px", fontSize: 17, fontWeight: 700, color: C.text }}>To'lovni tasdiqlash</h3>
         <div style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 10, padding: 13, marginBottom: 14, fontSize: 13 }}>
           <div style={{ marginBottom: 5 }}><span style={{ color: C.muted }}>Email: </span><span style={{ color: C.text, fontWeight: 600 }}>{chek.email || (chek.telegram_username ? `@${chek.telegram_username} (Telegram)` : "—")}</span></div>
-          <div style={{ marginBottom: 5 }}><span style={{ color: C.muted }}>Chek: </span><a href={chek.link} target="_blank" rel="noopener noreferrer" style={{ color: C.accent, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4 }}>Ko'rish <ExternalLink size={11} /></a></div>
+          <div style={{ marginBottom: 5 }}><span style={{ color: C.muted }}>Chek: </span><a href={chek.chek_link || "#"} target="_blank" rel="noopener noreferrer" style={{ color: C.accent, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4 }}>Ko'rish <ExternalLink size={11} /></a></div>
           <div><span style={{ color: C.muted }}>Sana: </span><span style={{ color: C.text }}>{new Date(chek.created_at).toLocaleString("uz-UZ")}</span></div>
         </div>
         {profile ? (
@@ -180,10 +180,12 @@ export default function AdminPayments() {
                     onMouseLeave={e => (e.currentTarget.style.background = "transparent")}>
                     <td style={{ padding: "12px 16px", fontSize: 13, fontWeight: 600, color: C.text }}>{c.email || (c.telegram_username ? `@${c.telegram_username}` : "—")}</td>
                     <td style={{ padding: "12px 16px" }}>
-                      <a href={c.link} target="_blank" rel="noopener noreferrer"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 5, color: C.accent, fontSize: 13, textDecoration: "none" }}>
-                        <ExternalLink size={12} /> {c.link.length > 38 ? c.link.slice(0, 38) + "..." : c.link}
-                      </a>
+                      {c.chek_link ? (
+                        <a href={c.chek_link} target="_blank" rel="noopener noreferrer"
+                          style={{ display: "inline-flex", alignItems: "center", gap: 5, color: C.accent, fontSize: 13, textDecoration: "none" }}>
+                          <ExternalLink size={12} /> {c.chek_link.length > 38 ? c.chek_link.slice(0, 38) + "..." : c.chek_link}
+                        </a>
+                      ) : <span style={{ color: C.hint }}>—</span>}
                     </td>
                     <td style={{ padding: "12px 16px", fontSize: 13, color: C.muted, whiteSpace: "nowrap" }}>{new Date(c.created_at).toLocaleString("uz-UZ")}</td>
                     <td style={{ padding: "12px 16px" }}>

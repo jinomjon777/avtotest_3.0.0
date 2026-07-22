@@ -27,7 +27,7 @@ const C = {
 };
 
 interface Chek {
-  id: string; email: string | null; link: string; created_at: string;
+  id: string; email: string | null; chek_link: string | null; created_at: string;
   amount: number | null; tariff_days: number | null; processed: boolean;
   source?: string; telegram_username?: string | null; telegram_chat_id?: number | null;
 }
@@ -71,10 +71,12 @@ function EditModal({ chek, onClose, onSaved }: { chek: Chek; onClose: () => void
           )}
         </div>
 
-        <a href={chek.link} target="_blank" rel="noopener noreferrer"
-          style={{ display: "inline-flex", alignItems: "center", gap: 5, color: C.accent, fontSize: 13, textDecoration: "none", marginBottom: 16 }}>
-          <ExternalLink size={12} /> Chekni ko'rish
-        </a>
+        {chek.chek_link && (
+          <a href={chek.chek_link} target="_blank" rel="noopener noreferrer"
+            style={{ display: "inline-flex", alignItems: "center", gap: 5, color: C.accent, fontSize: 13, textDecoration: "none", marginBottom: 16 }}>
+            <ExternalLink size={12} /> Chekni ko'rish
+          </a>
+        )}
 
         <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.muted, marginBottom: 5 }}>To'lov summasi (so'm)</label>
         <input type="number" value={amount} onChange={e => setAmount(Number(e.target.value))}
@@ -383,8 +385,8 @@ export default function AdminChek() {
                       </span>
                     </td>
                     <td style={{ padding: "12px 16px" }}>
-                      {c.link ? (
-                        <a href={c.link} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 4, color: C.accent, fontSize: 13, textDecoration: "none" }}>
+                      {c.chek_link ? (
+                        <a href={c.chek_link} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 4, color: C.accent, fontSize: 13, textDecoration: "none" }}>
                           <ExternalLink size={12} /> Ko'rish
                         </a>
                       ) : <span style={{ color: C.hint }}>—</span>}
