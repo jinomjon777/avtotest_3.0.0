@@ -190,23 +190,34 @@ Deno.serve(async (req) => {
           const url = targetSession.receipt_url;
           const days = targetSession.plan_days;
 
-          if (url && email) {
-            await supabase.from("chek").insert({
-              email,
-              link: url,
-              amount: targetSession.plan_amount,
-              tariff_days: days,
-              processed: true,
-              source: "telegram",
-              telegram_chat_id: targetChatId,
-              telegram_username: targetSession.username,
-            });
-
-            await sendMessage(
-              targetChatId,
-              `✅ To'lovingiz tasdiqlandi!\n\nAdminlarimiz tez orada Premium obunangizni qo'shadi. Rahmat! 🎉`,
-            );
+          if (!url || !email) {
+            await answerCallback(cq.id, "Xatolik: bu foydalanuvchi uchun chek ma'lumotlari topilmadi (sessiya eskirgan bo'lishi mumkin).");
+            await editMessageCaption(chatId, cq.message.message_id, `${cq.message.caption}\n\n⚠️ <b>XATOLIK: ma'lumot topilmadi, qo'lda tekshiring</b>`);
+            return new Response("ok");
           }
+
+          const { error: insertErr } = await supabase.from("chek").insert({
+            email,
+            link: url,
+            amount: targetSession.plan_amount,
+            tariff_days: days,
+            processed: true,
+            source: "telegram",
+            telegram_chat_id: targetChatId,
+            telegram_username: targetSession.username,
+          });
+
+          if (insertErr) {
+            console.error("chek insert error:", insertErr);
+            await answerCallback(cq.id, "Xatolik: ma'lumotlar bazasiga yozib bo'lmadi.");
+            await editMessageCaption(chatId, cq.message.message_id, `${cq.message.caption}\n\n⚠️ <b>XATOLIK: DB yozilmadi — ${insertErr.message}</b>`);
+            return new Response("ok");
+          }
+
+          await sendMessage(
+            targetChatId,
+            `✅ To'lovingiz tasdiqlandi!\n\nAdminlarimiz tez orada Premium obunangizni qo'shadi. Rahmat! 🎉`,
+          );
           await saveSession({
             chat_id: targetChatId, username: targetSession.username, first_name: targetSession.first_name,
             step: "idle", plan_days: null, plan_amount: null, site_email: null,
@@ -216,7 +227,8 @@ Deno.serve(async (req) => {
         } else {
           await sendMessage(
             targetChatId,
-            `❌ Kechirasiz, yuborgan chekingiz tasdiqlanmadi.\n\nIltimos, to'lovni tekshirib, chekning aniq skrinshotini qaytadan yuboring 📷`,
+            `❌ Kechirasiz, yuborgan chekingiz tasdiqlanmadi.\n\nIltimos, to'lovni tekshirib, chekning aniq skrinshotini qaytadan yuboring 📷\n\n` +
+            `⚠️ <i>Soxta yoki tahrirlangan chek yubormang — bunday urinishlar adminlar tomonidan darhol aniqlanadi.</i>`,
           );
           await saveSession({ ...targetSession, step: "awaiting_receipt" });
           await editMessageCaption(chatId, cq.message.message_id, `${cq.message.caption}\n\n❌ <b>RAD ETILDI</b>`);
@@ -260,7 +272,8 @@ Deno.serve(async (req) => {
         await saveSession({ ...session, step: "awaiting_receipt", site_email: text });
         await sendMessage(
           chatId,
-          `Rahmat! Endi to'lov chekingizning (bank ilovasidan) <b>skrinshotini rasm shaklida</b> yuboring 📷`,
+          `Rahmat! Endi to'lov chekingizning (bank ilovasidan) <b>skrinshotini rasm shaklida</b> yuboring 📷\n\n` +
+          `⚠️ <i>Soxta yoki tahrirlangan (Photoshop qilingan) chek yubormang — bunday urinishlar adminlar tomonidan darhol aniqlanadi va tasdiqdan o'tmaydi.</i>`,
         );
         return new Response("ok");
       }

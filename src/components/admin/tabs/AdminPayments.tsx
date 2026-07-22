@@ -2,13 +2,28 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { CreditCard, Search, RefreshCw, ExternalLink, CheckCircle, Clock, Trash2, X } from "lucide-react";
 
+const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-premium`;
+
+async function adminApi(action: string, payload: Record<string, unknown> = {}) {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) throw new Error("Sessiya tugagan, qayta kiring");
+  const res = await fetch(EDGE_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
+    body: JSON.stringify({ action, ...payload }),
+  });
+  const data = await res.json();
+  if (!res.ok || data.error) throw new Error(data.error || "Server xatosi");
+  return data;
+}
+
 const C = {
   card: "#FFFFFF", surface: "#F8FAFC", border: "#E2E8F0", borderFocus: "#A5B4FC",
   accent: "#4F46E5", accentB: "#06B6D4", accentC: "#EF4444", gold: "#D97706",
   text: "#0F172A", muted: "#64748B", hint: "#94A3B8",
 };
 
-interface Chek { id: string; email: string; link: string; created_at: string; }
+interface Chek { id: string; email: string | null; link: string; created_at: string; telegram_username?: string | null; source?: string; }
 interface Profile { id: string; email: string | null; full_name: string | null; tariff_end_date: string | null; tariff_days: number | null; }
 
 function ActivateModal({ chek, onClose, onDone }: { chek: Chek; onClose: () => void; onDone: () => void }) {
@@ -18,6 +33,7 @@ function ActivateModal({ chek, onClose, onDone }: { chek: Chek; onClose: () => v
   const [profile, setProf] = useState<Profile | null>(null);
 
   useEffect(() => {
+    if (!chek.email) return;
     supabase.from("profiles").select("id,email,full_name,tariff_end_date,tariff_days").eq("email", chek.email).maybeSingle()
       .then(({ data }) => setProf(data));
   }, [chek.email]);
@@ -39,7 +55,7 @@ function ActivateModal({ chek, onClose, onDone }: { chek: Chek; onClose: () => v
         <button onClick={onClose} style={{ position: "absolute", top: 14, right: 14, background: "#F1F5F9", border: "none", borderRadius: 8, width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: C.muted }}><X size={14} /></button>
         <h3 style={{ margin: "0 0 18px", fontSize: 17, fontWeight: 700, color: C.text }}>To'lovni tasdiqlash</h3>
         <div style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 10, padding: 13, marginBottom: 14, fontSize: 13 }}>
-          <div style={{ marginBottom: 5 }}><span style={{ color: C.muted }}>Email: </span><span style={{ color: C.text, fontWeight: 600 }}>{chek.email}</span></div>
+          <div style={{ marginBottom: 5 }}><span style={{ color: C.muted }}>Email: </span><span style={{ color: C.text, fontWeight: 600 }}>{chek.email || (chek.telegram_username ? `@${chek.telegram_username} (Telegram)` : "—")}</span></div>
           <div style={{ marginBottom: 5 }}><span style={{ color: C.muted }}>Chek: </span><a href={chek.link} target="_blank" rel="noopener noreferrer" style={{ color: C.accent, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4 }}>Ko'rish <ExternalLink size={11} /></a></div>
           <div><span style={{ color: C.muted }}>Sana: </span><span style={{ color: C.text }}>{new Date(chek.created_at).toLocaleString("uz-UZ")}</span></div>
         </div>
@@ -84,16 +100,24 @@ export default function AdminPayments() {
   useEffect(() => { fetchCheks(); }, []);
   const fetchCheks = async () => {
     setLoading(true);
-    const { data } = await supabase.from("chek").select("*").order("created_at", { ascending: false });
-    setCheks(data ?? []); setLoading(false);
+    try {
+      const { data } = await adminApi("list_chek");
+      setCheks(data ?? []);
+    } catch {
+      setCheks([]);
+    }
+    setLoading(false);
   };
   const deleteChek = async (id: string) => {
     if (!confirm("Bu to'lovni o'chirishni tasdiqlaysizmi?")) return;
     setDel(id);
-    await supabase.from("chek").delete().eq("id", id);
-    setCheks(prev => prev.filter(c => c.id !== id)); setDel(null);
+    try {
+      await adminApi("delete_chek", { chekId: id });
+      setCheks(prev => prev.filter(c => c.id !== id));
+    } catch { /* xato — ro'yxat o'zgarmaydi */ }
+    setDel(null);
   };
-  const filtered = cheks.filter(c => !search || c.email.toLowerCase().includes(search.toLowerCase()));
+  const filtered = cheks.filter(c => !search || (c.email || c.telegram_username || "").toLowerCase().includes(search.toLowerCase()));
   const today = cheks.filter(c => new Date(c.created_at) > new Date(Date.now() - 86400000)).length;
 
   return (
@@ -154,7 +178,7 @@ export default function AdminPayments() {
                   <tr key={c.id} style={{ borderBottom: i < filtered.length - 1 ? `1px solid ${C.border}` : "none" }}
                     onMouseEnter={e => (e.currentTarget.style.background = C.surface)}
                     onMouseLeave={e => (e.currentTarget.style.background = "transparent")}>
-                    <td style={{ padding: "12px 16px", fontSize: 13, fontWeight: 600, color: C.text }}>{c.email}</td>
+                    <td style={{ padding: "12px 16px", fontSize: 13, fontWeight: 600, color: C.text }}>{c.email || (c.telegram_username ? `@${c.telegram_username}` : "—")}</td>
                     <td style={{ padding: "12px 16px" }}>
                       <a href={c.link} target="_blank" rel="noopener noreferrer"
                         style={{ display: "inline-flex", alignItems: "center", gap: 5, color: C.accent, fontSize: 13, textDecoration: "none" }}>
