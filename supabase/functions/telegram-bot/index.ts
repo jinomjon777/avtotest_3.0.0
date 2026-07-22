@@ -164,14 +164,39 @@ Deno.serve(async (req) => {
         await sendMessage(
           chatId,
           `✅ Siz <b>${plan.label}</b> (${plan.days} kun) — <b>${fmtSom(plan.amount)}</b> tarifini tanladingiz.\n\n` +
+          `Davom etishdan oldin — sizda <b>smartavto.uz</b> saytida ro'yxatdan o'tgan hisobingiz bormi?`,
+          {
+            inline_keyboard: [
+              [{ text: "✅ Ha, hisobim bor", callback_data: "acct_yes" }],
+              [{ text: "🆕 Yo'q, ro'yxatdan o'taman", callback_data: "acct_no" }],
+            ],
+          },
+        );
+        await saveSession({
+          ...session, step: "confirming_account",
+          plan_days: plan.days, plan_amount: plan.amount,
+        });
+        return new Response("ok");
+      }
+
+      if (data === "acct_yes" || data === "acct_no") {
+        if (data === "acct_no") {
+          await sendMessage(
+            chatId,
+            `Muammo emas! Avval ro'yxatdan o'ting:\n👉 https://smartavto.uz/auth\n\n` +
+            `Ro'yxatdan o'tib bo'lgach, pastdagi tugmani bosing 👇`,
+            { inline_keyboard: [[{ text: "✅ Ro'yxatdan o'tdim, davom etish", callback_data: "acct_yes" }]] },
+          );
+          return new Response("ok");
+        }
+
+        await sendMessage(
+          chatId,
           `To'lovni quyidagi kartaga o'tkazing:\n\n` +
           `💳 <code>${CARD_NUMBER}</code>\n👤 ${CARD_HOLDER}\n\n` +
           `To'lovni amalga oshirgach, <b>smartavto.uz saytidagi hisobingiz email manzilini</b> shu yerga yozib yuboring 👇`,
         );
-        await saveSession({
-          ...session, step: "awaiting_email",
-          plan_days: plan.days, plan_amount: plan.amount,
-        });
+        await saveSession({ ...session, step: "awaiting_email" });
         return new Response("ok");
       }
 
@@ -261,12 +286,28 @@ Deno.serve(async (req) => {
 
       // ── Email kutilmoqda ──────────────────────────────────────────
       if (session.step === "awaiting_email") {
-        const text = (msg.text || "").trim();
+        const text = (msg.text || "").trim().toLowerCase();
         const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text);
 
         if (!looksLikeEmail) {
           await sendMessage(chatId, "Iltimos, to'g'ri email manzil yuboring (masalan: <code>ism@gmail.com</code>).");
           return new Response("ok");
+        }
+
+        const { data: profile } = await supabase
+          .from("profiles")
+          .select("id")
+          .eq("email", text)
+          .maybeSingle();
+
+        if (!profile) {
+          await sendMessage(
+            chatId,
+            `⚠️ Bu email (<code>${text}</code>) bilan ro'yxatdan o'tilgan hisob topilmadi.\n\n` +
+            `Avval saytda ro'yxatdan o'ting:\n👉 https://smartavto.uz/auth\n\n` +
+            `Ro'yxatdan o'tgach, hisobingiz emailini shu yerga qaytadan yuboring 👇`,
+          );
+          return new Response("ok"); // step "awaiting_email"da qoladi, qayta urinib ko'rish mumkin
         }
 
         await saveSession({ ...session, step: "awaiting_receipt", site_email: text });
