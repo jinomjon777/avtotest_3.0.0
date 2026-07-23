@@ -19,6 +19,18 @@ class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
   static getDerivedStateFromError() { return { hasError: true }; }
   componentDidCatch(err: Error, info: { componentStack: string }) {
     console.error('[ErrorBoundary]', err, info.componentStack);
+
+    // Yangi deploydan keyin eski ochiq sahifa endi mavjud bo'lmagan JS
+    // bo'lagini so'rashi mumkin. Bu holatda foydalanuvchini xato ekranida
+    // qoldirmasdan, avtomatik ravishda bir marta qayta yuklaymiz.
+    const isChunkLoadError = /dynamically imported module|Failed to fetch|Loading chunk/i.test(err.message);
+    if (isChunkLoadError) {
+      const key = "reloaded-after-chunk-error";
+      if (!sessionStorage.getItem(key)) {
+        sessionStorage.setItem(key, "1");
+        window.location.reload();
+      }
+    }
   }
   render() {
     if (this.state.hasError) {
