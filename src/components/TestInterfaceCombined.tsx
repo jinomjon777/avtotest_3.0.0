@@ -23,6 +23,8 @@ import {
 import { Clock, ChevronLeft, ChevronRight, X, Check, SkipForward } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
 import { fetchQuestionSource } from "@/lib/fetchQuestionSource";
+import { useAuth } from "@/contexts/AuthContext";
+import { useTestResults } from "@/hooks/useTestResults";
 
 interface QuestionDataFormat2 {
   id: number;
@@ -86,6 +88,9 @@ export const TestInterfaceCombined = ({
   );
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [resultSaved, setResultSaved] = useState(false);
+  const { user } = useAuth();
+  const { saveTestResult } = useTestResults();
   // Restored from localStorage so timeTaken stays accurate after refresh
   const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [zoomImage, setZoomImage] = useState<string | null>(null);
@@ -352,6 +357,18 @@ export const TestInterfaceCombined = ({
     
     return { correct, incorrect };
   };
+
+  // Natijani ma'lumotlar bazasiga saqlash — avval bu umuman ishlamas edi,
+  // shuning uchun "Test ishlash" orqali yechilgan testlar hech qayerda
+  // qayd etilmas edi (Admin panel > Natijalar bo'sh/kam ko'rinishining sababi).
+  useEffect(() => {
+    if (showResults && user && !resultSaved && totalQuestions > 0) {
+      const stats = getTestStats();
+      const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+      saveTestResult(0, stats.correct, totalQuestions, timeTaken);
+      setResultSaved(true);
+    }
+  }, [showResults, user, resultSaved, totalQuestions]);
 
   if (showResults) {
     const stats = getTestStats();
