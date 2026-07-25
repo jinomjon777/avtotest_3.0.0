@@ -370,6 +370,7 @@ type ModalState = null | "create" | { mode: "edit"; user: Profile } | { mode: "d
 
 export default function AdminUsers() {
   const [users, setUsers]     = useState<Profile[]>([]);
+  const [lastSignInMap, setLastSignInMap] = useState<Record<string, string | null>>({});
   const [loading, setLoading] = useState(true);
   const [search, setSearch]   = useState("");
   const [filter, setFilter]   = useState<StatusFilter>("all");
@@ -384,7 +385,25 @@ export default function AdminUsers() {
     setLoading(true);
     const { data } = await supabase.from("profiles").select("*").order("created_at", { ascending: false });
     setUsers(data ?? []);
+    try {
+      const { data: activity } = await adminApi("list_user_activity", {});
+      const map: Record<string, string | null> = {};
+      (activity ?? []).forEach((a: any) => { map[a.id] = a.last_sign_in_at ?? null; });
+      setLastSignInMap(map);
+    } catch {
+      // Bugungi faollik ma'lumoti ixtiyoriy — bo'lmasa ham jadval ko'rsatiladi
+    }
     setLoading(false);
+  };
+
+  // "Bugun" — Toshkent vaqti bo'yicha taqvim kuni asosida. Har kuni
+  // soat 00:00 (Toshkent) dan keyin bu solishtirish avtomatik "yo'q"
+  // (X) qaytaradi, chunki oxirgi kirish sanasi ertaga o'tib ketadi.
+  const todayTashkent = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Tashkent" });
+  const loggedInToday = (userId: string) => {
+    const lastSignIn = lastSignInMap[userId];
+    if (!lastSignIn) return false;
+    return new Date(lastSignIn).toLocaleDateString("en-CA", { timeZone: "Asia/Tashkent" }) === todayTashkent;
   };
 
   const filtered = users.filter(u => {
@@ -462,14 +481,14 @@ export default function AdminUsers() {
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ background: "#F8FAFC", borderBottom: `1px solid ${C.border}` }}>
-                  {["Email", "To'liq ism", "Tarif", "Qolgan kun", "Qo'shilgan", "Amallar"].map(h => (
+                  {["Email", "To'liq ism", "Tarif", "Qolgan kun", "Qo'shilgan", "Bugun", "Amallar"].map(h => (
                     <th key={h} style={{ padding: "10px 16px", textAlign: "left", fontSize: 11, fontWeight: 600, color: C.hint, textTransform: "uppercase", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {paginated.length === 0 && (
-                  <tr><td colSpan={6} style={{ textAlign: "center", padding: 36, color: C.muted, fontSize: 14 }}>Foydalanuvchi topilmadi</td></tr>
+                  <tr><td colSpan={7} style={{ textAlign: "center", padding: 36, color: C.muted, fontSize: 14 }}>Foydalanuvchi topilmadi</td></tr>
                 )}
                 {paginated.map((u, idx) => {
                   const status = getStatus(u);
@@ -500,6 +519,17 @@ export default function AdminUsers() {
                         <td style={{ padding: "11px 16px", fontSize: 13, color: C.muted }}>
                           {new Date(u.created_at).toLocaleDateString("uz-UZ")}
                         </td>
+                        <td style={{ padding: "11px 16px", textAlign: "center" }}>
+                          {loggedInToday(u.id) ? (
+                            <span title="Bugun kirgan" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 26, height: 26, borderRadius: "50%", background: "#DCFCE7", color: "#16A34A" }}>
+                              <Check size={14} strokeWidth={3} />
+                            </span>
+                          ) : (
+                            <span title="Bugun kirmagan" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 26, height: 26, borderRadius: "50%", background: "#F1F5F9", color: "#94A3B8" }}>
+                              <X size={14} strokeWidth={3} />
+                            </span>
+                          )}
+                        </td>
                         <td style={{ padding: "11px 16px" }}>
                           <div style={{ display: "flex", gap: 5 }}>
                             <button onClick={() => setExpanded(isOpen ? null : u.id)}
@@ -518,7 +548,7 @@ export default function AdminUsers() {
                         </td>
                       </tr>
                       {isOpen && (
-                        <tr key={u.id + "_p"}><td colSpan={6} style={{ padding: 0 }}><PremiumPanel userId={u.id} users={users} onSaved={fetchUsers} /></td></tr>
+                        <tr key={u.id + "_p"}><td colSpan={7} style={{ padding: 0 }}><PremiumPanel userId={u.id} users={users} onSaved={fetchUsers} /></td></tr>
                       )}
                     </Fragment>
                   );
