@@ -240,9 +240,9 @@ const Profile = () => {
 
           {/* Profile Edit */}
           <Card className="p-5 mb-6 border-0 rounded-2xl bg-white shadow-sm">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
               <h2 className="text-base font-bold text-[hsl(230_25%_15%)] flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(250 70% 56% / 0.1)" }}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "hsl(250 70% 56% / 0.1)" }}>
                   <User className="w-4 h-4" style={{ color: PURPLE }} />
                 </div>
                 {t('profile.infoTitle')}
@@ -252,7 +252,7 @@ const Profile = () => {
                   <Edit2 className="w-3.5 h-3.5" /> {t('profile.edit')}
                 </Button>
               ) : (
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   <Button variant="outline" size="sm" onClick={handleCancelEdit} disabled={isSaving} className="rounded-xl">
                     <X className="w-3.5 h-3.5 mr-1" /> {t('profile.cancel')}
                   </Button>
