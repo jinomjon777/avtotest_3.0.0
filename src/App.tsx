@@ -64,6 +64,10 @@ const AuthCallback = lazy(() => import("./pages/auth/callback"));
 const Profile     = lazy(() => import("./pages/Profile"));
 const Dashboard   = lazy(() => import("./pages/Dashboard"));
 const Admin       = lazy(() => import("./pages/Admin"));
+const AvtoTest2026    = lazy(() => import("./pages/AvtoTest2026"));
+const AvtoTest20Savol = lazy(() => import("./pages/AvtoTest20Savol"));
+const Blog        = lazy(() => import("./pages/Blog"));
+const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const NotFound    = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -94,6 +98,10 @@ const App = () => (
                     <Route path="/variant"       element={<Variant />} />
                     <Route path="/mavzuli"       element={<MavzuliTestlar />} />
                     <Route path="/pro"           element={<Pro />} />
+                    <Route path="/avto-test-2026"     element={<AvtoTest2026 />} />
+                    <Route path="/avto-test-20-savol" element={<AvtoTest20Savol />} />
+                    <Route path="/blog"          element={<Blog />} />
+                    <Route path="/blog/:slug"    element={<BlogArticle />} />
                     <Route path="/auth"          element={<Auth />} />
                     <Route path="/auth/callback" element={<AuthCallback />} />
                     <Route path="/profile"       element={<Profile />} />

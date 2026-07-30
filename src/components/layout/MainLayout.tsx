@@ -298,6 +298,27 @@ export function MainLayout({ children }: MainLayoutProps) {
               </div>
             </div>
 
+            {/* SEO / kontent havolalari — barcha sahifalarda ko'rinadi */}
+            <div className="section-divider mt-8 mb-5" />
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-5">
+              {[
+                { to: "/avto-test-2026", label: "Avto Test 2026" },
+                { to: "/avto-test-20-savol", label: "Avto Test 20 Savol" },
+                { to: "/blog", label: "Blog" },
+                { to: "/mavzuli", label: "YHQ testlari" },
+                { to: "/belgilar", label: "Yo'l belgilari" },
+                { to: "/darslik", label: "Video darsliklar" },
+              ].map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className="text-xs px-3 py-1.5 rounded-full border border-[hsl(var(--sidebar-border))] text-[hsl(var(--sidebar-foreground))] hover:text-[hsl(var(--accent))] hover:border-[hsl(var(--accent))]/40 transition-colors"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+
             <div className="section-divider mt-8 mb-4" />
             <div className="text-center text-[hsl(var(--muted-foreground))] text-xs">{t("footer.copyright")}</div>
           </div>
