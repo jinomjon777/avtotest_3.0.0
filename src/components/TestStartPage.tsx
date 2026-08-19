@@ -17,7 +17,7 @@ const languages = [
   { id: "ru" as const, label: "Русский", flag: "🇷🇺" },
 ];
 
-const TOTAL_VARIANTS = 61;
+const TOTAL_VARIANTS = 63;
 const variants = Array.from({ length: TOTAL_VARIANTS }, (_, i) => i + 1);
 
 export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) => {

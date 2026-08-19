@@ -110,8 +110,8 @@ export default function Variant() {
   return (
     <>
       <SEO
-        title="Test variantlari - 61 variant"
-        description="Haydovchilik guvohnomasi uchun 61 test varianti."
+        title="Test variantlari - 63 variant"
+        description="Haydovchilik guvohnomasi uchun 63 test varianti."
         path="/variant"
         keywords="test varianti, prava test, imtihon savollari, YHQ test"
       />

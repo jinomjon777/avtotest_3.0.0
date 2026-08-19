@@ -22,7 +22,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Clock, ChevronLeft, ChevronRight, X, Check, Maximize, Minimize, SkipForward } from "lucide-react";
+import { Clock, ChevronLeft, ChevronRight, X, Check, Maximize, Minimize, SkipForward, Lightbulb } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
 
 // Eski format (lesson + data)
@@ -56,6 +56,7 @@ interface VariantTaskNew {
     uz_cyr?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
     ru?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
   };
+  izoh?: { uz_lat?: string; uz_cyr?: string; ru?: string };
 }
 
 function isNewVariantFormat(raw: unknown): raw is VariantTaskNew[] {
@@ -78,6 +79,7 @@ interface Question {
   image?: string;
   correctAnswer: number;
   answers: { id: number; text: string }[];
+  explanation?: string;
 }
 
 interface TestInterfaceProps {
@@ -107,6 +109,13 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
   );
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [showIzoh, setShowIzoh] = useState(false);
+
+  // Savol almashganda izoh paneli avtomatik yopiladi — shunda eski
+  // savolning izohi yangi savol ustida ko'rinib qolmaydi.
+  useEffect(() => {
+    setShowIzoh(false);
+  }, [currentQuestion]);
   // Restored from localStorage so timeTaken stays accurate after refresh
   const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [resultSaved, setResultSaved] = useState(false);
@@ -202,6 +211,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
               image,
               correctAnswer,
               answers: options.map((o) => ({ id: o.id, text: o.text })),
+              explanation: task.izoh?.[contentKey] || task.izoh?.uz_lat || task.izoh?.uz_cyr || task.izoh?.ru || undefined,
             };
           });
         } else {
@@ -715,25 +725,50 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
         </div>
       </main>
 
+      {/* Izoh paneli — faqat "Izoh" tugmasi bosilganda ko'rinadi, joriy savolga tegishli */}
+      {showIzoh && question.explanation && (
+        <div className="bg-primary/5 border-t border-primary/20 px-4 py-3 md:px-6 md:py-4 shrink-0 max-h-[35vh] overflow-y-auto">
+          <div className="max-w-5xl mx-auto flex gap-2.5">
+            <Lightbulb className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-foreground leading-relaxed">{question.explanation}</p>
+          </div>
+        </div>
+      )}
+
       {/* Bottom Navigation */}
       <footer className="bg-card border-t border-border px-3 py-2.5 md:px-4 md:py-3 shrink-0">
         <div className="max-w-5xl mx-auto flex items-center justify-between gap-2">
-          <Button
-            variant="outline"
-            size="default"
-            className="h-9 px-3 md:h-10 md:px-4 text-sm"
-            disabled={currentQuestion === 1}
-            onClick={() => {
-              if (autoAdvanceTimeoutRef.current) {
-                clearTimeout(autoAdvanceTimeoutRef.current);
-              }
-              setCurrentQuestion(prev => Math.max(1, prev - 1));
-            }}
-          >
-            <ChevronLeft className="w-4 h-4 mr-1" />
-            {t("test.previous")}
-          </Button>
-          
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="default"
+              className="h-9 px-3 md:h-10 md:px-4 text-sm"
+              disabled={currentQuestion === 1}
+              onClick={() => {
+                if (autoAdvanceTimeoutRef.current) {
+                  clearTimeout(autoAdvanceTimeoutRef.current);
+                }
+                setCurrentQuestion(prev => Math.max(1, prev - 1));
+              }}
+            >
+              <ChevronLeft className="w-4 h-4 mr-1" />
+              {t("test.previous")}
+            </Button>
+
+            {question.explanation && (
+              <Button
+                type="button"
+                variant={showIzoh ? "default" : "outline"}
+                size="default"
+                className="h-9 px-3 md:h-10 md:px-4 text-sm"
+                onClick={() => setShowIzoh(prev => !prev)}
+              >
+                <Lightbulb className="w-4 h-4 md:mr-1" />
+                <span className="hidden md:inline">{t("test.explanation")}</span>
+              </Button>
+            )}
+          </div>
+
           <div className="text-xs md:text-sm text-muted-foreground text-center">
             <span className="font-medium text-primary">{Object.keys(selectedAnswers).length}</span>
             <span> / {totalQuestions}</span>

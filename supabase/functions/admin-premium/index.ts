@@ -2,6 +2,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_KEY = Deno.env.get("SB_SERVICE_ROLE_KEY")!;
+const TELEGRAM_BOT_TOKEN = Deno.env.get("TELEGRAM_BOT_TOKEN");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -13,6 +14,19 @@ function json(data: unknown, status = 200) {
     status,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
+}
+
+async function notifyTelegramUser(chatId: number, text: string) {
+  if (!TELEGRAM_BOT_TOKEN) return;
+  try {
+    await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, text, parse_mode: "HTML" }),
+    });
+  } catch (e) {
+    console.error("Telegram xabar yuborilmadi:", e);
+  }
 }
 
 Deno.serve(async (req) => {
@@ -63,7 +77,7 @@ Deno.serve(async (req) => {
   // ── 3. So'rovni qayta ishlaymiz ──────────────────────────────────────
   try {
     const body = await req.json();
-    const { action, userId, days } = body;
+    const { action, userId, days, telegramChatId } = body;
 
     if (action === "give_premium") {
       if (!userId || !days) {
@@ -95,6 +109,14 @@ Deno.serve(async (req) => {
       }).eq("id", userId);
 
       if (error) throw error;
+
+      if (telegramChatId) {
+        await notifyTelegramUser(
+          Number(telegramChatId),
+          `✅ Sizda Premium obuna faollashtirildi!\n\nAmal qilish muddati: <b>${days} kun</b>.\n\nSmartavto.uz'dan foydalanganingiz uchun rahmat! 🎉`,
+        );
+      }
+
       await logAction("give_premium", { userId, days, endDate: endDate.toISOString() });
       return json({ success: true, endDate: endDate.toISOString() });
     }
