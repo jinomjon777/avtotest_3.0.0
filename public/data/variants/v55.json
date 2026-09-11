@@ -2,13 +2,15 @@
     {
         "task_info": {
             "global_id": "t_55_q_1",
+            "global_id2": "t_55_q_1",
             "ticket_num": 55,
-            "order": 1
+            "order": 1,
+            "remapped_from": "t_42_q_12"
         },
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Svetaforning miltillovchi sariq ishorasi nima haqida ogohlantiradi?",
+                "text": "Svetoforning miltillovchi sariq ishorasi nima haqida ogohlantiradi?",
                 "options": [
                     {
                         "id": 1,
@@ -28,7 +30,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Светафорнинг милтилловчи сариқ ишораси нима ҳақида огоҳлантиради?",
+                "text": "Светофорнинг милтилловчи сариқ ишораси нима ҳақида огоҳлантиради?",
                 "options": [
                     {
                         "id": 1,
@@ -57,7 +59,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "О том, что перекресток не регулируемый",
+                        "text": "О том, что перекрёсток не регулируемый",
                         "is_correct": false
                     },
                     {
@@ -67,13 +69,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 31 bandi 6 xatboshiga asosan, miltillovchi sariq ishora ehtiyotkorlik choralarini ko‘rgan holda harakatlanishga ruxsat beradi va tartibga solinmagan chorraha yoki piyodalar o‘tish joyi borligidan xabardor qiladi, xavf-xatar haqida ogohlantiradi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 31 банди 6 хатбошига асосан, милтилловчи сариқ ишора эҳтиёткорлик чораларини кўрган ҳолда ҳаракатланишга рухсат беради ва тартибга солинмаган чорраҳа ёки пиёдалар ўтиш жойи борлигидан хабардор қилади, хавф-хатар ҳақида огоҳлантиради.",
+            "ru": "Согласно пункту 6 статьи 31 Правил дорожного движения мигающий желтый знак разрешает движение с осторожностью и информирует о наличии нерегулируемого перекрестка или пешеходного перехода, предупреждает об опасности."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_2",
+            "global_id2": "t_55_q_2",
             "ticket_num": 55,
-            "order": 2
+            "order": 2,
+            "remapped_from": "t_5_q_4"
         },
         "media_url": "u633uz.webp",
         "content": {
@@ -122,12 +131,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только на тех участках дороги; которые предназначены для маршрутных транспортных средств",
+                        "text": "Только на тех участках дороги, которые предназначены для маршрутных транспортных средств",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "По полосам проезжей части; где движение меняется в противоположную сторону",
+                        "text": "По полосам проезжей части, где движение меняется в противоположную сторону",
                         "is_correct": true
                     },
                     {
@@ -137,18 +146,25 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 35-bandiga asosan, qatnov qismidagi harakat yo'nalishi qarama-qarshi tomonga o'zgarishi mumkin bo'lgan tasmalarida transport vositalarining harakatini tartibga solish uchun X-Simon qizil ishorali va pastga yo'nalgan yo'naltirgich ko'rinishidagi yashil ishorali reversiv svetoforlar qo'llaniladi.",
+            "uz_cyr": "YHQ 7-боби 35-бандига асосан, қатнов қисмидаги ҳаракат йўналиши қарама-қарши томонга ўзгариши мумкин бўлган тасмаларида транспорт воситаларининг ҳаракатини тартибга солиш учун Х-Симон қизил ишорали ва пастга йўналган йўналтиргич кўринишидаги яшил ишорали реверсив светофорлар қўлланилади.",
+            "ru": "Согласно главе 7, пункту 35 ПДД, красно- и зелено-сигнальный реверсивный светофор X-Simon в виде движения вниз применяется для регулирования движения транспортных средств по полосам, где направление движения может быть изменено в противоположном направлении."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_3",
+            "global_id2": "t_55_q_3",
             "ticket_num": 55,
-            "order": 3
+            "order": 3,
+            "remapped_from": "t_53_q_19"
         },
         "media_url": "u634uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi xaydovchi to'xtash qoidasini buzdi?",
+                "text": "Qaysi haydovchi to'xtash qoidasini buzdi?",
                 "options": [
                     {
                         "id": 1,
@@ -162,7 +178,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Engil avtomobil",
+                        "text": "yengil avtomobil",
                         "is_correct": false
                     },
                     {
@@ -173,7 +189,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси хайдовчи тўхташ қоидасини бузди?",
+                "text": "Қайси ҳайдовчи тўхташ қоидасини бузди?",
                 "options": [
                     {
                         "id": 1,
@@ -202,7 +218,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Оба не сломались",
+                        "text": "Оба не нарушили",
                         "is_correct": false
                     },
                     {
@@ -217,18 +233,25 @@
                     },
                     {
                         "id": 4,
-                        "text": "Оба сломались",
+                        "text": "Оба нарушили",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasi 3-bo‘limining o‘ttiz birinchi xatboshisiga asosan: 3.27. \"To‘xtash taqiqlangan\". Transport vositalarining to‘xtashi va to‘xtab turishi taqiqlanishini bildiradi. YHQ 1-ilovasi 7-bo‘limining o‘ttiz birinchi xatboshisiga asosan: 7.18. \"Nogironlar mustasno\". Belgilarning ta'siri ushbu Qoidalarning 175-bandiga muvofiq \"Nogiron\" taniqlik belgisi o‘rnatilgan transport vositalariga joriy etilmaydi.",
+            "uz_cyr": "YHQ 1-иловаси 3-бўлимининг ўттиз биринчи хатбошисига асосан: 3.27. \"Тўхташ тақиқланган\". Транспорт воситаларининг тўхташи ва тўхтаб туриши тақиқланишини билдиради. YHQ 1-иловаси 7-бўлимининг ўттиз биринчи хатбошисига асосан: 7.18. \"Ногиронлар мустасно\". Белгиларнинг таъсири ушбу Қоидаларнинг 175-бандига мувофиқ \"Ногирон\" таниқлик белгиси ўрнатилган транспорт воситаларига жорий этилмайди.",
+            "ru": "Согласно абзацу тридцать первому раздела 3 Приложения 1 ПДД: 3.27. \"Парковка запрещена.\" Означает, что транспортным средствам запрещено останавливаться и стоять. Согласно абзацу тридцать первому раздела 7 Приложения 1 ПДД: 7.18. «Инвалиды исключены». Действие знаков не распространяется на транспортные средства со знаком «Инвалид» в соответствии с пунктом 175 настоящих Правил."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_4",
+            "global_id2": "t_55_q_4",
             "ticket_num": 55,
-            "order": 4
+            "order": 4,
+            "remapped_from": "t_21_q_20"
         },
         "media_url": "u635uz.webp",
         "content": {
@@ -277,28 +300,35 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Правый знак",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Левый знак",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Оба знака",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Правый знак",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobi 176-bandida berilgan 1-izohga asosan, \"Avtopoezd\" — yuk avtomobillari va g'ildirakli traktor (1,4 tonna va undan yuqori)larda tirkama bo'lganda, shuningdek tutashtirilgan avtobus va trolleybus kabinalari tomining old qismi o'rtasiga bir qator qilib 150 dan 300 millimetrgacha oraliqda ko'ndalang joylashgan uchta zarg'aldoq rangli chiroq yoki ichidan yoritiladigan, tomonlarining har biri 250 millimetr bo'lgan sariq rangli uchburchak shaklidagi belgi.",
+            "uz_cyr": "YHQ 29-боби 176-бандида берилган 1-изоҳга асосан, \"Автопоэзд\" — юк автомобиллари ва ғилдиракли трактор (1,4 тонна ва ундан юқори)ларда тиркама бўлганда, шунингдек туташтирилган автобус ва троллейбус кабиналари томининг олд қисми ўртасига бир қатор қилиб 150 дан 300 миллиметргача оралиқда кўндаланг жойлашган учта зарғалдоқ рангли чироқ ёки ичидан ёритиладиган, томонларининг ҳар бири 250 миллиметр бўлган сариқ рангли учбурчак шаклидаги белги.",
+            "ru": "Согласно примечанию 1 главы 29 статьи 176 ПДД \"Автопоезд\" - это три фонаря золотистого цвета, расположенные поперечно в центре передней части крыши соединенных кабин автобусов и троллейбусов в случае грузовых автомобилей и колесных тягачей (1,4 тонны и выше) с прицепом, или подсвеченные изнутри, с каждой стороны по 250 желтым треугольным символом с миллиметрами."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_5",
+            "global_id2": "t_55_q_5",
             "ticket_num": 55,
-            "order": 5
+            "order": 5,
+            "remapped_from": "t_8_q_12"
         },
         "media_url": "u636uz.webp",
         "content": {
@@ -323,7 +353,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси жавобда pyxcат берилган ҳаракат йўналиши тўғри кўрсатилган?",
+                "text": "Қайси жавобда рухсат берилган ҳаракат йўналиши тўғри кўрсатилган?",
                 "options": [
                     {
                         "id": 1,
@@ -362,13 +392,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 7-bo'limi 3-xatboshiga asosan, vaqtinchalik (ko'chma tirgakdagi) va doimiy belgilar ma'no jihatidan bir-biriga zid kelgan hollarda, haydovchilar vaqtincha o'rnatilgan belgilarga amal qilishlari kerak.",
+            "uz_cyr": "YHQ 1-иловасининг 7-бўлими 3-хатбошига асосан, вақтинчалик (кўчма тиргакдаги) ва доимий белгилар маъно жиҳатидан бир-бирига зид келган ҳолларда, ҳайдовчилар вақтинча ўрнатилган белгиларга амал қилишлари керак.",
+            "ru": "Согласно пункту 3 статьи 7 приложения 1 ПДД, в случаях, когда временные (на передвижном столбе) и постоянные знаки противоречат друг другу по смыслу, водители обязаны следовать временно установленным знакам."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_6",
+            "global_id2": "t_55_q_6",
             "ticket_num": 55,
-            "order": 6
+            "order": 6,
+            "remapped_from": "t_19_q_19"
         },
         "media_url": "",
         "content": {
@@ -447,13 +484,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Drossel zaslonkasining ochilishi gaz pedalini bosganda yuz beradi. Tekis yo‘lda drosselni keskin ochishda yetaklovchi g‘ildiraklar joyidan jimlay aylanadi va avtomobilning yoniga og‘ishini keltirib chiqarishi mumkin. Gaz pedalini keskin bosish karbyuratorni buzilish ehtimolidan yiroq. Aksincha, gaz pedaliga bosilganda dvigatel ishini to‘xtatmaydi, balki kuchliroq ishlay boshlaydi.",
+            "uz_cyr": "Дроссел заслонкасининг очилиши газ педалини босганда юз беради. Текис йўлда дросселни кескин очишда етакловчи ғилдираклар жойидан жимлай айланади ва автомобилнинг ёнига оғишини келтириб чиқариши мумкин. Газ педалини кескин босиш карбюраторни бузилиш эҳтимолидан йироқ. Аксинча, газ педалига босилганда двигател ишини тўхтатмайди, балки кучлироқ ишлай бошлайди.",
+            "ru": "Открытие дроссельной заслонки происходит при нажатии педали газа. При резком открытии дроссельной заслонки на ровной дороге ведущие колеса могут провернуться и привести к тому, что автомобиль отклонится в сторону. Резкое нажатие педали газа вряд ли приведет к повреждению карбюратора. Напротив, при нажатии на педаль газа двигатель не перестает работать, а начинает работать мощнее."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_7",
+            "global_id2": "t_55_q_7",
             "ticket_num": 55,
-            "order": 7
+            "order": 7,
+            "remapped_from": "t_43_q_4"
         },
         "media_url": "",
         "content": {
@@ -502,13 +546,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 61 bandiga asosan, sekinlashish bo‘lagi bor bo‘lgan yo‘lda burilmoqchi bo‘lgan haydovchi o‘z vaqtida ushbu tasmaga qayta tizilishi va tezlikni faqat unda kamaytirishi kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 61 бандига асосан, секинлашиш бўлаги бор бўлган йўлда бурилмоқчи бўлган ҳайдовчи ўз вақтида ушбу тасмага қайта тизилиши ва тезликни фақат унда камайтириши керак.",
+            "ru": "Согласно статье 61 Правил дорожного движения водитель, желающий повернуть на дорогу с полосой замедления, должен вовремя перегруппироваться и снизить скорость только в этой полосе."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_8",
+            "global_id2": "t_55_q_8",
             "ticket_num": 55,
-            "order": 8
+            "order": 8,
+            "remapped_from": "t_63_q_18"
         },
         "media_url": "",
         "content": {
@@ -557,13 +608,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 19-bo'limi 121-bandi 2-xatboshiga asosan, avtomagistrallarda yuk avtomobillariga yo'lning chetki chap qatorida harakatlanishi taqiqlanadi.",
+            "uz_cyr": "YHQ 19-бўлими 121-банди 2-хатбошига асосан, автомагистралларда юк автомобилларига йўлнинг четки чап қаторида ҳаракатланиши тақиқланади.",
+            "ru": "Согласно пункту 2 статьи 19 статьи 121 ПДД на автомагистралях запрещается движение грузовых автомобилей в крайней левой полосе дороги."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_9",
+            "global_id2": "t_55_q_9",
             "ticket_num": 55,
-            "order": 9
+            "order": 9,
+            "remapped_from": "t_22_q_19"
         },
         "media_url": "u637uz.webp",
         "content": {
@@ -627,37 +685,44 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 6-bobi 26-bandiga asosan, haydovchilar tezkor va maxsus xizmatlarning ko'k yoki qizil yoxud ko'k va qizil rangli yalt-yalt etuvchi mayoqchalar va maxsus tovushli ishorasi yoqilgan holda yaqinlashayotgan transport vositalariga, shuningdek ularning kuzatuvidagi, yaqinni yorituvchi fara chiroqlari yoqilgan transport vositasi (transport vositalari)ga yo'l berishlari shart. Mazkur turdagi transport vositalarini quvib o'tish taqiqlanadi.",
+            "uz_cyr": "YHQ 6-боби 26-бандига асосан, ҳайдовчилар тезкор ва махсус хизматларнинг кўк ёки қизил ёхуд кўк ва қизил рангли ялт-ялт этувчи маёқчалар ва махсус товушли ишораси ёқилган ҳолда яқинлашаётган транспорт воситаларига, шунингдек уларнинг кузатувидаги, яқинни ёритувчи фара чироқлари ёқилган транспорт воситаси (транспорт воситалари)га йўл беришлари шарт. Мазкур турдаги транспорт воситаларини қувиб ўтиш тақиқланади.",
+            "ru": "В соответствии с главой 6 статьи 26 ПДД водители обязаны уступать дорогу приближающимся транспортным средствам с синими или красными или сине-красными проблесковыми маячками и специальным звуковым сигналом экспресс- и специальных служб, а также транспортному средству (транспортным средствам), за которыми они наблюдают с включенными фарами. Обгон данного типа транспортных средств запрещен."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_10",
+            "global_id2": "t_55_q_10",
             "ticket_num": 55,
-            "order": 10
+            "order": 10,
+            "remapped_from": "t_63_q_19"
         },
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Qaysi javobda yo‘l belgilari guruhlarining ketma-ketligi to‘g‘ri ko‘rsatilgan?",
+                "text": "Qaysi javobda yo'l belgilari guruhlarining ketma-ketligi to'g'ri ko'rsatilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yuqoridagi barcha javoblar to‘g‘ri",
+                        "text": "Yuqoridagi barcha javoblar to'g'ri",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ogohlantiruvchi, Imtiyoz, Taqiqlovchi, Buyuruvchi, Axborot-ko‘rsatkich, Servis, Qo‘shimcha axborot",
+                        "text": "Ogohlantiruvchi, Imtiyoz, Taqiqlovchi, Buyuruvchi, Axborot-ko'rsatkich, Servis, Qo'shimcha axborot",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Ogohlantiruvchi, Imtiyoz, Buyuruvchi, Taqiqlovchi, Axborot-ko‘rsatkich, Servis, Qo‘shimcha axborot",
+                        "text": "Ogohlantiruvchi, Imtiyoz, Buyuruvchi, Taqiqlovchi, Axborot-ko'rsatkich, Servis, Qo'shimcha axborot",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Taqiqlovchi, Imtiyoz, Buyuruvchi, Axborot-ko‘rsatkich, Ogohlantiruvchi, Servis, Qo‘shimcha axborot",
+                        "text": "Taqiqlovchi, Imtiyoz, Buyuruvchi, Axborot-ko'rsatkich, Ogohlantiruvchi, Servis, Qo'shimcha axborot",
                         "is_correct": false
                     }
                 ]
@@ -692,33 +757,40 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Все вышеперечисленные ответы правильные",
+                        "text": "Все вышеперечисленные ответы верны",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Предупреждающие, приоритета, запрещающие, предписывающие, информационно-указательные, сервисные, дополнительные информационные",
+                        "text": "Предупреждающие, приоритета, запрещающие, предписывающие, информационно-указательные, сервиса, дополнительной информации",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Предупреждающие, приоритета, предписывающие, запрещающие, информационно-указательные, сервисные, дополнительные информационные",
+                        "text": "Предупреждающие, приоритета, предписывающие, запрещающие, информационно-указательные, сервиса, дополнительной информации",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Запрещающие, приоритета, предписывающие, информационно-указательные, предупреждающие, сервисные, дополнительные информационные",
+                        "text": "Запрещающие, приоритета, предписывающие, информационно-указательные, предупреждающие, сервиса, дополнительной информации",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 1-ILOVAsiga asosan: Yo‘l belgilari 7 guruhga bo‘linadi. Ular quyidagilar: 1. Ogohlantiruvchi belgilar; 2. Imtiyoz belgilari; 3. Taqiqlovchi belgilar; 4. Buyuruvchi belgilar; 5. Axborot-ko‘rsatgich belgilari; 6. Servis belgilari; 7. Qo‘shimcha axborot belgilari.",
+            "uz_cyr": "YHQнинг 1-ИЛОВАсига асосан: Йўл белгилари 7 гуруҳга бўлинади. Улар қуйидагилар: 1. Огоҳлантирувчи белгилар; 2. Имтиёз белгилари; 3. Тақиқловчи белгилар; 4. Буюрувчи белгилар; 5. Ахборот-кўрсатгич белгилари; 6. Сервис белгилари; 7. Қўшимча ахборот белгилари.",
+            "ru": "Согласно ПРИЛОЖЕНИЮ 1 «Знаков дорожного движения» дорожные знаки делятся на 7 групп. К ним относятся: 1. Предупреждающие знаки; 2. Знаки привилегий; 3. Запрещающие знаки; 4. Командные знаки; 5. Информационно-указательные знаки; 6. Знаки обслуживания; 7. Знаки дополнительной информации."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_11",
+            "global_id2": "t_55_q_11",
             "ticket_num": 55,
-            "order": 11
+            "order": 11,
+            "remapped_from": "t_35_q_16"
         },
         "media_url": "u638uz.webp",
         "content": {
@@ -757,23 +829,30 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Обозначает боковые поверхности ограждений дорог на других участках",
-                        "is_correct": true
+                        "text": "Боковые поверхности ограждения дорог на закруглениях малого радиуса",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Боковые поверхности ограждения дорог на закруглениях малого радиуса",
-                        "is_correct": false
+                        "text": "Обозначает боковые поверхности ограждений дорог на других участках",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 2-bo'limiga asosan, 2.6 tik chizig'i - boshqa joylardagi to'siqlarning yon yuzalarini bildiradi.",
+            "uz_cyr": "YHQ 2-иловасининг 2-бўлимига асосан, 2.6 тик чизиғи - бошқа жойлардаги тўсиқларнинг ён юзаларини билдиради.",
+            "ru": "Согласно разделу 2 приложения 2 ПДД, вертикальной линией 2.6 - обозначены боковые поверхности препятствий в других местах."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_12",
+            "global_id2": "t_55_q_12",
             "ticket_num": 55,
-            "order": 12
+            "order": 12,
+            "remapped_from": "t_2_q_8"
         },
         "media_url": "",
         "content": {
@@ -797,7 +876,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "«Ногирон» taniqli belgisi bo'lgan engil avtomobillar",
+                        "text": "«Nogiron» taniqlik belgisi bo'lgan yengil avtomobillar",
                         "is_correct": false
                     }
                 ]
@@ -852,18 +931,25 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 89-bandi asosan, transport vositalarini yo'lning qatnov qismida bir qator qilib, qatnov qismi chetiga yo'l harakatining boshqa qatnashchilariga xalaqit bermaslik sharti bilan faqat parallel ravishda, kajavasi bo'lmagan ikki g'ildirakli transport vositalarini ikki qator qilib qo'yishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 8-боби 89-банди асосан, транспорт воситаларини йўлнинг қатнов қисмида бир қатор қилиб, қатнов қисми четига йўл ҳаракатининг бошқа қатнашчиларига халақит бермаслик шарти билан фақат параллел равишда, кажаваси бўлмаган икки ғилдиракли транспорт воситаларини икки қатор қилиб қўйишга рухсат этилади.",
+            "ru": "Согласно статье 89 главы 8 ПДД разрешается размещать на проезжей части транспортных средств в один ряд, а двухколесные транспортные средства без коляски - в два ряда только параллельно при условии, что они не мешают другим участникам дорожного движения."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_13",
+            "global_id2": "t_55_q_13",
             "ticket_num": 55,
-            "order": 13
+            "order": 13,
+            "remapped_from": "t_6_q_3"
         },
         "media_url": "u639uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Haydovchiga belgilangan traektoriya bo'yicha harakatlanib, manyovrlar bajarishga ruxsat berilganmi?",
+                "text": "Haydovchiga belgilangan traektoriya bo'yicha harakatlanib, manevrlar bajarishga ruxsat berilganmi?",
                 "options": [
                     {
                         "id": 1,
@@ -903,7 +989,7 @@
                 ]
             },
             "ru": {
-                "text": "Разрешено ли водителю легкового автомобиля совершить маневр, двигаясь по обозначенным траекториям ?",
+                "text": "Разрешено ли водителю легкового автомобиля совершить маневр, двигаясь по обозначенным траекториям?",
                 "options": [
                     {
                         "id": 1,
@@ -912,23 +998,30 @@
                     },
                     {
                         "id": 2,
-                        "text": "Разрешено по обеим",
-                        "is_correct": true
+                        "text": "Разрешено только по «А»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Разрешено только по «А»",
-                        "is_correct": false
+                        "text": "Разрешено по обеим",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limi 1.5, 1.6 yotiq chiziqlariga asosan, 1.5 – ikki yoki uch tasmali yo'llarda qarama-qarshi yo'nalishlarda harakatlanayotgan transport vositalari oqimlarini ajratadi; bir yo'nalishda harakatlanish uchun mo'ljallangan ikki yoki undan ko'proq tasmali yo'llarda tasmalarning chegaralarini va bir yo'nalishdagi harakatlanish bo'lagi bilan velosiped bo'lagi chegarasini bildiradi. 1.6 (yaqinlashish chizig'i – har bir chiziq uzunligi ular orasidagi masofadan uch barobar katta bo'lgan uzuq-uzuq chiziq) — qarama-qarshi yoki bir yo'nalishda harakatlanayotgan transport vositalari oqimlarini ajratuvchi 1.1 yoki 1.11 chizig'iga yaqinlashayotganlik haqida ogohlantiradi. 1.5 va 1.6 chiziqlarini istalgan tomondan bosib o'tish mumkin.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлими 1.5, 1.6 ётиқ чизиқларига асосан, 1.5 – икки ёки уч тасмали йўлларда қарама-қарши йўналишларда ҳаракатланаётган транспорт воситалари оқимларини ажратади; бир йўналишда ҳаракатланиш учун мўлжалланган икки ёки ундан кўпроқ тасмали йўлларда тасмаларнинг чегараларини ва бир йўналишдаги ҳаракатланиш бўлаги билан велосипед бўлаги чегарасини билдиради. 1.6 (яқинлашиш чизиғи – ҳар бир чизиқ узунлиги улар орасидаги масофадан уч баробар катта бўлган узуқ-узуқ чизиқ) — қарама-қарши ёки бир йўналишда ҳаракатланаётган транспорт воситалари оқимларини ажратувчи 1.1 ёки 1.11 чизиғига яқинлашаётганлик ҳақида огоҳлантиради. 1.5 ва 1.6 чизиқларини исталган томондан босиб ўтиш мумкин.",
+            "ru": "Раздел 1 приложения 2 Национальных правил безопасности дорожного движения 1.5, 1.6 разделяет поток транспортных средств, движущихся встречно, на 1,5 – двух- или трехполосные дороги; означает границы полос на дорогах с двумя и более полосами движения, предназначенными для движения в одном направлении, и границу велосипедной полосы с полосой одностороннего движения. 1.6 (линия подъезда – кольцевая линия, длина каждой линии в три раза превышает расстояние между ними) – предупреждает о приближении линии 1.1 или 1.11, разделяющей потоки транспортных средств, движущихся в встречном или попутном направлении. Линии 1,5 и 1,6 можно пересекать с любой стороны."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_14",
+            "global_id2": "t_55_q_14",
             "ticket_num": 55,
-            "order": 14
+            "order": 14,
+            "remapped_from": "t_45_q_14"
         },
         "media_url": "",
         "content": {
@@ -942,7 +1035,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobilni tormozlamasdan yo'lning harakat qismiga oxista ravon burish",
+                        "text": "Avtomobilni tormozlamasdan yo'lning harakat qismiga ohista ravon burish",
                         "is_correct": true
                     },
                     {
@@ -962,7 +1055,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автомобилни тормозламасдан йўлнинг ҳаракат қисмига охиста равон буриш",
+                        "text": "Автомобилни тормозламасдан йўлнинг ҳаракат қисмига оҳиста равон буриш",
                         "is_correct": true
                     },
                     {
@@ -977,12 +1070,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Затормозить и плавно направить автомобиль на проезжую часть",
+                        "text": "Не прибегая к торможению, плавно направить автомобиль на проезжую часть",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Не прибегая к торможению, плавно направить автомобиль на проезжую часть",
+                        "text": "Затормозить и плавно направить автомобиль на проезжую часть",
                         "is_correct": true
                     },
                     {
@@ -992,13 +1085,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakatlanishda avtomobil o'ng g'ildiraklarining yumshoq va nam yo'l yoqasida chiqishi o'ng va chap g'ildiraklar ilashish koeffisientlarining turlicha bo'lishiga va bu o'z navbatida avtomobilning sirpanib ketishiga olib keladi. Bunday vaziyatda tezlikni pasaytirmay, ya'ni tormoz tepkisini bosmay rul chambaragini asta burib qatnov qismiga yo'naltirish kerak. Ushbu holatda tormozlash ham avtomobilning sirpanishiga olib keladi.",
+            "uz_cyr": "Ҳаракатланишда автомобил ўнг ғилдиракларининг юмшоқ ва нам йўл ёқасида чиқиши ўнг ва чап ғилдираклар илашиш коэффисиэнтларининг турлича бўлишига ва бу ўз навбатида автомобилнинг сирпаниб кетишига олиб келади. Бундай вазиятда тезликни пасайтирмай, яъни тормоз тепкисини босмай рул чамбарагини аста буриб қатнов қисмига йўналтириш керак. Ушбу ҳолатда тормозлаш ҳам автомобилнинг сирпанишига олиб келади.",
+            "ru": "При движении правые колеса автомобиля выступают на мягкую и мокрую сторону дороги. В такой ситуации, не снижая скорости, то есть не нажимая на рычаг тормоза, необходимо медленно повернуть руль и направить его на дорогу. Торможение в этой ситуации также приводит к заносу автомобиля."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_15",
+            "global_id2": "t_55_q_15",
             "ticket_num": 55,
-            "order": 15
+            "order": 15,
+            "remapped_from": "t_17_q_16"
         },
         "media_url": "",
         "content": {
@@ -1053,16 +1153,16 @@
                 ]
             },
             "ru": {
-                "text": "Разрешается ли движение по трамвайным путям при проезде перекрестка?",
+                "text": "Разрешается ли движение по трамвайным путям при проезде перекрёстка?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается; по трамвайным путям попутного направления",
+                        "text": "Разрешается, по трамвайным путям попутного направления",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается; если не создаются помехи трамваю",
+                        "text": "Разрешается, если не создаются помехи трамваю",
                         "is_correct": false
                     },
                     {
@@ -1077,13 +1177,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 10-bobi 69-bandining birinchi xatboshisiga asosan: Bir yo‘nalishdagi qatnov qismining chap tomonida u bilan bir sathda joylashgan tramvay yo‘lidan, shu yo‘nalishdagi boshqa tasmalar band bo‘lganda harakatlanishga, shuningdek, aylanib o‘tishga, chapga burilish va qayrilib olishga ushbu Qoidalarning 56-bandini hisobga olgan holda ruxsat etiladi. Biroq bu tramvayga xalaqit bermasligi kerak. Qarama-qarshi yo‘nalishdagi tramvay yo‘lidan harakatlanish taqiqlanadi.",
+            "uz_cyr": "YHQ 10-боби 69-бандининг биринчи хатбошисига асосан: Бир йўналишдаги қатнов қисмининг чап томонида у билан бир сатҳда жойлашган трамвай йўлидан, шу йўналишдаги бошқа тасмалар банд бўлганда ҳаракатланишга, шунингдек, айланиб ўтишга, чапга бурилиш ва қайрилиб олишга ушбу Қоидаларнинг 56-бандини ҳисобга олган ҳолда рухсат этилади. Бироқ бу трамвайга халақит бермаслиги керак. Қарама-қарши йўналишдаги трамвай йўлидан ҳаракатланиш тақиқланади.",
+            "ru": "Согласно пункту первому статьи 69 главы 10 ПДД: Разрешается двигаться по левой стороне проезжей части с односторонним движением на одном уровне с трамвайным путем при занятости других полос в том же направлении, а также объезжать, поворачивать налево и разворачиваться с учетом статьи 56 настоящих Правил. Однако это не должно мешать трамваю. Запрещено движение на трамвае в противоположном направлении."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_16",
+            "global_id2": "t_55_q_16",
             "ticket_num": 55,
-            "order": 16
+            "order": 16,
+            "remapped_from": "t_18_q_11"
         },
         "media_url": "",
         "content": {
@@ -1147,13 +1254,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 4-bobining 21-bandiga asasan, tezkor va maxsus xizmatlarning ko'k yoki qizil yoxud ko'k va qizil rangli yalt-yalt etuvchi mayoqchalar va maxsus tovushli ishorasi yoqilgan transport vositalari yaqinlashib kelayotgan bo'lsa, piyodalar qatnov qismidan o'tmasliklari, unda harakatlanayotganlari esa, ushbu transport vositalariga yo'l berishlari va zudlik bilan qatnov qismini bo'shatishlari kerak.",
+            "uz_cyr": "YHQ 4-бобининг 21-бандига асасан, тезкор ва махсус хизматларнинг кўк ёки қизил ёхуд кўк ва қизил рангли ялт-ялт этувчи маёқчалар ва махсус товушли ишораси ёқилган транспорт воситалари яқинлашиб келаётган бўлса, пиёдалар қатнов қисмидан ўтмасликлари, унда ҳаракатланаётганлари эса, ушбу транспорт воситаларига йўл беришлари ва зудлик билан қатнов қисмини бўшатишлари керак.",
+            "ru": "Согласно пункту 21 главы 4 ПДД при приближении транспортных средств с синими или красными или сине-красными проблесковыми маячками и специальным звуковым сигналом пешеходы не должны переходить проезжую часть, а движущиеся по ней должны уступить дорогу этим транспортным средствам и немедленно покинуть проезжую часть."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_17",
+            "global_id2": "t_55_q_17",
             "ticket_num": 55,
-            "order": 17
+            "order": 17,
+            "remapped_from": "t_63_q_20"
         },
         "media_url": "u640uz.webp",
         "content": {
@@ -1198,7 +1312,7 @@
                 ]
             },
             "ru": {
-                "text": "Транспортные средства проедут перекресток в следующем порядке:",
+                "text": "Транспортные средства проедут перекрёсток в следующем порядке:",
                 "options": [
                     {
                         "id": 1,
@@ -1217,13 +1331,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. Bunday chorrahalarda tramvay harakatlanish yo'nalishidan qat'i nazar, teng ahamiyatli yo'lda bir yo'nalishda yoki qarama-qarshi yo'nalishda harakatlanayotgan relssiz transport vositalariga nisbatan imtiyozga ega.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. Бундай чорраҳаларда трамвай ҳаракатланиш йўналишидан қати назар, тенг аҳамиятли йўлда бир йўналишда ёки қарама-қарши йўналишда ҳаракатланаётган релссиз транспорт воситаларига нисбатан имтиёзга эга.",
+            "ru": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. На таких перекрестках, независимо от направления движения, трамвай имеет приоритет перед нерельсовыми транспортными средствами, движущимися в том же или встречном направлении по дороге равного значения."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_18",
+            "global_id2": "t_55_q_18",
             "ticket_num": 55,
-            "order": 18
+            "order": 18,
+            "remapped_from": "t_5_q_6"
         },
         "media_url": "u641uz.webp",
         "content": {
@@ -1232,27 +1353,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "110 km/s",
+                        "text": "110 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "100 km/s",
+                        "text": "100 km/soat",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "90 km/s",
+                        "text": "90 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "60 km/s",
+                        "text": "60 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "70 km/s",
+                        "text": "70 km/soat",
                         "is_correct": false
                     }
                 ]
@@ -1262,27 +1383,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "110 км/с",
+                        "text": "110 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "100 км/с",
+                        "text": "100 км/соат",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "90 км/с",
+                        "text": "90 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "60 км/с",
+                        "text": "60 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "70 км/с",
+                        "text": "70 км/соат",
                         "is_correct": false
                     }
                 ]
@@ -1317,18 +1438,25 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 11-bobi 79-bandi 1-xatboshiga asosan, aholi punktlaridan tashqarida yengil avtomobillarga va ruxsat etilgan to'la vazni 3,5 tonnadan oshmaydigan yuk avtomobillariga tezlikni soatiga 100 kilometrdan oshirmasdan harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 11-боби 79-банди 1-хатбошига асосан, аҳоли пунктларидан ташқарида енгил автомобилларга ва рухсат этилган тўла вазни 3,5 тоннадан ошмайдиган юк автомобилларига тезликни соатига 100 километрдан оширмасдан ҳаракатланишга рухсат этилади.",
+            "ru": "В соответствии с главой 11 статьи 79 пункта 1 ПДД легковым и грузовым автомобилям разрешенной полной массой не более 3,5 тонн разрешается движение со скоростью не более 100 километров в час."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_19",
+            "global_id2": "t_55_q_19",
             "ticket_num": 55,
-            "order": 19
+            "order": 19,
+            "remapped_from": "t_3_q_14"
         },
         "media_url": "u642uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Belgilangan yo'nalish bo'ylab ketayotgan avtobus haydovchi  ushbu sharoitda yo'l berishi kerakmi?",
+                "text": "Belgilangan yo'nalish bo'ylab ketayotgan avtobus haydovchi ushbu sharoitda yo'l berishi kerakmi?",
                 "options": [
                     {
                         "id": 1,
@@ -1368,7 +1496,7 @@
                 ]
             },
             "ru": {
-                "text": "Должен ли водитель автобуса; движущегося по установленному маршруту; уступать дорогу в данной ситуации?",
+                "text": "Должен ли водитель автобуса, движущегося по установленному маршруту, уступать дорогу в данной ситуации?",
                 "options": [
                     {
                         "id": 1,
@@ -1387,13 +1515,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 105-bandi: Teng ahamiyatga ega bo‘lgan yo‘llar kesishgan chorrahada relssiz transport vositasining haydovchisi o‘ngdan yaqinlashayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak. Bunday chorrahalarda keyingi harakat yo‘nalishidan qat’iy nazar, tramvay relssiz transport vositalariga nisbatan oldin o‘tish huquqiga ega bo‘ladi.\n\nBu holatda tramvay avtobusga nisbatan ustunlikka ega. Shu sababli, avtobus haydovchisi unga yo‘l berishi kerak.",
+            "uz_cyr": "YHQ 16-боби 105-банди: Тенг аҳамиятга эга бўлган йўллар кесишган чорраҳада релссиз транспорт воситасининг ҳайдовчиси ўнгдан яқинлашаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак. Бундай чорраҳаларда кейинги ҳаракат йўналишидан қатий назар, трамвай релссиз транспорт воситаларига нисбатан олдин ўтиш ҳуқуқига эга бўлади.\n\nБу ҳолатда трамвай автобусга нисбатан устунликка эга. Шу сабабли, автобус ҳайдовчиси унга йўл бериши керак.",
+            "ru": "Статья 105 главы 16 ПДД: На перекрестке, где пересекаются дороги равной важности, водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. Водители трамваев также должны соблюдать это правило. На таких перекрестках, независимо от направления дальнейшего движения, трамвай будет иметь преимущество перед нерельсовым транспортом. \n\nВ этом случае трамвай имеет приоритет перед автобусом. Поэтому водитель автобуса должен уступить ему дорогу."
         }
     },
     {
         "task_info": {
             "global_id": "t_55_q_20",
+            "global_id2": "t_55_q_20",
             "ticket_num": 55,
-            "order": 20
+            "order": 20,
+            "remapped_from": "t_38_q_5"
         },
         "media_url": "",
         "content": {
@@ -1412,7 +1547,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Manyovrni tugallagach, darhol",
+                        "text": "Manevrni tugallagach, darhol",
                         "is_correct": true
                     }
                 ]
@@ -1447,16 +1582,21 @@
                     },
                     {
                         "id": 2,
-                        "text": "По своему усмотрению",
-                        "is_correct": false
+                        "text": "Сразу после завершения маневра",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Сразу после завершения маневра",
-                        "is_correct": true
+                        "text": "По своему усмотрению",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 46-bandiga muvofiq, burilish (chapga burilish) ko'rsatgichlari bilan berilayotgan ishora manyovrni tugallagach, darhol to'xtatilishi kerak. Ishoralar boshqa yo'l harakati qatnashchilarini chalg'itmasligi kerak.",
+            "uz_cyr": "YHQ 8-боби 46-бандига мувофиқ, бурилиш (чапга бурилиш) кўрсатгичлари билан берилаётган ишора манёврни тугаллагач, дарҳол тўхтатилиши керак. Ишоралар бошқа йўл ҳаракати қатнашчиларини чалғитмаслиги керак.",
+            "ru": "В соответствии с главой 8, пунктом 46 Кодекса подача сигнала указателями поворота (левого поворота) должна прекращаться сразу после совершения маневра. Знаки не должны сбивать с толку других участников дорожного движения."
         }
     }
 ]

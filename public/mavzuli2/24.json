@@ -1,33 +1,35 @@
 [
     {
         "task_info": {
-            "global_id": "t_4_q_9",
-            "ticket_num": 4,
-            "order": 1
+            "global_id": "t_11_q_9",
+            "global_id2": "t_11_q_9",
+            "ticket_num": 11,
+            "order": 1,
+            "remapped_from": "t_4_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Qattiq ulagich transport vositalari orasida qanchadan ortiq bo'lmagan masofani taminlashi kerak?",
+                "text": "Qattiq ulagich transport vositalari orasida qanchadan ortiq bo'lmagan masofai ta'minlashi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "2 m",
+                        "text": "5 m",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "3 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "4 m",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "2 m",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "5 m",
+                        "text": "3 m",
                         "is_correct": false
                     },
                     {
@@ -42,22 +44,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "2 м",
+                        "text": "5 м",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "3 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "4 м",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "2 м",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "5 м",
+                        "text": "3 м",
                         "is_correct": false
                     },
                     {
@@ -72,22 +74,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "2 м",
+                        "text": "5 м",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "3 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "4 м",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "2 м",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "5 м",
+                        "text": "3 м",
                         "is_correct": false
                     },
                     {
@@ -97,32 +99,39 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 144 bandiga asosan, egiluvchan ulagich bilan shatakka olishda shatakka olgan va shatakka olingan transport vositalari o‘rtasidagi masofa 4 — 6 metr oralig‘ida bo‘lishi, qattiq ulagich bilan shatakka olishda esa 4 metrdan ko‘p bo‘lmasligi kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 144 бандига асосан, эгилувчан улагич билан шатакка олишда шатакка олган ва шатакка олинган транспорт воситалари ўртасидаги масофа 4 — 6 метр оралиғида бўлиши, қаттиқ улагич билан шатакка олишда эса 4 метрдан кўп бўлмаслиги керак.",
+            "ru": "Согласно статье 144 Правил дорожного движения расстояние между транспортными средствами, огороженными ограждением, и транспортными средствами, огражденными ограждением, должно составлять от 4 до 6 метров при ограждении с гибкой соединительной деталью и не более 4 метров при ограждении с жесткой соединительной деталью."
         }
     },
     {
         "task_info": {
-            "global_id": "t_4_q_11",
-            "ticket_num": 4,
-            "order": 2
+            "global_id": "t_16_q_12",
+            "global_id2": "t_16_q_12",
+            "ticket_num": 16,
+            "order": 2,
+            "remapped_from": "t_4_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Shatakka olingan avtomobilda odamlarni tashishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Avtobusda ruxsat etiladi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Engil avtomobilda ruxsat etiladi",
+                        "text": "Yengil avtomobilda ruxsat etiladi",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Qattiq ulagichda shatakka olingan yuk avtomobili yukxonasida ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtobusda ruxsat etiladi",
                         "is_correct": false
                     }
                 ]
@@ -132,17 +141,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автобусда рухсат этилади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Енгил автомобилда рухсат этилади",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Қаттиқ улагичда шатакка олинган юк автомобили юкхонасида рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автобусда рухсат этилади",
                         "is_correct": false
                     }
                 ]
@@ -152,53 +161,60 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается в автобусе",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Разрешается в легковом автомобиле",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Разрешается в буксируемом грузовом автомобиле при буксировке на жесткой сцепке",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается в автобусе",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24-bobi 143-bandiga asosan: Qattiq yoki egiluvchan ulagich yordamida shatakka olingan avtobusda, trolleybusda va yuk avtomobili yukxonasida odam tashish, qisman ortish yo‘li bilan shatakka olishda esa shatakka olingan transport vositasining kabinasida va yukxonasida, shuningdek shatakka olgan transport vositasining yukxonasida odamlar bo‘lishi taqiqlanadi. \r\nQoidalarda shatakka olingan engil avtomobilda odamlarni tashish taqiqlanmagan.",
+            "uz_cyr": "YHQ 24-боби 143-бандига асосан: Қаттиқ ёки эгилувчан улагич ёрдамида шатакка олинган автобусда, троллейбусда ва юк автомобили юкхонасида одам ташиш, қисман ортиш йўли билан шатакка олишда эса шатакка олинган транспорт воситасининг кабинасида ва юкхонасида, шунингдек шатакка олган транспорт воситасининг юкхонасида одамлар бўлиши тақиқланади. \r\nҚоидаларда шатакка олинган энгил автомобилда одамларни ташиш тақиқланмаган.",
+            "ru": "Согласно статье 143 главы 24 ПДД: Запрещается перевозить людей в багажнике автобуса, троллейбуса, грузового автомобиля, закрепленном посредством жесткой или гибкой соединительной муфты, а при частичной загрузке запрещается размещение людей в салоне и багажнике охраняемого транспортного средства, а также в багажнике охраняемого транспортного средства. \r\nПравила не запрещают перевозку людей в захваченном автомобиле."
         }
     },
     {
         "task_info": {
-            "global_id": "t_5_q_16",
-            "ticket_num": 5,
-            "order": 3
+            "global_id": "t_27_q_1",
+            "global_id2": "t_27_q_1",
+            "ticket_num": 27,
+            "order": 3,
+            "remapped_from": "t_5_q_13"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qanday hollarda haydovchisi bo'lmagan transport vositalarini shatakka olish mumkin?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Barcha hollarda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Egiluvchan yoki qattiq ulangichda shatakka olishda",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Barcha hollarda",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Qattiq ulagichning tuzilishi shatakka olingan transport vositalarini shatakka olgan transport vositalarining izidan harakatlanishini taminlaganda",
-                        "is_correct": true
+                        "text": "Qattiq ulangichda shatakka olishda",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Qattiq ulangichda shatakka olishda",
-                        "is_correct": false
+                        "text": "Qattiq ulagichning tuzilishi shatakka olingan transport vositalarining shatakka olgan transport vositalari izidan harakatlanishini ta'minlaganda",
+                        "is_correct": true
                     }
                 ]
             },
@@ -207,23 +223,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Барча ҳолларда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Эгилувчан ёки қаттиқ улангичда шатакка олишда",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Барча ҳолларда",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Қаттиқ улагичнинг тузилиши шатакка олинган транспорт воситаларини шатакка олган транспорт воситаларининг изидан ҳаракатланишини таъминлаганда",
-                        "is_correct": true
+                        "text": "Қаттиқ улангичда шатакка олишда",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Қаттиқ улангичда шатакка олишда",
-                        "is_correct": false
+                        "text": "Қаттиқ улагичнинг тузилиши шатакка олинган транспорт воситаларини шатакка олган транспорт воситаларининг изидан ҳаракатланишини таъминлаганда",
+                        "is_correct": true
                     }
                 ]
             },
@@ -232,43 +248,50 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Во всех случаях",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "При буксировке с помощью гибкого или жесткого буксирного устройства",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Во всех случаях",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "В случае; когда конструкция жесткой сцепки обеспечивает следование буксируемого транспортного средства; по траектории буксирующего",
-                        "is_correct": true
+                        "text": "При буксировке на жесткой сцепке",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "При буксировке на жесткой сцепке",
-                        "is_correct": false
+                        "text": ". Масса снаряженного транспортного средства с грузом, водителем и пассажирами, установленная предприятием-изготовителем в качестве максимально допустимой",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24-bobi 142-bandiga muvofiq, qattiq yoki egiluvchan ulagich bilan shatakka olish shatakka olingan transport vositasining rul boshqaruvida haydovchi bo'lgandagina amalga oshirilishi kerak. To'g'ri chiziq bo'ylab harakatlanganda qattiq ulagichning konstruktsiyasi shatakka olingan transport vositasini shatakka olgan transport vositasining izidan harakatlanishini ta'minlaydigan hollar bundan mustasno.",
+            "uz_cyr": "YHQ 24-боби 142-бандига мувофиқ, қаттиқ ёки эгилувчан улагич билан шатакка олиш шатакка олинган транспорт воситасининг рул бошқарувида ҳайдовчи бўлгандагина амалга оширилиши керак. Тўғри чизиқ бўйлаб ҳаракатланганда қаттиқ улагичнинг конструкцияси шатакка олинган транспорт воситасини шатакка олган транспорт воситасининг изидан ҳаракатланишини таъминлайдиган ҳоллар бундан мустасно.",
+            "ru": "В соответствии с главой 24 статьи 142 ПДД буксировка жесткой или упругой сцепкой должна осуществляться только при нахождении водителя за рулем буксируемого транспортного средства. За исключением случаев, когда конструкция жесткого соединителя позволяет ТС двигаться по колее отслеживаемого ТС при движении по прямой."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_9",
-            "ticket_num": 6,
-            "order": 4
+            "global_id": "t_17_q_18",
+            "global_id2": "t_17_q_18",
+            "ticket_num": 17,
+            "order": 4,
+            "remapped_from": "t_6_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qoidalarga ko'ra shatakka olish vaqtida bir-biriga ulangan mexanik transport vositalari tarkibining qanday umumiy uzunligiga yo'l qo'yiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "20 m",
-                        "is_correct": true
+                        "text": "22 m",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -277,8 +300,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "22 m",
-                        "is_correct": false
+                        "text": "20 m",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -297,8 +320,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "20 м",
-                        "is_correct": true
+                        "text": "22 м",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -307,8 +330,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "22 м",
-                        "is_correct": false
+                        "text": "20 м",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -327,8 +350,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "20 м",
-                        "is_correct": true
+                        "text": "22 м",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -337,8 +360,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "22 м",
-                        "is_correct": false
+                        "text": "20 м",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -352,15 +375,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24 bobi 145-bandning 3-xatboshiga asosan, Shatakka olish quyidagi holatlarda taqiqlanadi: rul boshqaruvi ishlamayotgan transport vositalarini (qisman ortish usuli bilan shatakka olish bundan mustasno);\r\nikki va undan ko‘p transport vositalarini; shatakka olingan va shatakka olgan transport vositalarining ulagich bilan birga umumiy uzunligi 20 metrdan a ortiq bo‘lsa.",
+            "uz_cyr": "YHQ 24 боби 145-банднинг 3-хатбошига асосан, Шатакка олиш қуйидаги ҳолатларда тақиқланади: рул бошқаруви ишламаётган транспорт воситаларини (қисман ортиш усули билан шатакка олиш бундан мустасно);\r\nикки ва ундан кўп транспорт воситаларини; шатакка олинган ва шатакка олган транспорт воситаларининг улагич билан бирга умумий узунлиги 20 метрдан а ортиқ бўлса.",
+            "ru": "Согласно пункту 145 пункта 3 главы 24 ПДД буксировка запрещается в следующих случаях: транспортных средств с неисправным рулевым управлением (за исключением буксировки методом частичной погрузки); \r\nдва и более транспортных средства; если общая длина буксируемого и буксируемого транспортного средства, включая соединитель, превышает 20 метров."
         }
     },
     {
         "task_info": {
-            "global_id": "t_7_q_19",
-            "ticket_num": 7,
-            "order": 5
+            "global_id": "t_22_q_11",
+            "global_id2": "t_22_q_11",
+            "ticket_num": 22,
+            "order": 5,
+            "remapped_from": "t_7_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Shatakka olish taqiqlanadi?",
@@ -372,13 +402,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Yon kajavasi yo'q motosikllarni",
-                        "is_correct": true
+                        "text": "Yon kajavasi bor motosikllarni",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Yon kajavasi bor motosikllarni",
-                        "is_correct": false
+                        "text": "Yon kajavasi yo'q motosikllarni",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -397,13 +427,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ён кажаваси йўқ мотоциклларни",
-                        "is_correct": true
+                        "text": "Ён кажаваси бор мотоциклларни",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ён кажаваси бор мотоциклларни",
-                        "is_correct": false
+                        "text": "Ён кажаваси йўқ мотоциклларни",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -417,17 +447,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "В гололедицу на жесткой сцепке",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Мотоциклами без бокового прицепа",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Мотоциклов с боковым прицепом",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "В гололедицу на жесткой сцепке",
                         "is_correct": false
                     },
                     {
@@ -437,37 +467,44 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24-bobi 145-bandining beshinchi xatboshisiga asosan, shatakka olish quyidagi holatlarda taqiqlanadi: kajavasiz mototsikllar bilan, shuningdek bunday mototsikllarni.",
+            "uz_cyr": "YHQ 24-боби 145-бандининг бешинчи хатбошисига асосан, шатакка олиш қуйидаги ҳолатларда тақиқланади: кажавасиз мототсикллар билан, шунингдек бундай мототсиклларни.",
+            "ru": "Согласно пятому пункту статьи 145 главы 24 ПДД, запрещается ездить в следующих случаях: на мотоциклах без бензопилы, а также на таких мотоциклах."
         }
     },
     {
         "task_info": {
-            "global_id": "t_8_q_11",
-            "ticket_num": 8,
-            "order": 6
+            "global_id": "t_12_q_1",
+            "global_id2": "t_12_q_1",
+            "ticket_num": 12,
+            "order": 6,
+            "remapped_from": "t_8_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Qisman ortish usuli bilan avtomobilni shatakka olishda yo'lovchilar qaerda bo'lishlari mumkin?",
+                "text": "Qisman ortish usuli bilan avtomobilni shatakka olishda yo'lovchilar qayerda bo'lishlari mumkin?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Har ikki avtomobilning kabinasida",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Shatakka oluvchi avtomobilning kabinasida",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Shatakka oluvchi avtomobilning kuzovida",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Shatakka olingan avtomobilning kabinasida",
+                        "text": "Har ikki avtomobilning kabinasida",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Shatakka oluvchi avtomobilning kuzovida",
+                        "text": "Shatakka olingan avtomobilning kabinasida",
                         "is_correct": false
                     }
                 ]
@@ -477,22 +514,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳар икки автомобилнинг кабинасида",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Шатакка олувчи автомобилнинг кабинасида",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Шатакка олувчи автомобилнинг кузовида",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Шатакка олинган автомобилнинг кабинасида",
+                        "text": "Ҳар икки автомобилнинг кабинасида",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Шатакка олувчи автомобилнинг кузовида",
+                        "text": "Шатакка олинган автомобилнинг кабинасида",
                         "is_correct": false
                     }
                 ]
@@ -502,58 +539,65 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "В кабине обоих автомобилей\n",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "В кабине буксирующего автомобиля\n",
+                        "text": "В кабине буксирующего автомобиля",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "В кузове буксирующего автомобиля",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "В кабине буксируемого автомобиля",
+                        "text": "В кабине обоих автомобилей",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "В кузове буксирующего автомобиля",
+                        "text": "В кабине буксируемого автомобиля",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24 – bobi 143 – bandiga asosan: Qattiq yoki egiluvchan ulagich yordamida shatakka olingan avtobusda, trolleybusda va yuk avtomobili yukxonasida odam tashish, qisman ortish yo‘li bilan shatakka olishda esa shatakka olingan transport vositasining kabinasida va yukxonasida, shuningdek shatakka olgan transport vositasining yukxonasida odamlar bo‘lishi taqiqlanadi.\r\nShunga ko‘ra, yo‘lovchilar qisman ortish yo‘li bilan shatakka olish yordamida shatakka olgan avtomobilning kabinasida bo‘lishlari mumkin.",
+            "uz_cyr": "YHQ 24 – боби 143 – бандига асосан: Қаттиқ ёки эгилувчан улагич ёрдамида шатакка олинган автобусда, троллейбусда ва юк автомобили юкхонасида одам ташиш, қисман ортиш йўли билан шатакка олишда эса шатакка олинган транспорт воситасининг кабинасида ва юкхонасида, шунингдек шатакка олган транспорт воситасининг юкхонасида одамлар бўлиши тақиқланади.\r\nШунга кўра, йўловчилар қисман ортиш йўли билан шатакка олиш ёрдамида шатакка олган автомобилнинг кабинасида бўлишлари мумкин.",
+            "ru": "Согласно пункту 143 главы 24 ПДД: при буксировке на жёсткой или гибкой сцепке запрещается перевозить людей в автобусе, троллейбусе и в кузове грузового автомобиля; при буксировке методом частичной погрузки — в кабине и кузове буксируемого ТС, а также в кузове буксирующего. Соответственно, при частичной погрузке пассажиры могут находиться в кабине буксирующего автомобиля."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_8",
-            "ticket_num": 9,
-            "order": 7
+            "global_id": "t_51_q_3",
+            "global_id2": "t_51_q_3",
+            "ticket_num": 51,
+            "order": 7,
+            "remapped_from": "t_9_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi javobda shatakka olingan transport vositasidagi yoritish asboblarini yoqishning to'g'ri holati ko'rsatilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Kunning qorong'i vaqtida yoki tuman bo'lgan sharoitda faralarning yaqinni yoritish chiroqlari",
+                        "text": "Aholi punktlaridan tashqaridagi yo'llarda istalgan yoritish chiroqlarini",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avariya yorug'lik ishoralari, u nosoz bo'lganda yoki bo'lmagan hollarda uning orqa tomoniga avariya sababli to'xtash belgisi o'rnatilishi kerak",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Aholi punktlarida gabarit chiroqlari",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "Aholi punktlaridan tashqaridagi yo'llarda istalgan yoritish chiroqlarini",
+                        "id": 3,
+                        "text": "Kunning qorong'i vaqtida yoki tuman bo'lgan sharoitda faralarning yaqinni yoritish chiroqlari",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Avariya yorug'lik ishoralari, u nosoz bo'lganda yoki bo'lmagan hollarda uning orqa tomoniga avariya sababli to'xtash belgisi o'rnatilishi kerak",
+                        "is_correct": true
                     }
                 ]
             },
@@ -562,23 +606,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Куннинг қоронғи вақтида ёки туман бўлган шароитда фараларнинг яқинни ёритиш чироқлари",
+                        "text": "Аҳоли пунктларидан ташқаридаги йўлларда исталган ёритиш чироқларини",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Авария ёруғлик ишоралари, у носоз бўлганда ёки бўлмаган ҳолларда унинг орқа томонига авария сабабли тўхташ белгиси ўрнатилиши керак",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Аҳоли пунктларида габарит чироқлари",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "Аҳоли пунктларидан ташқаридаги йўлларда исталган ёритиш чироқларини",
+                        "id": 3,
+                        "text": "Куннинг қоронғи вақтида ёки туман бўлган шароитда фараларнинг яқинни ёритиш чироқлари",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Авария ёруғлик ишоралари, у носоз бўлганда ёки бўлмаган ҳолларда унинг орқа томонига авария сабабли тўхташ белгиси ўрнатилиши керак",
+                        "is_correct": true
                     }
                 ]
             },
@@ -587,47 +631,54 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ближний свет фар в темное время суток или в условиях тумана",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Аварийная сигнализация, при её отсутствии или неисправности транспортное средство должно быть обозначено знаком аварийной остановки укрепленном на нем сзади",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Габаритные огни в населённых пунктах",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Габаритные огни в населенных пунктах",
+                        "text": "Ближний свет фар в темное время суток или в условиях тумана",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Любое освещение на дорогах вне населенных пунктах",
+                        "text": "Любое освещение на дорогах вне населённых пунктах",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8 – bobi 50 – bandining ikkinchi xatboshisiga asosan, avariya ishorasi quyidagi hollarda yoqilishi kerak: shattakka olishida (shatakka olingan transport vositasida). YHQ 8 – bobi 52 – bandiga asosan: Shatakka olingan transport vositasida avariya yorug‘lik ishoralari bo‘lmasa yoki ular ishlamasa uning orqa tomoniga avariya sababli to‘xtash belgisi o‘rnatilishi kerak.",
+            "uz_cyr": "YHQ 8 – боби 50 – бандининг иккинчи хатбошисига асосан, авария ишораси қуйидаги ҳолларда ёқилиши керак: шаттакка олишида (шатакка олинган транспорт воситасида). YHQ 8 – боби 52 – бандига асосан: Шатакка олинган транспорт воситасида авария ёруғлик ишоралари бўлмаса ёки улар ишламаса унинг орқа томонига авария сабабли тўхташ белгиси ўрнатилиши керак.",
+            "ru": "Согласно пункту второму статьи 8 - главе 50 ПДД, аварийная сигнализация должна быть включена в следующих случаях: при наложении ареста (на арестованном транспортном средстве). В соответствии с ПДД 8 - Глава 52 - Пункт: Если у конфискованного транспортного средства нет аварийных световых сигналов или они не работают, на задней стороне транспортного средства должен быть установлен знак аварийной остановки."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_19",
-            "ticket_num": 9,
-            "order": 8
+            "global_id": "t_59_q_10",
+            "global_id2": "t_59_q_10",
+            "ticket_num": 59,
+            "order": 8,
+            "remapped_from": "t_9_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qattiq yoki egiluvchan ulagich yordamida shatakka olinganda, yuk avtomobilining yukxonasida odamlarni tashishga ruxsat beriladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Shatakka olgan va shatakka olingan avtomobillarning yukxonasida ruxsat beriladi",
+                        "text": "Faqat shatakka olingan avtomobil yukxonasida ruxsat beriladi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat shatakka olingan avtomobil yukxonasida ruxsat beriladi",
+                        "text": "Shatakka olgan va shatakka olingan avtomobillarning yukxonasida ruxsat beriladi",
                         "is_correct": false
                     },
                     {
@@ -642,12 +693,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Шатакка олган ва шатакка олинган автомобилларнинг юкхонасида рухсат берилади",
+                        "text": "Фақат шатакка олинган автомобиль юкхонасида рухсат берилади",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат шатакка олинган автомобиль юкхонасида рухсат берилади",
+                        "text": "Шатакка олган ва шатакка олинган автомобилларнинг юкхонасида рухсат берилади",
                         "is_correct": false
                     },
                     {
@@ -662,48 +713,55 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается в багажнике буксирующего и буксируемого автомобилей",
+                        "text": "Разрешается только в кузове буксируемого автомобиля",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Разрешено только в багажнике автомобиля; который был отбуксирован",
+                        "text": "Разрешается в кузове буксирующего и буксируемого автомобилей",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается только в багажнике буксирующего автомобиля",
+                        "text": "Разрешается только в кузове буксирующего автомобиля",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 143 bandiga asosan, qattiq yoki egiluvchan ulagich bilan shatakka olingan avtobusda, trolleybusda va yuk avtomobili yukxonasida odam tashish qisman ortish yo‘li bilan shatakka olishda esa shatakka olingan transport vositasining kabinasida va yukxonasida, shuningdek shatakka olgan transport vositasining yukxonasida odamlar bo‘lishi taqiqlanadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 143 бандига асосан, қаттиқ ёки эгилувчан улагич билан шатакка олинган автобусда, троллейбусда ва юк автомобили юкхонасида одам ташиш қисман ортиш йўли билан шатакка олишда эса шатакка олинган транспорт воситасининг кабинасида ва юкхонасида, шунингдек шатакка олган транспорт воситасининг юкхонасида одамлар бўлиши тақиқланади.",
+            "ru": "Согласно пункту 143 ПДД при буксировке на жёсткой или гибкой сцепке запрещается перевозить людей в буксируемых автобусе, троллейбусе и в кузове буксируемого грузового автомобиля. Следовательно, в кузове буксируемого автомобиля перевозить людей нельзя; по условиям данного вопроса разрешается только в кузове буксирующего."
         }
     },
     {
         "task_info": {
-            "global_id": "t_10_q_8",
-            "ticket_num": 10,
-            "order": 9
+            "global_id": "t_21_q_8",
+            "global_id2": "t_21_q_8",
+            "ticket_num": 21,
+            "order": 9,
+            "remapped_from": "t_10_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Shatakka olingan mexanik transport vositasida qanday tashqi yoritish chiroqlari yoqilgan bo'lishi kerak?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Falokat yorug'lik ishoralari",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Kunning qorong'i vaqtida, gabarit chiroqlari",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Yaqinni yorituvchi fara chiroqlari",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Falokat yorug'lik ishoralari",
-                        "is_correct": true
                     }
                 ]
             },
@@ -712,18 +770,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Фалокат ёруғлик ишоралари",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Куннинг қоронғи вақтида, габарит чироқлари",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Яқинни ёритувчи фара чироқлари",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Фалокат ёруғлик ишоралари",
-                        "is_correct": true
                     }
                 ]
             },
@@ -732,52 +790,59 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Аварийная сигнализация",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "В темное время суток, только габаритные огни",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Ближний свет фар",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Аварийная сигнализация",
-                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8 – bobi 50 – bandining birinchi xatboshisiga asosan: Burulishni ko‘rsatuvchi barcha yorug‘lik ishoralarining bir vaqtda miltillashi avariya (xavf – xatar) ishoralari hisoblanadi. YHQ 8 – bobi 50 – bandining to‘rtinchi xatboshisiga asosan, avariya ishorasi quyidagi hollarda yoqilishi kerak: shatakka olishda (shatakka olingan transport vositasida).",
+            "uz_cyr": "YHQ 8 – боби 50 – бандининг биринчи хатбошисига асосан: Бурулишни кўрсатувчи барча ёруғлик ишораларининг бир вақтда милтиллаши авария (хавф – хатар) ишоралари ҳисобланади. YHQ 8 – боби 50 – бандининг тўртинчи хатбошисига асосан, авария ишораси қуйидаги ҳолларда ёқилиши керак: шатакка олишда (шатакка олинган транспорт воситасида).",
+            "ru": "Согласно первому абзацу статьи 50 ПДД 8: Одновременное мигание всех поворотников является предупредительным сигналом. Согласно абзацу четвертому главы 50 8 ПДД, аварийная сигнализация должна включаться в следующих случаях: при возникновении пробки (в пробке)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_12_q_9",
-            "ticket_num": 12,
-            "order": 10
+            "global_id": "t_11_q_6",
+            "global_id2": "t_11_q_6",
+            "ticket_num": 11,
+            "order": 10,
+            "remapped_from": "t_12_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Boshqaruv qurilmasi nosoz mexanik transport vositasi shatakka olinishi kerak:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qisman ortish usuli bilan",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Qattiq ulagich bilan",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Uni qisman ortish yoki qattiq ulagichda ulash usuli bilan",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Agar shatakka oluvchining haqiqiy vazni shatakka olinayotganning haqiqiy vaznidan ikki marta ko'p bo'lsa qattiq ulagichda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qisman ortish usuli bilan",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Qattiq ulagich bilan",
                         "is_correct": false
                     }
                 ]
@@ -787,22 +852,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қисман ортиш усули билан",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Қаттиқ улагич билан",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Уни қисман ортиш ёки қаттиқ улагичда улаш усули билан",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Агар шатакка олувчининг ҳақиқий вазни шатакка олинаётганнинг ҳақиқий вазнидан икки марта кўп бўлса қаттиқ улагичда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қисман ортиш усули билан",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Қаттиқ улагич билан",
                         "is_correct": false
                     }
                 ]
@@ -812,35 +877,42 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Методом его частичной погрузки",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "На жесткой сцепке",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Методом его частичной погрузки или на жесткой сцепке",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "На жесткой сцепке, если фактическая масса буксирующего вдвое превышает фактическую массу буксируемого",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Методом его частичной погрузки",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "На жесткой сцепке; если фактическая масса буксирующего вдвое превышает фактическую массу буксируемого",
+                        "text": "На жесткой сцепке",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24 – bobi 145 – bandining birinchi xatboshisiga asosan, shatakka olish quyidagi holatlarda taqiqlanadi: rul boshqaruvi ishlamayotgan transport vositalarini (qisman ortish yo‘li bilan shatakka olish bundan mustasno).",
+            "uz_cyr": "YHQ 24 – боби 145 – бандининг биринчи хатбошисига асосан, шатакка олиш қуйидаги ҳолатларда тақиқланади: рул бошқаруви ишламаётган транспорт воситаларини (қисман ортиш йўли билан шатакка олиш бундан мустасно).",
+            "ru": "Согласно пункту первому статьи 145 главы 24 ПДД буксировка запрещается в следующих случаях: транспортных средств с неисправным рулевым управлением (за исключением буксировки путем частичной погрузки)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_13_q_11",
-            "ticket_num": 13,
-            "order": 11
+            "global_id": "t_22_q_2",
+            "global_id2": "t_22_q_2",
+            "ticket_num": 22,
+            "order": 11,
+            "remapped_from": "t_13_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yaxmalak bo'lganda shatakka olishga ruxsat etiladimi?",
@@ -852,13 +924,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Sirpanishga qarshi vositalarni qo'llab egiluvchan ulagichda faqat bitta transportga ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Faqat qattiq ulagichda ruxsat etiladi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Faqat qattiq ulagichda ruxsat etiladi",
-                        "is_correct": true
+                        "text": "Sirpanishga qarshi vositalarni qo'llab egiluvchan ulagichda faqat bitta transportga ruxsat etiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -872,13 +944,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Сирпанишга қарши воситаларни қўллаб эгилувчан улагичда фақат битта транспортга рухсат этилади",
-                        "is_correct": false
+                        "text": "Фақат қаттиқ улагичда рухсат этилади",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Фақат қаттиқ улагичда рухсат этилади",
-                        "is_correct": true
+                        "text": "Сирпанишга қарши воситаларни қўллаб эгилувчан улагичда фақат битта транспортга рухсат этилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -892,48 +964,55 @@
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается при использовании средств против скольжения (эластичный трос) только одно транспортное средство",
-                        "is_correct": false
+                        "text": "Разрешается при использовании жесткой сцепки для буксировки",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается при использовании жесткой сцепки для буксировки",
-                        "is_correct": true
+                        "text": "Разрешается при использовании средств против скольжения (эластичный трос) только одно транспортное средство",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24 – bobi 145 – bandining oltinchi xatboshisiga asosan, shatakka olish quydagi holatlarda taqiqlanadi: yo‘l yaxmalak, sirpanchiq bo‘lgan hollarda egiluvchan ulagichda.",
+            "uz_cyr": "YHQ 24 – боби 145 – бандининг олтинчи хатбошисига асосан, шатакка олиш қуйдаги ҳолатларда тақиқланади: йўл яхмалак, сирпанчиқ бўлган ҳолларда эгилувчан улагичда.",
+            "ru": "Согласно шестому пункту статьи 24 – главе 145 УК, запрещается брать ограждение в следующих случаях: на гибкой соединительной линии при скользкой дороге."
         }
     },
     {
         "task_info": {
-            "global_id": "t_14_q_19",
-            "ticket_num": 14,
-            "order": 12
+            "global_id": "t_48_q_19",
+            "global_id2": "t_48_q_19",
+            "ticket_num": 48,
+            "order": 12,
+            "remapped_from": "t_14_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Egiluvchan yoki qattiq ulagichda shatakka olingan mexanik transport vositasida odamlar tashishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Avtobus va trolleybusda ruxsat etiladi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Yuk avtomobili kabinasida va yengil avtomobilda ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Yuk va engil avtomobillarda ruxsat etiladi",
+                        "text": "Avtobus va trolleybusda ruxsat etiladi",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Yuk avtomobili kabinasida va engil avtomobilda ruxsat etiladi",
-                        "is_correct": true
+                        "text": "Yuk va yengil avtomobillarda ruxsat etiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -942,23 +1021,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автобус ва троллейбусда рухсат этилади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Юк автомобили кабинасида ва енгил автомобилда рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Юк ва енгил автомобилларда рухсат этилади",
+                        "text": "Автобус ва троллейбусда рухсат этилади",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Юк автомобили кабинасида ва енгил автомобилда рухсат этилади",
-                        "is_correct": true
+                        "text": "Юк ва енгил автомобилларда рухсат этилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -967,57 +1046,64 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается в автобусе и троллейбусе",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Разрешается в кабине грузового автомобиля и в легковом автомобиле",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Разрешается в грузовом и легковом автомобилях",
+                        "text": "Разрешается в автобусе и троллейбусе",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Разрешается в кабине грузового автомобиля и в легковом автомобиле",
-                        "is_correct": true
+                        "text": "Разрешается в грузовых и легковых автомобилях",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24 – bobi 143 – bandiga asosan: Qattiq yoki egiluvchan ulagich yordamida shatakka olingan avtobusda, trolleybusda  va yuk avtomobili yukxonasida odam tashish, qisman ortish yo‘li bilan shatakka olishda  esa shatakka olingan transport vositasining kabinasida va yukxonasida, shuningdek shatakka olgan transport vositasining yukxonasida odamlar bo‘lishi taqiqlanadi.",
+            "uz_cyr": "YHQ 24 – боби 143 – бандига асосан: Қаттиқ ёки эгилувчан улагич ёрдамида шатакка олинган автобусда, троллейбусда  ва юк автомобили юкхонасида одам ташиш, қисман ортиш йўли билан шатакка олишда  эса шатакка олинган транспорт воситасининг кабинасида ва юкхонасида, шунингдек шатакка олган транспорт воситасининг юкхонасида одамлар бўлиши тақиқланади.",
+            "ru": "В соответствии со статьей 143 главы 24 ПДД запрещается перевозить людей в багажнике автобуса, троллейбуса, грузового автомобиля, буксируемого с жесткой или гибкой сцепкой, а также размещать людей в салоне и багажнике буксируемого транспортного средства, а также в багажнике буксируемого транспортного средства в случае буксировки с частичной погрузкой."
         }
     },
     {
         "task_info": {
-            "global_id": "t_16_q_6",
-            "ticket_num": 16,
-            "order": 13
+            "global_id": "t_41_q_17",
+            "global_id2": "t_41_q_17",
+            "ticket_num": 41,
+            "order": 13,
+            "remapped_from": "t_16_q_6"
         },
-        "media_url": "v92uz.webp",
+        "media_url": "u473uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Mazkur sharoitda shatakka olishni amalga oshirilishning yo'l qo'yilgan eng yuqori tezligi qanday?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "30 km/s",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "50 km/s",
+                        "text": "50 km/soat",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "80 km/soat",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "70 km/s",
+                        "text": "30 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "80 km/s",
+                        "text": "70 km/soat",
                         "is_correct": false
                     }
                 ]
@@ -1027,22 +1113,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "30 км/с",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "50 км/с",
+                        "text": "50 км/соат",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "80 км/соат",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "70 км/с",
+                        "text": "30 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "80 км/с",
+                        "text": "70 км/соат",
                         "is_correct": false
                     }
                 ]
@@ -1052,42 +1138,49 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "30 км/ч",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "50 км/ч",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "80 км/ч",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "70 км/ч",
+                        "text": "30 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "80 км/ч",
+                        "text": "70 км/ч",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 11-bobi 80-bandi 3-xatboshiga asosan, har qanday yo'llarda mexanik transport vositalarini shatakka olgan transport vositalariga tezlikni soatiga 50 kilometrdan oshirmasdan harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 11-боби 80-банди 3-хатбошига асосан, ҳар қандай йўлларда механик транспорт воситаларини шатакка олган транспорт воситаларига тезликни соатига 50 километрдан оширмасдан ҳаракатланишга рухсат этилади.",
+            "ru": "В соответствии с главой 11 статьи 80 пункта 3 ПДД допускается движение транспортных средств с механическими средствами передвижения по любым дорогам со скоростью не более 50 километров в час."
         }
     },
     {
         "task_info": {
-            "global_id": "t_28_q_9",
-            "ticket_num": 28,
-            "order": 14
+            "global_id": "t_19_q_12",
+            "global_id2": "t_19_q_12",
+            "ticket_num": 19,
+            "order": 14,
+            "remapped_from": "t_28_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Egiluvchan ulagichda shatakka olganda transport vositalari orasidagi masofa qanday bo'lishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1-3 m",
+                        "text": "3-6 m",
                         "is_correct": false
                     },
                     {
@@ -1097,7 +1190,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "3-6 m",
+                        "text": "1-3 m",
                         "is_correct": false
                     },
                     {
@@ -1117,7 +1210,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1-3 м",
+                        "text": "3-6 м",
                         "is_correct": false
                     },
                     {
@@ -1127,7 +1220,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "3-6 м",
+                        "text": "1-3 м",
                         "is_correct": false
                     },
                     {
@@ -1147,7 +1240,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1-3 м",
+                        "text": "3-6 м",
                         "is_correct": false
                     },
                     {
@@ -1157,7 +1250,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "3-6 м",
+                        "text": "1-3 м",
                         "is_correct": false
                     },
                     {
@@ -1172,32 +1265,39 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24-bobi 144 - bandiga muvofiq, egiluvchan ulagich bilan shatakka olishda shatakka olgan va shatakka olingan transport vositalari o'rtasidagi masofa 4 — 6 metr oralig'ida bo'lishi kerak, qattiq ulagich bilan shatakka olishda shatakka olgan va shatakka olingan transport vositalari o'rtasidagi masofa 4 metrdan ko'p bo'lmasligi kerak.",
+            "uz_cyr": "YHQ 24-боби 144 - бандига мувофиқ, эгилувчан улагич билан шатакка олишда шатакка олган ва шатакка олинган транспорт воситалари ўртасидаги масофа 4 — 6 метр оралиғида бўлиши керак, қаттиқ улагич билан шатакка олишда шатакка олган ва шатакка олинган транспорт воситалари ўртасидаги масофа 4 метрдан кўп бўлмаслиги керак.",
+            "ru": "В соответствии со статьей 144 главы 24 ПДД расстояние между буксируемыми и буксируемыми транспортными средствами при буксировке с помощью гибкой сцепки должно составлять от 4 до 6 метров, а расстояние между буксируемыми и буксируемыми транспортными средствами с жесткой сцепкой не должно превышать 4 метров."
         }
     },
     {
         "task_info": {
-            "global_id": "t_28_q_19",
-            "ticket_num": 28,
-            "order": 15
+            "global_id": "t_47_q_12",
+            "global_id2": "t_47_q_12",
+            "ticket_num": 47,
+            "order": 15,
+            "remapped_from": "t_28_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Shatakka olish qanday hollarda taqiqlangan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yaxmalakda qattiq ulagichda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Yaxmalakda egiluvchan ulagichda",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Yon kajavali motosikllar bilan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yaxmalakda qattiq ulagichda",
                         "is_correct": false
                     }
                 ]
@@ -1207,17 +1307,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яхмалакда қаттиқ улагичда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Яхмалакда эгилувчан улагичда",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Ён кажавали мотоцикллар билан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Яхмалакда қаттиқ улагичда",
                         "is_correct": false
                     }
                 ]
@@ -1227,53 +1327,60 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "В гололедицу на жесткой сцепке",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "В гололедицу на гибкой сцепке",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Мотоциклами с боковым прицепом",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "В гололедицу на жесткой сцепке",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24-bobi 145-bandining oltinchi xatboshisiga asosan, shatakka olish quyidagi holatlarda taqiqlanadi: yo‘l yaxmalak, sirpanchiq bo‘lgan hollarda egiluvchan ulagichda.",
+            "uz_cyr": "YHQ 24-боби 145-бандининг олтинчи хатбошисига асосан, шатакка олиш қуйидаги ҳолатларда тақиқланади: йўл яхмалак, сирпанчиқ бўлган ҳолларда эгилувчан улагичда.",
+            "ru": "Согласно шестому абзацу главы 24 статьи 145 УК запрещается брать ограждение в следующих случаях: на гибкой соединителе при скользкой дороге."
         }
     },
     {
         "task_info": {
-            "global_id": "t_29_q_9",
-            "ticket_num": 29,
-            "order": 16
+            "global_id": "t_61_q_9",
+            "global_id2": "t_61_q_9",
+            "ticket_num": 61,
+            "order": 16,
+            "remapped_from": "t_29_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Motosikllarni shatakka olishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yon kajavali motosikllarga ruxsat etiladi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Tekis joylarda ruxsat etiladi",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Yon kajavasi bo'lmagan motosikllarga ruxsat etiladi",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Yon kajavali motosikllarga ruxsat etiladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1282,23 +1389,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ён кажавали мотоциклларга рухсат этилади",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Текис жойларда рухсат этилади",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Ён кажаваси бўлмаган мотоциклларга рухсат этилади",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тақиқланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ён кажавали мотоциклларга рухсат этилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1307,48 +1414,55 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается мотоциклам с боковым прицепом",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Разрешается в равнинной местности",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Разрешается мотоциклам без бокового прицепа",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Запрещается",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Разрешается мотоциклам с боковым прицепом",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24-bobi 145-bandining beshinchi xatboshisiga asosan, shatakka olish quyidagi holatlarda taqiqlanadi: kajavasiz mototsikllar bilan, shuningdek bunday mototsikllarni.",
+            "uz_cyr": "YHQ 24-боби 145-бандининг бешинчи хатбошисига асосан, шатакка олиш қуйидаги ҳолатларда тақиқланади: кажавасиз мототсикллар билан, шунингдек бундай мототсиклларни.",
+            "ru": "Согласно пятому пункту статьи 145 главы 24 ПДД, запрещается ездить в следующих случаях: на мотоциклах без бензопилы, а также на таких мотоциклах."
         }
     },
     {
         "task_info": {
-            "global_id": "t_30_q_7",
-            "ticket_num": 30,
-            "order": 17
+            "global_id": "t_40_q_17",
+            "global_id2": "t_40_q_17",
+            "ticket_num": 40,
+            "order": 17,
+            "remapped_from": "t_30_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Mexanik transport vositasi shatakka olinganda egiluvchan ulagich qanday belgilanishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil va oq rangli chiziqlar tushirilgan, yorug'lik qaytaradigan yuzali, bayroqchalar yoki taxtachalar bilan",
-                        "is_correct": true
+                        "text": "Transport vositasi orqasiga mustahkamlangan falokat to'xtash belgisi bilan belgilanishi kerak",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Transport vositasi orqasiga mustahkamlangan falokat to'xtash belgisi bilan belgilanishi kerak",
-                        "is_correct": false
+                        "text": "Qizil va oq rangli chiziqlar tushirilgan, yorug'lik qaytaradigan yuzali, bayroqchalar yoki taxtachalar bilan",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1362,13 +1476,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил ва оқ рангли чизиқлар туширилган, ёруғлик қайтарадиган юзали, байроқчалар ёки тахтачалар билан",
-                        "is_correct": true
+                        "text": "Транспорт воситаси орқасига мустаҳкамланган фалокат тўхташ белгиси билан белгиланиши керак",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Транспорт воситаси орқасига мустаҳкамланган фалокат тўхташ белгиси билан белгиланиши керак",
-                        "is_correct": false
+                        "text": "Қизил ва оқ рангли чизиқлар туширилган, ёруғлик қайтарадиган юзали, байроқчалар ёки тахтачалар билан",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1387,42 +1501,49 @@
                     },
                     {
                         "id": 2,
-                        "text": "Знаком аварийной остановки на транспортном средстве укрепленным на нем сзади",
+                        "text": "Транспортное средство, обозначенное спереди фонарями белого, а сзади красного цвета",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Транспортное средство, обозначенное спереди фонарями белого, а сзади красного цвета",
+                        "text": "Знаком аварийной остановки на транспортном средстве укрепленным на нем сзади",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24-bobi 144-bandiga asosan: Egiluvchan ulagich bilan shatakka olishda shatakka olgan va shatakka olingan transport vositalari o‘rtasidagi masofa 4-6 metr oralig‘ida bo‘lishi, qattiq ulagich bilan shatakka olishda esa 4 metrdan ko‘p bo‘lmasligi kerak. YHQning 177-bandida ko‘rsatilganidek, oq va qizil rangdagi chiziqli bayroqcha yoki taxtakach bilan belgilanadi.",
+            "uz_cyr": "YHQ 24-боби 144-бандига асосан: Эгилувчан улагич билан шатакка олишда шатакка олган ва шатакка олинган транспорт воситалари ўртасидаги масофа 4-6 метр оралиғида бўлиши, қаттиқ улагич билан шатакка олишда эса 4 метрдан кўп бўлмаслиги керак. YHQнинг 177-бандида кўрсатилганидек, оқ ва қизил рангдаги чизиқли байроқча ёки тахтакач билан белгиланади.",
+            "ru": "Согласно статье 144 главы 24 ПДД: Расстояние между буксируемыми и буксируемыми транспортными средствами при буксировке гибкой сцепкой должно быть в пределах 4-6 метров, а при буксировке с жесткой сцепкой - не более 4 метров. Он отмечен бело-красным полосатым флагом или щитом, как указано в статье 177 ПДД."
         }
     },
     {
         "task_info": {
-            "global_id": "t_30_q_9",
-            "ticket_num": 30,
-            "order": 18
+            "global_id": "t_21_q_10",
+            "global_id2": "t_21_q_10",
+            "ticket_num": 21,
+            "order": 18,
+            "remapped_from": "t_30_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Tormoz tizimi ishlamayotgan transport vositasini shatakka olish mumkinmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Agar shatakka olgan transport vositasining haqiqiy vazni shatakka olinuvchi transport vaznidan ikki barobar ortiq bo'lsa, qattiq ulagich bilan",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Faqat qattiq ulagichda",
+                        "text": "Agar shatakka olingan transport vositasida haydovchi bo'lsa har qanday usul bilan",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Agar shatakka olgan transport vositasining haqiqiy vazni shatakka olinuvchi transport vaznidan ikki barobar ortiq bo'lsa, qattiq ulagich yordamida yoki qisman ortish usuli bilan",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Agar shatakka olingan transport vositasida haydovchi bo'lsa har qanday usul bilan",
+                        "text": "Faqat qattiq ulagichda",
                         "is_correct": false
                     },
                     {
@@ -1437,17 +1558,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Агар шатакка олган транспорт воситасининг ҳақиқий вазни шатакка олинувчи транспорт вазнидан икки баробар ортиқ бўлса, қаттиқ улагич билан",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Фақат қаттиқ улагичда",
+                        "text": "Агар шатакка олинган транспорт воситасида ҳайдовчи бўлса ҳар қандай усул билан",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Агар шатакка олган транспорт воситасининг ҳақиқий вазни шатакка олинувчи транспорт вазнидан икки баробар ортиқ бўлса, қаттиқ улагич ёрдамида ёки қисман ортиш усули билан",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Агар шатакка олинган транспорт воситасида ҳайдовчи бўлса ҳар қандай усул билан",
+                        "text": "Фақат қаттиқ улагичда",
                         "is_correct": false
                     },
                     {
@@ -1462,17 +1583,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "На жесткой сцепке, если фактическая масса буксирующего будет в два раза превышать фактическую массу буксируемого",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Только на жесткой сцепке",
+                        "text": "Любым способом, если за рулем буксируемого транспортного средства находится водитель",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "На жесткой сцепке или методом частичной погрузки, если фактическая масса буксирующего будет в два раза превышать фактическую массу буксируемого",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Любым способом, если за рулем буксируемого транспортного средства находится водитель",
+                        "text": "Только на жесткой сцепке",
                         "is_correct": false
                     },
                     {
@@ -1482,15 +1603,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24-bobining 145-bandiga asosan, shatakka olingan transport vositasining tormoz tizimi ishlamayotgan bo'lsa, uni faqat shatakka olgan transport vositasining haqiqiy vazni shatakka olinuvchi transport vositasi vaznidan kamida ikki barobar ortiq bo'lgan taqdirdagina qattiq ulagich yordamida yoki qisman ortish usuli bilan shatakka olishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 24-бобининг 145-бандига асосан, шатакка олинган транспорт воситасининг тормоз тизими ишламаётган бўлса, уни фақат шатакка олган транспорт воситасининг ҳақиқий вазни шатакка олинувчи транспорт воситаси вазнидан камида икки баробар ортиқ бўлган тақдирдагина қаттиқ улагич ёрдамида ёки қисман ортиш усули билан шатакка олишга рухсат этилади.",
+            "ru": "Согласно пункту 145 главы 24 ПДД, при неработоспособности тормозной системы буксируемого транспортного средства допускается его буксировка с помощью жесткой сцепки или методом частичной погрузки только если фактическая масса буксирующего не менее чем в два раза превышает массу буксируемого."
         }
     },
     {
         "task_info": {
-            "global_id": "t_33_q_20",
-            "ticket_num": 33,
-            "order": 19
+            "global_id": "t_19_q_20",
+            "global_id2": "t_19_q_20",
+            "ticket_num": 19,
+            "order": 19,
+            "remapped_from": "t_33_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Mopedlarni shatakka olishga ruxsat etiladimi?",
@@ -1502,13 +1630,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Qattiq qoplamasiz yo'l bo'ylab faqat kunning yorug' vaqtida ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
+                        "text": "Qattiq qoplamasiz yo'l bo'ylab faqat kunning yorug' vaqtida ruxsat etiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1522,13 +1650,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Қаттиқ қопламасиз йўл бўйлаб фақат куннинг ёруғ вақтида рухсат этилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Тақиқланади",
-                        "is_correct": true
+                        "text": "Қаттиқ қопламасиз йўл бўйлаб фақат куннинг ёруғ вақтида рухсат этилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1542,47 +1670,54 @@
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается только в светлое время суток по дорогам; не имеющим твердого покрытия",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Запрещается",
-                        "is_correct": true
+                        "text": "Разрешается только в светлое время суток по дорогам, не имеющим твердого покрытия",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 28-bobi 168-bandining yettinchi xatboshisiga asosan, velosipedchilar va individual harakatlanish vositalarini boshqarayotgan shaxslarga quyidagilar taqiqlanadi: Velosipedlarni va individual harakatlanish vositalarini shatakka olish, shuningdek, ulardan shatakka olishda foydalanish taqiqlanadi (velosipedga mo‘ljallangan tirkamalarni shatakka olish bundan mustasno).",
+            "uz_cyr": "YHQ 28-боби 168-бандининг еттинчи хатбошисига асосан, велосипедчилар ва индивидуал ҳаракатланиш воситаларини бошқараётган шахсларга қуйидагилар тақиқланади: Велосипедларни ва индивидуал ҳаракатланиш воситаларини шатакка олиш, шунингдек, улардан шатакка олишда фойдаланиш тақиқланади (велосипедга мўлжалланган тиркамаларни шатакка олиш бундан мустасно).",
+            "ru": "В соответствии с абзацем седьмым статьи 168 главы 28 ПДД велосипедистам и лицам, управляющим средствами индивидуальной мобильности, запрещается: буксировка велосипедов и средств индивидуальной мобильности, а также использование их для буксировки (за исключением буксировки велосипедных прицепов)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_36_q_7",
-            "ticket_num": 36,
-            "order": 20
+            "global_id": "t_32_q_14",
+            "global_id2": "t_32_q_14",
+            "ticket_num": 32,
+            "order": 20,
+            "remapped_from": "t_36_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Sanab o'tilgan qaysi hollarda egiluvchan ulagichda shatakka olish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat tog'li yo'llarda",
+                        "text": "Barcha sanab o'tilgan hollarda",
                         "is_correct": false
                     },
                     {
                         "id": 2,
+                        "text": "Kunning qorong'i vaqtida va yetarli ko'rinmaslik sharoitida",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "Yo'l yaxmalak, sirpanchiq bo'lgan hollarda",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "Kunning qorong'i vaqtida va etarli ko'rinmaslik sharoitida",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "Barcha sanab o'tilgan hollarda",
+                        "text": "Faqat tog'li yo'llarda",
                         "is_correct": false
                     }
                 ]
@@ -1592,22 +1727,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат тоғли йўлларда",
+                        "text": "Барча санаб ўтилган ҳолларда",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Йўл яхмалак, сирпанчиқ бўлган ҳолларда",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Куннинг қоронғи вақтида ва етарли кўринмаслик шароитида",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Йўл яхмалак, сирпанчиқ бўлган ҳолларда",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "Барча санаб ўтилган ҳолларда",
+                        "text": "Фақат тоғли йўлларда",
                         "is_correct": false
                     }
                 ]
@@ -1622,38 +1757,45 @@
                     },
                     {
                         "id": 2,
-                        "text": "Только в гололедицу",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Только в темное время суток и в условиях недостаточной видимости",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Во всех перечисленных случаях",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только в гололедицу",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 145 bandiga asosan, shatakka olish quyidagi holatlarda taqiqlanadi: yo‘l yaxmalak, sirpanchiq bo‘lgan hollarda egiluvchan ulagichda.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 145 бандига асосан, шатакка олиш қуйидаги ҳолатларда тақиқланади: йўл яхмалак, сирпанчиқ бўлган ҳолларда эгилувчан улагичда.",
+            "ru": "Согласно статье 145 Правил дорожного движения запрещается выезжать за ограждение в следующих случаях: на гибкой соединителе, когда дорога скользкая."
         }
     },
     {
         "task_info": {
-            "global_id": "t_36_q_13",
-            "ticket_num": 36,
-            "order": 21
+            "global_id": "t_23_q_3",
+            "global_id2": "t_23_q_3",
+            "ticket_num": 23,
+            "order": 21,
+            "remapped_from": "t_36_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Transport vositalari qattiq ulagichda shatakka olinganda shatakka olgan va shatakka olingan transport vositalari orasidagi masofa qancha bo'lishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "4 metrdan oshmasligi",
-                        "is_correct": true
+                        "text": "Qoidalarda belgilanmagan",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1662,8 +1804,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Qoidalarda belgilanmagan",
-                        "is_correct": false
+                        "text": "4 metrdan oshmasligi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1672,8 +1814,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "4 метрдан ошмаслиги",
-                        "is_correct": true
+                        "text": "Қоидаларда белгиланмаган",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1682,8 +1824,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Қоидаларда белгиланмаган",
-                        "is_correct": false
+                        "text": "4 метрдан ошмаслиги",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1692,33 +1834,40 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Правилами не регламентируется",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Не более 4 м",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "От 4 до 6 м",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Правилами не регламентируется",
+                        "text": "От 4 до 6 м",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 144 bandiga asosan, egiluvchan ulagich bilan shatakka olishda shatakka olgan va shatakka olingan transport vositalari o‘rtasidagi masofa 4 — 6 metr oralig‘ida bo‘lishi, qattiq ulagich bilan shatakka olishda esa 4 metrdan ko‘p bo‘lmasligi kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 144 бандига асосан, эгилувчан улагич билан шатакка олишда шатакка олган ва шатакка олинган транспорт воситалари ўртасидаги масофа 4 — 6 метр оралиғида бўлиши, қаттиқ улагич билан шатакка олишда эса 4 метрдан кўп бўлмаслиги керак.",
+            "ru": "Согласно статье 144 Правил дорожного движения расстояние между транспортными средствами, огороженными ограждением, и транспортными средствами, огражденными ограждением, должно составлять от 4 до 6 метров при ограждении с гибкой соединительной деталью и не более 4 метров при ограждении с жесткой соединительной деталью."
         }
     },
     {
         "task_info": {
-            "global_id": "t_39_q_11",
-            "ticket_num": 39,
-            "order": 22
+            "global_id": "t_10_q_16",
+            "global_id2": "t_10_q_16",
+            "ticket_num": 10,
+            "order": 22,
+            "remapped_from": "t_39_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Shatakka olingan  avtomobilni falokat yorug'lik  ishoralari  nosoz bo'lganda transport vositasi qanday  belgilanishi  kerak?",
+                "text": "Shatakka olingan avtomobilni falokat yorug'lik ishoralari nosoz bo'lganda transport vositasi qanday belgilanishi kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -1732,13 +1881,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Shatakka olingan transport vositasi orqa tomoniga falokat sababli to'xtash  belgisini o'rnatish",
+                        "text": "Shatakka olingan transport vositasi orqa tomoniga falokat sababli to'xtash belgisini o'rnatish",
                         "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Шатакка олинган  автомобилни фалокат ёруғлик  ишоралари  носоз бўлганда транспорт воситаси қандай  белгиланиши  керак?",
+                "text": "Шатакка олинган автомобилни фалокат ёруғлик ишоралари носоз бўлганда транспорт воситаси қандай белгиланиши керак?",
                 "options": [
                     {
                         "id": 1,
@@ -1752,7 +1901,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Шатакка олинган транспорт воситаси орқа томонига фалокат сабабли тўхташ  белгисини ўрнатиш",
+                        "text": "Шатакка олинган транспорт воситаси орқа томонига фалокат сабабли тўхташ белгисини ўрнатиш",
                         "is_correct": true
                     }
                 ]
@@ -1767,63 +1916,70 @@
                     },
                     {
                         "id": 2,
-                        "text": "Включить задний противотуманные фонаре",
-                        "is_correct": false
+                        "text": "Установить на задней части буксируемого автомобиля знак аварийной остановки",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Установить на задней части буксируемого автомобиля знак аварийной остановки",
-                        "is_correct": true
+                        "text": "Включить задние противотуманные фонари",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 52 bandiga asosan, shatakka olingan mexanik transport vositasida avariya yorug‘lik ishoralari bo‘lmasa yoki ular ishlamasa, uning orqa qismiga avariya sababli to‘xtash belgisi o‘rnatilishi kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 52 бандига асосан, шатакка олинган механик транспорт воситасида авария ёруғлик ишоралари бўлмаса ёки улар ишламаса, унинг орқа қисмига авария сабабли тўхташ белгиси ўрнатилиши керак.",
+            "ru": "В соответствии со статьей 52 Правил дорожного движения, если транспортное средство, находящееся буксируемого, не имеет или не имеет аварийных световых сигналов, на его кузове должен быть установлен знак аварийной остановки."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_12",
-            "ticket_num": 40,
-            "order": 23
+            "global_id": "t_25_q_11",
+            "global_id2": "t_25_q_11",
+            "ticket_num": 25,
+            "order": 23,
+            "remapped_from": "t_40_q_12"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Tormoz tizimi  ishlamaydigan avtomobilni vazni sizning avtomobilingiz vaznini  yarmidan ortiq bo'lsa,  uni  shatakka olishingizga  ruxsat  etiladimi?",
+                "text": "Tormoz tizimi ishlamaydigan avtomobilni vazni sizning avtomobilingiz vaznini yarmidan ortiq bo'lsa, uni shatakka olishingizga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat  etiladi",
+                        "text": "Ruxsat etiladi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ruxsat etilmaydi",
-                        "is_correct": true
+                        "text": "Faqat 30 km. tezlikda ruxsat etiladi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat 30 km. tezlikda ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Ruxsat etilmaydi",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Тормоз тизими  ишламайдиган автомобилни вазни сизнинг автомобилингиз вазнини  ярмидан ортиқ бўлса,  уни  шатакка олишингизга  рухсат  этиладими?",
+                "text": "Тормоз тизими ишламайдиган автомобилни вазни сизнинг автомобилингиз вазнини ярмидан ортиқ бўлса, уни шатакка олишингизга рухсат этиладими?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат  этилади",
+                        "text": "Рухсат этилади",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Рухсат этилмайди",
-                        "is_correct": true
+                        "text": "Фақат 30 км. тезликда рухсат этилади",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Фақат 30 км. тезликда рухсат этилади",
-                        "is_correct": false
+                        "text": "Рухсат этилмайди",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1832,37 +1988,44 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Не разрешается",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Разрешается только при скорости буксировки не более 30 км/ч",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 24-bobi 145 - bandiga muvofiq, ishchi tormoz tizimi ishlamayotgan transport vositasining haqiqiy vazni shatakka olgan transport vositasining haqiqiy vaznining yarmidan ortiq bo'lsa (haqiqiy vazni kam bo'lgan bunday transport vositasini faqat qattiq ulagich yordamida yoki qisman ortish usuli bilan shatakka olishga yo'l qo'yiladi) shatakka olish taqiqlanadi.",
+            "uz_cyr": "YHQ 24-боби 145 - бандига мувофиқ, ишчи тормоз тизими ишламаётган транспорт воситасининг ҳақиқий вазни шатакка олган транспорт воситасининг ҳақиқий вазнининг ярмидан ортиқ бўлса (ҳақиқий вазни кам бўлган бундай транспорт воситасини фақат қаттиқ улагич ёрдамида ёки қисман ортиш усули билан шатакка олишга йўл қўйилади) шатакка олиш тақиқланади.",
+            "ru": "В соответствии со статьей 145 главы 24 ПДД, если фактическая масса транспортного средства с неработающей тормозной системой превышает половину фактической массы буксируемого транспортного средства (буксировка такого транспортного средства с малой фактической массой допускается только с помощью жесткого сцепного устройства или методом частичной погрузки), буксировка запрещается."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_1",
-            "ticket_num": 40,
-            "order": 24
+            "global_id": "t_9_q_10",
+            "global_id2": "t_9_q_10",
+            "ticket_num": 9,
+            "order": 24,
+            "remapped_from": "t_40_q_1"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Nosoz  transpot vositasini shatakka olgan engil avtomobil salonida odam tashishga ruxsat etiladimi?",
+                "text": "Nosoz transport vositasini shatakka olgan yengil avtomobil salonida odam tashishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat  etiladi",
+                        "text": "Ruxsat etiladi",
                         "is_correct": true
                     },
                     {
@@ -1873,11 +2036,11 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Носоз  транспот воситасини шатакка олган енгил автомобил салонида одам ташишга рухсат этиладими?",
+                "text": "Носоз транспот воситасини шатакка олган енгил автомобил салонида одам ташишга рухсат этиладими?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат  этилади",
+                        "text": "Рухсат этилади",
                         "is_correct": true
                     },
                     {
@@ -1902,15 +2065,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 143 bandiga asosan, qattiq yoki egiluvchan ulagich bilan shatakka olingan avtobusda, trolleybusda va yuk avtomobili yukxonasida odam tashish qisman ortish yo‘li bilan shatakka olishda esa shatakka olingan transport vositasining kabinasida va yukxonasida, shuningdek shatakka olgan transport vositasining yukxonasida odamlar bo‘lishi taqiqlanadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 143 бандига асосан, қаттиқ ёки эгилувчан улагич билан шатакка олинган автобусда, троллейбусда ва юк автомобили юкхонасида одам ташиш қисман ортиш йўли билан шатакка олишда эса шатакка олинган транспорт воситасининг кабинасида ва юкхонасида, шунингдек шатакка олган транспорт воситасининг юкхонасида одамлар бўлиши тақиқланади.",
+            "ru": "Согласно статье 143 Правил дорожного движения запрещается находиться в салоне и багажнике транспортного средства, а также в багажнике транспортного средства."
         }
     },
     {
         "task_info": {
-            "global_id": "t_43_q_2",
-            "ticket_num": 43,
-            "order": 25
+            "global_id": "t_12_q_3",
+            "global_id2": "t_12_q_3",
+            "ticket_num": 12,
+            "order": 25,
+            "remapped_from": "t_43_q_2"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qattiq ulagichda shatakka olingan avtobusda yoki trolleybusda odam tashishga ruxsat etiladimi?",
@@ -1928,11 +2098,11 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Қаттиқ улагичда шатакка олинган автобусда ёки троллейбусда одам ташишга рухсат етиладими?",
+                "text": "Қаттиқ улагичда шатакка олинган автобусда ёки троллейбусда одам ташишга рухсат этиладими?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Таъқиқланади",
+                        "text": "Тақиқланади",
                         "is_correct": true
                     },
                     {
@@ -1957,22 +2127,29 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 143 bandiga asosan, qattiq yoki egiluvchan ulagich bilan shatakka olingan avtobusda, trolleybusda va yuk avtomobili yukxonasida odam tashish qisman ortish yo‘li bilan shatakka olishda esa shatakka olingan transport vositasining kabinasida va yukxonasida, shuningdek shatakka olgan transport vositasining yukxonasida odamlar bo‘lishi taqiqlanadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 143 бандига асосан, қаттиқ ёки эгилувчан улагич билан шатакка олинган автобусда, троллейбусда ва юк автомобили юкхонасида одам ташиш қисман ортиш йўли билан шатакка олишда эса шатакка олинган транспорт воситасининг кабинасида ва юкхонасида, шунингдек шатакка олган транспорт воситасининг юкхонасида одамлар бўлиши тақиқланади.",
+            "ru": "Согласно статье 143 Правил дорожного движения запрещается находиться в салоне и багажнике транспортного средства, а также в багажнике транспортного средства."
         }
     },
     {
         "task_info": {
-            "global_id": "t_46_q_7",
-            "ticket_num": 46,
-            "order": 26
+            "global_id": "t_43_q_20",
+            "global_id2": "t_43_q_20",
+            "ticket_num": 43,
+            "order": 26,
+            "remapped_from": "t_46_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Sanab o'tilgan qaysi hollarda egiluvchan ulagichda shatakka olish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat tog'li yo'llarda",
+                        "text": "Kunning qorong'i vaqtida va yetarlicha ko'rinmaslik sharoitida",
                         "is_correct": false
                     },
                     {
@@ -1982,7 +2159,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Kunning qorong'i vaqtida va etarlicha ko'rinmaslik sharoitida",
+                        "text": "Faqat tog'li yo'llarda",
                         "is_correct": false
                     },
                     {
@@ -1997,7 +2174,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат тоғли йўлларда",
+                        "text": "Куннинг қоронғи вақтида ва етарлича кўринмаслик шароитида",
                         "is_correct": false
                     },
                     {
@@ -2007,7 +2184,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Куннинг қоронғи вақтида ва етарлича кўринмаслик шароитида",
+                        "text": "Фақат тоғли йўлларда",
                         "is_correct": false
                     },
                     {
@@ -2022,53 +2199,60 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только по горной дороге",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Только на скользкой дороге",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "В темное время суток и в условиях недостаточной видимости",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Во всех перечисленных случаях",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только по горной дороге",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только на скользкой дороге",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 145 bandiga asosan, shatakka olish quyidagi holatlarda taqiqlanadi: yo‘l yaxmalak, sirpanchiq bo‘lgan hollarda egiluvchan ulagichda.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 145 бандига асосан, шатакка олиш қуйидаги ҳолатларда тақиқланади: йўл яхмалак, сирпанчиқ бўлган ҳолларда эгилувчан улагичда.",
+            "ru": "Согласно статье 145 Правил дорожного движения запрещается выезжать за ограждение в следующих случаях: на гибкой соединителе, когда дорога скользкая."
         }
     },
     {
         "task_info": {
-            "global_id": "t_48_q_9",
-            "ticket_num": 48,
-            "order": 27
+            "global_id": "t_45_q_18",
+            "global_id2": "t_45_q_18",
+            "ticket_num": 45,
+            "order": 27,
+            "remapped_from": "t_48_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Shatakka olingan avtobusda odam tashishga ruxsat beriladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat beriladi",
+                        "text": "Faqat o'tirgan holda tashishga ruxsat beriladi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
+                        "text": "Ruxsat beriladi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat o'tirgan holda tashishga ruxsat beriladi",
-                        "is_correct": false
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2077,18 +2261,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат берилади",
+                        "text": "Фақат ўтирган ҳолда ташишга рухсат берилади",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": true
+                        "text": "Рухсат берилади",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Фақат ўтирган ҳолда ташишга рухсат берилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2097,47 +2281,54 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
+                        "text": "Разрешается только сидячим пассажирам",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": true
+                        "text": "Разрешается",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается только сидячим пассажирам",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 143 bandiga asosan, qattiq yoki egiluvchan ulagich bilan shatakka olingan avtobusda, trolleybusda va yuk avtomobili yukxonasida odam tashish qisman ortish yo‘li bilan shatakka olishda esa shatakka olingan transport vositasining kabinasida va yukxonasida, shuningdek shatakka olgan transport vositasining yukxonasida odamlar bo‘lishi taqiqlanadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 143 бандига асосан, қаттиқ ёки эгилувчан улагич билан шатакка олинган автобусда, троллейбусда ва юк автомобили юкхонасида одам ташиш қисман ортиш йўли билан шатакка олишда эса шатакка олинган транспорт воситасининг кабинасида ва юкхонасида, шунингдек шатакка олган транспорт воситасининг юкхонасида одамлар бўлиши тақиқланади.",
+            "ru": "Согласно статье 143 Правил дорожного движения запрещается находиться в салоне и багажнике транспортного средства, а также в багажнике транспортного средства."
         }
     },
     {
         "task_info": {
-            "global_id": "t_49_q_8",
-            "ticket_num": 49,
-            "order": 28
+            "global_id": "t_53_q_9",
+            "global_id2": "t_53_q_9",
+            "ticket_num": 53,
+            "order": 28,
+            "remapped_from": "t_49_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Mexanik transport vositalarini shatakka olishda egiluvchan ulagichga kamida nechta ogohlantiruvchi qurilma o'rnatiladi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Kamida bitta",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Kamida ikkita",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Kamida uchta",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Kamida bitta",
+                        "text": "Kamida uchta",
                         "is_correct": false
                     }
                 ]
@@ -2147,17 +2338,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Камида битта",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Камида иккита",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Камида учта",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Камида битта",
+                        "text": "Камида учта",
                         "is_correct": false
                     }
                 ]
@@ -2167,21 +2358,26 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Не менее одной",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Не менее двух",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Не менее трёх",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Не менее одного",
+                        "text": "Не менее трёх",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 177 bandiga asosan, mexanik transport vositalarini shatakka olishda egiluvchan ulagichni ko‘rsatadigan ogohlantiruvchi, o‘lchami 200x200 millimetr bo‘lgan, diagonali bo‘yicha ketma-ket joylashgan, kengligi 50 millimetrli qizil va oq rangli enli chiziqlar tushirilgan, yorug‘lik qaytaradigan yuzali bayroqchalar yoki kvadrat ko‘rinishidagi belgi o‘rnatilishi kerak.\r\nEgiluvchan ulagichga kamida ikkita taniqlik belgisi o‘rnatiladi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 177 бандига асосан, механик транспорт воситаларини шатакка олишда эгилувчан улагични кўрсатадиган огоҳлантирувчи, ўлчами 200х200 миллиметр бўлган, диагонали бўйича кетма-кет жойлашган, кенглиги 50 миллиметрли қизил ва оқ рангли энли чизиқлар туширилган, ёруғлик қайтарадиган юзали байроқчалар ёки квадрат кўринишидаги белги ўрнатилиши керак.\r\nЭгилувчан улагичга камида иккита таниқли белгиси ўрнатилади.",
+            "ru": "Согласно статье 177 Правил дорожного движения должен быть установлен предупреждающий флажок со светоотражающей поверхностью или квадратный знак размером 200х200 миллиметров, с красными и белыми широкими полосами шириной 50 миллиметров, размером 200х200 миллиметров, расположенными в ряд по диагонали, со светоотражающей поверхностью. \r\nНа гибком соединителе должно быть нанесено не менее двух узнаваемых символов."
         }
     }
 ]

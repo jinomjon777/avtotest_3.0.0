@@ -1,19 +1,21 @@
 [
     {
         "task_info": {
-            "global_id": "t_40_q_2",
-            "ticket_num": 40,
-            "order": 1
+            "global_id": "t_12_q_16",
+            "global_id2": "t_12_q_16",
+            "ticket_num": 12,
+            "order": 1,
+            "remapped_from": "t_40_q_2"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Uzoq davom etadigan keng ravon yo'lda avtomobilni yuqori tezlikda boshqarganda haydovchiga tezlik qanday qabul qilinadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Aslidagidan sekin harakatlanayotganga uxshaydi",
-                        "is_correct": true
+                        "text": "Tezlikni qabul qilish o'zgarmaydi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -22,8 +24,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Tezlikni qabul qilish o'zgarmaydi",
-                        "is_correct": false
+                        "text": "Aslidagidan sekin harakatlanayotganga uxshaydi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -32,8 +34,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Аслидагидан секин ҳаракатланаётганга ухшайди",
-                        "is_correct": true
+                        "text": "Тезликни қабул қилиш ўзгармайди",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -42,8 +44,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Тезликни қабул қилиш ўзгармайди",
-                        "is_correct": false
+                        "text": "Аслидагидан секин ҳаракатланаётганга ухшайди",
+                        "is_correct": true
                     }
                 ]
             },
@@ -52,37 +54,44 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Восприятие скорости не меняется",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Кажется меньше чем в действительности",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Кажется больше, чем в действительности",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Восприятие скорости не меняется",
+                        "text": "Кажется больше, чем в действительности",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Haydovchi harakat tezligini uning ko'rish maydoniga tushgan narsalarning harakat tezligi bilan aniqlaydi. Uzoq vaqt mobaynida monoton harakatlanganda tezlik haqiqiysidan pastroq seziladi. Bunday holatlarda tezlikni nazorat qilish uchun odatdagidan ko'proq tezlikni o'lchash moslamasi (spidometr)dan foydalaning.",
+            "uz_cyr": "Ҳайдовчи ҳаракат тезлигини унинг кўриш майдонига тушган нарсаларнинг ҳаракат тезлиги билан аниқлайди. Узоқ вақт мобайнида монотон ҳаракатланганда тезлик ҳақиқийсидан пастроқ сезилади. Бундай ҳолатларда тезликни назорат қилиш учун одатдагидан кўпроқ тезликни ўлчаш мосламаси (спидометр)дан фойдаланинг.",
+            "ru": "Водитель определяет скорость движения по скорости движения предметов, попадающих в его поле зрения. При монотонном движении в течение длительного времени скорость воспринимается ниже реальной. В таких случаях для контроля скорости используйте спидометр (спидометр) больше обычного."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_3",
-            "ticket_num": 40,
-            "order": 2
+            "global_id": "t_10_q_17",
+            "global_id2": "t_10_q_17",
+            "ticket_num": 10,
+            "order": 2,
+            "remapped_from": "t_40_q_3"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Yo'lning qanday  qismida  harakatlanganda kuchli  yonlama  shamol xavfi  ortadi?",
+                "text": "Yo'lning qanday qismida harakatlanganda kuchli yonlama shamol xavfi ortadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ochiq  joyda harakatlanganda",
+                        "text": "Ochiq joyda harakatlanganda",
                         "is_correct": false
                     },
                     {
@@ -92,17 +101,17 @@
                     },
                     {
                         "id": 3,
-                        "text": "Yo'lning yopiq qismidan ochik qismiga chiqishda",
+                        "text": "Yo'lning yopiq qismidan ochiq qismiga chiqishda",
                         "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Йўлнинг қандай  қисмида  ҳаракатланганда кучли  ёнлама  шамол хавфи  ортади?",
+                "text": "Йўлнинг қандай қисмида ҳаракатланганда кучли ёнлама шамол хавфи ортади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Очиқ  жойда ҳаракатланганда",
+                        "text": "Очиқ жойда ҳаракатланганда",
                         "is_correct": false
                     },
                     {
@@ -137,53 +146,60 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, yo‘lning yopiq qismidan ochik qismiga chiqishda kuchli yonlama shamol xavfi ortadi.",
+            "uz_cyr": "Ҳаракат хавфсизлиги асослари талабларига асосан, йўлнинг ёпиқ қисмидан очик қисмига чиқишда кучли ёнлама шамол хавфи ортади.",
+            "ru": "Согласно требованиям принципов безопасности дорожного движения, риск сильного бокового ветра возрастает при выезде с закрытого участка дороги на открытую часть."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_13",
-            "ticket_num": 40,
-            "order": 3
+            "global_id": "t_18_q_14",
+            "global_id2": "t_18_q_14",
+            "ticket_num": 18,
+            "order": 3,
+            "remapped_from": "t_40_q_13"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Yoqilg'i bilan taminlash  tepkisini keskin tezlikni oshirish uchun bosayotganda, avtomabil sirpanishni boshlasa haydovchi qanday harakat qilishi kerak?",
+                "text": "Yoqilg'i bilan ta'minlash tepkisini keskin tezlikni oshirish uchun bosayotganda, avtomobil sirpanishni boshlasa, haydovchi qanday harakat qilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tepkini yanada  kuchliroq  bosish",
+                        "text": "Tepkini yanada kuchliroq bosish",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Tepkiga tasir etuvchi kuchni o'zgartirmaslik",
-                        "is_correct": false
+                        "text": "Tepkiga ta'sir etuvchi kuchni kamaytirish",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Tepkiga tasir etuvchi kuchni   kamaytirish",
-                        "is_correct": true
+                        "text": "Tepkiga ta'sir etuvchi kuchni o'zgartirmaslik",
+                        "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Ёқилғи билан таъминлаш  тепкисини кескин тезликни ошириш учун босаётганда, автомабил сирпанишни бошласа ҳайдовчи қандай ҳаракат қилиши керак?",
+                "text": "Ёқилғи билан таъминлаш тепкисини кескин тезликни ошириш учун босаётганда, автомабил сирпанишни бошласа ҳайдовчи қандай ҳаракат қилиши керак?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тепкини янада  кучлироқ  босиш",
+                        "text": "Тепкини янада кучлироқ босиш",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тепкига таъсир этувчи кучни ўзгартирмаслик",
-                        "is_correct": false
+                        "text": "Тепкига таъсир этувчи кучни камайтириш",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Тепкига таъсир этувчи кучни   камайтириш",
-                        "is_correct": true
+                        "text": "Тепкига таъсир этувчи кучни ўзгартирмаслик",
+                        "is_correct": false
                     }
                 ]
             },
@@ -192,68 +208,75 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Усилить нажатие на педаль",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Не менять силу нажатия на педаль",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Уменьшить нажатие на педаль",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Усилить нажатие на педаль",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Sirpanchiq yo‘lda avtomobilning toyib ketishi, harakatning keskin tezlashuvidan yetaklovchi g‘ildiraklarning joyida turib aylanishi hisobiga vujudga kelishi mumkin. Bunday holda, sirpanish(toyib ketish)ni yo'q qilish kerak, ya'ni yonilg'i uzatish tepkisiga bosish kuchini bo'shashtirish kerak.",
+            "uz_cyr": "Сирпанчиқ йўлда автомобилнинг тойиб кетиши, ҳаракатнинг кескин тезлашувидан етакловчи ғилдиракларнинг жойида туриб айланиши ҳисобига вужудга келиши мумкин. Бундай ҳолда, сирпаниш(тойиб кетиш)ни йўқ қилиш керак, яъни ёнилғи узатиш тепкисига босиш кучини бўшаштириш керак.",
+            "ru": "Пробуксовка автомобиля на скользкой дороге может произойти из-за резкого ускорения движения за счет стационарного вращения ведущих колес. В этом случае необходимо устранить проскальзывание, то есть ослабить прижимную силу на валу перекачки топлива."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_14",
-            "ticket_num": 40,
-            "order": 4
+            "global_id": "t_22_q_5",
+            "global_id2": "t_22_q_5",
+            "ticket_num": 22,
+            "order": 4,
+            "remapped_from": "t_40_q_14"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Quruq ob-havo sharoitida asfalt –beton qoplamali yo'lda  harakatlanayotgan haydovchi  yomg'ir tomchilab qolganda nima qilishi kerak?",
+                "text": "Quruq ob-havo sharoitida asfalt-beton qoplamali yo'lda harakatlanayotgan haydovchi yomg'ir tomchilab qolganda nima qilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tezlikni kamaytirish va ehtiyot bo'lishi kerak",
-                        "is_correct": true
+                        "text": "Yomg'ir tezlashib ketmasdan tezroq harakat qilishi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Tezlikni o'zgartirmasdan  harakatlani davom ettirish",
+                        "text": "Tezlikni o'zgartirmasdan harakatlani davom ettirish",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Yomg'ir tezlashib ketmasdan tezroq harakat  qilishi",
-                        "is_correct": false
+                        "text": "Tezlikni kamaytirish va ehtiyot bo'lishi kerak",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Қуруқ об-ҳаво шароитида асфалт –бетон қопламали йўлда  ҳаракатланаётган ҳайдовчи  ёмғир томчилаб қолганда нима қилиши керак?",
+                "text": "Қуруқ об-ҳаво шароитида асфалт-бетон қопламали йўлда ҳаракатланаётган ҳайдовчи ёмғир томчилаб қолганда нима қилиши керак?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тезликни камайтириш ва эҳтиёт бўлиши керак",
-                        "is_correct": true
+                        "text": "Ёмғир тезлашиб кетмасдан тезроқ ҳаракат қилиши",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тезликни ўзгартирмасдан  ҳаракатлани давом эттириш",
+                        "text": "Тезликни ўзгартирмасдан ҳаракатлани давом эттириш",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ёмғир тезлашиб кетмасдан тезроқ ҳаракат  қилиши",
-                        "is_correct": false
+                        "text": "Тезликни камайтириш ва эҳтиёт бўлиши керак",
+                        "is_correct": true
                     }
                 ]
             },
@@ -262,48 +285,55 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Увеличить скорость и попытаться проехать как можно большее расстояние, пока не начался сильный дождь",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Уменьшить скорость и быть особенно осторожным",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Не изменяя скорости, продолжить движение",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Увеличить скорость и попытаться проехать как можно большее расстояние, пока не начался сильный дождь",
+                        "text": "Не изменяя скорости, продолжить движение",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yomg'ir tomchilay boshlaganda, haydovchilar ayniqsa ehtiyotkor bo'lishlari kerak, chunki yo'ldagi chang, moy, rezina qurumi va shunga o'xshashlar yomg'ir suvi bilan aralashib, sirpanchiq qatlamni hosil qiladi, keyinchalik esa bu qatlam yomg'ir bilan yuvilib ketadi.",
+            "uz_cyr": "Ёмғир томчилай бошлаганда, ҳайдовчилар айниқса эҳтиёткор бўлишлари керак, чунки йўлдаги чанг, мой, резина қуруми ва шунга ўхшашлар ёмғир суви билан аралашиб, сирпанчиқ қатламни ҳосил қилади, кейинчалик эса бу қатлам ёмғир билан ювилиб кетади.",
+            "ru": "Когда начинается дождь, водителям необходимо быть особенно осторожными, поскольку пыль, масло, резиновые смеси и тому подобное на дороге смешиваются с дождевой водой, образуя скользкий слой, который затем смывается дождем."
         }
     },
     {
         "task_info": {
-            "global_id": "t_41_q_4",
-            "ticket_num": 41,
-            "order": 5
+            "global_id": "t_32_q_10",
+            "global_id2": "t_32_q_10",
+            "ticket_num": 32,
+            "order": 5,
+            "remapped_from": "t_43_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Avtomobilni qanday boshqarish usuli yonilg'i sarfini tejaydi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Ohista tezlanish va ohista sekinlashish bilan",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Shiddat bilan tezlanish va ohista sekinlashish bilan",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Ohista tezlanish va shiddat bilan sekinlashish bilan",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Ohista tezlanish va ohista sekinlashish bilan",
-                        "is_correct": true
                     }
                 ]
             },
@@ -312,18 +342,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Оҳиста тезланиш ва оҳиста секинлашиш билан",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Шиддат билан тезланиш ва оҳиста секинлашиш билан",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Оҳиста тезланиш ва шиддат билан секинлашиш билан",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Оҳиста тезланиш ва оҳиста секинлашиш билан",
-                        "is_correct": true
                     }
                 ]
             },
@@ -332,48 +362,55 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "При быстром ускорении и мягком (плавном) торможении",
-                        "is_correct": false
+                        "text": "При плавном разгоне и плавном торможении",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "При плавном ускорении и быстром торможении",
+                        "text": "При резком разгоне и плавном торможении",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "При плавном ускорении и плавном торможении",
-                        "is_correct": true
+                        "text": "При плавном разгоне и резком торможении",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, avtomobilni ohista (ravon ) tezlanish va ohista sekinlashish bilan boshqarish usuli yonilg‘i sarfini tejaydi.",
+            "uz_cyr": "Ҳаракат хавфсизлиги асослари талабларига асосан, автомобилни оҳиста (равон ) тезланиш ва оҳиста секинлашиш билан бошқариш усули ёнилғи сарфини тежайди.",
+            "ru": "Согласно требованиям принципов безопасности дорожного движения, метод управления автомобилем с плавным (плавным) ускорением и плавным замедлением позволяет экономить расход топлива."
         }
     },
     {
         "task_info": {
-            "global_id": "t_41_q_15",
-            "ticket_num": 41,
-            "order": 6
+            "global_id": "t_2_q_3",
+            "global_id2": "t_2_q_3",
+            "ticket_num": 2,
+            "order": 6,
+            "remapped_from": "t_41_q_13"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yo'lning qiyaliklarida qisqa muddatga to'xtagan mexanik uzatmali avtomobilni joyidan to'satdan harakatlanib ketishini oldini olish uchun:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "To'xtab turish tormozidan foydalanish lozim",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Birinchi uzatmani yoki orqa uzatmani ulash lozim",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Uzatmalar qutisi richagi ni neytral holatga o'tkazish lozim",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "To'xtab turish tormozidan foydalanish lozim",
+                        "is_correct": true
                     }
                 ]
             },
@@ -382,18 +419,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўхтаб туриш тормозидан фойдаланиш лозим",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Биринчи узатмани ёки орқа узатмани улаш лозим",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Узатмалар қутиси ричаги ни нейтрал ҳолатга ўтказиш лозим",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тўхтаб туриш тормозидан фойдаланиш лозим",
+                        "is_correct": true
                     }
                 ]
             },
@@ -407,25 +444,32 @@
                     },
                     {
                         "id": 2,
-                        "text": "Необходимо подключить первую передачу или заднюю передачу",
+                        "text": "Необходимо перевести рычаг коробки передач в нейтральное положение.",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Необходимо перевести рычаг коробки передач в нейтральное положение.",
+                        "text": "Необходимо подключить первую передачу или заднюю передачу",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Mexanik uzatmali avtomobilni balandlikda qisqa muddatga to'xtatib, joyida ushlab turish uchun, to'xtab turish tormozini ishlatish kerak.",
+            "uz_cyr": "Механик узатмали автомобилни баландликда қисқа муддатга тўхтатиб, жойида ушлаб туриш учун, тўхтаб туриш тормозини ишлатиш керак.",
+            "ru": "Чтобы ненадолго остановить автомобиль с механической коробкой передач на холме и удержать его на месте, необходимо задействовать стояночный тормоз."
         }
     },
     {
         "task_info": {
-            "global_id": "t_41_q_18",
-            "ticket_num": 41,
-            "order": 7
+            "global_id": "t_7_q_4",
+            "global_id2": "t_7_q_4",
+            "ticket_num": 7,
+            "order": 7,
+            "remapped_from": "t_41_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "G'ildiraklarni yo'l bilan ilashishi yo'qolganda (kuchli yomg'ir, sel yoki suv toshgan yo'l qismlari) haydovchi:",
@@ -487,15 +531,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yomg'ir yog'ayotganida g'ildiraklar bilan qoplama orasida albatta suv qoladi (ayniqsa yedirilgan shina protektorida) va bu o'z navbatida \"Suv ponasi\"ni hosil qiladi. Oqibatda g'ildiraklar sirpana boshlaydi. Bunda haydovchi tezlikni dvigatel yordamida pasaytirishi kerak, aks holda tezlikning keskin pasayishi avtomobilning sirpanib ketishiga olib keladi.",
+            "uz_cyr": "Ёмғир ёғаётганида ғилдираклар билан қоплама орасида албатта сув қолади (айниқса едирилган шина протекторида) ва бу ўз навбатида \"Сув понаси\"ни ҳосил қилади. Оқибатда ғилдираклар сирпана бошлайди. Бунда ҳайдовчи тезликни двигател ёрдамида пасайтириши керак, акс ҳолда тезликнинг кескин пасайиши автомобилнинг сирпаниб кетишига олиб келади.",
+            "ru": "Когда идет дождь, вода обязательно останется между колесами и покрытием дороги (особенно на протекторе шины), а это, в свою очередь, образует «аквапланирование». В результате колеса начинают буксовать. В этом случае водитель должен снизить скорость с помощью двигателя, иначе резкое снижение скорости приведет к заносу автомобиля."
         }
     },
     {
         "task_info": {
-            "global_id": "t_43_q_9",
-            "ticket_num": 43,
-            "order": 8
+            "global_id": "t_1_q_13",
+            "global_id2": "t_1_q_13",
+            "ticket_num": 1,
+            "order": 8,
+            "remapped_from": "t_41_q_4"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Avtomobilni qanday boshqarish usuli yonilg'i sarfini tejaydi?",
@@ -557,33 +608,40 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, avtomobilni ohista (ravon ) tezlanish va ohista sekinlashish bilan boshqarish usuli yonilg‘i sarfini tejaydi.",
+            "uz_cyr": "Ҳаракат хавфсизлиги асослари талабларига асосан, автомобилни оҳиста (равон ) тезланиш ва оҳиста секинлашиш билан бошқариш усули ёнилғи сарфини тежайди.",
+            "ru": "Согласно требованиям принципов безопасности дорожного движения, метод управления автомобилем с плавным (плавным) ускорением и плавным замедлением позволяет экономить расход топлива."
         }
     },
     {
         "task_info": {
-            "global_id": "t_43_q_14",
-            "ticket_num": 43,
-            "order": 9
+            "global_id": "t_8_q_2",
+            "global_id2": "t_8_q_2",
+            "ticket_num": 8,
+            "order": 9,
+            "remapped_from": "t_43_q_14"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Engil avtomobil tirkamasi burilishda qanday traektoriya bo'yicha harakatlanadi?",
+                "text": "Yengil avtomobil tirkamasi burilishda qanday trayektoriya bo'yicha harakatlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Burilish markaziga nisbatan avtomobil traektoriyasidan tashqarida",
+                        "text": "Burilish markaziga nisbatan avtomobil trayektoriyasidan tashqarida",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobil burilish traektoriyasi bo'yicha",
-                        "is_correct": false
+                        "text": "Burilish markaziga nisbatan avtomobil trayektoriyasidan ichkarida",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Burilish markaziga nisbatan avtomobil traektoriyasidan ichkarida",
-                        "is_correct": true
+                        "text": "Avtomobil burilish trayektoriyasi bo'yicha",
+                        "is_correct": false
                     }
                 ]
             },
@@ -597,128 +655,65 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автомобил бурилиш траекторияси бўйича",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Бурилиш марказига нисбатан автомобил траекториясидан ичкарида",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобил бурилиш траекторияси бўйича",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Какова траектория движения прицепа при повороте автомобиля к центру поворота?",
+                "text": "По какой траектории движется прицеп легкового автомобиля при повороте?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Смещается в сторону от центра поворота.",
+                        "text": "Вне траектории автомобиля относительно центра поворота",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Не смещается",
-                        "is_correct": false
+                        "text": "Внутри траектории автомобиля относительно центра поворота",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Смещается к центру поворота",
-                        "is_correct": true
+                        "text": "По траектории поворота автомобиля",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, yengil avtomobil tirkamasi burilishda burilish markaziga nisbatan avtomobil trayektoriyasidan ichkarida harakatlanadi.",
+            "uz_cyr": "Ҳаракат хавфсизлиги асослари талабларига асосан, енгил автомобил тиркамаси бурилишда бурилиш марказига нисбатан автомобил траекториясидан ичкарида ҳаракатланади.",
+            "ru": "Согласно основам безопасности дорожного движения, прицеп легкового автомобиля при повороте движется внутри траектории автомобиля относительно центра поворота."
         }
     },
     {
         "task_info": {
-            "global_id": "t_43_q_19",
-            "ticket_num": 43,
-            "order": 10
+            "global_id": "t_48_q_3",
+            "global_id2": "t_48_q_3",
+            "ticket_num": 48,
+            "order": 10,
+            "remapped_from": "t_44_q_5"
         },
-        "media_url": null,
-        "content": {
-            "uz_lat": {
-                "text": "G'ildiraklarni yo'l bilan ilashishi yo'qolganda (kuchli yomg'ir, sel yoki suv toshgan yo'l qismlari) haydovchi:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Tezlikni oshirishi lozim",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Tormoz tepkisini keskin bosish bilan tezlikni kamaytirishi lozim",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Dvigatel bilan tormozlash orqali tezlikni kamaytirishi lozim",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Ғилдиракларни йўл билан илашиши йўқолганда (кучли ёмғир, сел ёки сув тошган йўл қисмлари) ҳайдовчи:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Тезликни ошириши лозим",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Тормоз тепкисини кескин босиш билан тезликни камайтириши лозим",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Двигател билан тормозлаш орқали тезликни камайтириши лозим",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "ru": {
-                "text": "В случае потери сцепления колёс с дорогой из-за образования «водяного клина» водителю следует:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Увеличить скорость",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Он должен снизить скорость, резко нажав на педаль тормоза",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Он должен снизить скорость, затормозив двигателем",
-                        "is_correct": true
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_44_q_5",
-            "ticket_num": 44,
-            "order": 11
-        },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Tormoz yo'li deb nimaga aytiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Haydovchi biron bir xavfni aniqlab, avtomobilni to'liq to'xtaguncha bosib o'tgan masofasi",
-                        "is_correct": false
+                        "text": "Haydovchi tormoz tepkisini bosgandan to avtomobil to'liq to'xtaguncha bosib o'tilgan masofa",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Haydovchi tormoz tepkisini bosgandan to avtomobil to'liq to'xtaguncha bosib o'tilgan masofa",
-                        "is_correct": true
+                        "text": "Haydovchi biron bir xavfni aniqlab, avtomobilni to'liq to'xtaguncha bosib o'tgan masofasi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -727,13 +722,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳайдовчи бирон бир хавфни аниқлаб, автомобилни тўлиқ тўхтагунча босиб ўтган масофаси",
-                        "is_correct": false
+                        "text": "Ҳайдовчи тормоз тепкисини босгандан то автомобил тўлиқ тўхтагунча босиб ўтилган масофа",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ҳайдовчи тормоз тепкисини босгандан то автомобил тўлиқ тўхтагунча босиб ўтилган масофа",
-                        "is_correct": true
+                        "text": "Ҳайдовчи бирон бир хавфни аниқлаб, автомобилни тўлиқ тўхтагунча босиб ўтган масофаси",
+                        "is_correct": false
                     }
                 ]
             },
@@ -752,33 +747,40 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Haydovchini tormoz pedaliga bosgandan boshlab avtomobilni to'xtaguncha bosib o'tgan yo'li – tormoz yo'li deb ataladi.",
+            "uz_cyr": "Ҳайдовчини тормоз педалига босгандан бошлаб автомобилни тўхтагунча босиб ўтган йўли – тормоз йўли деб аталади.",
+            "ru": "Расстояние, пройденное автомобилем с момента нажатия водителем педали тормоза до остановки, называется тормозным путем."
         }
     },
     {
         "task_info": {
-            "global_id": "t_44_q_9",
-            "ticket_num": 44,
-            "order": 12
+            "global_id": "t_6_q_7",
+            "global_id2": "t_6_q_7",
+            "ticket_num": 6,
+            "order": 11,
+            "remapped_from": "t_44_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Tezlik ortishi bilan haydovchining ko'rish maydoni qanday o'zgaradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Kengayadi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "O'zgarmaydi",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Torayadi",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Kengayadi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -787,23 +789,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кенгаяди",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ўзгармайди",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Тораяди",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Кенгаяди",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Как изменяется поле зрение водителя с увелечением скорости движения?",
+                "text": "Как изменяется поле зрения водителя с увеличением скорости движения?",
                 "options": [
                     {
                         "id": 1,
@@ -812,42 +814,49 @@
                     },
                     {
                         "id": 2,
-                        "text": "Не изменяется",
-                        "is_correct": false
+                        "text": "Сужается",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Сужается",
-                        "is_correct": true
+                        "text": "Не изменяется",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, tezlik ortishi bilan haydovchining ko‘rish maydoni torayadi.",
+            "uz_cyr": "Ҳаракат хавфсизлиги асослари талабларига асосан, тезлик ортиши билан ҳайдовчининг кўриш майдони тораяди.",
+            "ru": "Согласно требованиям принципов безопасности дорожного движения, при увеличении скорости поле зрения водителя сужается."
         }
     },
     {
         "task_info": {
-            "global_id": "t_44_q_16",
-            "ticket_num": 44,
-            "order": 13
+            "global_id": "t_34_q_11",
+            "global_id2": "t_34_q_11",
+            "ticket_num": 34,
+            "order": 12,
+            "remapped_from": "t_44_q_15"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Haydovchining o'rtacha reaksiya vaqti deb qabul qilingan",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tahminan 0,2 soniya",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Tahminan 1 soniya",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Tahminan 5 soniya",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tahminan 0,2 soniya",
                         "is_correct": false
                     }
                 ]
@@ -857,17 +866,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Таҳминан 0,2 сония",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Таҳминан 1 сония",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Таҳминан 5 сония",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Таҳминан 0,2 сония",
                         "is_correct": false
                     }
                 ]
@@ -877,30 +886,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Около 0,2 секунды.",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Около 1 секунды",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Около 5 секунд",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Около 0,2 секунды.",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, haydovchining o‘rtacha reaksiya vaqti taxminan 1 soniya deb qabul qilingan.",
+            "uz_cyr": "Ҳаракат хавфсизлиги асослари талабларига асосан, ҳайдовчининг ўртача реаксия вақти тахминан 1 сония деб қабул қилинган.",
+            "ru": "Исходя из требований принципов безопасности дорожного движения, среднее время реакции водителя принято равным примерно 1 секунде."
         }
     },
     {
         "task_info": {
-            "global_id": "t_44_q_18",
-            "ticket_num": 44,
-            "order": 14
+            "global_id": "t_36_q_18",
+            "global_id2": "t_36_q_18",
+            "ticket_num": 36,
+            "order": 13,
+            "remapped_from": "t_44_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yo'lning xavfli burilishlarida oldingi uzatmali avtomobilning orqa o'qi yon tomonga sirpanganda siz qanday harakat qilasiz?",
@@ -912,17 +928,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Tormozlab turib rul chambaragini sirpangan tomonga burasiz",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Gaz pedalini ohista bosib, avtomobilni rul chambaragini to'g'rilab, avtomobilni sirpanishdan olib chiqib ketasiz",
+                        "text": "Gaz pedalini ohista bosib avtomobilni rul chambaragini to'g'rilab avtomobilni sirpanishdan olib chiqib ketasiz",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Gaz pedalini ko'proq bosib rul chambaragini o'zgartirmasdan sirpanishdan olib chiqasiz",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Tormozlab turib rul chambaragini sirpangan tomonga burasiz",
                         "is_correct": false
                     }
                 ]
@@ -937,17 +953,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Тормозлаб туриб рул чамбарагини сирпанган томонга бурасиз",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Газ педалини оҳиста босиб, автомобилни рул чамбарагини тўғрилаб, автомобилни сирпанишдан олиб чиқиб кетасиз",
+                        "text": "Газ педалини оҳиста босиб автомобилни рул чамбарагини тўғрилаб автомобилни сирпанишдан олиб чиқиб кетасиз",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Газ педалини кўпроқ босиб рул чамбарагини ўзгартирмасдан сирпанишдан олиб чиқасиз",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Тормозлаб туриб рул чамбарагини сирпанган томонга бурасиз",
                         "is_correct": false
                     }
                 ]
@@ -957,47 +973,54 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Уменьшаете подачу топлива, рулевым колесом стабилизируете движение.",
+                        "text": "Значительно увеличиваете подачу топлива не меняя положения рулевого колеса",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Притормаживаете и руль поворачиваете в сторону заноса.",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Слегка увеличиваете подачу топлива, корректируя направление движения рулевым колесом.",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "Уменьшаете подачу топлива, рулевым колесом стабилизируете движение.",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Значительно увеличиваете подачу топлива не меняя положения рулевого колеса",
+                        "text": "Притормаживаете и руль поворачиваете в сторону заноса",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Oldi g'ildiraklari yetaklovchi avtomobilda burilishda tormozlaganda old g'ildiraklardan orqa g'ildiraklarning ilgarilab ketishidan orqa g'ildiraklarning yon tomonga sirpanishi hosil bo'ladi. Bu holda, rul chambaragi yordamida harakat yo'nalishini to'g'rilash va yoqilg'i uzatishni biroz oshirish (g'ildiraklarni jimlay aylantirmagan holda) maqsadga muvofiq bo'ladi.",
+            "uz_cyr": "Олди ғилдираклари етакловчи автомобилда бурилишда тормозлаганда олд ғилдираклардан орқа ғилдиракларнинг илгарилаб кетишидан орқа ғилдиракларнинг ён томонга сирпаниши ҳосил бўлади. Бу ҳолда, рул чамбараги ёрдамида ҳаракат йўналишини тўғрилаш ва ёқилғи узатишни бироз ошириш (ғилдиракларни жимлай айлантирмаган ҳолда) мақсадга мувофиқ бўлади.",
+            "ru": "При торможении передних колес в повороте у лидирующего автомобиля задние колеса смещаются вперед от передних, что приводит к скольжению задних колес. В этом случае будет уместно скорректировать направление движения с помощью руля и немного увеличить подачу топлива (не поворачивая колеса с улыбкой)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_45_q_2",
-            "ticket_num": 45,
-            "order": 15
+            "global_id": "t_38_q_10",
+            "global_id2": "t_38_q_10",
+            "ticket_num": 38,
+            "order": 14,
+            "remapped_from": "t_45_q_2"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Agar avtomobilning o'ng g'ildiraklari nam qoplamali yo'l yoqasiga chiqib qolsa, tavsiya etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Avtomobilni tormozlash va to'liq to'xtatish",
+                        "text": "Avtomobilni tormozlab, yo'lning qatnov qismiga ohista ravon burish.",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobilni tormozlab, yo'lning qatnov qismiga ohista ravon burish.",
+                        "text": "Avtomobilni tormozlash va to'liq to'xtatish",
                         "is_correct": false
                     },
                     {
@@ -1012,12 +1035,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автомобилни тормозлаш ва тўлиқ тўхтатиш",
+                        "text": "Автомобилни тормозлаб, йўлнинг қатнов қисмига оҳиста равон буриш.",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автомобилни тормозлаб, йўлнинг қатнов қисмига оҳиста равон буриш.",
+                        "text": "Автомобилни тормозлаш ва тўлиқ тўхтатиш",
                         "is_correct": false
                     },
                     {
@@ -1032,12 +1055,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Торможение и полная остановка транспортного средства",
+                        "text": "Затормозить автомобиль и плавно вывернуть на проезжую часть дороги",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Затормозить автомобиль и плавно вывернуть на проезжую часть дороги",
+                        "text": "Торможение и полная остановка транспортного средства",
                         "is_correct": false
                     },
                     {
@@ -1047,15 +1070,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakatlanishda avtomobil o'ng g'ildiraklarining yumshoq va nam yo'l yoqasida chiqishi o'ng va chap g'ildiraklar ilashish koeffisientlarining turlicha bo'lishiga va bu o'z navbatida avtomobilning sirpanib ketishiga olib keladi. Bunday vaziyatda tezlikni pasaytirmay, ya'ni tormoz tepkisini bosmay rul chambaragini asta burib qatnov qismiga yo'naltirish kerak. Ushbu holatda tormozlash ham avtomobilning sirpanishiga olib keladi.",
+            "uz_cyr": "Ҳаракатланишда автомобил ўнг ғилдиракларининг юмшоқ ва нам йўл ёқасида чиқиши ўнг ва чап ғилдираклар илашиш коэффисиэнтларининг турлича бўлишига ва бу ўз навбатида автомобилнинг сирпаниб кетишига олиб келади. Бундай вазиятда тезликни пасайтирмай, яъни тормоз тепкисини босмай рул чамбарагини аста буриб қатнов қисмига йўналтириш керак. Ушбу ҳолатда тормозлаш ҳам автомобилнинг сирпанишига олиб келади.",
+            "ru": "При движении правые колеса автомобиля выступают на мягкую и мокрую сторону дороги. В такой ситуации, не снижая скорости, то есть не нажимая на рычаг тормоза, необходимо медленно повернуть руль и направить его на дорогу. Торможение в этой ситуации также приводит к заносу автомобиля."
         }
     },
     {
         "task_info": {
-            "global_id": "t_45_q_12",
-            "ticket_num": 45,
-            "order": 16
+            "global_id": "t_44_q_7",
+            "global_id2": "t_44_q_7",
+            "ticket_num": 44,
+            "order": 15,
+            "remapped_from": "t_45_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Tik nishabliklarda dvigatel bilan tormozlashda qiyalikka nisbatan qanday uzatma tanlanadi?",
@@ -1102,118 +1132,55 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Выбор передачи не зависит от крутизны спуска",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Чем круче уклон, тем выше выбирается передача",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Чем круче уклон, тем ниже выбирается передача",
                         "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Выбор передачи не зависит от крутизны спуска",
-                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Tik nishablikda harakatlanayotganida haydovchi qancha past uzatmani tanlasa, dvigatel yordamida tormozlash shunchalik samara beradi. Shuning uchun nishablik qanchalik tik bo'lsa, uzatmani ham shunchalik past tanlash kerak.",
+            "uz_cyr": "Тик нишабликда ҳаракатланаётганида ҳайдовчи қанча паст узатмани танласа, двигател ёрдамида тормозлаш шунчалик самара беради. Шунинг учун нишаблик қанчалик тик бўлса, узатмани ҳам шунчалик паст танлаш керак.",
+            "ru": "Чем более низкую передачу выберет водитель при движении по крутому подъему, тем эффективнее будет торможение двигателем. Поэтому чем круче склон, тем ниже следует выбирать передачу."
         }
     },
     {
         "task_info": {
-            "global_id": "t_45_q_15",
-            "ticket_num": 45,
-            "order": 17
+            "global_id": "t_55_q_14",
+            "global_id2": "t_55_q_14",
+            "ticket_num": 55,
+            "order": 16,
+            "remapped_from": "t_45_q_14"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Agar avtomobilning o'ng g'ildiraklari nam qoplamali yo'l yoqasiga chiqib qolsa, tavsiya etiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Avtomobilni tormozlash va to'liq to'xtatish",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Avtomobilni tormozlab, yo'lning harakat qismiga ohista ravon burilish",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Avtomobilni tormozlamasdan yo'lning harakat qismiga ohista ravon burish",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Агар автомобилнинг ўнг ғилдираклари нам қопламали йўл ёқасига чиқиб қолса, тавсия этилади:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Автомобилни тормозлаш ва тўлиқ тўхтатиш",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Автомобилни тормозлаб, йўлнинг ҳаракат қисмига оҳиста равон бурилиш",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Автомобилни тормозламасдан йўлнинг ҳаракат қисмига оҳиста равон буриш",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "ru": {
-                "text": "В случае, когда правые колёса автомобиля наезжают на мокрую, влажную обочину, рекомендуется:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Торможение и полная остановка транспортного средства",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Торможение автомобиля и плавный поворот на проезжую часть дороги.",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Мягко и плавно поворачивайте автомобиль на проезжую часть дороги без торможения",
-                        "is_correct": true
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_47_q_5",
-            "ticket_num": 47,
-            "order": 18
-        },
-        "media_url": null,
-        "content": {
-            "uz_lat": {
-                "text": "Agar avtomobilning o'ng g'ildiraklari nam qoplamali yo'l yoqasiga chiqib qolsa, tavsiya etiladi:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Avtomobilni tormozlash va to'liq to'xtatish",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Avtomobilni tormozlab, yo'lning harakat qismiga ohista ravon burish",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Avtomobilni tormozlamasdan yo'lning harakat qismiga oxista ravon burish",
+                        "id": 2,
+                        "text": "Avtomobilni tormozlamasdan yo'lning harakat qismiga ohista ravon burish",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtomobilni tormozlash va to'liq to'xtatish",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1222,18 +1189,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автомобилни тормозлаш ва тўлиқ тўхтатиш",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Автомобилни тормозлаб, йўлнинг ҳаракат қисмига оҳиста равон буриш",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Автомобилни тормозламасдан йўлнинг ҳаракат қисмига охиста равон буриш",
+                        "id": 2,
+                        "text": "Автомобилни тормозламасдан йўлнинг ҳаракат қисмига оҳиста равон буриш",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобилни тормозлаш ва тўлиқ тўхтатиш",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1242,118 +1209,40 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Затормозить и полностью остановиться",
+                        "text": "Не прибегая к торможению, плавно направить автомобиль на проезжую часть",
                         "is_correct": false
                     },
                     {
                         "id": 2,
                         "text": "Затормозить и плавно направить автомобиль на проезжую часть",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Не прибегая к торможению, плавно направить автомобиль на проезжую часть",
-                        "is_correct": true
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_47_q_17",
-            "ticket_num": 47,
-            "order": 19
-        },
-        "media_url": null,
-        "content": {
-            "uz_lat": {
-                "text": "Yo'lning xavfli burilishlarida oldingi uzatmali avtomobilning orqa o'qi yon tomonga sirpanganda siz qanday harakat qilasiz?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Gaz berishni kamaytirib rul chambaragi bilan boshqaruvni barqarorlashtirasiz",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Tormozlab turib rul chambaragini sirpangan tomonga burasiz",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Gaz pedalini ohista bosib avtomobilni rul chambaragini to'g'rilab avtomobilni sirpanishdan olib chiqib ketasiz",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
-                        "text": "Gaz pedalini ko'proq bosib rul chambaragini o'zgartirmasdan sirpanishdan olib chiqasiz",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Йўлнинг хавфли бурилишларида олдинги узатмали автомобилнинг орқа ўқи ён томонга сирпанганда сиз қандай ҳаракат қиласиз?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Газ беришни камайтириб рул чамбараги билан бошқарувни барқарорлаштирасиз",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Тормозлаб туриб рул чамбарагини сирпанган томонга бурасиз",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Газ педалини оҳиста босиб автомобилни рул чамбарагини тўғрилаб автомобилни сирпанишдан олиб чиқиб кетасиз",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
-                        "text": "Газ педалини кўпроқ босиб рул чамбарагини ўзгартирмасдан сирпанишдан олиб чиқасиз",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "ru": {
-                "text": "На повороте возник занос оси переднеприводного автомобиля Ваши действия?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Уменьшаете подачу топлива, рулевым колесом стабилизируете движение.",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Притормаживаете и руль поворачиваете в сторону заноса",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Слегка увеличиваете подачу топлива, корректируя направление движения рулевым колесом.",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
-                        "text": "Значительно увеличиваете подачу топлива не меняя положения рулевого колеса",
+                        "text": "Затормозить и полностью остановиться",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakatlanishda avtomobil o'ng g'ildiraklarining yumshoq va nam yo'l yoqasida chiqishi o'ng va chap g'ildiraklar ilashish koeffisientlarining turlicha bo'lishiga va bu o'z navbatida avtomobilning sirpanib ketishiga olib keladi. Bunday vaziyatda tezlikni pasaytirmay, ya'ni tormoz tepkisini bosmay rul chambaragini asta burib qatnov qismiga yo'naltirish kerak. Ushbu holatda tormozlash ham avtomobilning sirpanishiga olib keladi.",
+            "uz_cyr": "Ҳаракатланишда автомобил ўнг ғилдиракларининг юмшоқ ва нам йўл ёқасида чиқиши ўнг ва чап ғилдираклар илашиш коэффисиэнтларининг турлича бўлишига ва бу ўз навбатида автомобилнинг сирпаниб кетишига олиб келади. Бундай вазиятда тезликни пасайтирмай, яъни тормоз тепкисини босмай рул чамбарагини аста буриб қатнов қисмига йўналтириш керак. Ушбу ҳолатда тормозлаш ҳам автомобилнинг сирпанишига олиб келади.",
+            "ru": "При движении правые колеса автомобиля выступают на мягкую и мокрую сторону дороги. В такой ситуации, не снижая скорости, то есть не нажимая на рычаг тормоза, необходимо медленно повернуть руль и направить его на дорогу. Торможение в этой ситуации также приводит к заносу автомобиля."
         }
     },
     {
         "task_info": {
-            "global_id": "t_47_q_18",
-            "ticket_num": 47,
-            "order": 20
+            "global_id": "t_10_q_3",
+            "global_id2": "t_10_q_3",
+            "ticket_num": 10,
+            "order": 17,
+            "remapped_from": "t_39_q_13"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Avtomobilning antiblokirovka tizimi (ABS) burilishda sirpanishva yonga siljishni oldini oladimi?",
+                "text": "Avtomobilning antiblokirovka tizimi (ABS) burilishda sirpanish va yonga siljishni oldini oladimi?",
                 "options": [
                     {
                         "id": 1,
@@ -1373,7 +1262,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Автомобилнинг антиблокировка тизими (АБС) бурилишда сирпанишва ёнга силжишни олдини оладими?",
+                "text": "Автомобилнинг антиблокировка тизими (АБС) бурилишда сирпаниш ва ёнга силжишни олдини оладими?",
                 "options": [
                     {
                         "id": 1,
@@ -1382,7 +1271,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Aвтомобилни фақат ёнга силжиш еҳтимолининг олдини олади",
+                        "text": "Автомобилни фақат ёнга силжиш эҳтимолининг олдини олади",
                         "is_correct": false
                     },
                     {
@@ -1393,42 +1282,49 @@
                 ]
             },
             "ru": {
-                "text": "АБС автомобиля предотвращает ли его скольжение и боковой занос при повороте ?",
+                "text": "Исключает ли антиблокировочная тормозная система (АБС) возможность возникновения заноса или сноса при прохождении поворота?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только предотвращает занос автомобиля.",
-                        "is_correct": false
+                        "text": "Не исключает возможность возникновения сноса или заноса",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Только предотвращает возможность скольжения автомобиля в сторону.",
+                        "text": "Полностью исключает возможность возникновения только сноса",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Не исключает боковое скольжение и скольжение автомобиля в сторону",
-                        "is_correct": true
+                        "text": "Полностью исключает возможность возникновения только заноса",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Burilish paytida, transport vositasiga markazdan qochma kuch ta'sir qiladi, tezlikni oshishi bilan bu kuch ham oshib, transport vositasini yo'l egriligining tashqi tomoniga yo'naltirishga moyildir. Burilishdan o'tayotganda transport vositasining sirpanishi yoki surilib ketishi yuqori tezlikdan, tormozlashdan yoki g'ildiraklarning ishqalanish koeffisientining kamligidan kelib chiqadi. G'ildiraklarning sirpanib tormozlashga qarshi tizimi tormozlanganda g'ildiraklarni birdaniga to'xtab, qotib qolishini oldini olish uchun xizmat qiladi, u sirpanish yoki surilib ketish ehtimolini kamaytirishi mumkin, ammo ularning paydo bo'lish ehtimolini istisno qilmaydi.",
+            "uz_cyr": "Бурилиш пайтида, транспорт воситасига марказдан қочма куч таъсир қилади, тезликни ошиши билан бу куч ҳам ошиб, транспорт воситасини йўл эгрилигининг ташқи томонига йўналтиришга мойилдир. Бурилишдан ўтаётганда транспорт воситасининг сирпаниши ёки сурилиб кетиши юқори тезликдан, тормозлашдан ёки ғилдиракларнинг ишқаланиш коэффисиэнтининг камлигидан келиб чиқади. Ғилдиракларнинг сирпаниб тормозлашга қарши тизими тормозланганда ғилдиракларни бирданига тўхтаб, қотиб қолишини олдини олиш учун хизмат қилади, у сирпаниш ёки сурилиб кетиш эҳтимолини камайтириши мумкин, аммо уларнинг пайдо бўлиш эҳтимолини истисно қилмайди.",
+            "ru": "Во время поворота на автомобиль действует центробежная сила, которая увеличивается с увеличением скорости и стремится направить автомобиль за пределы поворота. Занос или занос автомобиля при прохождении поворота вызван высокой скоростью, торможением или низким коэффициентом трения колес. Противобуксовочная система колес служит для предотвращения внезапной остановки и блокировки колес при торможении, что позволяет снизить вероятность заноса или заноса, но не исключает возможности их возникновения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_48_q_5",
-            "ticket_num": 48,
-            "order": 21
+            "global_id": "t_13_q_11",
+            "global_id2": "t_13_q_11",
+            "ticket_num": 13,
+            "order": 18,
+            "remapped_from": "t_48_q_5"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Engil avtomobil burilishda ag'darilib ketishga qarshi turg'unroq:",
+                "text": "Yengil avtomobil burilishda ag'darilib ketishga qarshi turg'unroq:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yo'lovchisiz va yuksiz",
-                        "is_correct": true
+                        "text": "Yo'lovchilari bilan yuksiz",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1437,13 +1333,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Yo'lovchilari bilan yuksiz",
+                        "text": "Yo'lovchi va yuki bilan",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Yo'lovchi va yuki bilan",
-                        "is_correct": false
+                        "text": "Yo'lovchisiz va yuksiz",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1452,8 +1348,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Йўловчисиз ва юксиз",
-                        "is_correct": true
+                        "text": "Йўловчилари билан юксиз",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1462,13 +1358,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Йўловчилари билан юксиз",
+                        "text": "Йўловчи ва юки билан",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Йўловчи ва юки билан",
-                        "is_correct": false
+                        "text": "Йўловчисиз ва юксиз",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1477,8 +1373,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Без пассажиров и груза",
-                        "is_correct": true
+                        "text": "С пассажирами, но без груза",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1487,8 +1383,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "С пассажирами, но без груза",
-                        "is_correct": false
+                        "text": "Без пассажиров и груза",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -1497,33 +1393,40 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, yo‘lning burilish qismlarida og‘irlik markazi pastroq bo‘lganligi sababli, yuksiz va yo‘lovchilarsiz yengil avtomobil ag‘darilishga qarshi turg‘unroq hisoblanadi.",
+            "uz_cyr": "Ҳаракат хавфсизлиги асослари талабларига асосан, йўлнинг бурилиш қисмларида оғирлик маркази пастроқ бўлганлиги сабабли, юксиз ва йўловчиларсиз енгил автомобил ағдарилишга қарши турғунроқ ҳисобланади.",
+            "ru": "Согласно требованиям принципов безопасности движения, автомобиль без груза и пассажиров более устойчив к опрокидыванию за счет того, что на поворотных участках дороги центр тяжести находится ниже."
         }
     },
     {
         "task_info": {
-            "global_id": "t_48_q_8",
-            "ticket_num": 48,
-            "order": 22
+            "global_id": "t_16_q_13",
+            "global_id2": "t_16_q_13",
+            "ticket_num": 16,
+            "order": 19,
+            "remapped_from": "t_48_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofani bosib o'tadi?",
+                "text": "108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofai bosib o'tadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "15 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "25 m",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "30 m",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "15 m",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1532,18 +1435,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "15 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "25 м",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "30 м",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "15 м",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1552,53 +1455,60 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "15 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "25 м",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "30 м",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "15 м",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, 108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda 30 m masofai bosib o‘tadi.",
+            "uz_cyr": "Ҳаракат хавфсизлиги асослари талабларига асосан, 108 км/с тезликда ҳаракатланаётган транспорт воситаси 1 секундда 30 м масофани босиб ўтади.",
+            "ru": "Согласно требованиям принципов безопасности дорожного движения, транспортное средство, движущееся со скоростью 108 км/ч, преодолевает расстояние 30 м за 1 секунду."
         }
     },
     {
         "task_info": {
-            "global_id": "t_48_q_16",
-            "ticket_num": 48,
-            "order": 23
+            "global_id": "t_24_q_10",
+            "global_id2": "t_24_q_10",
+            "ticket_num": 24,
+            "order": 20,
+            "remapped_from": "t_48_q_16"
         },
-        "media_url": "v465uz.webp",
+        "media_url": "u263uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Balandlikda yo'l chetida to'siq mavjud bo'lganda to'xtagan avtomobilni joyidan g'ildirab ketishini oldini olish uchun oldingi g'ildiraklarni burib qo'yish usuli qaysi javobda to'g'ri ko'rsatilgan:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "A va D",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "B va C",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "B va D",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "A va C",
-                        "is_correct": true
+                        "text": "A va D",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "B va D",
-                        "is_correct": false
+                        "text": "A va C",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1607,23 +1517,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А ва D",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "B ва C",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "B ва D",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "А ва C",
-                        "is_correct": true
+                        "text": "А ва D",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "B ва D",
-                        "is_correct": false
+                        "text": "А ва C",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1632,38 +1542,45 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "A и D",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "B и C",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "B и D",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "A и C",
-                        "is_correct": true
+                        "text": "A и D",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "B и D",
-                        "is_correct": false
+                        "text": "A и C",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "G'ildiraklarni shunday burib qo'yish kerakki, bunda avtomobillar tasodifan yurib ketganda qatnov qismiga chiqib ketmasdan trotuar bordyuriga qadalib qolsin. Belgiga ko'ra pastdan yuqoriga qarab yo'lning ko'tarilishi ko'rsatilgan. A avtomobilining oldingi g'ildiraklari bordyurga qadaladi. C avtomobili ham oldingi g'ildiraklari bilan bordyurga qadalib, yurib keta olmaydi. B avtomobili to'g'ridan-to'g'ri qatnov qismiga chiqib ketadi. Orqa g'ildiraklari bordyurga qadalgungacha D avtomobili ham yo'lga chiqib ketadi, natijada avtomobil yo'lga ko'ndalang bo'lib qolib, harakatlanish bo'lagining bir qismini yopib qo'yadi. Old g'ildiraklarni A va C avtomobillarining haydovchilari to'g'ri burib qo'yganlar.",
+            "uz_cyr": "Ғилдиракларни шундай буриб қўйиш керакки, бунда автомобиллар тасодифан юриб кетганда қатнов қисмига чиқиб кетмасдан тротуар бордюрига қадалиб қолсин. Белгига кўра пастдан юқорига қараб йўлнинг кўтарилиши кўрсатилган. А автомобилининг олдинги ғилдираклари бордюрга қадалади. С автомобили ҳам олдинги ғилдираклари билан бордюрга қадалиб, юриб кета олмайди. Б автомобили тўғридан-тўғри қатнов қисмига чиқиб кетади. Орқа ғилдираклари бордюрга қадалгунгача Д автомобили ҳам йўлга чиқиб кетади, натижада автомобил йўлга кўндаланг бўлиб қолиб, ҳаракатланиш бўлагининг бир қисмини ёпиб қўяди. Олд ғилдиракларни А ва С автомобилларининг ҳайдовчилари тўғри буриб қўйганлар.",
+            "ru": "Колеса должны быть повернуты таким образом, чтобы при случайном движении автомобили застревали на бордюре, не выходя на проезжую часть. Судя по указателю, дорога поднимается снизу вверх. Передние колеса автомобиля А застряли в бордюре. Автомобиль C также не может двигаться, застряв передними колесами на бордюре. Автомобиль Б выезжает прямо на проезжую часть. Автомобиль D также съезжает с дороги до того, как его задние колеса врезаются в бордюр, в результате чего автомобиль перебегает дорогу и блокирует часть полосы движения. Передние колеса были правильно повернуты водителями автомобилей А и С."
         }
     },
     {
         "task_info": {
-            "global_id": "t_48_q_18",
-            "ticket_num": 48,
-            "order": 24
+            "global_id": "t_46_q_16",
+            "global_id2": "t_46_q_16",
+            "ticket_num": 46,
+            "order": 21,
+            "remapped_from": "t_48_q_18"
         },
-        "media_url": "v467uz.webp",
+        "media_url": "u534uz.webp",
         "content": {
             "uz_lat": {
-                "text": "O'ng tomondagi yondosh hududdan foydalanib qayrilib olishning ko'rsatilgan qaysi usuli harakat xavfsizligini taminlaydi",
+                "text": "O'ng tomondagi yondosh hududdan foydalanib qayrilib olishning ko'rsatilgan qaysi usuli harakat xavfsizligini ta'minlaydi?",
                 "options": [
                     {
                         "id": 1,
@@ -1707,13 +1624,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только на левом рисунке",
-                        "is_correct": true
+                        "text": "Только на правом рисунке",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только на правом рисунке",
-                        "is_correct": false
+                        "text": "Только на левом рисунке",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1722,18 +1639,25 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Tor yo'llarda o'ng tomondagi yondosh xududdan foydalanib qayrilib olishning xavfsiz usuli chapdagi suratda aks ettirilgan. Bunda haydovchi nafaqat o'z harakatlanish trayektoriyasini, balki o'zi chiqayotgan bo'lakdagi vaziyatni ham to'liq nazorat qilish imkoniyatiga ega bo'ladi.",
+            "uz_cyr": "Тор йўлларда ўнг томондаги ёндош худуддан фойдаланиб қайрилиб олишнинг хавфсиз усули чапдаги суратда акс эттирилган. Бунда ҳайдовчи нафақат ўз ҳаракатланиш траекториясини, балки ўзи чиқаётган бўлакдаги вазиятни ҳам тўлиқ назорат қилиш имкониятига эга бўлади.",
+            "ru": "Безопасный способ поворота на узких дорогах по правой полосе показан на изображении слева. В этом случае у водителя появится возможность полностью контролировать не только траекторию своего движения, но и ситуацию в полосе, с которой он выезжает."
         }
     },
     {
         "task_info": {
-            "global_id": "t_49_q_9",
-            "ticket_num": 49,
-            "order": 25
+            "global_id": "t_6_q_1",
+            "global_id2": "t_6_q_1",
+            "ticket_num": 6,
+            "order": 22,
+            "remapped_from": "t_49_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Siz to'g'ri yo'lda harakatlanayotib to'satdan yo'lning qisman katta bo'lmagan sirpanchiq qismiga duch keldingiz. Bunda qanday ehtiyot choralarini ko'rasiz?",
+                "text": "Siz to'g'ri yo'lda harakatlanayotib to'satdan yo'lning qisman kichik sirpanchiq qismiga duch keldingiz. Bunda qanday ehtiyot choralarini ko'rasiz?",
                 "options": [
                     {
                         "id": 1,
@@ -1742,18 +1666,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Rulni  burib sirpanchiqdan chiqib ketish ",
+                        "text": "Rulni burib sirpanchiqdan chiqib ketish",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Harakat yo'nalishini va tezlikni o'zgartirmasdan ehtiyotkorlik bilan o'tib ketish  ",
+                        "text": "Harakat yo'nalishini va tezlikni o'zgartirmasdan ehtiyotkorlik bilan o'tib ketish",
                         "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Сиз тўғри йўлда ҳаракатланаётиб тўсатдан йўлнинг қисман катта бўлмаган сирпанчиқ қисмига дуч келдингиз. Бунда қандай эҳтиёт чораларини кўрасиз?",
+                "text": "Сиз тўғри йўлда ҳаракатланаётиб тўсатдан йўлнинг қисман кичик сирпанчиқ қисмига дуч келдингиз. Бунда қандай эҳтиёт чораларини кўрасиз?",
                 "options": [
                     {
                         "id": 1,
@@ -1762,12 +1686,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Рулни  буриб сирпанчиқдан чиқиб кетиш ",
+                        "text": "Рулни буриб сирпанчиқдан чиқиб кетиш",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ҳаракат йўналишини ва тезликни ўзгартирмасдан эҳтиёткорлик билан ўтиб кетиш  ",
+                        "text": "Ҳаракат йўналишини ва тезликни ўзгартирмасдан эҳтиёткорлик билан ўтиб кетиш",
                         "is_correct": true
                     }
                 ]
@@ -1792,23 +1716,30 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo'lning unchalik katta bo'lmagan sirpanchiq qismidan, avtomobilning sirpanib ketishini oldini olish uchun harakatlanish yo'nalishi va tezlikni o'zgartirmasdan o'tib ketish maqsadga muvofiqdir.",
+            "uz_cyr": "Йўлнинг унчалик катта бўлмаган сирпанчиқ қисмидан, автомобилнинг сирпаниб кетишини олдини олиш учун ҳаракатланиш йўналиши ва тезликни ўзгартирмасдан ўтиб кетиш мақсадга мувофиқдир.",
+            "ru": "Небольшой скользкий участок дороги желательно пройти, не меняя направления движения и скорости, чтобы не допустить заноса автомобиля."
         }
     },
     {
         "task_info": {
-            "global_id": "t_50_q_20",
-            "ticket_num": 50,
-            "order": 26
+            "global_id": "t_14_q_13",
+            "global_id2": "t_14_q_13",
+            "ticket_num": 14,
+            "order": 23,
+            "remapped_from": "t_50_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Engil avtomobilning tormoz yo'li tormoz tizimiga ega bo'lmagan tirkama bilan harakatlanayotganda qanday o'zgaradi?",
+                "text": "Yengil avtomobilning tormoz yo'li tormoz tizimiga ega bo'lmagan tirkama bilan harakatlanayotganda qanday o'zgaradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Kamayadi, chunki tirkama harakatlanishga qo'shimcha qarshilik ko'rsatadi",
-                        "is_correct": false
+                        "text": "Ortadi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1817,8 +1748,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ortadi",
-                        "is_correct": true
+                        "text": "Kamayadi, chunki tirkama harakatlanishga qo'shimcha qarshilik ko'rsatadi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1827,8 +1758,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Камаяди, чунки тиркама ҳаракатланишга қўшимча қаршилик кўрсатади",
-                        "is_correct": false
+                        "text": "Ортади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1837,8 +1768,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ортади",
-                        "is_correct": true
+                        "text": "Камаяди, чунки тиркама ҳаракатланишга қўшимча қаршилик кўрсатади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1847,8 +1778,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Уменьшается, так как прицеп оказывает дополнительное сопротивление движению",
-                        "is_correct": false
+                        "text": "Увеличивается",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1857,11 +1788,16 @@
                     },
                     {
                         "id": 3,
-                        "text": "Увеличивается",
-                        "is_correct": true
+                        "text": "Уменьшается, так как прицеп оказывает дополнительное сопротивление движению",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Avtomobilni tirkama bilan haydash ma‘lum bir ko‘nikma talab qiladi. Tormoz yo‘li ortadi.",
+            "uz_cyr": "Автомобилни тиркама билан ҳайдаш маълум бир кўникма талаб қилади. Тормоз йўли ортади.",
+            "ru": "Вождение автомобиля с прицепом требует определенного навыка. Тормозной путь увеличивается."
         }
     }
 ]

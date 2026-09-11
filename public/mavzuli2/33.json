@@ -1,28 +1,30 @@
 [
     {
         "task_info": {
-            "global_id": "t_8_q_5",
-            "ticket_num": 8,
-            "order": 1
+            "global_id": "t_59_q_5",
+            "global_id2": "t_59_q_5",
+            "ticket_num": 59,
+            "order": 1,
+            "remapped_from": "t_8_q_5"
         },
-        "media_url": "v689uz.webp",
+        "media_url": "u674uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Transport vositalari chorrahadan qanday tartibda o'tadilar?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Qizil; yashil; ko'k sariq bilan bir vaqtda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Qizil; ko'k sariq bilan bir vaqtda; yashil",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Sariq yashil bilan bir vaqtda; qizil; ko'k",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Qizil; yashil; ko'k sariq bilan bir vaqtda",
+                        "text": "Sariq yashil bilan bir vaqtda; qizil; ko'k",
                         "is_correct": false
                     }
                 ]
@@ -32,50 +34,57 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Қизил; яшил; кўк сариқ билан бир вақтда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Қизил; кўк сариқ билан бир вақтда; яшил",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Сариқ яшил билан бир вақтда; қизил; кўк",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Қизил; яшил; кўк сариқ билан бир вақтда",
+                        "text": "Сариқ яшил билан бир вақтда; қизил; кўк",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "В каком порядке проедут перекресток транспортные средства?",
+                "text": "В каком порядке проедут перекрёсток транспортные средства?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный; синий одновременно с желтым; зеленый",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Желтый одновременно с зеленым; красный; синий",
+                        "text": "Красный; зелёный; синий одновременно с жёлтым",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Красный; синий одновременно с жёлтым; зелёный",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Красный; зеленый; синий одновременно с желтым",
+                        "text": "Жёлтый одновременно с зелёным; красный; синий",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_8_q_15",
-            "ticket_num": 8,
-            "order": 2
+            "global_id": "t_12_q_18",
+            "global_id2": "t_12_q_18",
+            "ticket_num": 12,
+            "order": 2,
+            "remapped_from": "t_8_q_15"
         },
-        "media_url": "v684uz.webp",
+        "media_url": "u134uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahadan ikkinchi bo'lib o'tadi:",
@@ -118,12 +127,12 @@
                 ]
             },
             "ru": {
-                "text": "Вторым проедет перекресток:",
+                "text": "Вторым проедет перекрёсток:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый автомобиль одновременно с желтым",
-                        "is_correct": false
+                        "text": "Синий автомобиль одновременно с желтым",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -132,37 +141,44 @@
                     },
                     {
                         "id": 3,
-                        "text": "Синий автомобиль одновременно с желтым",
-                        "is_correct": true
+                        "text": "Зеленый автомобиль одновременно с желтым",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_5",
-            "ticket_num": 9,
-            "order": 3
+            "global_id": "t_43_q_14",
+            "global_id2": "t_43_q_14",
+            "ticket_num": 43,
+            "order": 3,
+            "remapped_from": "t_9_q_5"
         },
-        "media_url": "v699uz.webp",
+        "media_url": "u498uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahadan ikkinchi bo'lib qaysi avtomobil o'tadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Oq avtomobil sariq bilan bir vaqtda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Qizil avtomobil",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Yashil avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Oq avtomobil sariq bilan bir vaqtda",
                         "is_correct": false
                     }
                 ]
@@ -172,27 +188,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Оқ автомобил сариқ билан бир вақтда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Қизил автомобил",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Яшил автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оқ автомобил сариқ билан бир вақтда",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Вторым проедет перекресток:",
+                "text": "Вторым проедет перекрёсток:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Белый автомобиль одновременно с желтым",
+                        "text": "Зеленый автомобиль",
                         "is_correct": false
                     },
                     {
@@ -202,28 +218,35 @@
                     },
                     {
                         "id": 3,
-                        "text": "Зеленый автомобиль",
+                        "text": "Белый автомобиль одновременно с желтым",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_15",
-            "ticket_num": 9,
-            "order": 4
+            "global_id": "t_21_q_6",
+            "global_id2": "t_21_q_6",
+            "ticket_num": 21,
+            "order": 4,
+            "remapped_from": "t_9_q_15"
         },
-        "media_url": "v694uz.webp",
+        "media_url": "u231uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahadan oxirgi bo'lib qaysi avtomobil o'tadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko'k avtomobil",
-                        "is_correct": false
+                        "text": "Yashil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -232,8 +255,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Yashil avtomobil",
-                        "is_correct": true
+                        "text": "Ko'k avtomobil",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -247,8 +270,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кўк автомобил",
-                        "is_correct": false
+                        "text": "Яшил автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -257,8 +280,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Яшил автомобил",
-                        "is_correct": true
+                        "text": "Кўк автомобил",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -268,7 +291,7 @@
                 ]
             },
             "ru": {
-                "text": "Последним проедет перекресток:",
+                "text": "Последним проедет перекрёсток:",
                 "options": [
                     {
                         "id": 1,
@@ -277,42 +300,49 @@
                     },
                     {
                         "id": 2,
-                        "text": "Желтый автомобиль",
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Зеленый автомобиль",
-                        "is_correct": true
+                        "text": "Желтый автомобиль",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Красный автомобиль",
-                        "is_correct": false
+                        "text": "Зеленый автомобиль",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_10_q_5",
-            "ticket_num": 10,
-            "order": 5
+            "global_id": "t_41_q_15",
+            "global_id2": "t_41_q_15",
+            "ticket_num": 41,
+            "order": 5,
+            "remapped_from": "t_10_q_5"
         },
-        "media_url": "v21uz.webp",
+        "media_url": "u471uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahadan birinchi bo'lib o'tadi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil",
+                        "text": "Sariq avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k avtomobil",
+                        "text": "Yashil avtomobil",
                         "is_correct": false
                     },
                     {
@@ -322,7 +352,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Sariq avtomobil",
+                        "text": "Ko'k avtomobil",
                         "is_correct": false
                     }
                 ]
@@ -332,12 +362,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил",
+                        "text": "Сариқ автомобил",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Кўк автомобил",
+                        "text": "Яшил автомобил",
                         "is_correct": false
                     },
                     {
@@ -347,57 +377,64 @@
                     },
                     {
                         "id": 4,
-                        "text": "Сариқ автомобил",
+                        "text": "Кўк автомобил",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Первым проедет перекресток:",
+                "text": "Первым проедет перекрёсток:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый автомобиль",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Синий автомобиль",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Желтый автомобиль",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Красный автомобиль",
-                        "is_correct": true
+                        "text": "Зеленый автомобиль",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Желтый автомобиль",
-                        "is_correct": false
+                        "text": "Красный автомобиль",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_15_q_14",
-            "ticket_num": 15,
-            "order": 6
+            "global_id": "t_34_q_14",
+            "global_id2": "t_34_q_14",
+            "ticket_num": 34,
+            "order": 6,
+            "remapped_from": "t_15_q_12"
         },
-        "media_url": "v71uz.webp",
+        "media_url": "u393uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahani uchinchi bo'lib kesib o'tadi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko'k avtomobil",
+                        "text": "Sariq avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Sariq avtomobil",
+                        "text": "Ko'k avtomobil",
                         "is_correct": false
                     },
                     {
@@ -412,12 +449,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кўк автомобил",
+                        "text": "Сариқ автомобил",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Сариқ автомобил",
+                        "text": "Кўк автомобил",
                         "is_correct": false
                     },
                     {
@@ -428,7 +465,7 @@
                 ]
             },
             "ru": {
-                "text": "Третьим проедет перекресток:",
+                "text": "Третьим проедет перекрёсток:",
                 "options": [
                     {
                         "id": 1,
@@ -447,37 +484,44 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_19_q_14",
-            "ticket_num": 19,
-            "order": 7
+            "global_id": "t_57_q_17",
+            "global_id2": "t_57_q_17",
+            "ticket_num": 57,
+            "order": 7,
+            "remapped_from": "t_35_q_5"
         },
-        "media_url": "v117uz.webp",
+        "media_url": "u661uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Transport vositalari chorrahani quyidagi tartibda kesib o'tadilar:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Engil avtomobil, avtobus, velosiped",
+                        "text": "Avtobus, velosiped, yengil avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtobus, velosiped, engil avtomobil",
+                        "text": "yengil avtomobil, avtobus, velosiped",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Avtobus, engil avtomobil, velosiped",
+                        "text": "Avtobus, yengil avtomobil, velosiped",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Velosiped, avtobus, engil avtomobil",
+                        "text": "Velosiped, avtobus, yengil avtomobil",
                         "is_correct": true
                     }
                 ]
@@ -487,12 +531,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Енгил автомобил, автобус, велосипед",
+                        "text": "Автобус, велосипед, енгил автомобил",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобус, велосипед, енгил автомобил",
+                        "text": "Енгил автомобил, автобус, велосипед",
                         "is_correct": false
                     },
                     {
@@ -508,16 +552,16 @@
                 ]
             },
             "ru": {
-                "text": "Транспортные средства проедут перекресток в следующем порядке:",
+                "text": "Транспортные средства проедут перекрёсток в следующем порядке:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Легковой автомобиль, автобус, велосипед",
+                        "text": "Автобус, велосипед, легковой автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобус, велосипед, легковой автомобиль",
+                        "text": "Легковой автомобиль, автобус, велосипед",
                         "is_correct": false
                     },
                     {
@@ -532,33 +576,40 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 106-,105 - va 104 - bandlariga asosan, asosiy yo'lning yo'nalishi chorrahada o'zgarganda, asosiy yo'lda harakatlanayotgan haydovchilar o'zaro teng ahamiyatli yo'llar chorrahasidan o'tish qoidasiga amal qilishlari kerak. Teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan yaqinlashayotgan transport vositalariga yo'l berishi shart. Teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada tramvay harakatlanish yo'nalishidan qat'i nazar, teng ahamiyatli yo'lda bir yo'nalishda yoki qarama-qarshi yo'nalishda harakatlanayotgan relssiz transport vositalariga nisbatan imtiyozga ega.",
+            "uz_cyr": "YHQ 16-боби 106-,105 - ва 104 - бандларига асосан, асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак. Тенг аҳамиятга эга бўлган йўллар кесишган чорраҳада релссиз транспорт воситасининг ҳайдовчиси ўнгдан яқинлашаётган транспорт воситаларига йўл бериши шарт. Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада трамвай ҳаракатланиш йўналишидан қати назар, тенг аҳамиятли йўлда бир йўналишда ёки қарама-қарши йўналишда ҳаракатланаётган релссиз транспорт воситаларига нисбатан имтиёзга эга.",
+            "ru": "Согласно пунктам 106, 105 и 104 главы 16 ПДД, если направление главной дороги на перекрёстке изменяется, водители, движущиеся по главной дороге, должны руководствоваться правилами проезда перекрёстков равнозначных дорог. На перекрёстке равнозначных дорог водитель безрельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. На перекрёстке неравнозначных дорог трамвай имеет преимущество перед безрельсовыми транспортными средствами, движущимися в попутном или встречном направлении по равнозначной дороге, независимо от направления своего движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_21_q_4",
-            "ticket_num": 21,
-            "order": 8
+            "global_id": "t_35_q_6",
+            "global_id2": "t_35_q_6",
+            "ticket_num": 35,
+            "order": 8,
+            "remapped_from": "t_27_q_4"
         },
-        "media_url": "v160uz.webp",
+        "media_url": "u399uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Transport vositalari chorrahani quyidagi tartibda kesib o'tadilar:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tramvay, avtomobil va avtobus bir vaqtda",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Tramvay, avtobus, avtomobil",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Avtobus, tramvay, avtomobil",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tramvay, avtomobil va avtobus bir vaqtda",
+                        "is_correct": true
                     }
                 ]
             },
@@ -567,50 +618,57 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай, автомобил ва автобус бир вақтда",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Трамвай, автобус, автомобил",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Автобус, трамвай, автомобил",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвай, автомобил ва автобус бир вақтда",
+                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Транспортные средства проедут перекресток в следующем порядке:",
+                "text": "Транспортные средства проедут перекрёсток в следующем порядке:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай, автомобиль и автобус одновременно",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Трамвай, автобус, автомобиль",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Автобус, трамвай, автомобиль",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвай, автомобиль и автобус одновременно",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. Bunday chorrahalarda tramvay harakatlanish yo'nalishidan qat'i nazar, teng ahamiyatli yo'lda bir yo'nalishda yoki qarama-qarshi yo'nalishda harakatlanayotgan relssiz transport vositalariga nisbatan imtiyozga ega.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. Бундай чорраҳаларда трамвай ҳаракатланиш йўналишидан қати назар, тенг аҳамиятли йўлда бир йўналишда ёки қарама-қарши йўналишда ҳаракатланаётган релссиз транспорт воситаларига нисбатан имтиёзга эга.",
+            "ru": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. На таких перекрестках, независимо от направления движения, трамвай имеет приоритет перед нерельсовыми транспортными средствами, движущимися в том же или встречном направлении по дороге равного значения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_17",
-            "ticket_num": 22,
-            "order": 9
+            "global_id": "t_29_q_18",
+            "global_id2": "t_29_q_18",
+            "ticket_num": 29,
+            "order": 9,
+            "remapped_from": "t_22_q_17"
         },
-        "media_url": "v168uz.webp",
+        "media_url": "u334uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahani kesib o'tish navbatini ko'rsating:",
@@ -653,7 +711,7 @@
                 ]
             },
             "ru": {
-                "text": "Укажите очередность проезда перекрестка:",
+                "text": "Укажите очередность проезда перекрёстка:",
                 "options": [
                     {
                         "id": 1,
@@ -672,28 +730,35 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104 bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak.",
+            "uz_cyr": "YHQ 16-боби 104 бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак.",
+            "ru": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_27_q_4",
-            "ticket_num": 27,
-            "order": 10
+            "global_id": "t_60_q_4",
+            "global_id2": "t_60_q_4",
+            "ticket_num": 60,
+            "order": 10,
+            "remapped_from": "t_64_q_15"
         },
-        "media_url": "v235uz.webp",
+        "media_url": "u679uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Transport vositalari chorrahani quyidagi tartibda kesib o'tadilar:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil ayni vaqtda 2-tramvay bilan; 1-tramvay, ko'k, sariq, qizil avtomobillar",
-                        "is_correct": false
+                        "text": "1- va 2-tramvaylar ayni vaqtda sariq avtomobil bilan, yashil, ko'k, qizil avtomobillar",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "1- va 2-tramvaylar ayni vaqtda sariq avtomobil bilan, yashil, ko'k, qizil avtomobillar",
-                        "is_correct": true
+                        "text": "Yashil avtomobil ayni vaqtda 2-tramvay bilan; 1-tramvay, ko'k, sariq, qizil avtomobillar",
+                        "is_correct": false
                     }
                 ]
             },
@@ -702,18 +767,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил айни вақтда 2-трамвай билан; 1-трамвай, кўк, сариқ, қизил автомобиллар",
-                        "is_correct": false
+                        "text": "1- ва 2-трамвайлар айни вақтда сариқ автомобил билан, яшил, кўк, қизил автомобиллар",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "1- ва 2-трамвайлар айни вақтда сариқ автомобил билан, яшил, кўк, қизил автомобиллар",
-                        "is_correct": true
+                        "text": "Яшил автомобил айни вақтда 2-трамвай билан; 1-трамвай, кўк, сариқ, қизил автомобиллар",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Транспортные средства проедут перекресток в следующем порядке:",
+                "text": "Транспортные средства проедут перекрёсток в следующем порядке:",
                 "options": [
                     {
                         "id": 1,
@@ -727,15 +792,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104, 107-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. Bunday chorrahalarda tramvay harakatlanish yo'nalishidan qat'i nazar, teng ahamiyatli yo'lda bir yo'nalishda yoki qarama-qarshi yo'nalishda harakatlanayotgan relssiz transport vositalariga nisbatan imtiyozga ega. Chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart. Bu qoidaga tramvay haydovchilari ham o'zaro amal qilishlari kerak.",
+            "uz_cyr": "YHQ 16-боби 104, 107-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. Бундай чорраҳаларда трамвай ҳаракатланиш йўналишидан қати назар, тенг аҳамиятли йўлда бир йўналишда ёки қарама-қарши йўналишда ҳаракатланаётган релссиз транспорт воситаларига нисбатан имтиёзга эга. Чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак.",
+            "ru": "Согласно статьям 104, 107 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, обязан уступить дорогу транспортным средствам, приближающимся с основной дороги, независимо от дальнейшего направления их движения. На таких перекрестках, независимо от направления движения, трамвай имеет приоритет перед нерельсовыми транспортными средствами, движущимися в том же или встречном направлении по дороге равного значения. При повороте налево или совершении поворота водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с противоположного направления на дороге равной важности. Этого правила должны придерживаться и водители трамваев."
         }
     },
     {
         "task_info": {
-            "global_id": "t_28_q_6",
-            "ticket_num": 28,
-            "order": 11
+            "global_id": "t_24_q_9",
+            "global_id2": "t_24_q_9",
+            "ticket_num": 24,
+            "order": 11,
+            "remapped_from": "t_28_q_6"
         },
-        "media_url": "v249uz.webp",
+        "media_url": "u262uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahani oxirgi kesib o'tadi:",
@@ -778,16 +850,16 @@
                 ]
             },
             "ru": {
-                "text": "Последним проедет перекресток:",
+                "text": "Последним проедет перекрёсток:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
+                        "text": "Синий автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Синий автомобиль",
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     },
                     {
@@ -797,15 +869,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_30_q_11",
-            "ticket_num": 30,
-            "order": 12
+            "global_id": "t_53_q_11",
+            "global_id2": "t_53_q_11",
+            "ticket_num": 53,
+            "order": 12,
+            "remapped_from": "t_30_q_11"
         },
-        "media_url": "v273uz.webp",
+        "media_url": "u611uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qora avtomobil chorrahani nechanchi bo'lib kesib o'tadi?",
@@ -813,16 +892,16 @@
                     {
                         "id": 1,
                         "text": "Birinchi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Ikkinchi",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Oxirgi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ikkinchi",
                         "is_correct": false
                     }
                 ]
@@ -833,49 +912,56 @@
                     {
                         "id": 1,
                         "text": "Биринчи",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Иккинчи",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Охирги",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Иккинчи",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Черный автомобиль проедет перекресток:",
+                "text": "Черный автомобиль проедет перекрёсток:",
                 "options": [
                     {
                         "id": 1,
                         "text": "Первым",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Вторым",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Последним",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Вторым",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 43-bandiga asosan, svetofor ishoralari imtiyoz belgilari talablariga zid bo'lgan hollarda haydovchilar svetofor ishoralariga amal qilishlari kerak. YHQ 15-bobi 99-bandiga asosan, svetoforning ruxsat etuvchi ishorasida chapga burilayotgan yoki qayrilib olayotgan relssiz transport vositasining haydovchisi qarama-qarshi tomondan to'g'riga harakatlanayotgan va o'ngga burilayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 7-боби 43-бандига асосан, светофор ишоралари имтиёз белгилари талабларига зид бўлган ҳолларда ҳайдовчилар светофор ишораларига амал қилишлари керак. YHQ 15-боби 99-бандига асосан, светофорнинг рухсат этувчи ишорасида чапга бурилаётган ёки қайрилиб олаётган релссиз транспорт воситасининг ҳайдовчиси қарама-қарши томондан тўғрига ҳаракатланаётган ва ўнгга бурилаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Согласно статье 43 главы 7 ПДД водители обязаны подчиняться знакам светофора в случаях, когда знаки светофора противоречат требованиям знаков полосы движения. В соответствии с главой 15 статьи 99 ПДД водитель нерельсового транспортного средства, совершающего поворот налево или поворот по разрешающему сигналу светофора, обязан уступить дорогу транспортным средствам, движущимся прямо и поворачивающим направо с противоположной стороны."
         }
     },
     {
         "task_info": {
-            "global_id": "t_31_q_14",
-            "ticket_num": 31,
-            "order": 13
+            "global_id": "t_35_q_20",
+            "global_id2": "t_35_q_20",
+            "ticket_num": 35,
+            "order": 13,
+            "remapped_from": "t_16_q_14"
         },
-        "media_url": "v285uz.webp",
+        "media_url": "u406uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Avtomobillar chorrahani quyidagi tartibda kesib o'tadi:",
@@ -918,61 +1004,68 @@
                 ]
             },
             "ru": {
-                "text": "Автомобили проедут перекресток в следующем порядке:",
+                "text": "Автомобили проедут перекрёсток в следующем порядке:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Синий, зеленый, красный",
+                        "text": "Синий, зелёный, красный",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Красный, синий, зеленый",
+                        "text": "Красный, синий, зелёный",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Зеленый; красный; синий",
+                        "text": "Зелёный, красный, синий",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Согласно пункту 104 главы 16 ПДД, на перекрёстке неравнозначных дорог водитель транспортного средства, движущегося по второстепенной дороге, должен уступить дорогу транспортным средствам, приближающимся по главной дороге, независимо от направления их дальнейшего движения. Согласно пункту 107 главы 16 ПДД, при повороте налево или развороте водитель безрельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся по равнозначной дороге со встречного направления прямо или направо."
         }
     },
     {
         "task_info": {
-            "global_id": "t_33_q_1",
-            "ticket_num": 33,
-            "order": 14
+            "global_id": "t_56_q_8",
+            "global_id2": "t_56_q_8",
+            "ticket_num": 56,
+            "order": 14,
+            "remapped_from": "t_64_q_2"
         },
-        "media_url": "v301uz.webp",
+        "media_url": "u646uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ko'k avtomobil chorrahani nechanchi bo'lib kesib o'tadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi bo'lib",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ikkinchi bo'lib",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Uchinchi bo'lib",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "To'rtinchi bo'lib",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "Oxirgi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Birinchi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Uchinchi bo'lib",
                         "is_correct": false
                     }
                 ]
@@ -982,78 +1075,85 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Биринчи бўлиб",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Иккинчи бўлиб",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Учинчи бўлиб",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "Тўртинчи бўлиб",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "Охирги бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Биринчи бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Учинчи бўлиб",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Синий автомобиль проедет перекресток:",
+                "text": "Синий автомобиль проедет перекрёсток:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Первым",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Вторым",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Третьим",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "Четвертым",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "Последним",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Первым",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Третьим",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 106, 106-bandlariga asosan, teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada, keyingi harakat yo‘nalishidan qat'i nazar, asosiy yo‘ldan kelayotgan transport vositasiga ikkinchi darajali yo‘ldan kelayotgan transport vositasining haydovchisi yo‘l berishi kerak. Asosiy yo‘lning yo‘nalishi chorrahada o‘zgarganda, asosiy yo‘lda harakatlanayotgan haydovchilar o‘zaro teng ahamiyatli yo‘llar chorrahasidan o‘tish qoidasiga amal qilishlari kerak. YHQ 16-bobi 107-bandiga muvofiq, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo‘ldan qarama-qarshi yo‘nalishdan to‘g‘riga yoki o‘ngga harakatlanayotgan, shuningdek, ruxsat etilgan hollarda quvib o‘tayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak.",
+            "uz_cyr": "YHQ 16-боби 106, 106-бандларига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада, кейинги ҳаракат йўналишидан қати назар, асосий йўлдан келаётган транспорт воситасига иккинчи даражали йўлдан келаётган транспорт воситасининг ҳайдовчиси йўл бериши керак. Асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак. YHQ 16-боби 107-бандига мувофиқ, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган, шунингдек, рухсат этилган ҳолларда қувиб ўтаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак.",
+            "ru": "В соответствии со статьями 106 и 106 главы 16 ПДД водитель транспортного средства, едущего со второстепенной дороги, обязан уступить дорогу транспортному средству, едущему с главной дороги, независимо от направления следующего движения, на пересечении дорог неравнозначного значения. При изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, должны соблюдать правило проезда через пересечение дорог равной важности. В соответствии со статьей 107 главы 16 ПДД при повороте налево или повороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся в противоположном от дороги равного значения направлении, вправо или вправо, а также обгоняющим транспортные средства в разрешенных случаях. Водители трамваев также должны соблюдать это правило."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35_q_4",
-            "ticket_num": 35,
-            "order": 15
+            "global_id": "t_51_q_15",
+            "global_id2": "t_51_q_15",
+            "ticket_num": 51,
+            "order": 15,
+            "remapped_from": "t_35_q_4"
         },
-        "media_url": "v331uz.webp",
+        "media_url": "u584uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahani ikkinchi bo'lib kesib o'tadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil",
-                        "is_correct": false
+                        "text": "Ko'k avtomobil ayni vaqtda sariq bilan birga",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1062,8 +1162,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ko'k avtomobil ayni vaqtda sariq bilan birga",
-                        "is_correct": true
+                        "text": "Yashil avtomobil",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1072,8 +1172,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил",
-                        "is_correct": false
+                        "text": "Кўк автомобил айни вақтда сариқ билан бирга",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1082,77 +1182,84 @@
                     },
                     {
                         "id": 3,
-                        "text": "Кўк автомобил айни вақтда сариқ билан бирга",
-                        "is_correct": true
+                        "text": "Яшил автомобил",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Пересекает перекресток вторым?",
+                "text": "Пересекает перекрёсток вторым?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Синий автомобиль одновременно с желтым",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Зеленый автомобиль",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Красный автомобиль",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Синий автомобиль одновременно с желтым",
-                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Согласно пункту 104 главы 16 ПДД, на перекрёстке неравнозначных дорог водитель транспортного средства, движущегося по второстепенной дороге, должен уступить дорогу транспортным средствам, приближающимся по главной дороге, независимо от направления их дальнейшего движения. Согласно пункту 107 главы 16 ПДД, при повороте налево или развороте водитель безрельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся по равнозначной дороге со встречного направления прямо или направо."
         }
     },
     {
         "task_info": {
-            "global_id": "t_39_q_19",
-            "ticket_num": 39,
-            "order": 16
+            "global_id": "t_28_q_15",
+            "global_id2": "t_28_q_15",
+            "ticket_num": 28,
+            "order": 16,
+            "remapped_from": "t_39_q_19"
         },
-        "media_url": "v367uz.webp",
+        "media_url": "u318uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Siz chapga burilmoqchisiz, kimga yo‘l berishingiz kerak?",
+                "text": "Siz chapga burilmoqchisiz, kimga yo'l berishingiz kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat avtobusga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Faqat yuk avtomobiliga",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Faqat avtobusga",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Har  ikki transport  vositasiga",
+                        "text": "Har ikki transport vositasiga",
                         "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Сиз чапга  бурилмоқчисиз,  кимга йўл  беришингиз  керак?",
+                "text": "Сиз чапга бурилмоқчисиз, кимга йўл беришингиз керак?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат автобусга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Фақат юк автомобилига",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Фақат автобусга",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Ҳар  икки транспорт  воситасига",
+                        "text": "Ҳар икки транспорт воситасига",
                         "is_correct": true
                     }
                 ]
@@ -1162,12 +1269,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только автобусу",
+                        "text": "Только грузовому автомобилю",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только грузовому автомобилю",
+                        "text": "Только автобусу",
                         "is_correct": false
                     },
                     {
@@ -1177,103 +1284,117 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 104 bandi 1 xatboshiga asosan, teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada ikkinchi darajali yo‘ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo‘nalishidan qat’iy nazar, yo‘l berishi kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 104 банди 1 хатбошига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қатий назар, йўл бериши керак.",
+            "ru": "Согласно абзацу 1 статьи 104 Правил дорожного движения водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с основной дороги, независимо от направления их дальнейшего движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_48_q_6",
-            "ticket_num": 48,
-            "order": 17
+            "global_id": "t_27_q_15",
+            "global_id2": "t_27_q_15",
+            "ticket_num": 27,
+            "order": 17,
+            "remapped_from": "t_48_q_6"
         },
-        "media_url": "v470uz.webp",
+        "media_url": "u304uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorraxadan oxirgi bo'lib qaysi transport vositasi kesib o'tadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil avtomobil",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Oq avtomobil, sariq bilan bir vaqtda",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Sariq avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qizil avtomobil",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Чоррахадан охирги бўлиб қайси транспорт воситаси кесиб ўтади?",
+                "text": "Чорраҳадан охирги бўлиб қайси транспорт воситаси кесиб ўтади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил автомобил",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Оқ автомобил, сариқ билан бир вақтда",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Сариқ автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қизил автомобил",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Последним проедет перекресток:",
+                "text": "Последним проедет перекрёсток:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Белый одновременно с жёлтым",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Желтый автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 104 bandi 1 xatboshiga asosan, teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada ikkinchi darajali yo‘ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo‘nalishidan qat’iy nazar, yo‘l berishi kerak.\r\nYo‘l harakati qoidalarining 107 bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo‘ldan qarama-qarshi yo‘nalishdan to‘g‘riga yoki o‘ngga harakatlanayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak.\r\nUshbu chorrahani yashil avtomobil birinchi, qizil avtomobil ikkinchi oq avtomobil, sariq bilan bir vaqtda oxirgi bo‘lib kesib o‘tadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 104 банди 1 хатбошига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қатий назар, йўл бериши керак.\r\nЙўл ҳаракати қоидаларининг 107 бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак.\r\nУшбу чорраҳани яшил автомобил биринчи, қизил автомобил иккинчи оқ автомобил, сариқ билан бир вақтда охирги бўлиб кесиб ўтади.",
+            "ru": "Согласно абзацу 1 статьи 104 Правил дорожного движения водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с основной дороги, независимо от направления их дальнейшего движения. \r\nСогласно статье 107 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или направо с встречного направления на дороге равного значения. Водители трамваев также должны соблюдать это правило. \r\nЗелёная машина первой переедет этот перекрёсток, красная машина — вторую белую машину, а жёлтая машина будет при этом последней."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_9",
-            "ticket_num": 56,
-            "order": 18
+            "global_id": "t_47_q_3",
+            "global_id2": "t_47_q_3",
+            "ticket_num": 47,
+            "order": 18,
+            "remapped_from": "t_56_q_9"
         },
-        "media_url": "v588uz.webp",
+        "media_url": "u537uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Chorrahadan to‘g‘riga harakatlanmochisiz – sizning harakatingiz:",
+                "text": "Chorrahadan to'g'riga harakatlanmochisiz - sizning harakatingiz:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi o‘taman",
+                        "text": "Birinchi o'taman",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Avtobusga yo‘l beraman",
+                        "text": "Avtobusga yo'l beraman",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Чорраҳадан тўғрига ҳаракатланмочисиз – сизнинг ҳаракатингиз:",
+                "text": "Чорраҳадан тўғрига ҳаракатланмочисиз - сизнинг ҳаракатингиз:",
                 "options": [
                     {
                         "id": 1,
@@ -1288,7 +1409,7 @@
                 ]
             },
             "ru": {
-                "text": "Вы движетесь прямо от перекрестка - ваше движение:",
+                "text": "Вы движетесь прямо от перекрёстка - ваше движение:",
                 "options": [
                     {
                         "id": 1,
@@ -1302,23 +1423,30 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 2.1. “Asosiy yo‘l”. Harakat tartibga solinmagan chorrahalarda oldin o‘tish huquqini beradi. Belgi asosiy yo‘l boshiga va chorrahalarning bevosita oldiga o‘rnatiladi. YHQ 16-bobi 104-bandi: Teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada ikkinchi darajali yo‘ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo‘nalishidan qat’iy nazar, yo‘l berishi kerak.",
+            "uz_cyr": "YHQ 1 илова: 2.1. “Асосий йўл”. Ҳаракат тартибга солинмаган чорраҳаларда олдин ўтиш ҳуқуқини беради. Белги асосий йўл бошига ва чорраҳаларнинг бевосита олдига ўрнатилади. YHQ 16-боби 104-банди: Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қатий назар, йўл бериши керак.",
+            "ru": "Приложение 1: 2.1. «Главная дорога». Движение дает преимущество на нерегулируемых перекрестках. Знак размещается в начале главной дороги и непосредственно перед перекрестками. Статья 104 главы 16 ПДД: Водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от дальнейшего направления их движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_57_q_6",
-            "ticket_num": 57,
-            "order": 19
+            "global_id": "t_20_q_9",
+            "global_id2": "t_20_q_9",
+            "ticket_num": 20,
+            "order": 19,
+            "remapped_from": "t_57_q_6"
         },
-        "media_url": "v603uz.webp",
+        "media_url": "u222uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Chorrahadan o‘tish navbatini ko‘rsating:",
+                "text": "Chorrahadan o'tish navbatini ko'rsating:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Velosiped, qizil avtomobil, oq avtomobil",
-                        "is_correct": false
+                        "text": "Velosiped, oq avtomobil, qizil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1327,8 +1455,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Velosiped, oq avtomobil, qizil avtomobil",
-                        "is_correct": true
+                        "text": "Velosiped, qizil avtomobil, oq avtomobil",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1337,8 +1465,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Велосипед, қизил автомобил, оқ автомобил",
-                        "is_correct": false
+                        "text": "Велосипед, оқ автомобил, қизил автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1347,8 +1475,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Велосипед, оқ автомобил, қизил автомобил",
-                        "is_correct": true
+                        "text": "Велосипед, қизил автомобил, оқ автомобил",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1357,8 +1485,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Велосипед, красный автомобиль, белый автомобиль",
-                        "is_correct": false
+                        "text": "Велосипед, белый автомобиль, красный автомобиль",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1367,11 +1495,801 @@
                     },
                     {
                         "id": 3,
-                        "text": "Велосипед, белый автомобиль, красный автомобиль",
+                        "text": "Велосипед, красный автомобиль, белый автомобиль",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "\"YHQning 16-bob. 104-band 1-xatboshi va 107-bandga asosan: 104. Teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada ikkinchi darajali yo‘ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo‘nalishidan qat’iy nazar, yo‘l berishi kerak.\r\n107. Chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo‘ldan qarama-qarshi yo‘nalishdan to‘g‘riga yoki o‘ngga harakatlanayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak.\"",
+            "uz_cyr": "\"YHQнинг 16-боб. 104-банд 1-хатбоши ва 107-бандга асосан: 104. Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қатий назар, йўл бериши керак.\r\n107. Чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак.\"",
+            "ru": "Согласно пункту 104 (подпункт 1) и пункту 107 главы 16 ПДД: на перекрёстке неравнозначных дорог водитель ТС, движущегося по второстепенной дороге, обязан уступить дорогу ТС, приближающимся по главной, независимо от направления их дальнейшего движения. При повороте налево или развороте водитель безрельсового ТС обязан уступить дорогу ТС, движущимся по равнозначной дороге со встречного направления прямо или направо."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_34_q_5",
+            "global_id2": "t_34_q_5",
+            "ticket_num": 34,
+            "order": 20,
+            "remapped_from": "t_61_q_8"
+        },
+        "media_url": "u385uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Chorrahadan ikkinchi bo'lib kim o'tadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ko'k avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tramvay",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qizil avtomobil",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Чорраҳадан иккинчи бўлиб ким ўтади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Кўк автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Трамвай",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қизил автомобил",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Вторым проедет перекрёсток:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Синий автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Трамвай",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Красный автомобиль",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 106-,105 - va 104 - bandlariga asosan, asosiy yo'lning yo'nalishi chorrahada o'zgarganda, asosiy yo'lda harakatlanayotgan haydovchilar o'zaro teng ahamiyatli yo'llar chorrahasidan o'tish qoidasiga amal qilishlari kerak. Teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan yaqinlashayotgan transport vositalariga yo'l berishi shart. Teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada tramvay harakatlanish yo'nalishidan qat'i nazar, teng ahamiyatli yo'lda bir yo'nalishda yoki qarama-qarshi yo'nalishda harakatlanayotgan relssiz transport vositalariga nisbatan imtiyozga ega.",
+            "uz_cyr": "YHQ 16-боби 106-,105 - ва 104 - бандларига асосан, асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак. Тенг аҳамиятга эга бўлган йўллар кесишган чорраҳада релссиз транспорт воситасининг ҳайдовчиси ўнгдан яқинлашаётган транспорт воситаларига йўл бериши шарт. Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада трамвай ҳаракатланиш йўналишидан қати назар, тенг аҳамиятли йўлда бир йўналишда ёки қарама-қарши йўналишда ҳаракатланаётган релссиз транспорт воситаларига нисбатан имтиёзга эга.",
+            "ru": "Согласно статьям 106, 105 и 104 главы 16 ПДД при изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, должны соблюдать правило проезда через пересечение дорог равной важности. На перекрестке, где пересекаются дороги равной важности, водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. На пересечении неравных дорог трамвай имеет приоритет перед нерельсовыми транспортными средствами, движущимися в том же или встречном направлении по дороге равного значения независимо от направления движения."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_36_q_12",
+            "global_id2": "t_36_q_12",
+            "ticket_num": 36,
+            "order": 21,
+            "remapped_from": "t_61_q_14"
+        },
+        "media_url": "u412uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Siz chorrahadan chapga burilmoqchisiz. Ushbu vaziyatda kimga yo'l berasiz?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Hech kimga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat qizil avtomobilga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat avtobusga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Сиз чорраҳадан чапга бурилмоқчисиз. Ушбу вазиятда кимга йўл берасиз?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳеч кимга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат қизил автомобилга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат автобусга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Вы намерены повернуть налево. Кому следует уступить дорогу?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Никому",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только легковому автомобилю",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только автобусу",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 106 bandiga asosan, Asosiy yo‘lning yo‘nalishi chorrahada o‘zgarganda, asosiy yo‘lda harakatlanayotgan haydovchilar o‘zaro teng ahamiyatli yo‘llar chorrahasidan o‘tish qoidasiga amal qilishlari kerak.\r\nIkkinchi darajali yo‘llarda harakatlanayotgan haydovchilar ham o‘zaro shu qoidaga amal qilishlari kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 106 бандига асосан, Асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак.\r\nИккинчи даражали йўлларда ҳаракатланаётган ҳайдовчилар ҳам ўзаро шу қоидага амал қилишлари керак.",
+            "ru": "Согласно статье 106 ПДД при изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, должны соблюдать правило проезда через пересечение дорог равной важности друг для друга. \r\nВодители, движущиеся по второстепенным дорогам, также должны соблюдать это правило."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_40_q_14",
+            "global_id2": "t_40_q_14",
+            "ticket_num": 40,
+            "order": 22,
+            "remapped_from": "t_62_q_6"
+        },
+        "media_url": "u461uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu avtomobilga ko'rsatilgan yo'nalishlardan qaysi biriga harakatlanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat qayrilib olishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ikkala yo'nalishga ham harakatlanishga ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ikkala yo'nalishga ham harakatlanish taqiqlanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat chapga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу автомобилга кўрсатилган йўналишлардан қайси бирига ҳаракатланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат қайрилиб олишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Иккала йўналишга ҳам ҳаракатланишга рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Иккала йўналишга ҳам ҳаракатланиш тақиқланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат чапга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Этому автомобилю разрешено двигаться в каком направлении?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только для разворота",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Движение в обоих направлениях разрешено",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Движение в обоих направлениях запрещено",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только налево",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 3.18.2 bandi va 3.Taqiqlovchi belgilarning 47-xatboshiga asosan: 3.18.2. «Chapga burilish taqiqlanadi». 3.18.1 va 3.18.2 belgilari qatnov qismlarining qaysi kesishmasi oldiga o‘rnatilsa, shu kesishmaga tatbiq etiladi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 3.18.2 банди ва 3.Тақиқловчи белгиларнинг 47-хатбошига асосан: 3.18.2. «Чапга бурилиш тақиқланади». 3.18.1 ва 3.18.2 белгилари қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага татбиқ этилади.",
+            "ru": "Согласно п. 3.18.2 ПРИЛОЖЕНИЯ 1 к Общим правилам и п. 47 п. 3. Запрещающие знаки: 3.18.2. «Поворот налево запрещен». Знаки 3.18.1 и 3.18.2 устанавливаются на перекрестке, перед которым установлено пересечение участков движения."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_19",
+            "global_id2": "t_42_q_19",
+            "ticket_num": 42,
+            "order": 23,
+            "remapped_from": "t_62_q_9"
+        },
+        "media_url": "u488uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi avtomobil chorrahadan oxirgi bo'lib o'tadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ko'k avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Qizil avtomobil",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yashil avtomobil",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси автомобиль чорраҳадан охирги бўлиб ўтади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Кўк автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Қизил автомобил",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Яшил автомобил",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой автомобиль последним проедет перекрёсток?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Синий",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Красный",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Зеленый",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 106-,105 - va 104 - bandlariga asosan, asosiy yo'lning yo'nalishi chorrahada o'zgarganda, asosiy yo'lda harakatlanayotgan haydovchilar o'zaro teng ahamiyatli yo'llar chorrahasidan o'tish qoidasiga amal qilishlari kerak. Teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan yaqinlashayotgan transport vositalariga yo'l berishi shart. Teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak.",
+            "uz_cyr": "YHQ 16-боби 106-,105 - ва 104 - бандларига асосан, асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак. Тенг аҳамиятга эга бўлган йўллар кесишган чорраҳада релссиз транспорт воситасининг ҳайдовчиси ўнгдан яқинлашаётган транспорт воситаларига йўл бериши шарт. Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак.",
+            "ru": "Согласно статьям 106, 105 и 104 главы 16 ПДД при изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, должны соблюдать правило проезда через пересечение дорог равной важности. На перекрестке, где пересекаются дороги равной важности, водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. На пересечении неравных дорог водитель транспортного средства, движущегося со второстепенной дороги, обязан уступить дорогу транспортным средствам, приближающимся с основной дороги, независимо от направления их дальнейшего движения."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_45_q_20",
+            "global_id2": "t_45_q_20",
+            "ticket_num": 45,
+            "order": 24,
+            "remapped_from": "t_62_q_17"
+        },
+        "media_url": "u526uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Siz chorrahada chapga burilishda qaysi transport vositasiga yo'l berishingiz lozim?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Hech biriga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yengil avtomobilga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtobusga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Сиз чорраҳада чапга бурилишда қайси транспор воситасига йўл беришингиз лозим?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳеч бирига",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Енгил автомобилга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автобусга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какому транспортному средству следует уступить дорогу при повороте налево на перекрёстке?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Никому",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Лёгковому автомобилю",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автобусу",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 106 bandiga asosan, Asosiy yo‘lning yo‘nalishi chorrahada o‘zgarganda, asosiy yo‘lda harakatlanayotgan haydovchilar o‘zaro teng ahamiyatli yo‘llar chorrahasidan o‘tish qoidasiga amal qilishlari kerak.\r\nIkkinchi darajali yo‘llarda harakatlanayotgan haydovchilar ham o‘zaro shu qoidaga amal qilishlari kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 106 бандига асосан, Асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак.\r\nИккинчи даражали йўлларда ҳаракатланаётган ҳайдовчилар ҳам ўзаро шу қоидага амал қилишлари керак.",
+            "ru": "Согласно статье 106 ПДД при изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, должны соблюдать правило проезда через пересечение дорог равной важности друг для друга. \r\nВодители, движущиеся по второстепенным дорогам, также должны соблюдать это правило."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_47_q_20",
+            "global_id2": "t_47_q_20",
+            "ticket_num": 47,
+            "order": 25,
+            "remapped_from": "t_63_q_1"
+        },
+        "media_url": "u545uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu chorrahada avtobus haydovchisi kimga yo'l berishi kerak?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ko'k avtomobilga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Qizil avtomobilga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Hech kimga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу чорраҳада автобус ҳайдовчиси кимга йўл бериши керак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Кўк автомобилга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Қизил автомобилга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳеч кимга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Кому водитель автобуса должен уступить дорогу на этом перекрёстке?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Синей машине",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Красной машине",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Никому",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 106 bandiga asosan, Asosiy yo‘lning yo‘nalishi chorrahada o‘zgarganda, asosiy yo‘lda harakatlanayotgan haydovchilar o‘zaro teng ahamiyatli yo‘llar chorrahasidan o‘tish qoidasiga amal qilishlari kerak.\r\nIkkinchi darajali yo‘llarda harakatlanayotgan haydovchilar ham o‘zaro shu qoidaga amal qilishlari kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 106 бандига асосан, Асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак.\r\nИккинчи даражали йўлларда ҳаракатланаётган ҳайдовчилар ҳам ўзаро шу қоидага амал қилишлари керак.",
+            "ru": "Согласно статье 106 ПДД при изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, должны соблюдать правило проезда через пересечение дорог равной важности друг для друга. \r\nВодители, движущиеся по второстепенным дорогам, также должны соблюдать это правило."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_54_q_8",
+            "global_id2": "t_54_q_8",
+            "ticket_num": 54,
+            "order": 26,
+            "remapped_from": "t_63_q_16"
+        },
+        "media_url": "u622uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Siz chorrahadan chapga burilmoqchisiz, kimga yo'l berishingiz kerak?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Traktorga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Mikroavtobusga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ikkala transportga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Birinchi o'tish huquqiga egaman",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Сиз чорраҳадан чапга бурилмоқчисиз, кимга йўл беришингиз керак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тракторга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Микроавтобусга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Иккала транспортга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Биринчи ўтиш ҳуқуқига эгаман",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Вы хотите повернуть налево на перекрёстке. Кому вы должны уступить дорогу?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Трактору",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Микроавтобусу",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Обоим транспортным средствам",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Я имею право проезда первым",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 106-bandi: Asosiy yo‘lning yo‘nalishi chorrahada o‘zgarganda, asosiy yo‘lda harakatlanayotgan haydovchilar o‘zaro teng ahamiyatli yo‘llar chorrahasidan o‘tish qoidasiga amal qilishlari kerak. Ikkinchi darajali yo‘llarda harakatlanayotgan haydovchilar ham o‘zaro shu qoidaga amal qilishlari kerak. YHQ 16-bobi 107-bandi: Chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo‘ldan qarama-qarshi yo‘nalishdan to‘g‘riga yoki o‘ngga harakatlanayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak.",
+            "uz_cyr": "YHQ 16-боби 106-банди: Асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак. Иккинчи даражали йўлларда ҳаракатланаётган ҳайдовчилар ҳам ўзаро шу қоидага амал қилишлари керак. YHQ 16-боби 107-банди: Чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак.",
+            "ru": "Статья 106 главы 16 ПДД: При изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, обязаны соблюдать правило проезда через пересечение дорог равной важности. Водители, движущиеся по второстепенным дорогам, также должны соблюдать это правило. Глава 16 ПДД, статья 107: При повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения. Водители трамваев также должны соблюдать это правило."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_56_q_1",
+            "global_id2": "t_56_q_1",
+            "ticket_num": 56,
+            "order": 27,
+            "remapped_from": "t_64_q_1"
+        },
+        "media_url": "u643uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Sariq avtomobil chorrahani nechanchi bo'lib kesib o'tadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ikkinchi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Uchinchi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Oxirgi bo'lib",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Сариқ автомобил чорраҳани нечанчи бўлиб кесиб ўтади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Иккинчи бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Учинчи бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Охирги бўлиб",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Желтый автомобиль проедет перекрёсток?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Вторым",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Третьим",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Последним",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 106 bandiga asosan, Asosiy yo‘lning yo‘nalishi chorrahada o‘zgarganda, asosiy yo‘lda harakatlanayotgan haydovchilar o‘zaro teng ahamiyatli yo‘llar chorrahasidan o‘tish qoidasiga amal qilishlari kerak.\r\nIkkinchi darajali yo‘llarda harakatlanayotgan haydovchilar ham o‘zaro shu qoidaga amal qilishlari kerak.\r\nUshbu chorrahani yashil birinchi, qizil avtomobil ikkinchi, ko‘k avtomobil uchunchi va sariq avtomobil oxirgi bo‘lib kesib o‘tadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 106 бандига асосан, Асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак.\r\nИккинчи даражали йўлларда ҳаракатланаётган ҳайдовчилар ҳам ўзаро шу қоидага амал қилишлари керак.\r\nУшбу чорраҳани яшил биринчи, қизил автомобил иккинчи, кўк автомобил учунчи ва сариқ автомобил охирги бўлиб кесиб ўтади.",
+            "ru": "Согласно статье 106 ПДД при изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, должны соблюдать правило проезда через пересечение дорог равной важности друг для друга. \r\nВодители, движущиеся по второстепенным дорогам, также должны соблюдать это правило. \r\nЗелёная машина пересекает этот перекрёсток первой, красная машина — второй, синяя машина — третьей, а жёлтая машина — последней."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_27_q_10",
+            "global_id2": "t_27_q_10",
+            "ticket_num": 27,
+            "order": 28,
+            "remapped_from": "t_60_q_20"
+        },
+        "media_url": "u299uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi avtomobil haydovchisi qoidani buzmay harakatlanmoqda?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Chapdagi rasmda",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ikkala rasmda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "O'ngdagi rasmda",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси автомобил ҳайдовчиси қоидани бузмай ҳаракатланмоқда?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Чапдаги расмда",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Иккала расмда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ўнгдаги расмда",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешается ли в кузове грузового автомобиля необорудованного для перевозки людей находиться людям сопровождающим груз или следующим за его получением?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "На левом рисунке",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "На обоих рисунках",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "На правом рисунке",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "\"YHQning 22-bob. 132-band 2 va 3-xatboshi, 17 prim 1-bob. 115 prim 2-band 1-xatboshi hamda YHQga 2-ILOVA 1.23 bandga asosan: Agar 5.9 yo‘l belgisi bilan belgilangan tasma qatnov qismining boshqa tasmalardan uzuq-uzuq chiziq bilan ajratilgan bo‘lsa, burilmoqchi bo‘layotgan transport vositalari bu tasmaga qayta tizilishlari kerak.\r\nShuningdek, bunday joylarda yo‘nalishli transport vositalarining harakatiga xalaqit bermaslik sharti bilan yo‘lga chiqish, qatnov qismining chetki o‘ng tomonida yo‘lovchilarni chiqarish va tushirish uchun bu bo‘lakka o‘tishga ruxsat etiladi. \r\n115 prim 2. Yo‘nalishli transport vositalari uchun alohida ajratilgan tasmasi bor yo‘lda harakatlanishi taqiqlangan transport vositalari ushbu yo‘ldan faqat yondosh hududga kirish yoki chiqish maqsadida yondosh hududning kirish yoki chiqish joyidan 50 metr masofada uzuq-uzuq chiziqli joygacha yoxud yaqin masofadagi uzuq-uzuq chiziqli joygacha harakatlanishi mumkin.​ 1.23 — yo‘lning faqat yo‘nalishli transport vositalari uchun mo‘ljallangan bo‘lagini bildiradi.\"",
+            "uz_cyr": "\"YHQнинг 22-боб. 132-банд 2 ва 3-хатбоши, 17 прим 1-боб. 115 прим 2-банд 1-хатбоши ҳамда YHQга 2-ИЛОВА 1.23 бандга асосан: Агар 5.9 йўл белгиси билан белгиланган тасма қатнов қисмининг бошқа тасмалардан узуқ-узуқ чизиқ билан ажратилган бўлса, бурилмоқчи бўлаётган транспорт воситалари бу тасмага қайта тизилишлари керак.\r\nШунингдек, бундай жойларда йўналишли транспорт воситаларининг ҳаракатига халақит бермаслик шарти билан йўлга чиқиш, қатнов қисмининг четки ўнг томонида йўловчиларни чиқариш ва тушириш учун бу бўлакка ўтишга рухсат этилади. \r\n115 прим 2. Йўналишли транспорт воситалари учун алоҳида ажратилган тасмаси бор йўлда ҳаракатланиши тақиқланган транспорт воситалари ушбу йўлдан фақат ёндош ҳудудга кириш ёки чиқиш мақсадида ёндош ҳудуднинг кириш ёки чиқиш жойидан 50 метр масофада узуқ-узуқ чизиқли жойгача ёхуд яқин масофадаги узуқ-узуқ чизиқли жойгача ҳаракатланиши мумкин.​ 1.23 — йўлнинг фақат йўналишли транспорт воситалари учун мўлжалланган бўлагини билдиради.\"",
+            "ru": "Согласно «Глава 22. Статья 132, пункты 2 и 3, Глава 17, пункт 1. 115, пункт 2, пункт 1, и ПРИЛОЖЕНИЕ 2 к ПДД, пункт 1.23: Если полоса, обозначенная дорожным знаком 5.9, отделена от других полос участка движения длинной линией, транспортные средства, желающие повернуть, должны выстроиться в эту полосу. Необходимо\r\nТакже в таких местах разрешается выезжать на эту полосу для выхода и высадки пассажиров на крайней правой стороне проезжей части при условии, что они не мешают движению направленных транспортных средств. \r\n115 прим 2. Транспортные средства, движение которых запрещено по дороге с отдельной полосой для направленных транспортных средств, могут съезжать с этой дороги только в целях въезда или выезда с прилегающей территории на полосу дальнего следования на расстоянии 50 метров от въезда или выезда на прилегающую территорию или на полосу дальнего следования на близком расстоянии. 1.23 – означает участок дороги, предназначенный только для направленных транспортных средств»."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_32_q_9",
+            "global_id2": "t_32_q_9",
+            "ticket_num": 32,
+            "order": 29,
+            "remapped_from": "t_61_q_5"
+        },
+        "media_url": "u366uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositasining haydovchisi birinchi bo'lib harakatlanish huquqiga ega?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Velosiped haydovchisi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Avtomobil haydovchisi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситасининг ҳайдовчиси биринчи бўлиб ҳаракатланиш ҳуқуқига эга?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Велосипед ҳайдовчиси",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Автомобил ҳайдовчиси",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Водитель какого транспортного средства имеет право на первоочередное движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Водитель велосипеда",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Водитель автомобиля",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16 – bobi 104 – bandining birinchi xatboshisiga asosan: Teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada, ikkinchi darajali yo‘lda harakatlanayotgan transport vositasining haydovchisi asosiy yo‘lda yaqinlashayotgan transport vositalariga, ularning keyingi harakat yo‘nalishidan qat‘i nazar, yo‘l berishi kerak.",
+            "uz_cyr": "YHQ 16 – боби 104 – бандининг биринчи хатбошисига асосан: Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада, иккинчи даражали йўлда ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлда яқинлашаётган транспорт воситаларига, уларнинг кейинги ҳаракат йўналишидан қати назар, йўл бериши керак.",
+            "ru": "Согласно первому пункту статьи 104 главы 16 ПДД: При пересечении неравных дорог водитель транспортного средства, движущегося по второстепенной дороге, обязан уступить дорогу транспортным средствам, приближающимся по главной дороге, независимо от дальнейшего направления их движения."
         }
     }
 ]

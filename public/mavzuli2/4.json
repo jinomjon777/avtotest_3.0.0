@@ -1,33 +1,35 @@
 [
     {
         "task_info": {
-            "global_id": "t_2_q_3",
-            "ticket_num": 2,
-            "order": 1
+            "global_id": "t_10_q_2",
+            "global_id2": "t_10_q_2",
+            "ticket_num": 10,
+            "order": 1,
+            "remapped_from": "t_2_q_3"
         },
-        "media_url": "v134uz.webp",
+        "media_url": "u103uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi qarama-qarshi harakatlanishning ustunligini bildiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "2",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "4",
+                        "text": "3",
                         "is_correct": false
                     },
                     {
@@ -42,22 +44,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "2",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "4",
+                        "text": "3",
                         "is_correct": false
                     },
                     {
@@ -72,22 +74,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "2",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "4",
+                        "text": "3",
                         "is_correct": false
                     },
                     {
@@ -97,43 +99,50 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo'limi 2.6 belgisiga asosan, \"Ro'para harakatlanishning ustunligi\". Qarama-qarshi harakatlanishni qiyinlashtiradigan hollarda yo'lning tor qismiga kirish taqiqlanadi. Haydovchi yo'lning tor qismida bo'lgan yoki ro'paradan unga yaqin bo'lgan transport vositasiga yo'l berishi (to'sqinlik qilmasligi) kerak.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлими 2.6 белгисига асосан, \"Рўпара ҳаракатланишнинг устунлиги\". Қарама-қарши ҳаракатланишни қийинлаштирадиган ҳолларда йўлнинг тор қисмига кириш тақиқланади. Ҳайдовчи йўлнинг тор қисмида бўлган ёки рўпарадан унга яқин бўлган транспорт воситасига йўл бериши (тўсқинлик қилмаслиги) керак.",
+            "ru": "По знаку 2.6 раздела 2 Приложения 1 ПДД «Преимущество встречного движения». Запрещен выезд на узкую часть дороги в случаях, когда это затрудняет движение встречного транспорта. Водитель обязан уступить дорогу (не препятствовать) транспортному средству, находящемуся на узком участке дороги или близко к нему."
         }
     },
     {
         "task_info": {
-            "global_id": "t_3_q_2",
-            "ticket_num": 3,
-            "order": 2
+            "global_id": "t_31_q_17",
+            "global_id2": "t_31_q_17",
+            "ticket_num": 31,
+            "order": 2,
+            "remapped_from": "t_3_q_2"
         },
-        "media_url": "v268uz.webp",
+        "media_url": "u360uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi transport vositasining xaydovchisi birinchi navbatda harakatlanish huquqiga ega?",
+                "text": "Qaysi transport vositasining haydovchisi birinchi navbatda harakatlanish huquqiga ega?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yuk avtomobili haydovchisi\r\n",
-                        "is_correct": true
+                        "text": "Avtobus haydovchisi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtobus haydovchisi",
-                        "is_correct": false
+                        "text": "Yuk avtomobili haydovchisi",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси транспорт воситасининг хайдовчиси биринчи навбатда ҳаракатланиш ҳуқуқига эга?",
+                "text": "Қайси транспорт воситасининг ҳайдовчиси биринчи навбатда ҳаракатланиш ҳуқуқига эга?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Юк автомобили ҳайдовчиси\r\n",
-                        "is_correct": true
+                        "text": "Автобус ҳайдовчиси",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобус ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Юк автомобили ҳайдовчиси",
+                        "is_correct": true
                     }
                 ]
             },
@@ -142,52 +151,59 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель грузового автомобиля\r\n",
-                        "is_correct": true
+                        "text": "Водитель автобуса",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водитель автобуса\r\n",
-                        "is_correct": false
+                        "text": "Водитель грузового автомобиля",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasi 2-bo'limi 2.6 belgisi, \"Ro'para harakatning ustunligi\" qarama-qarshi harakatlanishni qiyinlashtiradigan hollarda yo'lning tor qismiga kirishga taqiqlaydi. Haydovchi yo'lning tor qismida bo'lgan yoki ro'paradan unga yaqin bo'lgan transport vositasiga yo'l berishi kerak. 2.7 belgisi esa, \"Ro'paradagi harakatlanishga nisbatan imtiyoz\". Yo'lning tor qismida harakatlanishda haydovchi ro'paradan kelayotgan transport vositasiga nisbatan imtiyozga egaligini bildiradi.",
+            "uz_cyr": "YHQ 1-иловаси 2-бўлими 2.6 белгиси, \"Рўпара ҳаракатнинг устунлиги\" қарама-қарши ҳаракатланишни қийинлаштирадиган ҳолларда йўлнинг тор қисмига киришга тақиқлайди. Ҳайдовчи йўлнинг тор қисмида бўлган ёки рўпарадан унга яқин бўлган транспорт воситасига йўл бериши керак. 2.7 белгиси эса, \"Рўпарадаги ҳаракатланишга нисбатан имтиёз\". Йўлнинг тор қисмида ҳаракатланишда ҳайдовчи рўпарадан келаётган транспорт воситасига нисбатан имтиёзга эгалигини билдиради.",
+            "ru": "Приложение 1, раздел 2, Знак 2.6 МВК «Приоритет встречного движения» запрещает выезд на узкий участок дороги в случаях, когда встречное движение становится затрудненным. Водитель обязан уступить дорогу транспортному средству, находящемуся на узком участке дороги или близко к нему. А знак 2.7 — «Предпочтение встречному движению». При движении по узкому участку дороги водитель указывает, что он имеет приоритет перед транспортным средством, движущимся со встречной стороны."
         }
     },
     {
         "task_info": {
-            "global_id": "t_7_q_3",
-            "ticket_num": 7,
-            "order": 3
+            "global_id": "t_52_q_6",
+            "global_id2": "t_52_q_6",
+            "ticket_num": 52,
+            "order": 3,
+            "remapped_from": "t_7_q_3"
         },
-        "media_url": "v677uz.webp",
+        "media_url": "u593uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi kesib o'tgan yo'llarda harakatlanayotgan transport vositalariga yo'l berishni yuklaydi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "5",
+                        "text": "2",
                         "is_correct": false
                     }
                 ]
@@ -197,88 +213,95 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "5",
+                        "text": "2",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Какой знак обязывает уступить дорогу транспортным средствам; движущимся по пересекаемой дороге?",
+                "text": "Какой знак обязывает уступить дорогу транспортным средствам, движущимся по пересекаемой дороге?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "5",
+                        "text": "2",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo'limi 2.4 belgisiga asosan, \"Yo'l bering!\". Haydovchi kesib o'tilayotgan yo'ldan, 7.13 qo'shimcha-axborot belgisi bo'lganda esa asosiy yo'ldan harakatlanayotgan transport vositasiga yo'l berishi kerak.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлими 2.4 белгисига асосан, \"Йўл беринг!\". Ҳайдовчи кесиб ўтилаётган йўлдан, 7.13 қўшимча-ахборот белгиси бўлганда эса асосий йўлдан ҳаракатланаётган транспорт воситасига йўл бериши керак.",
+            "ru": "«Уступи дорогу!», согласно знаку 2.4 2 раздела 1 приложения ПДД. Водитель обязан уступить дорогу транспортному средству, движущемуся с пересекаемой дороги, а также с основной дороги при наличии знака дополнительной информации 7.13."
         }
     },
     {
         "task_info": {
-            "global_id": "t_8_q_1",
-            "ticket_num": 8,
-            "order": 4
+            "global_id": "t_11_q_3",
+            "global_id2": "t_11_q_3",
+            "ticket_num": 11,
+            "order": 4,
+            "remapped_from": "t_8_q_1"
         },
-        "media_url": "v681uz.webp",
+        "media_url": "u115uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorraha oldida bu belgi o'rnatilgan bo'lsa; haydovchi qanday yo'l tutishi kerak?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Kesishadigan yo'l bo'ylab harakatlanayotgan transport vositalariga yo'l berish uchun, to'xtash chizig'ida to'xtab, u yo'q bo'lsa kesib o'tiladigan qatnov qismining chetida to'xtashi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Kesishadigan yo'lda transport vositalari bo'lmasa chorrahadan to'xtamay o'tishi",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Chorrahadan o'tishda ayniqsa hushyor bo'lishi",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Kesishadigan yo'l bo'ylab harakatlanayotgan transport vositalariga yo'l berish uchun, to'xtash chizig'ida to'xtab, u yo'q bo'lsa kesib o'tiladigan qatnov qismining chetida to'xtashi",
-                        "is_correct": true
                     }
                 ]
             },
@@ -287,67 +310,74 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Кесишадиган йўл бўйлаб ҳаракатланаётган транспорт воситаларига йўл бериш учун, тўхташ чизиғида тўхтаб, у йўқ бўлса кесиб ўтиладиган қатнов қисмининг четида тўхташи",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Кесишадиган йўлда транспорт воситалари бўлмаса чорраҳадан тўхтамай ўтиши",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Чорраҳадан ўтишда айниқса ҳушёр бўлиши",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Кесишадиган йўл бўйлаб ҳаракатланаётган транспорт воситаларига йўл бериш учун, тўхташ чизиғида тўхтаб, у йўқ бўлса кесиб ўтиладиган қатнов қисмининг четида тўхташи",
-                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Если данный знак установлен у перекрестка; то как должен поступить водитель?",
+                "text": "Если данный знак установлен у перекрёстка, то как должен поступить водитель?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Если на перекрестке на месте пересечения нет транспортных средств должен проехать без остановки",
-                        "is_correct": false
+                        "text": "Уступать дорогу транспортным средствам, движущимся по пересекаемой дороге, останавливающимся у стоп-линии, а также останавливающимся у края пересекаемого участка движения, если таковой отсутствует",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Должен быть осторожным при проезде через перекресток",
+                        "text": "Если на перекрёстке на месте пересечения нет транспортных средств должен проехать без остановки",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Уступать дорогу транспортным средствам, движущимся по пересекаемой дороге, останавливающимся у стоп-линии, а также останавливающимся у края пересекаемого участка движения, если таковой отсутствует",
-                        "is_correct": true
+                        "text": "Должен быть осторожным при проезде через перекрёсток",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo'limi 2.5-bandiga asosan, \"To'xtamasdan harakatlanish taqiqlangan\" belgisi to'xtash chizig'i oldida, agar u bo'lmasa, kesib o'tiladigan qatnov qismining chetida to'xtamasdan harakatlanish taqiqlanadi. Haydovchi kesib o'tilayotgan yo'ldan, 7.13 qo'shimcha-axborot belgisi bo'lganda esa asosiy yo'ldan harakatlanayotgan transport vositalariga yo'l berishi kerak. Bu belgi temir yo'l kesishmasi yoki karantin maskanidan oldin o'rnatilishi mumkin. Bunday hollarda haydovchi to'xtash chizig'i oldida, u bo'lmasa, belgi oldida to'xtashi kerak.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлими 2.5-бандига асосан, \"Тўхтамасдан ҳаракатланиш тақиқланган\" белгиси тўхташ чизиғи олдида, агар у бўлмаса, кесиб ўтиладиган қатнов қисмининг четида тўхтамасдан ҳаракатланиш тақиқланади. Ҳайдовчи кесиб ўтилаётган йўлдан, 7.13 қўшимча-ахборот белгиси бўлганда эса асосий йўлдан ҳаракатланаётган транспорт воситаларига йўл бериши керак. Бу белги темир йўл кесишмаси ёки карантин масканидан олдин ўрнатилиши мумкин. Бундай ҳолларда ҳайдовчи тўхташ чизиғи олдида, у бўлмаса, белги олдида тўхташи керак.",
+            "ru": "Согласно пункту 2.5 статьи 2 приложения 1 ПДД запрещается движение без остановки перед стоп-линией, если ее нет, на краю пересекаемого участка движения. Водитель обязан уступить дорогу транспортным средствам, движущимся с пересекаемой дороги, а также с основной дороги при наличии знака дополнительной информации 7.13. Этот знак можно разместить перед железнодорожным переездом или карантинной станцией. В таких случаях водитель должен остановиться перед стоп-линией или перед знаком, если его нет."
         }
     },
     {
         "task_info": {
-            "global_id": "t_20_q_12",
-            "ticket_num": 20,
-            "order": 5
+            "global_id": "t_44_q_12",
+            "global_id2": "t_44_q_12",
+            "ticket_num": 44,
+            "order": 5,
+            "remapped_from": "t_20_q_10"
         },
-        "media_url": "v140uz.webp",
+        "media_url": "u508uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi ro'paradan harakatlanayotgan transport vositalariga yo'l berishni talab qiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "5",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "3",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
@@ -357,7 +387,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -367,17 +397,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "5",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "3",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
@@ -387,7 +417,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -397,17 +427,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "5",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "3",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
@@ -417,20 +447,27 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo‘limidagi 2.6 belgiga asosan, «Ro‘para harakatlanishning ustunligi». Qarama-qarshi harakatlanishni qiyinlashtiradigan hollarda yo‘lning tor qismiga kirish taqiqlanadi. Haydovchi yo‘lning tor qismida bo‘lgan yoki ro‘paradan unga yaqin bo‘lgan transport vositasiga yo‘l berishi kerak.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлимидаги 2.6 белгига асосан, «Рўпара ҳаракатланишнинг устунлиги». Қарама-қарши ҳаракатланишни қийинлаштирадиган ҳолларда йўлнинг тор қисмига кириш тақиқланади. Ҳайдовчи йўлнинг тор қисмида бўлган ёки рўпарадан унга яқин бўлган транспорт воситасига йўл бериши керак.",
+            "ru": "По знаку 2.6 Приложения 1, раздел 2 «Приоритет встречного движения». Запрещен выезд на узкую часть дороги в случаях, когда это затрудняет встречное движение. Водитель обязан уступить дорогу транспортному средству, находящемуся на узком участке дороги или близко к нему."
         }
     },
     {
         "task_info": {
-            "global_id": "t_21_q_12",
-            "ticket_num": 21,
-            "order": 6
+            "global_id": "t_48_q_18",
+            "global_id2": "t_48_q_18",
+            "ticket_num": 48,
+            "order": 6,
+            "remapped_from": "t_21_q_12"
         },
-        "media_url": "v152uz.webp",
+        "media_url": "u556uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Haydovchi qanday holda bu belgining talablarini to'g'ri bajaradi?",
@@ -477,15 +514,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo'limidagi 2.4 \"Yo'l bering\" belgisida haydovchi kesib o'tilayotgan yo'ldan, 7.13 qo'shimcha-axborot belgisi bo'lganda esa asosiy yo'ldan harakatlanayotgan transport vositasiga yo'l berishi (to'sqinlik qilmasligi) kerak.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлимидаги 2.4 \"Йўл беринг\" белгисида ҳайдовчи кесиб ўтилаётган йўлдан, 7.13 қўшимча-ахборот белгиси бўлганда эса асосий йўлдан ҳаракатланаётган транспорт воситасига йўл бериши (тўсқинлик қилмаслиги) керак.",
+            "ru": "В знаке 2.4 «Уступить дорогу» Приложения 1 Приложения 1 водитель обязан уступить дорогу (не препятствовать) транспортному средству, движущемуся с пересекаемой дороги, а в случае знака дополнительной информации 7.13 — с основной дороги."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_2",
-            "ticket_num": 22,
-            "order": 7
+            "global_id": "t_43_q_3",
+            "global_id2": "t_43_q_3",
+            "ticket_num": 43,
+            "order": 7,
+            "remapped_from": "t_22_q_2"
         },
-        "media_url": "v170uz.webp",
+        "media_url": "u490uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi kesishadigan yo'l bo'ylab harakat qilayotgan transport vositalariga yo'l berish majburiyatini yuklaydi?",
@@ -497,22 +541,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -527,22 +571,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -557,48 +601,55 @@
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo‘limidagi 2.4 “Yo‘l bering” belgisida haydovchi kesib o‘tilayotgan yo‘ldan harakatlanayotgan transport vositasiga yo‘l berishi kerak.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлимидаги 2.4 “Йўл беринг” белгисида ҳайдовчи кесиб ўтилаётган йўлдан ҳаракатланаётган транспорт воситасига йўл бериши керак.",
+            "ru": "У знака «Уступи дорогу» 2.4 приложения 1, раздел 2 водитель обязан уступить дорогу транспортному средству, движущемуся с пересекаемой дороги."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35_q_12",
-            "ticket_num": 35,
-            "order": 8
+            "global_id": "t_57_q_14",
+            "global_id2": "t_57_q_14",
+            "ticket_num": 57,
+            "order": 8,
+            "remapped_from": "t_35_q_12"
         },
-        "media_url": "v324uz.webp",
+        "media_url": "u659uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositasining haydovchisi yo'l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Traktor haydovchisi",
-                        "is_correct": false
+                        "text": "Avtobus haydovchisi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Avtobus haydovchisi",
-                        "is_correct": true
+                        "text": "Traktor haydovchisi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -607,13 +658,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трактор ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Автобус ҳайдовчиси",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Автобус ҳайдовчиси",
-                        "is_correct": true
+                        "text": "Трактор ҳайдовчиси",
+                        "is_correct": false
                     }
                 ]
             },
@@ -622,137 +673,151 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель трактора",
-                        "is_correct": false
+                        "text": "Водитель автобуса",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Водитель автобуса",
-                        "is_correct": true
+                        "text": "Водитель трактора",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasi 2-bo'limi 2.7 belgisi \"Ro'paradagi harakatlanishga nisbatan imtiyoz\". Yo'lning tor qismida harakatlanishda haydovchi ro'paradan kelayotgan transport vositasiga nisbatan imtiyozga egaligini bildiradi. 2.6 belgisi esa,\"ro'para harakatning ustunligi\" qarama-qarshi harakatlanishni qiyinlashtiradigan hollarda yo'lning tor qismiga kirishni taqiqlaydi. Haydovchi yo'lning tor qismida bo'lgan yoki ro'paradan unga yaqin bo'lgan transport vositasiga yo'l berishi kerak.",
+            "uz_cyr": "YHQ 1-иловаси 2-бўлими 2.7 белгиси \"Рўпарадаги ҳаракатланишга нисбатан имтиёз\". Йўлнинг тор қисмида ҳаракатланишда ҳайдовчи рўпарадан келаётган транспорт воситасига нисбатан имтиёзга эгалигини билдиради. 2.6 белгиси эса,\"рўпара ҳаракатнинг устунлиги\" қарама-қарши ҳаракатланишни қийинлаштирадиган ҳолларда йўлнинг тор қисмига киришни тақиқлайди. Ҳайдовчи йўлнинг тор қисмида бўлган ёки рўпарадан унга яқин бўлган транспорт воситасига йўл бериши керак.",
+            "ru": "Знак 2.7 раздела 2 приложения 1 к ПДД «Преимущество перед встречным движением». Обозначает, что на узком участке дороги водитель имеет преимущество перед транспортным средством, движущимся навстречу. Знак 2.6 «Преимущество встречного движения» запрещает въезжать на узкий участок дороги в случаях, затрудняющих встречное движение. Водитель должен уступить дорогу транспортному средству, находящемуся на узком участке или приближающемуся к нему навстречу."
         }
     },
     {
         "task_info": {
-            "global_id": "t_38_q_14",
-            "ticket_num": 38,
-            "order": 9
+            "global_id": "t_28_q_12",
+            "global_id2": "t_28_q_12",
+            "ticket_num": 28,
+            "order": 9,
+            "remapped_from": "t_38_q_13"
         },
-        "media_url": "v356uz.webp",
+        "media_url": "u315uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ko'rsatilgan yo'l belgilaridan  qaysilari Siz yo'lning tor qismida yo'l berishingizni  talab qiladi?",
+                "text": "Ko'rsatilgan yo'l belgilaridan qaysilari Siz yo'lning tor qismida yo'l berishingizni talab qiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat «В»",
+                        "text": "«Б» va «Г»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«А» va «В»",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "«Б» va «В»",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "«А» va «В»",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "«Б» va «Г»",
+                        "text": "Faqat «В»",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Кўрсатилган йўл белгиларидан  қайсилари Сиз йўлнинг тор қисмида йўл беришингизни  талаб қилади?",
+                "text": "Кўрсатилган йўл белгиларидан қайсилари Сиз йўлнинг тор қисмида йўл беришингизни талаб қилади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат «В»",
+                        "text": "«Б» ва «Г»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«А» ва «В»",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "«Б» ва «В»",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "«А» ва «В»",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "«Б» ва «Г»",
+                        "text": "Фақат «В»",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Какие знаки требует, что Вы должны уступить дорогу, если встречный разъезд затруднен?",
+                "text": "Какие знаки требуют, чтобы вы уступили дорогу, если встречный разъезд затруднен?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только «В»",
+                        "text": "«Б» и «Г»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«А» и «В»",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "«Б» и «В»",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "«А» и «В»",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "«Б» и «Г»",
+                        "text": "Только «В»",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 21-bobi 128-bandiga muvofiq, yo'lning 1.13 belgisi bilan belgilangan qiyaliklarida, qarama-qarshi yo'nalishlarda harakatlanishni qiyinlashtiradigan biron-bir to'siq bo'lsa, nishablikka harakatlanayotgan transport vositasining haydovchisi yo'l berishi kerak va YHQ 1-ilovasining 1-bo'limi 2.6 belgisiga asosan, \"ro'para harakatlanishning ustunligi\", qarama-qarshi harakatlanishni qiyinlashtiradigan hollarda yo'lning tor qismiga kirish taqiqlanadi. Haydovchi yo'lning tor qismida bo'lgan yoki ro'paradan unga yaqin bo'lgan transport vositasiga yo'l berishi kerak.",
+            "uz_cyr": "YHQ 21-боби 128-бандига мувофиқ, йўлнинг 1.13 белгиси билан белгиланган қияликларида, қарама-қарши йўналишларда ҳаракатланишни қийинлаштирадиган бирон-бир тўсиқ бўлса, нишабликка ҳаракатланаётган транспорт воситасининг ҳайдовчиси йўл бериши керак ва YHQ 1-иловасининг 1-бўлими 2.6 белгисига асосан, \"рўпара ҳаракатланишнинг устунлиги\", қарама-қарши ҳаракатланишни қийинлаштирадиган ҳолларда йўлнинг тор қисмига кириш тақиқланади. Ҳайдовчи йўлнинг тор қисмида бўлган ёки рўпарадан унга яқин бўлган транспорт воситасига йўл бериши керак.",
+            "ru": "В соответствии со статьей 128 главы 21 ПДД при наличии препятствия, затрудняющего движение в встречных направлениях на уклонах дороги, обозначенных знаком 1.13, водитель транспортного средства, движущегося по уклону, обязан уступить дорогу, а согласно знаку 2.6 раздела 1 приложения 1 ПДД \"приоритет встречного движения\", выезд на узкую часть дороги в случаях, когда это затрудняет движение в противоположном направлении, запрещается. Водитель обязан уступить дорогу транспортному средству, находящемуся на узком участке дороги или близко к нему."
         }
     },
     {
         "task_info": {
-            "global_id": "t_41_q_16",
-            "ticket_num": 41,
-            "order": 10
+            "global_id": "t_15_q_14",
+            "global_id2": "t_15_q_14",
+            "ticket_num": 15,
+            "order": 10,
+            "remapped_from": "t_41_q_14"
         },
-        "media_url": "v390uz.webp",
+        "media_url": "u169uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi yo'lning tor qismlarida ro'paradan kelayotgan transport vositasiga yo'l berish lozimligini bildiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "B",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "B va V",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "A",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "A va G",
+                        "text": "G",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "G",
+                        "text": "A va G",
                         "is_correct": false
                     }
                 ]
@@ -762,27 +827,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Б",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Б ва В",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "А",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "А ва Г",
+                        "text": "Г",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Г",
+                        "text": "А ва Г",
                         "is_correct": false
                     }
                 ]
@@ -792,97 +857,104 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Б",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Б и В",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "А",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "А и Г",
+                        "text": "Г",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Г",
+                        "text": "А и Г",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo‘limidagi 2.6 belgiga asosan, «Ro‘para harakatlanishning ustunligi». Qarama-qarshi harakatlanishni qiyinlashtiradigan hollarda yo‘lning tor qismiga kirish taqiqlanadi. Haydovchi yo‘lning tor qismida bo‘lgan yoki ro‘paradan unga yaqin bo‘lgan transport vositasiga yo‘l berishi kerak.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлимидаги 2.6 белгига асосан, «Рўпара ҳаракатланишнинг устунлиги». Қарама-қарши ҳаракатланишни қийинлаштирадиган ҳолларда йўлнинг тор қисмига кириш тақиқланади. Ҳайдовчи йўлнинг тор қисмида бўлган ёки рўпарадан унга яқин бўлган транспорт воситасига йўл бериши керак.",
+            "ru": "По знаку 2.6 Приложения 1, раздел 2 «Приоритет встречного движения». Запрещен выезд на узкую часть дороги в случаях, когда это затрудняет встречное движение. Водитель обязан уступить дорогу транспортному средству, находящемуся на узком участке дороги или близко к нему."
         }
     },
     {
         "task_info": {
-            "global_id": "t_42_q_10",
-            "ticket_num": 42,
-            "order": 11
+            "global_id": "t_17_q_10",
+            "global_id2": "t_17_q_10",
+            "ticket_num": 17,
+            "order": 11,
+            "remapped_from": "t_42_q_10"
         },
-        "media_url": "v397uz.webp",
+        "media_url": "u187uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi to'xtash chizig'i oldida, u bo'lmaganda, kesib o'tiladigan qatnov qismining chetida to'xtamasdan harakatlanishni taqiqlaydi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "B",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "A",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "B va V",
+                        "text": "G",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "A va G",
+                        "text": "B va V",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "G",
+                        "text": "A va G",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси белги тўхташ чизиғи олдида, у бўлмаганда, кесиб ўтиладиган қатнов қисмининг четида тўхтамасдан ҳаракатланишни таъқиқлайди?",
+                "text": "Қайси белги тўхташ чизиғи олдида, у бўлмаганда, кесиб ўтиладиган қатнов қисмининг четида тўхтамасдан ҳаракатланишни тақиқлайди?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Б",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "А",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Б ва В",
+                        "text": "Г",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "А ва Г",
+                        "text": "Б ва В",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Г",
+                        "text": "А ва Г",
                         "is_correct": false
                     }
                 ]
@@ -892,40 +964,47 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Б",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "А",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Б и В",
+                        "text": "Г",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "А и Г",
+                        "text": "Б и В",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Г",
+                        "text": "А и Г",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo'limi 2.5 belgisiga asosan, \"To'xtamasdan harakatlanish taqiqlangan\". To'xtash chizig'i oldida, agar u bo'lmasa, kesib o'tiladigan qatnov qismining chetida to'xtamasdan harakatlanish taqiqlanadi.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлими 2.5 белгисига асосан, \"Тўхтамасдан ҳаракатланиш тақиқланган\". Тўхташ чизиғи олдида, агар у бўлмаса, кесиб ўтиладиган қатнов қисмининг четида тўхтамасдан ҳаракатланиш тақиқланади.",
+            "ru": "Согласно знаку 2.5 раздела 2 приложения 1 ПДД «Движение без остановки запрещено». Перед стоп-линией, если ее нет, запрещено движение без остановки у края пересекаемого участка движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_44_q_20",
-            "ticket_num": 44,
-            "order": 12
+            "global_id": "t_13_q_12",
+            "global_id2": "t_13_q_12",
+            "ticket_num": 13,
+            "order": 12,
+            "remapped_from": "t_47_q_10"
         },
-        "media_url": "v420uz.webp",
+        "media_url": "u143uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi yo'l belgilari yo'lning tor qismida haydovchiga ustunlik beradi?",
@@ -957,17 +1036,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат Б",
+                        "text": "Фақат B",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "А ва Б",
+                        "text": "A ва B",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Фақат Д",
+                        "text": "Фақат D",
                         "is_correct": true
                     },
                     {
@@ -987,12 +1066,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "А и B",
+                        "text": "A и B",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Только Д",
+                        "text": "Только D",
                         "is_correct": true
                     },
                     {
@@ -1002,15 +1081,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo‘limidagi 2.7 belgiga asosan, «Ro‘paradagi harakatlanishga nisbatan imtiyoz». Yo‘lning tor qismida harakatlanishda haydovchi ro‘paradan kelayotgan transport vositasiga nisbatan imtiyozga egaligini bildiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлимидаги 2.7 белгига асосан, «Рўпарадаги ҳаракатланишга нисбатан имтиёз». Йўлнинг тор қисмида ҳаракатланишда ҳайдовчи рўпарадан келаётган транспорт воситасига нисбатан имтиёзга эгалигини билдиради.",
+            "ru": "По знаку 2.7 Приложения 1, раздел 2 «Предпочтение встречному движению». При движении по узкому участку дороги водитель указывает на то, что он имеет приоритет перед встречным транспортным средством."
         }
     },
     {
         "task_info": {
-            "global_id": "t_45_q_11",
-            "ticket_num": 45,
-            "order": 13
+            "global_id": "t_53_q_1",
+            "global_id2": "t_53_q_1",
+            "ticket_num": 53,
+            "order": 13,
+            "remapped_from": "t_45_q_10"
         },
-        "media_url": "v424uz.webp",
+        "media_url": "u605uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi haydovchiga kesib o'tilayotgan yo'lda harakatlanayotgan transport vositalariga yo'l berish lozimligini bildiradi?",
@@ -1022,8 +1108,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "B",
-                        "is_correct": false
+                        "text": "B va G",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1037,8 +1123,8 @@
                     },
                     {
                         "id": 5,
-                        "text": "B va G",
-                        "is_correct": true
+                        "text": "B",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1052,8 +1138,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Б",
-                        "is_correct": false
+                        "text": "Б ва Г",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1067,8 +1153,8 @@
                     },
                     {
                         "id": 5,
-                        "text": "Б ва Г",
-                        "is_correct": true
+                        "text": "Б",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1082,8 +1168,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Б",
-                        "is_correct": false
+                        "text": "Б и Г",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1097,47 +1183,54 @@
                     },
                     {
                         "id": 5,
-                        "text": "Б и Г",
-                        "is_correct": true
+                        "text": "Б",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo‘limidagi 2.4 belgiga asosan, «Yo‘l bering!». Haydovchi kesib o‘tilayotgan yo‘ldan, 7.13 qo‘shimcha-axborot belgisi bo‘lganda esa asosiy yo‘ldan harakatlanayotgan transport vositasiga yo‘l berishi kerak.\r\nYHQ 1-ilovasining 2-bo‘limidagi 2.5 belgiga asosan, «To‘xtamasdan harakatlanish taqiqlangan». To‘xtash chizig‘i oldida, agar u bo‘lmasa, kesib o‘tiladigan qatnov qismining chetida to‘xtamasdan harakatlanish taqiqlanadi. Haydovchi kesib o‘tilayotgan yo‘ldan, 7.13 qo‘shimcha-axborot belgisi bo‘lganda esa asosiy yo‘ldan harakatlanayotgan transport vositalariga yo‘l berishi kerak.\r\nBu belgi temir yo‘l kesishmasi yoki karantin maskanidan oldin o‘rnatilishi mumkin. Bunday hollarda haydovchi to‘xtash chizig‘i oldida, u bo‘lmasa, belgi oldida to‘xtashi kerak.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлимидаги 2.4 белгига асосан, «Йўл беринг!». Ҳайдовчи кесиб ўтилаётган йўлдан, 7.13 қўшимча-ахборот белгиси бўлганда эса асосий йўлдан ҳаракатланаётган транспорт воситасига йўл бериши керак.\r\nYHQ 1-иловасининг 2-бўлимидаги 2.5 белгига асосан, «Тўхтамасдан ҳаракатланиш тақиқланган». Тўхташ чизиғи олдида, агар у бўлмаса, кесиб ўтиладиган қатнов қисмининг четида тўхтамасдан ҳаракатланиш тақиқланади. Ҳайдовчи кесиб ўтилаётган йўлдан, 7.13 қўшимча-ахборот белгиси бўлганда эса асосий йўлдан ҳаракатланаётган транспорт воситаларига йўл бериши керак.\r\nБу белги темир йўл кесишмаси ёки карантин масканидан олдин ўрнатилиши мумкин. Бундай ҳолларда ҳайдовчи тўхташ чизиғи олдида, у бўлмаса, белги олдида тўхташи керак.",
+            "ru": "\"Уступи дорогу!\" согласно знаку 2.4 Приложения 1, раздел 2, Водитель обязан уступить дорогу транспортному средству, движущемуся с пересекаемой дороги, а также с основной дороги при наличии знака дополнительной информации 7.13. \r\nПо знаку 2.5 Приложения 1, раздел 2 «Движение без остановки запрещено». Запрещается движение без остановки перед стоп-линией, если ее нет, на краю пересекаемого участка движения. Водитель обязан уступить дорогу транспортным средствам, движущимся с пересекаемой дороги, а также с основной дороги при наличии знака дополнительной информации 7.13. \r\nЭтот знак можно разместить перед железнодорожным переездом или карантинной станцией. В таких случаях водитель должен остановиться перед стоп-линией, а при отсутствии остановки – перед знаком."
         }
     },
     {
         "task_info": {
-            "global_id": "t_46_q_11",
-            "ticket_num": 46,
-            "order": 14
+            "global_id": "t_29_q_7",
+            "global_id2": "t_29_q_7",
+            "ticket_num": 29,
+            "order": 14,
+            "remapped_from": "t_46_q_11"
         },
-        "media_url": "v433uz.webp",
+        "media_url": "u327uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi ikkinchi darajali yo'l bilan kesishuvni bildiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "2",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "4",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "4",
                         "is_correct": false
                     }
                 ]
@@ -1147,27 +1240,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "2",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "4",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "4",
                         "is_correct": false
                     }
                 ]
@@ -1177,40 +1270,47 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "2",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "4",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "4",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo‘limidagi 2.3.1 belgiga asosan, «Ikkinchi darajali yo‘l bilan kesishuv».",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлимидаги 2.3.1 белгига асосан, «Иккинчи даражали йўл билан кесишув».",
+            "ru": "По знаку 2.3.1 Приложения 1 раздела 2 «Пересечение с второстепенной дорогой»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_47_q_6",
-            "ticket_num": 47,
-            "order": 15
+            "global_id": "t_11_q_18",
+            "global_id2": "t_11_q_18",
+            "ticket_num": 11,
+            "order": 15,
+            "remapped_from": "t_47_q_5"
         },
-        "media_url": "v458uz.webp",
+        "media_url": "u125uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi ikkinchi darajali yo'l bilan tutashuvni bildiradi?",
@@ -1302,32 +1402,39 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 2-bo‘limidagi 2.3.3 belgiga asosan, «Ikkinchi darajali yo‘l bilan tutashuv». 2.3.3 — tutashuv chapdan. 2.3.1 — 2.3.3 yo‘l belgilari aholi punktlarida kesishmagacha 50 — 100 metr masofada, aholi punktlaridan tashqarida esa 150 — 300 metr masofada o‘rnatiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 2-бўлимидаги 2.3.3 белгига асосан, «Иккинчи даражали йўл билан туташув». 2.3.3 — туташув чапдан. 2.3.1 — 2.3.3 йўл белгилари аҳоли пунктларида кесишмагача 50 — 100 метр масофада, аҳоли пунктларидан ташқарида эса 150 — 300 метр масофада ўрнатилади.",
+            "ru": "По знаку 2.3.3 Приложения 1 раздела 2 «Присоединение второстепенной дорогой». 2.3.3 — подключение слева. 2.3.1 – 2.3.3 дорожные знаки устанавливаются на расстоянии 50 – 100 метров от перекрестка в населенных пунктах и ​​на расстоянии 150 – 300 метров за пределами населенных пунктов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_47_q_11",
-            "ticket_num": 47,
-            "order": 16
+            "global_id": "t_4_q_11",
+            "global_id2": "t_4_q_11",
+            "ticket_num": 4,
+            "order": 16,
+            "remapped_from": "t_44_q_19"
         },
-        "media_url": "v448uz.webp",
+        "media_url": "u35uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi yo'l belgilari yo'lning tor qismida haydovchiga ustunlik beradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "В",
+                        "text": "Б va В",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "A va В",
+                        "text": "В",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Б va В",
+                        "text": "A va В",
                         "is_correct": false
                     },
                     {
@@ -1342,17 +1449,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "В",
+                        "text": "Б ва В",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "А ва В",
+                        "text": "В",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Б ва В",
+                        "text": "А ва В",
                         "is_correct": false
                     },
                     {
@@ -1363,7 +1470,7 @@
                 ]
             },
             "ru": {
-                "text": "При наличии каких знаков водитель пользуеться преимушеством, если встречный разъезд затруднен припятствием?",
+                "text": "При наличии каких знаков водитель пользуется преимуществом, если встречный разъезд затруднен препятствием?",
                 "options": [
                     {
                         "id": 1,
@@ -1372,12 +1479,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "А и В",
+                        "text": "Б и В",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Б и В",
+                        "text": "А и В",
                         "is_correct": false
                     },
                     {
@@ -1387,28 +1494,35 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 21-bobi 128-bandi: Agar yo‘lning 1.13 va 1.14 yo‘l belgilari bilan belgilangan qiyaliklarda, qarama-qarshi yo‘nalishlarda harakatlanishni qiyinlashtiradigan to‘siq bo‘lsa, nishablikka harakatlanayotgan transport vositasining haydovchisi yo‘l berishi kerak. YHQ 1 ilova: 2.7. “Ro‘paradagi harakatlanishga nisbatan imtiyoz” belgisi. Yo‘lning tor qismida harakatlanishda haydovchi ro‘paradan kelayotgan transport vositasiga nisbatan imtiyozga egaligini bildiradi.",
+            "uz_cyr": "YHQ 21-боби 128-банди: Агар йўлнинг 1.13 ва 1.14 йўл белгилари билан белгиланган қияликларда, қарама-қарши йўналишларда ҳаракатланишни қийинлаштирадиган тўсиқ бўлса, нишабликка ҳаракатланаётган транспорт воситасининг ҳайдовчиси йўл бериши керак. YHQ 1 илова: 2.7. “Рўпарадаги ҳаракатланишга нисбатан имтиёз” белгиси. Йўлнинг тор қисмида ҳаракатланишда ҳайдовчи рўпарадан келаётган транспорт воситасига нисбатан имтиёзга эгалигини билдиради.",
+            "ru": "Пункт 128 главы 21 ПДД: если на участках дороги, обозначенных знаками 1.13 и 1.14, имеется препятствие, затрудняющее движение во встречных направлениях, водитель транспортного средства, движущегося на спуск, обязан уступить дорогу. Приложение 1 к ПДД: знак 2.7 «Преимущество перед встречным движением» означает, что на узком участке дороги водитель имеет преимущество перед транспортным средством, движущимся во встречном направлении."
         }
     },
     {
         "task_info": {
-            "global_id": "t_51_q_6",
-            "ticket_num": 51,
-            "order": 17
+            "global_id": "t_53_q_6",
+            "global_id2": "t_53_q_6",
+            "ticket_num": 53,
+            "order": 17,
+            "remapped_from": "t_51_q_6"
         },
-        "media_url": "v507uz.webp",
+        "media_url": "u608uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bunday vaziyatda siz:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi o‘tish huquqiga egaman",
-                        "is_correct": false
+                        "text": "Ro'paradan kelayotgan avtomobilga yo'l beraman",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ro‘paradan kelayotgan avtomobilga yo‘l beraman",
-                        "is_correct": true
+                        "text": "Birinchi o'tish huquqiga egaman",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1417,13 +1531,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Биринчи ўтиш ҳуқуқига эгаман",
-                        "is_correct": false
+                        "text": "Рўпарадан келаётган автомобилга йўл бераман",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Рўпарадан келаётган автомобилга йўл бераман",
-                        "is_correct": true
+                        "text": "Биринчи ўтиш ҳуқуқига эгаман",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1432,43 +1546,50 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "У меня есть право первого прохода",
-                        "is_correct": false
+                        "text": "Я уступаю дорогу приближающейся машине",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Я уступаю дорогу приближающейся машине",
-                        "is_correct": true
+                        "text": "У меня есть право первого прохода",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilova 2.6. “Ro‘para harakatlanishning ustunligi”: Qarama-qarshi harakatlanishni qiyinlashtiradigan hollarda yo‘lning tor qismiga kirish taqiqlanadi. Haydovchi yo‘lning tor qismida bo‘lgan yoki ro‘paradan unga yaqin bo‘lgan transport vositasiga yo‘l berishi kerak.",
+            "uz_cyr": "YHQ 1-илова 2.6. “Рўпара ҳаракатланишнинг устунлиги”: Қарама-қарши ҳаракатланишни қийинлаштирадиган ҳолларда йўлнинг тор қисмига кириш тақиқланади. Ҳайдовчи йўлнинг тор қисмида бўлган ёки рўпарадан унга яқин бўлган транспорт воситасига йўл бериши керак.",
+            "ru": "Приложение 1 ПДД 2.6. «Преимущество встречного движения»: Доступ на узкий участок дороги запрещен в случаях, когда встречное движение затруднено. Водитель обязан уступить дорогу транспортному средству, находящемуся на узком участке дороги или близко к нему."
         }
     },
     {
         "task_info": {
-            "global_id": "t_53_q_20",
-            "ticket_num": 53,
-            "order": 18
+            "global_id": "t_38_q_5",
+            "global_id2": "t_38_q_5",
+            "ticket_num": 38,
+            "order": 18,
+            "remapped_from": "t_53_q_20"
         },
-        "media_url": "v535uz.webp",
+        "media_url": "u432uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ogohlantiruvchi belgilarni toping",
                 "options": [
                     {
                         "id": 1,
+                        "text": "4,5",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Hammasi",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "1,2,4,5",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "4,5",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1477,18 +1598,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "4,5",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Ҳаммаси",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "1,2,4,5",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "4,5",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1497,30 +1618,37 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "4,5",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Все",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "1,2 4,5",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "4,5",
-                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 1.19. “Ikki tomonlama harakatlanish” – Yo‘lning (qatnov qismining) qarama-qarshi harakatlanish qismi boshlanishini bildiradi. YHQ 1 ilova: 1.6. “Teng ahamiyatli yo‘llar kesishuvi”.",
+            "uz_cyr": "YHQ 1 илова: 1.19. “Икки томонлама ҳаракатланиш” – Йўлнинг (қатнов қисмининг) қарама-қарши ҳаракатланиш қисми бошланишини билдиради. YHQ 1 илова: 1.6. “Тенг аҳамиятли йўллар кесишуви”.",
+            "ru": "Приложение к ПДД 1: 1.19. «Двустороннее движение» означает начало встречного участка дороги (вагонного движения). Приложение к ПДД 1: 1.6. «Перекресток равной важности»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_5",
-            "ticket_num": 56,
-            "order": 19
+            "global_id": "t_46_q_11",
+            "global_id2": "t_46_q_11",
+            "ticket_num": 46,
+            "order": 19,
+            "remapped_from": "t_56_q_5"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Imtiyoz belgilari qaysi joylarda harakatlanish navbatini belgilaydi?",
@@ -1532,7 +1660,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat yo Ining tor qismiarida",
+                        "text": "Faqat yo Ining tor qismlarida",
                         "is_correct": false
                     },
                     {
@@ -1543,7 +1671,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Имтиёз бэлгилари қайси жойларда ҳаракатланиш навбатини бэлгилайди?",
+                "text": "Имтиёз белгилари қайси жойларда ҳаракатланиш навбатини белгилайди?",
                 "options": [
                     {
                         "id": 1,
@@ -1552,7 +1680,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат ё Ининг тор қисмиарида",
+                        "text": "Фақат ёки унинг тор қисмларида",
                         "is_correct": false
                     },
                     {
@@ -1567,12 +1695,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только на перекрестках",
+                        "text": "Только между узкой частью ствола",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только между узкой частью ствола",
+                        "text": "Только на перекрёстках",
                         "is_correct": false
                     },
                     {
@@ -1582,6 +1710,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 2. Imtiyoz belgilarining 1-xatboshiga asosan: Imtiyoz belgilari — chorrahalarda, qatnov qismlari kesishgan joylarda, yo‘lning tor qismlarida harakatlanish navbatini belgilaydi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 2. Имтиёз белгиларининг 1-хатбошига асосан: Имтиёз белгилари — чорраҳаларда, қатнов қисмлари кесишган жойларда, йўлнинг тор қисмларида ҳаракатланиш навбатини белгилайди.",
+            "ru": "Согласно абзацу 1 раздела 2 приложения 1 к ПДД: знаки приоритета определяют очерёдность проезда на перекрёстках, пересечениях проезжих частей и на узких участках дороги."
         }
     }
 ]

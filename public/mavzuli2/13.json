@@ -1,29 +1,31 @@
 [
     {
         "task_info": {
-            "global_id": "t_3_q_18",
-            "ticket_num": 3,
-            "order": 1
+            "global_id": "t_36_q_15",
+            "global_id2": "t_36_q_15",
+            "ticket_num": 36,
+            "order": 1,
+            "remapped_from": "t_3_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Qaysi holda qoidalar ogohlantirish ishorasini berishni talab kilmaydi?",
+                "text": "Qaysi holda qoidalar ogohlantirish ishorasini berishni talab qilmaydi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qatnov qismining chekkasida to'xtash oldidan",
+                        "text": "Qo'shni harakat bo'lagiga o'tish oldidan.",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Ҳавфли бурилиш» belgisi bilan belgilangan yo'lning egri burilish joyi oldidan.",
-                        "is_correct": true
+                        "text": "Qatnov qismining chekkasida to'xtash oldidan",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Qo'shni harakat bo'lagiga o'tish oldidan.",
-                        "is_correct": false
+                        "text": "«Xavfli burilish» belgisi bilan belgilangan yo'lning egri burilish joyi oldidan.",
+                        "is_correct": true
                     }
                 ]
             },
@@ -32,50 +34,57 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Қўшни ҳаракат бўлагига ўтиш олдидан.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Қатнов қисмининг чеккасида тўхташ олдидан",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "«Ҳавфли бурилиш» белгиси билан белгиланган йўлнинг эгри бурилиш жойи олдидан.",
                         "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Қўшни ҳаракат бўлагига ўтиш олдидан.",
-                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "В каком случае Правила не требуют подачи предупре­дительного сигнала?",
+                "text": "В каком случае правила не требуют подачи предупре­дительного сигнала?",
                 "options": [
                     {
                         "id": 1,
-                        "text": ". Перед остановкой у края проезжей части",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Перед закруглением дороги; обозначенным знаком \"Опасный поворот\"",
+                        "text": "Перед закруглением дороги, обозначенным знаком \"Опасный поворот\"",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Перед перестроением на соседнюю полосу движения",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Перед остановкой у края проезжей части",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yoʻl harakati qoidalarining 67-bandiga muvofiq:\n\nHaydovchi harakatlanishni boshlashdan, qayta saflanishdan (boʻlakka oʻtishdan), burilishdan (qayrilib olishdan) va toʻxtashdan oldin tegishli yoʻnalishni koʻrsatuvchi yorugʻlik ishoralari (povorotniklar) orqali ogohlantirish ishorasini berishi shart.\n\n«Xavfli burilish» (1.11.1, 1.11.2, 1.12.1, 1.12.2) ogohlantiruvchi belgilari bilan belgilangan yoʻlning egri joylarida haydovchi oʻz harakat boʻlagini oʻzgartirmasdan, yoʻlning oʻzini yoʻnalishi boʻylab ketayotgan boʻlsa, manyovr bajarilmayotganligi sababli ogohlantirish ishorasini (povorotnikni) yoqish talab etilmaydi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 67-бандига мувофиқ:\n\nҲайдовчи ҳаракатланишни бошлашдан, қайта сафланишдан (бўлакка ўтишдан), бурилишдан (қайрилиб олишдан) ва тўхташдан олдин тегишли йўналишни кўрсатувчи ёруғлик ишоралари (поворотниклар) орқали огоҳлантириш ишорасини бериши шарт.\n\n«Хавфли бурилиш» (1.11.1, 1.11.2, 1.12.1, 1.12.2) огоҳлантирувчи белгилари билан белгиланган йўлнинг эгри жойларида ҳайдовчи ўз ҳаракат бўлагини ўзгартирмасдан, йўлнинг ўзини йўналиши бўйлаб кетаётган бўлса, манёвр бажарилмаётганлиги сабабли огоҳлантириш ишорасини (поворотникни) ёқиш талаб этилмайди.",
+            "ru": "Согласно статье 67 Правил дорожного движения:\n\nПеред началом движения, перестроением (выездом на полосу), поворотом (поворотом) и остановкой водитель обязан подать предупредительный сигнал посредством световых сигналов, указывающих соответствующее направление (поворотников). \n\nНа криволинейных участках дороги, обозначенных предупреждающими знаками «Опасный поворот» (1.11.1, 1.11.2, 1.12.1, 1.12.2), если водитель движется в одном направлении дороги без перестроения, включение предупредительного сигнала (поворотника) не требуется, поскольку маневр не выполняется."
         }
     },
     {
         "task_info": {
-            "global_id": "t_4_q_18",
-            "ticket_num": 4,
-            "order": 2
+            "global_id": "t_40_q_7",
+            "global_id2": "t_40_q_7",
+            "ticket_num": 40,
+            "order": 2,
+            "remapped_from": "t_4_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Kunduzgi vaqtda yaqinni yorituvchi fara chirog'ini yoqish ogohlantirish ishorasi bo'ladimi?",
@@ -122,32 +131,39 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 44-bandiga muvofiq, kunduz kuni yaqinni yorituvchi fara chirog'ining yoqilishi ogohlantiruvchi ishoralar hisoblanadi.",
+            "uz_cyr": "YHQ 8-боби 44-бандига мувофиқ, кундуз куни яқинни ёритувчи фара чироғининг ёқилиши огоҳлантирувчи ишоралар ҳисобланади.",
+            "ru": "В соответствии с главой 8 статьи 44 ПДД дневные ходовые огни считаются предупредительными сигналами."
         }
     },
     {
         "task_info": {
-            "global_id": "t_5_q_18",
-            "ticket_num": 5,
-            "order": 3
+            "global_id": "t_19_q_18",
+            "global_id2": "t_19_q_18",
+            "ticket_num": 19,
+            "order": 3,
+            "remapped_from": "t_5_q_15"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi ishoralar ogohlantiruvchi hisoblanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Burilishni ko'rsatadigan miltillovchi chiroq yoki qo'l bilan beriladigan ishoralar",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Tovushli ishoralar",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Fara chiroqlarini o'chib-yoqilishi va kunduzgi vaqtda yaqinni yorituvchi fara chirog'ining yoqilishi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Burilishni ko'rsatadigan miltillovchi chiroq yoki qo'l bilan beriladigan ishoralar",
                         "is_correct": false
                     },
                     {
@@ -162,17 +178,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Бурилишни кўрсатадиган милтилловчи чироқ ёки қўл билан бериладиган ишоралар",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Товушли ишоралар",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Фара чироқларини ўчиб-ёқилиши ва кундузги вақтда яқинни ёритувчи фара чироғининг ёқилиши",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Бурилишни кўрсатадиган милтилловчи чироқ ёки қўл билан бериладиган ишоралар",
                         "is_correct": false
                     },
                     {
@@ -187,57 +203,64 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Сигналы; подаваемые световыми указателями поворота или рукой",
+                        "text": "Сигналы, подаваемые световыми указателями поворота или рукой",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Звуковые сигналы",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Переключение света фар и включение ближнего света фар дневное время",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Все вышеперечисленные сигналы",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Звуковые сигналы",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 44-bandiga muvofiq, quyidagilar ogohlantiruvchi ishoralar hisoblanadi: burilishni ko'rsatadigan miltillovchi chiroq yoki qo'l bilan beriladigan ishoralar; tovushli ishoralar; fara chiroqlarining yoqib-o'chirilishi; kunduz kuni yaqinni yorituvchi fara chiroqlarini yoqilishi.",
+            "uz_cyr": "YHQ 8-боби 44-бандига мувофиқ, қуйидагилар огоҳлантирувчи ишоралар ҳисобланади: бурилишни кўрсатадиган милтилловчи чироқ ёки қўл билан бериладиган ишоралар; товушли ишоралар; фара чироқларининг ёқиб-ўчирилиши; кундуз куни яқинни ёритувчи фара чироқларини ёқилиши.",
+            "ru": "В соответствии с главой 8 статьи 44 ПДД предупреждающими сигналами считаются: проблесковый маячок или ручные сигналы, указывающие поворот; звуковые сигналы; включение и выключение фар; включение фар, которые освещают окрестности в течение дня."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_8",
-            "ticket_num": 6,
-            "order": 4
+            "global_id": "t_7_q_5",
+            "global_id2": "t_7_q_5",
+            "ticket_num": 7,
+            "order": 4,
+            "remapped_from": "t_6_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Ogohlantirish ishorasini berish haydovchiga birinchi harakatlanish xuquqini beradimi?",
+                "text": "Ogohlantirish ishorasini berish haydovchiga birinchi harakatlanish huquqini beradimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Bermaydi",
-                        "is_correct": true
+                        "text": "Hamma hollarda beradi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Manyovrni tugatish vaqtida beradi",
+                        "text": "Manevrni tugatish vaqtida beradi",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Manyovrni boshlash vaqtida beradi",
-                        "is_correct": false
+                        "text": "Bermaydi",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Hamma hollarda beradi",
+                        "text": "Manevrni boshlash vaqtida beradi",
                         "is_correct": false
                     }
                 ]
@@ -247,8 +270,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Бермайди",
-                        "is_correct": true
+                        "text": "Ҳамма ҳолларда беради",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -257,12 +280,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Манёврни бошлаш вақтида беради",
-                        "is_correct": false
+                        "text": "Бермайди",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Ҳамма ҳолларда беради",
+                        "text": "Манёврни бошлаш вақтида беради",
                         "is_correct": false
                     }
                 ]
@@ -272,8 +295,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не дает",
-                        "is_correct": true
+                        "text": "Дает при начале маневра",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -282,8 +305,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Дает при начале маневра",
-                        "is_correct": false
+                        "text": "Не дает",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -292,92 +315,106 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 46-bandiga muvofiq, burilish ko'rsatgichlari bilan berilayotgan ogohlantiruvchi ishora berish haydovchiga oldin o'tish huquqini bermaydi va uni zaruriy ehtiyot choralarini ko'rish mas'uliyatidan ozod etmaydi.",
+            "uz_cyr": "YHQ 8-боби 46-бандига мувофиқ, бурилиш кўрсатгичлари билан берилаётган огоҳлантирувчи ишора бериш ҳайдовчига олдин ўтиш ҳуқуқини бермайди ва уни зарурий эҳтиёт чораларини кўриш масулиятидан озод этмайди.",
+            "ru": "В соответствии с главой 8, пунктом 46 ПДД, предупредительный сигнал поворотников не дает водителю права преимущественного проезда и не освобождает его от ответственности за соблюдение необходимых мер предосторожности."
         }
     },
     {
         "task_info": {
-            "global_id": "t_7_q_8",
-            "ticket_num": 7,
-            "order": 5
+            "global_id": "t_36_q_20",
+            "global_id2": "t_36_q_20",
+            "ticket_num": 36,
+            "order": 5,
+            "remapped_from": "t_7_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Haydovchi axoli punktlaridan tashqaridagi yo'lda quvib o'tilayotgan haydovchining etiborini jalb etish uchun faralar chiroqlarini o'chirib yoqish va tovush ishorasi berishni qo'llab to'g'ri qildimi?",
+                "text": "Haydovchi aholi punktlaridan tashqaridagi yo'lda quvib o'tilayotgan haydovchining e'tiborini jalb etish uchun faralar chiroqlarini o'chirib yoqish va tovush ishorasi berishni qo'llab to'g'ri qildimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Noto'g'ri",
-                        "is_correct": false
+                        "text": "To'g'ri",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "To'g'ri",
-                        "is_correct": true
+                        "text": "Noto'g'ri",
+                        "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Ҳайдовчи ахоли пунктларидан ташқаридаги йўлда қувиб ўтилаётган ҳайдовчининг эътиборини жалб этиш учун фаралар чироқларини ўчириб ёқиш ва товуш ишораси беришни қўллаб тўғри қилдими?",
+                "text": "Ҳайдовчи аҳоли пунктларидан ташқаридаги йўлда қувиб ўтилаётган ҳайдовчининг эътиборини жалб этиш учун фаралар чироқларини ўчириб ёқиш ва товуш ишораси беришни қўллаб тўғри қилдими?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Нотўғри",
-                        "is_correct": false
+                        "text": "Тўғри",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Тўғри",
-                        "is_correct": true
+                        "text": "Нотўғри",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Правильно ли поступил водитель; применив переключение света фар и звуковой сигнал; для привлечения внимания обгоняемого водителя на дороге вне населенного пункта?",
+                "text": "Правильно ли поступил водитель, применив переключение света фар и звуковой сигнал, для привлечения внимания обгоняемого водителя на дороге вне населённого пункта?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Неправильно",
-                        "is_correct": false
+                        "text": "Правильно",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Правильно",
-                        "is_correct": true
+                        "text": "Неправильно",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 48 - 49 - bandlariga muvofiq, aholi punktlaridan tashqarida boshqa haydovchilarni quvib o'tish haqida ogohlantirish uchun tovushli ishoralar qo'llanilishi mumkin. Quvib o'tish haqida tovushli ishora o'rniga yoki u bilan birga chiroqlarni yoqib-o'chirib, ogohlantirish ishorasini ham berish mumkin.",
+            "uz_cyr": "YHQ 8-боби 48 - 49 - бандларига мувофиқ, аҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун товушли ишоралар қўлланилиши мумкин. Қувиб ўтиш ҳақида товушли ишора ўрнига ёки у билан бирга чироқларни ёқиб-ўчириб, огоҳлантириш ишорасини ҳам бериш мумкин.",
+            "ru": "В соответствии с главой 8, статьями 48 – 49 ПДД, звуковые сигналы могут использоваться для предупреждения других водителей об обгоне за пределами населенных пунктов. Предупреждающий сигнал может подаваться вместо звукового сигнала обгона или в дополнение к мигающим огням."
         }
     },
     {
         "task_info": {
-            "global_id": "t_7_q_18",
-            "ticket_num": 7,
-            "order": 6
+            "global_id": "t_17_q_19",
+            "global_id2": "t_17_q_19",
+            "ticket_num": 17,
+            "order": 6,
+            "remapped_from": "t_7_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Quvib o'tishda faralarning uzoqni yorituvchi chiroqlaridan ogohlantiruvchi ishora sifatida foydalanish mumkinmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Hamma holda mumkin",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Mumkin, agar bu boshqa haydovchilarning ko'zini qamashtirmasa, shu jumladan, orqani ko'rish ko'zgusi orqali ham",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Mumkin emas",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Aholi punktlaridan tashqaridagi yo'llarda mumkin",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Mumkin, agar bu boshqa haydovchilarning ko'zini qamashtirmasa, shu jumladan, orqani ko'rish ko'zgusi orqali ham",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Hamma holda mumkin",
                         "is_correct": false
                     },
                     {
@@ -392,22 +429,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳамма ҳолда мумкин",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Мумкин, агар бу бошқа ҳайдовчиларнинг кўзини қамаштирмаса, шу жумладан, орқани кўриш кўзгуси орқали ҳам",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Мумкин эмас",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Аҳоли пунктларидан ташқаридаги йўлларда мумкин",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Мумкин, агар бу бошқа ҳайдовчиларнинг кўзини қамаштирмаса, шу жумладан, орқани кўриш кўзгуси орқали ҳам",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ҳамма ҳолда мумкин",
                         "is_correct": false
                     },
                     {
@@ -422,22 +459,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Можно в любом случае",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Можно, когда это не может вызвать ослепление других водителей, в том числе и через зеркало заднего вида",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Нельзя",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Можно на дорогах вне населённых пунктов",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Можно, когда это не может вызвать ослепление других водителей, в том числе и через зеркало заднего вида",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "Можно на дорогах вне населенных пунктов",
+                        "text": "Можно в любом случае",
                         "is_correct": false
                     },
                     {
@@ -447,18 +484,25 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 48 - 49 - bandlariga muvofiq, aholi punktlaridan tashqarida boshqa haydovchilarni quvib o'tish haqida ogohlantirish uchun tovushli ishoralar qo'llanilishi mumkin. Quvib o'tish haqida tovushli ishora o'rniga yoki u bilan birga chiroqlarni yoqib-o'chirib, ogohlantirish ishorasini ham berish mumkin.",
+            "uz_cyr": "YHQ 8-боби 48 - 49 - бандларига мувофиқ, аҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун товушли ишоралар қўлланилиши мумкин. Қувиб ўтиш ҳақида товушли ишора ўрнига ёки у билан бирга чироқларни ёқиб-ўчириб, огоҳлантириш ишорасини ҳам бериш мумкин.",
+            "ru": "В соответствии с главой 8, статьями 48 – 49 ПДД, звуковые сигналы могут использоваться для предупреждения других водителей об обгоне за пределами населенных пунктов. Предупреждающий сигнал может подаваться вместо звукового сигнала обгона или в дополнение к мигающим огням."
         }
     },
     {
         "task_info": {
-            "global_id": "t_8_q_6",
-            "ticket_num": 8,
-            "order": 7
+            "global_id": "t_28_q_7",
+            "global_id2": "t_28_q_7",
+            "ticket_num": 28,
+            "order": 7,
+            "remapped_from": "t_8_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Haydovchi manyovrni bajarishda burilish ko'rsatkichlari bilan yorug'lik ishorasini har doim berishi kerakmi?",
+                "text": "Haydovchi manevrni bajarishda burilish ko'rsatkichlari bilan yorug'lik ishorasini har doim berishi kerakmi?",
                 "options": [
                     {
                         "id": 1,
@@ -498,7 +542,7 @@
                 ]
             },
             "ru": {
-                "text": "Всегда ли водитель должен подавать световой сигнал; указателями поворота при выполнении маневра?",
+                "text": "Всегда ли водитель должен подавать световой сигнал, указателями поворота при выполнении маневра?",
                 "options": [
                     {
                         "id": 1,
@@ -517,37 +561,44 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8- bobi 46 – bandining ikkinchisi xatboshisiga asosan: Burilish ko‘rsatkichi yoki qo‘l bilan berilayotgan ishora manyovrni bajarishdan oldinroq berilishi va uni tugallagach, darhol to‘xtatilishi kerak (qo‘l bilan berilayotgan ishorani manyovrni bevosita bajarishdan oldin tugallash mumkin). Beriladigan ishoralar yo‘l harakatining boshqa qatnashchilarini chalg‘itmasligi kerak. Ogohlantiruvchi ishora berish haydovchiga oldin o‘tish huquqini bermaydi va uni zaruriy ehtiyot choralarini ko‘rish mas’uliyatidan ozod etmaydi.",
+            "uz_cyr": "YHQ 8- боби 46 – бандининг иккинчиси хатбошисига асосан: Бурилиш кўрсаткичи ёки қўл билан берилаётган ишора манёврни бажаришдан олдинроқ берилиши ва уни тугаллагач, дарҳол тўхтатилиши керак (қўл билан берилаётган ишорани манёврни бевосита бажаришдан олдин тугаллаш мумкин). Бериладиган ишоралар йўл ҳаракатининг бошқа қатнашчиларини чалғитмаслиги керак. Огоҳлантирувчи ишора бериш ҳайдовчига олдин ўтиш ҳуқуқини бермайди ва уни зарурий эҳтиёт чораларини кўриш масулиятидан озод этмайди.",
+            "ru": "Согласно абзацу второму статьи 46 главы 8 ПДД: Сигнал поворота или сигнал рукой должен быть подан перед маневром и прекращен немедленно по его завершению (сигнал рукой может быть завершен непосредственно перед маневром). Данные знаки не должны сбивать с толку других участников дорожного движения. Постановка предупреждающего знака не дает водителю права обгона и не освобождает его от ответственности за соблюдение необходимых мер предосторожности."
         }
     },
     {
         "task_info": {
-            "global_id": "t_14_q_11",
-            "ticket_num": 14,
-            "order": 8
+            "global_id": "t_34_q_20",
+            "global_id2": "t_34_q_20",
+            "ticket_num": 34,
+            "order": 8,
+            "remapped_from": "t_14_q_11"
         },
-        "media_url": "v57uz.webp",
+        "media_url": "u396uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ko'k avtomobil chorrahani kesib o'tadi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi bo'lib",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Ikkinchi bo'lib\n",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Uchinchi bo'lib",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Oxirgi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ikkinchi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Birinchi bo'lib",
                         "is_correct": false
                     }
                 ]
@@ -557,77 +608,84 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Биринчи бўлиб",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Иккинчи бўлиб\n",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Учинчи бўлиб",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Охирги бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Иккинчи бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Биринчи бўлиб",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Синий автомобиль проедет перекресток:",
+                "text": "Синий автомобиль проедет перекрёсток:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Первым",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Вторым",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Третьим",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Последним",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Вторым",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Первым",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 6-bobi 26-bandiga muvofiq, haydovchilar tezkor va maxsus xizmatlarning ko'k yoki qizil yoxud ko'k va qizil rangli yalt-yalt etuvchi mayoqchalar va maxsus tovushli ishorasi yoqilgan holda yaqinlashayotgan transport vositalariga yo'l berishlari shart. YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak. Bunday chorrahalarda tramvay harakatlanish yo'nalishidan qat'i nazar, teng ahamiyatli yo'lda bir yo'nalishda yoki qarama-qarshi yo'nalishda harakatlanayotgan relssiz transport vositalariga nisbatan imtiyozga ega. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 6-боби 26-бандига мувофиқ, ҳайдовчилар тезкор ва махсус хизматларнинг кўк ёки қизил ёхуд кўк ва қизил рангли ялт-ялт этувчи маёқчалар ва махсус товушли ишораси ёқилган ҳолда яқинлашаётган транспорт воситаларига йўл беришлари шарт. YHQ 16-боби 104-бандига асосан, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак. Бундай чорраҳаларда трамвай ҳаракатланиш йўналишидан қати назар, тенг аҳамиятли йўлда бир йўналишда ёки қарама-қарши йўналишда ҳаракатланаётган релссиз транспорт воситаларига нисбатан имтиёзга эга. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "В соответствии с главой 6 статьи 26 ПДД водители обязаны уступать дорогу приближающимся транспортным средствам с синими или красными или сине-красными проблесковыми маячками и специальным звуковым сигналом экспресс и специальных служб. Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. На таких перекрестках, независимо от направления движения, трамвай имеет приоритет перед нерельсовыми транспортными средствами, движущимися в том же или встречном направлении по дороге равного значения. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_21_q_18",
-            "ticket_num": 21,
-            "order": 9
+            "global_id": "t_30_q_5",
+            "global_id2": "t_30_q_5",
+            "ticket_num": 30,
+            "order": 9,
+            "remapped_from": "t_21_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qo'l bilan beriladigan ogohlantiruvchi ishora qoidalarga muvofiq qachon tugallanishi mumkin?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Manyovrni bevosita bajarishdan oldin",
+                        "text": "Manevrni bevosita bajarishdan oldin",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Manyovr tugagandan so'ng zudlik bilan",
+                        "text": "Manevr tugagandan so'ng zudlik bilan",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Manyovr bajarayotgan vaqtda",
+                        "text": "Manevr bajarayotgan vaqtda",
                         "is_correct": false
                     }
                 ]
@@ -657,13 +715,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Непосредственно перед выполнением маневра",
-                        "is_correct": true
+                        "text": "Немедленно после завершения маневра",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Немедленно после завершения маневра",
-                        "is_correct": false
+                        "text": "Непосредственно перед выполнением маневра",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -672,18 +730,25 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 46- bandiga muvofiq, qo'l bilan berilayotgan ishorani manyovrni bavosita bajarishdan oldin tugallash mumkin. Ishoralar boshqa yo'l harakati qatnashchilarini chalg'itmasligi kerak.",
+            "uz_cyr": "YHQ 8-боби 46- бандига мувофиқ, қўл билан берилаётган ишорани манёврни бавосита бажаришдан олдин тугаллаш мумкин. Ишоралар бошқа йўл ҳаракати қатнашчиларини чалғитмаслиги керак.",
+            "ru": "В соответствии с главой 8 пункта 46 Кодекса поведения сигнал рукой может быть выполнен до непосредственного выполнения маневра. Знаки не должны сбивать с толку других участников дорожного движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_9",
-            "ticket_num": 22,
-            "order": 10
+            "global_id": "t_50_q_10",
+            "global_id2": "t_50_q_10",
+            "ticket_num": 50,
+            "order": 10,
+            "remapped_from": "t_22_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Manyovr vaqtida haydovchi xar doim ogoxlantiruvchi ishorasi berishi kerakmi?",
+                "text": "Manevr vaqtida haydovchi har doim ogohlantiruvchi ishorasi berishi kerakmi?",
                 "options": [
                     {
                         "id": 1,
@@ -692,8 +757,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat agar uning transport vositasi burilishini ko'rsatuvchi chiroqlar bilan jihozlangan holda",
-                        "is_correct": false
+                        "text": "Faqat u harakatning boshqa ishtirokchilarini chalg'itmagan hollarda",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -702,13 +767,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "Faqat u harakatning boshqa ishtirokchilarini chalg'itmagan hollarda",
-                        "is_correct": true
+                        "text": "Faqat agar uning transport vositasi burilishini ko'rsatuvchi chiroqlar bilan jihozlangan holda",
+                        "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Манёвр вақтида ҳайдовчи хар доим огохлантирувчи ишораси бериши керакми?",
+                "text": "Манёвр вақтида ҳайдовчи ҳар доим огоҳлантирувчи ишораси бериши керакми?",
                 "options": [
                     {
                         "id": 1,
@@ -717,8 +782,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат агар унинг транспорт воситаси бурилишини кўрсатувчи чироқлар билан жиҳозланган ҳолда",
-                        "is_correct": false
+                        "text": "Фақат у ҳаракатнинг бошқа иштирокчиларини чалғитмаган ҳолларда",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -727,8 +792,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Фақат у ҳаракатнинг бошқа иштирокчиларини чалғитмаган ҳолларда",
-                        "is_correct": true
+                        "text": "Фақат агар унинг транспорт воситаси бурилишини кўрсатувчи чироқлар билан жиҳозланган ҳолда",
+                        "is_correct": false
                     }
                 ]
             },
@@ -737,12 +802,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только в случае если за ним движется другое транспортное средство",
-                        "is_correct": false
+                        "text": "Сигнал не подается в случаях когда он может ввести в заблуждение других участников движения",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Только в случае если его транспортное средство имеет указатели поворотов",
+                        "text": "Только в случае если за ним движется другое транспортное средство",
                         "is_correct": false
                     },
                     {
@@ -752,32 +817,39 @@
                     },
                     {
                         "id": 4,
-                        "text": "Сигнал не подается в случаях когда он может ввести в заблуждение других участников движения",
-                        "is_correct": true
+                        "text": "Только в случае если его транспортное средство имеет указатели поворотов",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 45 - va 46-bandlariga muvofiq, haydovchi manyovrni bajarishdan oldin tegishli yo'nalishni ko'rsatuvchi yorug'lik ishoralarini yoqishi shart. Ishoralar boshqa yo'l harakati qatnashchilarini chalg'itmasligi kerak.",
+            "uz_cyr": "YHQ 8-боби 45 - ва 46-бандларига мувофиқ, ҳайдовчи манёврни бажаришдан олдин тегишли йўналишни кўрсатувчи ёруғлик ишораларини ёқиши шарт. Ишоралар бошқа йўл ҳаракати қатнашчиларини чалғитмаслиги керак.",
+            "ru": "В соответствии с главой 8, пунктами 45 и 46, перед выполнением маневра водитель обязан включить световые сигналы, указывающие соответствующее направление. Знаки не должны сбивать с толку других участников дорожного движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_23_q_8",
-            "ticket_num": 23,
-            "order": 11
+            "global_id": "t_1_q_5",
+            "global_id2": "t_1_q_5",
+            "ticket_num": 1,
+            "order": 11,
+            "remapped_from": "t_23_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Haydovchi to'xtash oldidan ogohlatiruvchi ishora berishga qachon majbur?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat shu holdaki, agar uning orqasidan boshqa transport vositasi harakat qilsa",
+                        "text": "Faqat aholi punktlarida",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat aholi punktlarida",
+                        "text": "Faqat shu holdaki, agar uning orqasidan boshqa transport vositasi harakat qilsa",
                         "is_correct": false
                     },
                     {
@@ -792,12 +864,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат шу ҳолдаки, агар унинг орқасидан бошқа транспорт воситаси ҳаракат қилса",
+                        "text": "Фақат аҳоли пунктларида",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат аҳоли пунктларида",
+                        "text": "Фақат шу ҳолдаки, агар унинг орқасидан бошқа транспорт воситаси ҳаракат қилса",
                         "is_correct": false
                     },
                     {
@@ -812,12 +884,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только в случае, если сзади него движется другое транспортное средство",
+                        "text": "Только в населённых пунктах",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только в населенных пунктах",
+                        "text": "Только в случае, если сзади него движется другое транспортное средство",
                         "is_correct": false
                     },
                     {
@@ -827,32 +899,39 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 45-bandining birinchi xatboshisiga asosan: Haydovchi harakatlanishni boshlashdan, qayta tizilishdan, burilish (qayrilib olish) dan va to‘xtashdan oldin tegishli yo‘nalishni ko‘rsatuvchi yorug‘lik ishoralarini yoqishi, ular bo‘lmaganda yoki ishlamaganda qo‘l bilan ishoralar berishi shart.",
+            "uz_cyr": "YHQ 8-боби 45-бандининг биринчи хатбошисига асосан: Ҳайдовчи ҳаракатланишни бошлашдан, қайта тизилишдан, бурилиш (қайрилиб олиш) дан ва тўхташдан олдин тегишли йўналишни кўрсатувчи ёруғлик ишораларини ёқиши, улар бўлмаганда ёки ишламаганда қўл билан ишоралар бериши шарт.",
+            "ru": "Согласно первому пункту статьи 45 главы 8 ПДД: Перед троганием с места, перестановкой, поворотом (поворотом) и остановкой водитель обязан включить световые сигналы, указывающие соответствующее направление, и подавать сигналы рукой, когда они отсутствуют или не работают."
         }
     },
     {
         "task_info": {
-            "global_id": "t_23_q_17",
-            "ticket_num": 23,
-            "order": 12
+            "global_id": "t_35_q_12",
+            "global_id2": "t_35_q_12",
+            "ticket_num": 35,
+            "order": 12,
+            "remapped_from": "t_23_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qayta tizilish oldidan ogohlantiruvchi ishora qachon berilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Bevosita manyovrni bajarishni boshlash oldidan",
+                        "text": "Manevrni bajarishni boshlagandan so'ng zudlik bilan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Manyovrni bajarishni boshlagandan so'ng zudlik bilan",
+                        "text": "Bevosita manevrni bajarishni boshlash oldidan",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Manyovrni bajarishni boshlamasidan oldinroq",
+                        "text": "Manevrni bajarishni boshlamasidan oldinroq",
                         "is_correct": true
                     }
                 ]
@@ -862,12 +941,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Бевосита манёврни бажаришни бошлаш олдидан",
+                        "text": "Манёврни бажаришни бошлагандан сўнг зудлик билан",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Манёврни бажаришни бошлагандан сўнг зудлик билан",
+                        "text": "Бевосита манёврни бажаришни бошлаш олдидан",
                         "is_correct": false
                     },
                     {
@@ -887,47 +966,54 @@
                     },
                     {
                         "id": 2,
-                        "text": "Сразу после начала выполнения маневра",
-                        "is_correct": false
+                        "text": "Заблаговременно до начала выполнения маневра",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Заблаговременно до начала выполнения маневра",
-                        "is_correct": true
+                        "text": "Сразу после начала выполнения маневра",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 46-bandiga muvofiq, burilish ko'rsatkichi yoki qo'l bilan berilayotgan ishora manyovrni bajarishdan oldinroq berilishi kerak.",
+            "uz_cyr": "YHQ 8-боби 46-бандига мувофиқ, бурилиш кўрсаткичи ёки қўл билан берилаётган ишора манёврни бажаришдан олдинроқ берилиши керак.",
+            "ru": "В соответствии с главой 8, пунктом 46 UCC, перед выполнением маневра необходимо подать сигнал поворота или сигнал рукой."
         }
     },
     {
         "task_info": {
-            "global_id": "t_32_q_7",
-            "ticket_num": 32,
-            "order": 13
+            "global_id": "t_20_q_14",
+            "global_id2": "t_20_q_14",
+            "ticket_num": 20,
+            "order": 13,
+            "remapped_from": "t_32_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Aholi punktlarida «Falokat» to'xtash belgisi yoki miltillovchi qizil chiroq mexanik transport vositasidan kamida qanday masofada qo'yilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "15 m",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "30 m",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "40 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "10 m",
                         "is_correct": false
                     }
                 ]
@@ -937,83 +1023,90 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "15 м",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "30 м",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "40 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "10 м",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Каким должен быть знак остановки «авария» или мигающий красный свет в жилом районе; по крайней мере; на расстоянии от автомобиля (кроме мотоцикла без бокового прицепа)?",
+                "text": "Каким должен быть знак остановки «авария» или мигающий красный свет в жилом районе, по крайней мере, на расстоянии от автомобиля (кроме мотоцикла без бокового прицепа)?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "15 м",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "30 м",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "40 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "10 м",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 51-bandiga asosan: Transport vositasi to‘satdan to‘xtab qolganda, zudlik bilan avariya yorug‘lik ishorasini yoqish, agar u ishlamasa, avariya sababli to‘xtash belgisini darhol o‘rnatish kerak. Avariya sababli to‘xtash belgisi quyidagi hollarda qo‘llaniladi: Yo‘l-transport hodisasi sodir bo‘lganda; to‘xtash taqiqlangan joylarda va ko‘rinishi cheklangan joylarda majburiy to‘xtaganda; Ushbu belgi boshqa haydovchilarni xavfli vaziyat haqida o‘z vaqtida ogohlantirish imkoni beradigan masofada o‘rnatilishi kerak. Bu masofa aholi punktlarida transport vositasidan 15 metr, aholi punktlaridan tashqaridagi joylarda esa 30 metrdan kam bo‘lmasligi kerak.",
+            "uz_cyr": "YHQ 8-боби 51-бандига асосан: Транспорт воситаси тўсатдан тўхтаб қолганда, зудлик билан авария ёруғлик ишорасини ёқиш, агар у ишламаса, авария сабабли тўхташ белгисини дарҳол ўрнатиш керак. Авария сабабли тўхташ белгиси қуйидаги ҳолларда қўлланилади: Йўл-транспорт ҳодисаси содир бўлганда; тўхташ тақиқланган жойларда ва кўриниши чекланган жойларда мажбурий тўхтаганда; Ушбу белги бошқа ҳайдовчиларни хавфли вазият ҳақида ўз вақтида огоҳлантириш имкони берадиган масофада ўрнатилиши керак. Бу масофа аҳоли пунктларида транспорт воситасидан 15 метр, аҳоли пунктларидан ташқаридаги жойларда эса 30 метрдан кам бўлмаслиги керак.",
+            "ru": "Согласно статье 51 главы 8 ПДД: При внезапной остановке транспортного средства необходимо немедленно включить сигнал аварийной остановки, а если он не сработал, немедленно установить знак аварийной остановки. Знак остановки из-за аварии используется в следующих случаях: при возникновении дорожно-транспортного происшествия; при остановке в местах, где парковка запрещена, и местах с ограниченной видимостью; Этот знак должен быть установлен на расстоянии, позволяющем вовремя предупредить других водителей об опасной ситуации. Это расстояние не должно быть менее 15 метров от автомобиля в населенных пунктах и ​​30 метров за пределами населенных пунктов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_33_q_8",
-            "ticket_num": 33,
-            "order": 14
+            "global_id": "t_25_q_3",
+            "global_id2": "t_25_q_3",
+            "ticket_num": 25,
+            "order": 14,
+            "remapped_from": "t_33_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "«Falokat» yorug'lik ishoralari yoqilishi kerak:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "To'xtash taqiqlangan joylarda majburiy to'xtaganda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Yo'l-trancport hodisasi ro'y berganda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Yo'lning yoritilmagan qismlarida to'xtaganda va to'xtab turganda yoki ko'rinish etarli bo'lmagan sharoitda gabarit yoki to'xtab turish chiroqlari nosoz bo'lganda",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Sanab o'tilgan barcha hollarda",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "To'xtash taqiqlangan joylarda majburiy to'xtaganda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Yo'l-transport hodisasi ro'y berganda",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1022,23 +1115,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўхташ тақиқланган жойларда мажбурий тўхтаганда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Йўл-транcпорт ҳодисаси рўй берганда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Йўлнинг ёритилмаган қисмларида тўхтаганда ва тўхтаб турганда ёки кўриниш етарли бўлмаган шароитда габарит ёки тўхтаб туриш чироқлари носоз бўлганда",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Санаб ўтилган барча ҳолларда",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тўхташ тақиқланган жойларда мажбурий тўхтаганда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Йўл-транспорт ҳодисаси рўй берганда",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1047,7 +1140,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "При вынужденной остановке в местах; где остановка запрещена",
+                        "text": "При остановке и стоянке на неосвещенных участках дорог или в условиях недостаточной видимости при неисправных габаритных или стояночных огнях",
                         "is_correct": false
                     },
                     {
@@ -1057,7 +1150,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "При остановке и стоянке на неосвещенных участках дорог или в условиях недостаточной видимости при неисправных габаритных или стояночных огнях",
+                        "text": "При вынужденной остановке в местах, где остановка запрещена",
                         "is_correct": false
                     },
                     {
@@ -1067,33 +1160,40 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 50-bandiga muvofiq, avariya ishorasi quyidagi hollarda yoqilishi kerak: yo'l-transport hodisasi sodir bo'lganda; to'xtash taqiqlangan joylarda majburiy to'xtalganda; chiroqlar yorug'ligi haydovchining ko'zini qamashtirganda; shatakka olishda (shatakka olingan transport vositasida).",
+            "uz_cyr": "YHQ 8-боби 50-бандига мувофиқ, авария ишораси қуйидаги ҳолларда ёқилиши керак: йўл-транспорт ҳодисаси содир бўлганда; тўхташ тақиқланган жойларда мажбурий тўхталганда; чироқлар ёруғлиги ҳайдовчининг кўзини қамаштирганда; шатакка олишда (шатакка олинган транспорт воситасида).",
+            "ru": "В соответствии с главой 8, статьей 50 ПДД аварийный сигнал должен быть включен в следующих случаях: при возникновении дорожно-транспортного происшествия; при остановке в местах, где парковка запрещена; когда свет фар ослепляет водителя; в захвате (в захвате транспортного средства)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35_q_7",
-            "ticket_num": 35,
-            "order": 15
+            "global_id": "t_1_q_7",
+            "global_id2": "t_1_q_7",
+            "ticket_num": 1,
+            "order": 15,
+            "remapped_from": "t_35_q_7"
         },
-        "media_url": "v333uz.webp",
+        "media_url": "u3uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi rasmda haydovchi chapga burilish haqida ogohlantirish ishorasini bermoqda?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1102,18 +1202,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1122,43 +1222,50 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 45-bandining ikkinchi xatboshisiga asosan: Chapga burilish (qayrilib olish)ni bildiruvchi ishoraga chap qo‘lni yonga uzatish yoki o‘ng qo‘lni tirsakdan to‘g‘ri burchak ostida bukib, yuqoriga ko‘tarish mos keladi.",
+            "uz_cyr": "YHQ 8-боби 45-бандининг иккинчи хатбошисига асосан: Чапга бурилиш (қайрилиб олиш)ни билдирувчи ишорага чап қўлни ёнга узатиш ёки ўнг қўлни тирсакдан тўғри бурчак остида букиб, юқорига кўтариш мос келади.",
+            "ru": "Согласно абзацу второму главы 8 статьи 45 ПДД: Левая рука отведена в сторону или правая рука согнута под прямым углом в локте и поднята вверх в знак поворота влево."
         }
     },
     {
         "task_info": {
-            "global_id": "t_36_q_18",
-            "ticket_num": 36,
-            "order": 16
+            "global_id": "t_42_q_7",
+            "global_id2": "t_42_q_7",
+            "ticket_num": 42,
+            "order": 16,
+            "remapped_from": "t_36_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qanday hollarda aholi punktlarida tovush moslamalaridan foydalanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Quvib o'tishda ogohlantirish uchun",
-                        "is_correct": false
+                        "text": "Yo'l-transport hodisasining oldini olish uchun",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Yo'l-transport hodisasining oldini olish uchun",
-                        "is_correct": true
+                        "text": "Quvib o'tishda ogohlantirish uchun",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1172,13 +1279,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қувиб ўтишда огоҳлантириш учун",
-                        "is_correct": false
+                        "text": "Йўл-транспорт ҳодисасининг олдини олиш учун",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Йўл-транспорт ҳодисасининг олдини олиш учун",
-                        "is_correct": true
+                        "text": "Қувиб ўтишда огоҳлантириш учун",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1192,47 +1299,54 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только для предупреждения о намерение произвести обгон",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Только для предотвращения дорожно-транспортного происшествия",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "В обоих перечисленных случаях",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только для предупреждения о намерение произвести обгон",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 48 bandiga asosan, tovushli ishoralar faqat quyidagi hollarda qo‘llanilishi mumkin: aholi punktlaridan tashqarida boshqa haydovchilarni quvib o‘tish haqida ogohlantirish uchun; zarur bo‘lgan hollarda yo‘l-transport hodisasining oldini olish uchun.\r\nYuqorida ko‘rsatilgan hollardan tashqari tovushli ishoralardan foydalanish taqiqlanadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 48 бандига асосан, товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин: аҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; зарур бўлган ҳолларда йўл-транспорт ҳодисасининг олдини олиш учун.\r\nЮқорида кўрсатилган ҳоллардан ташқари товушли ишоралардан фойдаланиш тақиқланади.",
+            "ru": "Согласно статье 48 Правил дорожного движения звуковые сигналы могут использоваться только в следующих случаях: для предупреждения других водителей об обгоне за пределами населенных пунктов; для предотвращения дорожно-транспортного происшествия в необходимых случаях. \r\nИспользование звуковых сигналов запрещено, за исключением случаев, указанных выше."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_1",
-            "ticket_num": 37,
-            "order": 17
+            "global_id": "t_30_q_16",
+            "global_id2": "t_30_q_16",
+            "ticket_num": 30,
+            "order": 17,
+            "remapped_from": "t_37_q_1"
         },
-        "media_url": "v344uz.webp",
+        "media_url": "u348uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ko'rsatilgan belgilardan qaysi biri yo'lning ko'rinish masofasi cheklangan joylarda majburan to'xtagan transport vositalarini belgilash uchun qo'llaniladi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "«В»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "«А»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«В»",
+                        "text": "«Б»",
                         "is_correct": false
                     }
                 ]
@@ -1242,72 +1356,79 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "«В»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "«А»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«В»",
+                        "text": "«Б»",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Какой знак используется для обозначения транспортного средства при вынужденной остановке в местах, где с учетом условий видимости оно не может быть  своевременно замечено другими водителями?",
+                "text": "Какой знак используется для обозначения транспортного средства при вынужденной остановке в местах, где с учетом условий видимости оно не может быть своевременно замечено другими водителями?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "«В»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "«А»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«В»",
+                        "text": "«Б»",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 51-bandi: Transport vositasi to‘satdan to‘xtab qolganda, zudlik bilan avariya yorug‘lik ishorasini yoqish, agar u ishlamasa, avariya sababli to‘xtash belgisini darhol o‘rnatish kerak. Avariya sababli to‘xtash belgisi quyidagi hollarda qo‘llaniladi: yo‘l-transport hodisasi sodir bo‘lganda; to‘xtash taqiqlangan joylarda va ko‘rinishi cheklangan joylarda majburiy to‘xtaganda; Ushbu belgi boshqa haydovchilarni xavfli vaziyat haqida o‘z vaqtida ogohlantirish imkonini beradigan masofada o‘rnatilishi kerak. Bu masofa aholi punktlarida transport vositasidan 15 metr, aholi punktlaridan tashqaridagi joylarda esa 30 metrdan kam bo‘lmasligi kerak.",
+            "uz_cyr": "YHQ 8-боби 51-банди: Транспорт воситаси тўсатдан тўхтаб қолганда, зудлик билан авария ёруғлик ишорасини ёқиш, агар у ишламаса, авария сабабли тўхташ белгисини дарҳол ўрнатиш керак. Авария сабабли тўхташ белгиси қуйидаги ҳолларда қўлланилади: йўл-транспорт ҳодисаси содир бўлганда; тўхташ тақиқланган жойларда ва кўриниши чекланган жойларда мажбурий тўхтаганда; Ушбу белги бошқа ҳайдовчиларни хавфли вазият ҳақида ўз вақтида огоҳлантириш имконини берадиган масофада ўрнатилиши керак. Бу масофа аҳоли пунктларида транспорт воситасидан 15 метр, аҳоли пунктларидан ташқаридаги жойларда эса 30 метрдан кам бўлмаслиги керак.",
+            "ru": "Глава 8 пункт 51 ПДД: При внезапной остановке транспортного средства необходимо немедленно включить аварийный световой сигнал, а если он не сработал, немедленно установить знак аварийной остановки. Знак аварийной остановки используется в следующих случаях: при возникновении дорожно-транспортного происшествия; при остановке в местах, где парковка запрещена, и местах с ограниченной видимостью; Этот знак должен быть установлен на расстоянии, позволяющем вовремя предупредить других водителей об опасной ситуации. Это расстояние не должно быть менее 15 метров от автомобиля в населенных пунктах и ​​30 метров за пределами населенных пунктов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_17",
-            "ticket_num": 37,
-            "order": 18
+            "global_id": "t_41_q_6",
+            "global_id2": "t_41_q_6",
+            "ticket_num": 41,
+            "order": 18,
+            "remapped_from": "t_37_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Kunning yorug' vaqtida aholi punktlarida quvib o'tilayotgan transport vositasi haydovchisining etiborini jalb qilish uchun mumkin:",
+                "text": "Kunning yorug' vaqtida aholi punktlarida quvib o'tilayotgan transport vositasi haydovchisining e'tiborini jalb qilish uchun mumkin:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tovush signalidan foydalanish",
+                        "text": "Sanab o'tilganlarning barchasidan foydalanish",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat yaqinni yorituvchi chiroqni uzoqni yorituvchi chiroqqa qisqa muddat orasida o'tkazish bilan ishora berish",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Faqat birgalikda yorug'lik ishoralari bilan birga tovush signallarini qo'llash",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Faqat yaqinni yorituvchi chiroqni uzoqni yorituvchi chiroqqa qisqa muddat orasida o'tkazish bilan ishora berish",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "Sanab o'tilganlarning barchasidan foydalanish",
+                        "text": "Tovush signalidan foydalanish",
                         "is_correct": false
                     }
                 ]
@@ -1317,97 +1438,104 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Товуш сигналидан фойдаланиш",
+                        "text": "Санаб ўтилганларнинг барчасидан фойдаланиш",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат яқинни ёритувчи чироқни узоқни ёритувчи чироққа қисқа муддат орасида ўтказиш билан ишора бериш",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Фақат биргаликда ёруғлик ишоралари билан бирга товуш сигналларини қўллаш",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Фақат яқинни ёритувчи чироқни узоқни ёритувчи чироққа қисқа муддат орасида ўтказиш билан ишора бериш",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "Санаб ўтилганларнинг барчасидан фойдаланиш",
+                        "text": "Товуш сигналидан фойдаланиш",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Привлечь внимание водителя обгоняемого автомобиля при движении в населенном пункте в светлое время суток можно:",
+                "text": "Привлечь внимание водителя обгоняемого автомобиля при движении в населённом пункте в светлое время суток можно:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только звуковым сигналом",
+                        "text": "Любые из перечисленных способов",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только кратковременным переключением фар ближнего света на дальний",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Только совместной подачей звукового и светового сигнала",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Только кратковременным переключением фар ближнего света на дальний",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "Любые из перечисленных способов",
+                        "text": "Только звуковым сигналом",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 49 bandiga asosan, quvib o‘tish haqida tovushli ishora o‘rniga yoki u bilan birga fara chiroqlarini yoqib-o‘chirib, ogohlantirish ishorasini ham berish mumkin.\r\nYo‘l harakati qoidalarining 48 bandiga asosan, tovushli ishoralar faqat quyidagi hollarda qo‘llanilishi mumkin: aholi punktlaridan tashqarida boshqa haydovchilarni quvib o‘tish haqida ogohlantirish uchun; zarur bo‘lgan hollarda yo‘l-transport hodisasining oldini olish uchun.\r\nYuqorida ko‘rsatilgan hollardan tashqari tovushli ishoralardan foydalanish taqiqlanadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 49 бандига асосан, қувиб ўтиш ҳақида товушли ишора ўрнига ёки у билан бирга фара чироқларини ёқиб-ўчириб, огоҳлантириш ишорасини ҳам бериш мумкин.\r\nЙўл ҳаракати қоидаларининг 48 бандига асосан, товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин: аҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; зарур бўлган ҳолларда йўл-транспорт ҳодисасининг олдини олиш учун.\r\nЮқорида кўрсатилган ҳоллардан ташқари товушли ишоралардан фойдаланиш тақиқланади.",
+            "ru": "Согласно статье 49 ПДД, предупредительный сигнал может подаваться вместо звукового сигнала об обгоне или вместе с ним путем включения и выключения фар. \r\nСогласно статье 48 Правил дорожного движения звуковые сигналы могут использоваться только в следующих случаях: для предупреждения других водителей об обгоне за пределами населенных пунктов; для предотвращения дорожно-транспортного происшествия в необходимых случаях. \r\nИспользование звуковых сигналов запрещено, за исключением случаев, указанных выше."
         }
     },
     {
         "task_info": {
-            "global_id": "t_38_q_15",
-            "ticket_num": 38,
-            "order": 19
+            "global_id": "t_28_q_1",
+            "global_id2": "t_28_q_1",
+            "ticket_num": 28,
+            "order": 19,
+            "remapped_from": "t_38_q_14"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Qaysi  holatda siz majburiy to'xtashni amalga oshirasiz?",
+                "text": "Qaysi holatda siz majburiy to'xtashni amalga oshirasiz?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Piyodalar o'tish joyi  oldida  piyodalarga  yo'l berish uchun to'xtab",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Texnik nosozlik  tufayli yo'lning harakat qismida.",
+                        "text": "Texnik nosozlik tufayli yo'lning harakat qismida.",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Piyodalar o'tish joyi oldida piyodalarga yo'l berish uchun to'xtab",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Har ikki  sanab o'tilgan  holda",
+                        "text": "Har ikki sanab o'tilgan holda",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси  ҳолатда сиз мажбурий тўхташни амалга оширасиз?",
+                "text": "Қайси ҳолатда сиз мажбурий тўхташни амалга оширасиз?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Пиёдалар ўтиш жойи  олдида  пиёдаларга  йўл бериш учун тўхтаб",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Техник носозлик  туфайли йўлнинг ҳаракат қисмида.",
+                        "text": "Техник носозлик туфайли йўлнинг ҳаракат қисмида.",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Пиёдалар ўтиш жойи олдида пиёдаларга йўл бериш учун тўхтаб",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Ҳар икки  санаб ўтилган  ҳолда",
+                        "text": "Ҳар икки санаб ўтилган ҳолда",
                         "is_correct": false
                     }
                 ]
@@ -1432,58 +1560,65 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-bobi 6-bandi 11-atamaga muvofiq, majburiy to'xtash – texnik nuqson, tashilayotgan yuk, haydovchi va yo'lovchining holati, yo'ldagi biror to'siq tufayli xavf yuzaga kelganda yoxud ob-havo sharoitiga bog'liq holda transport vositasi harakatini to'xtatish. Haydovchining ushbu xatti-harakati oxirgi zarur chora bo'lib, qoidabuzarlik deb e'tirof etilmaydi.",
+            "uz_cyr": "YHQ 1-боби 6-банди 11-атамага мувофиқ, мажбурий тўхташ – техник нуқсон, ташилаётган юк, ҳайдовчи ва йўловчининг ҳолати, йўлдаги бирор тўсиқ туфайли хавф юзага келганда ёхуд об-ҳаво шароитига боғлиқ ҳолда транспорт воситаси ҳаракатини тўхтатиш. Ҳайдовчининг ушбу хатти-ҳаракати охирги зарур чора бўлиб, қоидабузарлик деб эътироф этилмайди.",
+            "ru": "В соответствии с термином 11 пункта 6 главы 1 ПДД вынужденной остановкой признается прекращение движения транспортного средства вследствие технической неисправности, состояния перевозимого груза, состояния водителя и пассажира, препятствия на дороге или погодных условий. Такое поведение водителя является последней необходимой мерой и нарушением не признается."
         }
     },
     {
         "task_info": {
-            "global_id": "t_38_q_19",
-            "ticket_num": 38,
-            "order": 20
+            "global_id": "t_46_q_1",
+            "global_id2": "t_46_q_1",
+            "ticket_num": 46,
+            "order": 20,
+            "remapped_from": "t_38_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Kunning yorug' vaqtida  aholi punktlaridan tashqarida  Siz quvib o'tayotgan  transport vositasi  haydovchisining  etiborini qanday jalb qilasiz?",
+                "text": "Kunning yorug' vaqtida aholi punktlaridan tashqarida Siz quvib o'tayotgan transport vositasi haydovchisining e'tiborini qanday jalb qilasiz?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat  tovush ishorasi bilan",
+                        "text": "Faqat tovush ishorasi bilan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat yorug'lik faralarini qisqa-qisqa yoqib o'chirish bilan",
-                        "is_correct": false
+                        "text": "Sanab o'tilgan barcha usul bilan va ularni birga qo'llash bilan",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Sanab o'tilgan barcha usul  bilan va ularni birga qo'llash bilan",
-                        "is_correct": true
+                        "text": "Faqat yorug'lik faralarini qisqa-qisqa yoqib o'chirish bilan",
+                        "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Куннинг ёруғ вақтида  аҳоли пунктларидан ташқарида  Сиз қувиб ўтаётган  транспорт воситаси  ҳайдовчисининг  эътиборини қандай жалб қиласиз?",
+                "text": "Куннинг ёруғ вақтида аҳоли пунктларидан ташқарида Сиз қувиб ўтаётган транспорт воситаси ҳайдовчисининг эътиборини қандай жалб қиласиз?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат  товуш ишораси билан",
+                        "text": "Фақат товуш ишораси билан",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат ёруғлик фараларини қисқа-қисқа ёқиб ўчириш билан",
-                        "is_correct": false
+                        "text": "Санаб ўтилган барча усул билан ва уларни бирга қўллаш билан",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Санаб ўтилган барча усул  билан ва уларни бирга қўллаш билан",
-                        "is_correct": true
+                        "text": "Фақат ёруғлик фараларини қисқа-қисқа ёқиб ўчириш билан",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Как Вы можете в светлое время суток привлечь внимание водителя обгоняемого автомобиля при движении вне населенного пункта?",
+                "text": "Как Вы можете в светлое время суток привлечь внимание водителя обгоняемого автомобиля при движении вне населённого пункта?",
                 "options": [
                     {
                         "id": 1,
@@ -1492,28 +1627,35 @@
                     },
                     {
                         "id": 2,
-                        "text": "Только кратковременным переключением фар с ближнего света на дальний",
-                        "is_correct": false
+                        "text": "Любым из перечисленных способов, включая совместную подачу этих сигналов",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Любым из перечисленных способов, включая совместную подачу этих сигналов",
-                        "is_correct": true
+                        "text": "Только кратковременным переключением фар с ближнего света на дальний",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 49 bandiga asosan, quvib o‘tish haqida tovushli ishora o‘rniga yoki u bilan birga fara chiroqlarini yoqib-o‘chirib, ogohlantirish ishorasini ham berish mumkin.\r\nYo‘l harakati qoidalarining 48 bandiga asosan, tovushli ishoralar faqat quyidagi hollarda qo‘llanilishi mumkin: aholi punktlaridan tashqarida boshqa haydovchilarni quvib o‘tish haqida ogohlantirish uchun; zarur bo‘lgan hollarda yo‘l-transport hodisasining oldini olish uchun.\r\nYuqorida ko‘rsatilgan hollardan tashqari tovushli ishoralardan foydalanish taqiqlanadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 49 бандига асосан, қувиб ўтиш ҳақида товушли ишора ўрнига ёки у билан бирга фара чироқларини ёқиб-ўчириб, огоҳлантириш ишорасини ҳам бериш мумкин.\r\nЙўл ҳаракати қоидаларининг 48 бандига асосан, товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин: аҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; зарур бўлган ҳолларда йўл-транспорт ҳодисасининг олдини олиш учун.\r\nЮқорида кўрсатилган ҳоллардан ташқари товушли ишоралардан фойдаланиш тақиқланади.",
+            "ru": "Согласно статье 49 ПДД, предупредительный сигнал может подаваться вместо звукового сигнала об обгоне или вместе с ним путем включения и выключения фар. \r\nСогласно статье 48 Правил дорожного движения звуковые сигналы могут использоваться только в следующих случаях: для предупреждения других водителей об обгоне за пределами населенных пунктов; для предотвращения дорожно-транспортного происшествия в необходимых случаях. \r\nИспользование звуковых сигналов запрещено, за исключением случаев, указанных выше."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_4",
-            "ticket_num": 40,
-            "order": 21
+            "global_id": "t_48_q_6",
+            "global_id2": "t_48_q_6",
+            "ticket_num": 48,
+            "order": 21,
+            "remapped_from": "t_40_q_4"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Kunning yorug' vaqtida aholi punktlaridan tashqarida Siz quvib o'tayotgan  transport vositasi  haydovchisining  etiborini qanday jalb qilasiz?",
+                "text": "Kunning yorug' vaqtida aholi punktlaridan tashqarida Siz quvib o'tayotgan transport vositasi haydovchisining e'tiborini qanday jalb qilasiz?",
                 "options": [
                     {
                         "id": 1,
@@ -1527,13 +1669,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Sanab o'tilgan barcha usul  bilan va ularni birgalikda qo'llash bilan",
+                        "text": "Sanab o'tilgan barcha usul bilan va ularni birgalikda qo'llash bilan",
                         "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Куннинг ёруғ вақтида аҳоли пунктларидан ташқарида Сиз қувиб ўтаётган  транспорт воситаси  ҳайдовчисининг  эътиборини қандай жалб қиласиз?",
+                "text": "Куннинг ёруғ вақтида аҳоли пунктларидан ташқарида Сиз қувиб ўтаётган транспорт воситаси ҳайдовчисининг эътиборини қандай жалб қиласиз?",
                 "options": [
                     {
                         "id": 1,
@@ -1547,13 +1689,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Санаб ўтилган барча усул  билан ва уларни биргаликда қўллаш билан",
+                        "text": "Санаб ўтилган барча усул билан ва уларни биргаликда қўллаш билан",
                         "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Как Вы можете в светлое время суток привлечь внимание водителя обгоняемого автомобиля при движении вне населенного пункта?",
+                "text": "Как Вы можете в светлое время суток привлечь внимание водителя обгоняемого автомобиля при движении вне населённого пункта?",
                 "options": [
                     {
                         "id": 1,
@@ -1572,22 +1714,29 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 49 bandiga asosan, quvib o‘tish haqida tovushli ishora o‘rniga yoki u bilan birga fara chiroqlarini yoqib-o‘chirib, ogohlantirish ishorasini ham berish mumkin.\r\nYo‘l harakati qoidalarining 48 bandiga asosan, tovushli ishoralar faqat quyidagi hollarda qo‘llanilishi mumkin: aholi punktlaridan tashqarida boshqa haydovchilarni quvib o‘tish haqida ogohlantirish uchun; zarur bo‘lgan hollarda yo‘l-transport hodisasining oldini olish uchun.\r\nYuqorida ko‘rsatilgan hollardan tashqari tovushli ishoralardan foydalanish taqiqlanadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 49 бандига асосан, қувиб ўтиш ҳақида товушли ишора ўрнига ёки у билан бирга фара чироқларини ёқиб-ўчириб, огоҳлантириш ишорасини ҳам бериш мумкин.\r\nЙўл ҳаракати қоидаларининг 48 бандига асосан, товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин: аҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; зарур бўлган ҳолларда йўл-транспорт ҳодисасининг олдини олиш учун.\r\nЮқорида кўрсатилган ҳоллардан ташқари товушли ишоралардан фойдаланиш тақиқланади.",
+            "ru": "Согласно статье 49 ПДД, предупредительный сигнал может подаваться вместо звукового сигнала об обгоне или вместе с ним путем включения и выключения фар. \r\nСогласно статье 48 Правил дорожного движения звуковые сигналы могут использоваться только в следующих случаях: для предупреждения других водителей об обгоне за пределами населенных пунктов; для предотвращения дорожно-транспортного происшествия в необходимых случаях. \r\nИспользование звуковых сигналов запрещено, за исключением случаев, указанных выше."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_18",
-            "ticket_num": 40,
-            "order": 22
+            "global_id": "t_4_q_18",
+            "global_id2": "t_4_q_18",
+            "ticket_num": 4,
+            "order": 22,
+            "remapped_from": "t_40_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Burilish ko'rsatkichi bilan berilayotgan ogohlantiruvchi ishora  qachon to'xtatilishi kerak?",
+                "text": "Burilish ko'rsatkichi bilan berilayotgan ogohlantiruvchi ishora qachon to'xtatilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Manevr bajarishdan oldin",
+                        "text": "Manevr bajarayotganda",
                         "is_correct": false
                     },
                     {
@@ -1597,17 +1746,17 @@
                     },
                     {
                         "id": 3,
-                        "text": "Manevr bajarayotganda",
+                        "text": "Manevr bajarishdan oldin",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Бурилиш кўрсаткичи билан берилаётган огоҳлантирувчи ишора  қачон тўхтатилиши керак?",
+                "text": "Бурилиш кўрсаткичи билан берилаётган огоҳлантирувчи ишора қачон тўхтатилиши керак?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Маневр бажаришдан олдин",
+                        "text": "Маневр бажараётганда",
                         "is_correct": false
                     },
                     {
@@ -1617,7 +1766,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Маневр бажараётганда",
+                        "text": "Маневр бажаришдан олдин",
                         "is_correct": false
                     }
                 ]
@@ -1642,15 +1791,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 46 bandiga asosan, burilish ko‘rsatkichi yoki qo‘l bilan berilayotgan ishora manyovrni bajarishdan oldinroq berilishi va uni tugallagach, darhol to‘xtatilishi kerak (qo‘l bilan berilayotgan ishorani manyovrni bevosita bajarishdan oldin tugallash mumkin).",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 46 бандига асосан, бурилиш кўрсаткичи ёки қўл билан берилаётган ишора манёврни бажаришдан олдинроқ берилиши ва уни тугаллагач, дарҳол тўхтатилиши керак (қўл билан берилаётган ишорани манёврни бевосита бажаришдан олдин тугаллаш мумкин).",
+            "ru": "Согласно статье 46 Правил дорожного движения сигнал поворота или сигнал рукой должны быть поданы до выполнения маневра и должны быть прекращены сразу после его завершения (сигнал рукой может быть завершен непосредственно перед выполнением маневра)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_43_q_7",
-            "ticket_num": 43,
-            "order": 23
+            "global_id": "t_15_q_1",
+            "global_id2": "t_15_q_1",
+            "ticket_num": 15,
+            "order": 23,
+            "remapped_from": "t_43_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Chap qo'lni yonga cho'zish yoki o'ng qo'lni tirsakdan to'g'ri burchak ostida bukib, yuqoriga ko'tarish ishorasi nimani bildiradi?",
@@ -1693,17 +1849,17 @@
                 ]
             },
             "ru": {
-                "text": "В чем смысл того, что Чаплин-это тот, кто не знает, что происходит с ним, а что с ним происходит?",
+                "text": "Что означает жест вытягивания левой руки в сторону или поднятия правой руки вверх, согнутой в локте под прямым углом?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Повернуть налево или развернуться.",
-                        "is_correct": true
+                        "text": "Повернуть направо или развернуться.",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Повернуть направо или развернуться.",
-                        "is_correct": false
+                        "text": "Повернуть налево или развернуться.",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1712,15 +1868,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 45 bandiga asosan, haydovchi harakatlanishni boshlashdan, qayta tizilishdan, burilish (qayrilib olish)dan va to‘xtashdan oldin tegishli yo‘nalishni ko‘rsatuvchi yorug‘lik ishoralarini yoqishi, ular bo‘lmaganda yoki ishlamaganda qo‘l bilan ishoralar berishi shart.\r\nChapga burilish (qayrilib olish)ni bildiruvchi ishoraga chap qo‘lni yonga uzatish yoki o‘ng qo‘lni tirsakdan to‘g‘ri burchak ostida bukib, yuqoriga ko‘tarish mos keladi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 45 бандига асосан, ҳайдовчи ҳаракатланишни бошлашдан, қайта тизилишдан, бурилиш (қайрилиб олиш)дан ва тўхташдан олдин тегишли йўналишни кўрсатувчи ёруғлик ишораларини ёқиши, улар бўлмаганда ёки ишламаганда қўл билан ишоралар бериши шарт.\r\nЧапга бурилиш (қайрилиб олиш)ни билдирувчи ишорага чап қўлни ёнга узатиш ёки ўнг қўлни тирсакдан тўғри бурчак остида букиб, юқорига кўтариш мос келади.",
+            "ru": "Согласно статье 45 Правил дорожного движения водитель обязан включать световые сигналы, указывающие соответствующее направление движения, перед троганием с места, перестановкой, поворотом (поворотом) и остановкой, а также подавать сигналы рукой при их отсутствии или неработоспособности. \r\nДля поворота налево левая рука отводится в сторону или правая рука сгибается под прямым углом и поднимается вверх."
         }
     },
     {
         "task_info": {
-            "global_id": "t_47_q_14",
-            "ticket_num": 47,
-            "order": 24
+            "global_id": "t_14_q_1",
+            "global_id2": "t_14_q_1",
+            "ticket_num": 14,
+            "order": 24,
+            "remapped_from": "t_47_q_13"
         },
-        "media_url": "v451uz.webp",
+        "media_url": "u151uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Motosikl haydovchisi qo'lini yuqoriga ko'tarib nima haqida axborot berayapti?",
@@ -1732,13 +1895,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "O'nga burilmoqchi ekanligi haqida",
-                        "is_correct": false
+                        "text": "To'xtash haqida",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "To'xtash haqida",
-                        "is_correct": true
+                        "text": "O'nga burilmoqchi ekanligi haqida",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1752,13 +1915,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ўнга бурилмоқчи эканлиги ҳақида",
-                        "is_correct": false
+                        "text": "Тўхташ ҳақида",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Тўхташ ҳақида",
-                        "is_correct": true
+                        "text": "Ўнга бурилмоқчи эканлиги ҳақида",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1772,25 +1935,32 @@
                     },
                     {
                         "id": 2,
-                        "text": "Повернуть направо",
-                        "is_correct": false
+                        "text": "Об остановке",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Об остановке",
-                        "is_correct": true
+                        "text": "Повернуть направо",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 45 bandiga asosan, haydovchi harakatlanishni boshlashdan, qayta tizilishdan, burilish (qayrilib olish)dan va to‘xtashdan oldin tegishli yo‘nalishni ko‘rsatuvchi yorug‘lik ishoralarini yoqishi, ular bo‘lmaganda yoki ishlamaganda qo‘l bilan ishoralar berishi shart.\r\nTo‘xtash ishorasi chap yoki o‘ng qo‘lni yuqoriga ko‘tarib beriladi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 45 бандига асосан, ҳайдовчи ҳаракатланишни бошлашдан, қайта тизилишдан, бурилиш (қайрилиб олиш)дан ва тўхташдан олдин тегишли йўналишни кўрсатувчи ёруғлик ишораларини ёқиши, улар бўлмаганда ёки ишламаганда қўл билан ишоралар бериши шарт.\r\nТўхташ ишораси чап ёки ўнг қўлни юқорига кўтариб берилади.",
+            "ru": "Согласно статье 45 Правил дорожного движения водитель обязан включать световые сигналы, указывающие соответствующее направление движения, перед троганием с места, перестановкой, поворотом (поворотом) и остановкой, а также подавать сигналы рукой при их отсутствии или неработоспособности. \r\nСигнал остановки подается поднятием левой или правой руки."
         }
     },
     {
         "task_info": {
-            "global_id": "t_50_q_8",
-            "ticket_num": 50,
-            "order": 25
+            "global_id": "t_29_q_5",
+            "global_id2": "t_29_q_5",
+            "ticket_num": 29,
+            "order": 25,
+            "remapped_from": "t_50_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi holatlarda aholi punktlarida tovushli ishoralardan foydalanish mumkin?",
@@ -1833,7 +2003,7 @@
                 ]
             },
             "ru": {
-                "text": "В каких случаях разрешено применять звуковые сигналы в населенных пунктах?",
+                "text": "В каких случаях разрешено применять звуковые сигналы в населённых пунктах?",
                 "options": [
                     {
                         "id": 1,
@@ -1847,11 +2017,170 @@
                     },
                     {
                         "id": 3,
-                        "text": "В обоих перечисленных случаях",
+                        "text": "Имеет преимущество на первоочередное движение",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 48-bandi: Tovushli ishoralar faqat quyidagi hollarda qo‘llanilishi mumkin: aholi punktlaridan tashqarida boshqa haydovchilarni quvib o‘tish haqida ogohlantirish uchun; zarur bo‘lgan hollarda yo‘l-transport hodisasining oldini olish uchun. Yuqorida ko‘rsatilgan hollardan tashqari tovushli ishoralardan foydalanish taqiqlanadi.",
+            "uz_cyr": "YHQ 8-боби 48-банди: Товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин: аҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; зарур бўлган ҳолларда йўл-транспорт ҳодисасининг олдини олиш учун. Юқорида кўрсатилган ҳоллардан ташқари товушли ишоралардан фойдаланиш тақиқланади.",
+            "ru": "Глава 8, статья 48 ПДД: Звуковые сигналы могут использоваться только в следующих случаях: для предупреждения других водителей об обгоне за пределами населенных пунктов; для предотвращения дорожно-транспортного происшествия в необходимых случаях. Использование звуковых сигналов запрещено, за исключением случаев, указанных выше."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_38_q_16",
+            "global_id2": "t_38_q_16",
+            "ticket_num": 38,
+            "order": 26,
+            "remapped_from": "t_62_q_1"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Aholi punktlaridan tashqarida quvib o'tishda qanday ogohlantirish ishoralaridan foydalanish mumkin?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Tovushli ishoralardan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "1 va 2",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faralarning uzoqni yorituvchi chiroqlaridan",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Аҳоли пунктларидан ташқарида қувиб ўтишда қандай огоҳлантириш ишораларидан фойдаланиш мумкин?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Товушли ишоралардан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "1 ва 2",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фараларнинг узоқни ёритувчи чироқларидан",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какие предупредительные сигналы можно использовать при обгоне вне населённых пунктов?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "A)Звуковые сигналы",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "1 и 2",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "B) Фары дальнего света",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "\"YHQning 8-bob. 48-band 2 va 3-xatboshi va 49-bandiga asosan: 48. Tovushli ishoralar faqat quyidagi hollarda qo‘llanilishi mumkin:\r\naholi punktlaridan tashqarida boshqa haydovchilarni quvib o‘tish haqida ogohlantirish uchun; Yuqorida ko‘rsatilgan hollardan tashqari tovushli ishoralardan foydalanish taqiqlanadi. \r\n49. Quvib o‘tish haqida tovushli ishora o‘rniga yoki u bilan birga fara chiroqlarini yoqib-o‘chirib, ogohlantirish ishorasini ham berish mumkin.\"",
+            "uz_cyr": "\"YHQнинг 8-боб. 48-банд 2 ва 3-хатбоши ва 49-бандига асосан: 48. Товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин:\r\nаҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; Юқорида кўрсатилган ҳоллардан ташқари товушли ишоралардан фойдаланиш тақиқланади. \r\n49. Қувиб ўтиш ҳақида товушли ишора ўрнига ёки у билан бирга фара чироқларини ёқиб-ўчириб, огоҳлантириш ишорасини ҳам бериш мумкин.\"",
+            "ru": "Согласно «Главе 8. Статья 48, пункты 2 и 3 и статья 49 ПДД: 48. Звуковые сигналы могут использоваться только в следующих случаях:\r\nпредупреждать других водителей об обгоне за пределами населенных пунктов; Использование звуковых сигналов запрещено, за исключением случаев, указанных выше. \r\n49. Предупреждающий сигнал может подаваться вместо звукового сигнала обгона или в дополнение к нему миганием фар."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_49_q_20",
+            "global_id2": "t_49_q_20",
+            "ticket_num": 49,
+            "order": 27,
+            "remapped_from": "t_63_q_6"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Aholi punktlarida quvib o'tishda qanday ogohlantirish ishoralaridan foydalanish mumkin?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1 va 2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tovushli ishoralardan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faralarning uzoqni yorituvchi chiroqlaridan",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Аҳоли пунктларида қувиб ўтишда қандай огоҳлантириш ишораларидан фойдаланиш мумкин?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1 ва 2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Товушли ишоралардан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фараларнинг узоқни ёритувчи чироқларидан",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какие предупредительные сигналы можно использовать при обгоне в населённых пунктах?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1 и 2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "A) Звуковые сигналы",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "B) Фары дальнего света",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "\"YHQning 8-bob. 48-band 2 va 3-xatboshi va 49-bandiga asosan: 48. Tovushli ishoralar faqat quyidagi hollarda qo‘llanilishi mumkin:\r\naholi punktlaridan tashqarida boshqa haydovchilarni quvib o‘tish haqida ogohlantirish uchun; Yuqorida ko‘rsatilgan hollardan tashqari tovushli ishoralardan foydalanish taqiqlanadi. \r\n49. Quvib o‘tish haqida tovushli ishora o‘rniga yoki u bilan birga fara chiroqlarini yoqib-o‘chirib, ogohlantirish ishorasini ham berish mumkin.\"",
+            "uz_cyr": "\"YHQнинг 8-боб. 48-банд 2 ва 3-хатбоши ва 49-бандига асосан: 48. Товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин:\r\nаҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; Юқорида кўрсатилган ҳоллардан ташқари товушли ишоралардан фойдаланиш тақиқланади. \r\n49. Қувиб ўтиш ҳақида товушли ишора ўрнига ёки у билан бирга фара чироқларини ёқиб-ўчириб, огоҳлантириш ишорасини ҳам бериш мумкин.\"",
+            "ru": "Согласно «Главе 8. Статья 48, пункты 2 и 3 и статья 49 ПДД: 48. Звуковые сигналы могут использоваться только в следующих случаях:\r\nпредупреждать других водителей об обгоне за пределами населенных пунктов; Использование звуковых сигналов запрещено, за исключением случаев, указанных выше. \r\n49. Предупреждающий сигнал может подаваться вместо звукового сигнала обгона или в дополнение к нему миганием фар."
         }
     }
 ]
