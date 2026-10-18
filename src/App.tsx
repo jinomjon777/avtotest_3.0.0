@@ -8,7 +8,6 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { lazy, Suspense, Component, ReactNode } from "react";
 import Home from "./pages/Home";
-import TestIshlash from "./pages/TestIshlash";
 
 interface EBState { hasError: boolean; }
 class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
@@ -67,6 +66,7 @@ const Xatolarim   = lazy(() => import("./pages/Xatolarim"));
 const ZaifMavzular = lazy(() => import("./pages/ZaifMavzular"));
 const Mashq       = lazy(() => import("./pages/Mashq"));
 const Imtihon     = lazy(() => import("./pages/Imtihon"));
+const TestIshlash = lazy(() => import("./pages/TestIshlash"));
 const SeoLanding  = lazy(() => import("./pages/SeoLanding"));
 import seoLandings from "./data/seoLandings.json";
 const Admin       = lazy(() => import("./pages/Admin"));

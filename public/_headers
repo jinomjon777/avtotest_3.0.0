@@ -1,0 +1,28 @@
+# Cloudflare (Workers Assets / Pages) sarlavhalari. netlify.toml faqat Netlify'da ishlaydi.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000
+  # Avval FAQAT kuzatuv rejimida (hech narsani to'smaydi). Brauzer konsolidagi "CSP" ogohlantirishlar toza
+  # bo'lgach, "Content-Security-Policy-Report-Only" ni "Content-Security-Policy" ga almashtiring.
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' blob: https://*.r2.dev; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://t.me; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; manifest-src 'self'
+
+# Vite xeshli fayllar: o'zgarmaydi, bir yil keshlanadi
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Savol bazasi va rasmlar: tez-tez yangilanishi mumkin, shuning uchun qisqa kesh + qayta tekshirish
+/data/*
+  Cache-Control: public, max-age=300, must-revalidate
+/mavzuli2/*
+  Cache-Control: public, max-age=300, must-revalidate
+/images/*
+  Cache-Control: public, max-age=86400
+/belgilar/*
+  Cache-Control: public, max-age=86400
+/manifest.webmanifest
+  Cache-Control: public, max-age=3600
