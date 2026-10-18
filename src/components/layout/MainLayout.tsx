@@ -304,6 +304,10 @@ export function MainLayout({ children }: MainLayoutProps) {
               {[
                 { to: "/avto-test-2026", label: "Avto Test 2026" },
                 { to: "/avto-test-20-savol", label: "Avto Test 20 Savol" },
+                { to: "/avtotest-online", label: "Avtotest online" },
+                { to: "/yhq-test", label: "YHQ test" },
+                { to: "/haydovchilik-imtihoni", label: "Haydovchilik imtihoni" },
+                { to: "/b-toifa-test", label: "B toifa test" },
                 { to: "/blog", label: "Blog" },
                 { to: "/mavzuli", label: "YHQ testlari" },
                 { to: "/belgilar", label: "Yo'l belgilari" },

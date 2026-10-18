@@ -67,6 +67,8 @@ const Xatolarim   = lazy(() => import("./pages/Xatolarim"));
 const ZaifMavzular = lazy(() => import("./pages/ZaifMavzular"));
 const Mashq       = lazy(() => import("./pages/Mashq"));
 const Imtihon     = lazy(() => import("./pages/Imtihon"));
+const SeoLanding  = lazy(() => import("./pages/SeoLanding"));
+import seoLandings from "./data/seoLandings.json";
 const Admin       = lazy(() => import("./pages/Admin"));
 const AvtoTest2026    = lazy(() => import("./pages/AvtoTest2026"));
 const AvtoTest20Savol = lazy(() => import("./pages/AvtoTest20Savol"));
@@ -108,6 +110,9 @@ const App = () => (
                     <Route path="/pro"           element={<Pro />} />
                     <Route path="/avto-test-2026"     element={<AvtoTest2026 />} />
                     <Route path="/avto-test-20-savol" element={<AvtoTest20Savol />} />
+                    {seoLandings.map((l) => (
+                      <Route key={l.path} path={l.path} element={<SeoLanding slug={l.slug} />} />
+                    ))}
                     <Route path="/blog"          element={<Blog />} />
                     <Route path="/blog/:slug"    element={<BlogArticle />} />
                     <Route path="/auth"          element={<Auth />} />
