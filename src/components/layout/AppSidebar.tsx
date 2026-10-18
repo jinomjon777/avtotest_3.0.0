@@ -1,11 +1,12 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { 
   Home, Car, BookOpen, Phone, Info, Crown, User, LogOut, 
-  FileText, Layers, Sun, Moon
+  FileText, Layers, Sun, Moon, LayoutDashboard, ListX, TrendingDown
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTheme } from "@/contexts/ThemeContext";
+import { useLearnT } from "@/hooks/useLearnT";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -17,6 +18,13 @@ export function AppSidebar() {
   const { user, profile, signOut } = useAuth();
   const { t } = useLanguage();
   const { isDark, toggleTheme } = useTheme();
+  const tl = useLearnT();
+
+  const learnNav = user ? [
+    { path: "/dashboard",     icon: LayoutDashboard, label: tl("dash.title") },
+    { path: "/xatolarim",     icon: ListX,           label: tl("mist.title") },
+    { path: "/zaif-mavzular", icon: TrendingDown,    label: tl("weak.title") },
+  ] : [];
 
   const mainNav = [
     { path: "/",          icon: Home,     labelKey: "nav.home" },
@@ -66,6 +74,26 @@ export function AppSidebar() {
             >
               <Icon className="w-5 h-5 flex-shrink-0" />
               <span>{t(item.labelKey)}</span>
+            </Link>
+          );
+        })}
+
+        {learnNav.map((item) => {
+          const Icon = item.icon;
+          const isActive = location.pathname === item.path;
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={cn(
+                "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all",
+                isActive
+                  ? "bg-[hsl(var(--sidebar-primary)/0.15)] text-[hsl(var(--sidebar-primary))]"
+                  : "text-[hsl(var(--sidebar-foreground))] hover:bg-[hsl(var(--sidebar-accent))] hover:text-[hsl(var(--sidebar-accent-foreground))]"
+              )}
+            >
+              <Icon className="w-5 h-5 flex-shrink-0" />
+              <span>{item.label}</span>
             </Link>
           );
         })}

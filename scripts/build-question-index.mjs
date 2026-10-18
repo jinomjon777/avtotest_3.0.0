@@ -6,6 +6,7 @@
 // Natija (public/data/ ichida):
 //   topic_map.json      { keys: {kalit: mavzu_id}, aliases: {kalit: asosiy_kalit}, ... }
 //   free_bank_keys.json { "<700baza id>": kalit }
+//   question_locator.json { kalit: "m|v|f:<fayl>:<indeks>" }  (savol matnini klientda topish uchun)
 //
 // Savollar JSON'lari yangilanganda (yangi izoh, yangi savol) shu skriptni qayta ishga tushiring.
 // Natija deterministik: bir xil kirish -> bir xil chiqish.
@@ -162,6 +163,30 @@ if (fs.existsSync(freePath)) {
   free.forEach((q, i) => { if (ks[i]) freeKeys[String(q.id)] = ks[i]; });
 }
 
+// ---- 3b) Savol joylashuvi: kalit -> qaysi faylning nechanchi savoli ----
+// "Mening xatolarim" kabi sahifalar savol MATNINI klientda ko'rsatishi kerak (savollar bazada emas).
+// Format: "<tur>:<fayl>:<indeks>", tur: m = public/mavzuli2/<fayl>.json, v = public/data/variants/<fayl>.json,
+// f = public/<fayl>.json (bepul baza). Klient faylni yuklab, kalit mosligini tekshiradi (indeks eskirsa,
+// fayldan qidiradi), shuning uchun bu fayl yangilanmay qolsa ham xato bo'lmaydi — faqat sekinroq.
+const locator = {};
+const effKey = (own) => (canon.has(own) ? own : (aliases[own] ?? own));
+function locate(kind, stem, items) {
+  items.forEach((it, i) => {
+    const own = questionKey(it.stem, it.opts);
+    if (!own) return;
+    const k = effKey(own);
+    if (!(k in locator)) locator[k] = `${kind}:${stem}:${i}`;
+  });
+}
+for (const t of primary) {
+  const fname = FILE_OVERRIDE[t.id] ?? `${t.id}.json`;
+  const file = P("public/mavzuli2", fname);
+  if (fs.existsSync(file)) locate("m", fname.replace(/\.json$/, ""), readJson(file).map(newFmt));
+}
+for (const f of fs.readdirSync(P("public/data/variants")).sort()) locate("v", f.replace(/\.json$/, ""), readJson(P("public/data/variants", f)).map(newFmt));
+for (const id of AGGREGATE) { const f = P("public/mavzuli2", `${id}.json`); if (fs.existsSync(f)) locate("m", id, readJson(f).map(newFmt)); }
+if (fs.existsSync(freePath)) locate("f", "700baza2", readJson(freePath).map(oldFmt));
+
 // ---- 4) Yozish (kalitlar tartiblangan: deterministik fayl) ----
 const sortObj = (o) => Object.fromEntries(Object.entries(o).sort(([a], [b]) => (a < b ? -1 : 1)));
 fs.writeFileSync(P("public/data/topic_map.json"), JSON.stringify({
@@ -171,9 +196,11 @@ fs.writeFileSync(P("public/data/topic_map.json"), JSON.stringify({
   aliases: sortObj(aliases),
 }));
 fs.writeFileSync(P("public/data/free_bank_keys.json"), JSON.stringify(sortObj(freeKeys)));
+fs.writeFileSync(P("public/data/question_locator.json"), JSON.stringify(sortObj(locator)));
 
 console.log("Kanonik savollar (mavzuli 1–34):", stats.canonical, "| boshqa mavzuga tushgan takrorlar:", conflicts, "| bo'sh matn:", emptyText);
 console.table(stats.banks);
+console.log("question_locator.json: joylashuvi ma'lum kalitlar", Object.keys(locator).length, "/", Object.keys(keys).length);
 console.log("topic_map.json: kalitlar", Object.keys(keys).length, "| aliaslar", Object.keys(aliases).length);
 const dist = {}; for (const t of Object.values(keys)) dist[t] = (dist[t] ?? 0) + 1;
 console.log("'other' (mavzusi aniqlanmagan):", dist.other ?? 0);

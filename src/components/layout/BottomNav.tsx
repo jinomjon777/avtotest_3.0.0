@@ -1,20 +1,22 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Car, BookOpen, Crown, User, FileText } from "lucide-react";
+import { Home, Car, Crown, User, FileText, LayoutDashboard } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLearnT } from "@/hooks/useLearnT";
 import { cn } from "@/lib/utils";
 
 export function BottomNav() {
   const location = useLocation();
   const { user } = useAuth();
   const { t } = useLanguage();
+  const tl = useLearnT();
 
   const navItems = [
     { path: "/", icon: Home, labelKey: "nav.home" },
     { path: "/variant", icon: FileText, labelKey: "nav.variantlar" },
     { path: "/belgilar", icon: Car, labelKey: "nav.belgilar" },
     { path: "/pro", icon: Crown, labelKey: "nav.premium" },
-    { path: user ? "/profile" : "/auth", icon: User, labelKey: user ? "nav.profil" : "nav.kirish" },
+    { path: user ? "/dashboard" : "/auth", icon: user ? LayoutDashboard : User, labelKey: user ? "" : "nav.kirish" },
   ];
 
   return (
@@ -33,7 +35,7 @@ export function BottomNav() {
               )}
             >
               <Icon className={cn("w-5 h-5", isActive && "text-primary")} />
-              <span className="text-[10px] font-medium leading-tight text-center">{t(item.labelKey)}</span>
+              <span className="text-[10px] font-medium leading-tight text-center">{item.labelKey ? t(item.labelKey) : tl("dash.title")}</span>
               {isActive && (
                 <span className="w-1 h-1 rounded-full bg-primary mt-0.5" />
               )}

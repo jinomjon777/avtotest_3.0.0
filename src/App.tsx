@@ -63,6 +63,9 @@ const Auth        = lazy(() => import("./pages/Auth"));
 const AuthCallback = lazy(() => import("./pages/auth/callback"));
 const Profile     = lazy(() => import("./pages/Profile"));
 const Dashboard   = lazy(() => import("./pages/Dashboard"));
+const Xatolarim   = lazy(() => import("./pages/Xatolarim"));
+const ZaifMavzular = lazy(() => import("./pages/ZaifMavzular"));
+const Mashq       = lazy(() => import("./pages/Mashq"));
 const Admin       = lazy(() => import("./pages/Admin"));
 const AvtoTest2026    = lazy(() => import("./pages/AvtoTest2026"));
 const AvtoTest20Savol = lazy(() => import("./pages/AvtoTest20Savol"));
@@ -90,6 +93,9 @@ const App = () => (
                   <Routes>
                     <Route path="/"              element={<Home />} />
                     <Route path="/dashboard"     element={<Dashboard />} />
+                    <Route path="/xatolarim"     element={<Xatolarim />} />
+                    <Route path="/zaif-mavzular" element={<ZaifMavzular />} />
+                    <Route path="/mashq"         element={<Mashq />} />
                     <Route path="/test-ishlash"  element={<TestIshlash />} />
                     <Route path="/belgilar"      element={<Belgilar />} />
                     <Route path="/contact"       element={<Contact />} />

@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
+import { useLearnT } from "@/hooks/useLearnT";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, XCircle, Clock, Trophy, RotateCcw, Home } from "lucide-react";
@@ -17,6 +20,8 @@ export const TestResults = ({
   totalQuestions, correctAnswers, incorrectAnswers, timeTaken, variant, onBackToHome, onTryAgain,
 }: TestResultsProps) => {
   const { t } = useLanguage();
+  const { user } = useAuth();
+  const tl = useLearnT();
   const score = Math.round((correctAnswers / totalQuestions) * 100);
   const passed = score >= 90;
 
@@ -98,6 +103,18 @@ export const TestResults = ({
             {t("results.tryAgain")}
           </Button>
         </div>
+        {user && (
+          <div className="flex flex-col sm:flex-row gap-3 mt-3">
+            {incorrectAnswers > 0 && (
+              <Button asChild variant="outline" className="flex-1 h-11">
+                <Link to="/xatolarim">{tl("practice.seeMistakes")}</Link>
+              </Button>
+            )}
+            <Button asChild variant="outline" className="flex-1 h-11">
+              <Link to="/zaif-mavzular">{tl("practice.weakTopics")}</Link>
+            </Button>
+          </div>
+        )}
       </Card>
     </div>
   );
