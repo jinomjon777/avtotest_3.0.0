@@ -8,7 +8,6 @@ import { ExamSession } from "@/components/learn/ExamSession";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { EmptyState } from "@/components/ui/empty-state";
-import { Skeleton } from "@/components/ui/skeleton";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLearnT } from "@/hooks/useLearnT";
@@ -30,28 +29,33 @@ export default function Imtihon() {
   const [claiming, setClaiming] = useState(false);
   const { isPremium } = useAccessState();
 
+  // Savollar faqat "Boshlash" bosilganda olinadi: avval kunlik limit, keyin server tasodifiy 20 ta beradi
   const start = async () => {
     if (claiming) return;
     setClaiming(true);
-    const c = await claimFreeSession("exam", isPremium);
-    setClaiming(false);
-    setClaim(c);
-    if (c === "ok" || c === "ok_free") { trackEvent("exam_start"); setStarted(true); }
+    try {
+      const c = await claimFreeSession("exam", isPremium);
+      if (c === "ok" || c === "ok_free") {
+        const pool = await loadAllPool(questionLang as any, EXAM_QUESTIONS, "exam");
+        setQs(shuffle(pool).slice(0, EXAM_QUESTIONS));
+        trackEvent("exam_start");
+        setStarted(true);
+      }
+      setClaim(c);
+    } catch (e: any) {
+      setClaim(e?.code === "daily_limit" ? "limit" : "error");
+    } finally {
+      setClaiming(false);
+    }
   };
 
   useEffect(() => {
     if (!isLoading && !user) nav("/auth", { replace: true });
   }, [user, isLoading, nav]);
 
-  // Savollar sahifa ochilganda va "Qayta imtihon" bosilganda yangidan tanlanadi
+  // "Qayta imtihon" — boshlang'ich oynaga qaytish
   useEffect(() => {
-    if (!user) return;
-    let alive = true;
     setQs(null); setStarted(false); setClaim(null);
-    loadAllPool(questionLang as any)
-      .then((pool) => alive && setQs(shuffle(pool).slice(0, EXAM_QUESTIONS)))
-      .catch(() => alive && setQs([]));
-    return () => { alive = false; };
   }, [user, questionLang, round]);
 
   const rules = [
@@ -68,7 +72,7 @@ export default function Imtihon() {
         <PremiumGate kind="exam" />
       ) : started && qs && qs.length > 0 ? (
         <ExamSession key={round} questions={qs} onAgain={() => setRound((r) => r + 1)} onExit={() => nav("/dashboard")} />
-      ) : qs && qs.length === 0 ? (
+      ) : started && qs && qs.length === 0 ? (
         <div className="max-w-xl mx-auto px-4 py-10">
           <EmptyState icon={FileQuestion} title={tl("practice.empty")} description="" actionLabel={tl("practice.toDashboard")} onAction={() => nav("/dashboard")} />
         </div>
@@ -83,11 +87,9 @@ export default function Imtihon() {
                 </li>
               ))}
             </ul>
-            {qs === null ? (
-              <Skeleton className="h-12 rounded-xl" />
-            ) : (
-              <Button className="w-full h-12 rounded-xl text-base" disabled={claiming} onClick={start}>{tl("exam.start")}</Button>
-            )}
+            <Button className="w-full h-12 rounded-xl text-base" disabled={claiming || !user} onClick={start}>
+              {claiming ? tl("common.loading") : tl("exam.start")}
+            </Button>
             {claim === "error" && <p className="text-sm text-destructive mt-3 text-center">{tl("common.error")}</p>}
           </Card>
         </div>

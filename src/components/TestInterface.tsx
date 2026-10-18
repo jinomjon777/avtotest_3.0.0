@@ -4,6 +4,7 @@ import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
+import { fetchQuestionFile } from "@/lib/questionApi";
 import { rawQuestionKey, buildAnswerPayload } from "@/lib/answerTracking";
 import {
   getInitialTimeRemaining,
@@ -166,13 +167,12 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
         setLoading(true);
         setError(null);
         
-        const response = await fetch(`/data/variants/v${variant}.json`);
-        
-        if (!response.ok) {
-          throw new Error(t("test.errorLoadingData"));
-        }
-        
-        const raw = await response.json();
+        // Variantlar premium: faqat get-questions funksiyasi orqali (public/ da yo'q)
+        const raw: any = await fetchQuestionFile(`v:v${variant}`).catch((e) => {
+          throw new Error(e?.code === "premium_required"
+            ? "Bu variantni ishlash uchun PREMIUM obuna kerak."
+            : t("test.errorLoadingData"));
+        });
         const contentKey = getContentKey(questionLang);
 
         let transformedQuestions: Question[];

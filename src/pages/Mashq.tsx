@@ -45,18 +45,31 @@ export default function Mashq() {
     let alive = true;
     setQs(null);
     setClaim(null);
-    // Avval savollar tayyorlanadi (bo'sh bo'lsa limit sarflanmaydi), keyin kunlik limit olinadi
-    buildPractice(mode, questionLang as any, { topic, first })
-      .then(async (r) => {
+    const run = async () => {
+      // Xatolar mashqi: avval savollar (bo'sh bo'lsa limit sarflanmaydi), keyin limit.
+      // Mavzu / bugungi mashq: avval limit — bepul foydalanuvchiga savollarni server shundan keyingina beradi.
+      let c: ClaimResult | null = null;
+      if (mode !== "mistakes") {
+        c = await claimFreeSession(kind, isPremium);
         if (!alive) return;
+        if (c === "limit" || c === "error") { setClaim(c); setQs([]); return; }
+      }
+      const r = await buildPractice(mode, questionLang as any, { topic, first, premium: c === "ok" });
+      if (!alive) return;
+      if (c === null) {
         if (r.length === 0) { setClaim("ok"); setQs(r); return; }
-        const c = await claimFreeSession(kind, isPremium);
+        c = await claimFreeSession(kind, isPremium);
         if (!alive) return;
-        setClaim(c);
-        setQs(r);
-        if (c === "ok" || c === "ok_free") trackEvent("practice_start");
-      })
-      .catch(() => { if (alive) { setClaim("ok"); setQs([]); } });
+      }
+      setClaim(c);
+      setQs(r);
+      if ((c === "ok" || c === "ok_free") && r.length > 0) trackEvent("practice_start");
+    };
+    run().catch((e) => {
+      if (!alive) return;
+      setClaim(e?.code === "daily_limit" ? "limit" : "error");
+      setQs([]);
+    });
     return () => { alive = false; };
     // isPremium faqat zaxira holat uchun; o'zgarganda sessiyani qayta boshlamaymiz
     // eslint-disable-next-line react-hooks/exhaustive-deps

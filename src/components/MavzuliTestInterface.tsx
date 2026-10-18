@@ -5,6 +5,7 @@ import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
+import { fetchQuestionFile } from "@/lib/questionApi";
 import { rawQuestionKey, buildAnswerPayload } from "@/lib/answerTracking";
 import {
   getInitialTimeRemaining,
@@ -146,13 +147,12 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
           filename = '34tengaxamiyatli.json';
         }
         
-        const response = await fetch(`/mavzuli2/${filename}`);
-        
-        if (!response.ok) {
-          throw new Error(t("test.errorLoadingData"));
-        }
-        
-        const jsonData = await response.json();
+        // Mavzuli testlar premium: faqat get-questions funksiyasi orqali (public/ da yo'q)
+        const jsonData: any = await fetchQuestionFile(`m:${filename.replace(/\.json$/, "")}`).catch((e) => {
+          throw new Error(e?.code === "premium_required"
+            ? "Bu mavzuni ishlash uchun PREMIUM obuna kerak."
+            : t("test.errorLoadingData"));
+        });
         
         // New format: array of tasks with content.uz_lat/uz_cyr/ru structure
         if (Array.isArray(jsonData) && jsonData.length > 0 && jsonData[0].content) {

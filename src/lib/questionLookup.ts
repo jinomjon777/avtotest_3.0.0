@@ -1,7 +1,9 @@
 // Savol kaliti bo'yicha savolning o'zini (matn, variantlar, rasm, izoh) topish.
-// Savollar bazada emas, statik JSON'larda — shuning uchun public/data/question_locator.json
-// har kalit uchun "tur:fayl:indeks" beradi. Fayl bir marta yuklanadi va keshlanadi.
+// Savollar bazada emas, JSON'larda. public/data/question_locator.json har kalit uchun "tur:fayl:indeks" beradi.
+// Bepul baza (f) — public/ dagi statik fayl; premium (m — mavzuli, v — variantlar) — faqat
+// get-questions edge funksiyasi orqali (questionApi.ts).
 import { rawQuestionKey } from "./answerTracking";
+import { fetchByKeys, fetchQuestionFile, fetchSample, topicFileId } from "./questionApi";
 
 export type QLang = "oz" | "uz" | "ru";
 
@@ -26,10 +28,8 @@ export function loadLocator(): Promise<Locator | null> {
 }
 
 const fileCache = new Map<string, Promise<any[] | null>>();
-function filePath(kind: string, stem: string): string {
-  if (kind === "m") return `/mavzuli2/${stem}.json`;
-  if (kind === "v") return `/data/variants/${stem}.json`;
-  return `/${stem}.json`; // f: bepul baza (700baza2.json)
+function filePath(_kind: string, stem: string): string {
+  return `/${stem}.json`; // faqat bepul baza (700baza2.json); premium — questionApi.ts
 }
 function loadFile(kind: string, stem: string): Promise<any[] | null> {
   const path = filePath(kind, stem);
@@ -97,41 +97,52 @@ export async function resolveQuestions(keys: string[], lang: QLang): Promise<Map
   const loc = await loadLocator();
   if (!loc) return out;
 
-  // fayl bo'yicha guruhlash — har fayl bir marta yuklanadi
-  const groups = new Map<string, { kind: string; stem: string; items: { key: string; idx: number }[] }>();
+  const freeItems: { key: string; idx: number }[] = [];
+  const premiumKeys: string[] = [];
   for (const key of new Set(keys)) {
     const spec = loc[key];
     if (!spec) continue;
-    const [kind, stem, idxStr] = spec.split(":");
-    const gk = `${kind}:${stem}`;
-    if (!groups.has(gk)) groups.set(gk, { kind, stem, items: [] });
-    groups.get(gk)!.items.push({ key, idx: Number(idxStr) });
+    const [kind, , idxStr] = spec.split(":");
+    if (kind === "f") freeItems.push({ key, idx: Number(idxStr) });
+    else premiumKeys.push(key);
   }
 
-  await Promise.all(
-    [...groups.values()].map(async (g) => {
-      const arr = await loadFile(g.kind, g.stem);
+  const map = await import("./answerTracking").then((m) => m.loadTopicMap());
+  const canon = (raw: any) => {
+    const own = rawQuestionKey(raw);
+    return own ? map?.aliases?.[own] ?? own : undefined;
+  };
+
+  await Promise.all([
+    // Bepul baza: statik fayl
+    (async () => {
+      if (freeItems.length === 0) return;
+      const arr = await loadFile("f", "700baza2");
       if (!arr) return;
-      for (const it of g.items) {
+      for (const it of freeItems) {
         let raw = arr[it.idx];
-        // Indeks eskirgan bo'lishi mumkin (fayl yangilangan) — kalit mos kelmasa, fayldan qidiramiz
-        if (!raw || rawQuestionKey(raw) !== it.key) {
-          raw = arr.find((q) => rawQuestionKey(q) === it.key);
-        }
+        // Indeks eskirgan bo'lishi mumkin — kalit mos kelmasa, fayldan qidiramiz
+        if (!raw || canon(raw) !== it.key) raw = arr.find((q) => canon(q) === it.key);
         if (!raw) continue;
-        const r = toResolved(it.key, g.kind, raw, lang);
+        const r = toResolved(it.key, "f", raw, lang);
         if (r) out.set(it.key, r);
       }
-    }),
-  );
+    })(),
+    // Premium fayllar: server faqat ruxsat etilganlarini qaytaradi
+    (async () => {
+      if (premiumKeys.length === 0) return;
+      const items = await fetchByKeys(premiumKeys).catch(() => ({} as Record<string, { kind: string; raw: any }>));
+      for (const [key, { kind, raw }] of Object.entries(items)) {
+        if (canon(raw) !== key) continue; // lokator eskirgan bo'lsa noto'g'ri savol ko'rsatmaymiz
+        const r = toResolved(key, kind, raw, lang);
+        if (r) out.set(key, r);
+      }
+    })(),
+  ]);
   return out;
 }
 
-/** Mavzu fayli (public/mavzuli2) dagi barcha savollar kalitlari bilan — mashq tanlash uchun. */
-export async function loadTopicPool(topicId: string, lang: QLang): Promise<ResolvedQuestion[]> {
-  const stem = topicId === "34" ? "34tengaxamiyatli" : topicId;
-  const arr = await loadFile("m", stem);
-  if (!arr) return [];
+async function toPool(arr: any[], lang: QLang): Promise<ResolvedQuestion[]> {
   const map = await import("./answerTracking").then((m) => m.loadTopicMap());
   const res: ResolvedQuestion[] = [];
   for (const raw of arr) {
@@ -144,9 +155,22 @@ export async function loadTopicPool(topicId: string, lang: QLang): Promise<Resol
   return res;
 }
 
-/** Hamma savollar to'plami (bugungi mashq zaxirasi): "Barcha savollar" fayli. */
-export async function loadAllPool(lang: QLang): Promise<ResolvedQuestion[]> {
-  return loadTopicPool("31", lang);
+export type PoolAccess = { premium: boolean; kind: "practice" | "topic" | "exam" };
+
+/**
+ * Mavzu savollari — mashq tanlash uchun.
+ * Premium: butun mavzu fayli. Bepul: serverdan tasodifiy 40 ta (bugungi limit bilan).
+ */
+export async function loadTopicPool(topicId: string, lang: QLang, access: PoolAccess): Promise<ResolvedQuestion[]> {
+  const arr = access.premium
+    ? await fetchQuestionFile(topicFileId(topicId))
+    : await fetchSample(topicId, 40, access.kind);
+  return toPool(arr, lang);
+}
+
+/** Hamma savollardan tasodifiy n ta (imtihon, bugungi mashq zaxirasi). Server tanlaydi. */
+export async function loadAllPool(lang: QLang, n: number, kind: "practice" | "topic" | "exam"): Promise<ResolvedQuestion[]> {
+  return toPool(await fetchSample("all", n, kind), lang);
 }
 
 export function shuffle<T>(a: T[]): T[] {

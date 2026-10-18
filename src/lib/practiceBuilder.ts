@@ -2,9 +2,10 @@
 //   mistakes — hal qilinmagan xatolar (eng ko'p xato qilinganlari oldin)
 //   topic    — tanlangan mavzu: avval shu mavzudagi xatolar, keyin hali ko'rilmagan savollar, keyin qolganlari
 //   today    — bugungi mashq: xatolardan ~8 ta + eng zaif mavzudan ko'rilmagan savollar
-// Savol matnlari statik JSON'dan olinadi (questionLookup.ts); foydalanuvchi tarixi serverdan.
+// Savollar: premium — butun mavzu fayli, bepul — serverdan tasodifiy to'plam (questionLookup.ts).
+// Bepul foydalanuvchi uchun buildPractice() dan OLDIN claim_free_session chaqirilgan bo'lishi shart.
 import { fetchAnsweredKeys, fetchMistakes, fetchWeakTopicsNow, MistakeItem } from "@/hooks/useLearning";
-import { loadAllPool, loadTopicPool, QLang, resolveQuestions, ResolvedQuestion, shuffle } from "./questionLookup";
+import { loadAllPool, loadTopicPool, PoolAccess, QLang, resolveQuestions, ResolvedQuestion, shuffle } from "./questionLookup";
 
 export type PracticeMode = "mistakes" | "topic" | "today";
 export const PRACTICE_SIZE = 20;
@@ -27,9 +28,9 @@ async function fromMistakes(keys: string[], lang: QLang): Promise<ResolvedQuesti
   return keys.map((k) => map.get(k)).filter((q): q is ResolvedQuestion => !!q);
 }
 
-async function topicSet(topicId: string, lang: QLang, size: number, first?: string): Promise<ResolvedQuestion[]> {
+async function topicSet(topicId: string, lang: QLang, size: number, access: PoolAccess, first?: string): Promise<ResolvedQuestion[]> {
   const [pool, mistakes, answered] = await Promise.all([
-    loadTopicPool(topicId, lang),
+    loadTopicPool(topicId, lang, access),
     unresolvedMistakes().catch(() => [] as MistakeItem[]),
     fetchAnsweredKeys(topicId).catch(() => new Set<string>()),
   ]);
@@ -39,7 +40,7 @@ async function topicSet(topicId: string, lang: QLang, size: number, first?: stri
   const rest = pool.filter((q) => !mistakeKeys.has(q.key) && answered.has(q.key));
   let out = dedupe([...shuffle(wrongFirst), ...shuffle(unseen), ...shuffle(rest)]).slice(0, size);
   if (first) {
-    const f = pool.find((q) => q.key === first);
+    const f = pool.find((q) => q.key === first) ?? (await fromMistakes([first], lang))[0];
     if (f) out = dedupe([f, ...out]).slice(0, size);
   }
   return out;
@@ -48,12 +49,13 @@ async function topicSet(topicId: string, lang: QLang, size: number, first?: stri
 export async function buildPractice(
   mode: PracticeMode,
   lang: QLang,
-  opts: { topic?: string | null; first?: string | null; size?: number } = {},
+  opts: { topic?: string | null; first?: string | null; size?: number; premium?: boolean } = {},
 ): Promise<ResolvedQuestion[]> {
   const size = opts.size ?? PRACTICE_SIZE;
+  const premium = !!opts.premium;
 
   if (mode === "topic" && opts.topic) {
-    return topicSet(opts.topic, lang, size, opts.first ?? undefined);
+    return topicSet(opts.topic, lang, size, { premium, kind: "topic" }, opts.first ?? undefined);
   }
 
   if (mode === "mistakes") {
@@ -78,8 +80,9 @@ export async function buildPractice(
 
   const weakest = weak?.topics.find((t) => t.enough_data) ?? weak?.topics[0];
   let extra: ResolvedQuestion[] = [];
-  if (weakest) extra = await topicSet(weakest.topic_id, lang, size, undefined);
-  if (extra.length < size) extra = [...extra, ...shuffle(await loadAllPool(lang))];
+  const access: PoolAccess = { premium, kind: "practice" };
+  if (weakest) extra = await topicSet(weakest.topic_id, lang, size, access).catch(() => []);
+  if (extra.length < size) extra = [...extra, ...(await loadAllPool(lang, size, "practice"))];
 
   const have = new Set(picked.map((q) => q.key));
   const rest = extra.filter((q) => !have.has(q.key));

@@ -18,8 +18,6 @@
 # Savol bazasi va rasmlar: tez-tez yangilanishi mumkin, shuning uchun qisqa kesh + qayta tekshirish
 /data/*
   Cache-Control: public, max-age=300, must-revalidate
-/mavzuli2/*
-  Cache-Control: public, max-age=300, must-revalidate
 /images/*
   Cache-Control: public, max-age=86400
 /belgilar/*

@@ -7,7 +7,8 @@
 | Edge funksiyalarda CORS hamma joyga ochiq (`*`) | `ALLOWED_ORIGIN` o'zgaruvchisi bilan cheklanadi (o'rnatilmasa avvalgidek ishlaydi) |
 | Cloudflare'da xavfsizlik sarlavhalari yo'q (`netlify.toml` faqat Netlify'da ishlaydi) | `public/_headers`: nosniff, X-Frame-Options, HSTS, Referrer/Permissions-Policy, CSP (hozircha Report-Only) |
 | `test_results` ga brauzerdan soxta natija yozish | Phase 2: `submit_test` RPC + `post-deploy/001_lock_test_results_writes.sql` |
-| Statik savollar uchun xesh/kesh sarlavhalari yo'q | `_headers`: `/assets` va `/fonts` — 1 yil, `/data` va `/mavzuli2` — 5 daqiqa + qayta tekshirish |
+| Statik savollar uchun xesh/kesh sarlavhalari yo'q | `_headers`: `/assets` va `/fonts` — 1 yil, `/data` — 5 daqiqa + qayta tekshirish |
+| **Premium savollar ochiq edi**: `/mavzuli2/*.json` (1100 savol) va `/data/variants/*.json` (61 variant) URL orqali hammaga yuklanardi | Fayllar `supabase/functions/get-questions/data/` ga ko'chirildi; faqat `get-questions` edge funksiyasi beradi: butun fayl — faqat premium, bepul — kunlik limit bilan serverdan tasodifiy 20–40 ta, "Xatolarim" uchun — faqat o'zi ko'rgan savollar. Avval yuklab olinganlarini qaytarib bo'lmaydi |
 
 ## Siz bajarishingiz kerak (kod bilan hal bo'lmaydi)
 1. **`.env` dagi `VITE_SUPABASE_SERVICE_KEY` va `VITE_ADMIN_SECRET` ni o'chiring va service kalitni almashtiring (rotate).**

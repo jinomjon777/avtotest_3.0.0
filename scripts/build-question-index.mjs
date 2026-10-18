@@ -22,6 +22,8 @@ import { questionKey, canonicalQuestionString } from "../src/lib/questionKey.js"
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const P = (...a) => path.join(root, ...a);
+const MAVZULI_DIR = "supabase/functions/get-questions/data/m";   // premium: faqat get-questions funksiyasi orqali
+const VARIANTS_DIR = "supabase/functions/get-questions/data/v";  // premium: faqat get-questions funksiyasi orqali
 const readJson = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
 
 const FUZZY_ALIAS = 0.92;   // bir xil savol deb hisoblash chegarasi (Dice) — so'z tekshiruvi bilan birga
@@ -81,7 +83,7 @@ function typoEquivalent(sa, sb, pairs) {
 const canon = new Map();        // kalit -> { topic, str }
 let conflicts = 0, emptyText = 0;
 for (const t of primary) {
-  const file = P("public/mavzuli2", FILE_OVERRIDE[t.id] ?? `${t.id}.json`);
+  const file = P(MAVZULI_DIR, FILE_OVERRIDE[t.id] ?? `${t.id}.json`);
   if (!fs.existsSync(file)) { console.warn(`! fayl yo'q: ${file}`); continue; }
   for (const q of readJson(file)) {
     const { stem, opts } = newFmt(q);
@@ -142,12 +144,12 @@ function runBank(name, items) {
 
 // variantlar
 const variantItems = [];
-for (const f of fs.readdirSync(P("public/data/variants")).sort()) for (const q of readJson(P("public/data/variants", f))) variantItems.push(newFmt(q));
+for (const f of fs.readdirSync(P(VARIANTS_DIR)).sort()) for (const q of readJson(P(VARIANTS_DIR, f))) variantItems.push(newFmt(q));
 runBank("variants", variantItems);
 
 // mavzuli aggregatlar (31, 35a, 35b)
 const aggItems = [];
-for (const id of AGGREGATE) { const f = P("public/mavzuli2", `${id}.json`); if (fs.existsSync(f)) for (const q of readJson(f)) aggItems.push(newFmt(q)); }
+for (const id of AGGREGATE) { const f = P(MAVZULI_DIR, `${id}.json`); if (fs.existsSync(f)) for (const q of readJson(f)) aggItems.push(newFmt(q)); }
 runBank("mavzuli-aggregate", aggItems);
 
 // premium baza (barcha.json) — repoda bo'lsa
@@ -180,11 +182,11 @@ function locate(kind, stem, items) {
 }
 for (const t of primary) {
   const fname = FILE_OVERRIDE[t.id] ?? `${t.id}.json`;
-  const file = P("public/mavzuli2", fname);
+  const file = P(MAVZULI_DIR, fname);
   if (fs.existsSync(file)) locate("m", fname.replace(/\.json$/, ""), readJson(file).map(newFmt));
 }
-for (const f of fs.readdirSync(P("public/data/variants")).sort()) locate("v", f.replace(/\.json$/, ""), readJson(P("public/data/variants", f)).map(newFmt));
-for (const id of AGGREGATE) { const f = P("public/mavzuli2", `${id}.json`); if (fs.existsSync(f)) locate("m", id, readJson(f).map(newFmt)); }
+for (const f of fs.readdirSync(P(VARIANTS_DIR)).sort()) locate("v", f.replace(/\.json$/, ""), readJson(P(VARIANTS_DIR, f)).map(newFmt));
+for (const id of AGGREGATE) { const f = P(MAVZULI_DIR, `${id}.json`); if (fs.existsSync(f)) locate("m", id, readJson(f).map(newFmt)); }
 if (fs.existsSync(freePath)) locate("f", "700baza2", readJson(freePath).map(oldFmt));
 
 // ---- 4) Yozish (kalitlar tartiblangan: deterministik fayl) ----
@@ -205,3 +207,23 @@ console.log("topic_map.json: kalitlar", Object.keys(keys).length, "| aliaslar", 
 const dist = {}; for (const t of Object.values(keys)) dist[t] = (dist[t] ?? 0) + 1;
 console.log("'other' (mavzusi aniqlanmagan):", dist.other ?? 0);
 if (process.argv.includes("--samples")) { console.log("Birlashtirilgan so'z juftliklari (tekshiring):"); console.log([...pairCount.entries()].sort((a, b) => b[1] - a[1]).map(([p, n]) => `${n}x  ${p}`).join("\n")); }
+
+// ---- 5) get-questions edge funksiyasi uchun: server lokatori va fayl yuklovchilari ----
+// Premium fayllar public/ da EMAS — faqat funksiya ichida. Funksiya kalit -> fayl:indeks ni shu fayldan oladi.
+{
+  const FN = "supabase/functions/get-questions";
+  const serverLoc = Object.fromEntries(Object.entries(sortObj(locator)).filter(([, v]) => !v.startsWith("f:")));
+  fs.writeFileSync(P(FN, "data/locator.json"), JSON.stringify(serverLoc));
+  const lines = ["// AVTOMATIK YARATILGAN: node scripts/build-question-index.mjs — qo'lda tahrirlamang.",
+    "// Har fayl alohida (dangasa) yuklanadi; statik import yo'llari funksiya bilan birga paketlanishi uchun shart.",
+    "export const loaders: Record<string, () => Promise<{ default: unknown[] }>> = {"];
+  for (const [kind, dir] of [["m", MAVZULI_DIR], ["v", VARIANTS_DIR]]) {
+    for (const f of fs.readdirSync(P(dir)).filter((x) => x.endsWith(".json")).sort()) {
+      const stem = f.replace(/\.json$/, "");
+      lines.push(`  "${kind}:${stem}": () => import("./data/${kind}/${f}", { with: { type: "json" } }),`);
+    }
+  }
+  lines.push("};", "");
+  fs.writeFileSync(P(FN, "loaders.ts"), lines.join("\n"));
+  console.log(`get-questions: server lokatori ${Object.keys(serverLoc).length} kalit, yuklovchilar yozildi`);
+}
