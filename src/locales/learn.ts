@@ -136,6 +136,15 @@ const rows: [string, string, string, string][] = [
   ["day.1", "Du", "Ду", "Пн"], ["day.2", "Se", "Се", "Вт"], ["day.3", "Ch", "Чо", "Ср"], ["day.4", "Pa", "Па", "Чт"],
   ["day.5", "Ju", "Жу", "Пт"], ["day.6", "Sh", "Ша", "Сб"], ["day.0", "Ya", "Як", "Вс"],
 
+  ["nav.test", "Test", "Тест", "Тест"],
+  ["nav.mistakes", "Xatolar", "Хатолар", "Ошибки"],
+  // ---- PWA / o'rnatish
+  ["pwa.title", "Smartavto'ni telefon ekraniga qo'shing", "Smartavto'ни телефон экранига қўшинг", "Добавьте Smartavto на главный экран"],
+  ["pwa.desc", "Ilova kabi tez ochiladi, brauzer paneli bo'lmaydi.", "Илова каби тез очилади, браузер панели бўлмайди.", "Открывается как приложение, без панели браузера."],
+  ["pwa.install", "O'rnatish", "Ўрнатиш", "Установить"],
+  ["pwa.dismiss", "Keyinroq", "Кейинроқ", "Позже"],
+  ["pwa.ios", "Safari'da \"Ulashish\" tugmasini bosing, so'ng \"Ekranga qo'shish\" ni tanlang.", "Safari'да \"Улашиш\" тугмасини босинг, сўнг \"Экранга қўшиш\" ни танланг.", "В Safari нажмите «Поделиться», затем «На экран «Домой»»."],
+
   // ---- zaif mavzular
   ["weak.title", "Zaif mavzular", "Заиф мавзулар", "Слабые темы"],
   ["weak.subtitle", "Eng past aniqlikdagi mavzular tepada. Shulardan boshlang.", "Энг паст аниқликдаги мавзулар тепада. Шулардан бошланг.", "Темы с самой низкой точностью — сверху. Начните с них."],

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { MeterBar } from "@/components/ui/meter-bar";
+import { InstallPrompt } from "@/components/InstallPrompt";
 import { StreakCard } from "@/components/learn/StreakCard";
 import { ProgressRing } from "@/components/ui/progress-ring";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -222,6 +223,8 @@ export default function Dashboard() {
             </Card>
           </>
         )}
+
+        <InstallPrompt />
 
         {!profile?.is_pro && (
           <Card className="p-4 border-primary/30 bg-primary/5 flex items-center justify-between gap-3">

@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const BASE_URL = "https://smartavto.uz";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/logo-premium.png`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.jpg`;
 
 export function SEO({
   title,
