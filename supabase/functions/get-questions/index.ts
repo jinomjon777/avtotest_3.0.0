@@ -12,11 +12,13 @@
 //                    premium — istalgan; bepul — faqat o'zi javob bergan/saqlagan savollar.
 //
 // Premium ta'rifi bazadagi is_premium_now() bilan bir xil (faol tarif yoki faol sinov).
-// Fayllar va lokator `node scripts/build-question-index.mjs` bilan yangilanadi.
+// Manba fayllar: supabase/question-data/{m,v}. Paket (data/bank.json, files.json, locator.json)
+// `node scripts/build-question-index.mjs` bilan yaratiladi — savollarni o'zgartirgach qayta ishga tushiring.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import locator from "./data/locator.json" with { type: "json" };
-import { loaders } from "./loaders.ts";
+import bank from "./data/bank.json" with { type: "json" };
+import fileIndex from "./data/files.json" with { type: "json" };
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_KEY = Deno.env.get("SB_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -39,13 +41,16 @@ const MAX_KEYS = 300;
 const MAX_SAMPLE = 40;
 const FREE_KINDS = new Set(["practice", "topic", "exam"]);
 
+// files.json: { "m:31": [[bankIndeks, task_info?], ...] } — asl fayl tartibi saqlanadi
+const files = fileIndex as Record<string, [number, unknown?][]>;
 const fileCache = new Map<string, unknown[]>();
+function hasFile(id: string): boolean {
+  return Object.prototype.hasOwnProperty.call(files, id);
+}
 async function loadFile(id: string): Promise<unknown[] | null> {
   if (fileCache.has(id)) return fileCache.get(id)!;
-  const load = loaders[id];
-  if (!load) return null;
-  const mod = await load();
-  const arr = Array.isArray(mod.default) ? mod.default : [];
+  if (!hasFile(id)) return null;
+  const arr = files[id].map(([i, ti]) => (ti === undefined ? (bank as any[])[i] : { task_info: ti, ...(bank as any[])[i] }));
   fileCache.set(id, arr);
   return arr;
 }
@@ -54,7 +59,7 @@ function topicFileId(source: string): string | null {
   if (source === "all") return "m:31";
   if (!/^[0-9a-z]{1,12}$/.test(source)) return null;
   const id = source === "34" ? "m:34tengaxamiyatli" : `m:${source}`;
-  return loaders[id] ? id : null;
+  return hasFile(id) ? id : null;
 }
 
 function sample<T>(arr: T[], n: number): T[] {
@@ -89,7 +94,7 @@ Deno.serve(async (req) => {
   // ── 3. Butun fayl: faqat premium ───────────────────────────────────
   if (action === "file") {
     const id = String(body.file ?? "");
-    if (!loaders[id]) return json({ error: "not_found" }, 404);
+    if (!hasFile(id)) return json({ error: "not_found" }, 404);
     if (!premium) return json({ error: "premium_required" }, 403);
     return json({ ok: true, items: await loadFile(id) });
   }

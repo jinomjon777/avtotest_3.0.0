@@ -22,8 +22,8 @@ import { questionKey, canonicalQuestionString } from "../src/lib/questionKey.js"
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const P = (...a) => path.join(root, ...a);
-const MAVZULI_DIR = "supabase/functions/get-questions/data/m";   // premium: faqat get-questions funksiyasi orqali
-const VARIANTS_DIR = "supabase/functions/get-questions/data/v";  // premium: faqat get-questions funksiyasi orqali
+const MAVZULI_DIR = "supabase/question-data/m";   // premium manba (public/ da EMAS) — get-questions uchun paketlanadi
+const VARIANTS_DIR = "supabase/question-data/v";  // premium manba (public/ da EMAS) — get-questions uchun paketlanadi
 const readJson = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
 
 const FUZZY_ALIAS = 0.92;   // bir xil savol deb hisoblash chegarasi (Dice) — so'z tekshiruvi bilan birga
@@ -214,24 +214,22 @@ if (process.argv.includes("--samples")) { console.log("Birlashtirilgan so'z juft
   const FN = "supabase/functions/get-questions";
   const serverLoc = Object.fromEntries(Object.entries(sortObj(locator)).filter(([, v]) => !v.startsWith("f:")));
   fs.writeFileSync(P(FN, "data/locator.json"), JSON.stringify(serverLoc));
-  // STATIK importlar: Docker'siz deploy (API orqali paketlash) faqat statik importlarni yuklaydi —
-  // dinamik import() dagi fayllar serverga chiqmay qoladi.
-  const imports = [], entries = [];
-  let n = 0;
+  // Ixcham paket: Supabase deploy hajmi cheklangan (to'liq fayllar 9 MB -> 413 xatosi).
+  // bank.json — takrorlanmaydigan savollar (task_info'siz, minify), files.json — har fayl: [bank indeksi, task_info].
+  const bank = [], bankIdx = new Map(), files = {};
   for (const [kind, dir] of [["m", MAVZULI_DIR], ["v", VARIANTS_DIR]]) {
     for (const f of fs.readdirSync(P(dir)).filter((x) => x.endsWith(".json")).sort()) {
-      const v = `f${n++}`;
-      imports.push(`import ${v} from "./data/${kind}/${f}" with { type: "json" };`);
-      entries.push(`  "${kind}:${f.replace(/\.json$/, "")}": ${v} as unknown[],`);
+      files[`${kind}:${f.replace(/\.json$/, "")}`] = readJson(P(dir, f)).map((q) => {
+        const { task_info, ...rest } = q;
+        const s = JSON.stringify(rest);
+        if (!bankIdx.has(s)) { bankIdx.set(s, bank.length); bank.push(rest); }
+        return task_info === undefined ? [bankIdx.get(s)] : [bankIdx.get(s), task_info];
+      });
     }
   }
-  const lines = ["// AVTOMATIK YARATILGAN: node scripts/build-question-index.mjs — qo'lda tahrirlamang.",
-    "// Statik importlar shart: Docker'siz deploy faqat statik import qilingan fayllarni serverga yuklaydi.",
-    ...imports, "",
-    "const files: Record<string, unknown[]> = {", ...entries, "};", "",
-    "export const loaders: Record<string, () => Promise<{ default: unknown[] }>> = Object.fromEntries(",
-    "  Object.entries(files).map(([k, v]) => [k, () => Promise.resolve({ default: v })]),",
-    ");", ""];
-  fs.writeFileSync(P(FN, "loaders.ts"), lines.join("\n"));
-  console.log(`get-questions: server lokatori ${Object.keys(serverLoc).length} kalit, yuklovchilar yozildi`);
+  fs.writeFileSync(P(FN, "data/bank.json"), JSON.stringify(bank));
+  fs.writeFileSync(P(FN, "data/files.json"), JSON.stringify(files));
+  const kb = (f) => Math.round(fs.statSync(P(FN, f)).size / 1024);
+  console.log(`get-questions paketi: bank ${bank.length} savol (${kb("data/bank.json")} KB), files ${Object.keys(files).length} (${kb("data/files.json")} KB)`);
+  console.log(`get-questions: server lokatori ${Object.keys(serverLoc).length} kalit`);
 }
