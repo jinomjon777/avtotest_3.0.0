@@ -14,6 +14,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useLearnT } from "@/hooks/useLearnT";
 import { EXAM_MINUTES, EXAM_QUESTIONS } from "@/lib/learnTheme";
 import { loadAllPool, ResolvedQuestion, shuffle } from "@/lib/questionLookup";
+import { claimFreeSession, ClaimResult } from "@/lib/freeLimit";
+import { PremiumGate } from "@/components/learn/PremiumGate";
+import { useAccessState } from "@/hooks/useAccessState";
 
 export default function Imtihon() {
   const { user, isLoading } = useAuth();
@@ -23,6 +26,18 @@ export default function Imtihon() {
   const [qs, setQs] = useState<ResolvedQuestion[] | null>(null);
   const [started, setStarted] = useState(false);
   const [round, setRound] = useState(0);
+  const [claim, setClaim] = useState<ClaimResult | null>(null);
+  const [claiming, setClaiming] = useState(false);
+  const { isPremium } = useAccessState();
+
+  const start = async () => {
+    if (claiming) return;
+    setClaiming(true);
+    const c = await claimFreeSession("exam", isPremium);
+    setClaiming(false);
+    setClaim(c);
+    if (c === "ok" || c === "ok_free") { trackEvent("exam_start"); setStarted(true); }
+  };
 
   useEffect(() => {
     if (!isLoading && !user) nav("/auth", { replace: true });
@@ -32,7 +47,7 @@ export default function Imtihon() {
   useEffect(() => {
     if (!user) return;
     let alive = true;
-    setQs(null); setStarted(false);
+    setQs(null); setStarted(false); setClaim(null);
     loadAllPool(questionLang as any)
       .then((pool) => alive && setQs(shuffle(pool).slice(0, EXAM_QUESTIONS)))
       .catch(() => alive && setQs([]));
@@ -49,7 +64,9 @@ export default function Imtihon() {
   return (
     <MainLayout>
       <SEO title={tl("exam.title")} description={tl("exam.title")} path="/imtihon" noIndex />
-      {started && qs && qs.length > 0 ? (
+      {claim === "limit" ? (
+        <PremiumGate kind="exam" />
+      ) : started && qs && qs.length > 0 ? (
         <ExamSession key={round} questions={qs} onAgain={() => setRound((r) => r + 1)} onExit={() => nav("/dashboard")} />
       ) : qs && qs.length === 0 ? (
         <div className="max-w-xl mx-auto px-4 py-10">
@@ -69,8 +86,9 @@ export default function Imtihon() {
             {qs === null ? (
               <Skeleton className="h-12 rounded-xl" />
             ) : (
-              <Button className="w-full h-12 rounded-xl text-base" onClick={() => { trackEvent("exam_start"); setStarted(true); }}>{tl("exam.start")}</Button>
+              <Button className="w-full h-12 rounded-xl text-base" disabled={claiming} onClick={start}>{tl("exam.start")}</Button>
             )}
+            {claim === "error" && <p className="text-sm text-destructive mt-3 text-center">{tl("common.error")}</p>}
           </Card>
         </div>
       )}

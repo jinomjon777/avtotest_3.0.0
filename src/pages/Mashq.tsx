@@ -13,6 +13,9 @@ import { useLearnT } from "@/hooks/useLearnT";
 import { buildPractice, PracticeMode } from "@/lib/practiceBuilder";
 import type { ResolvedQuestion } from "@/lib/questionLookup";
 import { topicName } from "@/lib/topicName";
+import { claimFreeSession, ClaimResult, FreeKind } from "@/lib/freeLimit";
+import { PremiumGate } from "@/components/learn/PremiumGate";
+import { useAccessState } from "@/hooks/useAccessState";
 
 const LANG = { "uz-lat": "uz_lat", uz: "uz_cyr", ru: "ru" } as const;
 
@@ -29,6 +32,9 @@ export default function Mashq() {
 
   const [qs, setQs] = useState<ResolvedQuestion[] | null>(null);
   const [round, setRound] = useState(0);
+  const [claim, setClaim] = useState<ClaimResult | null>(null);
+  const { isPremium } = useAccessState();
+  const kind: FreeKind = mode === "today" ? "practice" : mode;
 
   useEffect(() => {
     if (!isLoading && !user) nav("/auth", { replace: true });
@@ -38,10 +44,22 @@ export default function Mashq() {
     if (!user) return;
     let alive = true;
     setQs(null);
+    setClaim(null);
+    // Avval savollar tayyorlanadi (bo'sh bo'lsa limit sarflanmaydi), keyin kunlik limit olinadi
     buildPractice(mode, questionLang as any, { topic, first })
-      .then((r) => { if (!alive) return; setQs(r); if (r.length > 0) trackEvent("practice_start"); })
-      .catch(() => alive && setQs([]));
+      .then(async (r) => {
+        if (!alive) return;
+        if (r.length === 0) { setClaim("ok"); setQs(r); return; }
+        const c = await claimFreeSession(kind, isPremium);
+        if (!alive) return;
+        setClaim(c);
+        setQs(r);
+        if (c === "ok" || c === "ok_free") trackEvent("practice_start");
+      })
+      .catch(() => { if (alive) { setClaim("ok"); setQs([]); } });
     return () => { alive = false; };
+    // isPremium faqat zaxira holat uchun; o'zgarganda sessiyani qayta boshlamaymiz
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, mode, topic, first, round, questionLang]);
 
   const title =
@@ -52,7 +70,13 @@ export default function Mashq() {
   return (
     <MainLayout>
       <SEO title={title} description="Mashq" path="/mashq" noIndex />
-      {qs === null ? (
+      {claim === "limit" ? (
+        <PremiumGate kind={kind} />
+      ) : claim === "error" ? (
+        <div className="max-w-2xl mx-auto px-4 py-10">
+          <EmptyState icon={BookOpen} title={tl("common.error")} description="" actionLabel={tl("common.retry")} onAction={() => setRound((r) => r + 1)} />
+        </div>
+      ) : qs === null || claim === null ? (
         <div className="max-w-2xl mx-auto px-4 py-8 space-y-3">
           <p className="text-sm text-muted-foreground">{tl("practice.building")}</p>
           <Skeleton className="h-24 rounded-xl" /><Skeleton className="h-14 rounded-xl" /><Skeleton className="h-14 rounded-xl" />
@@ -68,6 +92,10 @@ export default function Mashq() {
           />
         </div>
       ) : (
+        <>
+        {claim === "ok_free" && (
+          <p className="max-w-2xl mx-auto px-4 pt-4 text-xs text-muted-foreground">{tl("limit.freeNote")}</p>
+        )}
         <PracticeSession
           key={round}
           questions={qs}
@@ -75,6 +103,7 @@ export default function Mashq() {
           onAgain={() => setRound((r) => r + 1)}
           onExit={() => nav("/dashboard")}
         />
+        </>
       )}
     </MainLayout>
   );

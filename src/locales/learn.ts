@@ -119,6 +119,15 @@ const rows: [string, string, string, string][] = [
   ["exam.seeMistakes", "Xatolarni ko'rish", "Хатоларни кўриш", "Посмотреть ошибки"],
   ["exam.practiceWeak", "Zaif mavzularni mashq qilish", "Заиф мавзуларни машқ қилиш", "Тренировать слабые темы"],
   ["exam.label", "Real imtihon", "Реал имтиҳон", "Реальный экзамен"],
+  // ---- bepul kunlik limit
+  ["limit.title", "Bugungi bepul limit tugadi", "Бугунги бепул лимит тугади", "Бесплатный лимит на сегодня исчерпан"],
+  ["limit.text.practice", "Bepul foydalanuvchilar kuniga 1 ta mashq ishlaydi. Cheksiz mashq uchun Premium oling.", "Бепул фойдаланувчилар кунига 1 та машқ ишлайди. Чексиз машқ учун Премиум олинг.", "Бесплатно доступна 1 тренировка в день. Для безлимита оформите Премиум."],
+  ["limit.text.topic", "Bepul foydalanuvchilar kuniga 1 ta mavzu bo'yicha mashq ishlaydi. Barcha mavzular uchun Premium oling.", "Бепул фойдаланувчилар кунига 1 та мавзу бўйича машқ ишлайди. Барча мавзулар учун Премиум олинг.", "Бесплатно доступна 1 тренировка по теме в день. Для всех тем оформите Премиум."],
+  ["limit.text.mistakes", "Bepul foydalanuvchilar kuniga 1 marta xatolar ustida ishlaydi. Cheksiz ishlash uchun Premium oling.", "Бепул фойдаланувчилар кунига 1 марта хатолар устида ишлайди. Чексиз ишлаш учун Премиум олинг.", "Бесплатно работа над ошибками доступна 1 раз в день. Для безлимита оформите Премиум."],
+  ["limit.text.exam", "Bepul foydalanuvchilar kuniga 1 ta real imtihon ishlaydi. Cheksiz imtihon uchun Premium oling.", "Бепул фойдаланувчилар кунига 1 та реал имтиҳон ишлайди. Чексиз имтиҳон учун Премиум олинг.", "Бесплатно доступен 1 экзамен в день. Для безлимита оформите Премиум."],
+  ["limit.tomorrow", "Ertaga yana 1 ta bepul imkoniyat ochiladi.", "Эртага яна 1 та бепул имконият очилади.", "Завтра откроется ещё одна бесплатная попытка."],
+  ["limit.getPremium", "Premium olish", "Премиум олиш", "Оформить Премиум"],
+  ["limit.freeNote", "Bu bugungi bepul imkoniyatingiz (kuniga 1 ta).", "Бу бугунги бепул имкониятингиз (кунига 1 та).", "Это ваша бесплатная попытка на сегодня (1 в день)."],
   ["exam.leave", "Imtihondan chiqish natijani saqlamaydi. Chiqamizmi?", "Имтиҳондан чиқиш натижани сақламайди. Чиқамизми?", "Выход не сохранит результат. Выйти?"],
 
   // ---- seriya (streak)
