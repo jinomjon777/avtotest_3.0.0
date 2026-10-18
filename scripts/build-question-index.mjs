@@ -214,16 +214,24 @@ if (process.argv.includes("--samples")) { console.log("Birlashtirilgan so'z juft
   const FN = "supabase/functions/get-questions";
   const serverLoc = Object.fromEntries(Object.entries(sortObj(locator)).filter(([, v]) => !v.startsWith("f:")));
   fs.writeFileSync(P(FN, "data/locator.json"), JSON.stringify(serverLoc));
-  const lines = ["// AVTOMATIK YARATILGAN: node scripts/build-question-index.mjs — qo'lda tahrirlamang.",
-    "// Har fayl alohida (dangasa) yuklanadi; statik import yo'llari funksiya bilan birga paketlanishi uchun shart.",
-    "export const loaders: Record<string, () => Promise<{ default: unknown[] }>> = {"];
+  // STATIK importlar: Docker'siz deploy (API orqali paketlash) faqat statik importlarni yuklaydi —
+  // dinamik import() dagi fayllar serverga chiqmay qoladi.
+  const imports = [], entries = [];
+  let n = 0;
   for (const [kind, dir] of [["m", MAVZULI_DIR], ["v", VARIANTS_DIR]]) {
     for (const f of fs.readdirSync(P(dir)).filter((x) => x.endsWith(".json")).sort()) {
-      const stem = f.replace(/\.json$/, "");
-      lines.push(`  "${kind}:${stem}": () => import("./data/${kind}/${f}", { with: { type: "json" } }),`);
+      const v = `f${n++}`;
+      imports.push(`import ${v} from "./data/${kind}/${f}" with { type: "json" };`);
+      entries.push(`  "${kind}:${f.replace(/\.json$/, "")}": ${v} as unknown[],`);
     }
   }
-  lines.push("};", "");
+  const lines = ["// AVTOMATIK YARATILGAN: node scripts/build-question-index.mjs — qo'lda tahrirlamang.",
+    "// Statik importlar shart: Docker'siz deploy faqat statik import qilingan fayllarni serverga yuklaydi.",
+    ...imports, "",
+    "const files: Record<string, unknown[]> = {", ...entries, "};", "",
+    "export const loaders: Record<string, () => Promise<{ default: unknown[] }>> = Object.fromEntries(",
+    "  Object.entries(files).map(([k, v]) => [k, () => Promise.resolve({ default: v })]),",
+    ");", ""];
   fs.writeFileSync(P(FN, "loaders.ts"), lines.join("\n"));
   console.log(`get-questions: server lokatori ${Object.keys(serverLoc).length} kalit, yuklovchilar yozildi`);
 }
