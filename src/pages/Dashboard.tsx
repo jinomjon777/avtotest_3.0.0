@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Bookmark, ChevronRight, Crown, Flame, ListX, Settings2, TrendingDown } from "lucide-react";
+import { Bookmark, ChevronRight, Crown, ListX, Settings2, TrendingDown } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { MeterBar } from "@/components/ui/meter-bar";
+import { StreakCard } from "@/components/learn/StreakCard";
 import { ProgressRing } from "@/components/ui/progress-ring";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAuth } from "@/contexts/AuthContext";
@@ -132,29 +133,10 @@ export default function Dashboard() {
                   <Button className="col-span-2 rounded-lg" onClick={onSaveGoals}>{tl("common.save")}</Button>
                 </div>
               )}
-              <div className="text-sm text-foreground mb-1.5">
-                {s?.today_done ? tl("dash.goalReached") : tl("dash.todayProgress", { done: s?.today_answers ?? 0, goal: s?.daily_goal ?? 20 })}
-              </div>
-              <MeterBar value={goalPct} tone={s?.today_done ? "success" : "warning"} />
             </Card>
 
             {/* Streak */}
-            <Card className="p-4 border-border">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2 font-semibold text-foreground">
-                  <Flame className="w-5 h-5 text-warning" />{tl("dash.streak")}
-                </div>
-                <span className="font-bold text-foreground">{tl("dash.streakDays", { n: s?.current_streak ?? 0 })}</span>
-              </div>
-              <div className="flex gap-2 justify-between">
-                {days.map((d) => (
-                  <div key={d.day} className="flex-1 text-center">
-                    <div className={`h-2 rounded-full ${d.answers > 0 ? "bg-success" : "bg-muted"}`} />
-                    <div className="text-[10px] text-muted-foreground mt-1">{d.day.slice(8)}</div>
-                  </div>
-                ))}
-              </div>
-            </Card>
+            {s && <StreakCard stats={s} days={days} />}
 
             {/* Raqamlar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">

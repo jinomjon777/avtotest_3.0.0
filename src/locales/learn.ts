@@ -121,6 +121,21 @@ const rows: [string, string, string, string][] = [
   ["exam.label", "Real imtihon", "Реал имтиҳон", "Реальный экзамен"],
   ["exam.leave", "Imtihondan chiqish natijani saqlamaydi. Chiqamizmi?", "Имтиҳондан чиқиш натижани сақламайди. Чиқамизми?", "Выход не сохранит результат. Выйти?"],
 
+  // ---- seriya (streak)
+  ["streak.title", "{n} kunlik seriya", "{n} кунлик серия", "Серия: {n} дн."],
+  ["streak.none", "Seriyani bugun boshlang", "Серияни бугун бошланг", "Начните серию сегодня"],
+  ["streak.current", "Joriy seriya", "Жорий серия", "Текущая серия"],
+  ["streak.longest", "Eng uzun seriya", "Энг узун серия", "Лучшая серия"],
+  ["streak.todayGoal", "Bugungi maqsad", "Бугунги мақсад", "Цель на сегодня"],
+  ["streak.risk", "Seriyani saqlab qolish uchun bugun mashq qiling", "Серияни сақлаб қолиш учун бугун машқ қилинг", "Позанимайтесь сегодня, чтобы сохранить серию"],
+  ["streak.safe", "Bugun seriya saqlandi. Ertaga qaytib keling!", "Бугун серия сақланди. Эртага қайтиб келинг!", "Серия сохранена. Возвращайтесь завтра!"],
+  ["streak.start", "Hozir mashq qilish", "Ҳозир машқ қилиш", "Тренироваться сейчас"],
+  ["streak.badges", "Nishonlar", "Нишонлар", "Награды"],
+  ["streak.badge", "{n} kun", "{n} кун", "{n} дн."],
+  ["streak.nextBadge", "Keyingi nishongacha {n} kun", "Кейинги нишонгача {n} кун", "До следующей награды: {n} дн."],
+  ["day.1", "Du", "Ду", "Пн"], ["day.2", "Se", "Се", "Вт"], ["day.3", "Ch", "Чо", "Ср"], ["day.4", "Pa", "Па", "Чт"],
+  ["day.5", "Ju", "Жу", "Пт"], ["day.6", "Sh", "Ша", "Сб"], ["day.0", "Ya", "Як", "Вс"],
+
   // ---- zaif mavzular
   ["weak.title", "Zaif mavzular", "Заиф мавзулар", "Слабые темы"],
   ["weak.subtitle", "Eng past aniqlikdagi mavzular tepada. Shulardan boshlang.", "Энг паст аниқликдаги мавзулар тепада. Шулардан бошланг.", "Темы с самой низкой точностью — сверху. Начните с них."],
