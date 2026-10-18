@@ -99,6 +99,28 @@ const rows: [string, string, string, string][] = [
   ["mist.empty.saved", "Savolni mashq paytida \"Saqlash\" tugmasi bilan saqlang.", "Саволни машқ пайтида \"Сақлаш\" тугмаси билан сақланг.", "Сохраняйте вопросы кнопкой «Сохранить» во время тренировки."],
   ["mist.startTest", "Test boshlash", "Тест бошлаш", "Начать тест"],
 
+  // ---- real imtihon
+  ["exam.title", "Real imtihon rejimi", "Реал имтиҳон режими", "Режим реального экзамена"],
+  ["exam.rule.questions", "{n} ta savol", "{n} та савол", "Вопросов: {n}"],
+  ["exam.rule.minutes", "{n} daqiqa", "{n} дақиқа", "{n} минут"],
+  ["exam.rule.random", "Savollar tasodifiy", "Саволлар тасодифий", "Вопросы случайные"],
+  ["exam.rule.result", "Natija yakunda ko'rsatiladi", "Натижа якунда кўрсатилади", "Результат — в конце"],
+  ["exam.start", "Imtihonni boshlash", "Имтиҳонни бошлаш", "Начать экзамен"],
+  ["exam.finish", "Yakunlash", "Якунлаш", "Завершить"],
+  ["exam.confirmFinish", "{n} ta savolga javob berilmagan. Baribir yakunlaymizmi?", "{n} та саволга жавоб берилмаган. Барибир якунлаймизми?", "Без ответа: {n}. Всё равно завершить?"],
+  ["exam.confirmYes", "Ha, yakunlash", "Ҳа, якунлаш", "Да, завершить"],
+  ["exam.confirmNo", "Davom etish", "Давом этиш", "Продолжить"],
+  ["exam.timeUp", "Vaqt tugadi", "Вақт тугади", "Время вышло"],
+  ["exam.result", "Imtihon natijasi", "Имтиҳон натижаси", "Результат экзамена"],
+  ["exam.correctN", "{n} ta to'g'ri", "{n} та тўғри", "Верно: {n}"],
+  ["exam.wrongN", "{n} ta xato", "{n} та хато", "Ошибок: {n}"],
+  ["exam.unansweredN", "{n} ta javobsiz", "{n} та жавобсиз", "Без ответа: {n}"],
+  ["exam.again", "Qayta imtihon", "Қайта имтиҳон", "Пересдать"],
+  ["exam.seeMistakes", "Xatolarni ko'rish", "Хатоларни кўриш", "Посмотреть ошибки"],
+  ["exam.practiceWeak", "Zaif mavzularni mashq qilish", "Заиф мавзуларни машқ қилиш", "Тренировать слабые темы"],
+  ["exam.label", "Real imtihon", "Реал имтиҳон", "Реальный экзамен"],
+  ["exam.leave", "Imtihondan chiqish natijani saqlamaydi. Chiqamizmi?", "Имтиҳондан чиқиш натижани сақламайди. Чиқамизми?", "Выход не сохранит результат. Выйти?"],
+
   // ---- zaif mavzular
   ["weak.title", "Zaif mavzular", "Заиф мавзулар", "Слабые темы"],
   ["weak.subtitle", "Eng past aniqlikdagi mavzular tepada. Shulardan boshlang.", "Энг паст аниқликдаги мавзулар тепада. Шулардан бошланг.", "Темы с самой низкой точностью — сверху. Начните с них."],

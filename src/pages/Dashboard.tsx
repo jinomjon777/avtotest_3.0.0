@@ -15,7 +15,7 @@ import {
   isSetupMissing, useDashboardStats, useMistakeCount, useRecentActivity, useSaveGoals, useWeakTopics,
 } from "@/hooks/useLearning";
 import { useLearnT } from "@/hooks/useLearnT";
-import { formatDuration, PRACTICE_VARIANT, toneFor, toneText } from "@/lib/learnTheme";
+import { EXAM_VARIANT, formatDuration, PRACTICE_VARIANT, toneFor, toneText } from "@/lib/learnTheme";
 import { topicName } from "@/lib/topicName";
 import { toast } from "@/hooks/use-toast";
 
@@ -102,6 +102,9 @@ export default function Dashboard() {
                   </p>
                   <Button className="w-full sm:w-auto h-12 rounded-xl px-6" onClick={() => nav(hasData ? "/mashq" : "/test-ishlash")}>
                     {hasData ? tl("dash.startToday") : tl("dash.startFirst")}
+                  </Button>
+                  <Button variant="outline" className="w-full sm:w-auto h-12 rounded-xl px-6 sm:ml-2 mt-2 sm:mt-0" onClick={() => nav("/imtihon")}>
+                    {tl("exam.label")}
                   </Button>
                 </div>
               </div>
@@ -223,7 +226,7 @@ export default function Dashboard() {
                     <div key={r.id} className="flex items-center justify-between py-2.5 text-sm">
                       <div>
                         <div className="font-medium text-foreground">
-                          {r.variant === PRACTICE_VARIANT ? tl("dash.practiceLabel") : tl("dash.variantLabel", { n: r.variant })}
+                          {r.variant === PRACTICE_VARIANT ? tl("dash.practiceLabel") : r.variant === EXAM_VARIANT ? tl("exam.label") : tl("dash.variantLabel", { n: r.variant })}
                         </div>
                         <div className="text-xs text-muted-foreground">
                           {new Date(r.completed_at).toLocaleDateString()} · {formatDuration(r.time_seconds)}

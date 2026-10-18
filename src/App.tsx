@@ -66,6 +66,7 @@ const Dashboard   = lazy(() => import("./pages/Dashboard"));
 const Xatolarim   = lazy(() => import("./pages/Xatolarim"));
 const ZaifMavzular = lazy(() => import("./pages/ZaifMavzular"));
 const Mashq       = lazy(() => import("./pages/Mashq"));
+const Imtihon     = lazy(() => import("./pages/Imtihon"));
 const Admin       = lazy(() => import("./pages/Admin"));
 const AvtoTest2026    = lazy(() => import("./pages/AvtoTest2026"));
 const AvtoTest20Savol = lazy(() => import("./pages/AvtoTest20Savol"));
@@ -96,6 +97,7 @@ const App = () => (
                     <Route path="/xatolarim"     element={<Xatolarim />} />
                     <Route path="/zaif-mavzular" element={<ZaifMavzular />} />
                     <Route path="/mashq"         element={<Mashq />} />
+                    <Route path="/imtihon"       element={<Imtihon />} />
                     <Route path="/test-ishlash"  element={<TestIshlash />} />
                     <Route path="/belgilar"      element={<Belgilar />} />
                     <Route path="/contact"       element={<Contact />} />

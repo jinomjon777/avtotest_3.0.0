@@ -34,6 +34,10 @@ export const toneSoft: Record<Tone, string> = {
 
 /** Mashq sessiyalari test_results'ga shu "variant" raqami bilan yoziladi (1–63 variantlar bilan aralashmaydi). */
 export const PRACTICE_VARIANT = 99;
+/** Real imtihon rejimi natijalari shu "variant" bilan yoziladi. */
+export const EXAM_VARIANT = 98;
+export const EXAM_QUESTIONS = 20;
+export const EXAM_MINUTES = 25;
 
 /** Test vaqtini mm:ss ko'rinishida. */
 export function formatDuration(seconds: number | null | undefined): string {
