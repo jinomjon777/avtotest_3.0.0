@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useProAccess } from "@/hooks/useProAccess";
@@ -113,6 +114,7 @@ export default function MavzuliTestlar() {
 
   const handleStartTest = async () => {
     if (selectedTopic === null) return;
+    trackEvent("test_start");
     setStartError(null);
     const result = await startSession({
       variant: parseInt(selectedTopic, 10) || 0,

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   LayoutDashboard, Users, CreditCard, MessageSquare,
-  LogOut, Shield, Menu, X, TrendingUp, FileText, Settings, ListChecks,
+  LogOut, Shield, Menu, X, TrendingUp, FileText, Settings, ListChecks, BarChart3,
 } from "lucide-react";
 import AdminDashboard from "./tabs/AdminDashboard";
 import AdminUsers     from "./tabs/AdminUsers";
@@ -11,6 +11,7 @@ import AdminFinance   from "./tabs/AdminFinance";
 import AdminChek      from "./tabs/AdminChek";
 import AdminSettings  from "./tabs/AdminSettings";
 import AdminResults   from "./tabs/AdminResults";
+import AdminAnalytics from "./tabs/AdminAnalytics";
 
 const NAV = [
   { id: "dashboard", label: "Dashboard",       icon: LayoutDashboard },
@@ -18,6 +19,7 @@ const NAV = [
   { id: "payments",  label: "To'lovlar",        icon: CreditCard },
   { id: "finance",   label: "Moliya",           icon: TrendingUp },
   { id: "chek",      label: "Chek",             icon: FileText },
+  { id: "analytics", label: "Analitika",        icon: BarChart3 },
   { id: "results",   label: "Natijalar",        icon: ListChecks },
   { id: "messages",  label: "Xabarlar",         icon: MessageSquare },
   { id: "settings",  label: "Sozlamalar",       icon: Settings },
@@ -138,6 +140,7 @@ export default function AdminLayout({ onLogout }: { onLogout: () => void }) {
         {tab === "payments"  && <AdminPayments />}
         {tab === "finance"   && <AdminFinance />}
         {tab === "chek"      && <AdminChek />}
+        {tab === "analytics" && <AdminAnalytics />}
         {tab === "results"   && <AdminResults />}
         {tab === "messages"  && <AdminMessages />}
         {tab === "settings"  && <AdminSettings />}

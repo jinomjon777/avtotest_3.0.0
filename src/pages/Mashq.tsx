@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { MainLayout } from "@/components/layout/MainLayout";
@@ -38,7 +39,7 @@ export default function Mashq() {
     let alive = true;
     setQs(null);
     buildPractice(mode, questionLang as any, { topic, first })
-      .then((r) => alive && setQs(r))
+      .then((r) => { if (!alive) return; setQs(r); if (r.length > 0) trackEvent("practice_start"); })
       .catch(() => alive && setQs([]));
     return () => { alive = false; };
   }, [user, mode, topic, first, round, questionLang]);

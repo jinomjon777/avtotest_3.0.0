@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { useNavigate } from "react-router-dom";
 import { Clock, FileQuestion, Shuffle, EyeOff } from "lucide-react";
 import { SEO } from "@/components/SEO";
@@ -68,7 +69,7 @@ export default function Imtihon() {
             {qs === null ? (
               <Skeleton className="h-12 rounded-xl" />
             ) : (
-              <Button className="w-full h-12 rounded-xl text-base" onClick={() => setStarted(true)}>{tl("exam.start")}</Button>
+              <Button className="w-full h-12 rounded-xl text-base" onClick={() => { trackEvent("exam_start"); setStarted(true); }}>{tl("exam.start")}</Button>
             )}
           </Card>
         </div>
