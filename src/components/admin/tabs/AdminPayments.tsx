@@ -23,7 +23,7 @@ const C = {
   text: "#0F172A", muted: "#64748B", hint: "#94A3B8",
 };
 
-interface Chek { id: string; email: string | null; chek_link: string | null; created_at: string; telegram_username?: string | null; source?: string; }
+interface Chek { id: string; email: string | null; chek_link: string | null; created_at: string; telegram_username?: string | null; telegram_chat_id?: number | null; source?: string; }
 interface Profile { id: string; email: string | null; full_name: string | null; tariff_end_date: string | null; tariff_days: number | null; }
 
 function ActivateModal({ chek, onClose, onDone }: { chek: Chek; onClose: () => void; onDone: () => void }) {
@@ -41,10 +41,17 @@ function ActivateModal({ chek, onClose, onDone }: { chek: Chek; onClose: () => v
   const activate = async () => {
     if (!profile) { setMsg("Foydalanuvchi topilmadi"); return; }
     setLoad(true);
-    const start = new Date(); const end = new Date(); end.setDate(end.getDate() + days);
-    const { error } = await supabase.from("profiles").update({ tariff_days: days, tariff_start_date: start.toISOString(), tariff_end_date: end.toISOString() }).eq("id", profile.id);
-    if (error) setMsg("Xatolik: " + error.message);
-    else { setMsg("✓ Premium berildi!"); setTimeout(() => { onDone(); onClose(); }, 900); }
+    try {
+      await adminApi("give_premium", {
+        userId: profile.id,
+        days,
+        telegramChatId: chek.telegram_chat_id ?? undefined,
+      });
+      setMsg("✓ Premium berildi!");
+      setTimeout(() => { onDone(); onClose(); }, 900);
+    } catch (e) {
+      setMsg("Xatolik: " + (e instanceof Error ? e.message : "Noma'lum xatolik"));
+    }
     setLoad(false);
   };
 

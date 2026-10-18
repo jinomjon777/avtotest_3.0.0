@@ -16,6 +16,7 @@
 // (leave-one-out) aniqligi atigi ~60–70% chiqdi. Aniqlanmagan savol — "other".
 
 import fs from "node:fs";
+import zlib from "node:zlib";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { questionKey, canonicalQuestionString } from "../src/lib/questionKey.js";
@@ -227,9 +228,12 @@ if (process.argv.includes("--samples")) { console.log("Birlashtirilgan so'z juft
       });
     }
   }
-  fs.writeFileSync(P(FN, "data/bank.json"), JSON.stringify(bank));
+  // bank gzip + base64 holida JSON ichida (statik import faqat JSON'ni qabul qiladi; ~4 barobar kichik)
+  const gz = zlib.gzipSync(Buffer.from(JSON.stringify(bank), "utf8"), { level: 9 }).toString("base64");
+  fs.writeFileSync(P(FN, "data/bank.gz.json"), JSON.stringify({ format: "gzip-base64-json", gz }));
+  if (fs.existsSync(P(FN, "data/bank.json"))) fs.unlinkSync(P(FN, "data/bank.json"));
   fs.writeFileSync(P(FN, "data/files.json"), JSON.stringify(files));
   const kb = (f) => Math.round(fs.statSync(P(FN, f)).size / 1024);
-  console.log(`get-questions paketi: bank ${bank.length} savol (${kb("data/bank.json")} KB), files ${Object.keys(files).length} (${kb("data/files.json")} KB)`);
+  console.log(`get-questions paketi: bank ${bank.length} savol (${kb("data/bank.gz.json")} KB gzip), files ${Object.keys(files).length} (${kb("data/files.json")} KB)`);
   console.log(`get-questions: server lokatori ${Object.keys(serverLoc).length} kalit`);
 }

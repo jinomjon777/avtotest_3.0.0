@@ -1,34 +1,36 @@
 [
     {
         "task_info": {
-            "global_id": "t_4_q_17",
-            "ticket_num": 4,
-            "order": 1
+            "global_id": "t_15_q_15",
+            "global_id2": "t_15_q_15",
+            "ticket_num": 15,
+            "order": 1,
+            "remapped_from": "t_4_q_15"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qanday hollarda quvib o'tish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Hamma sanab o'tilgan hollarda",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Tartibga solingan chorrahalarda",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Tartibga solinmagan chorrahalardagi asosiy bo'lib hisoblanmaydigan yo'llarda",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 4,
                         "text": "Teng ahamiyatga ega bo'lgan chorrahalarda",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Hamma sanab o'tilgan hollarda",
-                        "is_correct": true
                     }
                 ]
             },
@@ -37,23 +39,23 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Ҳамма санаб ўтилган ҳолларда",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Тартибга солинган чорраҳаларда",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Тартибга солинмаган чорраҳалардаги асосий бўлиб ҳисобланмайдиган йўлларда",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 4,
                         "text": "Тенг аҳамиятга эга бўлган чорраҳаларда",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Ҳамма санаб ўтилган ҳолларда",
-                        "is_correct": true
                     }
                 ]
             },
@@ -62,48 +64,55 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "На регулируемых перекрестках",
-                        "is_correct": false
+                        "text": "Во всех перечисленных случаях",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "На второстепенных дорогах на нерегулируемых перекрестках",
+                        "text": "На регулируемых перекрёстках",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "На перекрестках равной важности",
+                        "text": "На второстепенных дорогах на нерегулируемых перекрёстках",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Во всех вышеперечисленных случаях",
-                        "is_correct": true
+                        "text": "На перекрёстках равной важности",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-bandiga asosan, quvib o'tish quyidagi hollarda taqiqlanadi - tartibga solingan chorrahalarda, tartibga solinmaydigan chorrahalarda asosiy hisoblanmaydigan yo'llarda harakatlanishda, ko'priklarda, yo'l o'tkazgichlarda, estakadalarda va ularning ostida, piyodalar o'tish joylarida, temir yo'l kesishmalarida va ulargacha 100 metrdan kam masofa qolganda, quvib yoki aylanib o'tayotgan transport vositalarini, tepalikning oxirida va yo'lning ko'rinishi cheklangan joylarida, 3.20 va 3.22 yo'l belgilari ta'sir oralig'ida.",
+            "uz_cyr": "YHQ 12-боби 86-бандига асосан, қувиб ўтиш қуйидаги ҳолларда тақиқланади - тартибга солинган чорраҳаларда, тартибга солинмайдиган чорраҳаларда асосий ҳисобланмайдиган йўлларда ҳаракатланишда, кўприкларда, йўл ўтказгичларда, эстакадаларда ва уларнинг остида, пиёдалар ўтиш жойларида, темир йўл кесишмаларида ва уларгача 100 метрдан кам масофа қолганда, қувиб ёки айланиб ўтаётган транспорт воситаларини, тепаликнинг охирида ва йўлнинг кўриниши чекланган жойларида, 3.20 ва 3.22 йўл белгилари таъсир оралиғида.",
+            "ru": "Согласно статье 86 главы 12 ПДД обгон запрещается в следующих случаях - при движении на регулируемых перекрестках, нерегулируемых перекрестках на немагистральных дорогах, на и под мостами, эстакадами, эстакадами, пешеходными переходами, железнодорожными переездами и при расстоянии до них менее 100 метров, преследовании или объезде транспортных средств, холмов в конце и в местах ограниченной видимости дороги, дорожных знаков 3.20 и 3.22 находятся в пределах влияния."
         }
     },
     {
         "task_info": {
-            "global_id": "t_5_q_17",
-            "ticket_num": 5,
-            "order": 2
+            "global_id": "t_31_q_5",
+            "global_id2": "t_31_q_5",
+            "ticket_num": 31,
+            "order": 2,
+            "remapped_from": "t_5_q_14"
         },
-        "media_url": "v485uz.webp",
+        "media_url": "u353uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu erda quvib o'tishga ruxsat beriladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat beriladi",
-                        "is_correct": false
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
+                        "text": "Ruxsat beriladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -112,13 +121,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат берилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": true
+                        "text": "Рухсат берилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -127,42 +136,49 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": true
+                        "text": "Разрешается",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-bandi 6-xatboshiga asosan, tepalikning oxirida va yo'lning ko'rinishi cheklangan joylarida quvib o'tish taqiqlanadi.",
+            "uz_cyr": "YHQ 12-боби 86-банди 6-хатбошига асосан, тепаликнинг охирида ва йўлнинг кўриниши чекланган жойларида қувиб ўтиш тақиқланади.",
+            "ru": "В соответствии с пунктом 6 статьи 86 главы 12 ПДД обгон на краю холма и в местах с ограниченной видимостью запрещен."
         }
     },
     {
         "task_info": {
-            "global_id": "t_7_q_7",
-            "ticket_num": 7,
-            "order": 3
+            "global_id": "t_40_q_13",
+            "global_id2": "t_40_q_13",
+            "ticket_num": 40,
+            "order": 3,
+            "remapped_from": "t_7_q_7"
         },
-        "media_url": "v680uz.webp",
+        "media_url": "u460uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ko'rsatilgan holatda o'zib o'tishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Agar o'zib o'tilayotgan transport vositasining tezligi 40 km/s dan kam bo'lsa, ruxsat beriladi",
+                        "text": "Agar o'zib o'tilayotgan transport vositasining tezligi 40 km/soat dan kam bo'lsa, ruxsat beriladi",
                         "is_correct": false
                     }
                 ]
@@ -172,17 +188,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Агар ўзиб ўтилаётган транспорт воситасининг тезлиги 40 км/с дан кам бўлса, рухсат берилади",
+                        "text": "Агар ўзиб ўтилаётган транспорт воситасининг тезлиги 40 км/соатдан кам бўлса, рухсат берилади",
                         "is_correct": false
                     }
                 ]
@@ -192,13 +208,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": true
+                        "text": "Запрещается",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": false
+                        "text": "Разрешается",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -207,32 +223,39 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-bandi 5-xatboshiga asosan, quvib o'tish quyidagi hollarda taqiqlanadi - temir yo'l kesishmalarida va ulargacha 100 metrdan kam qolganda.",
+            "uz_cyr": "YHQ 12-боби 86-банди 5-хатбошига асосан, қувиб ўтиш қуйидаги ҳолларда тақиқланади - темир йўл кесишмаларида ва уларгача 100 метрдан кам қолганда.",
+            "ru": "В соответствии с главой 12 статьи 86 пункта 5 ПДД обгон запрещается в следующих случаях - на железнодорожных переездах и менее чем за 100 метров до них."
         }
     },
     {
         "task_info": {
-            "global_id": "t_8_q_7",
-            "ticket_num": 8,
-            "order": 4
+            "global_id": "t_19_q_14",
+            "global_id2": "t_19_q_14",
+            "ticket_num": 19,
+            "order": 4,
+            "remapped_from": "t_8_q_7"
         },
-        "media_url": "v690uz.webp",
+        "media_url": "u216uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Suratlarning qaysi birida quvib o'tish ko'rsatilgan?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "«А» va «Б»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "«А»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«А» va «Б»",
+                        "text": "«Б»",
                         "is_correct": false
                     }
                 ]
@@ -242,17 +265,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "«А» ва «Б»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "«А»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«А» ва «Б»",
+                        "text": "«Б»",
                         "is_correct": false
                     }
                 ]
@@ -267,38 +290,45 @@
                     },
                     {
                         "id": 2,
-                        "text": "«Б»",
+                        "text": "«А» и «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "«А» и «Б»",
+                        "text": "«Б»",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-bobi 6-bandi 24-tushunchasiga asosan, quvib o'tish — bir yoki bir nechta transport vositalarini qarama-qarshi yo'nalishda harakatlanish uchun mo'ljallangan tasmaga chiqib, so'ngra ilgari egallagan qatoriga qaytib o'tish bilan bog'liq bo'lgan o'zib ketish.",
+            "uz_cyr": "YHQ 1-боби 6-банди 24-тушунчасига асосан, қувиб ўтиш — бир ёки бир нечта транспорт воситаларини қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган тасмага чиқиб, сўнгра илгари эгаллаган қаторига қайтиб ўтиш билан боғлиқ бўлган ўзиб кетиш.",
+            "ru": "Согласно главе 1, пункту 6, понятия 24, обгоном признается обгон одного или нескольких транспортных средств в полосе движения, предназначенной для движения в противоположном направлении, с последующим возвращением на ранее занятую полосу движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_7",
-            "ticket_num": 9,
-            "order": 5
+            "global_id": "t_16_q_11",
+            "global_id2": "t_16_q_11",
+            "ticket_num": 16,
+            "order": 5,
+            "remapped_from": "t_9_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Chorraha qismida kesib o'tgan yo'lga nisbatan asosiy bo'lgan yo'lda transport vositalarini quvib o'tishga ruxsat beriladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat beriladi",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "Ruxsat beriladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -307,53 +337,60 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат берилади",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "Рухсат берилади",
+                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Разрешается ли обгон транспортных средств в зоне перекрестка на дороге; являющейся главной по отношению к пересекаемой?",
+                "text": "Разрешается ли обгон транспортных средств в зоне перекрёстка на дороге, являющейся главной по отношению к пересекаемой?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": true
+                        "text": "Запрещается",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": false
+                        "text": "Разрешается",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-bandi 2-xatboshiga asosan, quvib o'tish quyidagi hollarda taqiqlanadi - tartibga solinmaydigan chorrahalarda asosiy hisoblanmaydigan yo'llarda harakatlanishda.",
+            "uz_cyr": "YHQ 12-боби 86-банди 2-хатбошига асосан, қувиб ўтиш қуйидаги ҳолларда тақиқланади - тартибга солинмайдиган чорраҳаларда асосий ҳисобланмайдиган йўлларда ҳаракатланишда.",
+            "ru": "Согласно главе 12, пункту 86, пункту 2 ПДД, обгон запрещается в следующих случаях - при движении по немагистральным дорогам на нерегулируемых перекрестках."
         }
     },
     {
         "task_info": {
-            "global_id": "t_12_q_7",
+            "global_id": "t_12_q_14",
+            "global_id2": "t_12_q_14",
             "ticket_num": 12,
-            "order": 6
+            "order": 6,
+            "remapped_from": "t_12_q_6"
         },
-        "media_url": "v45uz.webp",
+        "media_url": "u132uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ko'k avtomobil haydovchisi chapga burilishga kirishgandan keyin, qizil avtomobil haydovchisi o'ng tomondan o'zib o'tishi mumkinmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ha",
-                        "is_correct": true
+                        "text": "Yo'q",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Yo'q",
-                        "is_correct": false
+                        "text": "Ha",
+                        "is_correct": true
                     }
                 ]
             },
@@ -362,13 +399,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳа",
-                        "is_correct": true
+                        "text": "Йўқ",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Йўқ",
-                        "is_correct": false
+                        "text": "Ҳа",
+                        "is_correct": true
                     }
                 ]
             },
@@ -377,43 +414,50 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Да",
-                        "is_correct": true
+                        "text": "Нет",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Нет",
-                        "is_correct": false
+                        "text": "Да",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 83-bandiga asosan, bir yo'nalishda harakatlanayotgan relssiz transport vositalarini har ikki tomonidan o'zib ketishga ruxsat beriladi. Biroq chapga burilish ishorasini berib, burilishga kirishgan transport vositasini o'zib ketish o'ng tomondan amalga oshiriladi.",
+            "uz_cyr": "YHQ 12-боби 83-бандига асосан, бир йўналишда ҳаракатланаётган релссиз транспорт воситаларини ҳар икки томонидан ўзиб кетишга рухсат берилади. Бироқ чапга бурилиш ишорасини бериб, бурилишга киришган транспорт воситасини ўзиб кетиш ўнг томондан амалга оширилади.",
+            "ru": "В соответствии с главой 12 статьи 83 ПДД допускается обгон нерельсовых транспортных средств, движущихся в одном направлении, в обе стороны. Однако обгон транспортного средства, подавшего сигнал о повороте налево и начавшего поворот, осуществляется с правой стороны."
         }
     },
     {
         "task_info": {
-            "global_id": "t_13_q_8",
-            "ticket_num": 13,
-            "order": 7
+            "global_id": "t_15_q_18",
+            "global_id2": "t_15_q_18",
+            "ticket_num": 15,
+            "order": 7,
+            "remapped_from": "t_13_q_7"
         },
-        "media_url": "v56uz.webp",
+        "media_url": "u171uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ko'rsatilgan vaziyatda engil avtomobil haydovchisiga quvib o'tishga ruxsat etiladimi?",
+                "text": "Ko'rsatilgan vaziyatda yengil avtomobil haydovchisiga quvib o'tishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Taqiqlangan",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Ruxsat etilgan",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Ruxsat etilgan, agar motosiklchining tezligi 40 km/soatdan kam bo'lsa",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Taqiqlangan",
-                        "is_correct": true
                     }
                 ]
             },
@@ -422,18 +466,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Тақиқланган",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Рухсат этилган",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Рухсат этилган, агар мотоциклчининг тезлиги 40 км/соатдан кам бўлса",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Таъқиқланган",
-                        "is_correct": true
                     }
                 ]
             },
@@ -442,30 +486,37 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Запрещен",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Разрешен",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Разрешен, если скорость мотоциклиста менее 40 км/ч",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Запрещен",
-                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 10-bobining 66-bandiga muvofiq, harakat ikki tomonlama bo'lgan va chiziqlar bilan belgilangan (1.9 yo'l chizig'i bilan belgilanganidan tashqari) uchta tasmali yo'llarda, ikki yo'nalishda harakatlanish uchun mo'ljallangan o'rta qatorga faqat quvib o'tish, aylanib o'tish, chapga burilish va qayrilib olish uchungina chiqishga ruxsat etiladi. Qarama-qarshi yo'nalishda harakatlanish uchun mo'ljallangan chetki chap qatorni egallash taqiqlanadi.",
+            "uz_cyr": "YHQ 10-бобининг 66-бандига мувофиқ, ҳаракат икки томонлама бўлган ва чизиқлар билан белгиланган (1.9 йўл чизиғи билан белгиланганидан ташқари) учта тасмали йўлларда, икки йўналишда ҳаракатланиш учун мўлжалланган ўрта қаторга фақат қувиб ўтиш, айланиб ўтиш, чапга бурилиш ва қайрилиб олиш учунгина чиқишга рухсат этилади. Қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган четки чап қаторни эгаллаш тақиқланади.",
+            "ru": "В соответствии со статьей 66 главы 10 ПДД на трехполосных дорогах с двусторонним движением и обозначенными линиями (кроме обозначенных 1.9 линиями дороги) выезд в среднюю полосу, предназначенную для двустороннего движения, допускается только для обгона, опережения, поворота налево и поворота. Запрещается занимать крайнюю левую полосу, предназначенную для движения в противоположном направлении."
         }
     },
     {
         "task_info": {
-            "global_id": "t_14_q_17",
-            "ticket_num": 14,
-            "order": 8
+            "global_id": "t_23_q_18",
+            "global_id2": "t_23_q_18",
+            "ticket_num": 23,
+            "order": 8,
+            "remapped_from": "t_14_q_17"
         },
-        "media_url": "v62uz.webp",
+        "media_url": "u258uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Motosikl haydovchisi qoidani buzayaptimi?",
@@ -512,15 +563,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-bandi: Quvib o‘tish quyidagi hollarda taqiqlanadi: tepalikning oxirida va yo‘lning ko‘rinishi cheklangan joylarda;\r\nQoidani buzmadi, sababi Mototsilkchi tepalikning oxirida emas.",
+            "uz_cyr": "YHQ 12-боби 86-банди: Қувиб ўтиш қуйидаги ҳолларда тақиқланади: тепаликнинг охирида ва йўлнинг кўриниши чекланган жойларда;\r\nҚоидани бузмади, сабаби Мототсилкчи тепаликнинг охирида эмас.",
+            "ru": "Статья 86 главы 12 ПДД: Обгон запрещается в следующих случаях: на краю холма и в местах с ограниченной видимостью дороги; \r\nПравило не нарушил, потому что мотоциклист не в конце холма."
         }
     },
     {
         "task_info": {
-            "global_id": "t_15_q_7",
-            "ticket_num": 15,
-            "order": 9
+            "global_id": "t_39_q_9",
+            "global_id2": "t_39_q_9",
+            "ticket_num": 39,
+            "order": 9,
+            "remapped_from": "t_15_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Agar siz oldinda harakatlanayotgan avtomobilni quvib o'tishga chiqsangiz, ko'rsatilgan hollarning qaysi birida tovush ishorasi berish maqsadga muvofiq?",
@@ -532,7 +590,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Quvib o'tilayotgan avtomobil haydovchisi tormoz berishni boshlaganda",
+                        "text": "Quvib o'tilayotgan avtomobil haydovchisi o'ngga burilish ko'rsatkichini yoqqanda",
                         "is_correct": false
                     },
                     {
@@ -542,7 +600,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Quvib o'tilayotgan avtomobil haydovchisi o'ngga burilish ko'rsatkichini yoqqanda",
+                        "text": "Quvib o'tilayotgan avtomobil haydovchisi tormoz berishni boshlaganda",
                         "is_correct": false
                     }
                 ]
@@ -557,7 +615,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Қувиб ўтилаётган автомобил ҳайдовчиси тормоз беришни бошлаганда",
+                        "text": "Қувиб ўтилаётган автомобиль ҳайдовчиси ўнгга бурилиш кўрсаткичини ёққанда",
                         "is_correct": false
                     },
                     {
@@ -567,7 +625,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Қувиб ўтилаётган автомобиль ҳайдовчиси ўнгга бурилиш кўрсаткичини ёққанда",
+                        "text": "Қувиб ўтилаётган автомобил ҳайдовчиси тормоз беришни бошлаганда",
                         "is_correct": false
                     }
                 ]
@@ -577,12 +635,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Обгон совершается в ночное время",
+                        "text": "Водитель обгоняемого автомобиля начал притормаживать",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водитель обгоняемого автомобиля начал притормаживать",
+                        "text": "Водитель обгоняемого автомобиля включил указатель правого поворота",
                         "is_correct": false
                     },
                     {
@@ -592,27 +650,34 @@
                     },
                     {
                         "id": 4,
-                        "text": "Водитель обгоняемого автомобиля включил указатель правого поворота",
+                        "text": "Обгон совершается в ночное время",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 48-bandiga muvofiq, tovushli ishoralar faqat quyidagi hollarda qo'llanilishi mumkin: aholi punktlaridan tashqarida boshqa haydovchilarni quvib o'tish haqida ogohlantirish uchun; zarur bo'lgan hollarda yo'l-transport hodisasining oldini olish uchun.",
+            "uz_cyr": "YHQ 8-боби 48-бандига мувофиқ, товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин: аҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; зарур бўлган ҳолларда йўл-транспорт ҳодисасининг олдини олиш учун.",
+            "ru": "В соответствии с главой 8 статьи 48 ПДД звуковые сигналы могут использоваться только в следующих случаях: для предупреждения других водителей об обгоне за пределами населенных пунктов; для предотвращения дорожно-транспортного происшествия в случаях, когда это необходимо."
         }
     },
     {
         "task_info": {
-            "global_id": "t_16_q_18",
-            "ticket_num": 16,
-            "order": 10
+            "global_id": "t_22_q_3",
+            "global_id2": "t_22_q_3",
+            "ticket_num": 22,
+            "order": 10,
+            "remapped_from": "t_16_q_18"
         },
-        "media_url": "v88uz.webp",
+        "media_url": "u240uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Avtomobil haydovchisi quvib o'tishni qaysi yo'nalish bo'yicha to'g'ri bajaradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А» yo'nalishi bo'yicha",
+                        "text": "«А» va «Б» yo'nalishi bo'yicha",
                         "is_correct": false
                     },
                     {
@@ -622,7 +687,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "«А» va «Б» yo'nalishi bo'yicha",
+                        "text": "«А» yo'nalishi bo'yicha",
                         "is_correct": false
                     }
                 ]
@@ -632,7 +697,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А» йўналиши бўйича",
+                        "text": "«А» ва «Б» йўналиши бўйича",
                         "is_correct": false
                     },
                     {
@@ -642,7 +707,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "«А» ва «Б» йўналиши бўйича",
+                        "text": "«А» йўналиши бўйича",
                         "is_correct": false
                     }
                 ]
@@ -652,7 +717,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "По направлению «А»",
+                        "text": "По направлению «А» и «Б»",
                         "is_correct": false
                     },
                     {
@@ -662,20 +727,27 @@
                     },
                     {
                         "id": 3,
-                        "text": "По направлению «А» и «Б»",
+                        "text": "По направлению «А»",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 22-bob. 132-bandi 2 va 3 - xatboshiga asosan: Agar 5.9 yo‘l belgisi bilan belgilangan tasma qatnov qismining boshqa tasmalardan uzuq-uzuq chiziq bilan ajratilgan bo‘lsa, burilmoqchi bo‘layotgan transport vositalari bu tasmaga qayta tizilishlari kerak.\r\nShuningdek, bunday joylarda yo‘nalishli transport vositalarining harakatiga xalaqit bermaslik sharti bilan yo‘lga chiqish, qatnov qismining chetki o‘ng tomonida yo‘lovchilarni chiqarish va tushirish uchun bu bo‘lakka o‘tishga ruxsat etiladi.",
+            "uz_cyr": "YHQнинг 22-боб. 132-банди 2 ва 3 - хатбошига асосан: Агар 5.9 йўл белгиси билан белгиланган тасма қатнов қисмининг бошқа тасмалардан узуқ-узуқ чизиқ билан ажратилган бўлса, бурилмоқчи бўлаётган транспорт воситалари бу тасмага қайта тизилишлари керак.\r\nШунингдек, бундай жойларда йўналишли транспорт воситаларининг ҳаракатига халақит бермаслик шарти билан йўлга чиқиш, қатнов қисмининг четки ўнг томонида йўловчиларни чиқариш ва тушириш учун бу бўлакка ўтишга рухсат этилади.",
+            "ru": "Глава 22 ПДД. Согласно абзацам 2 и 3 пункта 132: Если полоса движения, обозначенная дорожным знаком 5.9, отделена от других полос проезжей части кольцевой линией, транспортные средства, пытающиеся повернуть, должны снова выстроиться на этой полосе движения. \r\nТакже в таких местах разрешается выезжать на эту полосу для выхода и высадки пассажиров на крайней правой стороне проезжей части при условии, что они не мешают движению направленных транспортных средств."
         }
     },
     {
         "task_info": {
-            "global_id": "t_17_q_6",
-            "ticket_num": 17,
-            "order": 11
+            "global_id": "t_29_q_4",
+            "global_id2": "t_29_q_4",
+            "ticket_num": 29,
+            "order": 11,
+            "remapped_from": "t_17_q_6"
         },
-        "media_url": "v104uz.webp",
+        "media_url": "u325uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bunday vaziyatda qizil avtomobilning haydovchisiga quvib o'tishga ruxsat etiladimi?",
@@ -687,13 +759,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlangan",
-                        "is_correct": true
+                        "text": "Faqat ro'paradan kelayotgan transport vositalari yo'qligida ruxsat etilgan",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat ro'paradan kelayotgan transport vositalari yo'qligida ruxsat etilgan",
-                        "is_correct": false
+                        "text": "Taqiqlangan",
+                        "is_correct": true
                     }
                 ]
             },
@@ -707,18 +779,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланган",
-                        "is_correct": true
+                        "text": "Фақат рўпарадан келаётган транспорт воситалари йўқлигида рухсат этилган",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Фақат рўпарадан келаётган транспорт воситалари йўқлигида рухсат этилган",
-                        "is_correct": false
+                        "text": "Тақиқланган",
+                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Разрешен ли обгон водителю красного автомобиля в такой ситуации?",
+                "text": "Только с разрешения начальника дистанции пути железной дороги допускается движение через переезд транспортных средств скорость движения которых менее:",
                 "options": [
                     {
                         "id": 1,
@@ -727,47 +799,54 @@
                     },
                     {
                         "id": 2,
-                        "text": "Запрещена",
-                        "is_correct": true
+                        "text": "Разрешен только при отсутствии встречных транспортных средств",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Разрешен только при отсутствии встречных транспортных средств",
-                        "is_correct": false
+                        "text": "Запрещен",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 10-bobi 66-bandiga asosan: Harakat ikki tomonlama bo‘lgan va chiziqlar bilan belgilangan (1.9 yo‘l chizig‘i bilan belgilanganidan tashqari) uchta tasmali yo‘llarda, ikki yo‘nalishda harakatlanish uchun mo‘ljallangan o‘rta qatorga faqat quvib o‘tish, aylanib o‘tish, chapga burilish va qayrilib olish uchungina chiqishga ruxsat etiladi. Qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan chetki chap qatorni egallash taqiqlanadi.",
+            "uz_cyr": "YHQ 10-боби 66-бандига асосан: Ҳаракат икки томонлама бўлган ва чизиқлар билан белгиланган (1.9 йўл чизиғи билан белгиланганидан ташқари) учта тасмали йўлларда, икки йўналишда ҳаракатланиш учун мўлжалланган ўрта қаторга фақат қувиб ўтиш, айланиб ўтиш, чапга бурилиш ва қайрилиб олиш учунгина чиқишга рухсат этилади. Қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган четки чап қаторни эгаллаш тақиқланади.",
+            "ru": "Согласно статье 66 главы 10 ПДД: На трехполосных дорогах с двусторонним движением и обозначенными линиями (кроме обозначенных 1,9 дорожными линиями) выезд в среднюю полосу, предназначенную для двустороннего движения, разрешается только для обгона, опережения, поворота налево и поворота. Запрещается занимать крайнюю левую полосу, предназначенную для движения встречного направления."
         }
     },
     {
         "task_info": {
-            "global_id": "t_20_q_17",
-            "ticket_num": 20,
-            "order": 12
+            "global_id": "t_21_q_15",
+            "global_id2": "t_21_q_15",
+            "ticket_num": 21,
+            "order": 12,
+            "remapped_from": "t_20_q_15"
         },
-        "media_url": "v143uz.webp",
+        "media_url": "u236uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu joyda quvib o'tishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Aholi punktlaridan tashqaridagi yo'llarda ruxsat etiladi",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Faqat aholi punktlaridan tashqaridagi yo'llarda taqiqlanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ruxsat etiladi",
                         "is_correct": false
                     }
                 ]
@@ -777,22 +856,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Аҳоли пунктларидан ташқаридаги йўлларда рухсат этилади",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Фақат аҳоли пунктларидан ташқаридаги йўлларда тақиқланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Рухсат этилади",
                         "is_correct": false
                     }
                 ]
@@ -802,35 +881,42 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Разрешается на дорогах вне населённых пунктов",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Разрешается на дорогах вне населенных пунктов",
+                        "text": "Запрещается только на дорогах вне населённых пунктов",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Запрещается только на дорогах вне населенных пунктов",
+                        "text": "Разрешается",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-bandi 6-xatboshiga asosan, tepalikning oxirida va yo‘lning ko‘rinishi cheklangan joylarida quvib o‘tish taqiqlanadi.",
+            "uz_cyr": "YHQ 12-боби 86-банди 6-хатбошига асосан, тепаликнинг охирида ва йўлнинг кўриниши чекланган жойларида қувиб ўтиш тақиқланади.",
+            "ru": "В соответствии с пунктом 6 статьи 86 главы 12 ПДД обгон на краю холма и в местах с ограниченной видимостью запрещен."
         }
     },
     {
         "task_info": {
-            "global_id": "t_21_q_8",
-            "ticket_num": 21,
-            "order": 13
+            "global_id": "t_2_q_5",
+            "global_id2": "t_2_q_5",
+            "ticket_num": 2,
+            "order": 13,
+            "remapped_from": "t_21_q_8"
         },
-        "media_url": "v162uz.webp",
+        "media_url": "u12uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Avtopoezdni shu vaziyatda, agar u 40 km/s, dan kam tezlik bilan harakat qilayotgan bo'lsa, quvib o'tishga ruxsat etiladimi?",
@@ -877,22 +963,29 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-bandi 6-xatboshiga asosan, tepalikning oxirida va yo'lning ko'rinishi cheklangan joylarida quvib o'tish taqiqlanadi.",
+            "uz_cyr": "YHQ 12-боби 86-банди 6-хатбошига асосан, тепаликнинг охирида ва йўлнинг кўриниши чекланган жойларида қувиб ўтиш тақиқланади.",
+            "ru": "В соответствии с пунктом 6 статьи 86 главы 12 ПДД обгон на краю холма и в местах с ограниченной видимостью запрещен."
         }
     },
     {
         "task_info": {
-            "global_id": "t_21_q_17",
-            "ticket_num": 21,
-            "order": 14
+            "global_id": "t_37_q_12",
+            "global_id2": "t_37_q_12",
+            "ticket_num": 37,
+            "order": 14,
+            "remapped_from": "t_21_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Avtomobil haydovchisi uni boshqa transport vositalari quvib o'tayotganda qanday harakat qilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Harakat bo'lagini o'zgartirmay, o'ng burilish ishorasini berishi",
+                        "text": "Harakat tezligini kamaytirishi, tovush ishora berishi",
                         "is_correct": false
                     },
                     {
@@ -902,7 +995,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Harakat tezligini kamaytirishi, tovush ishora berishi",
+                        "text": "Harakat bo'lagini o'zgartirmay, o'ng burilish ishorasini berishi",
                         "is_correct": false
                     }
                 ]
@@ -912,7 +1005,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳаракат бўлагини ўзгартирмай, ўнг бурилиш ишорасини бериши",
+                        "text": "Ҳаракат тезлигини камайтириши, товуш ишора бериши",
                         "is_correct": false
                     },
                     {
@@ -922,7 +1015,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳаракат тезлигини камайтириши, товуш ишора бериши",
+                        "text": "Ҳаракат бўлагини ўзгартирмай, ўнг бурилиш ишорасини бериши",
                         "is_correct": false
                     }
                 ]
@@ -932,13 +1025,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не изменяя полосы движения, подать сигнал указателем правого поворота",
-                        "is_correct": false
+                        "text": "Не препятствовать обгону повышением скорости движения или иными действиями",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Не препятствовать обгону повышением скорости движения или иными действиями",
-                        "is_correct": true
+                        "text": "Не изменяя полосы движения, подать сигнал указателем правого поворота",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -947,28 +1040,35 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 84-bandiga muvofiq, quvib o'tilayotgan transport vositasining haydovchisiga harakatlanish tezligini oshirish yoki boshqa xatti-harakatlar bilan quvib o'tishga to'sqinlik qilish taqiqlanadi.",
+            "uz_cyr": "YHQ 12-боби 84-бандига мувофиқ, қувиб ўтилаётган транспорт воситасининг ҳайдовчисига ҳаракатланиш тезлигини ошириш ёки бошқа хатти-ҳаракатлар билан қувиб ўтишга тўсқинлик қилиш тақиқланади.",
+            "ru": "В соответствии со статьей 84 главы 12 ПДД водителю обгоняющего транспортного средства запрещается увеличивать скорость движения или препятствовать обгону иными действиями."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_1",
-            "ticket_num": 22,
-            "order": 15
+            "global_id": "t_49_q_9",
+            "global_id2": "t_49_q_9",
+            "ticket_num": 49,
+            "order": 15,
+            "remapped_from": "t_22_q_1"
         },
-        "media_url": "v163uz.webp",
+        "media_url": "u562uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu joyda quvib o'tishga ruxsat etilganmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Quvib o'tilayotgan transport vositasi 40 km/s dan kam tezlik bilan harakatlanganda ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
+                        "text": "Quvib o'tilayotgan transport vositasi 40 km/soat dan kam tezlik bilan harakatlanganda ruxsat etiladi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -982,13 +1082,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қувиб ўтилаётган транспорт воситаси 40 км/с дан кам тезлик билан ҳаракатланганда рухсат этилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": true
+                        "text": "Қувиб ўтилаётган транспорт воситаси 40 км/соат дан кам тезлик билан ҳаракатланганда рухсат этилади",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1002,13 +1102,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается если обгоняемый автомобиль движется со скоростью меньше чем 40 км/ч",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": true
+                        "text": "Разрешается если обгоняемый автомобиль движется со скоростью меньше чем 40 км/ч",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1017,33 +1117,40 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-bandi 6-xatboshiga asosan, tepalikning oxirida va yo‘lning ko‘rinishi cheklangan joylarida quvib o‘tish taqiqlanadi.",
+            "uz_cyr": "YHQ 12-боби 86-банди 6-хатбошига асосан, тепаликнинг охирида ва йўлнинг кўриниши чекланган жойларида қувиб ўтиш тақиқланади.",
+            "ru": "В соответствии с пунктом 6 статьи 86 главы 12 ПДД обгон на краю холма и в местах с ограниченной видимостью запрещен."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_8",
-            "ticket_num": 22,
-            "order": 16
+            "global_id": "t_39_q_2",
+            "global_id2": "t_39_q_2",
+            "ticket_num": 39,
+            "order": 16,
+            "remapped_from": "t_22_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Siz quvib o'tish uchun chiqdingiz va bexosdan ro'paradan kelayotgan avtobusni ko'rib qoldingiz. Agar Siz quvib o'tishni tugallay olishingizga ishonchingiz bo'lmasa, Siz:",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Tezlikni kamaytirishingiz va avval egallagan bo'lagingizga qaytishingiz kerak",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Tovush xabarini berib va faralarni yoqib quvib o'tishni uni tugallaguncha davom ettirishingiz kerak",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Tezlikni asta ko'paytirishingiz va quvib o'tishni tezroq tugallashingiz kerak",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Tezlikni kamaytirishingiz va avval egallagan bo'lagingizga qaytishingiz kerak",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1052,18 +1159,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Тезликни камайтиришингиз ва аввал эгаллаган бўлагингизга қайтишингиз керак",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Товуш хабарини бериб ва фараларни ёқиб қувиб ўтишни уни тугаллагунча давом эттиришингиз керак",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Тезликни аста кўпайтиришингиз ва қувиб ўтишни тезроқ тугаллашингиз керак",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Тезликни камайтиришингиз ва аввал эгаллаган бўлагингизга қайтишингиз керак",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1077,43 +1184,50 @@
                     },
                     {
                         "id": 2,
-                        "text": "Слегка увеличить скорость и быстрее завершить обгон",
-                        "is_correct": false
+                        "text": "Снизить скорость и вернуться на ранее занимаемую полосу",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Снизить скорость и вернуться на ранее занимаемую полосу",
-                        "is_correct": true
+                        "text": "Слегка увеличить скорость и быстрее завершить обгон",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 82-bandi, quvib o'tishni boshlashdan oldin haydovchi o'zi o'tmoqchi bo'lgan harakatlanish bo'lagi quvib o'tish uchun yetarlicha masofada bo'sh ekanligiga, quvib o'tish jarayonida harakatlanishga xavf tug'dirmasligiga va boshqa harakat qatnashchilariga xalaqit bermasligiga, quvib o'tishni tugallayotganda quvib o'tilayotgan transport vositasiga xalaqit bermasdan ilgari egallagan qatorga qaytib o'ta olishiga ishonch hosil qilishi shart.",
+            "uz_cyr": "YHQ 12-боби 82-банди, қувиб ўтишни бошлашдан олдин ҳайдовчи ўзи ўтмоқчи бўлган ҳаракатланиш бўлаги қувиб ўтиш учун етарлича масофада бўш эканлигига, қувиб ўтиш жараёнида ҳаракатланишга хавф туғдирмаслигига ва бошқа ҳаракат қатнашчиларига халақит бермаслигига, қувиб ўтишни тугаллаётганда қувиб ўтилаётган транспорт воситасига халақит бермасдан илгари эгаллаган қаторга қайтиб ўта олишига ишонч ҳосил қилиши шарт.",
+            "ru": "Статья 82 главы 12 ПДД, прежде чем начать обгон, водитель должен убедиться, что полоса движения, которую он хочет обгонять, достаточно свободна для обгона, что он не создает опасности движению в процессе обгона и не мешает другим участникам дорожного движения, а также может вернуться на ранее занимаемую им полосу движения, не создавая помех обгоняющему транспортному средству при завершении обгона."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_19",
-            "ticket_num": 22,
-            "order": 17
+            "global_id": "t_55_q_9",
+            "global_id2": "t_55_q_9",
+            "ticket_num": 55,
+            "order": 17,
+            "remapped_from": "t_22_q_19"
         },
-        "media_url": "v169uz.webp",
+        "media_url": "u637uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Tyagach haydovchisi nima qilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Xavfli burilishdan 100 metr o'tib turib to'xtash va orqasida to'plangan transport vositalarini o'tkazib yuborishi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "O'sha tezlik bilan harakatni davom ettirishi",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Qo'li bilan o'zini ro'para bo'lakdan quvib o'tishlari haqida ishora qilishi kerak",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Xavfli burilishdan 100 metr o'tib turib to'xtash va orqasida to'plangan transport vositalarini o'tkazib yuborishi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1122,18 +1236,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Хавфли бурилишдан 100 метр ўтиб туриб тўхташ ва орқасида тўпланган транспорт воситаларини ўтказиб юбориши",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Ўша тезлик билан ҳаракатни давом эттириши",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Қўли билан ўзини рўпара бўлакдан қувиб ўтишлари ҳақида ишора қилиши керак",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Хавфли бурилишдан 100 метр ўтиб туриб тўхташ ва орқасида тўпланган транспорт воситаларини ўтказиб юбориши",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1142,30 +1256,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Через 100 метров от опасного поворота остановиться и пропустить автомобили скопившиеся сзади",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Продолжать движение не изменяя скорость",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Указать рукой на обгон по параллельной полосе",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Через 100 метров от опасного поворота остановиться и пропустить автомобили скопившиеся сзади",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 6-bobi 26-bandiga asosan, haydovchilar tezkor va maxsus xizmatlarning ko'k yoki qizil yoxud ko'k va qizil rangli yalt-yalt etuvchi mayoqchalar va maxsus tovushli ishorasi yoqilgan holda yaqinlashayotgan transport vositalariga, shuningdek ularning kuzatuvidagi, yaqinni yorituvchi fara chiroqlari yoqilgan transport vositasi (transport vositalari)ga yo'l berishlari shart. Mazkur turdagi transport vositalarini quvib o'tish taqiqlanadi.",
+            "uz_cyr": "YHQ 6-боби 26-бандига асосан, ҳайдовчилар тезкор ва махсус хизматларнинг кўк ёки қизил ёхуд кўк ва қизил рангли ялт-ялт этувчи маёқчалар ва махсус товушли ишораси ёқилган ҳолда яқинлашаётган транспорт воситаларига, шунингдек уларнинг кузатувидаги, яқинни ёритувчи фара чироқлари ёқилган транспорт воситаси (транспорт воситалари)га йўл беришлари шарт. Мазкур турдаги транспорт воситаларини қувиб ўтиш тақиқланади.",
+            "ru": "В соответствии с главой 6 статьи 26 ПДД водители обязаны уступать дорогу приближающимся транспортным средствам с синими или красными или сине-красными проблесковыми маячками и специальным звуковым сигналом экспресс- и специальных служб, а также транспортному средству (транспортным средствам), за которыми они наблюдают с включенными фарами. Обгон данного типа транспортных средств запрещен."
         }
     },
     {
         "task_info": {
-            "global_id": "t_25_q_16",
-            "ticket_num": 25,
-            "order": 18
+            "global_id": "t_54_q_2",
+            "global_id2": "t_54_q_2",
+            "ticket_num": 54,
+            "order": 18,
+            "remapped_from": "t_25_q_16"
         },
-        "media_url": "v206uz.webp",
+        "media_url": "u617uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Mazkur vaziyatda qizil avtomobilga quvib o'tishga ruxsat etiladimi?",
@@ -1177,12 +1298,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
+                        "text": "Quvib o'tilayotgan transport vositasining tezligi 40 km/soatdan kam bo'lganda ruxsat etiladi",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Quvib o'tilayotgan transport vositasing tezligi 40 km/s dan kam bo'lganda ruxsat etiladi",
+                        "text": "Taqiqlanadi",
                         "is_correct": false
                     }
                 ]
@@ -1197,12 +1318,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
+                        "text": "Қувиб ўтилаётган транспорт воситасининг тезлиги 40 км/соатдан кам бўлганда рухсат этилади",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Қувиб ўтилаётган транспорт воситасинг тезлиги 40 км/с дан кам бўлганда рухсат этилади",
+                        "text": "Тақиқланади",
                         "is_correct": false
                     }
                 ]
@@ -1217,38 +1338,45 @@
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
+                        "text": "Разрешается при условии, что скорость обгоняемого менее 40 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается при условии; что скорость обгоняемого менее 40 км/ч",
+                        "text": "Запрещается",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-bandi 2-xatboshiga asosan, quvib o'tish quyidagi hollarda taqiqlanadi - tartibga solinmaydigan chorrahalarda asosiy hisoblanmaydigan yo'llarda harakatlanishda.",
+            "uz_cyr": "YHQ 12-боби 86-банди 2-хатбошига асосан, қувиб ўтиш қуйидаги ҳолларда тақиқланади - тартибга солинмайдиган чорраҳаларда асосий ҳисобланмайдиган йўлларда ҳаракатланишда.",
+            "ru": "Согласно главе 12, пункту 86, пункту 2 ПДД, обгон запрещается в следующих случаях - при движении по немагистральным дорогам на нерегулируемых перекрестках."
         }
     },
     {
         "task_info": {
-            "global_id": "t_27_q_6",
-            "ticket_num": 27,
-            "order": 19
+            "global_id": "t_60_q_6",
+            "global_id2": "t_60_q_6",
+            "ticket_num": 60,
+            "order": 19,
+            "remapped_from": "t_27_q_6"
         },
-        "media_url": "v237uz.webp",
+        "media_url": "u681uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Aholi punktlarida malum harakat tezligiga rioya etayotgan yirik o'lchamli transport vositasining haydovchisi qanday yo'l tutishi kerak?",
+                "text": "Aholi punktlarida ma'lum harakat tezligiga rioya etayotgan yirik o'lchamli transport vositasining haydovchisi qanday yo'l tutishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "To'xtashi va orqasida to'planib qolgan transport vositalarini o'tkazib yuborishi",
-                        "is_correct": false
+                        "text": "Harakatni davom ettirishi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Harakatni davom ettirishi",
-                        "is_correct": true
+                        "text": "To'xtashi va orqasida to'planib qolgan transport vositalarini o'tkazib yuborishi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1257,47 +1385,54 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўхташи ва орқасида тўпланиб қолган транспорт воситаларини ўтказиб юбориши",
-                        "is_correct": false
+                        "text": "Ҳаракатни давом эттириши",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ҳаракатни давом эттириши",
-                        "is_correct": true
+                        "text": "Тўхташи ва орқасида тўпланиб қолган транспорт воситаларини ўтказиб юбориши",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Как должен поступить водитель крупногабаритного транспортного средства, соблюдающего определенную скорость движения в населенном пункте?",
+                "text": "Как должен поступить водитель крупногабаритного транспортного средства, соблюдающего определенную скорость движения в населённом пункте?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Остановиться и пропустить скопившиеся за ним транспортные средства",
-                        "is_correct": false
+                        "text": "Продолжить движение",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Продолжить движение",
-                        "is_correct": true
+                        "text": "Остановиться и пропустить скопившиеся за ним транспортные средства",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 87 bandiga asosan, aholi punktlaridan tashqaridagi yo'llarda sekin harakatlanadigan, katta hajmli yoki katta hajmli yuk tashiyotgan transport vositasini quvib o'tish qiyin bo'lgan hollarda uning haydovchisi ushbu transport vositasini iloji boricha yo'lning o'ng tomoniga olishi, zarur bo'lganda esa orqasida to'planib qolgan transport vositalarini o'tkazib yuborish uchun to'xtashi kerak. Aholi punktlarida esa yuqorida keltirilgan talablar yo'q, u harakatni davom ettirishi mumkin.",
+            "uz_cyr": "YHQ 12-боби 87 бандига асосан, аҳоли пунктларидан ташқаридаги йўлларда секин ҳаракатланадиган, катта ҳажмли ёки катта ҳажмли юк ташиётган транспорт воситасини қувиб ўтиш қийин бўлган ҳолларда унинг ҳайдовчиси ушбу транспорт воситасини иложи борича йўлнинг ўнг томонига олиши, зарур бўлганда эса орқасида тўпланиб қолган транспорт воситаларини ўтказиб юбориш учун тўхташи керак. Аҳоли пунктларида эса юқорида келтирилган талаблар йўқ, у ҳаракатни давом эттириши мумкин.",
+            "ru": "Согласно статье 87 главы 12 ПДД, в случаях, когда на дорогах за пределами населенных пунктов затруднен обгон тихоходного, большегрузного или большегрузного транспортного средства, водитель этого транспортного средства должен переместиться максимально вправо, а при необходимости остановиться для пропуска скопившихся позади него транспортных средств. В населенных пунктах нет упомянутых выше требований, он может продолжать движение."
         }
     },
     {
         "task_info": {
-            "global_id": "t_27_q_7",
-            "ticket_num": 27,
-            "order": 20
+            "global_id": "t_60_q_7",
+            "global_id2": "t_60_q_7",
+            "ticket_num": 60,
+            "order": 20,
+            "remapped_from": "t_27_q_7"
         },
-        "media_url": "v238uz.webp",
+        "media_url": "u682uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Mazkur vaziyatda quvib o'tishga ruxsat etilganmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "40 km/soatdan kam tezlik bilan harakatlanayotgan faqat yakka transport vositalariga ruxsat etilgan",
+                        "text": "Hamma hollarda ruxsat etilgan",
                         "is_correct": false
                     },
                     {
@@ -1307,7 +1442,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Hamma hollarda ruxsat etilgan",
+                        "text": "40 km/soatdan kam tezlik bilan harakatlanayotgan faqat yakka transport vositalariga ruxsat etilgan",
                         "is_correct": false
                     }
                 ]
@@ -1317,7 +1452,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "40 км/соатдан кам тезлик билан ҳаракатланаётган фақат якка транспорт воситаларига рухсат этилган",
+                        "text": "Ҳамма ҳолларда рухсат этилган",
                         "is_correct": false
                     },
                     {
@@ -1327,7 +1462,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳамма ҳолларда рухсат этилган",
+                        "text": "40 км/соатдан кам тезлик билан ҳаракатланаётган фақат якка транспорт воситаларига рухсат этилган",
                         "is_correct": false
                     }
                 ]
@@ -1337,7 +1472,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешен, только одиночных транспортных средств, движущихся со скоростью менее 40 км/час",
+                        "text": "Разрешен во всех случаях",
                         "is_correct": false
                     },
                     {
@@ -1347,20 +1482,27 @@
                     },
                     {
                         "id": 3,
-                        "text": "Разрешен во всех случаях",
+                        "text": "Разрешен, только одиночных транспортных средств, движущихся со скоростью менее 40 км/час",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-band 4-xatboshisiga asosan, temir yo'l kesishmalarida va ulargacha 100 metrdan kam masofa qolganda quvib o'tish taqiqlanadi. Aholi punktlaridan tashqarida takrorlanadigan ikkinchi 1.2 belgi yo'lning xavfli qismi boshlanishiga kamida 50 metr (ko'pi bilan 100 metr) qolganda o'rnatiladi.",
+            "uz_cyr": "YHQ 12-боби 86-банд 4-хатбошисига асосан, темир йўл кесишмаларида ва уларгача 100 метрдан кам масофа қолганда қувиб ўтиш тақиқланади. Аҳоли пунктларидан ташқарида такрорланадиган иккинчи 1.2 белги йўлнинг хавфли қисми бошланишига камида 50 метр (кўпи билан 100 метр) қолганда ўрнатилади.",
+            "ru": "В соответствии с главой 12, пунктом 86, пунктом 4 ПДД обгон запрещается на железнодорожных переездах и при расстоянии до них менее 100 метров. Второй знак 1.2, повторяющийся за пределами жилых массивов, устанавливается не менее чем за 50 метров (максимум 100 метров) до начала опасного участка дороги."
         }
     },
     {
         "task_info": {
-            "global_id": "t_27_q_11",
-            "ticket_num": 27,
-            "order": 21
+            "global_id": "t_60_q_11",
+            "global_id2": "t_60_q_11",
+            "ticket_num": 60,
+            "order": 21,
+            "remapped_from": "t_27_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Quvib o'tish nima?",
@@ -1372,13 +1514,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Bir yoki bir nechta transport vositalarini qarama-qarshi yo'nalishda harakatlanish uchun mo'ljallangan tasmaga chiqib, so'ngra ilgari egallagan qatoriga qaytib o'tish bilan bog'liq bo'lgan o'zib ketish",
-                        "is_correct": true
+                        "text": "Kam tezlik bilan qo'shni qatorda harakatlanayotgan bir yoki bir qancha transport vositalaridan o'zib ketish",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Kam tezlik bilan qo'shni qatorda harakatlanayotgan bir yoki bir qancha transport vositalaridan o'zib ketish",
-                        "is_correct": false
+                        "text": "Bir yoki bir nechta transport vositalarini qarama-qarshi yo'nalishda harakatlanish uchun mo'ljallangan tasmaga chiqib, so'ngra ilgari egallagan qatoriga qaytib o'tish bilan bog'liq bo'lgan o'zib ketish",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1392,13 +1534,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Бир ёки бир нечта транспорт воситаларини қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган тасмага чиқиб, сўнгра илгари эгаллаган қаторига қайтиб ўтиш билан боғлиқ бўлган ўзиб кетиш",
-                        "is_correct": true
+                        "text": "Кам тезлик билан қўшни қаторда ҳаракатланаётган бир ёки бир қанча транспорт воситаларидан ўзиб кетиш",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Кам тезлик билан қўшни қаторда ҳаракатланаётган бир ёки бир қанча транспорт воситаларидан ўзиб кетиш",
-                        "is_correct": false
+                        "text": "Бир ёки бир нечта транспорт воситаларини қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган тасмага чиқиб, сўнгра илгари эгаллаган қаторига қайтиб ўтиш билан боғлиқ бўлган ўзиб кетиш",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1422,15 +1564,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-bobi 6-bandi 24-tushunchasiga asosan, quvib o'tish — bir yoki bir nechta transport vositalarini qarama-qarshi yo'nalishda harakatlanish uchun mo'ljallangan tasmaga chiqib, so'ngra ilgari egallagan qatoriga qaytib o'tish bilan bog'liq bo'lgan o'zib ketish.",
+            "uz_cyr": "YHQ 1-боби 6-банди 24-тушунчасига асосан, қувиб ўтиш — бир ёки бир нечта транспорт воситаларини қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган тасмага чиқиб, сўнгра илгари эгаллаган қаторига қайтиб ўтиш билан боғлиқ бўлган ўзиб кетиш.",
+            "ru": "Согласно главе 1, пункту 6, понятия 24, обгоном признается обгон одного или нескольких транспортных средств в полосе движения, предназначенной для движения в противоположном направлении, с последующим возвращением на ранее занятую полосу движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_29_q_17",
-            "ticket_num": 29,
-            "order": 22
+            "global_id": "t_61_q_17",
+            "global_id2": "t_61_q_17",
+            "ticket_num": 61,
+            "order": 22,
+            "remapped_from": "t_29_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Haydovchi quvib o'tishni boshlashdan oldin nimaga ishonch hosil qilishi kerak?",
@@ -1477,13 +1626,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "В том что он движется гораздо быстрее водителя обгоняемого транспортного средства",
-                        "is_correct": false
+                        "text": "В том что водитель транспортного средства движущегося впереди по той же полосе не подал сигнал о повороте (перестроении) налево",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "В том что водитель транспортного средства движущегося впереди по той же полосе не подал сигнал о повороте (перестроении) налево",
-                        "is_correct": true
+                        "text": "В том что он движется гораздо быстрее водителя обгоняемого транспортного средства",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1492,28 +1641,35 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 82-bandi 3-xatboshiga asosan, quvib o'tishni boshlashdan oldin haydovchi shu tasmada orqada harakatlanayotgan transport vositasi quvib o'tishni boshlamaganligiga ishonch hosil qilishi shart.",
+            "uz_cyr": "YHQ 12-боби 82-банди 3-хатбошига асосан, қувиб ўтишни бошлашдан олдин ҳайдовчи шу тасмада орқада ҳаракатланаётган транспорт воситаси қувиб ўтишни бошламаганлигига ишонч ҳосил қилиши шарт.",
+            "ru": "В соответствии с главой 12, статьей 82, пунктом 3 УК, прежде чем начать обгон, водитель обязан убедиться в том, что транспортное средство, движущееся сзади по данной полосе, не начало обгон."
         }
     },
     {
         "task_info": {
-            "global_id": "t_31_q_7",
-            "ticket_num": 31,
-            "order": 23
+            "global_id": "t_9_q_15",
+            "global_id2": "t_9_q_15",
+            "ticket_num": 9,
+            "order": 23,
+            "remapped_from": "t_31_q_7"
         },
-        "media_url": "v291uz.webp",
+        "media_url": "u98uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositasining haydovchisi quvib o'tishni to'g'ri bajaryapti?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yuk avtomobilining haydovchisi",
-                        "is_correct": true
+                        "text": "Har ikkisi noto'g'ri",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Engil avtomobilning haydovchisi",
-                        "is_correct": false
+                        "text": "Yuk avtomobilining haydovchisi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1522,7 +1678,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Har ikkisi noto'g'ri",
+                        "text": "Yengil avtomobilning haydovchisi",
                         "is_correct": false
                     }
                 ]
@@ -1532,13 +1688,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Юк автомобилининг ҳайдовчиси",
-                        "is_correct": true
+                        "text": "Ҳар иккиси нотўғри",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Енгил автомобилнинг ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Юк автомобилининг ҳайдовчиси",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1547,7 +1703,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Ҳар иккиси нотўғри",
+                        "text": "Енгил автомобилнинг ҳайдовчиси",
                         "is_correct": false
                     }
                 ]
@@ -1557,13 +1713,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель грузового автомобиля",
-                        "is_correct": true
+                        "text": "Оба неправильно",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водитель легкового автомобиля",
-                        "is_correct": false
+                        "text": "Водитель грузового автомобиля",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1572,20 +1728,27 @@
                     },
                     {
                         "id": 4,
-                        "text": "Оба неправильно",
+                        "text": "Водитель легкового автомобиля",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 10-bobining 66-bandiga muvofiq, harakat ikki tomonlama bo'lgan va chiziqlar bilan belgilangan (1.9 yo'l chizig'i bilan belgilanganidan tashqari) uchta tasmali yo'llarda, ikki yo'nalishda harakatlanish uchun mo'ljallangan o'rta qatorga faqat quvib o'tish, aylanib o'tish, chapga burilish va qayrilib olish uchungina chiqishga ruxsat etiladi. Qarama-qarshi yo'nalishda harakatlanish uchun mo'ljallangan chetki chap qatorni egallash taqiqlanadi.",
+            "uz_cyr": "YHQ 10-бобининг 66-бандига мувофиқ, ҳаракат икки томонлама бўлган ва чизиқлар билан белгиланган (1.9 йўл чизиғи билан белгиланганидан ташқари) учта тасмали йўлларда, икки йўналишда ҳаракатланиш учун мўлжалланган ўрта қаторга фақат қувиб ўтиш, айланиб ўтиш, чапга бурилиш ва қайрилиб олиш учунгина чиқишга рухсат этилади. Қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган четки чап қаторни эгаллаш тақиқланади.",
+            "ru": "В соответствии со статьей 66 главы 10 ПДД на трехполосных дорогах с двусторонним движением и обозначенными линиями (кроме обозначенных 1.9 линиями дороги) выезд в среднюю полосу, предназначенную для двустороннего движения, допускается только для обгона, опережения, поворота налево и поворота. Запрещается занимать крайнюю левую полосу, предназначенную для движения в противоположном направлении."
         }
     },
     {
         "task_info": {
-            "global_id": "t_31_q_18",
-            "ticket_num": 31,
-            "order": 24
+            "global_id": "t_40_q_18",
+            "global_id2": "t_40_q_18",
+            "ticket_num": 40,
+            "order": 24,
+            "remapped_from": "t_31_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Quvib o'tilayotgan transport vositasining haydovchisiga nima taqiqlanadi?",
@@ -1647,15 +1810,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobining 71-bandiga asosan, quvib o‘tilayotgan transport vositasining haydovchisiga harakat tezligini oshirish yoki boshqa xatti-harakatlar bilan quvib o‘tishga to‘sqinlik qilish taqiqlanadi.",
+            "uz_cyr": "YHQ 12-бобининг 71-бандига асосан, қувиб ўтилаётган транспорт воситасининг ҳайдовчисига ҳаракат тезлигини ошириш ёки бошқа хатти-ҳаракатлар билан қувиб ўтишга тўсқинлик қилиш тақиқланади.",
+            "ru": "Согласно статье 71 главы 12 ПДД водителю обгоняющего транспортного средства запрещается увеличивать скорость транспортного средства или препятствовать обгону иными действиями."
         }
     },
     {
         "task_info": {
-            "global_id": "t_32_q_9",
-            "ticket_num": 32,
-            "order": 25
+            "global_id": "t_3_q_2",
+            "global_id2": "t_3_q_2",
+            "ticket_num": 3,
+            "order": 25,
+            "remapped_from": "t_32_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Quvib o'tish qaysi hollardan taqiqlanadi?",
@@ -1702,30 +1872,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "На железнодорожных переездах и ближе; чем за 100 м перед ними",
+                        "text": "На железнодорожных переездах и на расстоянии менее 100 м от них",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "На железнодорожных переездах и более чем 100 м от них",
+                        "text": "На железнодорожных переездах и на расстоянии более 100 м от них",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "На железнодорожных переездах и более чем 100 м от них вне населенных пунктов",
+                        "text": "На железнодорожных переездах и вне населённых пунктов на расстоянии более 100 м от них",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-band 4-xatboshisiga asosan, temir yo'l kesishmalarida va ulargacha 100 metrdan kam masofa qolganda quvib o'tish taqiqlanadi.",
+            "uz_cyr": "YHQ 12-боби 86-банд 4-хатбошисига асосан, темир йўл кесишмаларида ва уларгача 100 метрдан кам масофа қолганда қувиб ўтиш тақиқланади.",
+            "ru": "В соответствии с главой 12, пунктом 86, пунктом 4 ПДД обгон запрещается на железнодорожных переездах и при расстоянии до них менее 100 метров."
         }
     },
     {
         "task_info": {
-            "global_id": "t_33_q_7",
-            "ticket_num": 33,
-            "order": 26
+            "global_id": "t_44_q_15",
+            "global_id2": "t_44_q_15",
+            "ticket_num": 44,
+            "order": 26,
+            "remapped_from": "t_33_q_6"
         },
-        "media_url": "v312uz.webp",
+        "media_url": "u510uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu joyda avtobusni quvib o'tishga ruxsat etiladimi?",
@@ -1772,15 +1949,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-band 4-xatboshisiga asosan, temir yo‘l kesishmalarida va ulargacha 100 metrdan kam masofa qolganda quvib o‘tish taqiqlanadi. Aholi punktlaridan tashqarida takrorlanadigan birinchi 1.1 belgi yo‘lning xavfli qismi boshlanishidan 150 — 300 metr oldin o‘rnatiladi.",
+            "uz_cyr": "YHQ 12-боби 86-банд 4-хатбошисига асосан, темир йўл кесишмаларида ва уларгача 100 метрдан кам масофа қолганда қувиб ўтиш тақиқланади. Аҳоли пунктларидан ташқарида такрорланадиган биринчи 1.1 белги йўлнинг хавфли қисми бошланишидан 150 — 300 метр олдин ўрнатилади.",
+            "ru": "В соответствии с главой 12 статьи 86 пункта 4 ПДД обгон запрещается на железнодорожных переездах и при расстоянии до них менее 100 метров. Первый знак 1.1, повторяющийся за пределами населенных пунктов, устанавливается за 150-300 метров до начала опасного участка дороги."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35_q_11",
-            "ticket_num": 35,
-            "order": 27
+            "global_id": "t_46_q_5",
+            "global_id2": "t_46_q_5",
+            "ticket_num": 46,
+            "order": 27,
+            "remapped_from": "t_35_q_11"
         },
-        "media_url": "v323uz.webp",
+        "media_url": "u528uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositasining haydovchisi quvib o'tishni to'g'ri bajaryapti?",
@@ -1797,12 +1981,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ikkala haydovchi to'g'ri bajarmoqda",
+                        "text": "Ikkala haydovchilarga quvib o'tish taqiqlangan",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Ikkala haydovchilarga quvib o'tish taqiqlangan",
+                        "text": "Ikkala haydovchi to'g'ri bajarmoqda",
                         "is_correct": false
                     }
                 ]
@@ -1822,22 +2006,22 @@
                     },
                     {
                         "id": 3,
-                        "text": "Иккала ҳайдовчи тўғри бажармоқда",
+                        "text": "Иккала ҳайдовчиларга қувиб ўтиш тақиқланган",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Иккала ҳайдовчиларга қувиб ўтиш тақиқланган",
+                        "text": "Иккала ҳайдовчи тўғри бажармоқда",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Қайси транспорт воситасининг ҳайдовчиси қувиб ўтишни тўғри бажаряпти?",
+                "text": "Водитель какого транспортного средства выполняет обгон правильно?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель зеленого автомобиля",
+                        "text": "Водитель зелёного автомобиля",
                         "is_correct": true
                     },
                     {
@@ -1847,32 +2031,39 @@
                     },
                     {
                         "id": 3,
-                        "text": "Оба водителя правильно обгоняют",
+                        "text": "Обоим водителям обгон запрещён",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Обоим водителям обгон запрещен",
+                        "text": "Оба водителя выполняют обгон правильно",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 10-bobining 66-bandiga muvofiq, harakat ikki tomonlama bo'lgan va chiziqlar bilan belgilangan (1.9 yo'l chizig'i bilan belgilanganidan tashqari) uchta tasmali yo'llarda, ikki yo'nalishda harakatlanish uchun mo'ljallangan o'rta qatorga faqat quvib o'tish, aylanib o'tish, chapga burilish va qayrilib olish uchungina chiqishga ruxsat etiladi. Qarama-qarshi yo'nalishda harakatlanish uchun mo'ljallangan chetki chap qatorni egallash taqiqlanadi.",
+            "uz_cyr": "YHQ 10-бобининг 66-бандига мувофиқ, ҳаракат икки томонлама бўлган ва чизиқлар билан белгиланган (1.9 йўл чизиғи билан белгиланганидан ташқари) учта тасмали йўлларда, икки йўналишда ҳаракатланиш учун мўлжалланган ўрта қаторга фақат қувиб ўтиш, айланиб ўтиш, чапга бурилиш ва қайрилиб олиш учунгина чиқишга рухсат этилади. Қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган четки чап қаторни эгаллаш тақиқланади.",
+            "ru": "В соответствии со статьей 66 главы 10 ПДД на трехполосных дорогах с двусторонним движением и обозначенными линиями (кроме обозначенных 1.9 линиями дороги) выезд в среднюю полосу, предназначенную для двустороннего движения, допускается только для обгона, опережения, поворота налево и поворота. Запрещается занимать крайнюю левую полосу, предназначенную для движения в противоположном направлении."
         }
     },
     {
         "task_info": {
-            "global_id": "t_49_q_7",
-            "ticket_num": 49,
-            "order": 28
+            "global_id": "t_56_q_4",
+            "global_id2": "t_56_q_4",
+            "ticket_num": 56,
+            "order": 28,
+            "remapped_from": "t_49_q_5"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Temir yo'l kesishmalari va ularga yaqin joylarda quvib o'tishga tegishli qanday yo'l harakati qoidalari amal qiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Temir yo'l kesishmalarida va ularga 100 metrdan kam masofa qolganda quvib o'tish taqiqlanadi                ",
+                        "text": "Temir yo'l kesishmalarida va ularga 100 metrdan kam masofa qolganda quvib o'tish taqiqlanadi",
                         "is_correct": true
                     },
                     {
@@ -1882,7 +2073,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Temir yo'l kesishmalarida, ularga 100 metrdan kam masofa qolganda va temir yo'l kesishmalaridan keyin 100 metr  davomida quvib o'tish taqiqlanadi ",
+                        "text": "Temir yo'l kesishmalarida, ularga 100 metrdan kam masofa qolganda va temir yo'l kesishmalaridan keyin 100 metr davomida quvib o'tish taqiqlanadi",
                         "is_correct": false
                     }
                 ]
@@ -1892,7 +2083,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Темир йўл кесишмаларида ва уларга 100 метрдан кам масофа қолганда қувиб ўтиш тақиқланади                ",
+                        "text": "Темир йўл кесишмаларида ва уларга 100 метрдан кам масофа қолганда қувиб ўтиш тақиқланади",
                         "is_correct": true
                     },
                     {
@@ -1902,7 +2093,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Темир йўл кесишмаларида, уларга 100 метрдан кам масофа қолганда ва темир йўл кесишмаларидан кейин 100 метр  давомида қувиб ўтиш тақиқланади ",
+                        "text": "Темир йўл кесишмаларида, уларга 100 метрдан кам масофа қолганда ва темир йўл кесишмаларидан кейин 100 метр давомида қувиб ўтиш тақиқланади",
                         "is_correct": false
                     }
                 ]
@@ -1927,22 +2118,29 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 86 bandiga asosan, quvib o‘tish quyidagi hollarda taqiqlanadi: temir yo‘l kesishmalarida va ulargacha 100 metrdan kam masofa qolganda.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 86 бандига асосан, қувиб ўтиш қуйидаги ҳолларда тақиқланади: темир йўл кесишмаларида ва уларгача 100 метрдан кам масофа қолганда.",
+            "ru": "Согласно статье 86 Правил дорожного движения обгон запрещается в следующих случаях: на железнодорожных переездах и при расстоянии до них менее 100 метров."
         }
     },
     {
         "task_info": {
-            "global_id": "t_52_q_5",
-            "ticket_num": 52,
-            "order": 29
+            "global_id": "t_31_q_19",
+            "global_id2": "t_31_q_19",
+            "ticket_num": 31,
+            "order": 29,
+            "remapped_from": "t_52_q_5"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Qanday xollarda quvib o'tish taqiqlanadi?",
+                "text": "Qanday hollarda quvib o'tish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tartibga solingan choraxalarda",
+                        "text": "Tartibga solinmagan chorrahalarda asosiy hisoblanmaydigan yo'llarda harakatlanishda",
                         "is_correct": false
                     },
                     {
@@ -1952,22 +2150,22 @@
                     },
                     {
                         "id": 3,
-                        "text": "Tartibga solinmagan choraxalarda asosiy xisoblanmaydigan yo'llarda xarakatlanishda",
+                        "text": "Tartibga solingan chorrahalarda",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Sanab o'tilgan barcha xollarda",
+                        "text": "Sanab o'tilgan barcha hollarda",
                         "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Қандай холларда қувиб ўтиш тақиқланади?",
+                "text": "Қандай ҳолларда қувиб ўтиш тақиқланади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тартибга солинган чорахаларда",
+                        "text": "Тартибга солинмаган чорраҳаларда асосий ҳисобланмайдиган йўлларда ҳаракатланишда",
                         "is_correct": false
                     },
                     {
@@ -1977,12 +2175,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Тартибга солинмаган чорахаларда асосий хисобланмайдиган йўлларда харакатланишда",
+                        "text": "Тартибга солинган чорраҳаларда",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Санаб ўтилган барча холларда",
+                        "text": "Санаб ўтилган барча ҳолларда",
                         "is_correct": true
                     }
                 ]
@@ -1992,52 +2190,59 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "На нерегулируемых перекрёстках при движении по дороге, не являющейся главной",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "В конце подъёма и на участках дороги с ограниченной видимостью",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "На регулируемых перекрёстках",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
-                        "text": "В конце подъёма и на других участках дорог с ограничения видимостю",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "На нерегулируемых перекрёстках при движении по дороге не являешься главной",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "Во всех причисленных случаях",
+                        "text": "Во всех перечисленных случаях",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 12-bobi 86-bandiga asosan, quvib o'tish quyidagi hollarda taqiqlanadi - tartibga solingan chorrahalarda, tartibga solinmaydigan chorrahalarda asosiy hisoblanmaydigan yo'llarda harakatlanishda, ko'priklarda, yo'l o'tkazgichlarda, estakadalarda va ularning ostida, piyodalar o'tish joylarida, temir yo'l kesishmalarida va ulargacha 100 metrdan kam masofa qolganda, quvib yoki aylanib o'tayotgan transport vositalarini, tepalikning oxirida va yo'lning ko'rinishi cheklangan joylarida, 3.20 va 3.22 yo'l belgilari ta'sir oralig'ida.",
+            "uz_cyr": "YHQ 12-боби 86-бандига асосан, қувиб ўтиш қуйидаги ҳолларда тақиқланади - тартибга солинган чорраҳаларда, тартибга солинмайдиган чорраҳаларда асосий ҳисобланмайдиган йўлларда ҳаракатланишда, кўприкларда, йўл ўтказгичларда, эстакадаларда ва уларнинг остида, пиёдалар ўтиш жойларида, темир йўл кесишмаларида ва уларгача 100 метрдан кам масофа қолганда, қувиб ёки айланиб ўтаётган транспорт воситаларини, тепаликнинг охирида ва йўлнинг кўриниши чекланган жойларида, 3.20 ва 3.22 йўл белгилари таъсир оралиғида.",
+            "ru": "Согласно статье 86 главы 12 ПДД обгон запрещается в следующих случаях - при движении на регулируемых перекрестках, нерегулируемых перекрестках на немагистральных дорогах, на и под мостами, эстакадами, эстакадами, пешеходными переходами, железнодорожными переездами и при расстоянии до них менее 100 метров, преследовании или объезде транспортных средств, холмов в конце и в местах ограниченной видимости дороги, дорожных знаков 3.20 и 3.22 находятся в пределах влияния."
         }
     },
     {
         "task_info": {
-            "global_id": "t_52_q_9",
-            "ticket_num": 52,
-            "order": 30
+            "global_id": "t_46_q_15",
+            "global_id2": "t_46_q_15",
+            "ticket_num": 46,
+            "order": 30,
+            "remapped_from": "t_52_q_9"
         },
-        "media_url": "v523uz.webp",
+        "media_url": "u533uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Bu belgilardan qaysi biri maktab va maktabgacha talim tashkilotlari oldida o'rnatiladi?",
+                "text": "Bu belgilardan qaysi biri maktab va maktabgacha ta'lim tashkilotlari oldida o'rnatiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»\n",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "«Б» ",
+                        "text": "«Б»",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "«А»",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "«В»\n",
+                        "text": "«В»",
                         "is_correct": false
                     }
                 ]
@@ -2047,17 +2252,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»\n",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "«Б» ",
+                        "text": "«Б»",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "«А»",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "«В»\n",
+                        "text": "«В»",
                         "is_correct": false
                     }
                 ]
@@ -2067,87 +2272,94 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»\n",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "«Б» ",
+                        "text": "«Б»",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "«А»",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "«В»\n",
+                        "text": "«В»",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilova: 5.46 “Maktab”. Maktab yoki maktabgacha ta’lim tashkilotlari oldida o‘rnatiladi.",
+            "uz_cyr": "YHQ 1-илова: 5.46 “Мактаб”. Мактаб ёки мактабгача таълим ташкилотлари олдида ўрнатилади.",
+            "ru": "Приложение 1 ПДД: 5.46 «Школа». Его устанавливают перед школами или дошкольными образовательными организациями."
         }
     },
     {
         "task_info": {
-            "global_id": "t_55_q_13",
-            "ticket_num": 55,
-            "order": 31
+            "global_id": "t_13_q_8",
+            "global_id2": "t_13_q_8",
+            "ticket_num": 13,
+            "order": 31,
+            "remapped_from": "t_55_q_13"
         },
-        "media_url": "v561uz.webp",
+        "media_url": "u141uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Kaysi rasmlarda kuvib utish kursatilgan?",
+                "text": "Qaysi rasmlarda quvib o'tish ko'rsatilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Fakat birinchi va ikkinchi rasmlarda",
-                        "is_correct": true
+                        "text": "Faqat birinchi rasmda",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Fagat birinchi va uchinchi rasmlarda",
+                        "text": "Barcha rasmlarda",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Fakat birinchi, ikkinchi va turtinchi rasmlarda",
+                        "text": "Faqat birinchi, ikkinchi va to'rtinchi rasmlarda",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Fagat birinchi rasmda",
-                        "is_correct": false
+                        "text": "Faqat birinchi va ikkinchi rasmlarda",
+                        "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "Barcha rasmlarda",
+                        "text": "Faqat birinchi va uchinchi rasmlarda",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Кайси расмларда кувиб утиш курсатилган?",
+                "text": "Қайси расмларда қувиб ўтиш кўрсатилган?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Факат биринчи ва иккинчи расмларда",
-                        "is_correct": true
+                        "text": "Фақат биринчи расмда",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фагат биринчи ва учинчи расмларда",
+                        "text": "Барча расмларда",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Факат биринчи, иккинчи ва туртинчи расмларда",
+                        "text": "Фақат биринчи, иккинчи ва тўртинчи расмларда",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Фагат биринчи расмда",
-                        "is_correct": false
+                        "text": "Фақат биринчи ва иккинчи расмларда",
+                        "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "Барча расмларда",
+                        "text": "Фақат биринчи ва учинчи расмларда",
                         "is_correct": false
                     }
                 ]
@@ -2157,12 +2369,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только на первом и втором изображениях",
-                        "is_correct": true
+                        "text": "Только на первом изображении",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только на первом и третьем изображениях",
+                        "text": "На всех изображениях",
                         "is_correct": false
                     },
                     {
@@ -2172,28 +2384,35 @@
                     },
                     {
                         "id": 4,
-                        "text": "Только на первом изображении",
-                        "is_correct": false
+                        "text": "Только на первом и втором изображениях",
+                        "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "На всех изображениях",
+                        "text": "Только на первом и третьем изображениях",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilova 1-bob. Umumiy qoidalar:\r\nQuvib o‘tish – bir yoki bir nechta transport vositalarini qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan tasmaga chiqib, so‘ngra ilgari egallagan qatoriga qaytib o‘tish bilan bog‘liq bo‘lgan o‘zib ketish jarayoni.",
+            "uz_cyr": "YHQ 1-илова 1-боб. Умумий қоидалар:\r\nҚувиб ўтиш – бир ёки бир нечта транспорт воситаларини қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган тасмага чиқиб, сўнгра илгари эгаллаган қаторига қайтиб ўтиш билан боғлиқ бўлган ўзиб кетиш жараёни.",
+            "ru": "ПДД Приложение 1 Глава 1. Общие правила:\r\nОбгон – это процесс обгона одного или нескольких транспортных средств путем выезда на полосу, предназначенную для движения в противоположном направлении, и последующего возвращения на полосу, которую они ранее занимали."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_11",
-            "ticket_num": 56,
-            "order": 32
+            "global_id": "t_2_q_13",
+            "global_id2": "t_2_q_13",
+            "ticket_num": 2,
+            "order": 32,
+            "remapped_from": "t_56_q_10"
         },
-        "media_url": "v577uz.webp",
+        "media_url": "u15uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu joyda quvib o‘tishga ruxsat beriladimi?",
+                "text": "Ushbu joyda quvib o'tishga ruxsat beriladimi?",
                 "options": [
                     {
                         "id": 1,
@@ -2202,7 +2421,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Oldindagi transport vositasi tezligi 40 km/s dan kam bo‘lsa",
+                        "text": "Oldindagi transport vositasi tezligi 40 km/s dan kam bo'lsa",
                         "is_correct": false
                     },
                     {
@@ -2252,6 +2471,88 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2 ilova: 1.1 — qarama-qarshi yo‘nalishlarda harakatlanayotgan transport oqimlarini ajratadi, yo‘lning xavfli joylaridagi harakatlanish bo‘lagi chegarasini va velosipedchilar uchun bo‘lagining chegarasini bildiradi; yo‘lning kirish taqiqlangan qismi chegarasini belgilaydi; transport vositalarining to‘xtab turish joyi chegarasini hamda avtomagistral qatoriga kiritilmagan yo‘lning qatnov qismi chegarasini bildiradi. YHQ 12-bobi 86-bandi: Quvib o‘tish quyidagi hollarda taqiqlanadi: tartibga solingan chorrahalarda; tartibga solinmaydigan chorrahalarda asosiy hisoblanmaydigan yo‘llarda harakatlanishda; ko‘priklarda, yo‘l o‘tkazgichlarda, estakadalarda va ularning ostida; piyodalar o‘tish joylarida; temir yo‘l kesishmalarida va ulargacha 100 metrdan kam masofa qolganda; quvib yoki aylanib o‘tayotgan transport vositalarini; tepalikning oxirida va yo‘lning ko‘rinishi cheklangan joylarida; 3.20 va 3.22 yo‘l belgilari ta’sir oralig‘ida.",
+            "uz_cyr": "YHQ 2 илова: 1.1 — қарама-қарши йўналишларда ҳаракатланаётган транспорт оқимларини ажратади, йўлнинг хавфли жойларидаги ҳаракатланиш бўлаги чегарасини ва велосипедчилар учун бўлагининг чегарасини билдиради; йўлнинг кириш тақиқланган қисми чегарасини белгилайди; транспорт воситаларининг тўхтаб туриш жойи чегарасини ҳамда автомагистрал қаторига киритилмаган йўлнинг қатнов қисми чегарасини билдиради. YHQ 12-боби 86-банди: Қувиб ўтиш қуйидаги ҳолларда тақиқланади: тартибга солинган чорраҳаларда; тартибга солинмайдиган чорраҳаларда асосий ҳисобланмайдиган йўлларда ҳаракатланишда; кўприкларда, йўл ўтказгичларда, эстакадаларда ва уларнинг остида; пиёдалар ўтиш жойларида; темир йўл кесишмаларида ва уларгача 100 метрдан кам масофа қолганда; қувиб ёки айланиб ўтаётган транспорт воситаларини; тепаликнинг охирида ва йўлнинг кўриниши чекланган жойларида; 3.20 ва 3.22 йўл белгилари таъсир оралиғида.",
+            "ru": "Приложение к ПДД 2: 1.1 - разделяет транспортные потоки, движущиеся в встречных направлениях, указывает границу полосы движения на опасных участках дороги и границу полосы движения для велосипедистов; определяет границу запрещенного участка дороги; означает границу места стоянки транспортных средств и границу проезжей части дороги, не входящей в линию автомобильной дороги. Глава 12, статья 86 ПДД: Обгон запрещается в следующих случаях: на регулируемых перекрестках; при движении по неосновным дорогам на нерегулируемых перекрестках; на мостах, эстакадах, путепроводах и под ними; на пешеходных переходах; на железнодорожных переездах и на расстоянии менее 100 метров от них; обгон или обгон транспортных средств; на конце холма и в местах с ограниченной видимостью дороги; Действуют дорожные знаки 3.20 и 3.22."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_24_q_5",
+            "global_id2": "t_24_q_5",
+            "ticket_num": 24,
+            "order": 33,
+            "remapped_from": "t_60_q_13"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Bir yo'nalishda harakatlanayotgan (burilishga kirishmagan) relssiz transport vositasidan o'zib ketishga ruxsat beriladi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat chap tomondan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat o'ng tomondan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Har ikki tomondan",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бир йўналишда ҳаракатланаётган (бурилишга киришмаган) релссиз транспорт воситасидан ўзиб кетишга рухсат берилади:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат чап томондан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат ўнг томондан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳар икки томондан",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешается опережение безрельсового транспортного средства, движущегося в одном направлении (не начавшего поворот):",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только слева",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только справа",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "С обеих сторон",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 12-bob. 83-bandga asosan: 83. Bir yo‘nalishda harakatlanayotgan relssiz transport vositalarini har ikki tomonidan o‘zib ketishga ruxsat beriladi. Biroq chapga burilish ishorasini berib, burilishga kirishgan transport vositasini o‘zib ketish o‘ng tomondan amalga oshiriladi.",
+            "uz_cyr": "YHQнинг 12-боб. 83-бандга асосан: 83. Бир йўналишда ҳаракатланаётган релссиз транспорт воситаларини ҳар икки томонидан ўзиб кетишга рухсат берилади. Бироқ чапга бурилиш ишорасини бериб, бурилишга киришган транспорт воситасини ўзиб кетиш ўнг томондан амалга оширилади.",
+            "ru": "Глава 12 ПДД. Согласно пункту 83: 83. Разрешается обгон нерельсовых транспортных средств, движущихся в одном направлении, с обеих сторон. Однако обгон транспортного средства, начавшего поворот после подачи левого сигнала поворота, осуществляется с правой стороны."
         }
     }
 ]

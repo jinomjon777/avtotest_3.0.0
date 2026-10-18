@@ -12,12 +12,12 @@
 //                    premium — istalgan; bepul — faqat o'zi javob bergan/saqlagan savollar.
 //
 // Premium ta'rifi bazadagi is_premium_now() bilan bir xil (faol tarif yoki faol sinov).
-// Manba fayllar: supabase/question-data/{m,v}. Paket (data/bank.json, files.json, locator.json)
+// Manba fayllar: supabase/question-data/{m,v}. Paket (data/bank.gz.json, files.json, locator.json)
 // `node scripts/build-question-index.mjs` bilan yaratiladi — savollarni o'zgartirgach qayta ishga tushiring.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import locator from "./data/locator.json" with { type: "json" };
-import bank from "./data/bank.json" with { type: "json" };
+import bankPacked from "./data/bank.gz.json" with { type: "json" };
 import fileIndex from "./data/files.json" with { type: "json" };
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -47,16 +47,50 @@ const fileCache = new Map<string, unknown[]>();
 function hasFile(id: string): boolean {
   return Object.prototype.hasOwnProperty.call(files, id);
 }
+// bank.gz.json: { gz: base64(gzip(JSON)) } — deploy hajmi uchun siqilgan; birinchi so'rovda bir marta ochiladi
+let bankPromise: Promise<any[]> | null = null;
+function getBank(): Promise<any[]> {
+  if (!bankPromise) {
+    bankPromise = (async () => {
+      const bin = Uint8Array.from(atob((bankPacked as { gz: string }).gz), (c) => c.charCodeAt(0));
+      const stream = new Blob([bin]).stream().pipeThrough(new DecompressionStream("gzip"));
+      return JSON.parse(await new Response(stream).text());
+    })();
+  }
+  return bankPromise;
+}
+
 async function loadFile(id: string): Promise<unknown[] | null> {
   if (fileCache.has(id)) return fileCache.get(id)!;
   if (!hasFile(id)) return null;
-  const arr = files[id].map(([i, ti]) => (ti === undefined ? (bank as any[])[i] : { task_info: ti, ...(bank as any[])[i] }));
+  const bank = await getBank();
+  const arr = files[id].map(([i, ti]) => (ti === undefined ? bank[i] : { task_info: ti, ...bank[i] }));
   fileCache.set(id, arr);
   return arr;
 }
 
+// "all" = barcha mavzu fayllari birlashmasi (31.json "Barcha savollar" EMAS: unda izohlar yo'q).
+// Bir xil savol bir nechta faylda bo'lsa, bir marta olinadi.
+let allPool: unknown[] | null = null;
+async function loadAll(): Promise<unknown[]> {
+  if (allPool) return allPool;
+  const seen = new Set<string>();
+  const out: unknown[] = [];
+  for (const id of Object.keys(files).filter((k) => k.startsWith("m:") && k !== "m:31").sort()) {
+    for (const q of (await loadFile(id)) as any[]) {
+      const c = q?.content?.uz_lat;
+      const sig = JSON.stringify([c?.text, (c?.options ?? []).map((o: any) => o.text)]);
+      if (seen.has(sig)) continue;
+      seen.add(sig);
+      out.push(q);
+    }
+  }
+  allPool = out;
+  return out;
+}
+
 function topicFileId(source: string): string | null {
-  if (source === "all") return "m:31";
+  if (source === "all") return "all";
   if (!/^[0-9a-z]{1,12}$/.test(source)) return null;
   const id = source === "34" ? "m:34tengaxamiyatli" : `m:${source}`;
   return hasFile(id) ? id : null;
@@ -111,7 +145,7 @@ Deno.serve(async (req) => {
       if (error) return json({ error: "server_error" }, 500);
       if (!allowed) return json({ error: "daily_limit" }, 429);
     }
-    const arr = (await loadFile(id)) ?? [];
+    const arr = id === "all" ? await loadAll() : ((await loadFile(id)) ?? []);
     return json({ ok: true, items: sample(arr, n) });
   }
 

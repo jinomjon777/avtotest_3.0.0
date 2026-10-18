@@ -1,38 +1,40 @@
 [
     {
         "task_info": {
-            "global_id": "t_1_q_2",
-            "ticket_num": 1,
-            "order": 1
+            "global_id": "t_34_q_19",
+            "global_id2": "t_34_q_19",
+            "ticket_num": 34,
+            "order": 1,
+            "remapped_from": "t_1_q_2"
         },
-        "media_url": "v7uz.webp",
+        "media_url": "u395uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Yo'naltirgichlarning qaysilari bo'ylab harakatlanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat « А » yo'nalish bo'ylab",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Faqat « Б » yo'nalish bo'ylab",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Faqat « В » yo'nalish bo'ylab",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Faqat « Г » yo'nalish bo'ylab",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Faqat « А » va « Г »   yo'nalishlari bo'ylab",
+                        "text": "Faqat « А » va « Г » yo'nalishlari bo'ylab",
                         "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "Faqat « Г » yo'nalish bo'ylab",
+                        "text": "Faqat « А » yo'nalish bo'ylab",
                         "is_correct": false
                     }
                 ]
@@ -42,17 +44,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат « А » йўналиш бўйлаб",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Фақат « Б » йўналиш бўйлаб",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Фақат « В » йўналиш бўйлаб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат « Г » йўналиш бўйлаб",
                         "is_correct": false
                     },
                     {
@@ -62,7 +64,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "Фақат « Г » йўналиш бўйлаб",
+                        "text": "Фақат « А » йўналиш бўйлаб",
                         "is_correct": false
                     }
                 ]
@@ -72,40 +74,47 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только по направлению « А »",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Только по направлению « Б »",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Только по направлению « В »",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Только по направлению « А » и « Г »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только по направлению « Г »",
                         "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "Только по направлению « Г »",
+                        "text": "Только по направлению « А »",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasi 4-bo'lim 5-xatboshiga asosan, 4.1.1. \"Harakatlanish to'g'riga\". Faqat to'g'ri yo'nalishda harakatlanishga ruxsat etiladi. Yo'lning qismi boshlanishida o'rnatilgan 4.1.1 belgisining ta'siri yaqin chorrahagacha joriy qilinadi. Belgi o'ng tomonda joylashgan hovlilarga va yo'lga yondosh boshqa hududlar(jumladan, yonilg'i quyish shoxobchalari)ga burilishni taqiqlamaydi.",
+            "uz_cyr": "YHQ 1-иловаси 4-бўлим 5-хатбошига асосан, 4.1.1. \"Ҳаракатланиш тўғрига\". Фақат тўғри йўналишда ҳаракатланишга рухсат этилади. Йўлнинг қисми бошланишида ўрнатилган 4.1.1 белгисининг таъсири яқин чорраҳагача жорий қилинади. Белги ўнг томонда жойлашган ҳовлиларга ва йўлга ёндош бошқа ҳудудлар(жумладан, ёнилғи қуйиш шохобчалари)га бурилишни тақиқламайди.",
+            "ru": "Согласно пункту 5 раздела 4 Приложения 1 ПДД, 4.1.1. «Двигаемся навстречу». Разрешено только правильное направление. Действие знака 4.1.1, установленного в начале участка дороги, распространяется до ближайшего перекрестка. Знак не запрещает поворот во дворы справа и на другие прилегающие к дороге территории (в том числе на заправочные станции)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_2_q_2",
-            "ticket_num": 2,
-            "order": 2
+            "global_id": "t_39_q_12",
+            "global_id2": "t_39_q_12",
+            "ticket_num": 39,
+            "order": 2,
+            "remapped_from": "t_2_q_2"
         },
-        "media_url": "v133uz.webp",
+        "media_url": "u447uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi yo'nalishlarda harakatlanishga ruxsat etilgan?",
@@ -117,7 +126,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat « А »",
+                        "text": "« А », « Б », « В » va « Г »",
                         "is_correct": false
                     },
                     {
@@ -127,7 +136,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "« А », « Б », « В » va « Г »",
+                        "text": "Faqat « А »",
                         "is_correct": false
                     },
                     {
@@ -147,7 +156,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат « А »",
+                        "text": "« А », « Б », « В » ва « Г »",
                         "is_correct": false
                     },
                     {
@@ -157,7 +166,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "« А », « Б », « В » ва « Г »",
+                        "text": "Фақат « А »",
                         "is_correct": false
                     },
                     {
@@ -177,7 +186,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Только « А »",
+                        "text": "« А », « Б », « В » и « Г »",
                         "is_correct": false
                     },
                     {
@@ -187,7 +196,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "« А », « Б », « В » и « Г »",
+                        "text": "Только « А »",
                         "is_correct": false
                     },
                     {
@@ -197,22 +206,29 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1- ilovasi 4- bo‘limining 4.1.1 belgisi talabiga asosan: 4.1.1 “Harakatlanish to‘g‘riga”. Yo‘lning qismi boshlanishida o‘rnatilgan 4.1.1 belgisining ta’siri yaqin chorrahagacha joriy qilinadi. Belgi o‘ng tomonda joylashgan hovlilarga va yo‘lga yondosh boshqa hududlarga burilishni taqiqlamaydi.\n\nBu holatda harakat to‘g‘ri va o‘ng tomonga ruxsat etilgan, chunki yonilg‘i quyish shoxobchasi yo‘lga yondosh hudud hisoblanadi.",
+            "uz_cyr": "YHQ 1- иловаси 4- бўлимининг 4.1.1 белгиси талабига асосан: 4.1.1 “Ҳаракатланиш тўғрига”. Йўлнинг қисми бошланишида ўрнатилган 4.1.1 белгисининг таъсири яқин чорраҳагача жорий қилинади. Белги ўнг томонда жойлашган ҳовлиларга ва йўлга ёндош бошқа ҳудудларга бурилишни тақиқламайди.\n\nБу ҳолатда ҳаракат тўғри ва ўнг томонга рухсат этилган, чунки ёнилғи қуйиш шохобчаси йўлга ёндош ҳудуд ҳисобланади.",
+            "ru": "Согласно требованиям знака 4.1.1 Приложения 1 раздела 4 Правил поведения: 4.1.1 «Движение прямо». Действие знака 4.1.1, установленного в начале участка дороги, распространяется до ближайшего перекрестка. Знак не запрещает поворот во дворы и другие прилегающие к дороге территории справа. \n\nПри этом движение разрешено прямо и направо, поскольку заправка — это прилегающая к дороге территория."
         }
     },
     {
         "task_info": {
-            "global_id": "t_10_q_3",
-            "ticket_num": 10,
-            "order": 3
+            "global_id": "t_9_q_11",
+            "global_id2": "t_9_q_11",
+            "ticket_num": 9,
+            "order": 3,
+            "remapped_from": "t_10_q_3"
         },
-        "media_url": "v19uz.webp",
+        "media_url": "u95uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi «To'siqni chapdan aylanib o'tish» deb ataladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
@@ -222,18 +238,18 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": false
+                        "text": "3",
+                        "is_correct": true
                     }
                 ]
             },
@@ -242,7 +258,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
@@ -252,18 +268,18 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": false
+                        "text": "3",
+                        "is_correct": true
                     }
                 ]
             },
@@ -272,7 +288,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
@@ -282,57 +298,64 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": false
+                        "text": "3",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 – ilovasi 4 – bo‘limining o‘n birinchi xatboshisiga asosan: 4.2.2. “To‘siqni chapdan chetlab o‘tish”. To‘siqni ko‘rsatilgan yo‘nalish bo‘yicha chetlab o‘tishga ruxsat etilishini bildiradi.",
+            "uz_cyr": "YHQ 1 – иловаси 4 – бўлимининг ўн биринчи хатбошисига асосан: 4.2.2. “Тўсиқни чапдан четлаб ўтиш”. Тўсиқни кўрсатилган йўналиш бўйича четлаб ўтишга рухсат этилишини билдиради.",
+            "ru": "В соответствии с абзацем одиннадцатым раздела 4 Приложения 1 к Общему регламенту: 4.2.2. «Обогните препятствие слева». Указывает, что разрешен объезд препятствия в указанном направлении."
         }
     },
     {
         "task_info": {
-            "global_id": "t_11_q_12",
-            "ticket_num": 11,
-            "order": 4
+            "global_id": "t_42_q_10",
+            "global_id2": "t_42_q_10",
+            "ticket_num": 42,
+            "order": 4,
+            "remapped_from": "t_11_q_11"
         },
-        "media_url": "v24uz.webp",
+        "media_url": "u479uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ruxsat etilgan harakatlanish yo'nalishini ko'rsating:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat « А »",
+                        "text": "«Б» va «В»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat « Б »",
+                        "text": "Faqat «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat « В »",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "« А ва « Б »",
+                        "text": "«А» va «Б»",
                         "is_correct": true
                     },
                     {
+                        "id": 4,
+                        "text": "Faqat «В»",
+                        "is_correct": false
+                    },
+                    {
                         "id": 5,
-                        "text": "« Б ва « В »",
+                        "text": "Faqat «А»",
                         "is_correct": false
                     }
                 ]
@@ -342,27 +365,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат « А »",
+                        "text": "«Б» ва «В»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат « Б »",
+                        "text": "Фақат «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Фақат « В »",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "« А ва « Б »",
+                        "text": "«А» ва «Б»",
                         "is_correct": true
                     },
                     {
+                        "id": 4,
+                        "text": "Фақат «В»",
+                        "is_correct": false
+                    },
+                    {
                         "id": 5,
-                        "text": "« Б ва « В »",
+                        "text": "Фақат «А»",
                         "is_correct": false
                     }
                 ]
@@ -372,48 +395,55 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только « А »",
+                        "text": "«Б» и «В»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только « Б »",
+                        "text": "Только «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Только « В »",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "« А и « Б »",
+                        "text": "«А» и «Б»",
                         "is_correct": true
                     },
                     {
+                        "id": 4,
+                        "text": "Только «В»",
+                        "is_correct": false
+                    },
+                    {
                         "id": 5,
-                        "text": "« Б и « В »",
+                        "text": "Только «А»",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasi 4-bo'lim 5-xatboshiga asosan, 4.1.1. \"Harakatlanish to'g'riga\". Faqat to'g'ri yo'nalishda harakatlanishga ruxsat etiladi. Yo'lning qismi boshlanishida o'rnatilgan 4.1.1 belgisining ta'siri yaqin chorrahagacha joriy qilinadi. Belgi o'ng tomonda joylashgan hovlilarga va yo'lga yondosh boshqa hududlarga burilishni taqiqlamaydi. YHQ 1-ilovasining 3-bo'limidagi 3.27. \"To'xtash taqiqlangan\" belgisi to'g'ri yo'lda to'xtash va to'xtab turish taqiqlanadi. 3.31 belgisi 3.27 belgining amal qilish hududini oxirini ko'rsatadi.",
+            "uz_cyr": "YHQ 1-иловаси 4-бўлим 5-хатбошига асосан, 4.1.1. \"Ҳаракатланиш тўғрига\". Фақат тўғри йўналишда ҳаракатланишга рухсат этилади. Йўлнинг қисми бошланишида ўрнатилган 4.1.1 белгисининг таъсири яқин чорраҳагача жорий қилинади. Белги ўнг томонда жойлашган ҳовлиларга ва йўлга ёндош бошқа ҳудудларга бурилишни тақиқламайди. YHQ 1-иловасининг 3-бўлимидаги 3.27. \"Тўхташ тақиқланган\" белгиси тўғри йўлда тўхташ ва тўхтаб туриш тақиқланади. 3.31 белгиси 3.27 белгининг амал қилиш ҳудудини охирини кўрсатади.",
+            "ru": "Согласно пункту 5 раздела 4 Приложения 1 ПДД, 4.1.1. «Двигаемся навстречу». Разрешено только правильное направление. Действие знака 4.1.1, установленного в начале участка дороги, распространяется до ближайшего перекрестка. Знак не запрещает поворот во дворы и другие прилегающие к дороге территории справа. 3.27 главы 3 приложения 1 ПДД. Знак «Стоянка запрещена» указывает на то, что парковка и стоянка на полосе отвода запрещены. Символ 3.31 указывает на конец области действия символа 3.27."
         }
     },
     {
         "task_info": {
-            "global_id": "t_11_q_14",
-            "ticket_num": 11,
-            "order": 5
+            "global_id": "t_14_q_2",
+            "global_id2": "t_14_q_2",
+            "ticket_num": 14,
+            "order": 5,
+            "remapped_from": "t_11_q_13"
         },
-        "media_url": "v26uz.webp",
+        "media_url": "u152uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu yo'l belgisi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat belgida ko'rsatilgan yoki yuqori tezlikda harakatlanishga ruxsat beradi",
-                        "is_correct": true
+                        "text": "Yo'lning shu qismida tavsiya etilgan harakatlanish tezligini ko'rsatadi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -422,8 +452,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Yo'lning shu qismida tavsiya etilgan harakatlanish tezligini ko'rsatadi",
-                        "is_correct": false
+                        "text": "Faqat belgida ko'rsatilgan yoki yuqori tezlikda harakatlanishga ruxsat beradi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -432,8 +462,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат белгида кўрсатилган ёки юқори тезликда ҳаракатланишга рухсат беради",
-                        "is_correct": true
+                        "text": "Йўлнинг шу қисмида тавсия этилган ҳаракатланиш тезлигини кўрсатади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -442,8 +472,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Йўлнинг шу қисмида тавсия этилган ҳаракатланиш тезлигини кўрсатади",
-                        "is_correct": false
+                        "text": "Фақат белгида кўрсатилган ёки юқори тезликда ҳаракатланишга рухсат беради",
+                        "is_correct": true
                     }
                 ]
             },
@@ -452,87 +482,94 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Указывает скорость, с которой рекомендуется движение на данном участке дороги",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Разрешает движение только с указанной или большей скоростью",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Запрещает движение со скоростью; превышающей указанную на знаке",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Указывает скорость; с которой рекомендуется движение на данном участке дороги",
+                        "text": "Запрещает движение со скоростью, превышающей указанную на знаке",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo'limidagi 4.7 belgiga asosan, \"Eng kam tezlik\" belgisi faqat unda ko'rsatilgan yoki undan yuqori tezlikda (km/soat) harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.7 белгига асосан, \"Энг кам тезлик\" белгиси фақат унда кўрсатилган ёки ундан юқори тезликда (км/соат) ҳаракатланишга рухсат этилади.",
+            "ru": "Согласно знаку 4.7 раздела 4 приложения 1 к ПДД, знак «Ограничение минимальной скорости» разрешает движение только с указанной на нём или большей скоростью (км/ч)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_15_q_2",
-            "ticket_num": 15,
-            "order": 6
+            "global_id": "t_48_q_13",
+            "global_id2": "t_48_q_13",
+            "ticket_num": 48,
+            "order": 6,
+            "remapped_from": "t_15_q_2"
         },
-        "media_url": "v76uz.webp",
+        "media_url": "u553uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi belgi 50 km/soat kam tezlikda harakatlanishni taqiqlaydi?",
+                "text": "Qaysi belgi 50 km/soatdan kam tezlikda harakatlanishni taqiqlaydi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "1",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси белги 50 км/соат кам тезликда ҳаракатланишни тақиқлайди?",
+                "text": "Қайси белги 50 км/соатдан кам тезликда ҳаракатланишни тақиқлайди?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "1",
                         "is_correct": false
                     }
                 ]
@@ -542,68 +579,75 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "1",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo'limidagi 4.7 belgi talabiga asosan, \"Eng kam tezlik\" faqat belgida ko'rsatilgan yoki undan yuqori tezlikda (km/soat) harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.7 белги талабига асосан, \"Энг кам тезлик\" фақат белгида кўрсатилган ёки ундан юқори тезликда (км/соат) ҳаракатланишга рухсат этилади.",
+            "ru": "Согласно требованиям знака 4.7 Приложения 1, раздел 4 «Минимальная скорость» разрешается двигаться только со скоростью (км/ч), указанной на знаке, или выше."
         }
     },
     {
         "task_info": {
-            "global_id": "t_24_q_2",
-            "ticket_num": 24,
-            "order": 7
+            "global_id": "t_49_q_8",
+            "global_id2": "t_49_q_8",
+            "ticket_num": 49,
+            "order": 7,
+            "remapped_from": "t_24_q_2"
         },
-        "media_url": "v193uz.webp",
+        "media_url": "u561uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahada harakatlanishning majburiy yo'nalishini qaysi belgi ko'rsatadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "3",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
-                        "is_correct": true
+                        "text": "3",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": false
+                        "text": "4",
+                        "is_correct": true
                     }
                 ]
             },
@@ -612,92 +656,99 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "3",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
-                        "is_correct": true
+                        "text": "3",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": false
+                        "text": "4",
+                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Какой знак указывает обязательное направление движения на перекрестке?",
+                "text": "Какой знак указывает обязательное направление движения на перекрёстке?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "3",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
-                        "is_correct": true
+                        "text": "3",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": false
+                        "text": "4",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo'limidagi 4.1.3 belgi \"Harakatlanish chapga\" - faqat yo'naltirgichlar ko'rsatgan tomonga harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.1.3 белги \"Ҳаракатланиш чапга\" - фақат йўналтиргичлар кўрсатган томонга ҳаракатланишга рухсат этилади.",
+            "ru": "4.1.3 знак «Движение налево» в разделе 4 приложения 1 Правил дорожного движения – движение разрешается только в направлении, указанном указателями."
         }
     },
     {
         "task_info": {
-            "global_id": "t_27_q_2",
-            "ticket_num": 27,
-            "order": 8
+            "global_id": "t_60_q_2",
+            "global_id2": "t_60_q_2",
+            "ticket_num": 60,
+            "order": 8,
+            "remapped_from": "t_27_q_2"
         },
-        "media_url": "v233uz.webp",
+        "media_url": "u677uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu belgida harakatlanish ruxsat etiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat avtomobil haydovchisiga",
+                        "text": "Faqat avtomobil va avtobus haydovchilariga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat avtomobil va motosikl haydovchilariga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Barcha transport vositalarining haydovchilariga",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "Faqat avtomobil haydovchisiga",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Faqat avtomobil va avtobus haydovchilariga",
+                        "text": "Faqat avtomobil va motosikl haydovchilariga",
                         "is_correct": false
                     }
                 ]
@@ -707,22 +758,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат автомобил ҳайдовчисига",
+                        "text": "Фақат автомобил ва автобус ҳайдовчиларига",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат автомобил ва мотоцикл ҳайдовчиларига",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Барча транспорт воситаларининг ҳайдовчиларига",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "Фақат автомобил ҳайдовчисига",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Фақат автомобил ва автобус ҳайдовчиларига",
+                        "text": "Фақат автомобил ва мотоцикл ҳайдовчиларига",
                         "is_correct": false
                     }
                 ]
@@ -732,7 +783,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только водителю автомобиля",
+                        "text": "Только водителям автомобиля и автобуса",
                         "is_correct": false
                     },
                     {
@@ -742,43 +793,50 @@
                     },
                     {
                         "id": 3,
-                        "text": "Водителям всех транспортных средств",
-                        "is_correct": true
+                        "text": "Только водителю автомобиля",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Только водителям автомобиля и автобуса",
-                        "is_correct": false
+                        "text": "Водителям всех транспортных средств",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo'limidagi 4.4 \"Yengil avtomobillar harakati\" belgisida yengil avtomobil ifodalangan bo'lsa ham, belgi yengil avtomobillardan tashqari barcha turdagi avtobuslar, mototsikllar va to'la vazni 3,5 tonnadan kam bo'lgan yuk avtomobillarining harakatlanishiga ruxsat etib, to'la vazni 3,5 tonnadan yuqori bo'lgan yuk avtomobillari va traktorlar harakatlanishini taqiqlaydi. Belgining ta'sir oralig'ida yashovchi va ishlovchi fuqarolarga tegishli, ularga va korxonalarga xizmat ko'rsatuvchi transport vositalariga bu belgi tadbiq etilmaydi.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.4 \"Енгил автомобиллар ҳаракати\" белгисида енгил автомобил ифодаланган бўлса ҳам, белги енгил автомобиллардан ташқари барча турдаги автобуслар, мототсикллар ва тўла вазни 3,5 тоннадан кам бўлган юк автомобилларининг ҳаракатланишига рухсат этиб, тўла вазни 3,5 тоннадан юқори бўлган юк автомобиллари ва тракторлар ҳаракатланишини тақиқлайди. Белгининг таъсир оралиғида яшовчи ва ишловчи фуқароларга тегишли, уларга ва корхоналарга хизмат кўрсатувчи транспорт воситаларига бу белги тадбиқ этилмайди.",
+            "ru": "Хотя знак 4.4 «Движение легковых транспортных средств» в приложении 1, раздел 4 ПДД относится к легковому автомобилю, знак разрешает движение всех типов автобусов, мотоциклов и грузовых автомобилей полной массой менее 3,5 тонн, за исключением легковых автомобилей, и запрещает движение грузовых автомобилей и тракторов полной массой более 3,5 тонн. Действие настоящего знака не распространяется на транспортные средства, принадлежащие гражданам, проживающим и работающим в зоне действия знака, и обслуживающим их предприятиям."
         }
     },
     {
         "task_info": {
-            "global_id": "t_32_q_12",
-            "ticket_num": 32,
-            "order": 9
+            "global_id": "t_40_q_20",
+            "global_id2": "t_40_q_20",
+            "ticket_num": 40,
+            "order": 9,
+            "remapped_from": "t_32_q_11"
         },
-        "media_url": "v293uz.webp",
+        "media_url": "u464uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi rasmda harakatlanishning to'g'ri yo'nalishi ko'rsatilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchida",
+                        "text": "Ikkalasida",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ikkinchida",
-                        "is_correct": true
+                        "text": "Birinchida",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ikkalasida",
-                        "is_correct": false
+                        "text": "Ikkinchida",
+                        "is_correct": true
                     }
                 ]
             },
@@ -787,18 +845,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Биринчида",
+                        "text": "Иккаласида",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Иккинчида",
-                        "is_correct": true
+                        "text": "Биринчида",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Иккаласида",
-                        "is_correct": false
+                        "text": "Иккинчида",
+                        "is_correct": true
                     }
                 ]
             },
@@ -807,30 +865,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "На первом",
+                        "text": "На обоих",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "На втором",
-                        "is_correct": true
+                        "text": "На первом",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "На обоих",
-                        "is_correct": false
+                        "text": "На втором",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo'limidagi 4.2.2 \"To'siqni chapdan chetlab o'tish\" belgisi qo'yilgan joyda to'siqni faqat ko'rsatkich ko'rsatgan tomondan aylanib o'tish ruxsat yetiladi. YHQ 2-ilovasining 1-yotiq chiziqlar bo'limida yo'l belgilarining, shu jumladan, vaqtincha yo'l belgilarining va yotiq yo'l chiziqlarining ma'nolari bir-biriga zid kelgan hollarda yoki yo'l chiziqlarini yetarlicha farqlab bo'lmasa, haydovchilar yo'l belgilariga amal qilishlari kerakligi ko'rsatilgan.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.2.2 \"Тўсиқни чапдан четлаб ўтиш\" белгиси қўйилган жойда тўсиқни фақат кўрсаткич кўрсатган томондан айланиб ўтиш рухсат етилади. YHQ 2-иловасининг 1-ётиқ чизиқлар бўлимида йўл белгиларининг, шу жумладан, вақтинча йўл белгиларининг ва ётиқ йўл чизиқларининг маънолари бир-бирига зид келган ҳолларда ёки йўл чизиқларини етарлича фарқлаб бўлмаса, ҳайдовчилар йўл белгиларига амал қилишлари кераклиги кўрсатилган.",
+            "ru": "4.2.2 приложения 1 раздела 4 Правил безопасности дорожного движения, где установлен знак «Объезд препятствия слева», объезд препятствия разрешается только со стороны, указанной указателем. В разделе 1 «Горизонтальные линии» приложения 2 ПДД указано, что в случаях, когда значения дорожных знаков, в том числе временных дорожных знаков и горизонтальных линий дороги, противоречат друг другу или когда линии дороги не могут быть достаточно различимы, водители должны следовать дорожным знакам."
         }
     },
     {
         "task_info": {
-            "global_id": "t_33_q_5",
-            "ticket_num": 33,
-            "order": 10
+            "global_id": "t_42_q_5",
+            "global_id2": "t_42_q_5",
+            "ticket_num": 42,
+            "order": 10,
+            "remapped_from": "t_33_q_4"
         },
-        "media_url": "v311uz.webp",
+        "media_url": "u477uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu chorrahada chapga burilishga ruxsat etiladimi?",
@@ -863,7 +928,7 @@
                 ]
             },
             "ru": {
-                "text": "Разрешается ли на этом перекрестке повернуть налево?",
+                "text": "Разрешается ли на этом перекрёстке повернуть налево?",
                 "options": [
                     {
                         "id": 1,
@@ -877,33 +942,40 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4–bo'limidagi 4.1.1 \"Harakatlanish to'g'riga\" belgisi faqat to'g'ri yo'nalishda harakatlanishga ruxsat etiladi. Belgi qatnov qismlarining qaysi kesishmasidan oldin o'rnatilsa, belgining ta'siri shu kesishmaga joriy qilinadi.",
+            "uz_cyr": "YHQ 1-иловасининг 4–бўлимидаги 4.1.1 \"Ҳаракатланиш тўғрига\" белгиси фақат тўғри йўналишда ҳаракатланишга рухсат этилади. Белги қатнов қисмларининг қайси кесишмасидан олдин ўрнатилса, белгининг таъсири шу кесишмага жорий қилинади.",
+            "ru": "Знак 4.1.1 «По направлению движения» в приложении 1 статьи 4 ПДД разрешает движение только в правильном направлении. Если знак установлен перед каким-либо перекрестком участков движения, эффект знака будет действовать на этом перекрестке."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_20",
-            "ticket_num": 37,
-            "order": 11
+            "global_id": "t_27_q_6",
+            "global_id2": "t_27_q_6",
+            "ticket_num": 27,
+            "order": 11,
+            "remapped_from": "t_37_q_20"
         },
-        "media_url": "v350uz.webp",
+        "media_url": "u297uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi yo'nalishda harakatlanishni davom ettirishingiz mumkin?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat chapga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Chapga va orqaga qayrilib olishga",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "O'ngga, chapga va orqaga qayrilib olishga",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat chapga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -912,62 +984,69 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат чапга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Чапга ва орқага қайрилиб олишга",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Ўнгга, чапга ва орқага қайрилиб олишга",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат чапга",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "В каких направлениях Вам можно продолжить движение?",
+                "text": "Как должен поступить водитель крупногабаритного транспортного средства, соблюдающего определенную скорость движения в населённом пункте?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только направо",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Налево и в обратном направлении",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Направо, налево и в обратном направлении",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только направо",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo‘limidagi 4.1.6 belgiga asosan, «Harakatlanish o‘ngga yoki chapga». Faqat belgilarda ko‘rsatilgan ko‘rsatkichlar yo‘nalishlarida harakatlanishga ruxsat etiladi. Chapga burilishga ruxsat beruvchi belgilar qayrilib olishga ham ruxsat beradi. (Muayyan kesishmada talab etilgan harakatlanish yo‘nalishiga tegishli ko‘rsatkichlarning shakli tushirilgan 4.1.1 — 4.1.6 belgilarini qo‘llash mumkin).\r\nYHQning 56 bandiga asosan, aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishdan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.\r\nUshbu holatda belgi talabi bo‘yicha, o‘ng va chap yo‘nalishda harakatlanishga ruxsat etiladi, lekin, transport vositasi shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining chap chetki holatni egallaganligi uchun chapga  va  orqaga  qayrilib olishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.1.6 белгига асосан, «Ҳаракатланиш ўнгга ёки чапга». Фақат белгиларда кўрсатилган кўрсаткичлар йўналишларида ҳаракатланишга рухсат этилади. Чапга бурилишга рухсат берувчи белгилар қайрилиб олишга ҳам рухсат беради. (Муайян кесишмада талаб этилган ҳаракатланиш йўналишига тегишли кўрсаткичларнинг шакли туширилган 4.1.1 — 4.1.6 белгиларини қўллаш мумкин).\r\nYHQнинг 56 бандига асосан, айланма ҳаракатланиш ташкил қилинган чорраҳаларга кириш учун бурилишдан бошқа барча ҳолларда, ҳайдовчи ўнгга, чапга бурилиши ёки қайрилиб олишдан олдинроқ шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг энг четки ҳолатни эгаллаши шарт.\r\nУшбу ҳолатда белги талаби бўйича, ўнг ва чап йўналишда ҳаракатланишга рухсат этилади, лекин, транспорт воситаси шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг чап четки ҳолатни эгаллаганлиги учун чапга  ва  орқага  қайрилиб олишга рухсат этилади.",
+            "ru": "По знаку 4.1.6 Приложения 1, раздел 4 «Движение вправо или влево». Разрешено двигаться только в направлениях, указанных на знаках. Знаки, разрешающие поворот налево, также разрешают разворот. (На определенном перекрестке могут использоваться знаки 4.1.1 – 4.1.6 в виде указателей, относящиеся к необходимому направлению движения). \r\nСогласно статье 56 ПДД, во всех случаях, кроме поворота на въезд на перекресток с круговым движением, водитель перед поворотом направо или налево должен занять самое крайнее положение участка движения, предназначенного для движения в этом направлении. \r\nПри этом согласно знаку разрешено движение в правом и левом направлениях, но разрешен поворот налево и назад, поскольку транспортное средство занимает левое краевое положение проезжей части, предназначенное для движения в этом направлении."
         }
     },
     {
         "task_info": {
-            "global_id": "t_38_q_10",
-            "ticket_num": 38,
-            "order": 12
+            "global_id": "t_7_q_3",
+            "global_id2": "t_7_q_3",
+            "ticket_num": 7,
+            "order": 12,
+            "remapped_from": "t_38_q_9"
         },
-        "media_url": "v355uz.webp",
+        "media_url": "u64uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositasining haydovchisi qoidani buzib burilmoqda?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat engil avtomobil \u000bhaydovchisi",
+                        "text": "Faqat mototsikl haydovchisi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat mototsikl haydovchisi",
+                        "text": "Faqat yengil avtomobil haydovchisi",
                         "is_correct": false
                     },
                     {
@@ -982,12 +1061,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат енгил автомобиль \u000bҳайдовчиси",
+                        "text": "Фақат мотоцикл ҳайдовчиси",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат мототцикл ҳайдовчиси",
+                        "text": "Фақат енгил автомобиль ҳайдовчиси",
                         "is_correct": false
                     },
                     {
@@ -1017,18 +1096,25 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo‘limidagi 4.1.1 belgiga asosan, «Harakatlanish to‘g‘riga». Faqat belgilarda ko‘rsatilgan ko‘rsatkichlar yo‘nalishlarida harakatlanishga ruxsat etiladi. Chapga burilishga ruxsat beruvchi belgilar qayrilib olishga ham ruxsat beradi. (Muayyan kesishmada talab etilgan harakatlanish yo‘nalishiga tegishli ko‘rsatkichlarning shakli tushirilgan 4.1.1 — 4.1.6 belgilarini qo‘llash mumkin).",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.1.1 белгига асосан, «Ҳаракатланиш тўғрига». Фақат белгиларда кўрсатилган кўрсаткичлар йўналишларида ҳаракатланишга рухсат этилади. Чапга бурилишга рухсат берувчи белгилар қайрилиб олишга ҳам рухсат беради. (Муайян кесишмада талаб этилган ҳаракатланиш йўналишига тегишли кўрсаткичларнинг шакли туширилган 4.1.1 — 4.1.6 белгиларини қўллаш мумкин).",
+            "ru": "По знаку 4.1.1 Приложения 1, раздел 4 «Движение прямо». Разрешено двигаться только в направлениях, указанных на знаках. Знаки, разрешающие поворот налево, также разрешают разворот. (На определенном перекрестке могут использоваться знаки 4.1.1 – 4.1.6 в виде указателей, относящиеся к необходимому направлению движения)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_38_q_16",
-            "ticket_num": 38,
-            "order": 13
+            "global_id": "t_48_q_10",
+            "global_id2": "t_48_q_10",
+            "ticket_num": 48,
+            "order": 13,
+            "remapped_from": "t_38_q_15"
         },
-        "media_url": "v357uz.webp",
+        "media_url": "u551uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi yo'l  belgisi piyodalar yo'lkasini  bildiradi?",
+                "text": "Qaysi yo'l belgisi piyodalar yo'lkasini bildiradi?",
                 "options": [
                     {
                         "id": 1,
@@ -1042,13 +1128,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Barcha  belgilar",
+                        "text": "Barcha belgilar",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси йўл  белгиси пиёдалар йўлкасини  билдиради?",
+                "text": "Қайси йўл белгиси пиёдалар йўлкасини билдиради?",
                 "options": [
                     {
                         "id": 1,
@@ -1062,7 +1148,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Барча  белгилар",
+                        "text": "Барча белгилар",
                         "is_correct": false
                     }
                 ]
@@ -1087,18 +1173,25 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo‘limidagi 4.6 belgiga asosan, «Piyodalar yo‘lkasi».",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.6 белгига асосан, «Пиёдалар йўлкаси».",
+            "ru": "По знаку 4.6 Приложения 1, раздел 4 «Пешеходная дорожка»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_39_q_10",
+            "global_id": "t_39_q_20",
+            "global_id2": "t_39_q_20",
             "ticket_num": 39,
-            "order": 14
+            "order": 14,
+            "remapped_from": "t_39_q_10"
         },
-        "media_url": "v363uz.webp",
+        "media_url": "u451uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ko'rsatilgan yo'l  belgilaridan qaysi  biri  ruxsat etilgan  to'la vazni 3,5 tonnadan kam  bo'lgan  yuk avtomobiliga   o'ngga  harakatlanishni buyuradi?",
+                "text": "Ko'rsatilgan yo'l belgilaridan qaysi biri ruxsat etilgan to'la vazni 3,5 tonnadan kam bo'lgan yuk avtomobiliga o'ngga harakatlanishni buyuradi?",
                 "options": [
                     {
                         "id": 1,
@@ -1107,8 +1200,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat «Б»",
-                        "is_correct": true
+                        "text": "«Б» va «В»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1117,13 +1210,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "«Б» va «В»",
-                        "is_correct": false
+                        "text": "Faqat «Б»",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Кўрсатилган йўл  белгиларидан қайси  бири  рухсат этилган  тўла вазни 3,5 тоннадан кам  бўлган  юк автомобилига   ўнгга  ҳаракатланишни буюради?",
+                "text": "Кўрсатилган йўл белгиларидан қайси бири рухсат этилган тўла вазни 3,5 тоннадан кам бўлган юк автомобилига ўнгга ҳаракатланишни буюради?",
                 "options": [
                     {
                         "id": 1,
@@ -1132,8 +1225,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат «Б»",
-                        "is_correct": true
+                        "text": "«Б» ва «В»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1142,8 +1235,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "«Б» ва «В»",
-                        "is_correct": false
+                        "text": "Фақат «Б»",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1157,8 +1250,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Только «Б»",
-                        "is_correct": true
+                        "text": "«Б» и «В»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1167,20 +1260,27 @@
                     },
                     {
                         "id": 4,
-                        "text": "«Б» и «В»",
-                        "is_correct": false
+                        "text": "Только «Б»",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo'limi 4.1.2 \"Harakatlanish o'ngga\" belgisiga muvofiq, ushbu belgining ta'sir oralig'ida faqat yo'naltirgich buyurgan tomonga harakatlanishga ruxsat etiladi. 4.1.2 belgisi yo'l qatnov qismlarining qaysi kesishmasi oldiga o'rnatilsa, shu kesishmaga ta'sir etadi.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлими 4.1.2 \"Ҳаракатланиш ўнгга\" белгисига мувофиқ, ушбу белгининг таъсир оралиғида фақат йўналтиргич буюрган томонга ҳаракатланишга рухсат этилади. 4.1.2 белгиси йўл қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага таъсир этади.",
+            "ru": "В соответствии со знаком 4.1.2 «Движение вправо» Приложения 1 ПДД разрешается двигаться только в направлении, указанном гидом в зоне действия этого знака. Знак 4.1.2 действует на перекресток, перед которым установлено пересечение участков движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_42_q_6",
-            "ticket_num": 42,
-            "order": 15
+            "global_id": "t_57_q_5",
+            "global_id2": "t_57_q_5",
+            "ticket_num": 57,
+            "order": 15,
+            "remapped_from": "t_42_q_6"
         },
-        "media_url": "v405uz.webp",
+        "media_url": "u656uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi velosiped yo'lkasini ko'rsatadi?",
@@ -1192,12 +1292,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "V",
+                        "text": "B",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "S",
+                        "text": "C",
                         "is_correct": true
                     }
                 ]
@@ -1207,17 +1307,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
+                        "text": "A",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "В",
+                        "text": "B",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "С",
+                        "text": "C",
                         "is_correct": true
                     }
                 ]
@@ -1227,38 +1327,45 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
+                        "text": "A",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "В",
+                        "text": "B",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "С",
+                        "text": "C",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo‘limidagi 4.5 belgiga asosan, «Velosiped yo‘lkasi». Faqat velosiped va mopedlarda harakatlanishga ruxsat etilishini bildiradi. Trotuar yoki piyodalar yo‘lkasi bo‘lmasa, velosiped yo‘lkasidan piyodalar ham yurishlari mumkin.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.5 белгига асосан, «Велосипед йўлкаси». Фақат велосипед ва мопедларда ҳаракатланишга рухсат этилишини билдиради. Тротуар ёки пиёдалар йўлкаси бўлмаса, велосипед йўлкасидан пиёдалар ҳам юришлари мумкин.",
+            "ru": "Согласно условному обозначению 4.5 Приложения 1, раздел 4 «Велодорожка». Указывает, что разрешено движение только велосипедов и мопедов. Если тротуара и тротуара нет, пешеходы могут воспользоваться велодорожкой."
         }
     },
     {
         "task_info": {
-            "global_id": "t_46_q_2",
-            "ticket_num": 46,
-            "order": 16
+            "global_id": "t_28_q_16",
+            "global_id2": "t_28_q_16",
+            "ticket_num": 28,
+            "order": 16,
+            "remapped_from": "t_46_q_2"
         },
-        "media_url": "v427uz.webp",
+        "media_url": "u319uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi to'siqni o'ng yoki chap tomonidan chetlab o'tishga ruxsat etilishini bildiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
+                        "text": "5",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1267,18 +1374,18 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": true
+                        "text": "3",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1287,8 +1394,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
+                        "text": "5",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1297,18 +1404,18 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": true
+                        "text": "3",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1317,8 +1424,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
+                        "text": "5",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1327,33 +1434,40 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": true
+                        "text": "3",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo‘limidagi 4.2.3 belgiga asosan, «To‘siqni o‘ngdan yoki chapdan aylanib o‘tish». Har tomonidan aylanib o‘tish ruxsat etiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.2.3 белгига асосан, «Тўсиқни ўнгдан ёки чапдан айланиб ўтиш». Ҳар томонидан айланиб ўтиш рухсат этилади.",
+            "ru": "По знаку 4.2.3 Приложения 1, раздел 4 «Объезд препятствия справа или слева». Разрешено объезжать со всех сторон."
         }
     },
     {
         "task_info": {
-            "global_id": "t_53_q_8",
-            "ticket_num": 53,
-            "order": 17
+            "global_id": "t_43_q_5",
+            "global_id2": "t_43_q_5",
+            "ticket_num": 43,
+            "order": 17,
+            "remapped_from": "t_53_q_8"
         },
-        "media_url": "v541uz.webp",
+        "media_url": "u492uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Kuyidagi belgilardan qaysi biri engil avtomobillar harakati deb nomlanadi?",
+                "text": "Quyidagi belgilardan qaysi biri yengil avtomobillar harakati deb nomlanadi?",
                 "options": [
                     {
                         "id": 1,
@@ -1378,7 +1492,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Куйидаги белгилардан қайси бири енгил автомобиллар ҳаракати деб номланади?",
+                "text": "Қуйидаги белгилардан қайси бири енгил автомобиллар ҳаракати деб номланади?",
                 "options": [
                     {
                         "id": 1,
@@ -1427,228 +1541,204 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 4.4. “Yengil avtomobillar harakati”. Yengil avtomobillar, avtobus, mototsikllar, mopedlar, skuterlar, belgilangan yo‘nalishli transport vositalari va ruxsat etilgan to‘liq vazni 3,5 tonnadan oshmaydigan yuk avtomobillari harakatlanishiga ruxsat etilishini bildiradi. Belgining ta’sir oralig‘ida yashovchi va ishlovchi fuqarolarga tegishli, ularga va korxonalarga xizmat ko‘rsatuvchi transport vositalariga bu belgi tatbiq etilmaydi. Bunday hollarda transport vositalari belgilangan joyga eng yaqin chorrahadan kirib yoki chiqib ketishlari kerak.",
+            "uz_cyr": "YHQ 1 илова: 4.4. “Енгил автомобиллар ҳаракати”. Енгил автомобиллар, автобус, мототсикллар, мопедлар, скутерлар, белгиланган йўналишли транспорт воситалари ва рухсат этилган тўлиқ вазни 3,5 тоннадан ошмайдиган юк автомобиллари ҳаракатланишига рухсат этилишини билдиради. Белгининг таъсир оралиғида яшовчи ва ишловчи фуқароларга тегишли, уларга ва корхоналарга хизмат кўрсатувчи транспорт воситаларига бу белги татбиқ этилмайди. Бундай ҳолларда транспорт воситалари белгиланган жойга энг яқин чорраҳадан кириб ёки чиқиб кетишлари керак.",
+            "ru": "Приложение 1: 4.4. «Автомобильное движение». Это означает, что разрешено движение легковых автомобилей, автобусов, мотоциклов, мопедов, скутеров, маршрутных и грузовых автомобилей с разрешенной полной массой не более 3,5 тонн. Этот знак не распространяется на транспортные средства, принадлежащие гражданам, проживающим и работающим в зоне действия знака, и обслуживающие их и предприятия. В таких случаях транспортные средства должны въезжать или выезжать с ближайшего к месту назначения перекрестка."
         }
     },
     {
         "task_info": {
-            "global_id": "t_53_q_10",
-            "ticket_num": 53,
-            "order": 18
+            "global_id": "t_30_q_20",
+            "global_id2": "t_30_q_20",
+            "ticket_num": 30,
+            "order": 18,
+            "remapped_from": "t_8_q_2"
         },
-        "media_url": "v525uz.webp",
+        "media_url": "u350uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Kaysi yonalishda harakatlanish taqiqlanadi?",
+                "text": "Qaysi yo'nalishda harakatlanish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat chapga",
-                        "is_correct": false
+                        "text": "O'ngga ikkinchi yo'lga",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "O'nga, chapga va orkaga qayrilib olishga",
+                        "text": "O'ngga birinchi va ikkinchi yo'llarga",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Chapga va orkaga qayrilib olishga",
+                        "text": "O'ngga birinchi yo'lga",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Faqat to'riga",
-                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Кайси ёналишда ҳаракатланиш тақиқланади?",
+                "text": "Қайси йўналишда ҳаракатланиш тақиқланади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат чапга",
-                        "is_correct": false
+                        "text": "Ўнгга иккинчи йўлга",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ўнга, чапга ва оркага қайрилиб олишга",
+                        "text": "Ўнгга биринчи ва иккинчи йўлларга",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Чапга ва оркага қайрилиб олишга",
+                        "text": "Ўнгга биринчи йўлга",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Фақат тўрига",
-                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "В каком направлении движение запрещено?",
+                "text": "В каком направлении запрещено движение?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только направо",
-                        "is_correct": false
+                        "text": "Направо во второй проезд",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Направо, налево и в обратном направлении",
+                        "text": "Направо в первый и второй проезды",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Налево и в обратном направлении",
+                        "text": "Направо в первый проезд",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Только прямо",
-                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1- ilovasining 3-bo'limi 4-xatboshiga asosan, 3.18.1 belgisi qatnov qismlarining qaysi kesishmasi oldiga o'rnatilsa, shu kesishmaga tatbiq etiladi.",
+            "uz_cyr": "YHQ 1- иловасининг 3-бўлими 4-хатбошига асосан, 3.18.1 белгиси қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага татбиқ этилади.",
+            "ru": "Согласно пункту 4 раздела 3 приложения 1 ПДД знак 3.18.1 наносится на любое пересечение участков движения, которое установлено перед ним."
         }
     },
     {
         "task_info": {
-            "global_id": "t_54_q_12",
-            "ticket_num": 54,
-            "order": 19
+            "global_id": "t_43_q_9",
+            "global_id2": "t_43_q_9",
+            "ticket_num": 43,
+            "order": 19,
+            "remapped_from": "t_56_q_17"
         },
-        "media_url": "v544uz.webp",
+        "media_url": "u496uz.webp",
         "content": {
             "uz_lat": {
-                "text": "yo'naltirgichlar bilan kursatilgan kaysi yunalishlarda xarakat ruxsat etilgan?",
+                "text": "Yo'naltirgichlar bilan ko'rsatilgan qaysi yo'nalishlarda harakatlanishga ruxsat etilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Fakat tugriga",
+                        "text": "«Б»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Fakat ungga",
-                        "is_correct": false
+                        "text": "«А»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Fakat chapga",
+                        "text": "«А» va «Б»",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Fakat tugriga va ungga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 5,
-                        "text": "Barcha iunalishlarga",
-                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "йўналтиргичлар билан курсатилган кайси йуналишларда харакат рухсат этилган?",
+                "text": "Йўналтиргичлар билан кўрсатилган қайси йўналишларда ҳаракатланишга рухсат этилган?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Факат тугрига",
+                        "text": "«Б»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Факат унгга",
-                        "is_correct": false
+                        "text": "«А»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Факат чапга",
+                        "text": "«А» ва «Б»",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Факат тугрига ва унгга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 5,
-                        "text": "Барча иуналишларга",
-                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "В каких направлениях, обозначенных стрелкам разрешено движение?",
+                "text": "В каких направлениях, обозначенных стрелками разрешено движение?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только прямо",
+                        "text": "«Б»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только направо",
-                        "is_correct": false
+                        "text": "«А»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Только налево",
+                        "text": "«А» и «Б»",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Только прямо и направо",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 5,
-                        "text": "Во всех направлениях",
-                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1- ilovasining 5-bo'limidagi 5.11.1 belgi \"Qayrilish joyi\" belgisi bo'lib chapga burilish taqiqlanadi.",
+            "uz_cyr": "YHQ 1- иловасининг 5-бўлимидаги 5.11.1 белги \"Қайрилиш жойи\" белгиси бўлиб чапга бурилиш тақиқланади.",
+            "ru": "Знак 5.11.1 в разделе 5 приложения 1 ПДД является знаком «Место поворота» и поворот налево запрещен."
         }
     },
     {
         "task_info": {
-            "global_id": "t_54_q_16",
-            "ticket_num": 54,
-            "order": 20
+            "global_id": "t_58_q_11",
+            "global_id2": "t_58_q_11",
+            "ticket_num": 58,
+            "order": 20,
+            "remapped_from": "t_54_q_15"
         },
-        "media_url": "v547uz.webp",
+        "media_url": "u667uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Kursatilgan xolatda kayrilib olishga ruxsat etiladimi?",
+                "text": "Ko'rsatilgan holatda qayrilib olishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Takiklanadi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Ruxsat beriladi",
                         "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Курсатилган холатда кайрилиб олишга рухсат этиладими?",
+                "text": "Курсатилган ҳолатда қайрилиб олишга рухсат этиладими?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Такикланади",
-                        "is_correct": true
+                        "text": "Рухсат берилади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Рухсат берилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1657,48 +1747,55 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Запрещается",
-                        "is_correct": true
+                        "text": "Разрешается",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilova: 4.3. “Aylanma harakatlanish”. Ko‘rsatkichlar yo‘nalishlarida harakatlanish ruxsat etiladi.",
+            "uz_cyr": "YHQ 1-илова: 4.3. “Айланма ҳаракатланиш”. Кўрсаткичлар йўналишларида ҳаракатланиш рухсат этилади.",
+            "ru": "Приложение 1 ПДД: 4.3. \"Круговое движение\". Разрешается двигаться в направлениях, указанных стрелками."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_12",
-            "ticket_num": 56,
-            "order": 21
+            "global_id": "t_28_q_13",
+            "global_id2": "t_28_q_13",
+            "ticket_num": 28,
+            "order": 21,
+            "remapped_from": "t_56_q_11"
         },
-        "media_url": "v578uz.webp",
+        "media_url": "u316uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu vaziyatda qaysi yo‘nalishda harakatlanishingiz mumkin?",
+                "text": "Ushbu vaziyatda qaysi yo'nalishda harakatlanishingiz mumkin?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1, 3 va 4 yo‘nalishlarda",
+                        "text": "1 va 4 yo'nalishlarda",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1, 2 va 3 yo‘nalishlarda",
+                        "text": "1, 3 va 4 yo'nalishlarda",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "1 va 4 yo‘nalishlarda",
-                        "is_correct": false
+                        "text": "Barcha yo'nalishlarda",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Barcha yo‘nalishlarda",
-                        "is_correct": true
+                        "text": "1, 2 va 3 yo'nalishlarda",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1707,23 +1804,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1, 3 ва 4 йўналишларда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "1, 2 ва 3 йўналишларда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "1 ва 4 йўналишларда",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
+                        "text": "1, 3 ва 4 йўналишларда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "Барча йўналишларда",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "1, 2 ва 3 йўналишларда",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1732,17 +1829,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "В направлении 1, 3 или 4",
+                        "text": "В направлении 1 или 4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "В направлении 1, 2 или 3",
+                        "text": "В направлении 1, 3 или 4",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "В направлении 1 или 4",
+                        "text": "В направлении 1, 2 или 3",
                         "is_correct": false
                     },
                     {
@@ -1752,15 +1849,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 4.1.1. “Harakatlanish to‘g‘riga”. Yo‘lning qismi boshlanishida o‘rnatilgan 4.1.1 belgisining ta’siri yaqin chorrahagacha joriy qilinadi. Belgi o‘ng tomonda joylashgan hovlilarga va yo‘lga yondosh boshqa hududlarga burilishni taqiqlamaydi.",
+            "uz_cyr": "YHQ 1 илова: 4.1.1. “Ҳаракатланиш тўғрига”. Йўлнинг қисми бошланишида ўрнатилган 4.1.1 белгисининг таъсири яқин чорраҳагача жорий қилинади. Белги ўнг томонда жойлашган ҳовлиларга ва йўлга ёндош бошқа ҳудудларга бурилишни тақиқламайди.",
+            "ru": "Приложение 1: 4.1.1. «К действию». Действие знака 4.1.1, установленного в начале участка дороги, распространяется до ближайшего перекрестка. Знак не запрещает поворот во дворы и другие прилегающие к дороге территории справа."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_13",
-            "ticket_num": 56,
-            "order": 22
+            "global_id": "t_59_q_3",
+            "global_id2": "t_59_q_3",
+            "ticket_num": 59,
+            "order": 22,
+            "remapped_from": "t_56_q_12"
         },
-        "media_url": "v579uz.webp",
+        "media_url": "u673uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ushbu chorrahada chapga burilishga ruxsat etiladimi?",
@@ -1793,7 +1897,7 @@
                 ]
             },
             "ru": {
-                "text": "Разрешен ли поворот налево на этом перекрестке?",
+                "text": "Разрешен ли поворот налево на этом перекрёстке?",
                 "options": [
                     {
                         "id": 1,
@@ -1807,37 +1911,44 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasi 4-bo‘limining birinchi va sakkizinchi xatboshilariga asosan: 4.1.1. “Harakatlanish to‘g‘riga”. 4.1.1 yo‘l belgisi qatnov qismining qaysi kesishmasi oldiga o‘rnatilsa, shu kesishmaga joriy qilinadi. Yo‘lning qismi boshlanishida o‘rnatilgan 4.1.1 belgisining ta’siri yaqin chorrahagacha joriy qilinadi. Belgi o‘ng tomonda joylashgan hovlilarga va yo‘lga yondosh boshqa hududlarga burilishni taqiqlamaydi.",
+            "uz_cyr": "YHQ 1-иловаси 4-бўлимининг биринчи ва саккизинчи хатбошиларига асосан: 4.1.1. “Ҳаракатланиш тўғрига”. 4.1.1 йўл белгиси қатнов қисмининг қайси кесишмаси олдига ўрнатилса, шу кесишмага жорий қилинади. Йўлнинг қисми бошланишида ўрнатилган 4.1.1 белгисининг таъсири яқин чорраҳагача жорий қилинади. Белги ўнг томонда жойлашган ҳовлиларга ва йўлга ёндош бошқа ҳудудларга бурилишни тақиқламайди.",
+            "ru": "Согласно абзацам первому и восьмому раздела 4 Приложения 1 ПДД: 4.1.1. «К действию». 4.1.1 Дорожный знак будет установлен перед любым перекрестком участка движения, он будет установлен на этом перекрестке. Действие знака 4.1.1, установленного в начале участка дороги, распространяется до ближайшего перекрестка. Знак не запрещает поворот во дворы и другие прилегающие к дороге территории справа."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_17",
-            "ticket_num": 56,
-            "order": 23
+            "global_id": "t_24_q_13",
+            "global_id2": "t_24_q_13",
+            "ticket_num": 24,
+            "order": 23,
+            "remapped_from": "t_56_q_16"
         },
-        "media_url": "v583uz.webp",
+        "media_url": "u265uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi avtomobil haydovchisi qoidani buzib hovliga burildi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat oq avtomobil haydovchisi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Faqat sariq avtomobil haydovchisi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Hech qaysi buzmad",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Ikkisi ham buzdi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat sariq avtomobil haydovchisi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat oq avtomobil haydovchisi",
                         "is_correct": false
                     }
                 ]
@@ -1847,22 +1958,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат оқ автомобил ҳайдовчиси",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Фақат сариқ автомобил ҳайдовчиси",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Ҳеч қайси бузмади",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Иккиси ҳам бузди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат сариқ автомобил ҳайдовчиси",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат оқ автомобил ҳайдовчиси",
                         "is_correct": false
                     }
                 ]
@@ -1872,47 +1983,54 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только водитель белого автомобиля",
+                        "text": "Оба нарушили",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только водитель жёлтого автомобиля",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Никто не нарушил",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Только водитель жёлтого автомобиля",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "Оба нарушили",
+                        "text": "Только водитель белого автомобиля",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 4.1.1. “Harakatlanish to‘g‘riga”. Yo‘lning qismi boshlanishida o‘rnatilgan 4.1.1 belgisining ta’siri yaqin chorrahagacha joriy qilinadi. Belgi o‘ng tomonda joylashgan hovlilarga va yo‘lga yondosh boshqa hududlarga burilishni taqiqlamaydi.",
+            "uz_cyr": "YHQ 1 илова: 4.1.1. “Ҳаракатланиш тўғрига”. Йўлнинг қисми бошланишида ўрнатилган 4.1.1 белгисининг таъсири яқин чорраҳагача жорий қилинади. Белги ўнг томонда жойлашган ҳовлиларга ва йўлга ёндош бошқа ҳудудларга бурилишни тақиқламайди.",
+            "ru": "Приложение 1: 4.1.1. «К действию». Действие знака 4.1.1, установленного в начале участка дороги, распространяется до ближайшего перекрестка. Знак не запрещает поворот во дворы и другие прилегающие к дороге территории справа."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_18",
-            "ticket_num": 56,
-            "order": 24
+            "global_id": "t_1_q_17",
+            "global_id2": "t_1_q_17",
+            "ticket_num": 1,
+            "order": 24,
+            "remapped_from": "t_23_q_12"
         },
-        "media_url": "v584uz.webp",
+        "media_url": "u19uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Yo‘naltirgichlar bilan ko‘rsatilgan qaysi yo‘nalishlarda harakat ruxsat etilgan?",
+                "text": "Yo'naltirgichlar bilan ko'rsatilgan qaysi yo'nalishlarda harakatlanishga ruxsat etilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat to‘g‘riga",
+                        "text": "Faqat to'g'riga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat o‘ngga",
+                        "text": "Faqat to'g'riga va o'ngga",
                         "is_correct": false
                     },
                     {
@@ -1922,18 +2040,18 @@
                     },
                     {
                         "id": 4,
-                        "text": "Faqat to‘g‘riga va chapga",
-                        "is_correct": true
+                        "text": "Faqat o'ngga",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Barcha yo‘nalishlarga",
-                        "is_correct": false
+                        "text": "Barcha yo'nalishlarga",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Йўналтиргичлар билан кўрсатилган қайси йўналишларда ҳаракат рухсат этилган?",
+                "text": "Йўналтиргичлар билан кўрсатилган қайси йўналишларда ҳаракатланишга рухсат этилган?",
                 "options": [
                     {
                         "id": 1,
@@ -1942,7 +2060,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат ўнгга",
+                        "text": "Фақат тўғрига ва ўнгга",
                         "is_correct": false
                     },
                     {
@@ -1952,18 +2070,18 @@
                     },
                     {
                         "id": 4,
-                        "text": "Фақат тўғрига ва чапга",
-                        "is_correct": true
+                        "text": "Фақат ўнгга",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
                         "text": "Барча йўналишларга",
-                        "is_correct": false
+                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "В каких направлениях разрешено движение согласно указателям (знакам)?",
+                "text": "В каких направлениях, обозначенных стрелками, разрешено движение?",
                 "options": [
                     {
                         "id": 1,
@@ -1972,7 +2090,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Только направо",
+                        "text": "Только прямо и направо",
                         "is_correct": false
                     },
                     {
@@ -1982,47 +2100,54 @@
                     },
                     {
                         "id": 4,
-                        "text": "Только прямо и налево",
-                        "is_correct": true
+                        "text": "Только направо",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
                         "text": "Во всех направлениях",
-                        "is_correct": false
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo'limidagi 4.4 belgi - \"Yengil avtomobillar harakatlanadi\" belgisi yengil avtomobillarni, avtobuslarni, motosikllarni va to'la vazni 3,5 tonnadan kam bo'lgan yuk avtomobillarining harakatlanishiga ruxsat etadi. 1-ilovaning 7-bo'limidagi 7.3.3 qo'shimcha axborot belgisi \"Ta'sir yo'nalishlari\" chorraha oldida o'rnatilgan buyuruvchi belgi bilan qo'llanilib, uning ta'sir yo'nalishini ko'rsatadi.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.4 белги - \"Енгил автомобиллар ҳаракатланади\" белгиси енгил автомобилларни, автобусларни, мотосиклларни ва тўла вазни 3,5 тоннадан кам бўлган юк автомобилларининг ҳаракатланишига рухсат этади. 1-илованинг 7-бўлимидаги 7.3.3 қўшимча ахборот белгиси \"Таъсир йўналишлари\" чорраҳа олдида ўрнатилган буюрувчи белги билан қўлланилиб, унинг таъсир йўналишини кўрсатади.",
+            "ru": "Согласно знаку 4.4 «Движение легковых автомобилей» раздела 4 приложения 1 ПДД, разрешается движение легковых автомобилей, автобусов, мотоциклов и грузовых автомобилей с разрешённой максимальной массой менее 3,5 т. Знак дополнительной информации 7.3.3 «Направления действия» применяется с предписывающим знаком перед перекрёстком и указывает направления его действия. Поэтому движение разрешено во всех направлениях."
         }
     },
     {
         "task_info": {
-            "global_id": "t_57_q_5",
-            "ticket_num": 57,
-            "order": 25
+            "global_id": "t_34_q_2",
+            "global_id2": "t_34_q_2",
+            "ticket_num": 34,
+            "order": 25,
+            "remapped_from": "t_57_q_5"
         },
-        "media_url": "v602uz.webp",
+        "media_url": "u383uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Avtomobil haydovchisi qaysi yo‘nalishlarda harakatlanishga ruxsat beradi?",
+                "text": "Avtomobil haydovchisi qaysi yo'nalishlarda harakatlanishga ruxsat beradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat A va B",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Faqat B",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Faqat A",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Barchasi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat B",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat A va B",
                         "is_correct": false
                     }
                 ]
@@ -2032,22 +2157,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат А ва B",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Фақат B",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Только A",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Барчаси",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат B",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат А ва B",
                         "is_correct": false
                     }
                 ]
@@ -2057,58 +2182,65 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только A и B",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Только B",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Только A",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "По всем",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только B",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только A и B",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "\"YHQga 1-ILOVA 4.1.4 bandi va 9-bob. 56-band 1-xatboshiga asosan: 4.1.4. «Harakatlanish to‘g‘riga yoki o‘ngga».\r\n56. Aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishdan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.\"",
+            "uz_cyr": "\"YHQга 1-ИЛОВА 4.1.4 банди ва 9-боб. 56-банд 1-хатбошига асосан: 4.1.4. «Ҳаракатланиш тўғрига ёки ўнгга».\r\n56. Айланма ҳаракатланиш ташкил қилинган чорраҳаларга кириш учун бурилишдан бошқа барча ҳолларда, ҳайдовчи ўнгга, чапга бурилиши ёки қайрилиб олишдан олдинроқ шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг энг четки ҳолатни эгаллаши шарт.\"",
+            "ru": "Согласно пункту 4.1.4 ПРИЛОЖЕНИЯ 1 и главе 9. Пункта 56 абзаца 1: 4.1.4. «Движение вправо или вправо».\r\n56. Во всех случаях, за исключением поворота на въезд на перекрестки, на которых организовано круговое движение, водитель перед поворотом направо или налево обязан занять самое крайнее положение участка движения, предназначенного для движения в этом направлении\"."
         }
     },
     {
         "task_info": {
-            "global_id": "t_57_q_10",
-            "ticket_num": 57,
-            "order": 26
+            "global_id": "t_4_q_1",
+            "global_id2": "t_4_q_1",
+            "ticket_num": 4,
+            "order": 26,
+            "remapped_from": "t_57_q_10"
         },
-        "media_url": "v590uz.webp",
+        "media_url": "u29uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi yo‘nalishda qayrilib olishga ruxsat beradi?",
+                "text": "Qaysi yo'nalishda qayrilib olishga ruxsat beradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat A va ",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Faqat C",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Faqat B",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Barchasi",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat A va C",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat C",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2117,23 +2249,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат А ва C",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Фақат C",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Фақат B",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Барчаси",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат A ва C",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат C",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2142,38 +2274,45 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только A и C",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Только C",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Только B",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Все направления",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только A и C",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только C",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 9-bob. 56-band 1-xatboshiga asosan: 56. Aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishdan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.",
+            "uz_cyr": "YHQнинг 9-боб. 56-банд 1-хатбошига асосан: 56. Айланма ҳаракатланиш ташкил қилинган чорраҳаларга кириш учун бурилишдан бошқа барча ҳолларда, ҳайдовчи ўнгга, чапга бурилиши ёки қайрилиб олишдан олдинроқ шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг энг четки ҳолатни эгаллаши шарт.",
+            "ru": "Глава 9 ПДД. Согласно пункту 1 статьи 56: 56. Во всех случаях, кроме поворота на въезд на перекрестки, на которых организовано круговое движение, водитель перед поворотом направо или налево обязан занять самое крайнее положение участка движения, предназначенного для движения в этом направлении."
         }
     },
     {
         "task_info": {
-            "global_id": "t_57_q_11",
-            "ticket_num": 57,
-            "order": 27
+            "global_id": "t_9_q_5",
+            "global_id2": "t_9_q_5",
+            "ticket_num": 9,
+            "order": 27,
+            "remapped_from": "t_57_q_11"
         },
-        "media_url": "v591uz.webp",
+        "media_url": "u91uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi javobda belgining nomi to'gri ko'rsatilgan ?",
+                "text": "Qaysi Javobda belgining nomi to'g'ri ko'rsatilgan?",
                 "options": [
                     {
                         "id": 1,
@@ -2182,18 +2321,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Otda yurish yo'li",
-                        "is_correct": true
+                        "text": "Otda yurish taqiqlanadi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Otda yurish taqiqlanadi",
-                        "is_correct": false
+                        "text": "Otda yurish yo'li",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси жавобда белгининг номи тўғри кўрсатилган ?",
+                "text": "Қайси Жавобда белгининг номи тўғри кўрсатилган?",
                 "options": [
                     {
                         "id": 1,
@@ -2202,36 +2341,685 @@
                     },
                     {
                         "id": 2,
-                        "text": "Отда юриш йўли",
-                        "is_correct": true
+                        "text": "Отда юриш тақиқланади",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Отда юриш тақиқланади",
+                        "text": "Отда юриш йўли",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком ответе правильно указано имя персонажа?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Езда на лошади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Верховая езда запрещена",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Конная тропа",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasi: 4.5.3 «Otda yurish yo‘li» — faqat otliqlar harakatlanishi uchun mo‘ljallangan yo‘lni bildiradi.",
+            "uz_cyr": "YHQ 1-иловаси: 4.5.3 «Отда юриш йўли» — фақат отлиқлар ҳаракатланиши учун мўлжалланган йўлни билдиради.",
+            "ru": "Приложение 1 к ПДД: 4.5.3 «Дорожка для всадников» — обозначает дорожку, предназначенную только для движения всадников."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_26_q_19",
+            "global_id2": "t_26_q_19",
+            "ticket_num": 26,
+            "order": 28,
+            "remapped_from": "t_60_q_18"
+        },
+        "media_url": "u292uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ko'rsatilgan yo'l belgilarining qaysi birida eng kam tezlikda harakatlanish kerak?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "O'ngdagi belgida",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Har ikkisida",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Chapdagi belgida",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўрсатилган йўл белгиларининг қайси бирида энг кам тезликда ҳаракатланиш керак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ўнгдаги белгида",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳар иккисида",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Чапдаги белгида",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "В каком ответе правильно указано название символа?",
+                "text": "Какой из следующих дорожных знаков требует соблюдения минимальной скорости?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Передвижение верхом",
+                        "text": "На вывеске слева",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Конная тропа",
+                        "text": "На вывеске справа",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Верховая езда запрещена.",
+                        "text": "В обоих случаях",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 4.7 bandiga asosan: 4.7. «Eng kam tezlik». Faqat belgida ko‘rsatilgan yoki undan yuqori tezlikda (km/soat) harakatlanishga ruxsat etilishini bildiradi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 4.7 бандига асосан: 4.7. «Энг кам тезлик». Фақат белгида кўрсатилган ёки ундан юқори тезликда (км/соат) ҳаракатланишга рухсат этилишини билдиради.",
+            "ru": "В соответствии с пунктом 4.7 ПРИЛОЖЕНИЯ 1 к ОУК: 4.7. «Самая низкая скорость». Указывает, что движение разрешено только со скоростью (км/ч), указанной на знаке, или выше."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_27_q_3",
+            "global_id2": "t_27_q_3",
+            "ticket_num": 27,
+            "order": 29,
+            "remapped_from": "t_60_q_19"
+        },
+        "media_url": "u295uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ko'k avtomobil haydovchisi qaysi yo'nalishlarda harakatlanishga ruxsat etilmaydi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat 1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat 1, 3, 4 yo'nalishlarda",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Barcha yo'nalishlarda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat 2",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўк автомобил ҳайдовчиси қайси йўналишларда ҳаракатланишга рухсат этилмайди?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат 1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат 1, 3, 4 йўналишларда",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Барча йўналишларда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат 2",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешено ли пересекать сплошную белую линию разметки, обозначающую край проезжей части на автомагистрали?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только по направлению 1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "По направлениям 1, 3 и 4",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "По всем направлениям",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только по направлению 2",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 3.18.1 bandi va 3.Taqiqlovchi belgilarning 47-xatboshiga asosan: 3.18.1. “Oʻngga burilish taqiqlangan”. 3.18.1 va 3.18.2 belgilari qatnov qismlarining qaysi kesishmasi oldiga o‘rnatilsa, shu kesishmaga tatbiq etiladi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 3.18.1 банди ва 3.Тақиқловчи белгиларнинг 47-хатбошига асосан: 3.18.1. “Ўнгга бурилиш тақиқланган”. 3.18.1 ва 3.18.2 белгилари қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага татбиқ этилади.",
+            "ru": "Согласно п. 3.18.1 ПРИЛОЖЕНИЯ 1 к Общим правилам и п. 47 п. 3. Запрещающие знаки: 3.18.1. «Никаких поворотов направо». Знаки 3.18.1 и 3.18.2 устанавливаются на перекрестке, перед которым установлено пересечение участков движения."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_31_q_10",
+            "global_id2": "t_31_q_10",
+            "ticket_num": 31,
+            "order": 30,
+            "remapped_from": "t_55_q_11"
+        },
+        "media_url": "u357uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ko'k avtomobil qaysi yo'nalishlar bo'yicha harakatlanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat to'g'riga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "To'g'riga va chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "To'g'riga va qayrilishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barcha yo'nalishlarga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўк автомобил қайси йўналишлар бўйича ҳаракатланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат тўғрига",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тўғрига ва чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тўғрига ва қайрилишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча йўналишларга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каких направлениях разрешено движение синий автомобилю?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только прямо",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Прямо и налево",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Прямо и с разворотом",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Во всех направлениях",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 4.1.1 bandi va 4.Buyuruvchi belgilarning 10-xatboshiga asosan: 4.1.1. \"Harakatlanish to‘g‘riga\". 4.1.1 — 4.1.6 yo‘l belgilari qatnov qismlarining qaysi kesishmasidan oldin o‘rnatilsa, belgining ta’siri shu kesishmaga joriy qilinadi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 4.1.1 банди ва 4.Буюрувчи белгиларнинг 10-хатбошига асосан: 4.1.1. \"Ҳаракатланиш тўғрига\". 4.1.1 — 4.1.6 йўл белгилари қатнов қисмларининг қайси кесишмасидан олдин ўрнатилса, белгининг таъсири шу кесишмага жорий қилинади.",
+            "ru": "Согласно пункту 4.1.1 приложения 1 к ПДД и десятому абзацу раздела 4 «Предписывающие знаки»: 4.1.1 «Движение прямо». Дорожные знаки 4.1.1–4.1.6, установленные перед пересечением проезжих частей, действуют на данное пересечение."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_30_q_11",
+            "global_id2": "t_30_q_11",
+            "ticket_num": 30,
+            "order": 31,
+            "remapped_from": "t_54_q_11"
+        },
+        "media_url": "u344uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Yo'naltirgichlar bilan ko'rsatilgan qaysi yo'nalishlarda harakat ruxsat etilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Barcha yo'nalishlarga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat to'g'riga va chapga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat to'g'riga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Faqat o'ngga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Йўналтиргичлар билан кўрсатилган қайси йўналишларда ҳаракат рухсат этилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Барча йўналишларга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат тўғрига ва чапга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат тўғрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Фақат ўнгга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каких направлениях разрешено движение согласно указателям (знакам)?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Во всех направлениях",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только прямо и налево",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только налево",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Только направо",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo'limi 4.1.1 \"Harakatlanish to'g'riga\" belgisiga muvofiq, ushbu belgining ta'sir oralig'ida faqat yo'naltirgich buyurgan tomonga harakatlanishga ruxsat etiladi. 4.1.1 belgisi yo'l qatnov qismlarining qaysi kesishmasi oldiga o'rnatilsa, shu kesishmaga ta'sir etadi.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлими 4.1.1 \"Ҳаракатланиш тўғрига\" белгисига мувофиқ, ушбу белгининг таъсир оралиғида фақат йўналтиргич буюрган томонга ҳаракатланишга рухсат этилади. 4.1.1 белгиси йўл қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага таъсир этади.",
+            "ru": "В соответствии со знаком 4.1.1 «Движение по направлению» Приложения 1 ПДД разрешается двигаться только в направлении, указанном гидом в зоне действия этого знака. Знак 4.1.1 действует на перекресток, перед которым установлено пересечение участков дорог."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_35_q_17",
+            "global_id2": "t_35_q_17",
+            "ticket_num": 35,
+            "order": 32,
+            "remapped_from": "t_9_q_2"
+        },
+        "media_url": "u404uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi yo'nalishda harakatlanish taqiqlanadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "O'ngga, chapga va orqaga qayrilib olishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Chapga va orqaga qayrilib olishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat to'riga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси йўналишда ҳаракатланиш тақиқланади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ўнга, чапга ва оркага қайрилиб олишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Чапга ва оркага қайрилиб олишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат тўрига",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком направлении движение запрещено?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Направо, налево и в обратном направлении",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Налево и в обратном направлении",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только прямо",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 4.1.6.“Harakatlanish o‘ngga yoki chapga”.\r\nFaqat belgilarada ko‘rsatilgan ko‘rsatkichlar yo‘nalishlarida harakatlanishga ruxsat etiladi.\r\nChapga burilishga ruxsat beruvchi belgilar qayrilib olishga ham ruxsat beradi. (Muayyan kesishmada talab etilgan harakatlanish yo‘nalishiga tegishli ko‘rsatkichlarning shakli tushirilgan 4.1.1 - 4.1.6 belgilarini qo‘llash mumkin).\r\n4.1.1 - 4.1.6 belgilarining ta’siri yo’nalishli transport vositalariga joriy qilinmaydi.\r\n4.1.1 - 4.1.6 yo‘l belgiları qatnov qismlarining qaysi kesishmasidan oldin o‘rnatilsa, belgining ta’siri shu kesishmaga joriy qilinadi.\r\nYo‘ning qismi boshlanishida o‘rnatilgan 4.1.1 belgisi ta’siri yangi chorrahalarda joriy qilinadi.\r\nBelgi o‘ng tomonida joylashgan hovillarga va chap tomondan boshqa hududlarga burilishni taqiqlamaydi.",
+            "uz_cyr": "YHQ 1 илова: 4.1.6.“Ҳаракатланиш ўнгга ёки чапга”.\r\nФақат белгиларада кўрсатилган кўрсаткичлар йўналишларида ҳаракатланишга рухсат этилади.\r\nЧапга бурилишга рухсат берувчи белгилар қайрилиб олишга ҳам рухсат беради. (Муайян кесишмада талаб этилган ҳаракатланиш йўналишига тегишли кўрсаткичларнинг шакли туширилган 4.1.1 - 4.1.6 белгиларини қўллаш мумкин).\r\n4.1.1 - 4.1.6 белгиларининг таъсири йўналишли транспорт воситаларига жорий қилинмайди.\r\n4.1.1 - 4.1.6 йўл белгиларı қатнов қисмларининг қайси кесишмасидан олдин ўрнатилса, белгининг таъсири шу кесишмага жорий қилинади.\r\nЙўнинг қисми бошланишида ўрнатилган 4.1.1 белгиси таъсири янги чорраҳаларда жорий қилинади.\r\nБелги ўнг томонида жойлашган ҳовилларга ва чап томондан бошқа ҳудудларга бурилишни тақиқламайди.",
+            "ru": "Приложение к ПДД 1: 4.1.6. «Движение вправо или влево». \r\nРазрешено двигаться только в направлениях, указанных на знаках. \r\nЗнаки, разрешающие поворот налево, также разрешают разворот. (На определенном перекрестке могут использоваться знаки 4.1.1 – 4.1.6 в виде указателей, относящиеся к необходимому направлению движения). \r\nДействие знаков 4.1.1 – 4.1.6 не распространяется на направленные транспортные средства. \r\nЕсли дорожные знаки 4.1.1 – 4.1.6 установлены перед любым пересечением участков движения, действие знака будет введено на этом перекрестке. \r\nНа новых перекрестках введен эффект знака 4.1.1, установленного в начале участка дороги. \r\nЗнак не запрещает поворот во дворы справа и на другие территории слева."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_36_q_3",
+            "global_id2": "t_36_q_3",
+            "ticket_num": 36,
+            "order": 33,
+            "remapped_from": "t_42_q_18"
+        },
+        "media_url": "u407uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Harakatlanish qaysi yo'nalishga ruxsat etilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Harakatlanish taqiqlanadi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Barcha yo'nalishda ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat to'g'riga va o'ngga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat to'g'riga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳаракатланиш қайси йўналишга рухсат этилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳаракатланиш тақиқланади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Барча йўналишда рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат тўғрига ва ўнгга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат тўғрига",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком направлении разрешено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешено во все направления",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Движение запрещено",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только прямо и направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только прямо",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 36-bandi: Tramvaylarning hamda maxsus ajratilgan tasma bo‘ylab harakatlanayotgan boshqa yo‘nalishli transport vositalarining harakatlanishini tartibga solish uchun “T” harfi ko‘rinishida joylashgan to‘rtta doirasimon oq rang ishorali svetoforlar qo‘llanilishi mumkin. Yuqoridagi bir yoki bir nechta va pastki ishora bir vaqtning o‘zida yonganda, harakatlanishga ruxsat etiladi. Ulardan chapdagisi chapga, o‘ngdagisi o‘ngga, o‘rtadagisi to‘g‘riga yurishga ruxsat beradi. Pastdagi ishora o‘chirilib, yuqoridagi uchta ishora bir vaqtda yonsa, harakatlanish taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 36-банди: Трамвайларнинг ҳамда махсус ажратилган тасма бўйлаб ҳаракатланаётган бошқа йўналишли транспорт воситаларининг ҳаракатланишини тартибга солиш учун “Т” ҳарфи кўринишида жойлашган тўртта доирасимон оқ ранг ишорали светофорлар қўлланилиши мумкин. Юқоридаги бир ёки бир нечта ва пастки ишора бир вақтнинг ўзида ёнганда, ҳаракатланишга рухсат этилади. Улардан чапдагиси чапга, ўнгдагиси ўнгга, ўртадагиси тўғрига юришга рухсат беради. Пастдаги ишора ўчирилиб, юқоридаги учта ишора бир вақтда ёнса, ҳаракатланиш тақиқланади.",
+            "ru": "Пункт 36 главы 7 ПДД: Для регулирования движения трамваев и других направленных транспортных средств, движущихся по специально отведенной полосе, могут использоваться светофоры с четырьмя круговыми сигналами белого цвета в виде буквы «Т». Движение разрешено, если одновременно горит один или несколько верхних и нижних сигналов. Тот, что слева, позволяет идти налево, тот, что справа, направо, а тот, что посередине, направо. Если нижний сигнал выключен и одновременно включены три верхних сигнала, движение запрещено."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_38_q_19",
+            "global_id2": "t_38_q_19",
+            "ticket_num": 38,
+            "order": 34,
+            "remapped_from": "t_57_q_16"
+        },
+        "media_url": "u440uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi yo'nalish bo'yicha harakatlanishga ruxsat berilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Har ikki yo'nalishda taqiqlanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat \"A\"",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat \"B\"",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Har ikki yo'nalishda mumkin",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси йўналиш бўйича ҳаракатланишга рухсат берилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳар икки йўналишда тақиқланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат «A»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат «B»",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ҳар икки йўналишда мумкин",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "По какому направлению разрешено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Запрещено в обоих направлениях",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только «A»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только «B»",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Возможно в обоих направлениях",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 4.1.1 bandi va 4.Buyuruvchi belgilarning 10-xatboshiga asosan: 4.1.1. «Harakatlanish to‘g‘riga». 4.1.1 — 4.1.6 yo‘l belgilari qatnov qismlarining qaysi kesishmasidan oldin o‘rnatilsa, belgining ta’siri shu kesishmaga joriy qilinadi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 4.1.1 банди ва 4.Буюрувчи белгиларнинг 10-хатбошига асосан: 4.1.1. «Ҳаракатланиш тўғрига». 4.1.1 — 4.1.6 йўл белгилари қатнов қисмларининг қайси кесишмасидан олдин ўрнатилса, белгининг таъсири шу кесишмага жорий қилинади.",
+            "ru": "Согласно пункту 4.1.1 приложения 1 к ПДД и десятому абзацу раздела 4 «Предписывающие знаки»: 4.1.1 «Движение прямо». Дорожные знаки 4.1.1–4.1.6, установленные перед пересечением проезжих частей, действуют на данное пересечение."
         }
     }
 ]

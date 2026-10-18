@@ -1,11 +1,13 @@
 [
     {
         "task_info": {
-            "global_id": "t_1_q_7",
-            "ticket_num": 1,
-            "order": 1
+            "global_id": "t_41_q_19",
+            "global_id2": "t_41_q_19",
+            "ticket_num": 41,
+            "order": 1,
+            "remapped_from": "t_1_q_7"
         },
-        "media_url": "v11uz.webp",
+        "media_url": "u475uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Shu joyda to'xtab turishga ruxsat etiladimi?",
@@ -32,7 +34,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Таъқиқланади",
+                        "text": "Тақиқланади",
                         "is_correct": false
                     }
                 ]
@@ -52,23 +54,30 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 91-bandiga asosan, quyidagi joylarda to'xtash va to'xtab turish taqiqlanadi: qatnov qismi kesishmalarida va kesishayotgan qatnov qismi chetiga 30 metrdan kam masofada (uch tomonlama kesishadigan chorrahalarda yondan tutashgan yo'lning sidirg'a chiziq yoki ajratuvchi mintaqa bilan ajratilgan qarama-qarshi tomoni bundan mustasno).",
+            "uz_cyr": "YHQ 13-боби 91-бандига асосан, қуйидаги жойларда тўхташ ва тўхтаб туриш тақиқланади: қатнов қисми кесишмаларида ва кесишаётган қатнов қисми четига 30 метрдан кам масофада (уч томонлама кесишадиган чорраҳаларда ёндан туташган йўлнинг сидирға чизиқ ёки ажратувчи минтақа билан ажратилган қарама-қарши томони бундан мустасно).",
+            "ru": "Согласно статье 91 главы 13 ПДД запрещается стоянка и парковка в следующих местах: на перекрестках проезжих частей и на расстоянии менее 30 метров от края пересекающейся проезжей части (кроме противоположной стороны соседней дороги, отделенной срединной линией или разделительной зоной на трехсторонних перекрестках)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_2_q_8",
-            "ticket_num": 2,
-            "order": 2
+            "global_id": "t_55_q_12",
+            "global_id2": "t_55_q_12",
+            "ticket_num": 55,
+            "order": 2,
+            "remapped_from": "t_2_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositalarini qatnov qismning chetida ikki qator qo'yish mumkin?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Kajavasiz motosikllar, mopedlar va velosipedlar",
-                        "is_correct": true
+                        "text": "Ruxsat etilgan to'la vazni 3,5 t. dan kam bo'lgan, bevosita trotuarlar bo'ylab joylashgan savdo va boshqa korxonalarga xizmat qiluvchi yuk avtomobillari",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -77,12 +86,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "«Ногирон» taniqli belgisi bo'lgan engil avtomobillar",
-                        "is_correct": false
+                        "text": "Kajavasiz motosikllar, mopedlar va velosipedlar",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Ruxsat etilgan to'la vazni 3,5 t. dan kam bo'lgan, bevosita trotuarlar bo'ylab joylashgan savdo va boshqa korxonalarga xizmat qiluvchi yuk avtomobillari",
+                        "text": "«Nogiron» taniqlik belgisi bo'lgan yengil avtomobillar",
                         "is_correct": false
                     }
                 ]
@@ -92,8 +101,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кажавасиз мотоцикллар, мопедлар ва велосипедлар",
-                        "is_correct": true
+                        "text": "Рухсат этилган тўла вазни 3,5 т. дан кам бўлган, бевосита тротуарлар бўйлаб жойлашган савдо ва бошқа корхоналарга хизмат қилувчи юк автомобиллари",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -102,12 +111,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "«Ногирон» таниқли белгиси бўлган енгил автомобиллар",
-                        "is_correct": false
+                        "text": "Кажавасиз мотоцикллар, мопедлар ва велосипедлар",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Рухсат этилган тўла вазни 3,5 т. дан кам бўлган, бевосита тротуарлар бўйлаб жойлашган савдо ва бошқа корхоналарга хизмат қилувчи юк автомобиллари",
+                        "text": "«Ногирон» таниқли белгиси бўлган енгил автомобиллар",
                         "is_correct": false
                     }
                 ]
@@ -117,8 +126,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мотоциклы без бокового прицепа, мопеды и велосипеды",
-                        "is_correct": true
+                        "text": "Грузовые автомобили, обслуживающие торговые и другие предприятия, которые непосредственно расположены вдоль тротуаров, разрешенная максимальная масса которых не превышает 3,5 т.",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -127,25 +136,32 @@
                     },
                     {
                         "id": 3,
-                        "text": "Автомобили обозначенные знаком «Инвалид»",
-                        "is_correct": false
+                        "text": "Мотоциклы без бокового прицепа, мопеды и велосипеды",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Грузовые автомобили, обслуживающие торговые и другие предприятия, которые непосредственно расположены вдоль тротуаров, разрешенная максимальная масса которых не превышает 3,5 т.",
+                        "text": "Автомобили обозначенные знаком «Инвалид»",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 8-bobi 89-bandi asosan, transport vositalarini yo'lning qatnov qismida bir qator qilib, qatnov qismi chetiga yo'l harakatining boshqa qatnashchilariga xalaqit bermaslik sharti bilan faqat parallel ravishda, kajavasi bo'lmagan ikki g'ildirakli transport vositalarini ikki qator qilib qo'yishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 8-боби 89-банди асосан, транспорт воситаларини йўлнинг қатнов қисмида бир қатор қилиб, қатнов қисми четига йўл ҳаракатининг бошқа қатнашчиларига халақит бермаслик шарти билан фақат параллел равишда, кажаваси бўлмаган икки ғилдиракли транспорт воситаларини икки қатор қилиб қўйишга рухсат этилади.",
+            "ru": "Согласно статье 89 главы 8 ПДД разрешается размещать на проезжей части транспортных средств в один ряд, а двухколесные транспортные средства без коляски - в два ряда только параллельно при условии, что они не мешают другим участникам дорожного движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_2_q_12",
-            "ticket_num": 2,
-            "order": 3
+            "global_id": "t_9_q_13",
+            "global_id2": "t_9_q_13",
+            "ticket_num": 9,
+            "order": 3,
+            "remapped_from": "t_2_q_12"
         },
-        "media_url": "v128uz.webp",
+        "media_url": "u96uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositalariga to'xtab turishga ruxsat etilgan?",
@@ -162,13 +178,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Faqat engil avtomobilga",
-                        "is_correct": false
+                        "text": "Yengil avtomobil va motosiklga",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Engil avtomobil va motosiklga",
-                        "is_correct": true
+                        "text": "Faqat Yengil avtomobilga",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
@@ -192,13 +208,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Фақат енгил автомобилга",
-                        "is_correct": false
+                        "text": "Енгил автомобил ва мотоциклга",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Енгил автомобил ва мотоциклга",
-                        "is_correct": true
+                        "text": "Фақат енгил автомобилга",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
@@ -217,18 +233,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Только грузовому автомобилю",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Только легковому автомобилю",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Легковому автомобилю и мотоциклу",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только грузовому автомобилю",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
@@ -237,22 +253,29 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasidagi 7.4.1 \"Transport vositasining turi\" qo'shimcha axborot belgisi, 3.28. \"To'xtab turish taqiqlangan\" belgisining ta'siri yuk tashuvchi, shu jumladan, tirkamali, to'la vazni 3,5 tonnadan ortiq bo'lgan transport vositalariga tatbiq etilishini bildiradi.",
+            "uz_cyr": "YHQ 1-иловасидаги 7.4.1 \"Транспорт воситасининг тури\" қўшимча ахборот белгиси, 3.28. \"Тўхтаб туриш тақиқланган\" белгисининг таъсири юк ташувчи, шу жумладан, тиркамали, тўла вазни 3,5 тоннадан ортиқ бўлган транспорт воситаларига татбиқ этилишини билдиради.",
+            "ru": "Дополнительный информационный знак 7.4.1 «Тип транспортного средства» в приложении 1 ХК, 3.28. Действие знака «Стоянка запрещена» означает, что он распространяется на транспортные средства, перевозящие грузы, в том числе прицепы, полной массой более 3,5 тонн."
         }
     },
     {
         "task_info": {
-            "global_id": "t_2_q_18",
+            "global_id": "t_2_q_20",
+            "global_id2": "t_2_q_20",
             "ticket_num": 2,
-            "order": 4
+            "order": 4,
+            "remapped_from": "t_2_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi joylarda transport vositalariga qatnov qismining chetiga burchak ostida to'xtab turishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Har bir yo'nalishda ikkitadan bo'lagi bo'lgan yo'llarda",
+                        "text": "Faqat bir tomonlama harakatli yo'llarda",
                         "is_correct": false
                     },
                     {
@@ -262,13 +285,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Faqat bir tomonlama harakatli yo'llarda",
-                        "is_correct": false
+                        "text": "Yo'lning qatnov qismi kengaygan joylarda boshqa yo'l harakati qatnashchilariga xalaqit bermaslik sharti bilan",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Yo'lning qatnov qismi kengaygan joylarda boshqa yo'l harakati qatnashchilariga halaqit bermaslik sharti bilan",
-                        "is_correct": true
+                        "text": "Har bir yo'nalishda ikkitadan bo'lagi bo'lgan yo'llarda",
+                        "is_correct": false
                     }
                 ]
             },
@@ -277,7 +300,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳар бир йўналишда иккитадан бўлаги бўлган йўлларда",
+                        "text": "Фақат бир томонлама ҳаракатли йўлларда",
                         "is_correct": false
                     },
                     {
@@ -287,13 +310,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Фақат бир томонлама ҳаракатли йўлларда",
-                        "is_correct": false
+                        "text": "Йўлнинг қатнов қисми кенгайган жойларда бошқа йўл ҳаракати қатнашчиларига халақит бермаслик шарти билан",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Йўлнинг қатнов қисми кенгайган жойларда бошқа йўл ҳаракати қатнашчиларига ҳалақит бермаслик шарти билан",
-                        "is_correct": true
+                        "text": "Ҳар бир йўналишда иккитадан бўлаги бўлган йўлларда",
+                        "is_correct": false
                     }
                 ]
             },
@@ -302,63 +325,70 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "На дорогах с двумя полосами движения в каждом направлении",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "На дорогах с тремя и более полосами движения в каждом направлении",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Только на дорогах с односторонним движением",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "На расширенных участках проезжей части; с условием; что не будет создана помеха другим участникам движения",
+                        "id": 2,
+                        "text": "На дорогах с двумя полосами движения в каждом направлении",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "На расширенных участках проезжей части, с условием, что не будет создана помеха другим участникам движения",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "На дорогах с тремя и более полосами движения в каждом направлении",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 89-bandiga asosan, qatnov qismining ayrim kengaytirilib qatnov qismidan ajratilgan joylarida yo'l harakatining boshqa qatnashchilariga xalaqit bermaslik sharti bilan boshqacha tartibda qo'yishga ham ruxsat etiladi.",
+            "uz_cyr": "YHQ 13-боби 89-бандига асосан, қатнов қисмининг айрим кенгайтирилиб қатнов қисмидан ажратилган жойларида йўл ҳаракатининг бошқа қатнашчиларига халақит бермаслик шарти билан бошқача тартибда қўйишга ҳам рухсат этилади.",
+            "ru": "Согласно статье 89 главы 13 ПДД допускается также размещение в ином порядке на некоторых протяженных участках участка дороги, отделенных от участка дороги, при условии, что они не мешают другим участникам дорожного движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_5_q_8",
-            "ticket_num": 5,
-            "order": 5
+            "global_id": "t_30_q_10",
+            "global_id2": "t_30_q_10",
+            "ticket_num": 30,
+            "order": 5,
+            "remapped_from": "t_5_q_7"
         },
-        "media_url": "v492uz.webp",
+        "media_url": "u343uz.webp",
         "content": {
             "uz_lat": {
                 "text": "To'xtagan transport vositasi bilan yotiq sidirg'a chiziq orasidagi masofa qancha bo'lganida to'xtash taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "6 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "5,5 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "4 m",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "6 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "2,5 m",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "3,5 m",
+                        "text": "5,5 m",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "2,5 m",
-                        "is_correct": true
+                        "text": "3,5 m",
+                        "is_correct": false
                     }
                 ]
             },
@@ -367,28 +397,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "6 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "5,5 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "4 м",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "6 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "2,5 м",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "3,5 м",
+                        "text": "5,5 м",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "2,5 м",
-                        "is_correct": true
+                        "text": "3,5 м",
+                        "is_correct": false
                     }
                 ]
             },
@@ -397,43 +427,50 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "6 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "5,5 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "4 м",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "6 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "2,5 м",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "3,5 м",
+                        "text": "5,5 м",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "2,5 м",
-                        "is_correct": true
+                        "text": "3,5 м",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "\"YHQning 13-bob. 91-band 8-xatboshiga asosan: 91. Quyidagilarda to‘xtash taqiqlanadi:\r\nto‘xtagan transport vositasi bilan bo‘ylama sidirg‘a chiziq (qatnov qismining chetini belgilovchi chiziqdan tashqari), ajratuvchi mintaqa yoki qatnov qismining qarama-qarshi cheti orasidagi masofa 3 metrdan kam bo‘lgan joylarda.\"",
+            "uz_cyr": "\"YHQнинг 13-боб. 91-банд 8-хатбошига асосан: 91. Қуйидагиларда тўхташ тақиқланади:\r\nтўхтаган транспорт воситаси билан бўйлама сидирға чизиқ (қатнов қисмининг четини белгиловчи чизиқдан ташқари), ажратувчи минтақа ёки қатнов қисмининг қарама-қарши чети орасидаги масофа 3 метрдан кам бўлган жойларда.\"",
+            "ru": "«Согласно главе 13. Статья 91, пункт 8: 91. Остановка запрещается в следующих случаях:\r\nв местах, где расстояние между остановленным транспортным средством и продольной диагональной линией (кроме линии, обозначающей край проезжей части), разделительной зоной или противоположным краем проезжей части составляет менее 3 метров»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_6",
-            "ticket_num": 6,
-            "order": 6
+            "global_id": "t_27_q_19",
+            "global_id2": "t_27_q_19",
+            "ticket_num": 27,
+            "order": 6,
+            "remapped_from": "t_6_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Etarli ko'rinmaslik sharoitida yo'lning yoritilmagan qismida to'xtagan yoki to'xtab turgan mexanik transport vositasining haydovchisi bajarishi kerak",
+                "text": "yetarli ko'rinmaslik sharoitida yo'lning yoritilmagan qismida to'xtagan yoki to'xtab turgan mexanik transport vositasining haydovchisi bajarishi kerak",
                 "options": [
                     {
                         "id": 1,
@@ -442,13 +479,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faralarning uzoqni yoritish chiroqlarini yoqishi",
-                        "is_correct": false
+                        "text": "Gabarit chiroqlarini yoqishi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Gabarit chiroqlarini yoqishi",
-                        "is_correct": true
+                        "text": "Faralarning uzoqni yoritish chiroqlarini yoqishi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -462,13 +499,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фараларнинг узоқни ёритиш чироқларини ёқиши",
-                        "is_correct": false
+                        "text": "Габарит чироқларини ёқиши",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Габарит чироқларини ёқиши",
-                        "is_correct": true
+                        "text": "Фараларнинг узоқни ёритиш чироқларини ёқиши",
+                        "is_correct": false
                     }
                 ]
             },
@@ -482,25 +519,32 @@
                     },
                     {
                         "id": 2,
-                        "text": "Включить дальний свет фар",
-                        "is_correct": false
+                        "text": "Включить габаритные огни",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Включить габаритные огни",
-                        "is_correct": true
+                        "text": "Включить дальний свет фар",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 23-bobi 136-bandiga asosan: Qorong‘i vaqtda yo‘lning yoritilmagan qismida, shuningdek yetarlicha ko‘rinmaydigan sharoitda to‘xtagan yoki to‘xtab turgan transport vositasida gabarit chiroqlari yoqilgan bo‘lishi kerak.\r\nEtarlicha ko‘rinmaydigan sharoitda gabarit chiroqlariga qo‘shimcha ravishda yaqinni yorituvchi fara chiroqlari, tumanga qarshi fara chiroqlari va tumanga qarshi orqa fara chiroqlari yoqilishi mumkin.",
+            "uz_cyr": "YHQ 23-боби 136-бандига асосан: Қоронғи вақтда йўлнинг ёритилмаган қисмида, шунингдек етарлича кўринмайдиган шароитда тўхтаган ёки тўхтаб турган транспорт воситасида габарит чироқлари ёқилган бўлиши керак.\r\nЭтарлича кўринмайдиган шароитда габарит чироқларига қўшимча равишда яқинни ёритувчи фара чироқлари, туманга қарши фара чироқлари ва туманга қарши орқа фара чироқлари ёқилиши мумкин.",
+            "ru": "Согласно главе 23, статье 136 ПДД: В темное время суток, на неосвещенном участке дороги, а также в условиях недостаточной видимости габаритные огни должны быть включены на остановленном или припаркованном транспортном средстве. \r\nВ условиях плохой видимости помимо габаритных огней могут быть включены фары ближнего света, противотуманные фары и задние противотуманные фонари."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_11",
-            "ticket_num": 6,
-            "order": 7
+            "global_id": "t_49_q_1",
+            "global_id2": "t_49_q_1",
+            "ticket_num": 49,
+            "order": 7,
+            "remapped_from": "t_6_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi hollarda bir yo'nalishda harakatlanish uchun uchtadan kam bo'lagi bo'lgan yo'lda to'xtash va to'xtab turish taqiqlanadi?",
@@ -543,16 +587,16 @@
                 ]
             },
             "ru": {
-                "text": "В каких случаях запрещена стоянка на дорогах; имеющих менее трех полос движения в одну сторону?",
+                "text": "В каких случаях запрещена стоянка на дорогах, имеющих менее трех полос движения в одну сторону?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "На мостах, эстакадах и на путепроводах",
+                        "text": "На мостах, эстакадах и путепроводах",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Под мостами, эстакадами и подвесными дорогами",
+                        "text": "Под мостами, эстакадами и путепроводами",
                         "is_correct": false
                     },
                     {
@@ -562,28 +606,35 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 91-bandiga asosan, bir yo'nalishda harakatlanish uchun uchtadan kam tasmaga ega bo'lgan ko'prik, yo'l o'tkazgich va estakadalarning ustida, ko'prik, yo'l o'tkazgich va estkadalarning ostida (tegishli yo'l belgilari bilan to'xtab turish ruxsat berilgan yo'l qismlari bundan mustasno) to'xtash va to'xtab turish taqiqlanadi.",
+            "uz_cyr": "YHQ 13-боби 91-бандига асосан, бир йўналишда ҳаракатланиш учун учтадан кам тасмага эга бўлган кўприк, йўл ўтказгич ва эстакадаларнинг устида, кўприк, йўл ўтказгич ва эсткадаларнинг остида (тегишли йўл белгилари билан тўхтаб туриш рухсат берилган йўл қисмлари бундан мустасно) тўхташ ва тўхтаб туриш тақиқланади.",
+            "ru": "Согласно статье 91 главы 13 ПДД запрещается останавливаться и парковаться на мостах, эстакадах и путепроводах, под мостами, эстакадами и эстакадами с числом полос движения менее трех в одном направлении (за исключением участков дорог, на которых парковка разрешена с соответствующими дорожными знаками)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_17",
-            "ticket_num": 6,
-            "order": 8
+            "global_id": "t_29_q_17",
+            "global_id2": "t_29_q_17",
+            "ticket_num": 29,
+            "order": 8,
+            "remapped_from": "t_6_q_16"
         },
-        "media_url": "v637uz.webp",
+        "media_url": "u333uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ko'rsatilgan holda engil avtomobilga to'xtab turishga ruxsat etiladimi?",
+                "text": "Ko'rsatilgan holda yengil avtomobilga to'xtab turishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
+                        "text": "Ruxsat etiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -592,40 +643,47 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": true
+                        "text": "Рухсат этилади",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Разрешается ли стоянка легковому автомобилю в показанной ситуации?",
+                "text": "В чем должен убедиться водитель прежде чем начать обгон?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": true
+                        "text": "Разрешается",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 91-bandi 14-xatboshiga asosan, to'xtash taqiqlanadi: transport vositasi svetofor ishoralari, yo'l belgilarini boshqa haydovchilardan to'sib qo'yadigan, boshqa transport vositalarining harakatlanishiga (kirish va chiqishiga) imkon qoldirmaydigan yoki piyodalarning harakatiga xalaqit beradigan joylarda.",
+            "uz_cyr": "YHQ 13-боби 91-банди 14-хатбошига асосан, тўхташ тақиқланади: транспорт воситаси светофор ишоралари, йўл белгиларини бошқа ҳайдовчилардан тўсиб қўядиган, бошқа транспорт воситаларининг ҳаракатланишига (кириш ва чиқишига) имкон қолдирмайдиган ёки пиёдаларнинг ҳаракатига халақит берадиган жойларда.",
+            "ru": "Согласно главе 13, пункту 91, пункту 14 ПДД парковка запрещается: в местах, где транспортное средство загораживает светофор, дорожные знаки от других водителей, препятствует движению (въезду и выезду) других транспортных средств или препятствует движению пешеходов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_7_q_2",
-            "ticket_num": 7,
-            "order": 9
+            "global_id": "t_32_q_17",
+            "global_id2": "t_32_q_17",
+            "ticket_num": 32,
+            "order": 9,
+            "remapped_from": "t_7_q_2"
         },
-        "media_url": "v676uz.webp",
+        "media_url": "u370uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Yo'l yoqasida qaysi transport vositalarining haydovchilari qoidani buzib to'xtadilar?",
@@ -637,8 +695,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat «Б»",
-                        "is_correct": false
+                        "text": "«А» va «Б»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -647,13 +705,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "«Б» va «В»",
+                        "text": "Faqat «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "«А» va «Б»",
-                        "is_correct": true
+                        "text": "«Б» va «В»",
+                        "is_correct": false
                     }
                 ]
             },
@@ -667,8 +725,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат «Б»",
-                        "is_correct": false
+                        "text": "«А» ва «Б»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -677,13 +735,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "«Б» ва «В»",
+                        "text": "Фақат «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "«А» ва «Б»",
-                        "is_correct": true
+                        "text": "«Б» ва «В»",
+                        "is_correct": false
                     }
                 ]
             },
@@ -697,8 +755,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Только «Б»",
-                        "is_correct": false
+                        "text": "«А» и «Б»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -707,43 +765,50 @@
                     },
                     {
                         "id": 4,
-                        "text": "«Б» и «В»",
+                        "text": "Только «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "«А» и «Б»",
-                        "is_correct": true
+                        "text": "«Б» и «В»",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 88-bandining birinchi va uchinchi xatboshilariga asosan: Transport vositalariga yo‘lning o‘ng tomoni yoqasida, u bo‘lmaganda esa qatnov qismining chetida va ushbu Qoidalarning 89-bandida ko‘rsatilgan hollarda trotuarda to‘xtash va to‘xtab turishga ruxsat etiladi. Ruxsat etilgan to‘la vazni 3,5 tonnadan ko‘p bo‘lgan yuk avtomobillari bir tomonlama harakatli yo‘llarning chap tomonida faqat yuk ortish va tushirish uchun to‘xtashlari mumkin.\r\nYHQ 13-bobi 89-bandining birinchi xatboshisiga asosan: Transport vositalarini yo‘lning qatnov qismida bir qator qilib, qatnov qismi chetiga parallel ravishda kajavasi bo‘lmagan ikki g‘ildirakli transport vositalarini ikki qator qilib qo‘yishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 13-боби 88-бандининг биринчи ва учинчи хатбошиларига асосан: Транспорт воситаларига йўлнинг ўнг томони ёқасида, у бўлмаганда эса қатнов қисмининг четида ва ушбу Қоидаларнинг 89-бандида кўрсатилган ҳолларда тротуарда тўхташ ва тўхтаб туришга рухсат этилади. Рухсат этилган тўла вазни 3,5 тоннадан кўп бўлган юк автомобиллари бир томонлама ҳаракатли йўлларнинг чап томонида фақат юк ортиш ва тушириш учун тўхташлари мумкин.\r\nYHQ 13-боби 89-бандининг биринчи хатбошисига асосан: Транспорт воситаларини йўлнинг қатнов қисмида бир қатор қилиб, қатнов қисми четига параллел равишда кажаваси бўлмаган икки ғилдиракли транспорт воситаларини икки қатор қилиб қўйишга рухсат этилади.",
+            "ru": "Согласно абзацам первому и третьему пункта 88 главы 13 ПДД: Транспортные средства разрешается останавливаться и парковаться на тротуаре с правой стороны дороги, а при его отсутствии - на краю проезжей части и в случаях, предусмотренных пунктом 89 настоящих Правил. Грузовые автомобили с максимальной полной массой более 3,5 тонн могут останавливаться по левой стороне дороги с односторонним движением только для погрузки и разгрузки. \r\nСогласно абзацу первому статьи 89 главы 13 ПДД: Допускается размещение транспортных средств в один ряд на проезжей части, параллельно краю проезжей части, в два ряда двухколёсных транспортных средств без бокового прицепаных арок."
         }
     },
     {
         "task_info": {
-            "global_id": "t_8_q_8",
-            "ticket_num": 8,
-            "order": 10
+            "global_id": "t_24_q_4",
+            "global_id2": "t_24_q_4",
+            "ticket_num": 24,
+            "order": 10,
+            "remapped_from": "t_8_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Haydovchi o'z joyidan ketishi yoki transport vositasini qoldirishi mumkin, agar:",
                 "options": [
                     {
                         "id": 1,
+                        "text": "U transport vositasining o'z-o'zidan harakatlanishi yoki undan haydovchi yo'q vaqtda foydalanishga yo'l qo'ymaydigan zaruriy choralarni ko'rgan bo'lsa",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "U yurgizgichni o'chirgan va avtomobilning to'xtab turish tormoz tizimini ulagan bo'lsa",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "U yurgizgichni o'chirgan va orqaga siljib ketishga qarshi xavfsizlik buferini o'rnatgan bo'lsa",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "U transport vositasining o'z-o'zidan harakatlanishi yoki undan haydovchi yo'q vaqtda foydalanishga yo'l qo'ymaydigan zaruriy choralarni ko'rgan bo'lsa",
-                        "is_correct": true
                     }
                 ]
             },
@@ -752,18 +817,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "У транспорт воситасининг ўз-ўзидан ҳаракатланиши ёки ундан ҳайдовчи йўқ вақтда фойдаланишга йўл қўймайдиган зарурий чораларни кўрган бўлса",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "У юргизгични ўчирган ва автомобилнинг тўхтаб туриш тормоз тизимини улаган бўлса",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "У юргизгични ўчирган ва орқага силжиб кетишга қарши хавфсизлик буферини ўрнатган бўлса",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "У транспорт воситасининг ўз-ўзидан ҳаракатланиши ёки ундан ҳайдовчи йўқ вақтда фойдаланишга йўл қўймайдиган зарурий чораларни кўрган бўлса",
-                        "is_correct": true
                     }
                 ]
             },
@@ -772,8 +837,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Он выключил двигатель и включил стояночную тормозную систему",
-                        "is_correct": false
+                        "text": "Им приняты необходимые меры, исключающие самопроизвольное движение транспортного средства или использование его в отсутствие водителя",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -782,33 +847,40 @@
                     },
                     {
                         "id": 3,
-                        "text": "Им приняты необходимые меры; исключающие самопроизвольное движение транспортного средства или использование его в отсутствие водителя",
-                        "is_correct": true
+                        "text": "Он выключил двигатель и включил стояночную тормозную систему",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13 – bobi 95 – bandiga asosan: Transport vositasining o‘z – o‘zidan harakatlanib ketishini yoki o‘zi yo‘qligida undan foydalanishni istisno qiladigan zarur ehtiyot choralarini ko‘rgandan keyingina haydovchi o‘z joyini tashlab ketishi yoki transport vositasini qoldirishi mumkin.",
+            "uz_cyr": "YHQ 13 – боби 95 – бандига асосан: Транспорт воситасининг ўз – ўзидан ҳаракатланиб кетишини ёки ўзи йўқлигида ундан фойдаланишни истисно қиладиган зарур эҳтиёт чораларини кўргандан кейингина ҳайдовчи ўз жойини ташлаб кетиши ёки транспорт воситасини қолдириши мумкин.",
+            "ru": "Согласно статье 95 главы 13 ПДД: Водитель может покинуть свое место или покинуть транспортное средство только после принятия необходимых мер предосторожности для предотвращения самостоятельного движения транспортного средства или его использования в его отсутствие."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_12",
-            "ticket_num": 9,
-            "order": 11
+            "global_id": "t_54_q_13",
+            "global_id2": "t_54_q_13",
+            "ticket_num": 54,
+            "order": 11,
+            "remapped_from": "t_9_q_12"
         },
-        "media_url": "v692uz.webp",
+        "media_url": "u626uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Shu joyda to'xtab turishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
+                        "text": "Ruxsat etiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -817,13 +889,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": true
+                        "text": "Рухсат этилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -832,38 +904,45 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Действует",
-                        "is_correct": false
+                        "text": "Не действует",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Не действует",
-                        "is_correct": true
+                        "text": "Действует",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 – ilovasi 3 – bo‘limining qirq uchinchi xatboshisiga asosan: 3.16, 3.20, 3.22, 3.24, 3.26 – 3.30 belgilarining ta‘siri belgi o‘rnatilgan joydan keyingi eng yaqin chorrahagacha, ular bo‘lmaganda – aholi punktining oxirigacha ta‘siri qiladi. Yondosh  hududlardan yo‘lga chiqish joylarida yoki yo‘lning dala, o‘rmon yo‘llari va boshqa doimiy harakatlanish, o‘ti ketish uchun mo‘ljallanmagan yo‘llar bilan kesishgan (tutashgan) joylarida, ularning oldida tegishli belgilar o‘rnatilmagan bo‘lsa, bu belgilarning ta‘siri yo‘qolmaydi.",
+            "uz_cyr": "YHQ 1 – иловаси 3 – бўлимининг қирқ учинчи хатбошисига асосан: 3.16, 3.20, 3.22, 3.24, 3.26 – 3.30 белгиларининг таъсири белги ўрнатилган жойдан кейинги энг яқин чорраҳагача, улар бўлмаганда – аҳоли пунктининг охиригача таъсири қилади. Ёндош  ҳудудлардан йўлга чиқиш жойларида ёки йўлнинг дала, ўрмон йўллари ва бошқа доимий ҳаракатланиш, ўти кетиш учун мўлжалланмаган йўллар билан кесишган (туташган) жойларида, уларнинг олдида тегишли белгилар ўрнатилмаган бўлса, бу белгиларнинг таъсири йўқолмайди.",
+            "ru": "Согласно сорок третьему абзацу раздела 3 приложения 1 ПДД: действие знаков 3.16, 3.20, 3.22, 3.24, 3.26–3.30 распространяется от места установки знака до ближайшего перекрестка, а при его отсутствии — до конца населенного пункта. Действие этих знаков не прекращается в местах выезда на дорогу с прилегающих территорий либо в местах пересечения с полевыми, лесными и иными дорогами, не предназначенными для постоянного движения, если перед ними не установлены соответствующие знаки."
         }
     },
     {
         "task_info": {
-            "global_id": "t_11_q_7",
-            "ticket_num": 11,
-            "order": 12
+            "global_id": "t_7_q_1",
+            "global_id2": "t_7_q_1",
+            "ticket_num": 7,
+            "order": 12,
+            "remapped_from": "t_11_q_6"
         },
-        "media_url": "v32uz.webp",
+        "media_url": "u62uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu joyda to'xtash mumkinmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Mumkin",
-                        "is_correct": false
+                        "text": "Taqiqlangan",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlangan",
-                        "is_correct": true
+                        "text": "Mumkin",
+                        "is_correct": false
                     }
                 ]
             },
@@ -872,13 +951,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мумкин",
-                        "is_correct": false
+                        "text": "Тақиқланган",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланган",
-                        "is_correct": true
+                        "text": "Мумкин",
+                        "is_correct": false
                     }
                 ]
             },
@@ -887,83 +966,90 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешена",
-                        "is_correct": false
+                        "text": "Запрещена",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Запрещена",
-                        "is_correct": true
+                        "text": "Разрешена",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 3.28. “To‘xtab turish taqiqlangan”. Transport vositalarining to‘xtab turishi taqiqlanishini bildiradi.",
+            "uz_cyr": "YHQ 1 илова: 3.28. “Тўхтаб туриш тақиқланган”. Транспорт воситаларининг тўхтаб туриши тақиқланишини билдиради.",
+            "ru": "Приложение к ПДД 1: 3.28. \"Парковка запрещена\". Означает, что парковка транспортных средств запрещена."
         }
     },
     {
         "task_info": {
-            "global_id": "t_12_q_18",
-            "ticket_num": 12,
-            "order": 13
+            "global_id": "t_48_q_20",
+            "global_id2": "t_48_q_20",
+            "ticket_num": 48,
+            "order": 13,
+            "remapped_from": "t_12_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Belgilangan yo'nalishdagi transport vositalari yoki taksilarning to'xtab turish maydonchalaridan ular bo'lmagan hollarda, (yo'nalishli transport voistalari harakatiga xalaqit bermasa) belgi ko'rsatkichlaridan qanday masofada to'xtash va to'xtab turish taqiqlanadi?",
+                "text": "Belgilangan yo'nalishdagi transport vositalari yoki taksilarning to'xtab turish maydonchalaridan ular bo'lmagan hollarda, (yo'nalishli transport vositalari harakatiga xalaqit bermasa) belgi ko'rsatkichlaridan qanday masofada to'xtash va to'xtab turish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "5 m",
+                        "text": "25 m",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "10 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "15 m",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "20 m",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "25 m",
+                        "id": 3,
+                        "text": "5 m",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "10 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "15 m",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Белгиланган йўналишдаги транспорт воситалари ёки таксиларнинг тўхтаб туриш майдончаларидан улар бўлмаган ҳолларда, (йўналишли транспорт воисталари ҳаракатига халақит бермаса) белги кўрсаткичларидан қандай масофада тўхташ ва тўхтаб туриш тақиқланади?",
+                "text": "Белгиланган йўналишдаги транспорт воситалари ёки таксиларнинг тўхтаб туриш майдончаларидан улар бўлмаган ҳолларда, (йўналишли транспорт воситалари ҳаракатига халақит бермаса) белги кўрсаткичларидан қандай масофада тўхташ ва тўхтаб туриш тақиқланади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "5 m",
+                        "text": "25 m",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "10 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "15 m",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "20 m",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "25 m",
+                        "id": 3,
+                        "text": "5 m",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "10 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "15 m",
+                        "is_correct": true
                     }
                 ]
             },
@@ -972,40 +1058,47 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "5 m",
+                        "text": "25 m",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "10 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "15 m",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "20 m",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "25 m",
+                        "id": 3,
+                        "text": "5 m",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "10 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "15 m",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 91-bandi 13-xatboshiga asosan, to'xtash va to'xtab turish taqiqlanadi - bekat maydonchalarida, yo'nalishli transport vositalari to'xtash joylarida, jumladan, 1.17 chizig'i bilan belgilangan, ular bo'lmaganda esa yo'nalishli transport vositalari to'xtash joyi belgilari va bekatdan harakatlanish yo'nalishi bo'ylab (yetmasdan va o'tib ketib) 15 metrdan kam masofada (yo'nalishli transport vositalari harakatiga xalaqit bermasa yo'lovchilarni chiqarish yoki tushirish uchun to'xtash bundan mustasno).",
+            "uz_cyr": "YHQ 13-боби 91-банди 13-хатбошига асосан, тўхташ ва тўхтаб туриш тақиқланади - бекат майдончаларида, йўналишли транспорт воситалари тўхташ жойларида, жумладан, 1.17 чизиғи билан белгиланган, улар бўлмаганда эса йўналишли транспорт воситалари тўхташ жойи белгилари ва бекатдан ҳаракатланиш йўналиши бўйлаб (етмасдан ва ўтиб кетиб) 15 метрдан кам масофада (йўналишли транспорт воситалари ҳаракатига халақит бермаса йўловчиларни чиқариш ёки тушириш учун тўхташ бундан мустасно).",
+            "ru": "Согласно главе 13 пункта 91 пункта 13 ПДД запрещается останавливаться и парковаться - на территории станции, в местах стоянки направленных транспортных средств, в том числе обозначенных линией 1.17, а также при отсутствии направленных знаков парковки транспортных средств и на расстоянии менее 15 метров по направлению движения станции (до подхода и проезда) (за исключением остановки для посадки или высадки пассажиров, если это не мешает движению направленных транспортных средств)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_13_q_7",
-            "ticket_num": 13,
-            "order": 14
+            "global_id": "t_54_q_7",
+            "global_id2": "t_54_q_7",
+            "ticket_num": 54,
+            "order": 14,
+            "remapped_from": "t_13_q_6"
         },
-        "media_url": "v55uz.webp",
+        "media_url": "u621uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Yuk avtomobil haydovchisiga bu joyda to'xtashga ruxsat etiladimi?",
@@ -1032,7 +1125,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Таъқиқланади",
+                        "text": "Тақиқланади",
                         "is_correct": true
                     }
                 ]
@@ -1052,28 +1145,35 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 91-bandi 14-xatboshiga asosan, quyidagi joylarda to'xtash taqiqlanadi: transport vositasi svetofor ishoralari, yo'l belgilarini boshqa haydovchilardan to'sib qo'yadigan, boshqa transport vositalarining harakatlanishiga (kirish va chiqishiga) imkon qoldirmaydigan yoki piyodalarning harakatiga xalaqit beradigan joylarda.",
+            "uz_cyr": "YHQ 13-боби 91-банди 14-хатбошига асосан, қуйидаги жойларда тўхташ тақиқланади: транспорт воситаси светофор ишоралари, йўл белгиларини бошқа ҳайдовчилардан тўсиб қўядиган, бошқа транспорт воситаларининг ҳаракатланишига (кириш ва чиқишига) имкон қолдирмайдиган ёки пиёдаларнинг ҳаракатига халақит берадиган жойларда.",
+            "ru": "Согласно главе 13 статьи 91 пункта 14 ПДД запрещается парковаться в следующих местах: в местах, где транспортное средство загораживает светофор, дорожные знаки другим водителям, препятствует движению (въезду и выезду) других транспортных средств или препятствует движению пешеходов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_14_q_8",
-            "ticket_num": 14,
-            "order": 15
+            "global_id": "t_33_q_10",
+            "global_id2": "t_33_q_10",
+            "ticket_num": 33,
+            "order": 15,
+            "remapped_from": "t_14_q_8"
         },
-        "media_url": "v67uz.webp",
+        "media_url": "u377uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ikkita harakat bo'lagi bo'lgan bir tomonlama harakat tashkil etilgan yo'llarda, avtomobilning yo'lni chap tomonida to'xtab turishiga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1082,13 +1182,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "Рухсат этилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1097,25 +1197,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": true
+                        "text": "Запрещается",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": false
+                        "text": "Разрешается",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 13-bob. 88-band 2-xatboshi va 91-band 13-xatboshiga asosan: Aholi punktlarida o‘rtada tramvay yo‘li bo‘lmagan, har yo‘nalishda bittadan tasmasi bo‘lgan, shuningdek bir tomonlama harakat tashkil etilgan yo‘llarda yo‘lning chap tomonida to‘xtash va to‘xtab turishga ruxsat etiladi.\r\n91. Quyidagilarda to‘xtash taqiqlanadi: qatnov qismi kesishmalarida va kesishayotgan qatnov qismi chetiga 30 metrdan kam masofada (uch tomonlama kesishadigan chorrahalarda yondan tutashgan yo‘lning sidirg‘a chiziq yoki ajratuvchi mintaqa bilan ajratilgan qarama-qarshi tomoni bundan mustasno).",
+            "uz_cyr": "YHQнинг 13-боб. 88-банд 2-хатбоши ва 91-банд 13-хатбошига асосан: Аҳоли пунктларида ўртада трамвай йўли бўлмаган, ҳар йўналишда биттадан тасмаси бўлган, шунингдек бир томонлама ҳаракат ташкил этилган йўлларда йўлнинг чап томонида тўхташ ва тўхтаб туришга рухсат этилади.\r\n91. Қуйидагиларда тўхташ тақиқланади: қатнов қисми кесишмаларида ва кесишаётган қатнов қисми четига 30 метрдан кам масофада (уч томонлама кесишадиган чорраҳаларда ёндан туташган йўлнинг сидирға чизиқ ёки ажратувчи минтақа билан ажратилган қарама-қарши томони бундан мустасно).",
+            "ru": "Глава 13 ПДД. Согласно п. 88, п. 2 и п. 91, п. 13: Разрешается останавливаться и парковаться с левой стороны дороги в населенных пунктах, где нет трамвайного пути посередине, где имеется по одной полосе движения в каждую сторону и где организовано одностороннее движение. \r\n91. Запрещается останавливаться на перекрестках проезжей части и на расстоянии менее 30 метров от края пересекающейся проезжей части (кроме противоположной стороны соседней дороги, отделенной разделительной линией или разделительной зоной на трехсторонних перекрестках)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_15_q_8",
-            "ticket_num": 15,
-            "order": 16
+            "global_id": "t_16_q_4",
+            "global_id2": "t_16_q_4",
+            "ticket_num": 16,
+            "order": 16,
+            "remapped_from": "t_15_q_7"
         },
-        "media_url": "v80uz.webp",
+        "media_url": "u174uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ko'rsatilgan joyda to'xtashga ruxsat etiladimi?",
@@ -1162,88 +1269,117 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 88-bandi 2-xatboshiga asosan, aholi punktlarida o'rtada tramvay yo'li bo'lmagan, har yo'nalishda bittadan tasmasi bo'lgan, shuningdek bir tomonlama harakat tashkil etilgan yo'llarda yo'lning chap tomonida to'xtash va to'xtab turishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 13-боби 88-банди 2-хатбошига асосан, аҳоли пунктларида ўртада трамвай йўли бўлмаган, ҳар йўналишда биттадан тасмаси бўлган, шунингдек бир томонлама ҳаракат ташкил этилган йўлларда йўлнинг чап томонида тўхташ ва тўхтаб туришга рухсат этилади.",
+            "ru": "Согласно главе 13, пункту 88, пункту 2 ПДД, в населенных пунктах, где нет трамвайного пути посередине, где имеется по одной полосе движения в каждом направлении и где организовано одностороннее движение, разрешается останавливаться и стоять с левой стороны дороги."
         }
     },
     {
         "task_info": {
             "global_id": "t_15_q_18",
+            "global_id2": "t_15_q_18",
             "ticket_num": 15,
-            "order": 17
+            "order": 17,
+            "remapped_from": "t_13_q_7"
         },
-        "media_url": "v75uz.webp",
+        "media_url": "u171uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Bu joyda avtomobilning to'xtab turishiga ruxsat berilganmi?",
+                "text": "Ko'rsatilgan vaziyatda yengil avtomobil haydovchisiga quvib o'tishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Berilgan",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Taqiqlangan",
                         "is_correct": true
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Бу жойда автомобилнинг тўхтаб туришига рухсат берилганми?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Берилган",
-                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланган",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "ru": {
-                "text": "Разрешена ли стоянка автомобиля в этом месте?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Разрешена",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Запрещена",
-                        "is_correct": true
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_16_q_7",
-            "ticket_num": 16,
-            "order": 18
-        },
-        "media_url": null,
-        "content": {
-            "uz_lat": {
-                "text": "Yo'l yoqasi mavjud bo'lganda haydovchi transport vositasini qaerda to'xtatishi kerak?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Qatnov qismining chetida",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Yo'l chekkasida, yo'l yoqasidan 0,5 m masofada",
+                        "text": "Ruxsat etilgan",
                         "is_correct": false
                     },
                     {
                         "id": 3,
+                        "text": "Ruxsat etilgan, agar motosiklchining tezligi 40 km/soatdan kam bo'lsa",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўрсатилган вазиятда енгил автомобиль ҳайдовчисига қувиб ўтишга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тақиқланган",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Рухсат этилган",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Рухсат этилган, агар мотоциклчининг тезлиги 40 км/соатдан кам бўлса",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешен ли водителю легкового автомобиля обгон в показанной ситуации?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Запрещен",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешен",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешен, если скорость мотоциклиста менее 40 км/ч",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 10-bobining 66-bandiga muvofiq, harakat ikki tomonlama bo'lgan va chiziqlar bilan belgilangan (1.9 yo'l chizig'i bilan belgilanganidan tashqari) uchta tasmali yo'llarda, ikki yo'nalishda harakatlanish uchun mo'ljallangan o'rta qatorga faqat quvib o'tish, aylanib o'tish, chapga burilish va qayrilib olish uchungina chiqishga ruxsat etiladi. Qarama-qarshi yo'nalishda harakatlanish uchun mo'ljallangan chetki chap qatorni egallash taqiqlanadi.",
+            "uz_cyr": "YHQ 10-бобининг 66-бандига мувофиқ, ҳаракат икки томонлама бўлган ва чизиқлар билан белгиланган (1.9 йўл чизиғи билан белгиланганидан ташқари) учта тасмали йўлларда, икки йўналишда ҳаракатланиш учун мўлжалланган ўрта қаторга фақат қувиб ўтиш, айланиб ўтиш, чапга бурилиш ва қайрилиб олиш учунгина чиқишга рухсат этилади. Қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган четки чап қаторни эгаллаш тақиқланади.",
+            "ru": "В соответствии со статьей 66 главы 10 ПДД на трехполосных дорогах с двусторонним движением и обозначенными линиями (кроме обозначенных 1.9 линиями дороги) выезд в среднюю полосу, предназначенную для двустороннего движения, допускается только для обгона, опережения, поворота налево и поворота. Запрещается занимать крайнюю левую полосу, предназначенную для движения в противоположном направлении."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_50_q_7",
+            "global_id2": "t_50_q_7",
+            "ticket_num": 50,
+            "order": 18,
+            "remapped_from": "t_16_q_7"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Yo'l yoqasi mavjud bo'lganda haydovchi transport vositasini qayerda to'xtatishi kerak?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yo'l chekkasida, yo'l yoqasidan 0,5 m masofada",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Yo'l yoqasi ustida",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qatnov qismining chetida",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1252,18 +1388,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қатнов қисмининг четида",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Йўл чеккасида, йўл ёқасидан 0,5 м масофада",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Йўл ёқаси устида",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қатнов қисмининг четида",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1272,12 +1408,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "На самой обочине",
+                        "text": "На проезжей части, на расстоянии 0,5 м от обочины",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "На проезжей части, на расстоянии 0,5 м от обочины",
+                        "text": "На самой обочине",
                         "is_correct": false
                     },
                     {
@@ -1287,18 +1423,25 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 88-bandiga asosan, transport vositalariga yo‘lning o‘ng tomonida yo‘l yoqasida, u bo‘lmaganda esa qatnov qismining chetida to‘xtash va to‘xtab turishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 13-боби 88-бандига асосан, транспорт воситаларига йўлнинг ўнг томонида йўл ёқасида, у бўлмаганда эса қатнов қисмининг четида тўхташ ва тўхтаб туришга рухсат этилади.",
+            "ru": "Согласно главе 13, статье 88 ПДД транспортные средства разрешается останавливать и ставить на стоянку с правой стороны дороги на обочине, а при ее отсутствии - на краю проезжей части."
         }
     },
     {
         "task_info": {
-            "global_id": "t_16_q_8",
-            "ticket_num": 16,
-            "order": 19
+            "global_id": "t_23_q_8",
+            "global_id2": "t_23_q_8",
+            "ticket_num": 23,
+            "order": 19,
+            "remapped_from": "t_16_q_8"
         },
-        "media_url": "v93uz.webp",
+        "media_url": "u254uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Engil avtomobil haydovchisi qanday qoidalarni buzdi?",
+                "text": "Yengil avtomobil haydovchisi qanday qoidalarni buzdi?",
                 "options": [
                     {
                         "id": 1,
@@ -1332,25 +1475,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только правила стоянки",
-                        "is_correct": false
+                        "text": "Правила остановки и стоянки",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Правила остановки и стоянки",
-                        "is_correct": true
+                        "text": "Только правила стоянки",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 9-bobi 55-bandi 1-xatboshiga asosan, haydovchi qayta tizilishda harakatlanish yo'nalishini o'zgartirmasdan harakatlanayotgan yo'lakay transport vositalariga yo'l berishi kerak.",
+            "uz_cyr": "YHQ 9-боби 55-банди 1-хатбошига асосан, ҳайдовчи қайта тизилишда ҳаракатланиш йўналишини ўзгартирмасдан ҳаракатланаётган йўлакай транспорт воситаларига йўл бериши керак.",
+            "ru": "Согласно пункту 1 пункта 55 главы 9 ПДД, водитель обязан уступить дорогу транспортным средствам на дороге, не меняя направления движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_17_q_3",
-            "ticket_num": 17,
-            "order": 20
+            "global_id": "t_36_q_13",
+            "global_id2": "t_36_q_13",
+            "ticket_num": 36,
+            "order": 20,
+            "remapped_from": "t_17_q_3"
         },
-        "media_url": "v101uz.webp",
+        "media_url": "u413uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Haydovchilardan qay biri yo'lovchilarni tushirish uchun to'g'ri to'xtadi?",
@@ -1362,8 +1512,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Mototsikl va ko'k avtomobil haydovchilari",
-                        "is_correct": true
+                        "text": "Barcha haydovchilar",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1372,8 +1522,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Barcha haydovchilar",
-                        "is_correct": false
+                        "text": "Mototsikl va ko'k avtomobil haydovchilari",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1387,8 +1537,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Мототцикл ва кўк автомобиль ҳайдовчилари",
-                        "is_correct": true
+                        "text": "Барча ҳайдовчилар",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1397,8 +1547,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Барча ҳайдовчилар",
-                        "is_correct": false
+                        "text": "Мототцикл ва кўк автомобиль ҳайдовчилари",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1407,13 +1557,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель синего и красного автомобиля\n",
+                        "text": "Водитель синего и красного автомобиля",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водители мотоцикла и синего автомобиля\n",
-                        "is_correct": true
+                        "text": "Все водители",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1422,37 +1572,44 @@
                     },
                     {
                         "id": 4,
-                        "text": "Все водители",
-                        "is_correct": false
+                        "text": "Водители мотоцикла и синего автомобиля",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasi 1-bo‘limining oltinchi, o‘n ikkinchi va yigirma birinchi xatboshilariga asosan: 1.4 – to‘xtash taqiqlangan joyni bildiradi. Yakka holda yoki 3.27 “To‘xtash taqiqlangan” yoʻl belgisi bilan qoʻllaniladi hamda yo‘lning qatnov qismi chetiga yoki yo‘l chetidagi to‘siq ustidan chiziladi;",
+            "uz_cyr": "YHQ 2-иловаси 1-бўлимининг олтинчи, ўн иккинчи ва йигирма биринчи хатбошиларига асосан: 1.4 – тўхташ тақиқланган жойни билдиради. Якка ҳолда ёки 3.27 “Тўхташ тақиқланган” йўл белгиси билан қўлланилади ҳамда йўлнинг қатнов қисми четига ёки йўл четидаги тўсиқ устидан чизилади;",
+            "ru": "Согласно абзацам шестому, двенадцатому и двадцать первому раздела 1 Приложения 2 ПДД: 1.4 - означает место, где парковка запрещена. Он используется отдельно или вместе с дорожным знаком 3.27 «Стоянка запрещена» и рисуется на краю проезжей части или над барьером на обочине дороги;"
         }
     },
     {
         "task_info": {
-            "global_id": "t_17_q_8",
-            "ticket_num": 17,
-            "order": 21
+            "global_id": "t_41_q_2",
+            "global_id2": "t_41_q_2",
+            "ticket_num": 41,
+            "order": 21,
+            "remapped_from": "t_17_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qanday hollarda to'xtab turish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qatnov qismi kesishmasining chekkasidan 30 metrdan ko'p qolganda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Piyodalarning o'tish joyi oldidan 10 metrdan ko'p qolganda",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Barcha sanab o'tilgan hollarda",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Piyodalar o'tish joyidan keyin 1 metr masofa uzoqlikda",
+                        "text": "Qatnov qismi kesishmasining chekkasidan 30 metrdan ko'p qolganda",
                         "is_correct": false
                     },
                     {
@@ -1462,7 +1619,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "Barcha sanab o'tilgan hollarda",
+                        "text": "Piyodalar o'tish joyidan keyin 1 metr masofa uzoqlikda",
                         "is_correct": false
                     }
                 ]
@@ -1472,17 +1629,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қатнов қисми кесишмасининг чеккасидан 30 метрдан кўп қолганда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Пиёдаларнинг ўтиш жойи олдидан 10 метрдан кўп қолганда",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Барча санаб ўтилган ҳолларда",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Пиёдалар ўтиш жойидан кейин 1 метр масофа узоқликда",
+                        "text": "Қатнов қисми кесишмасининг чеккасидан 30 метрдан кўп қолганда",
                         "is_correct": false
                     },
                     {
@@ -1492,7 +1649,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "Барча санаб ўтилган ҳолларда",
+                        "text": "Пиёдалар ўтиш жойидан кейин 1 метр масофа узоқликда",
                         "is_correct": false
                     }
                 ]
@@ -1502,58 +1659,65 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ближе 10 метров от края пересекаемых проезжих частей",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ближе 10 метров перед пешеходным переходом",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Во всех перечисленных случаях",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Ближе одного метра за пешеходным переходом",
+                        "text": "Ближе 10 метров от края пересекаемых проезжих частей",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "В тех местах; где стоящее транспортное средство делает невозможным движение (въезд или выезд) других транспортных средств или создает помехи для движения пешеходов",
+                        "text": "В тех местах, где стоящее транспортное средство делает невозможным движение (въезд или выезд) других транспортных средств или создает помехи для движения пешеходов",
                         "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "Во всех перечисленных случаях",
+                        "text": "Ближе одного метра за пешеходным переходом",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bob 91-bandiga asosan: Quyidagi joy va holatlarda to‘xtash taqiqlanadi: piyodalar o‘tish joylarida va ulardan oldin 10 metrdan kam masofa qolganda;\r\nqatnov qismi kesishmalarida va kesishayotgan qatnov qismi chetiga 30 metrdan kam masofada (uch tomonlama kesishadigan chorrahalarda yondan tutashgan yo‘lning sidirg‘a chiziq yoki ajratuvchi mintaqa bilan ajratilgan qarama-qarshi tomoni bundan mustasno);\r\ntransport vositasi svetofor ishoralari, yo‘l belgilarini boshqa haydovchilardan to‘sib qo‘yadigan, boshqa transport vositalarining harakatlanishiga (kirish va chiqishga) imkon qoldirmaydigan yoki piyodalarning harakatiga xalaqit beradigan joylarda.",
+            "uz_cyr": "YHQ 13-боб 91-бандига асосан: Қуйидаги жой ва ҳолатларда тўхташ тақиқланади: пиёдалар ўтиш жойларида ва улардан олдин 10 метрдан кам масофа қолганда;\r\nқатнов қисми кесишмаларида ва кесишаётган қатнов қисми четига 30 метрдан кам масофада (уч томонлама кесишадиган чорраҳаларда ёндан туташган йўлнинг сидирға чизиқ ёки ажратувчи минтақа билан ажратилган қарама-қарши томони бундан мустасно);\r\nтранспорт воситаси светофор ишоралари, йўл белгиларини бошқа ҳайдовчилардан тўсиб қўядиган, бошқа транспорт воситаларининг ҳаракатланишига (кириш ва чиқишга) имкон қолдирмайдиган ёки пиёдаларнинг ҳаракатига халақит берадиган жойларда.",
+            "ru": "В соответствии со статьей 91 главы 13 ПДД: парковка запрещается в следующих местах и ​​ситуациях: на пешеходных переходах и на расстоянии менее 10 метров перед ними; \r\nна пересечениях проезжих частей и на расстоянии менее 30 метров от края пересекающейся проезжей части (кроме противоположной стороны соседней дороги, отделенной срединной линией или разделительной зоной на трехсторонних перекрестках); \r\nв местах, где транспортное средство блокирует светофор, дорожные знаки от других водителей, препятствует движению других транспортных средств (въезд и выезд) или нарушает движение пешеходов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_19_q_18",
-            "ticket_num": 19,
-            "order": 22
+            "global_id": "t_45_q_12",
+            "global_id2": "t_45_q_12",
+            "ticket_num": 45,
+            "order": 22,
+            "remapped_from": "t_19_q_18"
         },
-        "media_url": "v120uz.webp",
+        "media_url": "u522uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositalarining haydovchilari to'xtab turish qoidasini buzdilar?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Engil avtomobilining haydovchisi",
-                        "is_correct": false
+                        "text": "Har ikki haydovchi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Yuk avtomobilining haydovchisi",
+                        "text": "Yengil avtomobilining haydovchisi",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Har ikki haydovchi",
-                        "is_correct": true
+                        "text": "Yuk avtomobilining haydovchisi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1562,18 +1726,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Ҳар икки ҳайдовчи",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Енгил автомобилининг ҳайдовчиси",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Юк автомобилининг ҳайдовчиси",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Ҳар икки ҳайдовчи",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1597,15 +1761,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasi 3-bo‘limining o‘ttiz ikkinchi xatboshisiga asosan: 3.28. “To‘xtab turish taqiqlangan”. Transport vositalarining to‘xtab turishi taqiqlanishini bildiradi. YHQ 13-bobi 88-bandining uchinchi xatboshisiga asosan: Ruxsat etilgan to‘la vazni 3,5 tonnadan ko‘p bo‘lgan yuk avtomobillari bir tomonlama harakatli yo‘llarning chap tomonida faqat yuk ortish va tushirish uchun to‘xtashlari mumkin.",
+            "uz_cyr": "YHQ 1-иловаси 3-бўлимининг ўттиз иккинчи хатбошисига асосан: 3.28. “Тўхтаб туриш тақиқланган”. Транспорт воситаларининг тўхтаб туриши тақиқланишини билдиради. YHQ 13-боби 88-бандининг учинчи хатбошисига асосан: Рухсат этилган тўла вазни 3,5 тоннадан кўп бўлган юк автомобиллари бир томонлама ҳаракатли йўлларнинг чап томонида фақат юк ортиш ва тушириш учун тўхташлари мумкин.",
+            "ru": "Согласно тридцать второму абзацу раздела 3 приложения 1 к ПДД: 3.28. «Стоянка запрещена». Обозначает запрет стоянки транспортных средств. Согласно третьему абзацу пункта 88 главы 13 ПДД: грузовым автомобилям с разрешённой полной массой более 3,5 тонны на дорогах с односторонним движением разрешается останавливаться на левой стороне только для погрузки и выгрузки."
         }
     },
     {
         "task_info": {
-            "global_id": "t_20_q_7",
-            "ticket_num": 20,
-            "order": 23
+            "global_id": "t_40_q_16",
+            "global_id2": "t_40_q_16",
+            "ticket_num": 40,
+            "order": 23,
+            "remapped_from": "t_20_q_6"
         },
-        "media_url": "v149uz.webp",
+        "media_url": "u462uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositasining haydovchisi to'xtab turish qoidasini buzdi?",
@@ -1662,12 +1833,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель синего автомобиля",
+                        "text": "Водитель красного автомобиля",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водитель красного автомобиля",
+                        "text": "Водитель синего автомобиля",
                         "is_correct": false
                     },
                     {
@@ -1682,37 +1853,44 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 91 bandiga asosan, quyidagilarda to‘xtash taqiqlanadi: qatnov qismi kesishmalarida va kesishayotgan qatnov qismi chetiga 30 metrdan kam masofada (uch tomonlama kesishadigan chorrahalarda yondan tutashgan yo‘lning sidirg‘a chiziq yoki ajratuvchi mintaqa bilan ajratilgan qarama-qarshi tomoni bundan mustasno).\r\nYHQ 1-ilovasining 3-bo‘limidagi 3.28 belgiga asosan, «To‘xtab turish taqiqlangan». Transport vositalarining to‘xtab turishi taqiqlanadi (xizmat vazifasini bajarayotgan xodimga biriktirilgan ko‘k yoki qizil yoxud ko‘k va qizil rangli yaltiroq mayoqchasi bilan jihozlangan hamda maxsus rangli bo‘yoq sxemalar va yozuvlar bilan belgilangan transport vositalari bundan mustasno).",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 91 бандига асосан, қуйидагиларда тўхташ тақиқланади: қатнов қисми кесишмаларида ва кесишаётган қатнов қисми четига 30 метрдан кам масофада (уч томонлама кесишадиган чорраҳаларда ёндан туташган йўлнинг сидирға чизиқ ёки ажратувчи минтақа билан ажратилган қарама-қарши томони бундан мустасно).\r\nYHQ 1-иловасининг 3-бўлимидаги 3.28 белгига асосан, «Тўхтаб туриш тақиқланган». Транспорт воситаларининг тўхтаб туриши тақиқланади (хизмат вазифасини бажараётган ходимга бириктирилган кўк ёки қизил ёхуд кўк ва қизил рангли ялтироқ маёқчаси билан жиҳозланган ҳамда махсус рангли бўёқ схемалар ва ёзувлар билан белгиланган транспорт воситалари бундан мустасно).",
+            "ru": "Согласно статье 91 Правил дорожного движения запрещается останавливаться на: перекрестках проезжей части и на расстоянии менее 30 метров от края пересекающейся проезжей части (за исключением противоположной стороны соседней дороги, отделенной разделительной полосой или разделительной зоной на трехсторонних перекрестках). \r\nПо знаку 3.28 Приложения 1, раздел 3 «Стоянка запрещена». Стоянка транспортных средств запрещается (за исключением транспортных средств, оборудованных синим или красным или сине-красным проблесковым маячком, прикрепленным к дежурному работнику и отмеченным специальными цветовыми схемами и надписями)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_20_q_16",
-            "ticket_num": 20,
-            "order": 24
+            "global_id": "t_3_q_10",
+            "global_id2": "t_3_q_10",
+            "ticket_num": 3,
+            "order": 24,
+            "remapped_from": "t_20_q_14"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Agar piyodalar o'tish joyida tirbandlik vujudga kelib, haydovchini piyodalar o'tish joyida to'xtashga majbur qilsa, haydovchi majbur:",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Piyodalar o'tish joyi oldidan 5 m. berida to'xtashga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "To'xtashga va piyodalar o'tish joyiga o'tmaslikka, chunki bu piyodalarning harakati uchun to'sqinlik qiladi",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Piyodalar o'tish joyi oldidan 15 m. berida to'xtashga",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Oldinda turgan transport vositasidan zarur masofa saqlangan holda piyodalar o'tish joyida to'xtashga",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "Piyodalar o'tish joyi oldidan 5 m. berida to'xtashga",
+                        "text": "Oldinda turgan transport vositasidan zarur masofa saqlangan holda piyodalar o'tish joyida to'xtashga",
                         "is_correct": false
                     }
                 ]
@@ -1722,22 +1900,22 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Пиёдалар ўтиш жойи олдидан 5 м. берида тўхташга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Тўхташга ва пиёдалар ўтиш жойига ўтмасликка, чунки бу пиёдаларнинг ҳаракати учун тўсқинлик қилади",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Пиёдалар ўтиш жойи олдидан 15 м. берида тўхташга",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Олдинда турган транспорт воситасидан зарур масофа сақланган ҳолда пиёдалар ўтиш жойида тўхташга",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "Пиёдалар ўтиш жойи олдидан 5 м. берида тўхташга",
+                        "text": "Олдинда турган транспорт воситасидан зарур масофа сақланган ҳолда пиёдалар ўтиш жойида тўхташга",
                         "is_correct": false
                     }
                 ]
@@ -1747,35 +1925,42 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Остановиться и не въезжать на пешеходный переход,так как это создает помеху для движения пешеходов",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Остановиться за 15 м перед пешеходным переходом",
+                        "text": "Остановиться за 5 м перед пешеходным переходом",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Остановиться на пешеходном переходе соблюдая необходимую дистанцию от вперед стоящего транспортного средства",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "Остановиться за 5 м перед пешеходным переходом",
+                        "id": 3,
+                        "text": "Остановиться за 15 м перед пешеходным переходом",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Остановиться и не въезжать на пешеходный переход,так как это создает помеху для движения пешеходов",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 17-bobi 112-bandiga asosan, piyodalar o'tish joylaridan keyin paydo bo'lgan tirbandlik tufayli haydovchi piyodalar o'tish joyida to'xtashga majbur bo'ladigan bo'lsa, piyodalar o'tish joyiga kirish taqiqlanadi.",
+            "uz_cyr": "YHQ 17-боби 112-бандига асосан, пиёдалар ўтиш жойларидан кейин пайдо бўлган тирбандлик туфайли ҳайдовчи пиёдалар ўтиш жойида тўхташга мажбур бўладиган бўлса, пиёдалар ўтиш жойига кириш тақиқланади.",
+            "ru": "Согласно статье 112 главы 17 ПДД, если водитель вынужден остановиться на пешеходном переходе из-за движения транспорта после перехода, выезд на пешеходный переход запрещается."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_7",
-            "ticket_num": 22,
-            "order": 25
+            "global_id": "t_27_q_17",
+            "global_id2": "t_27_q_17",
+            "ticket_num": 27,
+            "order": 25,
+            "remapped_from": "t_22_q_7"
         },
-        "media_url": "v175uz.webp",
+        "media_url": "u306uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Avtobus haydovchisiga yo'lovchilarni tushirish uchun to'xtashga ruxsat etiladimi?",
@@ -1808,7 +1993,7 @@
                 ]
             },
             "ru": {
-                "text": "Разрешается ли водителю автобуса остановиться для высадки пассажиров?",
+                "text": "Разрешается ли водителю красного автомобиля двигаться по трамвайным путям?",
                 "options": [
                     {
                         "id": 1,
@@ -1822,15 +2007,22 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 91-bandining to‘rtinchi xatboshisiga asosan, quyidagi joy va holatlarda to‘xtash taqiqlanadi: to‘xtagan transport vositasi bilan sidirg‘a chiziq (qatnov qismining chetini belgilovchi chiziqdan tashqari), ajratuvchi bo‘lak yoki qatnov qismining qarama-qarshi cheti orasidagi masofa 3 metrdan kam bo‘lgan joylarda.",
+            "uz_cyr": "YHQ 13-боби 91-бандининг тўртинчи хатбошисига асосан, қуйидаги жой ва ҳолатларда тўхташ тақиқланади: тўхтаган транспорт воситаси билан сидирға чизиқ (қатнов қисмининг четини белгиловчи чизиқдан ташқари), ажратувчи бўлак ёки қатнов қисмининг қарама-қарши чети орасидаги масофа 3 метрдан кам бўлган жойларда.",
+            "ru": "Согласно абзацу четвертому статьи 91 главы 13 ПДД запрещается останавливаться в следующих местах и ​​случаях: в местах, где расстояние между остановившимся транспортным средством и линией обочины (кроме линии, обозначающей край проезжей части), разделительной полосы или противоположного края проезжей части составляет менее 3 метров."
         }
     },
     {
         "task_info": {
-            "global_id": "t_23_q_9",
-            "ticket_num": 23,
-            "order": 26
+            "global_id": "t_38_q_12",
+            "global_id2": "t_38_q_12",
+            "ticket_num": 38,
+            "order": 26,
+            "remapped_from": "t_23_q_9"
         },
-        "media_url": "v186uz.webp",
+        "media_url": "u435uz.webp",
         "content": {
             "uz_lat": {
                 "text": "To'xtash qoidasini buzgan hamma haydovchilar qaysi javobda ko'rsatilgan?",
@@ -1847,13 +2039,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Motosiklning haydovchisi",
-                        "is_correct": false
+                        "text": "Barcha transport vositalarining haydovchilari",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Barcha transport vositalarining haydovchilari",
-                        "is_correct": true
+                        "text": "Motosiklning haydovchisi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1872,18 +2064,18 @@
                     },
                     {
                         "id": 3,
-                        "text": "Мотоциклнинг ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Барча транспорт воситаларининг ҳайдовчилари",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Барча транспорт воситаларининг ҳайдовчилари",
-                        "is_correct": true
+                        "text": "Мотоциклнинг ҳайдовчиси",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "В каком ответе указаны все водители; нарушившие правила остановки?",
+                "text": "В каком ответе указаны все водители, нарушившие правила остановки?",
                 "options": [
                     {
                         "id": 1,
@@ -1897,43 +2089,50 @@
                     },
                     {
                         "id": 3,
-                        "text": "Водитель мотоцикла",
-                        "is_correct": false
+                        "text": "Водители всех транспортных средств",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Водители всех транспортных средств",
-                        "is_correct": true
+                        "text": "Водитель мотоцикла",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasi 3-bo‘limining o‘ttiz birinchi xatboshisiga asosan: 3.27. “To‘xtash taqiqlangan”. Transport vositalarining to‘xtashi va to‘xtab turishi taqiqlanishini bildiradi. YHQ 1-ilovasi 7-bo‘limining to‘qqizinchi xatboshisiga asosan: 7.2.4 - haydovchilarga ularning 3.27 yo‘l belgisi ta'sir doirasida ekanliklari haqida axborot beradi. Harakat ikki tomonlama bo‘lgan va chiziqlar bilan belgilangan (1.9 yo‘l chizig‘i bilan belgilanganidan tashqari) uchta tasmali yo‘llarda, ikki yo‘nalishda harakatlanish uchun mo‘ljallangan o‘rta qatorga faqat quvib o‘tish, aylanib o‘tish, chapga burilish va qayrilib olish uchungina chiqishga ruxsat etiladi. Qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan chetki chap qatorni egallash taqiqlanadi.",
+            "uz_cyr": "YHQ 1-иловаси 3-бўлимининг ўттиз биринчи хатбошисига асосан: 3.27. “Тўхташ тақиқланган”. Транспорт воситаларининг тўхташи ва тўхтаб туриши тақиқланишини билдиради. YHQ 1-иловаси 7-бўлимининг тўққизинчи хатбошисига асосан: 7.2.4 - ҳайдовчиларга уларнинг 3.27 йўл белгиси таъсир доирасида эканликлари ҳақида ахборот беради. Ҳаракат икки томонлама бўлган ва чизиқлар билан белгиланган (1.9 йўл чизиғи билан белгиланганидан ташқари) учта тасмали йўлларда, икки йўналишда ҳаракатланиш учун мўлжалланган ўрта қаторга фақат қувиб ўтиш, айланиб ўтиш, чапга бурилиш ва қайрилиб олиш учунгина чиқишга рухсат этилади. Қарама-қарши йўналишда ҳаракатланиш учун мўлжалланган четки чап қаторни эгаллаш тақиқланади.",
+            "ru": "Согласно абзацу тридцать первому раздела 3 Приложения 1 ПДД: 3.27. «Нет остановки». Означает, что транспортным средствам запрещено останавливаться и стоять. Согласно абзацу девятому статьи 7 приложения 1 ПДД: 7.2.4 – информирует водителей о том, что они находятся под воздействием дорожного знака 3.27. На трехполосных дорогах с двусторонним движением и обозначенными линиями (кроме обозначенных дорожными линиями 1,9) выезд в среднюю полосу, предназначенную для двустороннего движения, разрешается только для обгона, опережения, поворота налево и поворота. Запрещается занимать крайнюю левую полосу, предназначенную для движения встречного направления."
         }
     },
     {
         "task_info": {
-            "global_id": "t_24_q_8",
-            "ticket_num": 24,
-            "order": 27
+            "global_id": "t_26_q_17",
+            "global_id2": "t_26_q_17",
+            "ticket_num": 26,
+            "order": 27,
+            "remapped_from": "t_24_q_8"
         },
-        "media_url": "v199uz.webp",
+        "media_url": "u291uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Quyidagi qaysi suratda haydovchi avtomobilni qoidaga xilof ravishda to'xtash joyiga qo'ygan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat chapdagi",
+                        "text": "Barchasida",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Chap va o'rtadagi",
-                        "is_correct": true
+                        "text": "Faqat chapdagi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Barchasida",
-                        "is_correct": false
+                        "text": "Chap va o'rtadagi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1942,18 +2141,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат чапдаги",
+                        "text": "Барчасида",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Чап ва ўртадаги",
-                        "is_correct": true
+                        "text": "Фақат чапдаги",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Барчасида",
-                        "is_correct": false
+                        "text": "Чап ва ўртадаги",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1962,37 +2161,44 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только на левом",
+                        "text": "На всех",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "На левом и среднем",
-                        "is_correct": true
+                        "text": "Только на левом",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "На всех",
-                        "is_correct": false
+                        "text": "На левом и среднем",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 88-bandiga asosan, transport vositalariga yo'lning o'ng tomonida yo'l yoqasida, u bo'lmaganda esa qatnov qismining chetida to'xtash va to'xtab turishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 13-боби 88-бандига асосан, транспорт воситаларига йўлнинг ўнг томонида йўл ёқасида, у бўлмаганда эса қатнов қисмининг четида тўхташ ва тўхтаб туришга рухсат этилади.",
+            "ru": "Согласно главе 13, статье 88 ПДД транспортные средства разрешается останавливать и ставить на стоянку с правой стороны дороги на обочине, а при ее отсутствии - на краю проезжей части."
         }
     },
     {
         "task_info": {
-            "global_id": "t_24_q_16",
-            "ticket_num": 24,
-            "order": 28
+            "global_id": "t_9_q_18",
+            "global_id2": "t_9_q_18",
+            "ticket_num": 9,
+            "order": 28,
+            "remapped_from": "t_24_q_16"
         },
-        "media_url": "v191uz.webp",
+        "media_url": "u100uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi avtomobil to'xtab turishga to'g'ri qo'yilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Engil avtomobil",
+                        "text": "Yengil avtomobil",
                         "is_correct": false
                     },
                     {
@@ -2002,12 +2208,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Har ikkisi to'g'ri qo'yilgan",
+                        "text": "Yuk avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Yuk avtomobil",
+                        "text": "Har ikkisi to'g'ri qo'yilgan",
                         "is_correct": false
                     }
                 ]
@@ -2027,12 +2233,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳар иккиси тўғри қўйилган",
+                        "text": "Юк автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Юк автомобиль",
+                        "text": "Ҳар иккиси тўғри қўйилган",
                         "is_correct": false
                     }
                 ]
@@ -2047,42 +2253,49 @@
                     },
                     {
                         "id": 2,
-                        "text": "Оба неправильно",
+                        "text": "Оба поставлены неправильно",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Оба правильно",
+                        "text": "Грузовой автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Грузовик",
+                        "text": "Оба поставлены правильно",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 88-bandi 3-xatboshi va 91-band, 8-xatboshiga asosan, ruxsat etilgan to‘liq vazni 3,5 tonnadan ko‘p bo‘lgan yuk transport vositalari bir tomonlama harakatli yo‘llarning chap tomonida faqat yuk ortish va tushirish uchun to‘xtashlari mumkin. Piyodalar o‘tish joylarida va ulardan oldin 10 metrdan kam masofa qolganda to‘xtash va to‘xtab turish taqiqlanadi.",
+            "uz_cyr": "YHQ 13-боби 88-банди 3-хатбоши ва 91-банд, 8-хатбошига асосан, рухсат этилган тўлиқ вазни 3,5 тоннадан кўп бўлган юк транспорт воситалари бир томонлама ҳаракатли йўлларнинг чап томонида фақат юк ортиш ва тушириш учун тўхташлари мумкин. Пиёдалар ўтиш жойларида ва улардан олдин 10 метрдан кам масофа қолганда тўхташ ва тўхтаб туриш тақиқланади.",
+            "ru": "Согласно главе 13, п. 88, п. 3 и п. 91, п. 8, грузовые транспортные средства разрешенной полной массой более 3,5 тонны могут останавливаться с левой стороны дорог с односторонним движением только для погрузки и разгрузки. Запрещается останавливаться и парковаться у пешеходных переходов и на расстоянии менее 10 метров перед ними."
         }
     },
     {
         "task_info": {
-            "global_id": "t_25_q_1",
-            "ticket_num": 25,
-            "order": 29
+            "global_id": "t_51_q_19",
+            "global_id2": "t_51_q_19",
+            "ticket_num": 51,
+            "order": 29,
+            "remapped_from": "t_25_q_1"
         },
-        "media_url": "v200uz.webp",
+        "media_url": "u588uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu erda avtomobilning to'xtashiga ruxsat berilganmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Taqiqlangan, chunki uzuq-uzuq yotiq chizig'i bilan to'xtab turgan va avtomobil orasidagi masofa 3 metrdan kam",
+                        "text": "Oyning juft kunlarida taqiqlangan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Oyning juft kunlarida taqiqlangan",
+                        "text": "Taqiqlangan, chunki uzuq-uzuq yotiq chizig'i bilan to'xtab turgan va avtomobil orasidagi masofa 3 metrdan kam",
                         "is_correct": false
                     },
                     {
@@ -2097,12 +2310,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тақиқланган, чунки узуқ-узуқ ётиқ чизиғи билан тўхтаб турган ва автомобил орасидаги масофа 3 метрдан кам",
+                        "text": "Ойнинг жуфт кунларида тақиқланган",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ойнинг жуфт кунларида тақиқланган",
+                        "text": "Тақиқланган, чунки узуқ-узуқ ётиқ чизиғи билан тўхтаб турган ва автомобил орасидаги масофа 3 метрдан кам",
                         "is_correct": false
                     },
                     {
@@ -2117,12 +2330,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Запрещается, потому что расстояние между автомобилем и прерывистой линией дороги меньше 3-х метров",
+                        "text": "Запрещается по четным дням месяца",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается по четным дням месяца",
+                        "text": "Запрещается, потому что расстояние между автомобилем и прерывистой линией дороги меньше 3-х метров",
                         "is_correct": false
                     },
                     {
@@ -2132,22 +2345,29 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 3-bo‘limidagi 3.28 belgi talabiga asosan, “To‘xtab turish taqiqlangan” belgisi faqat to‘xtab turishni taqiqlaydi. Transport vositasiga yo‘lovchilarni chiqarish yoki tushirish bilan bog‘liq bo‘lgan hollarda transport vositasining harakatini to‘xtatish taqiqlanmagan.",
+            "uz_cyr": "YHQ 1-иловасининг 3-бўлимидаги 3.28 белги талабига асосан, “Тўхтаб туриш тақиқланган” белгиси фақат тўхтаб туришни тақиқлайди. Транспорт воситасига йўловчиларни чиқариш ёки тушириш билан боғлиқ бўлган ҳолларда транспорт воситасининг ҳаракатини тўхтатиш тақиқланмаган.",
+            "ru": "Согласно требованию знака 3.28 части 3 приложения 1 ПДД, знак «Стоянка запрещена» запрещает только парковку. Не запрещается останавливать движение транспортного средства в случаях, связанных с высадкой или высадкой пассажиров."
         }
     },
     {
         "task_info": {
-            "global_id": "t_25_q_18",
-            "ticket_num": 25,
-            "order": 30
+            "global_id": "t_54_q_4",
+            "global_id2": "t_54_q_4",
+            "ticket_num": 54,
+            "order": 30,
+            "remapped_from": "t_25_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Transport vositalarining temir yo'l kesishmasiga qancha masofadan yaqinroqda to'xtab turishlari taqaqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "300 m",
+                        "text": "25 m",
                         "is_correct": false
                     },
                     {
@@ -2157,18 +2377,18 @@
                     },
                     {
                         "id": 3,
-                        "text": "100 m",
+                        "text": "300 m",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "50 m",
-                        "is_correct": true
+                        "text": "100 m",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "25 m",
-                        "is_correct": false
+                        "text": "50 m",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2177,7 +2397,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "300 м",
+                        "text": "25 м",
                         "is_correct": false
                     },
                     {
@@ -2187,18 +2407,18 @@
                     },
                     {
                         "id": 3,
-                        "text": "100 м",
+                        "text": "300 м",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "50 м",
-                        "is_correct": true
+                        "text": "100 м",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "25 м",
-                        "is_correct": false
+                        "text": "50 м",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2207,7 +2427,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "300 м",
+                        "text": "25 м",
                         "is_correct": false
                     },
                     {
@@ -2217,43 +2437,50 @@
                     },
                     {
                         "id": 3,
-                        "text": "100 м",
+                        "text": "300 м",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "50 м",
-                        "is_correct": true
+                        "text": "100 м",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "25 м",
-                        "is_correct": false
+                        "text": "50 м",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 92-bandining uchinchi xatboshisiga asosan: to‘xtab turish taqiqlanadi: temir yo‘l kesishmalariga 50 metrdan kam masofada",
+            "uz_cyr": "YHQ 13-боби 92-бандининг учинчи хатбошисига асосан: тўхтаб туриш тақиқланади: темир йўл кесишмаларига 50 метрдан кам масофада",
+            "ru": "Согласно пункту третьему статьи 92 главы 13 ПДД: парковка запрещается: на расстоянии менее 50 метров от железнодорожных переездов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_26_q_6",
-            "ticket_num": 26,
-            "order": 31
+            "global_id": "t_13_q_14",
+            "global_id2": "t_13_q_14",
+            "ticket_num": 13,
+            "order": 31,
+            "remapped_from": "t_26_q_6"
         },
-        "media_url": "v224uz.webp",
+        "media_url": "u144uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Yo'lovchilarni tushirish uchun qaysi transport vositalari to'g'ri to'xtadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Engil avtomobil",
-                        "is_correct": true
+                        "text": "Motosikl",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Motosikl",
-                        "is_correct": false
+                        "text": "Yengil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2272,13 +2499,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Енгил автомобиль",
-                        "is_correct": true
+                        "text": "Мотоцикл",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Мотоцикл",
-                        "is_correct": false
+                        "text": "Енгил автомобиль",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2297,13 +2524,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель легкового автомобиля",
-                        "is_correct": true
+                        "text": "Водитель мотоцикла",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водитель мотоцикла",
-                        "is_correct": false
+                        "text": "Водитель легкового автомобиля",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2317,22 +2544,29 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 91-bandi 8-xatboshiga muvofiq, piyodalar o'tish joylarida va ulardan oldin 10 metrdan kam masofa qolganda to'xtash taqiqlanadi.",
+            "uz_cyr": "YHQ 13-боби 91-банди 8-хатбошига мувофиқ, пиёдалар ўтиш жойларида ва улардан олдин 10 метрдан кам масофа қолганда тўхташ тақиқланади.",
+            "ru": "В соответствии с главой 13 статьи 91 пункта 8 ПДД парковка запрещена у пешеходных переходов и менее чем за 10 метров до них."
         }
     },
     {
         "task_info": {
-            "global_id": "t_26_q_16",
-            "ticket_num": 26,
-            "order": 32
+            "global_id": "t_30_q_9",
+            "global_id2": "t_30_q_9",
+            "ticket_num": 30,
+            "order": 32,
+            "remapped_from": "t_26_q_15"
         },
-        "media_url": "v218uz.webp",
+        "media_url": "u342uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi avtomobil haydovchisiga to'xtashga ruxsat etilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Engil avtomobilning haydovchisiga",
+                        "text": "Har ikki haydovchiga",
                         "is_correct": false
                     },
                     {
@@ -2342,7 +2576,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Har ikki haydovchiga",
+                        "text": "Yengil avtomobilning haydovchisiga",
                         "is_correct": false
                     }
                 ]
@@ -2352,7 +2586,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Енгил автомобилнинг ҳайдовчисига",
+                        "text": "Ҳар икки ҳайдовчига",
                         "is_correct": false
                     },
                     {
@@ -2362,7 +2596,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳар икки ҳайдовчига",
+                        "text": "Енгил автомобилнинг ҳайдовчисига",
                         "is_correct": false
                     }
                 ]
@@ -2372,13 +2606,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водителю легкового автомобиля",
-                        "is_correct": false
+                        "text": "Водителю грузового автомобиля",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Водителю грузового автомобиля",
-                        "is_correct": true
+                        "text": "Водителю легкового автомобиля",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -2387,28 +2621,35 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 13-bobi 91-bandi 4-xatboshiga muvofiq, quyidagi joylarda to'xtash taqiqlanadi – bir yo'nalishda harakatlanish uchun uchtadan kam tasmaga ega bo'lgan ko'prik, yo'l o'tkazgich va estakadalarning ustida, ko'prik, yo'l o'tkazgich va estkadalarning ostida (tegishli yo'l belgilari bilan to'xtab turish ruxsat berilgan yo'l qismlari bundan mustasno).",
+            "uz_cyr": "YHQ 13-боби 91-банди 4-хатбошига мувофиқ, қуйидаги жойларда тўхташ тақиқланади – бир йўналишда ҳаракатланиш учун учтадан кам тасмага эга бўлган кўприк, йўл ўтказгич ва эстакадаларнинг устида, кўприк, йўл ўтказгич ва эсткадаларнинг остида (тегишли йўл белгилари билан тўхтаб туриш рухсат берилган йўл қисмлари бундан мустасно).",
+            "ru": "В соответствии с главой 13 статьи 91 пункта 4 ПДД парковка запрещается в следующих местах - на мостах, эстакадах и путепроводах с числом полос движения менее трех полос для движения в одном направлении, под мостами, эстакадами и путепроводами (за исключением участков дорог, на которых парковка разрешена с соответствующими дорожными знаками)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_27_q_16",
-            "ticket_num": 27,
-            "order": 33
+            "global_id": "t_60_q_16",
+            "global_id2": "t_60_q_16",
+            "ticket_num": 60,
+            "order": 33,
+            "remapped_from": "t_27_q_16"
         },
-        "media_url": "v231uz.webp",
+        "media_url": "u687uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositasining haydovchisi to'xtash qoidasini buzdi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat motosikl haydovchisi",
-                        "is_correct": true
+                        "text": "Faqat avtomobil haydovchisi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat avtomobil haydovchisi",
-                        "is_correct": false
+                        "text": "Faqat motosikl haydovchisi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2427,13 +2668,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат мотоцикл ҳайдовчиси",
-                        "is_correct": true
+                        "text": "Фақат автомобил ҳайдовчиси",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат автомобил ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Фақат мотоцикл ҳайдовчиси",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2452,13 +2693,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только водитель мотоцикла",
-                        "is_correct": true
+                        "text": "Только водитель автомобиля",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только водитель автомобиля",
-                        "is_correct": false
+                        "text": "Только водитель мотоцикла",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2472,6 +2713,336 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 22-bobi 132-bandiga muvofiq, agar 5.9 yo‘l belgisi bilan belgilangan tasma qatnov qismining boshqa tasmalardan uzuq-uzuq chiziq bilan ajratilgan bo‘lsa, bunday joylarda yo‘nalishli transport vositalarining harakatiga xalaqit bermaslik sharti bilan yo‘lga chiqish, qatnov qismining chetki o‘ng tomonida yo‘lovchilarni chiqarish va tushirish uchun bu bo‘lakka o‘tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 22-боби 132-бандига мувофиқ, агар 5.9 йўл белгиси билан белгиланган тасма қатнов қисмининг бошқа тасмалардан узуқ-узуқ чизиқ билан ажратилган бўлса, бундай жойларда йўналишли транспорт воситаларининг ҳаракатига халақит бермаслик шарти билан йўлга чиқиш, қатнов қисмининг четки ўнг томонида йўловчиларни чиқариш ва тушириш учун бу бўлакка ўтишга рухсат этилади.",
+            "ru": "В соответствии со статьей 132 главы 22 ПДД, если полоса движения, обозначенная дорожным знаком 5.9, отделена от других полос проезжей части длинной линией, выезд на дорогу, высадка и высадка пассажиров допускается на крайней правой стороне проезжей части при условии, что это не препятствует движению направленных транспортных средств в таких местах."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_45_q_11",
+            "global_id2": "t_45_q_11",
+            "ticket_num": 45,
+            "order": 34,
+            "remapped_from": "t_62_q_15"
+        },
+        "media_url": "u521uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Avtomobilga shu vaziyatda to'xtashga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Автомобилга шу вазиятда тўхташга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тақиқланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Рухсат этилади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешена ли остановка автомобиля в данной ситуации?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Запрещена",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешена",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 13-bob. 88-band 1-xatboshiga asosan: 88. Transport vositalariga yo‘lning o‘ng tomonida yo‘l yoqasida, u bo‘lmaganda esa qatnov qismining chetida va Qoidalarning 89-bandida ko‘rsatilgan hollarda trotuarda to‘xtash va to‘xtab turishga ruxsat etiladi.",
+            "uz_cyr": "YHQнинг 13-боб. 88-банд 1-хатбошига асосан: 88. Транспорт воситаларига йўлнинг ўнг томонида йўл ёқасида, у бўлмаганда эса қатнов қисмининг четида ва Қоидаларнинг 89-бандида кўрсатилган ҳолларда тротуарда тўхташ ва тўхтаб туришга рухсат этилади.",
+            "ru": "Глава 13 ПДД. Согласно абзацу 1 пункта 88: 88. Транспортные средства разрешается останавливать и парковать с правой стороны дороги на обочине, а при ее отсутствии - на краю проезжей части и на тротуаре в случаях, предусмотренных пунктом 89 Правил."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_59_q_17",
+            "global_id2": "t_59_q_17",
+            "ticket_num": 59,
+            "order": 35,
+            "remapped_from": "t_64_q_11"
+        },
+        "media_url": "u1004uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu ko'rsatilgan joyda to'xtashga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу кўрсатилган жойда тўхташга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тақиқланади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешается ли остановка в указанном месте?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Запрещается",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 13-bob. 91-band 5-xatboshiga asosan: 91. Quyidagilarda to‘xtash taqiqlanadi: bir yoʻnalishda harakatlanish uchun uchtadan kam tasmaga ega boʻlgan koʻprik, yoʻl oʻtkazgich va estakadalarning ustida.",
+            "uz_cyr": "YHQнинг 13-боб. 91-банд 5-хатбошига асосан: 91. Қуйидагиларда тўхташ тақиқланади: бир йўналишда ҳаракатланиш учун учтадан кам тасмага эга бўлган кўприк, йўл ўтказгич ва эстакадаларнинг устида.",
+            "ru": "Глава 13 ПДД. Согласно пункту 5 статьи 91: 91. Парковка запрещена на: мостах, эстакадах и эстакадах с менее чем тремя полосами движения в одном направлении."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_59_q_19",
+            "global_id2": "t_59_q_19",
+            "ticket_num": 59,
+            "order": 36,
+            "remapped_from": "t_64_q_13"
+        },
+        "media_url": "u1006uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Mazkur joyda yo'lovchilarni tushirish yoki chiqarish uchun to'xtashga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat taksi haydovchilariga ruxsat etiladi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Мазкур жойда йўловчиларни тушириш ёки чиқариш учун тўхташга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тақиқланади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат такси ҳайдовчиларига рухсат этилади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешается ли в данном месте остановка для посадки или высадки пассажиров?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Запрещается",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается только водителям такси",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 13-bob. 91-band 4-xatboshiga asosan: 91. Quyidagilarda to‘xtash taqiqlanadi: tunnellarda.",
+            "uz_cyr": "YHQнинг 13-боб. 91-банд 4-хатбошига асосан: 91. Қуйидагиларда тўхташ тақиқланади: туннелларда.",
+            "ru": "Глава 13 ПДД. В соответствии с пунктом 4 статьи 91: 91. Парковка запрещена в: туннелях."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_51_q_9",
+            "global_id2": "t_51_q_9",
+            "ticket_num": 51,
+            "order": 37,
+            "remapped_from": "t_15_q_16"
+        },
+        "media_url": "u580uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu joyda avtomobilning to'xtab turishiga ruxsat berilganmi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Taqiqlangan",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Berilgan",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу жойда автомобилнинг тўхтаб туришига рухсат берилганми?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тақиқланган",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Берилган",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешена ли стоянка автомобиля в этом месте?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Запрещена",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешена",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 3-bo'limidagi 3.28. \"To'xtab turish taqiqlangan\" belgi talabiga asosan, transport vositalarining to'xtab turishi taqiqlanadi. Uning ta'siri belgi o'rnatilgan joydan keyingi eng yaqin chorrahagacha, qayrilib olish joyigacha, ular bo'lmaganda – aholi punktining oxirigacha ta'siri qiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 3-бўлимидаги 3.28. \"Тўхтаб туриш тақиқланган\" белги талабига асосан, транспорт воситаларининг тўхтаб туриши тақиқланади. Унинг таъсири белги ўрнатилган жойдан кейинги энг яқин чорраҳагача, қайрилиб олиш жойигача, улар бўлмаганда – аҳоли пунктининг охиригача таъсири қилади.",
+            "ru": "3.28 Главы 3 Приложения 1 ПДД. Парковка транспортных средств запрещена на основании требования знака «Стоянка запрещена». Его действие осуществляется от места установки знака до ближайшего перекрестка, до поворота, а если их нет - до конца населенного пункта."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_63_q_8",
+            "global_id2": "t_63_q_8",
+            "ticket_num": 63,
+            "order": 38,
+            "remapped_from": "t_66_q_4"
+        },
+        "media_url": "u89uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu joyda to'xtashga ruxsat etilganmi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Taqiqlangan",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ruxsat etilgan",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу жойда тўхташга рухсат этилганми?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тақиқланган",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Рухсат этилган",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешена ли остановка в этом месте?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Запрещена",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешен",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 2-ILOVA 1.4 bandiga asosan: 1.4 — to‘xtash taqiqlangan joyni bildiradi. Yakka holda yoki 3.27 «To‘xtash taqiqlangan» yo‘l belgisi bilan qo‘llaniladi hamda yo‘lning qatnov qismi chetiga yoki yo‘l chetidagi to‘siq ustidan chiziladi (xizmat vazifasini bajarayotgan xodimga biriktirilgan ko‘k yoki qizil yoxud ko‘k va qizil rangli yaltiroq mayoqchasi bilan jihozlangan hamda maxsus rangli bo‘yoq sxemalar va yozuvlar bilan belgilangan transport vositalari bundan mustasno).",
+            "uz_cyr": "YHQга 2-ИЛОВА 1.4 бандига асосан: 1.4 — тўхташ тақиқланган жойни билдиради. Якка ҳолда ёки 3.27 «Тўхташ тақиқланган» йўл белгиси билан қўлланилади ҳамда йўлнинг қатнов қисми четига ёки йўл четидаги тўсиқ устидан чизилади (хизмат вазифасини бажараётган ходимга бириктирилган кўк ёки қизил ёхуд кўк ва қизил рангли ялтироқ маёқчаси билан жиҳозланган ҳамда махсус рангли бўёқ схемалар ва ёзувлар билан белгиланган транспорт воситалари бундан мустасно).",
+            "ru": "Согласно пункту 1.4 ПРИЛОЖЕНИЯ 2 к ТК: 1.4 означает место, где парковка запрещена. Применяется отдельно или вместе со знаком 3.27 «Остановка запрещена» и наносится на краю проезжей части или через придорожное ограждение (за исключением транспортных средств, оборудованных синим или красным или сине-красным блестящим маячком, прикрепленным к дежурному работнику и обозначенным специальными цветовыми схемами и надписями)."
         }
     }
 ]

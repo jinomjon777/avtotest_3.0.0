@@ -1,11 +1,13 @@
 [
     {
         "task_info": {
-            "global_id": "t_4_q_4",
-            "ticket_num": 4,
-            "order": 1
+            "global_id": "t_13_q_13",
+            "global_id2": "t_13_q_13",
+            "ticket_num": 13,
+            "order": 1,
+            "remapped_from": "t_4_q_4"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Belgilangan yo'nalish bo'yicha harakatlanayotgan yo'nalishli transport vositalarining haydovchilari piyodalar o'tish joyidan tashqarida oq xassa bilan ishora berayotgan ko'zi ojiz piyodalarni o'tkazib yuborishlari kerakmi?",
@@ -38,7 +40,7 @@
                 ]
             },
             "ru": {
-                "text": "Должны ли водители маршрутных транспортных средств; движущихся по установленным маршрутам; пропускать слепых пешеходов; подающих сигнал белой тростью вне пешеходных переходов?",
+                "text": "Должны ли водители маршрутных транспортных средств, движущихся по установленным маршрутам, пропускать слепых пешеходов, подающих сигнал белой тростью вне пешеходных переходов?",
                 "options": [
                     {
                         "id": 1,
@@ -52,23 +54,30 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 17-bobi 113-bandiga muvofiq, barcha hollarda, shu jumladan, piyodalar o'tish joylaridan tashqarida ham haydovchi oq hassa bilan ishora berayotgan ko'zi ojiz piyoda(lar)ni o'tkazib yuborishi kerak.",
+            "uz_cyr": "YHQ 17-боби 113-бандига мувофиқ, барча ҳолларда, шу жумладан, пиёдалар ўтиш жойларидан ташқарида ҳам ҳайдовчи оқ ҳасса билан ишора бераётган кўзи ожиз пиёда(лар)ни ўтказиб юбориши керак.",
+            "ru": "Согласно статье 113 главы 17 ПДД во всех случаях, в том числе вне пешеходных переходов, водитель обязан уступить дорогу слабовидящему пешеходу(ам), сигнализирующему белой тростью."
         }
     },
     {
         "task_info": {
-            "global_id": "t_4_q_14",
-            "ticket_num": 4,
-            "order": 2
+            "global_id": "t_28_q_17",
+            "global_id2": "t_28_q_17",
+            "ticket_num": 28,
+            "order": 2,
+            "remapped_from": "t_4_q_12"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Oldida transport vositasi to'xtab turgan tartibga solinmaydigan piyodalar o'tish joyiga yaqinlashib kelmoqdasiz, Siz nima qilishingiz kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Piyodalar o'tish joyidan o'tish",
-                        "is_correct": false
+                        "text": "Harakatni davom ettirish, lekin to'xtab turgan transport vositasi oldida piyodalar yo'qligiga ishonch hosil qilgan holda",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -77,8 +86,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Harakatni davom ettirish, lekin to'xtab turgan transport vositasi oldida piyodalar yo'qligiga ishonch hosil qilgan holda",
-                        "is_correct": true
+                        "text": "Piyodalar o'tish joyidan o'tish",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -88,12 +97,12 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Oлдида транспорт воситаси тўхтаб турган тартибга солинмайдиган пиёдалар ўтиш жойига яқинлашиб келмоқдасиз, Сиз нима қилишингиз керак?",
+                "text": "Олдида транспорт воситаси тўхтаб турган тартибга солинмайдиган пиёдалар ўтиш жойига яқинлашиб келмоқдасиз, Сиз нима қилишингиз керак?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Пиёдалар ўтиш жойидан ўтиш",
-                        "is_correct": false
+                        "text": "Ҳаракатни давом эттириш, лекин тўхтаб турган транспорт воситаси олдида пиёдалар йўқлигига ишонч ҳосил қилган ҳолда",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -102,8 +111,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳаракатни давом эттириш, лекин тўхтаб турган транспорт воситаси олдида пиёдалар йўқлигига ишонч ҳосил қилган ҳолда",
-                        "is_correct": true
+                        "text": "Пиёдалар ўтиш жойидан ўтиш",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -113,12 +122,12 @@
                 ]
             },
             "ru": {
-                "text": "Вы приближаетесь к нерегулируемому пешеходному переходу; перед которым остановилось транспортное средство. Вы должны:",
+                "text": "Вы приближаетесь к нерегулируемому пешеходному переходу, перед которым остановилось транспортное средство. Вы должны:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Проехать пешеходный переход безостановочно",
-                        "is_correct": false
+                        "text": "Продолжить движение, лишь убедившись, что перед остановившимся транспортным средством нет пешеходов",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -127,42 +136,49 @@
                     },
                     {
                         "id": 3,
-                        "text": "Продолжить движение, лишь убедившись, что перед остановившимся транспортным средством нет пешеходов",
-                        "is_correct": true
+                        "text": "Обязательно остановиться. При появлении пешеходов пропустить их",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Обязательно остановиться. При появлении пешеходов пропустить их",
+                        "text": "Проехать пешеходный переход безостановочно",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 17-bobi 110-bandiga muvofiq, agar tartibga solinmagan piyodalar o'tish joyi oldida transport vositasi harakatini sekinlashtirsa yoki to'xtasa, qo'shni tasmalarda harakatlanayotgan boshqa haydovchilar bu transport vositasi oldida piyoda(lar) yo'qligiga ishonch hosil qilganlaridan so'nggina harakatlanishni davom ettirishlari mumkin.",
+            "uz_cyr": "YHQ 17-боби 110-бандига мувофиқ, агар тартибга солинмаган пиёдалар ўтиш жойи олдида транспорт воситаси ҳаракатини секинлаштирса ёки тўхтаса, қўшни тасмаларда ҳаракатланаётган бошқа ҳайдовчилар бу транспорт воситаси олдида пиёда(лар) йўқлигига ишонч ҳосил қилганларидан сўнггина ҳаракатланишни давом эттиришлари мумкин.",
+            "ru": "В соответствии со статьей 110 главы 17 ПДД, если нерегулируемый пешеход замедлил ход или остановил транспортное средство перед пешеходным переходом, другие водители на соседних полосах движения могут продолжить движение только после того, как убедятся в отсутствии пешехода(ов) перед этим транспортным средством."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_4",
-            "ticket_num": 9,
-            "order": 3
+            "global_id": "t_40_q_10",
+            "global_id2": "t_40_q_10",
+            "ticket_num": 40,
+            "order": 3,
+            "remapped_from": "t_9_q_4"
         },
-        "media_url": "v698uz.webp",
+        "media_url": "u457uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Suratdagi tasvirlangan holatda haydovchi nima qilishi lozim?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Tezlikni zarur bo'lganda darhol to'xtash imkonini beradigan darajagacha pasaytirib harakatni davom ettirish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Bekatda (yo'l o'rtasida) turgan bir xil yo'nalishdagi tramvayga borayotgan yoki undan kelayotgan piyodalarga yo'l berish",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "To'xtash va tramvay eshiklari yopilgandan keyin harakatlanishni boshlash",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Tezlikni zarur bo'lganda darhol to'xtash imkonini beradigan darajagacha pasaytirib harakatni davom ettirish",
+                        "text": "To'xtash va tramvay eshiklari yopilgandan keyin harakatlanishni boshlash",
                         "is_correct": false
                     }
                 ]
@@ -172,50 +188,57 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Тезликни зарур бўлганда дарҳол тўхташ имконини берадиган даражагача пасайтириб ҳаракатни давом эттириш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Бекатда (йўл ўртасида) турган бир хил йўналишдаги трамвайга бораётган ёки ундан келаётган пиёдаларга йўл бериш",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Тўхташ ва трамвай эшиклари ёпилгандан кейин ҳаракатланишни бошлаш",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Тезликни зарур бўлганда дарҳол тўхташ имконини берадиган даражагача пасайтириб ҳаракатни давом эттириш",
+                        "text": "Тўхташ ва трамвай эшиклари ёпилгандан кейин ҳаракатланишни бошлаш",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Как должен поступить водитель в ситуации; изображенной на рисунке?",
+                "text": "Как должен поступить водитель в ситуации, изображенной на рисунке?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Уступить дорогу пешеходам; идущим к стоящему на остановке (посередине дороги) трамваю попутного направления или от него\u000b",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Остановиться и возобновить движение после того, как будут закрыты двери трамвая",
+                        "text": "Снизить скорость до предела, обеспечивающего при необходимости немедленную остановку, и продолжить движение",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Уступить дорогу пешеходам, идущим к стоящему на остановке (посередине дороги) трамваю попутного направления или от него",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Снизить скорость до предела; обеспечивающего при необходимости немедленную остановку; и продолжать движение\n",
+                        "text": "Остановиться и возобновить движение после того, как будут закрыты двери трамвая",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 17-bobi 114-bandiga asosan, agar yo'lovchilarni tushirish yoki chiqarish qatnov qismida yoki unda joylashgan maydonchada amalga oshirilayotgan bo'lsa, haydovchi bekatda to'xtagan yo'nalishli transport vositasi eshiklari tomon borayotgan yoki undan kelayotgan piyoda(lar)ga yo'l berishi kerak.",
+            "uz_cyr": "YHQ 17-боби 114-бандига асосан, агар йўловчиларни тушириш ёки чиқариш қатнов қисмида ёки унда жойлашган майдончада амалга оширилаётган бўлса, ҳайдовчи бекатда тўхтаган йўналишли транспорт воситаси эшиклари томон бораётган ёки ундан келаётган пиёда(лар)га йўл бериши керак.",
+            "ru": "Согласно статье 114 главы 17 ПДД при высадке или посадке пассажиров на проезжей части дороги или на расположенной на ней платформе водитель обязан уступить дорогу пешеходу (пешеходам), идущему или выходящему из дверей остановленного на станции попутного транспортного средства."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_14",
+            "global_id": "t_9_q_1",
+            "global_id2": "t_9_q_1",
             "ticket_num": 9,
-            "order": 4
+            "order": 4,
+            "remapped_from": "t_9_q_14"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yo'lning o'rtasida joylashgan bekatda to'xtagan yo'lakay yo'nalishli tramvay yonidan o'tayotganda haydovchi nima qilishi kerak?",
@@ -248,11 +271,11 @@
                 ]
             },
             "ru": {
-                "text": "Как должен поступить водитель при проезде мимо трамвая попутного направления; стоящего на обозначенной остановке; расположений на середине дороги?",
+                "text": "Как должен поступить водитель при проезде мимо трамвая попутного направления, стоящего на обозначенной остановке, расположенной на середине дороги?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Остановиться и возобновить движение только после того; как будут закрыты двери трамвая",
+                        "text": "Остановиться и возобновить движение только после того, как будут закрыты двери трамвая",
                         "is_correct": false
                     },
                     {
@@ -262,28 +285,35 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 17 – bobi 114 – bandiga asosan: Agar yo‘lovchilarni tushirish yoki chiqarish qatnov qismida yoki unda joylashgan maydonchada amalga oshirilayotgan bo‘lsa, haydovchi bekatda to‘xtagan yo‘nalishli transport vositasi eshiklari tomon borayotgan yoki undan kelayotgan piyoda (lar) ga yo‘l berishi kerak.",
+            "uz_cyr": "YHQ 17 – боби 114 – бандига асосан: Агар йўловчиларни тушириш ёки чиқариш қатнов қисмида ёки унда жойлашган майдончада амалга оширилаётган бўлса, ҳайдовчи бекатда тўхтаган йўналишли транспорт воситаси эшиклари томон бораётган ёки ундан келаётган пиёда (лар) га йўл бериши керак.",
+            "ru": "Согласно статье 114 главы 17 ПДД: При высадке или высадке пассажиров на проезжей части или на расположенной на ней платформе водитель обязан уступить дорогу пешеходу(ам), идущему или выходящему из дверей остановленного на станции направленного транспортного средства."
         }
     },
     {
         "task_info": {
-            "global_id": "t_12_q_4",
+            "global_id": "t_12_q_11",
+            "global_id2": "t_12_q_11",
             "ticket_num": 12,
-            "order": 5
+            "order": 5,
+            "remapped_from": "t_12_q_4"
         },
-        "media_url": "v42uz.webp",
+        "media_url": "u129uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Haydovchilardan qaysi biri to'xtashga majbur?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Engil avtomobil haydovchisi",
-                        "is_correct": true
+                        "text": "Avtobus haydovchisi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtobus haydovchisi",
-                        "is_correct": false
+                        "text": "Yengil avtomobil haydovchisi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -297,13 +327,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Енгил автомобиль ҳайдовчиси",
-                        "is_correct": true
+                        "text": "Автобус ҳайдовчиси",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобус ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Енгил автомобиль ҳайдовчиси",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -317,13 +347,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель легкового автомобиля",
-                        "is_correct": true
+                        "text": "Водитель автобуса",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водитель автобуса",
-                        "is_correct": false
+                        "text": "Водитель легкового автомобиля",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -332,22 +362,29 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 17-bobi 109-bandiga muvofiq, tartibga solinmagan piyodalar o'tish joyiga yaqinlashayotgan transport vositasining haydovchisi qatnov qismining shu yo'nalishini kesib o'tayotgan piyoda(lar)ni o'tkazib yuborish uchun tezligini kamaytirishi yoki to'xtashi shart.",
+            "uz_cyr": "YHQ 17-боби 109-бандига мувофиқ, тартибга солинмаган пиёдалар ўтиш жойига яқинлашаётган транспорт воситасининг ҳайдовчиси қатнов қисмининг шу йўналишини кесиб ўтаётган пиёда(лар)ни ўтказиб юбориш учун тезлигини камайтириши ёки тўхташи шарт.",
+            "ru": "Согласно статье 109 главы 17 ПДД водитель транспортного средства, приближающегося к нерегулируемому пешеходному переходу, обязан снизить скорость или остановиться, чтобы пропустить пешехода(ов), переходящего проезжую часть."
         }
     },
     {
         "task_info": {
-            "global_id": "t_13_q_1",
-            "ticket_num": 13,
-            "order": 6
+            "global_id": "t_53_q_15",
+            "global_id2": "t_53_q_15",
+            "ticket_num": 53,
+            "order": 6,
+            "remapped_from": "t_13_q_1"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Jihozlangan bekatlari bo'lmagan tramvay to'xtash joylarida unga chiqish uchun piyodalarga qachon qatnov qismiga chiqishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tramvay yaqinlashib kelganda",
+                        "text": "Agar qatnov qismida transport vositalari yo'q bo'lsa tramvay yaqinlashib kelganda",
                         "is_correct": false
                     },
                     {
@@ -357,12 +394,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Har qanday holda",
+                        "text": "Tramvay yaqinlashib kelganda",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Agar qatnov qismida transport vositalari yo'q bo'lsa tramvay yaqinlashib kelganda",
+                        "text": "Har qanday holda",
                         "is_correct": false
                     }
                 ]
@@ -372,7 +409,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай яқинлашиб келганда",
+                        "text": "Агар қатнов қисмида транспорт воситалари йўқ бўлса трамвай яқинлашиб келганда",
                         "is_correct": false
                     },
                     {
@@ -382,22 +419,22 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳар қандай ҳолда",
+                        "text": "Трамвай яқинлашиб келганда",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Агар қатнов қисмида транспорт воситалари йўқ бўлса трамвай яқинлашиб келганда",
+                        "text": "Ҳар қандай ҳолда",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Когда можно выходить пешеходам на проезжую часть для посадки на трамвайных остановках; не оборудованных посадочными площадками?",
+                "text": "Когда можно выходить пешеходам на проезжую часть для посадки на трамвайных остановках, не оборудованных посадочными площадками?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "При приближении трамвая",
+                        "text": "При приближении трамвая, если на проезжей части нет транспортных средств",
                         "is_correct": false
                     },
                     {
@@ -407,48 +444,55 @@
                     },
                     {
                         "id": 3,
-                        "text": "В любом случае",
+                        "text": "При приближении трамвая",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "При приближении трамвая; если на проезжей части нет транспортных средств",
+                        "text": "В любом случае",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 4-bobi 22-bandiga asosan, qatnov qismidan baland joylashgan maydonchalar bilan jihozlanmagan bekatlarda yo'nalishli transport vositalari to'liq to'xtagandan so'ng unga chiqish uchun qatnov qismiga chiqishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 4-боби 22-бандига асосан, қатнов қисмидан баланд жойлашган майдончалар билан жиҳозланмаган бекатларда йўналишли транспорт воситалари тўлиқ тўхтагандан сўнг унга чиқиш учун қатнов қисмига чиқишга рухсат этилади.",
+            "ru": "Согласно главе 4, статье 22 ПДД, на станциях, не оборудованных платформами, расположенными над проезжей частью, направленным транспортным средствам разрешается покидать проезжую часть после их полной остановки."
         }
     },
     {
         "task_info": {
-            "global_id": "t_18_q_4",
-            "ticket_num": 18,
-            "order": 7
+            "global_id": "t_53_q_2",
+            "global_id2": "t_53_q_2",
+            "ticket_num": 53,
+            "order": 7,
+            "remapped_from": "t_18_q_4"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yo'l o'rtasidagi to'xtash joyida to'xtagan shu yo'nalishdagi tramvayga yaqinlashib qolgan haydovchi nima qilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "To'xtashi, so'ng tramvay harakatlanganidan keyin harakatni davom ettirishi",
+                        "text": "To'xtashi, tramvay eshiklari yopilgandan keyin harakatni davom ettirishi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Yo'l o'rtasidagi to'xtash joyida turgan shu yo'nalishdagi tramvayga kelayotgan yoki undan uzoqlashayotgan piyodalarga yo'l berishi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Tramvay to'xtash joyidan nihoyatda ehtiyotkorlik bilan o'tishi",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "To'xtashi, tramvay eshiklari yopilgandan keyin harakatni davom ettirishi",
+                        "id": 3,
+                        "text": "To'xtashi, so'ng tramvay harakatlanganidan keyin harakatni davom ettirishi",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Yo'l o'rtasidagi to'xtash joyida turgan shu yo'nalishdagi tramvayga kelayotgan yoki undan uzoqlashayotgan piyodalarga yo'l berishi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -457,78 +501,85 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўхташи, сўнг трамвай ҳаракатланганидан кейин ҳаракатни давом эттириши",
+                        "text": "Тўхташи, трамвай эшиклари ёпилгандан кейин ҳаракатни давом эттириши",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Йўл ўртасидаги тўхташ жойида турган шу йўналишдаги трамвайга келаётган ёки ундан узоқлашаётган пиёдаларга йўл бериши",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Трамвай тўхташ жойидан ниҳоятда эҳтиёткорлик билан ўтиши",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "Тўхташи, трамвай эшиклари ёпилгандан кейин ҳаракатни давом эттириши",
+                        "id": 3,
+                        "text": "Тўхташи, сўнг трамвай ҳаракатланганидан кейин ҳаракатни давом эттириши",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Йўл ўртасидаги тўхташ жойида турган шу йўналишдаги трамвайга келаётган ёки ундан узоқлашаётган пиёдаларга йўл бериши",
+                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Что обязан сделать водитель; приближаясь к трамваю попутного направления; остановившемуся на остановке посередине дороги?",
+                "text": "Что обязан сделать водитель, приближаясь к трамваю попутного направления, остановившемуся на остановке посередине дороги?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Уступить дорогу пешеходам, идущим к стоящему на остановке посередине дороги трамваю попутного направления или от него",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Остановиться, затем продолжить движение после закрытия дверей",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
-                        "text": "Уступить дорогу пешеходам; идущим к стоящему на остановке посередине дороги трамваю попутного направления или от него",
-                        "is_correct": true
-                    },
-                    {
                         "id": 3,
-                        "text": "Проехать трамвайную остановку с особой осторожностью",
+                        "text": "Остановиться, затем продолжить движение после того, когда трамвай начнет движение",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Остановиться, затем продолжить движение после того; когда трамвай начнет движение",
+                        "text": "Проехать трамвайную остановку с особой осторожностью",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 17-bobi 114-bandiga asosan, agar yo'lovchilarni tushirish yoki chiqarish qatnov qismida yoki unda joylashgan maydonchada amalga oshirilayotgan bo'lsa, haydovchi bekatda to'xtagan yo'nalishli transport vositasi eshiklari tomon borayotgan yoki undan kelayotgan piyoda(lar)ga yo'l berishi kerak.",
+            "uz_cyr": "YHQ 17-боби 114-бандига асосан, агар йўловчиларни тушириш ёки чиқариш қатнов қисмида ёки унда жойлашган майдончада амалга оширилаётган бўлса, ҳайдовчи бекатда тўхтаган йўналишли транспорт воситаси эшиклари томон бораётган ёки ундан келаётган пиёда(лар)га йўл бериши керак.",
+            "ru": "Согласно пункту 114 главы 17 ПДД, если посадка или высадка пассажиров производится на проезжей части либо на расположенной на ней площадке, водитель обязан уступить дорогу пешеходам, идущим к дверям остановившегося маршрутного транспортного средства или от них."
         }
     },
     {
         "task_info": {
-            "global_id": "t_18_q_6",
-            "ticket_num": 18,
-            "order": 8
+            "global_id": "t_35_q_1",
+            "global_id2": "t_35_q_1",
+            "ticket_num": 35,
+            "order": 8,
+            "remapped_from": "t_18_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Transport vositasining haydovchisi, agar svetoforning ruxsat etuvchi yoritgichi yoqilsa-yu, harakat yo'nalishining qatnov qismidan o'tishga ulgurmagan piyodalar bo'lsa, nima qilishi kerak?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Mazkur yo'nalishning qatnov qismidan piyodalarning o'tib olishiga imkon berishi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Tezlikni kamaytirishi, tovush ishorasini berishi va eng kam tezlik bilan piyodalarning o'tish joyidan o'tishi",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Tovush ishorasini berishi va tezlikni kamaytirmay piyodalarning o'tish joyidan o'tishi",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Mazkur yo'nalishning qatnov qismidan piyodalarning o'tib olishiga imkon berishi",
-                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -542,18 +593,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Мазкур йўналишнинг қатнов қисмидан пиёдаларнинг ўтиб олишига имкон бериши",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Тезликни камайтириши, товуш ишорасини бериши ва энг кам тезлик билан пиёдаларнинг ўтиш жойидан ўтиши",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Товуш ишорасини бериши ва тезликни камайтирмай пиёдаларнинг ўтиш жойидан ўтиши",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Мазкур йўналишнинг қатнов қисмидан пиёдаларнинг ўтиб олишига имкон бериши",
-                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -567,52 +618,59 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Снизить скорость, подать звуковой сигнал и проехать пешеходный переход на минимальной скорости",
-                        "is_correct": false
+                        "text": "Дать пешеходам возможность закончить переход проезжей части данного направления",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Подать звуковой сигнал и проехать пешеходный переход; не снижая скорости",
+                        "text": "Снизить скорость, подать звуковой сигнал и проехать пешеходный переход с минимальной скоростью",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Дать возможность пешеходам закончить переход проезжей части данного направления",
-                        "is_correct": true
+                        "text": "Подать звуковой сигнал и проехать пешеходный переход, не снижая скорости",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Проехать пешеходный переход; соблюдая меры предосторожности",
+                        "text": "Проехать пешеходный переход, соблюдая меры предосторожности",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 15-bobi 103-bandiga asosan, svetoforning ruxsat etuvchi ishorasi yonganda haydovchi chorraha orqali harakatlanishni tugallayotgan transport vositalari va qatnov qismidan tegishli yo'nalishda o'tishni tugallayotgan piyoda(lar)ga yo'l berishi shart.",
+            "uz_cyr": "YHQ 15-боби 103-бандига асосан, светофорнинг рухсат этувчи ишораси ёнганда ҳайдовчи чорраҳа орқали ҳаракатланишни тугаллаётган транспорт воситалари ва қатнов қисмидан тегишли йўналишда ўтишни тугаллаётган пиёда(лар)га йўл бериши шарт.",
+            "ru": "В соответствии с главой 15, статьей 103 ПДД, при включенном сигнале светофора водитель обязан уступить дорогу транспортным средствам, завершающим движение через перекресток, и пешеходу(ам), завершающему переход в соответствующем направлении."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_5",
-            "ticket_num": 22,
-            "order": 9
+            "global_id": "t_28_q_10",
+            "global_id2": "t_28_q_10",
+            "ticket_num": 28,
+            "order": 9,
+            "remapped_from": "t_22_q_5"
         },
-        "media_url": "v173uz.webp",
+        "media_url": "u313uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bunday vaziyatda haydovchi nima qilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Oldindan yaqin fara chiroqlarini yoqib va uzluksiz tovush ishorasini berib, eng kam tezlik bilan turgan transport vositasini aylanib o'tishi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Qatnov qismidan o'tayotgan bolalarga yo'l berishi",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Bu yo'l qismidan o'tishi kerak, chunki bolalar qatnov qismini piyodalar o'tish joyidan kesib o'tmayaptilar",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Oldindan yaqin fara chiroqlarini yoqib va uzluksiz tovush ishorasini berib, eng kam tezlik bilan turgan transport vositasini aylanib o'tishi",
                         "is_correct": false
                     }
                 ]
@@ -622,17 +680,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Олдиндан яқин фара чироқларини ёқиб ва узлуксиз товуш ишорасини бериб, энг кам тезлик билан турган транспорт воситасини айланиб ўтиши",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Қатнов қисмидан ўтаётган болаларга йўл бериши",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Бу йўл қисмидан ўтиши керак, чунки болалар қатнов қисмини пиёдалар ўтиш жойидан кесиб ўтмаяптилар",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Олдиндан яқин фара чироқларини ёқиб ва узлуксиз товуш ишорасини бериб, энг кам тезлик билан турган транспорт воситасини айланиб ўтиши",
                         "is_correct": false
                     }
                 ]
@@ -642,52 +700,59 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Объехать стоящее транспортное средство на минимальной скорости, заблаговременно включив ближний свет фар и периодически подавая звуковой сигнал",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Уступить дорогу детям переходящим проезжую часть",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Проехать данный участок, так как дети пересекают проезжую часть не по пешеходному переходу",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Объехать стоящее транспортное средство на минимальной скорости, заблаговременно включив ближний свет фар и периодически подавая звуковой сигнал",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 17-bobi 115-bandiga asosan, \"Bolalar guruhini tashish\" taniqlik belgisi o'rnatilgan, avariya ishorasi yoqilgan transport vositasi to'xtaganda, unga yaqinlashayotgan haydovchi harakat tezligini kamaytirishi, zarur bo'lsa, to'xtashi va bolalarni o'tkazib yuborishi shart.",
+            "uz_cyr": "YHQ 17-боби 115-бандига асосан, \"Болалар гуруҳини ташиш\" таниқлик белгиси ўрнатилган, авария ишораси ёқилган транспорт воситаси тўхтаганда, унга яқинлашаётган ҳайдовчи ҳаракат тезлигини камайтириши, зарур бўлса, тўхташи ва болаларни ўтказиб юбориши шарт.",
+            "ru": "Согласно статье 115 главы 17 ПДД, при остановке транспортного средства с предупреждающим знаком «Перевозка группы детей» приближающийся к нему водитель обязан снизить скорость, при необходимости остановиться и пропустить детей."
         }
     },
     {
         "task_info": {
-            "global_id": "t_24_q_14",
-            "ticket_num": 24,
-            "order": 10
+            "global_id": "t_6_q_8",
+            "global_id2": "t_6_q_8",
+            "ticket_num": 6,
+            "order": 10,
+            "remapped_from": "t_24_q_14"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Haydovchi oq hassa bilan ishora berayotgan ko'zi ojiz piyodalarni o'tkazib yuborishi kerakmi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Har qanday piyodalar o'tish joyida o'tkazib yuborish kerak",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Barcha hollarda o'tkazib yuborishi kerak, shu jumladan piyodalar o'tish joylardan tashqarida ham",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Tartibga solinadigan piyodalar o'tish joyida o'tkazib yuborishi kerak",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Tartibga solinmagan piyodalar o'tish joyida o'tkazib yuborishi kerak",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "Har qanday piyodalar o'tish joyida o'tkazib yuborish kerak",
+                        "text": "Tartibga solinmagan piyodalar o'tish joyida o'tkazib yuborishi kerak",
                         "is_correct": false
                     }
                 ]
@@ -697,22 +762,22 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Ҳар қандай пиёдалар ўтиш жойида ўтказиб юбориш керак",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Барча ҳолларда ўтказиб юбориши керак, шу жумладан пиёдалар ўтиш жойлардан ташқарида ҳам",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Тартибга солинадиган пиёдалар ўтиш жойида ўтказиб юбориши керак",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Тартибга солинмаган пиёдалар ўтиш жойида ўтказиб юбориши керак",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "Ҳар қандай пиёдалар ўтиш жойида ўтказиб юбориш керак",
+                        "text": "Тартибга солинмаган пиёдалар ўтиш жойида ўтказиб юбориши керак",
                         "is_correct": false
                     }
                 ]
@@ -722,35 +787,42 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Должен во всех случаях, в том числе и вне пешеходных переходов",
-                        "is_correct": true
+                        "text": "Должен на любом пешеходном переходе",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
+                        "text": "Должен во всех случаях, в том числе вне пешеходных переходов",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
                         "text": "Должен на регулируемом пешеходном переходе",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Должен на нерегулируемом пешеходном переходе",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "Должен на любом пешеходном переходе",
+                        "text": "Должен на нерегулируемом пешеходном переходе",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 17-bobi 113-bandiga muvofiq, barcha hollarda, shu jumladan, piyodalar o'tish joylaridan tashqarida ham haydovchi oq hassa bilan ishora berayotgan ko'zi ojiz piyoda(lar)ni o'tkazib yuborishi kerak.",
+            "uz_cyr": "YHQ 17-боби 113-бандига мувофиқ, барча ҳолларда, шу жумладан, пиёдалар ўтиш жойларидан ташқарида ҳам ҳайдовчи оқ ҳасса билан ишора бераётган кўзи ожиз пиёда(лар)ни ўтказиб юбориши керак.",
+            "ru": "Согласно статье 113 главы 17 ПДД во всех случаях, в том числе вне пешеходных переходов, водитель обязан уступить дорогу слабовидящему пешеходу(ам), сигнализирующему белой тростью."
         }
     },
     {
         "task_info": {
-            "global_id": "t_31_q_15",
-            "ticket_num": 31,
-            "order": 11
+            "global_id": "t_44_q_17",
+            "global_id2": "t_44_q_17",
+            "ticket_num": 44,
+            "order": 11,
+            "remapped_from": "t_31_q_15"
         },
-        "media_url": "v286uz.webp",
+        "media_url": "u512uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qizil avtomobilning haydovchisiga shu vaziyatda piyodalar o'tish joyi orqali harakatlanishni davom ettirishga ruxsat etiladimi?",
@@ -797,33 +869,40 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 17-bobi 110-bandiga muvofiq, agar tartibga solinmagan piyodalar o'tish joyi oldida transport vositasi harakatini sekinlashtirsa yoki to'xtasa, qo'shni tasmalarda harakatlanayotgan boshqa haydovchilar bu transport vositasi oldida piyoda(lar) yo'qligiga ishonch hosil qilganlaridan so'nggina harakatlanishni davom ettirishlari mumkin.",
+            "uz_cyr": "YHQ 17-боби 110-бандига мувофиқ, агар тартибга солинмаган пиёдалар ўтиш жойи олдида транспорт воситаси ҳаракатини секинлаштирса ёки тўхтаса, қўшни тасмаларда ҳаракатланаётган бошқа ҳайдовчилар бу транспорт воситаси олдида пиёда(лар) йўқлигига ишонч ҳосил қилганларидан сўнггина ҳаракатланишни давом эттиришлари мумкин.",
+            "ru": "В соответствии со статьей 110 главы 17 ПДД, если нерегулируемый пешеход замедлил ход или остановил транспортное средство перед пешеходным переходом, другие водители на соседних полосах движения могут продолжить движение только после того, как убедятся в отсутствии пешехода(ов) перед этим транспортным средством."
         }
     },
     {
         "task_info": {
-            "global_id": "t_49_q_14",
-            "ticket_num": 49,
-            "order": 12
+            "global_id": "t_26_q_1",
+            "global_id2": "t_26_q_1",
+            "ticket_num": 26,
+            "order": 12,
+            "remapped_from": "t_49_q_12"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Agar piyodalar o'tish joylaridan keyin tirbandlik paydo bo'lsa haydovchi qaerda to'xtashi kerak?",
+                "text": "Agar piyodalar o'tish joylaridan keyin tirbandlik paydo bo'lsa haydovchi qayerda to'xtashi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Piyodalar o'tish joyida, agar piyodalar bo'lmasa",
-                        "is_correct": false
+                        "text": "Bevosita piyodalar o'tish joyi oldida",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Piyodalar o'tish joyiga 5 m etmasdan",
+                        "text": "Piyodalar o'tish joyiga 5 m yetmasdan",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Bevosita piyodalar o'tish joyi oldida",
-                        "is_correct": true
+                        "text": "Piyodalar o'tish joyida, agar piyodalar bo'lmasa",
+                        "is_correct": false
                     }
                 ]
             },
@@ -832,8 +911,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Пиёдалар ўтиш жойида, агар пиёдалар бўлмаса",
-                        "is_correct": false
+                        "text": "Бевосита пиёдалар ўтиш жойи олдида",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -842,8 +921,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Бевосита пиёдалар ўтиш жойи олдида",
-                        "is_correct": true
+                        "text": "Пиёдалар ўтиш жойида, агар пиёдалар бўлмаса",
+                        "is_correct": false
                     }
                 ]
             },
@@ -857,28 +936,35 @@
                     },
                     {
                         "id": 2,
-                        "text": "Не ближе 5 м до пешеходного перехода",
-                        "is_correct": false
+                        "text": "Непосредственно перед пешеходным переходом",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Непосредственно перед пешеходным переходом",
-                        "is_correct": true
+                        "text": "Не ближе 5 м до пешеходного перехода",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 112 bandiga asosan, piyodalar o‘tish joylaridan keyin paydo bo‘lgan tirbandlik tufayli haydovchi piyodalar o‘tish joyida to‘xtashga majbur bo‘ladigan bo‘lsa, piyodalar o‘tish joyiga kirish taqiqlanadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 112 бандига асосан, пиёдалар ўтиш жойларидан кейин пайдо бўлган тирбандлик туфайли ҳайдовчи пиёдалар ўтиш жойида тўхташга мажбур бўладиган бўлса, пиёдалар ўтиш жойига кириш тақиқланади.",
+            "ru": "Согласно статье 112 ПДД, если водитель вынужден остановиться на пешеходном переходе из-за движения транспорта после пешеходного перехода, въезд на пешеходный переход запрещается."
         }
     },
     {
         "task_info": {
-            "global_id": "t_57_q_8",
-            "ticket_num": 57,
-            "order": 13
+            "global_id": "t_47_q_7",
+            "global_id2": "t_47_q_7",
+            "ticket_num": 47,
+            "order": 13,
+            "remapped_from": "t_57_q_8"
         },
-        "media_url": "v605uz.webp",
+        "media_url": "u539uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Rasmda ko‘rsatilgan vaziyatda qizil avtomobil haydovchisi harakatni davom ettirish kerakmi?",
+                "text": "Rasmda ko'rsatilgan vaziyatda qizil avtomobil haydovchisi harakatni davom ettirish kerakmi?",
                 "options": [
                     {
                         "id": 1,
@@ -887,7 +973,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Yo‘q",
+                        "text": "Yo'q",
                         "is_correct": false
                     }
                 ]
@@ -922,22 +1008,29 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 17-bob. 109-bandga asosan: 109. Tartibga solinmagan piyodalar o‘tish joyiga yaqinlashayotgan transport vositasining haydovchisi qatnov qismining shu yo‘nalishini kesib o‘tayotgan piyoda(lar)ni o‘tkazib yuborish uchun tezligini kamaytirishi yoki to‘xtashi shart.",
+            "uz_cyr": "YHQнинг 17-боб. 109-бандга асосан: 109. Тартибга солинмаган пиёдалар ўтиш жойига яқинлашаётган транспорт воситасининг ҳайдовчиси қатнов қисмининг шу йўналишини кесиб ўтаётган пиёда(лар)ни ўтказиб юбориш учун тезлигини камайтириши ёки тўхташи шарт.",
+            "ru": "Глава 17 ПДД. В соответствии со статьей 109: 109. Водитель транспортного средства, приближающегося к нерегулируемому пешеходному переходу, обязан снизить скорость или остановиться, чтобы пропустить пешехода(ов), пересекающего проезжую часть."
         }
     },
     {
         "task_info": {
-            "global_id": "t_58_q_6",
-            "ticket_num": 58,
-            "order": 14
+            "global_id": "t_19_q_4",
+            "global_id2": "t_19_q_4",
+            "ticket_num": 19,
+            "order": 14,
+            "remapped_from": "t_58_q_6"
         },
-        "media_url": "v618uz.webp",
+        "media_url": "u210uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Avtobus haydovchisiga bu joyda odam tushirishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
+                        "text": "Agar avtobus belgilangan yo'nalishli bo'lsa ruxsat etiladi",
                         "is_correct": false
                     },
                     {
@@ -947,7 +1040,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Agar avtobus belgilangan yo‘nalishli bo‘lsa ruxsat etiladi",
+                        "text": "Ruxsat etiladi",
                         "is_correct": false
                     }
                 ]
@@ -957,7 +1050,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
+                        "text": "Агар автобус белгиланган йўналишли бўлса рухсат этилади",
                         "is_correct": false
                     },
                     {
@@ -967,7 +1060,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Агар автобус белгиланган йўналишли бўлса рухсат этилади",
+                        "text": "Рухсат этилади",
                         "is_correct": false
                     }
                 ]
@@ -977,7 +1070,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
+                        "text": "Разрешается, если автобус является маршрутным",
                         "is_correct": false
                     },
                     {
@@ -987,11 +1080,709 @@
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается, если автобус является маршрутным",
+                        "text": "Разрешается",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 22-bob. 133-band 2-xatboshiga asosan: Yo‘nalishli transport vositalariga bekatlardan tashqari joylarda yo‘lovchi olish va tushirish taqiqlanadi (yo‘nalishli taksilar bundan mustasno).",
+            "uz_cyr": "YHQнинг 22-боб. 133-банд 2-хатбошига асосан: Йўналишли транспорт воситаларига бекатлардан ташқари жойларда йўловчи олиш ва тушириш тақиқланади (йўналишли таксилар бундан мустасно).",
+            "ru": "Глава 22 ПДД. Согласно пункту 2 статьи 133: Направленным транспортным средствам запрещается осуществлять посадку и высадку пассажиров в местах, отличных от станций (кроме маршрутных такси)."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_36_q_4",
+            "global_id2": "t_36_q_4",
+            "ticket_num": 36,
+            "order": 15,
+            "remapped_from": "t_61_q_13"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Turar joy dahalaridan chiqishda haydovchilar:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Boshqa harakat qatnashchilariga nisbatan imtiyozga ega",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Boshqa harakat qatnashchilariga yo'l berishi kerak",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Турар жой даҳаларидан чиқишда ҳайдовчилар:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Бошқа ҳаракат қатнашчиларига нисбатан имтиёзга ега",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Бошқа ҳаракат қатнашчиларига йўл бериши керак",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "При выезде из жилой зоны водитель:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Он имеет приоритет перед другими участниками движения",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Должен уступить дорогу другим участникам движения",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 126 bandiga asosan, turar joy dahalaridan chiqishda haydovchilar boshqa harakat qatnashchilariga yo‘l berishlari ker",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 126 бандига асосан, турар жой даҳаларидан чиқишда ҳайдовчилар бошқа ҳаракат қатнашчиларига йўл беришлари кер",
+            "ru": "Согласно статье 126 ПДД, водители не должны уступать дорогу другим участникам дорожного движения при выезде из жилых помещений."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_41_q_1",
+            "global_id2": "t_41_q_1",
+            "ticket_num": 41,
+            "order": 16,
+            "remapped_from": "t_62_q_7"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Turar joy dahalarida qanday harakatlar taqiqlangan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Barcha sanab o'tilgan hollarda",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat o'quv mashg'ulotlarini bajarish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat dvigatel ishlab turganda to'xtab turish",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Турар жой даҳаларида қандай ҳаракатлар тақиқланган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Барча санаб ўтилган ҳолларда",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат ўқув машғулотларини бажариш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат двигатель ишлаб турганда тўхтаб туриш",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какие действия запрещены в жилой зоне?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только стоянка с работающим двигателем",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Все вышеперечисленные действия",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только учебная езда",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 124 bandiga asosan, turar joy dahalarida quyidagilar taqiqlanadi: mexanik transport vositalarini boshqarishni o‘rgatish; dvigateli ishlab turgan holda to‘xtab turish; ruxsat etilgan to‘liq vazni 3,5 tonnadan ortiq bo‘lgan yuk avtomobillarining maxsus ajratilgan, yo‘l belgilari va (yoki) yo‘l chiziqlari bilan belgilangan joylardan tashqarida to‘xtab turishi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 124 бандига асосан, турар жой даҳаларида қуйидагилар тақиқланади: механик транспорт воситаларини бошқаришни ўргатиш; двигатели ишлаб турган ҳолда тўхтаб туриш; рухсат этилган тўлиқ вазни 3,5 тоннадан ортиқ бўлган юк автомобилларининг махсус ажратилган, йўл белгилари ва (ёки) йўл чизиқлари билан белгиланган жойлардан ташқарида тўхтаб туриши.",
+            "ru": "Согласно статье 124 Правил дорожного движения в жилой зоне запрещается: обучение вождению механических транспортных средств; парковка с работающим двигателем; стоянка грузовых автомобилей разрешенной полной массой более 3,5 тонн вне мест, обозначенных дорожными знаками и (или) дорожными полосами."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_10_q_7",
+            "global_id2": "t_10_q_7",
+            "ticket_num": 10,
+            "order": 17,
+            "remapped_from": "t_59_q_11"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Piyodalar turar joy dahasida qayerda harakatlanishlari mumkin?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat qatnov qismidan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat tratuarda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tratuarda, hamda qatnov qismida",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Пиёдалар турар жой даҳасида қаерда ҳаракатланишлари мумкин?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат қатнов қисмидан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат тратуарда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тратуарда, ҳамда қатнов қисмида",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Где могут двигаться пешеходы в жилой зоне?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "По тротуарам и в один ряд по краю проезжей части",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только по тротуарам",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "По тротуарам и по проезжей части",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 123 bandiga asosan, turar joy dahalari (kirish va chiqish 5.38 va 5.39 yo‘l belgilari bilan belgilangan hududlar)da piyodalarga trotuarlar hamda qatnov qismida harakatlanishga ruxsat etiladi. Bunda piyodalar imtiyozga ega bo‘ladilar, biroq ular transport vositalarining harakatlanishiga asossiz xalaqit bermasliklari kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 123 бандига асосан, турар жой даҳалари (кириш ва чиқиш 5.38 ва 5.39 йўл белгилари билан белгиланган ҳудудлар)да пиёдаларга тротуарлар ҳамда қатнов қисмида ҳаракатланишга рухсат этилади. Бунда пиёдалар имтиёзга эга бўладилар, бироқ улар транспорт воситаларининг ҳаракатланишига асоссиз халақит бермасликлари керак.",
+            "ru": "Согласно статье 123 Правил дорожного движения пешеходам разрешается передвигаться по тротуарам и дорогам в жилых зонах (зоны въезда и выезда, обозначенные дорожными знаками 5.38 и 5.39). Пешеходы имеют право проезда, но они не должны необоснованно препятствовать движению транспортных средств."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_10_q_8",
+            "global_id2": "t_10_q_8",
+            "ticket_num": 10,
+            "order": 18,
+            "remapped_from": "t_59_q_12"
+        },
+        "media_url": "u106uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Piyodalarga qatnov qismidan kesib o'tishga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Barcha holatda ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Пиёдаларга қатнов қисмидан кесиб ўтишга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Барча ҳолатда рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тақиқланади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешено ли пешеходам переходить проезжую часть?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Допустимый",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешено во всех случаях",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Запрещенный",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 4-bob. 19-band 1-xatboshiga asosan: 19. Tartibga solinmaydigan piyodalar o‘tish joylarida, piyodalar yaqinlashayotgan transport vositalarigacha bo‘lgan masofai va ularning tezligini chamalab ko‘rib, o‘tish o‘zlari uchun xavfsiz ekanligiga ishonch hosil qilganlaridan so‘ng qatnov qismi (tramvay bekati)ga chiqishlari ruxsat etiladi.",
+            "uz_cyr": "YHQнинг 4-боб. 19-банд 1-хатбошига асосан: 19. Тартибга солинмайдиган пиёдалар ўтиш жойларида, пиёдалар яқинлашаётган транспорт воситаларигача бўлган масофани ва уларнинг тезлигини чамалаб кўриб, ўтиш ўзлари учун хавфсиз эканлигига ишонч ҳосил қилганларидан сўнг қатнов қисми (трамвай бекати)га чиқишлари рухсат этилади.",
+            "ru": "Глава 4 ПДД. Согласно пункту 19, пункту 1: 19. На нерегулируемых пешеходных переходах выход пешеходов на проезжую часть (трамвайную остановку) допускается после оценки расстояния до приближающихся транспортных средств и их скорости и убедившись в безопасности перехода для них."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_13_q_15",
+            "global_id2": "t_13_q_15",
+            "ticket_num": 13,
+            "order": 19,
+            "remapped_from": "t_59_q_17"
+        },
+        "media_url": "u145uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Mazkur belgi bilan belgilangan hududda qanday cheklanishlar kiritilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Transport vositalarini boshqarishni o'rgatish",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yengil avtomobillarning tunda to'xtab turishini taqiqlaydi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Kirib, chiqib ketish harakati taqiqlanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Harakat tezligini 5km/s oshmasligi kerakligini bildiradi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Мазкур белги билан белгиланган ҳудудда қандай чекланишлар киритилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Транспорт воситаларини бошқаришни ўргатиш",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Енгил автомобилларнинг тунда тўхтаб туришини тақиқлайди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Кириб, чиқиб кетиш ҳаракати тақиқланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ҳаракат тезлигини 5км/с ошмаслиги кераклигини билдиради",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какие ограничения установлены на территории, обозначенной указанным знакам?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Запрещается стоянка в ночное время легковых автомобилей",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Обучение вождению транспортных средств",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Запрещается движение со скоростью более 5км/ч",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Запрещается сквозное движение",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 20-bobi 124-bandiga asosan, turar-joy dahalarida mexanik transport vositasini boshqarishni o'rgatish, dvigateli ishlab turgan holda to'xtab turish, ruxsat etilgan to'liq vazni 3,5 tonnadan ortiq bo'lgan yuk avtomobillarining maxsus ajratilgan, yo'l belgilari va (yoki) yo'l chiziqlari bilan belgilangan joylardan tashqarida to'xtab turishi taqiqlanadi.",
+            "uz_cyr": "YHQ 20-боби 124-бандига асосан, турар-жой даҳаларида механик транспорт воситасини бошқаришни ўргатиш, двигатели ишлаб турган ҳолда тўхтаб туриш, рухсат этилган тўлиқ вазни 3,5 тоннадан ортиқ бўлган юк автомобилларининг махсус ажратилган, йўл белгилари ва (ёки) йўл чизиқлари билан белгиланган жойлардан ташқарида тўхтаб туриши тақиқланади.",
+            "ru": "Согласно статье 124 главы 20 ПДД запрещается обучение вождению механических транспортных средств в жилой зоне, парковка с работающим двигателем, а также парковка грузовых автомобилей разрешенной общей массой более 3,5 тонн вне специально отведенных мест, обозначенных дорожными знаками и (или) дорожными разметками."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_14_q_8",
+            "global_id2": "t_14_q_8",
+            "ticket_num": 14,
+            "order": 20,
+            "remapped_from": "t_59_q_19"
+        },
+        "media_url": "u155uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu holatda ko'k avtomobil haydovchisi kimga yo'l berishi lozim?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat avtobusga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Hech kimga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat yengil avtomobilga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу ҳолатда кўк автомобил ҳайдовчиси кимга йўл бериши лозим?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат автобусга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳеч кимга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат енгил автомобилга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Кому в этом случае должен уступить дорогу водитель синего автомобиля?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только автобусу",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Никому",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только легковому автомобилю",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 104-bandi: Teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada, ikkinchi darajali yo‘lda harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga, ularning keyingi harakat yo‘nalishidan qat‘i nazar, yo‘l berishi kerak. Bunday chorrahalarda tramvay harakatlanish yo‘nalishidan qat‘i nazar, teng ahamiyatga ega bo‘lgan yo‘lda bir yo‘nalishda yoki qarama-qarshi yo‘nalishda harakatlanayotgan relssiz transport vositalariga nisbatan imtiyozga ega. YHQ 16-bobi 105-bandi: Teng ahamiyatga ega bo‘lgan yo‘llar kesishgan chorrahada relssiz transport vositasining haydovchisi o‘ngdan kelayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak. Bunday chorrahalarda, keyingi harakat yo‘nalishidan qat‘i nazar, tramvay relssiz transport vositalariga nisbatan oldin o‘tish huquqiga ega bo‘ladi.",
+            "uz_cyr": "YHQ 16-боби 104-банди: Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада, иккинчи даражали йўлда ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига, уларнинг кейинги ҳаракат йўналишидан қати назар, йўл бериши керак. Бундай чорраҳаларда трамвай ҳаракатланиш йўналишидан қати назар, тенг аҳамиятга эга бўлган йўлда бир йўналишда ёки қарама-қарши йўналишда ҳаракатланаётган релссиз транспорт воситаларига нисбатан имтиёзга эга. YHQ 16-боби 105-банди: Тенг аҳамиятга эга бўлган йўллар кесишган чорраҳада релссиз транспорт воситасининг ҳайдовчиси ўнгдан келаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак. Бундай чорраҳаларда, кейинги ҳаракат йўналишидан қати назар, трамвай релссиз транспорт воситаларига нисбатан олдин ўтиш ҳуқуқига эга бўлади.",
+            "ru": "Статья 104 главы 16 ПДД: При пересечении неравных дорог водитель транспортного средства, движущегося по второстепенной дороге, обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от дальнейшего направления их движения. На таких перекрестках, независимо от направления движения, трамвай имеет приоритет перед нерельсовыми транспортными средствами, движущимися в том же или встречном направлении по дороге равного значения. Статья 105 главы 16 ПДД: На перекрестке, где пересекаются дороги равной важности, водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, едущим справа. Водители трамваев также должны соблюдать это правило. На таких перекрестках, независимо от следующего направления движения, трамвай имеет преимущество перед нерельсовыми транспортными средствами."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_17_q_13",
+            "global_id2": "t_17_q_13",
+            "ticket_num": 17,
+            "order": 21,
+            "remapped_from": "t_60_q_2"
+        },
+        "media_url": "u190uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Quyidagi holatda haydovchi piyodalarga yo'l berishi lozimmi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yo'q",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ha",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қуйидаги ҳолатда ҳайдовчи пиёдаларга йўл бериши лозимми?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Йўқ",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳа",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Обязан ли водитель уступить дорогу пешеходам в данном месте?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Нет",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Да",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 20-bobining 123-bandiga muvofiq, turar joy dahalari (kirish va chiqish 5.38 va 5.39 yo'l belgilari bilan belgilangan hududlar)da piyodalarga trotuarlar hamda qatnov qismida harakatlanishga ruxsat etiladi. Bunda piyodalar imtiyozga ega bo'ladilar, biroq ular transport vositalarining harakatlanishiga asossiz xalaqit bermasliklari kerak.",
+            "uz_cyr": "YHQ 20-бобининг 123-бандига мувофиқ, турар жой даҳалари (кириш ва чиқиш 5.38 ва 5.39 йўл белгилари билан белгиланган ҳудудлар)да пиёдаларга тротуарлар ҳамда қатнов қисмида ҳаракатланишга рухсат этилади. Бунда пиёдалар имтиёзга эга бўладилар, бироқ улар транспорт воситаларининг ҳаракатланишига асоссиз халақит бермасликлари керак.",
+            "ru": "В соответствии со статьей 123 главы 20 ПДД пешеходам разрешается передвигаться по тротуарам и проезжей части в жилых зонах (зоны въезда и выезда обозначены дорожными знаками 5.38 и 5.39). Пешеходы имеют право проезда, но они не должны необоснованно препятствовать движению транспортных средств."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_24_q_14",
+            "global_id2": "t_24_q_14",
+            "ticket_num": 24,
+            "order": 22,
+            "remapped_from": "t_60_q_14"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Turar joy dahalarida piyodalar yo'lning qaysi qismida harakatlanishlari kerak?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Qatnov qismi chetida bir qator bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat trotuar bo'yicha",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Trotuardan yoki qatnov qismidan",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Турар жой даҳаларида пиёдалар йўлнинг қайси қисмида ҳаракатланишлари керак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Қатнов қисми четида бир қатор бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат тротуар бўйича",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тротуардан ёки қатнов қисмидан",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Где могут двигаться пешеходы в жилой зоне?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "В один ряд по краю проезжей части",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только по тротуарам",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "По тротуарам и по проезжей части",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 20-bobi 123-bandi: Turar joy dahalari (kirish va chiqish 5.38 va 5.39 yo‘l belgilari bilan belgilangan hududlar) da piyodalarga trotuarlar hamda qatnov qismida harakatlanishga ruxsat etiladi. Bunda piyodalar imtiyozga ega bo‘ladilar, biroq ular transport vositalarining harakatlanishiga asossiz xalaqit bermasliklari kerak.",
+            "uz_cyr": "YHQ 20-боби 123-банди: Турар жой даҳалари (кириш ва чиқиш 5.38 ва 5.39 йўл белгилари билан белгиланган ҳудудлар) да пиёдаларга тротуарлар ҳамда қатнов қисмида ҳаракатланишга рухсат этилади. Бунда пиёдалар имтиёзга эга бўладилар, бироқ улар транспорт воситаларининг ҳаракатланишига асоссиз халақит бермасликлари керак.",
+            "ru": "Статья 123 главы 20 ПДД: Пешеходам разрешается передвигаться по тротуарам и проезжей части в жилых зонах (зоны, где въезд и выезд обозначены дорожными знаками 5.38 и 5.39). Пешеходы имеют право проезда, но они не должны необоснованно препятствовать движению транспортных средств."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_12",
+            "global_id2": "t_29_q_12",
+            "ticket_num": 29,
+            "order": 23,
+            "remapped_from": "t_61_q_2"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Turar joy dahasidan yo'lga chiqishda yo'l berish zarur?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Barcha transport vositalariga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "O'ng tomondan yaqinlashib kelayotgan transport vositalariga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Chap tomondan yaqinlashib kelayotgan transport vositalariga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ko'k rangli yalt-yalt etuvchi chiroqcha-mayoqcha yoqilgan transport vositalariga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Турар жой даҳасидан йўлга чиқишда йўл бериш зарур?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Барча транспорт воситаларига",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ўнг томондан яқинлашиб келаётган транспорт воситаларига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Чап томондан яқинлашиб келаётган транспорт воситаларига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Кўк рангли ялт-ялт етувчи чироқча-маёқча ёқилган транспорт воситаларига",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "О чем информирует водителя табличка, установленная под данным знаком?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Всем транспортным средствам",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только транспортным средствам, приближающимся справа",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только транспортным средствам, приближающимся слева",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только транспортным средствам с включенным проблесковым маячком",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 126 bandiga asosan, turar joy dahalaridan chiqishda haydovchilar boshqa harakat qatnashchilariga yo‘l berishlari kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 126 бандига асосан, турар жой даҳаларидан чиқишда ҳайдовчилар бошқа ҳаракат қатнашчиларига йўл беришлари керак.",
+            "ru": "Согласно статье 126 ПДД, водители обязаны уступать дорогу другим участникам дорожного движения при выезде из жилых помещений."
         }
     }
 ]
