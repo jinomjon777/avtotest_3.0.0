@@ -278,6 +278,35 @@ Deno.serve(async (req) => {
       session.username = msg.from?.username ?? session.username;
       session.first_name = msg.from?.first_name ?? session.first_name;
 
+      // ── Saytdagi "Telegram'ni ulash" (kunlik reja eslatmalari): /start link_<token> ──
+      const linkMatch = /^\/start link_([0-9a-f]{32})$/.exec(msg.text || "");
+      if (linkMatch) {
+        const { data: res } = await supabase.rpc("link_telegram", { p_token: linkMatch[1], p_chat_id: chatId });
+        if (res?.ok) {
+          await sendMessage(
+            chatId,
+            `✅ Hisobingiz ulandi!\n\n` +
+            (res.reminder
+              ? `Har kuni soat <b>${res.reminder}</b> da test ishlash haqida eslatma yuboraman. Bugungi 5 ta test bajarilmaguncha har 30 daqiqada eslatib turaman.`
+              : `Endi saytda eslatma vaqtini tanlang — shu vaqtda har kuni xabar yuboraman.`) +
+            `\n\nEslatmalarni to'xtatish: /stop`,
+          );
+        } else {
+          await sendMessage(chatId, "⚠️ Havola eskirgan yoki allaqachon ishlatilgan. Saytdagi \"Kunlik reja\" sahifasidan qaytadan \"Telegram'ni ulash\" ni bosing.");
+        }
+        return new Response("ok");
+      }
+
+      // ── Eslatmalarni to'xtatish ──
+      if (msg.text === "/stop") {
+        const { data: n } = await supabase.rpc("stop_telegram_reminders", { p_chat_id: chatId });
+        await sendMessage(
+          chatId,
+          n ? "🔕 Telegram eslatmalari o'chirildi. Qayta yoqish: saytdagi \"Kunlik reja\" sahifasi." : "Bu chatga ulangan eslatmalar topilmadi.",
+        );
+        return new Response("ok");
+      }
+
       // /start yoki har qanday holatda qayta boshlash
       if (msg.text === "/start") {
         await saveSession({ ...session, step: "idle", plan_days: null, plan_amount: null, site_email: null });

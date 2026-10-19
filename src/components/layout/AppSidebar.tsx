@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { 
+import { AlarmClock, 
   Home, Car, BookOpen, Phone, Info, Crown, User, LogOut, 
   FileText, Layers, Sun, Moon, LayoutDashboard, ListX, TrendingDown
 } from "lucide-react";
@@ -24,6 +24,7 @@ export function AppSidebar() {
     { path: "/dashboard",     icon: LayoutDashboard, label: tl("dash.title") },
     { path: "/xatolarim",     icon: ListX,           label: tl("mist.title") },
     { path: "/zaif-mavzular", icon: TrendingDown,    label: tl("weak.title") },
+    { path: "/kunlik-reja",   icon: AlarmClock,      label: tl("plan.title") },
   ] : [];
 
   const mainNav = [

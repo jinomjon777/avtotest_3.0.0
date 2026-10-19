@@ -16,3 +16,7 @@ GRANT INSERT ON public.test_results TO authenticated;
 CREATE POLICY "Users can insert own results" ON public.test_results
   FOR INSERT WITH CHECK (auth.uid() = user_id);
 ```
+
+## 002_reminders_cron.sql — kunlik eslatmalar jadvali
+`send-reminders` funksiyasi deploy qilingandan va `REMINDER_CRON_SECRET` o'rnatilgandan keyin ishga tushiring.
+Fayldagi `<SIZNING_SIRINGIZ>` ni o'sha secret qiymati bilan almashtiring. pg_cron har 5 daqiqada funksiyani chaqiradi.

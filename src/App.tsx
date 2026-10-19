@@ -66,6 +66,7 @@ const Xatolarim   = lazy(() => import("./pages/Xatolarim"));
 const ZaifMavzular = lazy(() => import("./pages/ZaifMavzular"));
 const Mashq       = lazy(() => import("./pages/Mashq"));
 const Imtihon     = lazy(() => import("./pages/Imtihon"));
+const KunlikReja  = lazy(() => import("./pages/KunlikReja"));
 const TestIshlash = lazy(() => import("./pages/TestIshlash"));
 const SeoLanding  = lazy(() => import("./pages/SeoLanding"));
 import seoLandings from "./data/seoLandings.json";
@@ -100,6 +101,7 @@ const App = () => (
                     <Route path="/zaif-mavzular" element={<ZaifMavzular />} />
                     <Route path="/mashq"         element={<Mashq />} />
                     <Route path="/imtihon"       element={<Imtihon />} />
+                    <Route path="/kunlik-reja"   element={<KunlikReja />} />
                     <Route path="/test-ishlash"  element={<TestIshlash />} />
                     <Route path="/belgilar"      element={<Belgilar />} />
                     <Route path="/contact"       element={<Contact />} />

@@ -190,3 +190,28 @@ export async function fetchAnsweredKeys(topicId: string): Promise<Set<string>> {
 export async function fetchWeakTopicsNow() {
   return rpc<WeakTopicsResult>("get_weak_topics", { p_days: 120, p_min_answers: 5 });
 }
+
+// ── Kunlik reja (eslatma vaqtidan boshlab 5 ta test) ──
+export interface DailyPlan {
+  ok: boolean;
+  premium: boolean;
+  target: number;
+  done: number;
+  window_start: string;
+  started: boolean;
+  reminder: { enabled: boolean; time: string; telegram: boolean; push: boolean } | null;
+  telegram_linked: boolean;
+  push_devices: number;
+}
+
+export function useDailyPlan() {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: ["learn", "plan", user?.id],
+    queryFn: () => rpc<DailyPlan>("get_daily_plan"),
+    enabled: !!user,
+    staleTime: 15_000,
+    retry: false,
+    refetchOnWindowFocus: true,
+  });
+}
