@@ -25,6 +25,7 @@ import { ImageLightbox } from "./ImageLightbox";
 import { fetchQuestionSource } from "@/lib/fetchQuestionSource";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
+import { rawQuestionKey, buildAnswerPayload } from "@/lib/answerTracking";
 
 interface QuestionDataFormat2 {
   id: number;
@@ -43,6 +44,7 @@ interface Question {
   image?: string;
   correctAnswer: number;
   answers: { id: number; text: string }[];
+  qkey?: string;
 }
 
 interface TestInterfaceCombinedProps {
@@ -157,6 +159,7 @@ export const TestInterfaceCombined = ({
             text: langContent.text,
             image: imagePath,
             correctAnswer,
+            qkey: rawQuestionKey(q),
             answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
           };
         }
@@ -174,6 +177,7 @@ export const TestInterfaceCombined = ({
             text: q.question,
             image: imagePath,
             correctAnswer: correctIndex + 1,
+            qkey: rawQuestionKey(q),
             answers: q.choises.map((choice: { text: string }, ansIdx: number) => ({
               id: ansIdx + 1,
               text: choice.text,
@@ -365,7 +369,9 @@ export const TestInterfaceCombined = ({
     if (showResults && user && !resultSaved && totalQuestions > 0) {
       const stats = getTestStats();
       const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
-      saveTestResult(0, stats.correct, totalQuestions, timeTaken);
+      buildAnswerPayload(questions, selectedAnswers, correctAnswers, stats.correct).then((answers) =>
+        saveTestResult(0, stats.correct, totalQuestions, timeTaken, null, false, answers)
+      );
       setResultSaved(true);
     }
   }, [showResults, user, resultSaved, totalQuestions]);
@@ -390,6 +396,7 @@ export const TestInterfaceCombined = ({
           setCurrentQuestion(1);
           setTimeRemaining(timeLimit);
           setShowResults(false);
+          setResultSaved(false);
           setTimerKey(k => k + 1); // restart timer interval
           fetchAndMergeData();
         }}

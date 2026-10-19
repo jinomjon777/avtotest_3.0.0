@@ -4,6 +4,8 @@ import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
+import { fetchQuestionFile } from "@/lib/questionApi";
+import { rawQuestionKey, buildAnswerPayload } from "@/lib/answerTracking";
 import {
   getInitialTimeRemaining,
   getInitialStartedAt,
@@ -80,6 +82,7 @@ interface Question {
   correctAnswer: number;
   answers: { id: number; text: string }[];
   explanation?: string;
+  qkey?: string;
 }
 
 interface TestInterfaceProps {
@@ -164,13 +167,12 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
         setLoading(true);
         setError(null);
         
-        const response = await fetch(`/data/variants/v${variant}.json`);
-        
-        if (!response.ok) {
-          throw new Error(t("test.errorLoadingData"));
-        }
-        
-        const raw = await response.json();
+        // Variantlar premium: faqat get-questions funksiyasi orqali (public/ da yo'q)
+        const raw: any = await fetchQuestionFile(`v:v${variant}`).catch((e) => {
+          throw new Error(e?.code === "premium_required"
+            ? "Bu variantni ishlash uchun PREMIUM obuna kerak."
+            : t("test.errorLoadingData"));
+        });
         const contentKey = getContentKey(questionLang);
 
         let transformedQuestions: Question[];
@@ -210,6 +212,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
               text: langContent.text || "",
               image,
               correctAnswer,
+              qkey: rawQuestionKey(task),
               answers: options.map((o) => ({ id: o.id, text: o.text })),
               explanation: task.izoh?.[contentKey] || task.izoh?.uz_lat || task.izoh?.uz_cyr || task.izoh?.ru || undefined,
             };
@@ -434,7 +437,9 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
     if (showResults && user && !resultSaved) {
       const stats = getTestStats();
       const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
-      saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession);
+      buildAnswerPayload(questions, selectedAnswers, correctAnswers, stats.correct).then((answers) =>
+        saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession, answers)
+      );
       setResultSaved(true);
     }
   }, [showResults, user, resultSaved]);

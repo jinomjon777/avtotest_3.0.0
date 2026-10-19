@@ -5,6 +5,8 @@ import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
+import { fetchQuestionFile } from "@/lib/questionApi";
+import { rawQuestionKey, buildAnswerPayload } from "@/lib/answerTracking";
 import {
   getInitialTimeRemaining,
   getInitialStartedAt,
@@ -55,6 +57,7 @@ interface Question {
   correctAnswer: number;
   answers: { id: number; text: string }[];
   explanation?: string;
+  qkey?: string;
 }
 
 interface MavzuliTestInterfaceProps {
@@ -144,13 +147,12 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
           filename = '34tengaxamiyatli.json';
         }
         
-        const response = await fetch(`/mavzuli2/${filename}`);
-        
-        if (!response.ok) {
-          throw new Error(t("test.errorLoadingData"));
-        }
-        
-        const jsonData = await response.json();
+        // Mavzuli testlar premium: faqat get-questions funksiyasi orqali (public/ da yo'q)
+        const jsonData: any = await fetchQuestionFile(`m:${filename.replace(/\.json$/, "")}`).catch((e) => {
+          throw new Error(e?.code === "premium_required"
+            ? "Bu mavzuni ishlash uchun PREMIUM obuna kerak."
+            : t("test.errorLoadingData"));
+        });
         
         // New format: array of tasks with content.uz_lat/uz_cyr/ru structure
         if (Array.isArray(jsonData) && jsonData.length > 0 && jsonData[0].content) {
@@ -177,6 +179,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
               text: langContent.text || "",
               image,
               correctAnswer,
+              qkey: rawQuestionKey(task),
               answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
               explanation: task.izoh?.[contentKey] || task.izoh?.uz_lat || task.izoh?.uz_cyr || task.izoh?.ru || undefined,
             };
@@ -373,21 +376,22 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
     clearTestState(storageKey);
     exitFullscreen();
 
-    // Save result before showing results screen
-    let correct = 0;
-    Object.values(correctAnswers).forEach(isCorrect => { if (isCorrect) correct++; });
-    const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
-    saveTestResult(
-      parseInt(topicId, 10) || 0,
-      correct,
-      questions.length,
-      timeTaken,
-      sessionId,
-      isPremiumSession,
-    );
-
     setShowResults(true);
   };
+
+  // Natijani har qanday tugash yo'lida (tugma, vaqt tugashi, oxirgi javob) bir marta saqlash
+  const resultSavedRef = useRef(false);
+  useEffect(() => {
+    if (!showResults || resultSavedRef.current || questions.length === 0) return;
+    resultSavedRef.current = true;
+    let correct = 0;
+    Object.values(correctAnswers).forEach((isCorrect) => { if (isCorrect) correct++; });
+    const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+    buildAnswerPayload(questions, selectedAnswers, correctAnswers, correct).then((answers) =>
+      saveTestResult(parseInt(topicId, 10) || 0, correct, questions.length, timeTaken, sessionId, isPremiumSession, answers)
+    );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showResults]);
 
   const getTestStats = () => {
     let correct = 0;
@@ -422,6 +426,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
           setRevealedQuestions({});
           setCurrentQuestion(1);
           setTimeRemaining(60 * 60);
+          resultSavedRef.current = false;
           setShowResults(false);
           setTimerKey(k => k + 1); // restart timer interval
         }}

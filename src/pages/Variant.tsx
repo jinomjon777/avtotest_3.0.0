@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { useAuth } from "@/contexts/AuthContext";
 import { useProAccess } from "@/hooks/useProAccess";
 import { useTestSession } from "@/hooks/useTestSession";
@@ -84,6 +85,7 @@ export default function Variant() {
   }
 
   const handleStartTest = async (variant: number) => {
+    trackEvent("test_start");
     setStartError(null);
     const result = await startSession({
       variant,

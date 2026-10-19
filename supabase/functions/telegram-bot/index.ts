@@ -3,7 +3,10 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_KEY = Deno.env.get("SB_SERVICE_ROLE_KEY")!;
 const BOT_TOKEN = Deno.env.get("TELEGRAM_BOT_TOKEN")!;
-const WEBHOOK_SECRET = Deno.env.get("TELEGRAM_WEBHOOK_SECRET"); // ixtiyoriy, lekin tavsiya etiladi
+const WEBHOOK_SECRET = Deno.env.get("TELEGRAM_WEBHOOK_SECRET");
+// Xavfsizlik: maxfiy kalit sozlanmagan bo'lsa webhook YOPIQ (har kim soxta update yubora olmasin).
+// Faqat vaqtincha o'tish uchun: TELEGRAM_ALLOW_NO_SECRET=1 (tavsiya etilmaydi).
+const ALLOW_NO_SECRET = Deno.env.get("TELEGRAM_ALLOW_NO_SECRET") === "1";
 
 // Karta ma'lumotlari — Supabase Secrets orqali sozlanadi, shuning uchun
 // kodni qayta deploy qilmasdan o'zgartirish mumkin.
@@ -114,12 +117,15 @@ async function saveSession(session: Partial<Session> & { chat_id: number }) {
 Deno.serve(async (req) => {
   if (req.method !== "POST") return new Response("ok");
 
-  // Ixtiyoriy: Telegram'dan kelayotganini tasdiqlash (soxta so'rovlarni bloklaydi)
+  // Telegram'dan kelayotganini tasdiqlash (soxta so'rovlarni bloklaydi)
   if (WEBHOOK_SECRET) {
     const secretHeader = req.headers.get("X-Telegram-Bot-Api-Secret-Token");
     if (secretHeader !== WEBHOOK_SECRET) {
       return new Response("forbidden", { status: 403 });
     }
+  } else if (!ALLOW_NO_SECRET) {
+    console.error("TELEGRAM_WEBHOOK_SECRET sozlanmagan — so'rov rad etildi");
+    return new Response("webhook secret not configured", { status: 503 });
   }
 
   let update: any;

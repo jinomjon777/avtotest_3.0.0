@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useAccessState } from "@/hooks/useAccessState";
@@ -96,6 +97,7 @@ export default function TestIshlash() {
     accessState !== 'active_pro' && accessState !== 'active_trial';
 
   const handleStart = async () => {
+    trackEvent("test_start");
     setSessionError(null);
     const testStateKey = questionCount === 50
       ? `testState_combined_${questionCount}`

@@ -5,6 +5,7 @@ import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
+import { rawQuestionKey, buildAnswerPayload } from "@/lib/answerTracking";
 import {
   getInitialTimeRemaining,
   getInitialStartedAt,
@@ -80,6 +81,7 @@ interface Question {
   image?: string;
   correctAnswer: number;
   answers: { id: number; text: string }[];
+  qkey?: string;
 }
 
 interface TestInterfaceBaseProps {
@@ -238,6 +240,7 @@ export const TestInterfaceBase = ({
               text: langContent.text,
               image: imagePath,
               correctAnswer,
+              qkey: rawQuestionKey(q),
               answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
             };
           }
@@ -257,6 +260,7 @@ export const TestInterfaceBase = ({
               text: q.question,
               image: imagePath,
               correctAnswer: correctIndex + 1, // 1-indexed
+              qkey: rawQuestionKey(q),
               answers: q.choises.map((choice: { text: string }, ansIdx: number) => ({
                 id: ansIdx + 1,
                 text: choice.text,
@@ -476,7 +480,9 @@ export const TestInterfaceBase = ({
     if (showResults && user && !resultSaved && variant > 0) {
       const stats = getTestStats();
       const timeTaken = getTimeTaken();
-      saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession);
+      buildAnswerPayload(questions, selectedAnswers, correctAnswers, stats.correct).then((answers) =>
+        saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession, answers)
+      );
       setResultSaved(true);
     }
   }, [showResults, user, resultSaved, variant]);
@@ -539,6 +545,7 @@ export const TestInterfaceBase = ({
                     text: langContent.text,
                     image: imagePath,
                     correctAnswer,
+                    qkey: rawQuestionKey(q),
                     answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
                   };
                 }
@@ -556,6 +563,7 @@ export const TestInterfaceBase = ({
                     text: q.question,
                     image: imagePath,
                     correctAnswer: correctIndex + 1,
+                    qkey: rawQuestionKey(q),
                     answers: q.choises.map((choice: { text: string }, ansIdx: number) => ({
                       id: ansIdx + 1,
                       text: choice.text,

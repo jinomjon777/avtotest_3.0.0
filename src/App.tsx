@@ -8,7 +8,6 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { lazy, Suspense, Component, ReactNode } from "react";
 import Home from "./pages/Home";
-import TestIshlash from "./pages/TestIshlash";
 
 interface EBState { hasError: boolean; }
 class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
@@ -63,6 +62,13 @@ const Auth        = lazy(() => import("./pages/Auth"));
 const AuthCallback = lazy(() => import("./pages/auth/callback"));
 const Profile     = lazy(() => import("./pages/Profile"));
 const Dashboard   = lazy(() => import("./pages/Dashboard"));
+const Xatolarim   = lazy(() => import("./pages/Xatolarim"));
+const ZaifMavzular = lazy(() => import("./pages/ZaifMavzular"));
+const Mashq       = lazy(() => import("./pages/Mashq"));
+const Imtihon     = lazy(() => import("./pages/Imtihon"));
+const TestIshlash = lazy(() => import("./pages/TestIshlash"));
+const SeoLanding  = lazy(() => import("./pages/SeoLanding"));
+import seoLandings from "./data/seoLandings.json";
 const Admin       = lazy(() => import("./pages/Admin"));
 const AvtoTest2026    = lazy(() => import("./pages/AvtoTest2026"));
 const AvtoTest20Savol = lazy(() => import("./pages/AvtoTest20Savol"));
@@ -90,6 +96,10 @@ const App = () => (
                   <Routes>
                     <Route path="/"              element={<Home />} />
                     <Route path="/dashboard"     element={<Dashboard />} />
+                    <Route path="/xatolarim"     element={<Xatolarim />} />
+                    <Route path="/zaif-mavzular" element={<ZaifMavzular />} />
+                    <Route path="/mashq"         element={<Mashq />} />
+                    <Route path="/imtihon"       element={<Imtihon />} />
                     <Route path="/test-ishlash"  element={<TestIshlash />} />
                     <Route path="/belgilar"      element={<Belgilar />} />
                     <Route path="/contact"       element={<Contact />} />
@@ -100,6 +110,9 @@ const App = () => (
                     <Route path="/pro"           element={<Pro />} />
                     <Route path="/avto-test-2026"     element={<AvtoTest2026 />} />
                     <Route path="/avto-test-20-savol" element={<AvtoTest20Savol />} />
+                    {seoLandings.map((l) => (
+                      <Route key={l.path} path={l.path} element={<SeoLanding slug={l.slug} />} />
+                    ))}
                     <Route path="/blog"          element={<Blog />} />
                     <Route path="/blog/:slug"    element={<BlogArticle />} />
                     <Route path="/auth"          element={<Auth />} />

@@ -1,331 +1,242 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { supabase } from "@/integrations/supabase/client";
+import { Bookmark, ChevronRight, Crown, ListX, Settings2, TrendingDown } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { MainLayout } from "@/components/layout/MainLayout";
-import { EmptyState } from "@/components/ui/empty-state";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { MeterBar } from "@/components/ui/meter-bar";
+import { InstallPrompt } from "@/components/InstallPrompt";
+import { StreakCard } from "@/components/learn/StreakCard";
+import { ProgressRing } from "@/components/ui/progress-ring";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Progress } from "@/components/ui/progress";
+import { useAuth } from "@/contexts/AuthContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
-  Trophy, CheckCircle, XCircle, Play, BookOpen,
-  Crown, ArrowRight, BarChart3, Target, TrendingUp, FileText, Layers
-} from "lucide-react";
+  isSetupMissing, useDashboardStats, useMistakeCount, useRecentActivity, useSaveGoals, useWeakTopics,
+} from "@/hooks/useLearning";
+import { useLearnT } from "@/hooks/useLearnT";
+import { EXAM_VARIANT, formatDuration, PRACTICE_VARIANT, toneFor, toneText } from "@/lib/learnTheme";
+import { topicName } from "@/lib/topicName";
+import { toast } from "@/hooks/use-toast";
 
-interface TestResult {
-  id: string;
-  variant: number;
-  correct_answers: number;
-  total_questions: number;
-  time_taken_seconds: number | null;
-  completed_at: string;
-}
-
-const PURPLE = "hsl(250 70% 56%)";
-const BLUE = "hsl(220 80% 55%)";
-const CYAN = "hsl(190 80% 50%)";
+const LANG = { "uz-lat": "uz_lat", uz: "uz_cyr", ru: "ru" } as const;
 
 export default function Dashboard() {
   const { user, profile, isLoading } = useAuth();
-  const { t } = useLanguage();
-  const navigate = useNavigate();
-  const [results, setResults] = useState<TestResult[]>([]);
-  const [loadingResults, setLoadingResults] = useState(true);
+  const { language } = useLanguage();
+  const tl = useLearnT();
+  const nav = useNavigate();
+  const lang = LANG[language as keyof typeof LANG] ?? "uz_lat";
+
+  const stats = useDashboardStats();
+  const activity = useRecentActivity(7);
+  const weak = useWeakTopics();
+  const mistakes = useMistakeCount();
+  const saveGoals = useSaveGoals();
+
+  const [editing, setEditing] = useState(false);
+  const [examDate, setExamDate] = useState("");
+  const [goal, setGoal] = useState(20);
 
   useEffect(() => {
-    if (!isLoading && !user) navigate("/auth", { replace: true });
-  }, [user, isLoading, navigate]);
+    if (!isLoading && !user) nav("/auth", { replace: true });
+  }, [user, isLoading, nav]);
 
+  const s = stats.data;
   useEffect(() => {
-    const fetchResults = async () => {
-      if (!user) return;
-      try {
-        const { data } = await supabase
-          .from("test_results")
-          .select("*")
-          .eq("user_id", user.id)
-          .order("completed_at", { ascending: false });
-        setResults(data || []);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoadingResults(false);
-      }
-    };
-    fetchResults();
-  }, [user]);
+    if (s) { setExamDate(s.exam_date ?? ""); setGoal(s.daily_goal || 20); }
+  }, [s?.exam_date, s?.daily_goal]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (isLoading || !user) {
-    return (
-      <MainLayout>
-        <div className="min-h-[60vh] flex items-center justify-center">
-          <div className="w-10 h-10 border-4 border-[hsl(250_70%_56%/0.2)] border-t-[hsl(250_70%_56%)] rounded-full animate-spin" />
-        </div>
-      </MainLayout>
-    );
-  }
+  const name = profile?.full_name || profile?.username || user?.email?.split("@")[0] || "";
+  const hasData = !!s && (s.total_tests > 0 || s.answered_total > 0);
+  const readiness = s?.readiness_percent ?? null;
+  const topicsList = (weak.data?.topics ?? []).filter((x) => x.topic_id !== "other" && x.enough_data);
+  const weakest = [...topicsList].sort((a, b) => a.accuracy_percent - b.accuracy_percent).slice(0, 3);
+  const strongest = [...topicsList].sort((a, b) => b.accuracy_percent - a.accuracy_percent).slice(0, 3);
 
-  const totalTests = results.length;
-  const totalCorrect = results.reduce((s, r) => s + r.correct_answers, 0);
-  const totalQuestions = results.reduce((s, r) => s + r.total_questions, 0);
-  const totalWrong = totalQuestions - totalCorrect;
-  const avgScore = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
-  const uniqueVariants = new Set(results.map(r => r.variant)).size;
-  const recentResults = results.slice(0, 5);
-
-  const formatTime = (s: number | null) => {
-    if (!s) return "--:--";
-    return `${Math.floor(s / 60).toString().padStart(2, "0")}:${(s % 60).toString().padStart(2, "0")}`;
+  const onSaveGoals = async () => {
+    try {
+      await saveGoals({ exam_date: examDate || null, daily_goal: Math.min(200, Math.max(5, Number(goal) || 20)) });
+      setEditing(false);
+      toast({ title: tl("dash.goalsSaved") });
+    } catch { toast({ title: tl("common.error"), variant: "destructive" }); }
   };
 
-  const displayName = profile?.full_name || profile?.username || t("nav.user");
+  const examLabel = !s?.exam_date ? tl("dash.noExam")
+    : s.days_to_exam == null ? s.exam_date
+    : s.days_to_exam > 0 ? tl("dash.daysLeft", { n: s.days_to_exam })
+    : s.days_to_exam === 0 ? tl("dash.examToday") : tl("dash.examPassed");
 
-  const stats = [
-    { icon: Trophy, label: t("dashboard.statTests"), value: totalTests, color: PURPLE, bg: "hsl(250 70% 56% / 0.1)" },
-    { icon: CheckCircle, label: t("dashboard.statCorrect"), value: totalCorrect, color: CYAN, bg: "hsl(190 80% 50% / 0.1)" },
-    { icon: XCircle, label: t("dashboard.statWrong"), value: totalWrong, color: "hsl(0 70% 60%)", bg: "hsl(0 70% 60% / 0.1)" },
-    { icon: TrendingUp, label: t("dashboard.statAvg"), value: `${avgScore}%`, color: BLUE, bg: "hsl(220 80% 55% / 0.1)" },
-  ];
-
-  const quickActions = [
-    { icon: Play, label: t("dashboard.actionTest"), path: "/test-ishlash", primary: true },
-    { icon: FileText, label: t("dashboard.actionVariant"), path: "/variant" },
-    { icon: Layers, label: t("dashboard.actionMavzuli"), path: "/mavzuli" },
-    { icon: BookOpen, label: t("dashboard.actionDarslik"), path: "/darslik" },
-  ];
+  const days = activity.data ?? [];
+  const goalPct = s && s.daily_goal ? Math.min(100, (s.today_answers / s.daily_goal) * 100) : 0;
 
   return (
     <MainLayout>
-      <SEO title="Dashboard" description="Avtotest Premium - Shaxsiy boshqaruv paneli" path="/dashboard" noIndex />
-      
-      <div className="min-h-screen bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
-          {/* Greeting Hero */}
-          <div className="relative mb-8 rounded-3xl overflow-hidden p-6 md:p-8" style={{
-            background: `linear-gradient(135deg, ${PURPLE} 0%, ${BLUE} 50%, ${CYAN} 100%)`
-          }}>
-            <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full opacity-20" style={{ background: "white", filter: "blur(60px)" }} />
-            <div className="absolute -bottom-20 -left-10 w-48 h-48 rounded-full opacity-10" style={{ background: "white", filter: "blur(40px)" }} />
-            <div className="relative z-10">
-              <p className="text-white/80 text-sm font-medium mb-1">{t("dashboard.welcome")}</p>
-              <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 font-montserrat">
-                {displayName} 👋
-              </h1>
-              <p className="text-white/70 text-sm md:text-base">{t("dashboard.todayReady")}</p>
-              {profile?.is_pro && (
-                <div className="inline-flex items-center gap-1.5 mt-4 bg-white/15 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/30">
-                  <Crown className="w-3.5 h-3.5 text-white" />
-                  <span className="text-xs font-bold text-white">{t("dashboard.premiumActive")}</span>
+      <SEO title={tl("dash.title")} description={tl("dash.title")} path="/dashboard" noIndex />
+      <div className="max-w-3xl mx-auto px-4 py-6 md:py-10 space-y-4">
+        <div className="flex items-center justify-between gap-3">
+          <h1 className="text-xl md:text-2xl font-bold text-foreground truncate">{tl("dash.hello", { name })}</h1>
+          {profile?.is_pro && (
+            <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+              <Crown className="w-3.5 h-3.5" />{tl("dash.premiumActive")}
+            </span>
+          )}
+        </div>
+
+        {stats.error && isSetupMissing(stats.error) ? (
+          <Card className="p-5 border-border text-sm text-muted-foreground">{tl("common.setupMissing")}</Card>
+        ) : stats.isLoading ? (
+          <div className="space-y-3"><Skeleton className="h-56 rounded-2xl" /><Skeleton className="h-24 rounded-2xl" /></div>
+        ) : (
+          <>
+            {/* Tayyorlik + asosiy CTA */}
+            <Card className="p-5 md:p-6 border-border">
+              <div className="flex flex-col sm:flex-row items-center gap-5">
+                <ProgressRing value={readiness ?? 0} tone={toneFor(readiness)} label={tl("dash.readiness")}>
+                  <span className={`text-3xl font-bold ${toneText[toneFor(readiness)]}`}>{readiness == null ? "–" : `${Math.round(readiness)}%`}</span>
+                </ProgressRing>
+                <div className="flex-1 w-full text-center sm:text-left">
+                  <div className="font-semibold text-foreground">{tl("dash.readiness")}</div>
+                  <p className="text-sm text-muted-foreground mt-0.5 mb-4">
+                    {readiness == null ? tl("dash.noReadiness") : tl("dash.readinessHint")}
+                  </p>
+                  <Button className="w-full sm:w-auto h-12 rounded-xl px-6" onClick={() => nav(hasData ? "/mashq" : "/test-ishlash")}>
+                    {hasData ? tl("dash.startToday") : tl("dash.startFirst")}
+                  </Button>
+                  <Button variant="outline" className="w-full sm:w-auto h-12 rounded-xl px-6 sm:ml-2 mt-2 sm:mt-0" onClick={() => nav("/imtihon")}>
+                    {tl("exam.label")}
+                  </Button>
+                </div>
+              </div>
+            </Card>
+
+            {/* Maqsad: imtihon sanasi + kunlik maqsad */}
+            <Card className="p-4 border-border">
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <div className="text-xs text-muted-foreground">{tl("dash.examDate")}</div>
+                  <div className="font-semibold text-foreground">{examLabel}</div>
+                </div>
+                <Button variant="ghost" size="sm" className="gap-1.5" onClick={() => setEditing((v) => !v)}>
+                  <Settings2 className="w-4 h-4" />{tl("dash.editGoals")}
+                </Button>
+              </div>
+              {editing && (
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <label className="text-xs text-muted-foreground">{tl("dash.examDate")}
+                    <Input type="date" className="mt-1" value={examDate} onChange={(e) => setExamDate(e.target.value)} />
+                  </label>
+                  <label className="text-xs text-muted-foreground">{tl("dash.dailyGoal")}
+                    <Input type="number" min={5} max={200} className="mt-1" value={goal} onChange={(e) => setGoal(Number(e.target.value))} />
+                  </label>
+                  <Button className="col-span-2 rounded-lg" onClick={onSaveGoals}>{tl("common.save")}</Button>
                 </div>
               )}
-            </div>
-          </div>
+            </Card>
 
-          {/* Quick Actions */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-            {quickActions.map((action, i) => (
-              <button
-                key={i}
-                onClick={() => navigate(action.path)}
-                className={`group relative h-auto py-5 px-4 flex flex-col items-center gap-2.5 rounded-2xl font-semibold text-sm transition-all hover:-translate-y-1 hover:shadow-lg ${
-                  action.primary ? "" : "bg-card border border-border"
-                }`}
-                style={action.primary ? {
-                  background: `linear-gradient(135deg, ${PURPLE} 0%, ${BLUE} 100%)`,
-                  color: "white",
-                  boxShadow: "0 4px 20px hsl(250 70% 56% / 0.3)"
-                } : undefined}
-              >
-                <action.icon className="w-5 h-5" style={!action.primary ? { color: PURPLE } : undefined} />
-                <span className={!action.primary ? "text-foreground" : undefined}>{action.label}</span>
-              </button>
-            ))}
-          </div>
+            {/* Streak */}
+            {s && <StreakCard stats={s} days={days} />}
 
-          {/* Stats */}
-          {loadingResults ? (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <Card key={i} className="p-5 border-0 rounded-2xl bg-card shadow-sm">
-                  <Skeleton className="w-10 h-10 rounded-xl mb-3" />
-                  <Skeleton className="w-16 h-7 mb-1" />
-                  <Skeleton className="w-20 h-4" />
+            {/* Raqamlar */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                [tl("dash.testsTaken"), s?.total_tests ?? 0],
+                [tl("dash.avgScore"), s?.avg_percent == null ? "–" : `${Math.round(s.avg_percent)}%`],
+                [tl("dash.answers"), s?.answered_total ?? 0],
+                [tl("dash.accuracy"), s?.accuracy_percent == null ? "–" : `${Math.round(s.accuracy_percent)}%`],
+              ].map(([label, value]) => (
+                <Card key={String(label)} className="p-3.5 border-border">
+                  <div className="text-xl font-bold text-foreground">{value}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{label}</div>
                 </Card>
               ))}
             </div>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              {stats.map((stat, i) => (
-                <Card key={i} className="p-5 border-0 rounded-2xl bg-card shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style={{ background: stat.bg }}>
-                    <stat.icon className="w-5 h-5" style={{ color: stat.color }} />
-                  </div>
-                  <div className="text-2xl font-bold text-foreground mb-0.5">{stat.value}</div>
-                  <div className="text-xs text-muted-foreground">{stat.label}</div>
-                </Card>
-              ))}
-            </div>
-          )}
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Recent Results */}
-            <div className="lg:col-span-2">
-              <Card className="border-0 rounded-2xl bg-card shadow-sm overflow-hidden">
-                <div className="flex items-center justify-between p-5 border-b border-border">
-                  <h2 className="font-bold text-foreground flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(250 70% 56% / 0.1)" }}>
-                      <BarChart3 className="w-4 h-4" style={{ color: PURPLE }} />
+            {/* Tez havolalar */}
+            <div className="grid sm:grid-cols-3 gap-3">
+              {[
+                { icon: ListX, label: tl("dash.mistakes"), sub: tl("dash.mistakesCount", { n: mistakes.data ?? 0 }), to: "/xatolarim" },
+                { icon: Bookmark, label: tl("dash.saved"), sub: String(s?.saved_count ?? 0), to: "/xatolarim" },
+                { icon: TrendingDown, label: tl("dash.weakTopics"), sub: "", to: "/zaif-mavzular" },
+              ].map((x) => (
+                <button key={x.label} onClick={() => nav(x.to)} className="text-left">
+                  <Card className="p-4 border-border flex items-center gap-3 hover:border-primary/40 transition-colors">
+                    <x.icon className="w-5 h-5 text-primary shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <div className="text-sm font-medium text-foreground truncate">{x.label}</div>
+                      {x.sub && <div className="text-xs text-muted-foreground">{x.sub}</div>}
                     </div>
-                    {t("dashboard.recentResults")}
-                  </h2>
-                  {results.length > 5 && (
-                    <Button variant="ghost" size="sm" onClick={() => navigate("/profile")} className="gap-1 text-[hsl(250_70%_56%)] hover:bg-[hsl(250_70%_56%/0.08)]">
-                      {t("dashboard.seeAll")} <ArrowRight className="w-4 h-4" />
-                    </Button>
-                  )}
-                </div>
-                <div className="p-5">
-                  {loadingResults ? (
+                    <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                  </Card>
+                </button>
+              ))}
+            </div>
+
+            {/* Mavzular */}
+            {topicsList.length === 0 ? (
+              <Card className="p-4 border-border text-sm text-muted-foreground">{tl("dash.noTopics")}</Card>
+            ) : (
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[[tl("dash.weakest"), weakest], [tl("dash.strongest"), strongest]].map(([title, list]) => (
+                  <Card key={String(title)} className="p-4 border-border">
+                    <div className="text-sm font-semibold text-foreground mb-3">{title as string}</div>
                     <div className="space-y-3">
-                      {Array.from({ length: 3 }).map((_, i) => (
-                        <div key={i} className="flex items-center gap-4 p-3 rounded-xl">
-                          <Skeleton className="w-10 h-10 rounded-xl" />
-                          <div className="flex-1 space-y-2">
-                            <Skeleton className="w-24 h-4" />
-                            <Skeleton className="w-16 h-3" />
+                      {(list as typeof weakest).map((x) => (
+                        <div key={x.topic_id}>
+                          <div className="flex justify-between gap-2 text-xs mb-1">
+                            <span className="text-foreground truncate">{topicName(x.topic_id, lang)}</span>
+                            <span className={`font-semibold ${toneText[toneFor(x.accuracy_percent)]}`}>{Math.round(x.accuracy_percent)}%</span>
                           </div>
-                          <Skeleton className="w-12 h-6 rounded-full" />
+                          <MeterBar value={x.accuracy_percent} tone={toneFor(x.accuracy_percent)} height="sm" />
                         </div>
                       ))}
                     </div>
-                  ) : recentResults.length === 0 ? (
-                    <EmptyState
-                      icon={Trophy}
-                      title={t("dashboard.noTests")}
-                      description={t("dashboard.noTestsDesc")}
-                      actionLabel={t("dashboard.noTestsAction")}
-                      onAction={() => navigate("/test-ishlash")}
-                    />
-                  ) : (
-                    <div className="space-y-2">
-                      {recentResults.map((result) => {
-                        const score = Math.round((result.correct_answers / result.total_questions) * 100);
-                        const passed = score >= 80;
-                        return (
-                          <div key={result.id} className="flex items-center gap-4 p-3 rounded-xl hover:bg-muted transition-colors">
-                            <div className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-bold text-white" style={{
-                              background: passed ? `linear-gradient(135deg, ${CYAN}, ${BLUE})` : "linear-gradient(135deg, hsl(0 70% 65%), hsl(0 70% 55%))"
-                            }}>
-                              {result.variant}
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="font-semibold text-foreground text-sm">{t("dashboard.resultVariant")} {result.variant}</p>
-                              <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                                <span>{result.correct_answers}/{result.total_questions} {t("dashboard.resultCorrect")}</span>
-                                <span>⏱ {formatTime(result.time_taken_seconds)}</span>
-                              </div>
-                            </div>
-                            <div className="px-2.5 py-1 rounded-full text-xs font-bold" style={{
-                              background: passed ? "hsl(190 80% 50% / 0.12)" : "hsl(0 70% 60% / 0.12)",
-                              color: passed ? CYAN : "hsl(0 70% 50%)"
-                            }}>
-                              {score}%
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              </Card>
-            </div>
+                  </Card>
+                ))}
+              </div>
+            )}
 
-            {/* Side panel */}
-            <div className="space-y-6">
-              {/* Progress */}
-              <Card className="p-5 border-0 rounded-2xl bg-card shadow-sm">
-                <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(190 80% 50% / 0.1)" }}>
-                    <Target className="w-4 h-4" style={{ color: CYAN }} />
-                  </div>
-                  {t("dashboard.preparation")}
-                </h3>
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="text-muted-foreground">{t("dashboard.variants")}</span>
-                      <span className="font-semibold text-foreground">{uniqueVariants}/61</span>
-                    </div>
-                    <div className="h-2 rounded-full overflow-hidden bg-muted">
-                      <div className="h-full rounded-full transition-all" style={{
-                        width: `${(uniqueVariants / 61) * 100}%`,
-                        background: `linear-gradient(90deg, ${PURPLE}, ${BLUE})`
-                      }} />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="text-muted-foreground">{t("dashboard.avgScore")}</span>
-                      <span className="font-semibold text-foreground">{avgScore}%</span>
-                    </div>
-                    <div className="h-2 rounded-full overflow-hidden bg-muted">
-                      <div className="h-full rounded-full transition-all" style={{
-                        width: `${avgScore}%`,
-                        background: `linear-gradient(90deg, ${BLUE}, ${CYAN})`
-                      }} />
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Premium CTA */}
-              {!(profile?.is_pro) ? (
-                <Card className="p-5 border-0 rounded-2xl overflow-hidden relative" style={{
-                  background: `linear-gradient(135deg, ${PURPLE} 0%, ${BLUE} 100%)`
-                }}>
-                  <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20" style={{ background: "white", filter: "blur(30px)" }} />
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-11 h-11 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                        <Crown className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-white text-sm">{t("dashboard.premiumCta")}</h3>
-                        <p className="text-xs text-white/70">{t("dashboard.premiumCtaDesc")}</p>
-                      </div>
-                    </div>
-                    <p className="text-xs text-white/80 mb-4">{t("dashboard.premiumCtaText")}</p>
-                    <Button
-                      onClick={() => navigate("/pro")}
-                      className="w-full bg-white hover:bg-white/90 text-[hsl(250_70%_45%)] font-bold rounded-xl"
-                    >
-                      {t("dashboard.premiumCtaBtn")}
-                    </Button>
-                  </div>
-                </Card>
+            {/* So'nggi natijalar */}
+            <Card className="p-4 border-border">
+              <div className="text-sm font-semibold text-foreground mb-3">{tl("dash.recent")}</div>
+              {!s?.last_results?.length ? (
+                <p className="text-sm text-muted-foreground">{tl("dash.noResults")}</p>
               ) : (
-                <Card className="p-5 border-0 rounded-2xl" style={{
-                  background: `linear-gradient(135deg, hsl(190 80% 50% / 0.1), hsl(220 80% 55% / 0.1))`,
-                  border: `1px solid hsl(190 80% 50% / 0.2)`
-                }}>
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center" style={{
-                      background: `linear-gradient(135deg, ${CYAN}, ${BLUE})`
-                    }}>
-                      <Crown className="w-5 h-5 text-white" />
+                <div className="divide-y divide-border">
+                  {s.last_results.map((r) => (
+                    <div key={r.id} className="flex items-center justify-between py-2.5 text-sm">
+                      <div>
+                        <div className="font-medium text-foreground">
+                          {r.variant === PRACTICE_VARIANT ? tl("dash.practiceLabel") : r.variant === EXAM_VARIANT ? tl("exam.label") : tl("dash.variantLabel", { n: r.variant })}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {new Date(r.completed_at).toLocaleDateString()} · {formatDuration(r.time_seconds)}
+                        </div>
+                      </div>
+                      <div className={`font-bold ${toneText[toneFor(r.percent)]}`}>{r.correct}/{r.total}</div>
                     </div>
-                    <div>
-                      <h3 className="font-bold text-foreground text-sm">{t("dashboard.premiumActive")}</h3>
-                      <p className="text-xs text-muted-foreground">{t("dashboard.premiumActiveDesc")}</p>
-                    </div>
-                  </div>
-                </Card>
+                  ))}
+                </div>
               )}
+            </Card>
+          </>
+        )}
+
+        <InstallPrompt />
+
+        {!profile?.is_pro && (
+          <Card className="p-4 border-primary/30 bg-primary/5 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              <Crown className="w-5 h-5 text-primary shrink-0" />
+              <div className="text-sm font-medium text-foreground">{tl("dash.premiumCta")}</div>
             </div>
-          </div>
+            <Button size="sm" className="rounded-lg shrink-0" onClick={() => nav("/pro")}>{tl("dash.premiumBtn")}</Button>
+          </Card>
+        )}
+        <div className="text-center">
+          <Button variant="ghost" size="sm" onClick={() => nav("/profile")}>{tl("dash.profile")}</Button>
         </div>
       </div>
     </MainLayout>
