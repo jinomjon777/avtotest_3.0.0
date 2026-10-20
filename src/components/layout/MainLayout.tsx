@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { TrialTimer } from "@/components/TrialTimer";
 import { AppSidebar } from "./AppSidebar";
 import { BottomNav } from "./BottomNav";
+import { LearnNav } from "./LearnNav";
 import { Crown, Globe, ChevronDown, Home, Phone, BookOpen, Car, FileText, Layers, Sun, Moon, Send, Bot, Clock } from "lucide-react";
 import logoImg from "@/assets/logo.png";
 
@@ -180,9 +181,16 @@ export function MainLayout({ children }: MainLayoutProps) {
           </div>
         </nav>
 
+        {/* Telefon: shaxsiy bo'limlar sarlavha ostida, gorizontal suriladi */}
+        <div className="lg:hidden border-b border-border bg-card/50 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <LearnNav className="px-3 py-1.5 w-max" />
+        </div>
+
         {/* Desktop Top Bar */}
-        <header className="hidden lg:flex items-center justify-end h-14 px-6 border-b border-border bg-card/50 sticky top-0 z-40">
-          <div className="flex items-center gap-2">
+        <header className="hidden lg:flex items-center justify-between gap-4 h-14 px-6 border-b border-border bg-card/50 sticky top-0 z-40">
+          {/* Shaxsiy bo'limlar: Kabinet, Xatolarim, Zaif mavzular, Kunlik reja */}
+          <LearnNav className="min-w-0 overflow-x-auto" />
+          <div className="flex items-center gap-2 ml-auto flex-shrink-0">
             <TrialTimer />
 
             {/* Theme toggle */}
