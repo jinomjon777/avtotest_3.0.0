@@ -119,6 +119,15 @@ const rows: [string, string, string, string][] = [
   ["exam.seeMistakes", "Xatolarni ko'rish", "Хатоларни кўриш", "Посмотреть ошибки"],
   ["exam.practiceWeak", "Zaif mavzularni mashq qilish", "Заиф мавзуларни машқ қилиш", "Тренировать слабые темы"],
   ["exam.label", "Real imtihon", "Реал имтиҳон", "Реальный экзамен"],
+  // ---- mehmonga ro'yxatdan o'tish taklifi
+  ["guest.title", "Bepul hisob yarating", "Бепул ҳисоб яратинг", "Создайте бесплатный аккаунт"],
+  ["guest.text", "Ro'yxatdan o'tsangiz, yangi funksiyalar ochiladi:", "Рўйхатдан ўтсангиз, янги функциялар очилади:", "После регистрации откроются новые функции:"],
+  ["guest.f.mistakes", "Mening xatolarim", "Менинг хатоларим", "Мои ошибки"],
+  ["guest.f.weak", "Zaif mavzular", "Заиф мавзулар", "Слабые темы"],
+  ["guest.f.plan", "Kunlik reja va eslatma", "Кунлик режа ва эслатма", "План и напоминания"],
+  ["guest.f.progress", "Natijalar va seriya", "Натижалар ва серия", "Прогресс и серия"],
+  ["guest.cta", "Ro'yxatdan o'tish", "Рўйхатдан ўтиш", "Зарегистрироваться"],
+  ["guest.later", "Keyinroq", "Кейинроқ", "Позже"],
   // ---- kunlik reja va eslatmalar
   ["plan.title", "Kunlik reja", "Кунлик режа", "План на день"],
   ["plan.subtitle", "Har kuni belgilangan vaqtda 5 ta test — imtihonga eng ishonchli tayyorgarlik.", "Ҳар куни белгиланган вақтда 5 та тест — имтиҳонга энг ишончли тайёргарлик.", "5 тестов каждый день в выбранное время — самая надёжная подготовка."],

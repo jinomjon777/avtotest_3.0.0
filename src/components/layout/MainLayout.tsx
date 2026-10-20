@@ -9,6 +9,7 @@ import { TrialTimer } from "@/components/TrialTimer";
 import { AppSidebar } from "./AppSidebar";
 import { BottomNav } from "./BottomNav";
 import { LearnNav } from "./LearnNav";
+import { GuestSignupPrompt } from "@/components/GuestSignupPrompt";
 import { Crown, Globe, ChevronDown, Home, Phone, BookOpen, Car, FileText, Layers, Sun, Moon, Send, Bot, Clock } from "lucide-react";
 import logoImg from "@/assets/logo.png";
 
@@ -338,6 +339,7 @@ export function MainLayout({ children }: MainLayoutProps) {
 
         {/* Mobile Bottom Nav */}
         <BottomNav />
+        <GuestSignupPrompt />
       </div>
     </div>
   );
