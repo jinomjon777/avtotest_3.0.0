@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { MeterBar } from "@/components/ui/meter-bar";
 import { InstallPrompt } from "@/components/InstallPrompt";
 import { StreakCard } from "@/components/learn/StreakCard";
+import { DailyPlanCard } from "@/components/learn/DailyPlanCard";
 import { ProgressRing } from "@/components/ui/progress-ring";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAuth } from "@/contexts/AuthContext";
@@ -137,6 +138,9 @@ export default function Dashboard() {
             </Card>
 
             {/* Streak */}
+            {/* Kunlik reja (eslatma vaqtidan 5 ta test) */}
+            <DailyPlanCard />
+
             {s && <StreakCard stats={s} days={days} />}
 
             {/* Raqamlar */}
