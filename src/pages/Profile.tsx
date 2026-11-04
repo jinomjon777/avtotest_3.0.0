@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import { PaymentsCard } from "@/components/account/PaymentsCard";
+import { DevicesCard } from "@/components/account/DevicesCard";
+import { useAccessState } from "@/hooks/useAccessState";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -37,6 +40,7 @@ const BEIGE = "hsl(40 30% 95%)";
 
 const Profile = () => {
   const { user, profile, signOut, isLoading, refreshProfile } = useAuth();
+  const { isPremium } = useAccessState();
   const { t } = useLanguage();
   const navigate = useNavigate();
   const registrationDays = useRegistrationAge(user?.id);
@@ -47,7 +51,6 @@ const Profile = () => {
   const [editUsername, setEditUsername] = useState('');
   const [editFullName, setEditFullName] = useState('');
   const [isSaving, setIsSaving] = useState(false);
-  const [checkLink, setCheckLink] = useState<string | null>(null);
 
   useUserValidation('/auth');
 
@@ -59,19 +62,6 @@ const Profile = () => {
   }, [profile]);
 
   useEffect(() => {
-    const fetchCheck = async () => {
-      if (!user?.email) return;
-      try {
-        const { data, error } = await (supabase
-          .from('chek' as any).select('link').eq('email', user.email)
-          .maybeSingle() as unknown as Promise<{ data: { link: string } | null; error: { message: string } | null }>);
-        if (!error && data?.link) setCheckLink(data.link);
-      } catch {}
-    };
-    fetchCheck();
-  }, [user]);
-
-  useEffect(() => {
     const fetchResults = async () => {
       if (!user) return;
       try {
@@ -79,7 +69,7 @@ const Profile = () => {
           .from('test_results').select('*').eq('user_id', user.id)
           .order('completed_at', { ascending: false });
         setResults(data || []);
-      } catch {} finally { setLoadingResults(false); }
+      } catch { /* ixtiyoriy: xato e'tiborsiz qoldiriladi */ } finally { setLoadingResults(false); }
     };
     fetchResults();
   }, [user]);
@@ -162,7 +152,7 @@ const Profile = () => {
                 <div className="flex-1 min-w-0">
                   <h1 className="text-xl md:text-2xl font-bold text-white truncate font-montserrat">{displayName}</h1>
                   <p className="text-white/80 text-sm truncate">{user.email || user.phone}</p>
-                  {profile?.is_pro && (
+                  {isPremium && (
                     <div className="inline-flex items-center gap-1.5 mt-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/30">
                       <Crown className="w-3.5 h-3.5 text-white" />
                       <span className="text-xs font-bold text-white">PREMIUM</span>
@@ -288,24 +278,25 @@ const Profile = () => {
                   { icon: User, label: t('profile.fieldUsername'), value: profile?.username ? `@${profile.username}` : '-' },
                   { icon: Mail, label: t('profile.fieldEmail'), value: user.email || '-' },
                   { icon: Phone, label: t('profile.fieldPhone'), value: user.phone || '-' },
-                  { icon: FileText, label: t('profile.fieldCheck'), value: checkLink && checkLink !== 'yuklanmagan' ? checkLink : null, isLink: true },
                   { icon: Calendar, label: t('profile.fieldRegistered'), value: registrationDays !== null ? `${registrationDays} ${t('profile.daysAgo')}` : '-' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-[hsl(40_30%_97%)]">
                     <item.icon className="w-4 h-4 text-[hsl(230_15%_55%)] mt-0.5 flex-shrink-0" />
                     <div className="min-w-0 flex-1">
                       <p className="text-xs text-[hsl(230_15%_50%)]">{item.label}</p>
-                      {item.isLink && item.value ? (
-                        <a href={item.value} target="_blank" rel="noopener noreferrer" className="text-sm font-medium hover:underline" style={{ color: PURPLE }}>{t('profile.download')}</a>
-                      ) : (
-                        <p className="text-sm font-medium text-[hsl(230_25%_15%)] truncate">{item.value || '-'}</p>
-                      )}
+                      <p className="text-sm font-medium text-[hsl(230_25%_15%)] truncate">{item.value || '-'}</p>
                     </div>
                   </div>
                 ))}
               </div>
             )}
           </Card>
+
+          {/* To'lovlar va qurilmalar */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <PaymentsCard userId={user.id} />
+            <DevicesCard />
+          </div>
 
           {/* Results */}
           <Card className="border-0 rounded-2xl bg-white shadow-sm overflow-hidden mb-6">

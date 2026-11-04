@@ -134,10 +134,13 @@
     scroll-behavior: smooth;
   }
 
+  /* Asosiy matn — tizim shrifti (tez, yuklab olinmaydi). Sarlavha urg'usi uchun .font-montserrat. */
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -145,8 +148,10 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', system-ui, sans-serif;
-    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -359,126 +364,41 @@
 }
 
 /* ──────────────────────────────────────────────────────────────
-   index.html'da SAYTNING BOSHQA SAHIFALARI (pastki navigatsiya
-   uchun joy ochish maqsadida) uchun body/#root/main elementlariga
-   majburiy (!important) padding-bottom qo'shilgan:
-     @media (max-width: 768px)  { padding-bottom: 96px  }
-     @media (max-width: 1023px) { padding-bottom: 112px }
-
-   Bu Test ishlash ekranida pastki "Oldingi/Keyingi" qatori bilan
-   to'qnashib, bo'sh joy/sakrash muammosiga sabab bo'lgan. Test
-   ekrani komponenti ochilganda <body>ga "test-interface-active"
-   klassi qo'shadi (TestInterfaceBase.tsx) — shu yerda o'sha
-   bo'shliqni FAQAT shu ekran uchun bekor qilamiz, qolgan barcha
-   sahifalarda asl xulq-atvor (pastki navigatsiya uchun joy)
-   o'zgarishsiz qoladi.
+   Test ekrani: pastki "Oldingi/Keyingi" paneli position:fixed —
+   uning haqiqiy balandligi JS orqali --test-footer-clearance ga
+   yoziladi (TestInterfaceBase.tsx), uzun matn panel ostida qolmaydi.
    ────────────────────────────────────────────────────────────── */
-body.test-interface-active,
-body.test-interface-active #root {
-  padding-bottom: 0 !important;
-}
-
-/* main'ning pastki bo'shligi endi 0 emas — JS orqali o'lchangan
-   fixed footer balandligiga moslab --test-footer-clearance
-   o'zgaruvchisi orqali beriladi (TestInterfaceBase.tsx). Shunday
-   qilib uzun savol/javob matni fixed footer ostida yashirinib
-   qolmaydi, lekin asl saytdagi (boshqa sahifalardagi) bo'shliq
-   bilan to'qnashmaydi. */
 body.test-interface-active main {
-  padding-bottom: var(--test-footer-clearance, 88px) !important;
+  padding-bottom: var(--test-footer-clearance, 88px);
 }
 
-/* TestIshlash boshlash sahifasi (test hali boshlanmagan holat) —
-   index.html'da IKKITA qatlamli qoida bor:
-     1) .max-w-3xl { padding-left:16px !important; padding-right:16px !important; }
-     2) .flex-1, main, header { padding-left:0 !important; }  (faqat CHAP!)
-   <main> elementida "flex-1" VA "max-w-3xl" klasslari birga bor,
-   ikkala qoida ham bir xil specificity (0,1,0) ga ega, shu sabab
-   faylda KEYINROQ yozilgan (2)-qoida g'olib chiqib, faqat CHAP
-   tomonni 0 ga tushiradi — O'NG tomon 16px'da qolib, assimetriya
-   paydo bo'ladi.
-
-   OLDINGI URINISH XATOSI: "padding-left: initial !important" —
-   `initial` CSS kalit so'zi "Tailwind qiymatiga qaytarish" emas,
-   balki "spetsifikatsiyadagi standart qiymat"ga (padding uchun 0)
-   qaytaradi — ya'ni bu qoida amalda HECH NARSANI TUZATMAGAN edi.
-
-   TO'G'RI YECHIM: aniq piksel qiymati + yuqoriroq specificity
-   (body.klass + element + klass = 3 komponent), bu index.html'dagi
-   past-specificity qoidalarni tartibidan qat'iy nazar yengadi. */
-@media (max-width: 1023px) {
-  body.test-start-active main.flex-1 {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-  body.test-start-active header {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
+/* Til menyusi: sahifa ustida, mobil ekranda to'liq kenglikda */
+.lang-menu-root {
+  z-index: 11000;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
-/* Tor telefon ekranlarida (< 640px, Tailwind "sm" chegarasi) header
-   kamroq bo'shliq oladi — Bosh sahifa tugmasi + 3 ta til tugmasi
-   sig'ishi uchun (aks holda "Русский" tugmasi ekrandan chiqib
-   ketardi). Kengroq ekranlarda (>=640px) 24px qoladi. */
-@media (max-width: 639px) {
-  body.test-start-active header {
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
+.lang-menu-root button {
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 15px;
+  width: 100%;
 }
-@media (min-width: 640px) and (max-width: 1023px) {
-  body.test-start-active header {
-    padding-left: 24px !important;
-    padding-right: 24px !important;
+#lang-toggle-btn, #lang-toggle-btn-desktop { position: relative; z-index: 11000; }
+@media (max-width: 768px) {
+  .lang-menu-root {
+    right: 12px;
+    top: 56px;
+    width: calc(100% - 24px);
+    border-radius: 12px;
+    padding: 6px;
   }
 }
 
-/* ──────────────────────────────────────────────────────────────
-   BUTUN SAYT bo'ylab (Bosh sahifa, Variantlar, Belgilar va h.k. —
-   MainLayout ishlatuvchi barcha sahifalar) muammo:
-
-   index.html'da har qanday <main> uchun majburiy qoida bor:
-     main { padding-bottom: calc(112px + safe-area) !important; }
-
-   Lekin MainLayout.tsx'dagi <footer> elementi allaqachon O'ZINING
-   pb-20 (80px) bilan pastki (fixed) BottomNav uchun joy ochib
-   qo'ygan. Ikkalasi QO'SHILIB (112px + 80px = 192px), sahifa
-   pastida katta, keraksiz bo'sh joy hosil qilardi.
-
-   MainLayout'dagi <main> elementiga "app-main-content" klassi
-   berilgan — shu orqali FAQAT shu asosiy layout'dagi main uchun
-   forced 112px'ni bekor qilamiz (klass qo'shilgani specificity'ni
-   0,0,1 dan 0,1,1 ga oshiradi, index.html qoidasidan yuqori
-   bo'ladi). Test ekrani (TestInterfaceBase) o'zining alohida
-   mexanizmi orqali ishlayveradi, bu yerga tegishli emas.
-   ────────────────────────────────────────────────────────────── */
-main.app-main-content {
-  padding-bottom: 0 !important;
-}
-
-/* ──────────────────────────────────────────────────────────────
-   index.html'dagi qoida FAQAT <main>ga emas, balki <body> VA
-   <#root>ga ham bir vaqtda 112px majburiy pastki bo'shliq beradi:
-     body, #root, main { padding-bottom: calc(112px+...) !important; }
-
-   Yuqoridagi `main.app-main-content` qoidasi faqat <main>ni
-   tuzatadi — #root va body hali ham 112px bilan qolaveradi, va
-   BottomNav/test-footer HAR DOIM position:fixed bo'lgani uchun
-   (hech qachon oddiy oqim — normal flow — ichida joy egallamaydi),
-   bu 112px hech qachon kerak emas — u shunchaki sahifa oxirida
-   ortiqcha bo'sh joy sifatida qoladi.
-
-   Yechim: #root va body uchun ID/element'dan YUQORIROQ
-   specificity beruvchi qoida — bu index.html'dagi qoidadan
-   (u hujjatda TARTIB bo'yicha keyinroq joylashgan bo'lsa ham)
-   har doim g'olib chiqadi, chunki CSS'da specificity tartibdan
-   ustun turadi.
-   ────────────────────────────────────────────────────────────── */
-:root #root {
-  padding-bottom: 0 !important;
-}
-html body {
-  padding-bottom: 0 !important;
+/* Juda tor telefonlar: soyalar va katta radiuslar ixchamroq */
+@media (max-width: 420px) {
+  .shadow-2xl, .shadow-lg, .shadow-sm { box-shadow: none; }
+  .rounded-3xl { border-radius: 12px; }
+  .rounded-2xl { border-radius: 10px; }
 }

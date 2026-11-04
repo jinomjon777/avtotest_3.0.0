@@ -1,4 +1,5 @@
 // Savol kaliti bo'yicha savolning o'zini (matn, variantlar, rasm, izoh) topish.
+import type { RawQuestion } from "./questionFormat";
 // Savollar bazada emas, JSON'larda. public/data/question_locator.json har kalit uchun "tur:fayl:indeks" beradi.
 // Bepul baza (f) — public/ dagi statik fayl; premium (m — mavzuli, v — variantlar) — faqat
 // get-questions edge funksiyasi orqali (questionApi.ts).
@@ -27,11 +28,11 @@ export function loadLocator(): Promise<Locator | null> {
   return locatorPromise;
 }
 
-const fileCache = new Map<string, Promise<any[] | null>>();
+const fileCache = new Map<string, Promise<RawQuestion[] | null>>();
 function filePath(_kind: string, stem: string): string {
   return `/${stem}.json`; // faqat bepul baza (700baza2.json); premium — questionApi.ts
 }
-function loadFile(kind: string, stem: string): Promise<any[] | null> {
+function loadFile(kind: string, stem: string): Promise<RawQuestion[] | null> {
   const path = filePath(kind, stem);
   if (!fileCache.has(path)) {
     fileCache.set(
@@ -49,7 +50,7 @@ function contentKey(lang: QLang) {
   return lang === "oz" ? "uz_lat" : lang === "uz" ? "uz_cyr" : "ru";
 }
 
-function imageFor(kind: string, raw: any): string | undefined {
+function imageFor(kind: string, raw: RawQuestion): string | undefined {
   if (raw?.media_url && String(raw.media_url).trim()) {
     const u = String(raw.media_url).trim();
     if (u.startsWith("http")) return u;
@@ -62,28 +63,28 @@ function imageFor(kind: string, raw: any): string | undefined {
   return undefined;
 }
 
-function toResolved(key: string, kind: string, raw: any, lang: QLang): ResolvedQuestion | null {
+function toResolved(key: string, kind: string, raw: RawQuestion, lang: QLang): ResolvedQuestion | null {
   if (raw?.content) {
     const ck = contentKey(lang);
     const c = raw.content[ck] || raw.content.uz_lat || raw.content.uz_cyr || raw.content.ru;
     if (!c?.options?.length) return null;
-    const correct = c.options.find((o: any) => o.is_correct);
+    const correct = c.options.find((o) => o.is_correct);
     return {
       key,
       text: c.text || "",
       image: imageFor(kind, raw),
-      options: c.options.map((o: any) => ({ id: o.id, text: o.text })),
+      options: c.options.map((o) => ({ id: o.id, text: o.text })),
       correctId: correct ? correct.id : c.options[0].id,
       explanation: raw.izoh?.[ck] || raw.izoh?.uz_lat || raw.izoh?.uz_cyr || raw.izoh?.ru || undefined,
     };
   }
   if (Array.isArray(raw?.choises)) {
-    const ci = raw.choises.findIndex((c: any) => c.answer === true);
+    const ci = raw.choises.findIndex((c) => c.answer === true);
     return {
       key,
-      text: raw.question || "",
+      text: typeof raw.question === "string" ? raw.question : "",
       image: imageFor(kind, raw),
-      options: raw.choises.map((c: any, i: number) => ({ id: i + 1, text: c.text })),
+      options: raw.choises.map((c, i: number) => ({ id: i + 1, text: c.text })),
       correctId: ci >= 0 ? ci + 1 : 1,
       explanation: raw.description || undefined,
     };
@@ -108,7 +109,7 @@ export async function resolveQuestions(keys: string[], lang: QLang): Promise<Map
   }
 
   const map = await import("./answerTracking").then((m) => m.loadTopicMap());
-  const canon = (raw: any) => {
+  const canon = (raw: RawQuestion) => {
     const own = rawQuestionKey(raw);
     return own ? map?.aliases?.[own] ?? own : undefined;
   };
@@ -120,7 +121,7 @@ export async function resolveQuestions(keys: string[], lang: QLang): Promise<Map
       const arr = await loadFile("f", "700baza2");
       if (!arr) return;
       for (const it of freeItems) {
-        let raw = arr[it.idx];
+        let raw: RawQuestion | undefined = arr[it.idx];
         // Indeks eskirgan bo'lishi mumkin — kalit mos kelmasa, fayldan qidiramiz
         if (!raw || canon(raw) !== it.key) raw = arr.find((q) => canon(q) === it.key);
         if (!raw) continue;
@@ -131,7 +132,7 @@ export async function resolveQuestions(keys: string[], lang: QLang): Promise<Map
     // Premium fayllar: server faqat ruxsat etilganlarini qaytaradi
     (async () => {
       if (premiumKeys.length === 0) return;
-      const items = await fetchByKeys(premiumKeys).catch(() => ({} as Record<string, { kind: string; raw: any }>));
+      const items = await fetchByKeys(premiumKeys).catch(() => ({} as Record<string, { kind: string; raw: RawQuestion }>));
       for (const [key, { kind, raw }] of Object.entries(items)) {
         if (canon(raw) !== key) continue; // lokator eskirgan bo'lsa noto'g'ri savol ko'rsatmaymiz
         const r = toResolved(key, kind, raw, lang);
@@ -142,7 +143,7 @@ export async function resolveQuestions(keys: string[], lang: QLang): Promise<Map
   return out;
 }
 
-async function toPool(arr: any[], lang: QLang): Promise<ResolvedQuestion[]> {
+async function toPool(arr: RawQuestion[], lang: QLang): Promise<ResolvedQuestion[]> {
   const map = await import("./answerTracking").then((m) => m.loadTopicMap());
   const res: ResolvedQuestion[] = [];
   for (const raw of arr) {

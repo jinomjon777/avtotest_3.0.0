@@ -1,5 +1,3 @@
-// @ts-nocheck
-// Supabase Edge Function (Deno). VSCode'dagi "Deno topilmadi" kabi xatolar shu sababli — e'tibor bermang.
 //
 // Kunlik reja eslatmalari: Telegram xabari + push-bildirishnoma.
 //   POST {action:"run"}   — pg_cron har 5 daqiqada chaqiradi (sarlavha x-cron-secret: REMINDER_CRON_SECRET).
@@ -10,11 +8,11 @@
 // Kerakli secret'lar: TELEGRAM_BOT_TOKEN, VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY, REMINDER_CRON_SECRET,
 // ixtiyoriy: SITE_URL (standart https://smartavto.uz), VAPID_SUBJECT (standart mailto:admin@smartavto.uz).
 
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import webpush from "npm:web-push@3.6.7";
+import { jsonResponse, preflight } from "../_shared/cors.ts";
+import { adminClient, getUser } from "../_shared/supabase.ts";
+import { escapeHtml } from "../_shared/html.ts";
 
-const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
-const SERVICE_KEY = Deno.env.get("SB_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const BOT_TOKEN = Deno.env.get("TELEGRAM_BOT_TOKEN") ?? "";
 const VAPID_PUBLIC = Deno.env.get("VAPID_PUBLIC_KEY") ?? "";
 const VAPID_PRIVATE = Deno.env.get("VAPID_PRIVATE_KEY") ?? "";
@@ -27,13 +25,13 @@ if (pushReady) {
   webpush.setVapidDetails(Deno.env.get("VAPID_SUBJECT") ?? "mailto:admin@smartavto.uz", VAPID_PUBLIC, VAPID_PRIVATE);
 }
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": Deno.env.get("ALLOWED_ORIGIN") ?? "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-cron-secret",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
-const json = (data: unknown, status = 200) =>
-  new Response(JSON.stringify(data), { status, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+/** Maxfiy kalitni vaqt bo'yicha sizdirmaydigan solishtirish */
+function safeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let r = 0;
+  for (let i = 0; i < a.length; i++) r |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return r === 0;
+}
 
 /** Eslatma matni: birinchisi — "vaqt keldi", keyingilari — qolgan testlar soni bilan. */
 export function reminderText(done: number, target: number, sentCount: number) {
@@ -57,7 +55,7 @@ async function sendTelegram(chatId: number, title: string, body: string): Promis
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       chat_id: chatId,
-      text: `<b>${title}</b>\n${body}`,
+      text: `<b>${escapeHtml(title)}</b>\n${escapeHtml(body)}`,
       parse_mode: "HTML",
       reply_markup: { inline_keyboard: [[{ text: "▶️ Testni boshlash", url: PLAN_URL }]] },
     }),
@@ -77,74 +75,84 @@ async function sendPush(sub: { endpoint: string; p256dh: string; auth: string },
     );
     return "ok";
   } catch (e) {
-    const code = e?.statusCode;
+    const code = (e as { statusCode?: number })?.statusCode;
     return code === 404 || code === 410 ? "gone" : "error";
   }
 }
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
-  if (req.method !== "POST") return json({ error: "method_not_allowed" }, 405);
+  const pf = preflight(req);
+  if (pf) return pf;
+  if (req.method !== "POST") return jsonResponse(req, { error: "method_not_allowed" }, 405);
 
-  let body: any = {};
+  let body: { action?: string } = {};
   try { body = await req.json(); } catch { /* bo'sh */ }
-  const supabase = createClient(SUPABASE_URL, SERVICE_KEY);
+  const supabase = adminClient();
 
-  // ── Ochiq VAPID kaliti ──────────────────────────────────────────
-  if (body.action === "vapid") {
-    return json({ ok: pushReady, publicKey: VAPID_PUBLIC || null });
-  }
-
-  // ── Sinov xabari: faqat o'ziga ──────────────────────────────────
-  if (body.action === "test") {
-    const auth = req.headers.get("Authorization") ?? "";
-    const { data: { user } } = await supabase.auth.getUser(auth.replace(/^Bearer /, ""));
-    if (!user) return json({ error: "not_authenticated" }, 401);
-    const [{ data: link }, { data: subs }] = await Promise.all([
-      supabase.from("telegram_links").select("chat_id").eq("user_id", user.id).maybeSingle(),
-      supabase.from("push_subscriptions").select("endpoint, p256dh, auth").eq("user_id", user.id),
-    ]);
-    const title = "✅ Sinov eslatmasi";
-    const text = "Eslatmalar ishlayapti. Belgilangan vaqtda shu ko'rinishda xabar keladi.";
-    const telegram = link?.chat_id ? await sendTelegram(link.chat_id, title, text) : "none";
-    const push = [];
-    for (const s of subs ?? []) {
-      const r = await sendPush(s, title, text);
-      if (r === "gone") await supabase.rpc("delete_push_endpoint", { p_endpoint: s.endpoint });
-      push.push(r);
+  try {
+    // ── Ochiq VAPID kaliti ──────────────────────────────────────────
+    if (body.action === "vapid") {
+      return jsonResponse(req, { ok: pushReady, publicKey: VAPID_PUBLIC || null }, 200, { "Cache-Control": "public, max-age=3600" });
     }
-    return json({ ok: true, telegram, push });
-  }
 
-  // ── Rejali yuborish (pg_cron) ───────────────────────────────────
-  if (body.action === "run") {
-    if (!CRON_SECRET || req.headers.get("x-cron-secret") !== CRON_SECRET) {
-      return json({ error: "forbidden" }, 403);
-    }
-    const { data: due, error } = await supabase.rpc("due_reminders");
-    if (error) return json({ error: "server_error", detail: error.message }, 500);
-
-    const stats = { users: 0, telegram: 0, push: 0, failed: 0 };
-    for (const r of due ?? []) {
-      const { title, body: text } = reminderText(r.done, r.target, r.sent_count);
-      let delivered = false;
-      if (r.chat_id) {
-        const t = await sendTelegram(r.chat_id, title, text);
-        if (t === "ok") { delivered = true; stats.telegram++; }
-        if (t === "blocked") await supabase.from("telegram_links").delete().eq("chat_id", r.chat_id);
+    // ── Sinov xabari: faqat o'ziga, 10 daqiqada ko'pi bilan 3 marta ──
+    if (body.action === "test") {
+      const user = await getUser(req);
+      if (!user) return jsonResponse(req, { error: "not_authenticated" }, 401);
+      const { data: okRate } = await supabase.rpc("check_rate_limit", {
+        p_identifier: user.id, p_action: "reminder_test", p_max_hits: 3, p_window_min: 10,
+      });
+      if (okRate === false) return jsonResponse(req, { error: "rate_limited" }, 429);
+      const [{ data: link }, { data: subs }] = await Promise.all([
+        supabase.from("telegram_links").select("chat_id").eq("user_id", user.id).maybeSingle(),
+        supabase.from("push_subscriptions").select("endpoint, p256dh, auth").eq("user_id", user.id),
+      ]);
+      const title = "✅ Sinov eslatmasi";
+      const text = "Eslatmalar ishlayapti. Belgilangan vaqtda shu ko'rinishda xabar keladi.";
+      const telegram = link?.chat_id ? await sendTelegram(link.chat_id, title, text) : "none";
+      const push: string[] = [];
+      for (const s of subs ?? []) {
+        const r = await sendPush(s, title, text);
+        if (r === "gone") await supabase.rpc("delete_push_endpoint", { p_endpoint: s.endpoint });
+        push.push(r);
       }
-      for (const s of r.subscriptions ?? []) {
-        const p = await sendPush(s, title, text);
-        if (p === "ok") { delivered = true; stats.push++; }
-        if (p === "gone") await supabase.rpc("delete_push_endpoint", { p_endpoint: s.endpoint });
-      }
-      // Kanal bo'lmasa ham belgilanadi — aks holda har 5 daqiqada qayta tekshirilaverardi
-      await supabase.rpc("mark_reminder_sent", { p_uid: r.user_id });
-      stats.users++;
-      if (!delivered) stats.failed++;
+      return jsonResponse(req, { ok: true, telegram, push });
     }
-    return json({ ok: true, ...stats });
-  }
 
-  return json({ error: "bad_request" }, 400);
+    // ── Rejali yuborish (pg_cron) ───────────────────────────────────
+    if (body.action === "run") {
+      if (!CRON_SECRET || !safeEqual(req.headers.get("x-cron-secret") ?? "", CRON_SECRET)) {
+        return jsonResponse(req, { error: "forbidden" }, 403);
+      }
+      const { data: due, error } = await supabase.rpc("due_reminders");
+      if (error) return jsonResponse(req, { error: "server_error" }, 500);
+
+      const stats = { users: 0, telegram: 0, push: 0, failed: 0 };
+      for (const r of due ?? []) {
+        const { title, body: text } = reminderText(r.done, r.target, r.sent_count);
+        let delivered = false;
+        if (r.chat_id) {
+          const t = await sendTelegram(r.chat_id, title, text);
+          if (t === "ok") { delivered = true; stats.telegram++; }
+          if (t === "blocked") await supabase.from("telegram_links").delete().eq("chat_id", r.chat_id);
+        }
+        for (const s of r.subscriptions ?? []) {
+          const p = await sendPush(s, title, text);
+          if (p === "ok") { delivered = true; stats.push++; }
+          if (p === "gone") await supabase.rpc("delete_push_endpoint", { p_endpoint: s.endpoint });
+        }
+        // Kanal bo'lmasa ham belgilanadi — aks holda har 5 daqiqada qayta tekshirilaverardi
+        await supabase.rpc("mark_reminder_sent", { p_uid: r.user_id });
+        stats.users++;
+        if (!delivered) stats.failed++;
+      }
+      return jsonResponse(req, { ok: true, ...stats });
+    }
+
+    return jsonResponse(req, { error: "bad_request" }, 400);
+  } catch (e) {
+    console.error("send-reminders:", e);
+    return jsonResponse(req, { error: "server_error" }, 500);
+  }
 });
+

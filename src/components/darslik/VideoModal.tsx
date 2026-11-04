@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { X, Maximize2, Minimize2, RectangleHorizontal } from "lucide-react";
+import { X, Maximize2, Minimize2, RectangleHorizontal, Loader2 } from "lucide-react";
+import { getVideoUrl, videoErrorMessage } from "@/lib/videoApi";
 import { getVideoTitle } from "@/data/videoDarslar";
 
 interface VideoModalProps {
@@ -31,6 +32,19 @@ const sizeConfig: Record<VideoSize, { label: string; className: string; icon: ty
 export function VideoModal({ url, index, onClose }: VideoModalProps) {
   const [size, setSize] = useState<VideoSize>("medium");
   const title = getVideoTitle(url);
+  const [src, setSrc] = useState<string | null>(null);
+  const [error, setError] = useState("");
+
+  // `url` — video kaliti; haqiqiy (muddatli) havola serverdan olinadi
+  useEffect(() => {
+    let alive = true;
+    setSrc(null);
+    setError("");
+    getVideoUrl(url)
+      .then((u) => { if (alive) setSrc(u); })
+      .catch((e) => { if (alive) setError(videoErrorMessage(e)); });
+    return () => { alive = false; };
+  }, [url]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -82,6 +96,7 @@ export function VideoModal({ url, index, onClose }: VideoModalProps) {
             <div className="w-px h-4 bg-border mx-1" />
             <button
               onClick={onClose}
+              aria-label="Yopish"
               className="p-1.5 rounded-md text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-colors"
             >
               <X className="w-4 h-4" />
@@ -92,16 +107,23 @@ export function VideoModal({ url, index, onClose }: VideoModalProps) {
         {/* Video */}
         <div className="relative rounded-b-xl overflow-hidden bg-black border border-border/50 border-t-0">
           <div className="aspect-video">
-            <video
-              src={url}
-              controls
-              autoPlay
-              className="w-full h-full"
-              controlsList="nodownload"
-              preload="metadata"
-            >
-              Brauzeringiz video formatini qo'llab-quvvatlamaydi.
-            </video>
+            {src ? (
+              <video
+                src={src}
+                controls
+                autoPlay
+                className="w-full h-full"
+                controlsList="nodownload"
+                preload="metadata"
+                onContextMenu={(e) => e.preventDefault()}
+              >
+                Brauzeringiz video formatini qo'llab-quvvatlamaydi.
+              </video>
+            ) : (
+              <div className="flex h-full w-full items-center justify-center p-6 text-center text-sm text-white/80">
+                {error ? <p role="alert">{error}</p> : <Loader2 className="h-8 w-8 animate-spin" aria-label="Yuklanmoqda" />}
+              </div>
+            )}
           </div>
         </div>
       </div>

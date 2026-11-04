@@ -54,7 +54,7 @@ export default function Mashq() {
         if (!alive) return;
         if (c === "limit" || c === "error") { setClaim(c); setQs([]); return; }
       }
-      const r = await buildPractice(mode, questionLang as any, { topic, first, premium: c === "ok" });
+      const r = await buildPractice(mode, questionLang, { topic, first, premium: c === "ok" });
       if (!alive) return;
       if (c === null) {
         if (r.length === 0) { setClaim("ok"); setQs(r); return; }

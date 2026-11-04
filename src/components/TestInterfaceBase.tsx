@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { errorMessage } from "@/lib/utils";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
-import { rawQuestionKey, buildAnswerPayload } from "@/lib/answerTracking";
+import { buildAnswerPayload } from "@/lib/answerTracking";
 import {
   getInitialTimeRemaining,
   getInitialStartedAt,
@@ -26,63 +26,10 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Clock, ChevronLeft, ChevronRight, X, Check, SkipForward } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
-import { fetchQuestionSource } from "@/lib/fetchQuestionSource";
+import { loadQuestions, type NormalizedQuestion, type QuestionLang } from "@/lib/questionFormat";
 import { useAppViewportHeight } from "@/hooks/use-app-viewport-height";
 
-// Format 1: Original format with nested question/answers objects
-interface QuestionDataFormat1 {
-  id?: number;
-  bilet_id?: number;
-  question_id?: number;
-  name?: string | null;
-  question: {
-    oz?: string;
-    uz?: string;
-    ru?: string;
-  };
-  photo?: string | null;
-  image?: string | null;
-  answers: {
-    status: number;
-    answer_id?: number;
-    answer: {
-      oz?: string[];
-      uz?: string[];
-      ru?: string[];
-    };
-  };
-}
-
-// Format 2: Simple format with choises array (700baza.json / 700baza2.json)
-interface QuestionDataFormat2 {
-  id: number;
-  question: string;
-  choises: Array<{
-    text: string;
-    answer: boolean;
-  }>;
-  image?: string;
-}
-
-// Format 3: New format (barcha.json)
-interface QuestionDataFormat3 {
-  task_info?: { global_id?: string; ticket_num?: number; order?: number };
-  media_url?: string;
-  content: {
-    uz_lat?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
-    uz_cyr?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
-    ru?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
-  };
-}
-
-interface Question {
-  id: number;
-  text: string;
-  image?: string;
-  correctAnswer: number;
-  answers: { id: number; text: string }[];
-  qkey?: string;
-}
+type Question = NormalizedQuestion;
 
 interface TestInterfaceBaseProps {
   onExit: () => void;
@@ -99,15 +46,6 @@ interface TestInterfaceBaseProps {
   isPremiumSession?: boolean;
 }
 
-// Shuffle array using Fisher-Yates algorithm
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
 
 export const TestInterfaceBase = ({
   onExit,
@@ -156,7 +94,6 @@ export const TestInterfaceBase = ({
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
   const { saveTestResult } = useTestResults();
-  const navigate = useNavigate();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -196,97 +133,12 @@ export const TestInterfaceBase = ({
         setLoading(true);
         setError(null);
         
-        const response = await fetchQuestionSource(dataSource);
-        
-        if (!response.ok) {
-          throw new Error(t("test.errorLoadingData"));
-        }
-        
-        const jsonData = await response.json();
-        
-        // Handle different JSON structures
-        let rawArray: any[] = [];
-        if (jsonData.data && Array.isArray(jsonData.data)) {
-          rawArray = jsonData.data;
-        } else if (Array.isArray(jsonData)) {
-          rawArray = jsonData;
-        } else if (jsonData.questions && Array.isArray(jsonData.questions)) {
-          rawArray = jsonData.questions;
-        }
-        
-        if (rawArray.length === 0) {
+        const transformedQuestions = await loadQuestions([dataSource], questionCount, {
+          randomize, lang: questionLang as QuestionLang, imagePrefix,
+        });
+        if (transformedQuestions.length === 0) {
           throw new Error(t("test.noQuestionsFound"));
         }
-
-        // Randomize if needed and take only required count
-        let selectedQuestions = randomize 
-          ? shuffleArray(rawArray).slice(0, questionCount)
-          : rawArray.slice(0, questionCount);
-
-        // Transform JSON data to our Question format
-        const transformedQuestions: Question[] = selectedQuestions.map((q, idx) => {
-          // Format 3: New format (barcha.json) - check for content.uz_lat/uz_cyr/ru
-          if (q.content && (q.content.uz_lat || q.content.uz_cyr || q.content.ru)) {
-            const langKey = questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
-            const langContent = q.content[langKey] || q.content.uz_lat || q.content.uz_cyr || q.content.ru;
-            const correctOption = langContent.options.find((o: any) => o.is_correct);
-            const correctAnswer = correctOption ? correctOption.id : 1;
-            let imagePath: string | undefined;
-            if (q.media_url?.trim()) {
-              imagePath = q.media_url.startsWith('http') ? q.media_url : `${imagePrefix}${q.media_url}`;
-            }
-            return {
-              id: idx + 1,
-              text: langContent.text,
-              image: imagePath,
-              correctAnswer,
-              qkey: rawQuestionKey(q),
-              answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
-            };
-          }
-          
-          // Format 2: Simple format with choises array (700baza.json / 700baza2.json)
-          if (q.choises && Array.isArray(q.choises)) {
-            const correctIndex = q.choises.findIndex((c: { answer: boolean }) => c.answer === true);
-            // Handle media field: { exist: true, name: "1" } -> "/images/1.png"
-            let imagePath: string | undefined;
-            if (q.media?.exist && q.media?.name) {
-              imagePath = `${imagePrefix}${q.media.name}.png`;
-            } else if (q.image) {
-              imagePath = `${imagePrefix}${q.image}`;
-            }
-            return {
-              id: idx + 1,
-              text: q.question,
-              image: imagePath,
-              correctAnswer: correctIndex + 1, // 1-indexed
-              qkey: rawQuestionKey(q),
-              answers: q.choises.map((choice: { text: string }, ansIdx: number) => ({
-                id: ansIdx + 1,
-                text: choice.text,
-              })),
-            };
-          }
-          
-          // Format 1: Original format with nested question/answers objects
-          const typedQ = q as QuestionDataFormat1;
-          const answerLang = questionLang as 'oz' | 'uz' | 'ru';
-          const questionObj = typedQ.question;
-          const answers = typedQ.answers?.answer?.[answerLang] || typedQ.answers?.answer?.uz || typedQ.answers?.answer?.oz || [];
-          const questionText = typeof questionObj === 'string' ? questionObj : (questionObj?.[answerLang] || questionObj?.uz || questionObj?.oz || '');
-          const photoField = typedQ.photo || typedQ.image;
-          
-          return {
-            id: idx + 1,
-            text: questionText,
-            image: photoField ? `${imagePrefix}${photoField}` : undefined,
-            correctAnswer: typedQ.answers?.status || 1,
-            answers: answers.map((answerText, ansIdx) => ({
-              id: ansIdx + 1,
-              text: answerText,
-            })),
-          };
-        });
 
         // Restore from localStorage – use saved questions to preserve randomisation
         const saved = getSavedTestState(storageKey);
@@ -304,16 +156,16 @@ export const TestInterfaceBase = ({
         } else {
           setQuestions(transformedQuestions);
         }
-      } catch (err: any) {
+      } catch (err) {
         console.error('Error fetching test data:', err);
-        setError(err.message || t("test.errorLoadingData"));
+        setError(errorMessage(err) || t("test.errorLoadingData"));
       } finally {
         setLoading(false);
       }
     };
 
     fetchTestData();
-  }, [dataSource, questionLang, t, questionCount, randomize, imagePrefix]);
+  }, [dataSource, questionLang, t, questionCount, randomize, imagePrefix, storageKey]);
 
   // Timer – restarted whenever timerKey changes (e.g. after onTryAgain)
   useEffect(() => {
@@ -454,7 +306,7 @@ export const TestInterfaceBase = ({
     setShowResults(true);
   };
 
-  const getTestStats = () => {
+  const getTestStats = useCallback(() => {
     let correct = 0;
     let incorrect = 0;
     
@@ -464,7 +316,7 @@ export const TestInterfaceBase = ({
     });
     
     return { correct, incorrect };
-  };
+  }, [correctAnswers]);
 
   // timeTaken ni saqlash uchun: testStartTime asosida emas, balki
   // timer qoldig'i asosida hisoblash zarur — chunki startTime
@@ -473,7 +325,7 @@ export const TestInterfaceBase = ({
   // Date.now() - testStartTime juda katta bo'lib qoladi (424:03
   // kabi anomal qiymatlar). Vaqt limiti MINUS qolgan vaqt esa
   // har doim aniq, haqiqiy test vaqtini beradi.
-  const getTimeTaken = () => Math.max(0, timeLimit - timeRemaining);
+  const getTimeTaken = useCallback(() => Math.max(0, timeLimit - timeRemaining), [timeLimit, timeRemaining]);
 
   // Save result when showing results — uses backend RPC which re-validates access
   useEffect(() => {
@@ -485,7 +337,8 @@ export const TestInterfaceBase = ({
       );
       setResultSaved(true);
     }
-  }, [showResults, user, resultSaved, variant]);
+  // resultSaved — natija faqat bir marta saqlanishini kafolatlaydi (qolgan qiymatlar shu paytdagi holat)
+  }, [showResults, user, resultSaved, variant, correctAnswers, getTestStats, getTimeTaken, isPremiumSession, questions, saveTestResult, selectedAnswers, sessionId, totalQuestions]);
 
   // Show results screen
   if (showResults) {
@@ -513,86 +366,15 @@ export const TestInterfaceBase = ({
           setTimerKey(k => k + 1); // restart timer interval
           setLoading(true);
           // Trigger re-fetch by calling fetchTestData again
-          fetchQuestionSource(dataSource)
-            .then(res => res.json())
-            .then(jsonData => {
-              let rawArray: any[] = [];
-              if (jsonData.data && Array.isArray(jsonData.data)) {
-                rawArray = jsonData.data;
-              } else if (Array.isArray(jsonData)) {
-                rawArray = jsonData;
-              } else if (jsonData.questions && Array.isArray(jsonData.questions)) {
-                rawArray = jsonData.questions;
-              }
-              
-              let selectedQuestions = randomize 
-                ? shuffleArray(rawArray).slice(0, questionCount)
-                : rawArray.slice(0, questionCount);
-
-              const transformedQuestions: Question[] = selectedQuestions.map((q, idx) => {
-                // Format 3: barcha.json
-                if (q.content && (q.content.uz_lat || q.content.uz_cyr || q.content.ru)) {
-                  const langKey = questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
-                  const langContent = q.content[langKey] || q.content.uz_lat || q.content.uz_cyr || q.content.ru;
-                  const correctOption = langContent.options.find((o: any) => o.is_correct);
-                  const correctAnswer = correctOption ? correctOption.id : 1;
-                  let imagePath: string | undefined;
-                  if (q.media_url?.trim()) {
-                    imagePath = q.media_url.startsWith('http') ? q.media_url : `${imagePrefix}${q.media_url}`;
-                  }
-                  return {
-                    id: idx + 1,
-                    text: langContent.text,
-                    image: imagePath,
-                    correctAnswer,
-                    qkey: rawQuestionKey(q),
-                    answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
-                  };
-                }
-                
-                if (q.choises && Array.isArray(q.choises)) {
-                  const correctIndex = q.choises.findIndex((c: { answer: boolean }) => c.answer === true);
-                  let imagePath: string | undefined;
-                  if (q.media?.exist && q.media?.name) {
-                    imagePath = `${imagePrefix}${q.media.name}.png`;
-                  } else if (q.image) {
-                    imagePath = `${imagePrefix}${q.image}`;
-                  }
-                  return {
-                    id: idx + 1,
-                    text: q.question,
-                    image: imagePath,
-                    correctAnswer: correctIndex + 1,
-                    qkey: rawQuestionKey(q),
-                    answers: q.choises.map((choice: { text: string }, ansIdx: number) => ({
-                      id: ansIdx + 1,
-                      text: choice.text,
-                    })),
-                  };
-                }
-                
-                const typedQ = q as QuestionDataFormat1;
-                const answerLang = questionLang as 'oz' | 'uz' | 'ru';
-                const questionObj = typedQ.question;
-                const answers = typedQ.answers?.answer?.[answerLang] || typedQ.answers?.answer?.uz || typedQ.answers?.answer?.oz || [];
-                const questionText = typeof questionObj === 'string' ? questionObj : (questionObj?.[answerLang] || questionObj?.uz || questionObj?.oz || '');
-                const photoField = typedQ.photo || typedQ.image;
-                
-                return {
-                  id: idx + 1,
-                  text: questionText,
-                  image: photoField ? `${imagePrefix}${photoField}` : undefined,
-                  correctAnswer: typedQ.answers?.status || 1,
-                  answers: answers.map((answerText, ansIdx) => ({
-                    id: ansIdx + 1,
-                    text: answerText,
-                  })),
-                };
-              });
-              setQuestions(transformedQuestions);
+          loadQuestions([dataSource], questionCount, { randomize, lang: questionLang as QuestionLang, imagePrefix })
+            .then((qs) => {
+              setQuestions(qs);
               setLoading(false);
             })
-            .catch(() => setLoading(false));
+            .catch((err: unknown) => {
+              setError(err instanceof Error ? err.message : t("test.errorLoadingData"));
+              setLoading(false);
+            });
         }}
       />
     );
@@ -654,7 +436,7 @@ export const TestInterfaceBase = ({
               className={`h-7 px-2 md:h-8 md:px-3 text-xs rounded-full ${autoAdvance ? 'bg-primary/10 text-primary border-primary/30' : 'text-muted-foreground'}`}
               onClick={() => setAutoAdvance(prev => {
                 const next = !prev;
-                try { localStorage.setItem('autoAdvance', String(next)); } catch {}
+                try { localStorage.setItem('autoAdvance', String(next)); } catch { /* ixtiyoriy: xato e'tiborsiz qoldiriladi */ }
                 return next;
               })}
               title={autoAdvance ? "Avto-o'tish yoqilgan" : "Avto-o'tish o'chirilgan"}

@@ -11,15 +11,21 @@ SELECT pg_temp.chk('limitsiz sample rad', NOT public.consume_free_sample(:A::uui
 SELECT public.claim_free_session('exam');
 SELECT pg_temp.chk('sample 1', public.consume_free_sample(:A::uuid, 'exam'));
 SELECT public.consume_free_sample(:A::uuid, 'exam'), public.consume_free_sample(:A::uuid, 'exam'), public.consume_free_sample(:A::uuid, 'exam'), public.consume_free_sample(:A::uuid, 'exam');
-SELECT pg_temp.chk('sample 6 rad (maks 5)', NOT public.consume_free_sample(:A::uuid, 'exam'));
+SELECT pg_temp.chk('sample 4+ rad (maks 3)', NOT public.consume_free_sample(:A::uuid, 'exam'));
 SELECT pg_temp.chk('boshqa tur rad', NOT public.consume_free_sample(:A::uuid, 'topic'));
 SELECT pg_temp.chk('boshqa foydalanuvchi rad', NOT public.consume_free_sample(:B::uuid, 'exam'));
 
+-- Saqlash yoki javob berish EGALIK BERMAYDI (aks holda ochiq lokatordagi kalitlar bilan premium o'g'irlanardi)
 SELECT public.submit_test(NULL, 98, 1, 20, 100, '[{"question_key":"00000000000000aa","topic_id":"1","selected_option":0,"is_correct":true}]'::jsonb);
 SELECT public.toggle_saved_question('00000000000000bb');
-SELECT pg_temp.chk('owned: javob+saqlangan', public.owned_question_keys(:A::uuid, ARRAY['00000000000000aa','00000000000000bb','00000000000000cc']) @> ARRAY['00000000000000aa','00000000000000bb']
-  AND NOT ('00000000000000cc' = ANY (public.owned_question_keys(:A::uuid, ARRAY['00000000000000aa','00000000000000bb','00000000000000cc']))));
+SELECT pg_temp.chk('owned: saqlangan/javob berilgan, lekin berilmagan savol — egalik YO''Q',
+  cardinality(public.owned_question_keys(:A::uuid, ARRAY['00000000000000aa','00000000000000bb'])) = 0);
+-- Server (get-questions) bergan savollar egalikka o'tadi
+SELECT public.record_served_questions(:A::uuid, ARRAY['00000000000000aa','00000000000000cc','yomon-kalit']);
+SELECT pg_temp.chk('owned: server bergan savollar', public.owned_question_keys(:A::uuid, ARRAY['00000000000000aa','00000000000000bb','00000000000000cc']) @> ARRAY['00000000000000aa','00000000000000cc']
+  AND NOT ('00000000000000bb' = ANY (public.owned_question_keys(:A::uuid, ARRAY['00000000000000aa','00000000000000bb','00000000000000cc']))));
 SELECT pg_temp.chk('owned: begona foydalanuvchi bo''sh', cardinality(public.owned_question_keys(:B::uuid, ARRAY['00000000000000aa'])) = 0);
+SELECT pg_temp.chk('authenticated record_served chaqira olmaydi', NOT has_function_privilege('authenticated', 'public.record_served_questions(uuid,text[])', 'EXECUTE'));
 
 SELECT pg_temp.chk('authenticated consume chaqira olmaydi', NOT has_function_privilege('authenticated', 'public.consume_free_sample(uuid,text)', 'EXECUTE'));
 SELECT pg_temp.chk('authenticated owned chaqira olmaydi',   NOT has_function_privilege('authenticated', 'public.owned_question_keys(uuid,text[])', 'EXECUTE'));

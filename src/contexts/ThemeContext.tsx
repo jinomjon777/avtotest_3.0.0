@@ -34,7 +34,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     try {
       const saved = localStorage.getItem("theme");
       if (saved) return saved === "dark";
-    } catch {}
+    } catch { /* ixtiyoriy: xato e'tiborsiz qoldiriladi */ }
     return true;
   });
 
@@ -47,7 +47,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       html.classList.remove("dark");
       html.classList.add("light");
     }
-    try { localStorage.setItem("theme", isDark ? "dark" : "light"); } catch {}
+    try { localStorage.setItem("theme", isDark ? "dark" : "light"); } catch { /* ixtiyoriy: xato e'tiborsiz qoldiriladi */ }
   }, [isDark]);
 
   const toggleTheme = () => setIsDark(d => !d);

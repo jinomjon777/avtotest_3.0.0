@@ -12,7 +12,8 @@ export type ClaimResult = "ok" | "ok_free" | "limit" | "error";
  */
 export async function claimFreeSession(kind: FreeKind, clientPremium: boolean): Promise<ClaimResult> {
   try {
-    const { data, error } = await (supabase as any).rpc("claim_free_session", { p_kind: kind });
+    const { data: raw, error } = await supabase.rpc("claim_free_session", { p_kind: kind });
+    const data = raw as { ok?: boolean; premium?: boolean; error?: string } | null;
     if (error) {
       if (isSetupMissing(error)) return clientPremium ? "ok" : "limit";
       return "error";

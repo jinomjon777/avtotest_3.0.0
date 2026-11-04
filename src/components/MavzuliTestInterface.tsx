@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import type { RawQuestion } from "@/lib/questionFormat";
+import { errorMessage } from "@/lib/utils";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import { fetchQuestionFile } from "@/lib/questionApi";
 import { rawQuestionKey, buildAnswerPayload } from "@/lib/answerTracking";
@@ -70,9 +70,7 @@ interface MavzuliTestInterfaceProps {
 
 export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = null, isPremiumSession = false }: MavzuliTestInterfaceProps) => {
   const { t, questionLang } = useLanguage();
-  const { user } = useAuth();
   const { saveTestResult } = useTestResults();
-  const navigate = useNavigate();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -148,17 +146,17 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
         }
         
         // Mavzuli testlar premium: faqat get-questions funksiyasi orqali (public/ da yo'q)
-        const jsonData: any = await fetchQuestionFile(`m:${filename.replace(/\.json$/, "")}`).catch((e) => {
+        const jsonData = (await fetchQuestionFile(`m:${filename.replace(/\.json$/, "")}`).catch((e) => {
           throw new Error(e?.code === "premium_required"
             ? "Bu mavzuni ishlash uchun PREMIUM obuna kerak."
             : t("test.errorLoadingData"));
-        });
+        })) as RawQuestion[] & { data?: QuestionData[]; questions?: QuestionData[] };
         
         // New format: array of tasks with content.uz_lat/uz_cyr/ru structure
         if (Array.isArray(jsonData) && jsonData.length > 0 && jsonData[0].content) {
           const contentKey = questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
-          const tQuestions: Question[] = jsonData.map((task: any, idx: number) => {
-            const langContent = task.content[contentKey] || task.content.uz_lat || task.content.uz_cyr || task.content.ru;
+          const tQuestions: Question[] = jsonData.map((task: RawQuestion, idx: number) => {
+            const langContent = task.content?.[contentKey] || task.content?.uz_lat || task.content?.uz_cyr || task.content?.ru;
             if (!langContent || !langContent.options?.length) {
               return {
                 id: idx + 1,
@@ -167,7 +165,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
                 correctAnswer: 1,
               };
             }
-            const correctOption = langContent.options.find((o: any) => o.is_correct);
+            const correctOption = langContent.options.find((o) => o.is_correct);
             const correctAnswer = correctOption ? correctOption.id : langContent.options[0].id;
             let image: string | undefined;
             if (task.media_url?.trim()) {
@@ -180,21 +178,17 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
               image,
               correctAnswer,
               qkey: rawQuestionKey(task),
-              answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
+              answers: langContent.options.map((o) => ({ id: o.id, text: o.text })),
               explanation: task.izoh?.[contentKey] || task.izoh?.uz_lat || task.izoh?.uz_cyr || task.izoh?.ru || undefined,
             };
           });
           parsedQuestions = tQuestions;
         } else {
           // Old format fallback
-          let questionsArray: QuestionData[] = [];
-          if (jsonData.data && Array.isArray(jsonData.data)) {
-            questionsArray = jsonData.data;
-          } else if (Array.isArray(jsonData)) {
-            questionsArray = jsonData;
-          } else if (jsonData.questions && Array.isArray(jsonData.questions)) {
-            questionsArray = jsonData.questions;
-          }
+          const loose = jsonData as unknown as { data?: QuestionData[]; questions?: QuestionData[] } | QuestionData[];
+          const questionsArray: QuestionData[] = Array.isArray(loose)
+            ? loose
+            : (loose.data ?? loose.questions ?? []);
           
           if (questionsArray.length === 0) {
             throw new Error(t("test.noQuestionsFound"));
@@ -239,16 +233,16 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
         } catch (e) {
           console.warn('Error restoring test state:', e);
         }
-      } catch (err: any) {
+      } catch (err) {
         console.error('Error fetching test data:', err);
-        setError(err.message || t("test.errorLoadingData"));
+        setError(errorMessage(err) || t("test.errorLoadingData"));
       } finally {
         setLoading(false);
       }
     };
 
     fetchTestData();
-  }, [topicId, questionLang, t]);
+  }, [topicId, questionLang, t, storageKey]);
 
   // Timer – restarted whenever timerKey changes (e.g. after onTryAgain)
   useEffect(() => {
@@ -486,7 +480,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
               className={`h-7 px-2 md:h-8 md:px-3 text-xs ${autoAdvance ? 'bg-primary/10 text-primary border-primary/30' : 'text-muted-foreground'}`}
               onClick={() => setAutoAdvance(prev => {
                 const next = !prev;
-                try { localStorage.setItem('autoAdvance', String(next)); } catch {}
+                try { localStorage.setItem('autoAdvance', String(next)); } catch { /* ixtiyoriy: xato e'tiborsiz qoldiriladi */ }
                 return next;
               })}
               title={autoAdvance ? "Avto-o'tish yoqilgan" : "Avto-o'tish o'chirilgan"}

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { TrendingUp, Crown, RefreshCw, Users, Calendar, DollarSign, BarChart2 } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { TrendingUp, Crown, RefreshCw, Calendar, DollarSign } from "lucide-react";
+import { adminApi, type ChekRow } from "@/lib/adminApi";
 
 const C = {
   card: "#FFFFFF", surface: "#F8FAFC", border: "#E2E8F0",
@@ -8,100 +8,66 @@ const C = {
   text: "#0F172A", muted: "#64748B", hint: "#94A3B8",
 };
 
-// Narxlar (so'm)
-const PRICES: Record<number, number> = {
-  7:  15000,
-  30: 33000,
-  90: 83000,
-};
+const PLAN_COLORS = ["#8B5CF6", C.gold, C.green, C.accent, C.accentB];
 
-function getPlanPrice(days: number): number {
-  // Eng yaqin tarif narxini topish
-  if (days <= 7)  return PRICES[7];
-  if (days <= 30) return PRICES[30];
-  return PRICES[90];
-}
+interface Plan { id: string; days: number; amount: number; label: string; sort: number; is_active: boolean }
 
-interface Profile {
-  id: string;
-  email: string | null;
-  full_name: string | null;
-  tariff_days: number | null;
-  tariff_start_date: string | null;
-  tariff_end_date: string | null;
-}
-
-interface RevRecord {
-  user: Profile;
-  days: number;
-  price: number;
-  startDate: Date;
-  endDate: Date;
-  plan: string;
-}
-
-function fmt(n: number) {
-  return n.toLocaleString("uz-UZ") + " so'm";
-}
-
-function getPlanName(days: number): string {
-  if (days <= 7)  return "Haftalik";
-  if (days <= 30) return "Oylik";
-  return "3 Oylik";
-}
-
+/**
+ * Moliya — FAQAT haqiqiy, tasdiqlangan to'lovlar (chek.status = 'approved') asosida.
+ * Avval daromad profiles jadvalidagi joriy tarifdan "taxmin" qilinardi: uzaytirishlar oldingi xaridni
+ * o'chirardi, muddati tugaganlar yo'qolardi va admin bergan bepul premium ham daromad sanalardi.
+ */
 export default function AdminFinance() {
-  const [records, setRecords] = useState<RevRecord[]>([]);
+  const [cheks, setCheks] = useState<ChekRow[]>([]);
+  const [plans, setPlans] = useState<Plan[]>([]);
   const [loading, setLoading] = useState(true);
-  const [period, setPeriod]   = useState<"week" | "month" | "all">("month");
-
-  useEffect(() => { fetchData(); }, []);
+  const [error, setError] = useState("");
+  const [period, setPeriod] = useState<"week" | "month" | "all">("month");
 
   const fetchData = async () => {
     setLoading(true);
-    const { data } = await supabase
-      .from("profiles")
-      .select("id, email, full_name, tariff_days, tariff_start_date, tariff_end_date")
-      .gt("tariff_days", 0)
-      .not("tariff_start_date", "is", null);
-
-    const recs: RevRecord[] = (data ?? [])
-      .filter((u: Profile) => u.tariff_days && u.tariff_start_date)
-      .map((u: Profile) => ({
-        user: u,
-        days:      u.tariff_days!,
-        price:     getPlanPrice(u.tariff_days!),
-        startDate: new Date(u.tariff_start_date!),
-        endDate:   u.tariff_end_date ? new Date(u.tariff_end_date) : new Date(),
-        plan:      getPlanName(u.tariff_days!),
-      }))
-      .sort((a: RevRecord, b: RevRecord) => b.startDate.getTime() - a.startDate.getTime());
-
-    setRecords(recs);
+    setError("");
+    try {
+      const [c, p] = await Promise.all([
+        adminApi<{ data: ChekRow[] }>("list_chek"),
+        adminApi<{ data: Plan[] }>("list_plans"),
+      ]);
+      setCheks((c.data ?? []).filter((x) => x.status === "approved"));
+      setPlans(p.data ?? []);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Xatolik");
+    }
     setLoading(false);
   };
+  useEffect(() => { void fetchData(); }, []);
 
-  // Filtr
-  const now   = new Date();
-  const week  = new Date(now.getTime() - 7  * 86400000);
-  const month = new Date(now.getTime() - 30 * 86400000);
+  const paidAt = (c: ChekRow) => new Date(c.reviewed_at ?? c.created_at);
+  const now = Date.now();
+  const since = { week: now - 7 * 86400000, month: now - 30 * 86400000, all: 0 };
+  const sum = (rows: ChekRow[]) => rows.reduce((s, c) => s + (c.amount ?? 0), 0);
 
-  const filtered = records.filter(r => {
-    if (period === "week")  return r.startDate >= week;
-    if (period === "month") return r.startDate >= month;
-    return true;
-  });
+  const filtered = useMemo(
+    () => cheks.filter((c) => paidAt(c).getTime() >= since[period]).sort((a, b) => paidAt(b).getTime() - paidAt(a).getTime()),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [cheks, period],
+  );
+  const weekRev = sum(cheks.filter((c) => paidAt(c).getTime() >= since.week));
+  const monthRev = sum(cheks.filter((c) => paidAt(c).getTime() >= since.month));
+  const allRev = sum(cheks);
+  const payers = new Set(cheks.map((c) => c.user_id ?? c.email)).size;
 
-  const totalRev   = filtered.reduce((s, r) => s + r.price, 0);
-  const weekRev    = records.filter(r => r.startDate >= week).reduce((s, r) => s + r.price, 0);
-  const monthRev   = records.filter(r => r.startDate >= month).reduce((s, r) => s + r.price, 0);
-  const allRev     = records.reduce((s, r) => s + r.price, 0);
-
-  const planStats = [
-    { label: "Haftalik (7 kun)",  days: 7,  price: PRICES[7],  count: records.filter(r => r.days <= 7).length,  color: "#8B5CF6" },
-    { label: "Oylik (30 kun)",    days: 30, price: PRICES[30], count: records.filter(r => r.days > 7 && r.days <= 30).length, color: C.gold },
-    { label: "3 Oylik (90 kun)",  days: 90, price: PRICES[90], count: records.filter(r => r.days > 30).length, color: C.green },
-  ];
+  // Tarif bo'yicha: chekdagi kun soniga ko'ra (narx o'zgargan bo'lsa ham haqiqiy summa olinadi)
+  const byDays = useMemo(() => {
+    const m = new Map<number, { count: number; amount: number }>();
+    for (const c of cheks) {
+      const d = c.tariff_days ?? 0;
+      const v = m.get(d) ?? { count: 0, amount: 0 };
+      v.count++; v.amount += c.amount ?? 0;
+      m.set(d, v);
+    }
+    return [...m.entries()].sort((a, b) => a[0] - b[0]);
+  }, [cheks]);
+  const planLabel = (days: number) => plans.find((p) => p.days === days)?.label ?? (days ? `${days} kun` : "Noma'lum");
 
   if (loading) return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 260 }}>
@@ -112,97 +78,83 @@ export default function AdminFinance() {
 
   return (
     <div>
-      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
-
-      {/* Header */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
         <div>
           <h2 style={{ margin: 0, fontSize: 22, fontWeight: 800, color: C.text }}>Moliya</h2>
-          <p style={{ margin: "4px 0 0", fontSize: 13, color: C.muted }}>Premium obunalardan tushgan daromat</p>
+          <p style={{ margin: "4px 0 0", fontSize: 13, color: C.muted }}>Tasdiqlangan to'lovlar asosida</p>
         </div>
         <button onClick={fetchData} style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 9, border: `1px solid ${C.border}`, background: C.card, color: C.muted, cursor: "pointer", fontSize: 13 }}>
           <RefreshCw size={13} /> Yangilash
         </button>
       </div>
 
-      {/* Umumiy kartochkalar */}
+      {error && <div role="alert" style={{ marginBottom: 14, padding: "10px 14px", borderRadius: 10, background: "#FEE2E2", color: "#EF4444", fontSize: 13 }}>{error}</div>}
+
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px,1fr))", gap: 12, marginBottom: 20 }}>
         {[
-          { label: "Haftalik daromat",  value: weekRev,  icon: <Calendar size={18} color="#8B5CF6" />, bg: "#EDE9FE", trend: "" },
-          { label: "Oylik daromat",     value: monthRev, icon: <TrendingUp size={18} color={C.gold} />, bg: "#FEF3C7", trend: "" },
-          { label: "Umumiy daromat",    value: allRev,   icon: <DollarSign size={18} color={C.green} />, bg: "#D1FAE5", trend: "" },
-          { label: "Jami obunachi",     value: null,     count: records.length, icon: <Crown size={18} color={C.accent} />, bg: "#EEF2FF", trend: "" },
+          { label: "Oxirgi 7 kun", value: `${weekRev.toLocaleString("uz-UZ")} so'm`, icon: <Calendar size={18} color="#8B5CF6" />, bg: "#EDE9FE" },
+          { label: "Oxirgi 30 kun", value: `${monthRev.toLocaleString("uz-UZ")} so'm`, icon: <TrendingUp size={18} color={C.gold} />, bg: "#FEF3C7" },
+          { label: "Umumiy daromad", value: `${allRev.toLocaleString("uz-UZ")} so'm`, icon: <DollarSign size={18} color={C.green} />, bg: "#D1FAE5" },
+          { label: "To'lovlar / to'lovchilar", value: `${cheks.length} / ${payers}`, icon: <Crown size={18} color={C.accent} />, bg: "#EEF2FF" },
         ].map((card, i) => (
           <div key={i} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 14, padding: "18px 20px", display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
             <div>
               <div style={{ fontSize: 12, color: C.muted, marginBottom: 6 }}>{card.label}</div>
-              <div style={{ fontSize: 22, fontWeight: 800, color: C.text, lineHeight: 1 }}>
-                {card.value !== null ? card.value.toLocaleString("uz-UZ") : (card as any).count}
-              </div>
-              {card.value !== null && <div style={{ fontSize: 11, color: C.hint, marginTop: 4 }}>so'm</div>}
+              <div style={{ fontSize: 20, fontWeight: 800, color: C.text, lineHeight: 1.2 }}>{card.value}</div>
             </div>
-            <div style={{ width: 40, height: 40, borderRadius: 10, background: card.bg, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              {card.icon}
-            </div>
+            <div style={{ width: 40, height: 40, borderRadius: 10, background: card.bg, display: "flex", alignItems: "center", justifyContent: "center" }}>{card.icon}</div>
           </div>
         ))}
       </div>
 
-      {/* Tarif taqsimoti */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 18 }}>
-        {/* Plan stats */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 14, marginBottom: 18 }}>
         <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 14, padding: 20 }}>
           <h3 style={{ margin: "0 0 16px", fontSize: 14, fontWeight: 700, color: C.text }}>Tarif bo'yicha taqsimot</h3>
-          {planStats.map((p, i) => {
-            const rev = p.count * p.price;
-            const pct = records.length > 0 ? Math.round((p.count / records.length) * 100) : 0;
+          {byDays.length === 0 && <p style={{ fontSize: 13, color: C.muted }}>Hali tasdiqlangan to'lov yo'q</p>}
+          {byDays.map(([days, v], i) => {
+            const pct = cheks.length > 0 ? Math.round((v.count / cheks.length) * 100) : 0;
+            const color = PLAN_COLORS[i % PLAN_COLORS.length];
             return (
-              <div key={i} style={{ marginBottom: 16 }}>
+              <div key={days} style={{ marginBottom: 16 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: p.color }} />
-                    <span style={{ fontSize: 13, color: C.text, fontWeight: 500 }}>{p.label}</span>
+                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: color }} />
+                    <span style={{ fontSize: 13, color: C.text, fontWeight: 500 }}>{planLabel(days)}</span>
                   </div>
-                  <span style={{ fontSize: 12, color: C.muted }}>{p.count} ta · {rev.toLocaleString("uz-UZ")} so'm</span>
+                  <span style={{ fontSize: 12, color: C.muted }}>{v.count} ta · {v.amount.toLocaleString("uz-UZ")} so'm</span>
                 </div>
                 <div style={{ height: 6, background: "#F1F5F9", borderRadius: 3, overflow: "hidden" }}>
-                  <div style={{ height: "100%", width: `${pct}%`, background: p.color, borderRadius: 3, transition: "width 1s ease" }} />
+                  <div style={{ height: "100%", width: `${pct}%`, background: color, borderRadius: 3 }} />
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Narxlar */}
         <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 14, padding: 20 }}>
-          <h3 style={{ margin: "0 0 16px", fontSize: 14, fontWeight: 700, color: C.text }}>Tarif narxlari</h3>
-          {planStats.map((p, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 0", borderBottom: i < planStats.length - 1 ? `1px solid ${C.border}` : "none" }}>
+          <h3 style={{ margin: "0 0 16px", fontSize: 14, fontWeight: 700, color: C.text }}>Joriy narxlar <span style={{ fontWeight: 400, color: C.muted, fontSize: 12 }}>(Sozlamalar bo'limida o'zgartiriladi)</span></h3>
+          {plans.map((p, i) => (
+            <div key={p.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 0", borderBottom: i < plans.length - 1 ? `1px solid ${C.border}` : "none", opacity: p.is_active ? 1 : 0.5 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <div style={{ width: 36, height: 36, borderRadius: 9, background: p.color + "20", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Crown size={16} color={p.color} />
+                <div style={{ width: 36, height: 36, borderRadius: 9, background: PLAN_COLORS[i % PLAN_COLORS.length] + "20", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Crown size={16} color={PLAN_COLORS[i % PLAN_COLORS.length]} />
                 </div>
                 <div>
                   <div style={{ fontSize: 13, fontWeight: 600, color: C.text }}>{p.label}</div>
-                  <div style={{ fontSize: 11, color: C.muted }}>{p.count} ta foydalanuvchi</div>
+                  <div style={{ fontSize: 11, color: C.muted }}>{p.days} kun{p.is_active ? "" : " · o'chirilgan"}</div>
                 </div>
               </div>
-              <div style={{ textAlign: "right" }}>
-                <div style={{ fontSize: 15, fontWeight: 700, color: C.text }}>{p.price.toLocaleString("uz-UZ")}</div>
-                <div style={{ fontSize: 11, color: C.muted }}>so'm</div>
-              </div>
+              <div style={{ fontSize: 15, fontWeight: 700, color: C.text }}>{p.amount.toLocaleString("uz-UZ")} <span style={{ fontSize: 11, color: C.muted, fontWeight: 400 }}>so'm</span></div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Tranzaksiyalar jadvali */}
       <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 14, overflow: "hidden" }}>
-        {/* Jadval header + filter */}
         <div style={{ padding: "14px 20px", borderBottom: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
-          <span style={{ fontWeight: 700, fontSize: 14, color: C.text }}>Obunalar tarixi</span>
+          <span style={{ fontWeight: 700, fontSize: 14, color: C.text }}>To'lovlar tarixi</span>
           <div style={{ display: "flex", gap: 6 }}>
-            {(["week", "month", "all"] as const).map(p => (
+            {(["week", "month", "all"] as const).map((p) => (
               <button key={p} onClick={() => setPeriod(p)}
                 style={{ padding: "5px 12px", borderRadius: 8, border: `1px solid ${period === p ? C.accent : C.border}`, background: period === p ? C.accent : C.card, color: period === p ? "#fff" : C.muted, cursor: "pointer", fontSize: 12, fontWeight: period === p ? 600 : 400 }}>
                 {p === "week" ? "7 kun" : p === "month" ? "30 kun" : "Hammasi"}
@@ -210,60 +162,42 @@ export default function AdminFinance() {
             ))}
           </div>
         </div>
-
-        {/* Jami (filtrlangan) */}
-        <div style={{ padding: "10px 20px", background: "#F8FAFC", borderBottom: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: 13, color: C.muted }}>{filtered.length} ta obuna</span>
-          <span style={{ fontSize: 14, fontWeight: 700, color: C.green }}>{totalRev.toLocaleString("uz-UZ")} so'm</span>
+        <div style={{ padding: "10px 20px", background: C.surface, borderBottom: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <span style={{ fontSize: 13, color: C.muted }}>{filtered.length} ta to'lov</span>
+          <span style={{ fontSize: 14, fontWeight: 700, color: C.green }}>{sum(filtered).toLocaleString("uz-UZ")} so'm</span>
         </div>
-
         <div style={{ overflowX: "auto" }}>
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr style={{ background: C.surface }}>
-                {["Foydalanuvchi", "Tarif", "Narx", "Boshlangan", "Tugaydi"].map(h => (
+                {["Foydalanuvchi", "Tarif", "Summa", "Tasdiqlangan", "Premium tugashi", "Manba"].map((h) => (
                   <th key={h} style={{ padding: "10px 18px", textAlign: "left", fontSize: 11, fontWeight: 600, color: C.hint, textTransform: "uppercase", letterSpacing: "0.05em", borderBottom: `1px solid ${C.border}` }}>{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {filtered.length === 0 && (
-                <tr><td colSpan={5} style={{ textAlign: "center", padding: 40, color: C.muted, fontSize: 14 }}>Bu davrda obuna yo'q</td></tr>
+                <tr><td colSpan={6} style={{ textAlign: "center", padding: 40, color: C.muted, fontSize: 14 }}>Bu davrda to'lov yo'q</td></tr>
               )}
-              {filtered.map((r, i) => {
-                const isActive = r.endDate > now;
-                const planColor = r.days <= 7 ? "#8B5CF6" : r.days <= 30 ? C.gold : C.green;
+              {filtered.map((c, i) => {
+                const active = c.premium_until ? new Date(c.premium_until).getTime() > now : false;
                 return (
-                  <tr key={r.user.id + i} style={{ borderBottom: i < filtered.length - 1 ? `1px solid ${C.border}` : "none" }}
-                    onMouseEnter={e => { e.currentTarget.style.background = C.surface; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}>
+                  <tr key={c.id} style={{ borderBottom: i < filtered.length - 1 ? `1px solid ${C.border}` : "none" }}>
+                    <td style={{ padding: "11px 18px", fontSize: 13, fontWeight: 600, color: C.text }}>
+                      {c.email || "—"}
+                      {c.telegram_username && <div style={{ fontSize: 11, color: C.muted, fontWeight: 400 }}>@{c.telegram_username}</div>}
+                    </td>
+                    <td style={{ padding: "11px 18px", fontSize: 13, color: C.text }}>{planLabel(c.tariff_days ?? 0)}</td>
+                    <td style={{ padding: "11px 18px", fontSize: 13, fontWeight: 700, color: C.green }}>{(c.amount ?? 0).toLocaleString("uz-UZ")} so'm</td>
+                    <td style={{ padding: "11px 18px", fontSize: 13, color: C.muted }}>{paidAt(c).toLocaleDateString("uz-UZ")}</td>
                     <td style={{ padding: "11px 18px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                        <div style={{ width: 30, height: 30, borderRadius: "50%", background: `linear-gradient(135deg,${C.accent},${C.accentB})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 700, color: "#fff", flexShrink: 0 }}>
-                          {(r.user.full_name || r.user.email || "?")[0].toUpperCase()}
-                        </div>
-                        <div>
-                          <div style={{ fontSize: 13, fontWeight: 600, color: C.text }}>{r.user.full_name || "—"}</div>
-                          <div style={{ fontSize: 11, color: C.muted }}>{r.user.email || "—"}</div>
-                        </div>
-                      </div>
+                      {c.premium_until ? (
+                        <span style={{ fontSize: 12, fontWeight: 500, color: active ? C.green : "#EF4444", background: active ? "#D1FAE5" : "#FEE2E2", padding: "2px 8px", borderRadius: 100 }}>
+                          {new Date(c.premium_until).toLocaleDateString("uz-UZ")}
+                        </span>
+                      ) : <span style={{ color: C.hint }}>—</span>}
                     </td>
-                    <td style={{ padding: "11px 18px" }}>
-                      <span style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "3px 10px", borderRadius: 100, fontSize: 11, fontWeight: 600, color: planColor, background: planColor + "18", border: `1px solid ${planColor}40` }}>
-                        <Crown size={10} /> {r.plan}
-                      </span>
-                    </td>
-                    <td style={{ padding: "11px 18px", fontSize: 13, fontWeight: 700, color: C.green }}>
-                      {r.price.toLocaleString("uz-UZ")} so'm
-                    </td>
-                    <td style={{ padding: "11px 18px", fontSize: 13, color: C.muted }}>
-                      {r.startDate.toLocaleDateString("uz-UZ")}
-                    </td>
-                    <td style={{ padding: "11px 18px" }}>
-                      <span style={{ fontSize: 12, fontWeight: 500, color: isActive ? C.green : "#EF4444", background: isActive ? "#D1FAE5" : "#FEE2E2", border: `1px solid ${isActive ? "#6EE7B7" : "#FECACA"}`, padding: "2px 8px", borderRadius: 100 }}>
-                        {r.endDate.toLocaleDateString("uz-UZ")}
-                      </span>
-                    </td>
+                    <td style={{ padding: "11px 18px", fontSize: 12, color: C.muted }}>{c.source === "telegram" ? "Telegram" : "Sayt/admin"}</td>
                   </tr>
                 );
               })}

@@ -1,0 +1,65 @@
+# Har push va pull request'da: turlar, lint, SEO/i18n tekshiruvlari, build (prerender bilan),
+# Edge Function'lar turi va bazaning barcha migratsiyalari + SQL testlari (bo'sh Postgres'da).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Savollar indeksi yangilanganmi
+        run: |
+          node scripts/build-question-index.mjs > /dev/null
+          git diff --exit-code -- public/data supabase/functions/get-questions/data public/700baza_ru.json \
+            || (echo "::error::Savollar o'zgargan, lekin 'npm run questions' ishga tushirilmagan" && exit 1)
+      - run: npm run build
+        env:
+          VITE_SUPABASE_URL: https://example.supabase.co
+          VITE_SUPABASE_PUBLISHABLE_KEY: ci-placeholder
+
+  edge-functions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Turlar va lint
+        working-directory: supabase/functions
+        run: |
+          echo '{"nodeModulesDir":"none","compilerOptions":{"strict":true,"lib":["deno.window","dom"]}}' > /tmp/deno.json
+          deno check --config /tmp/deno.json */index.ts
+          deno lint --config /tmp/deno.json .
+
+  database:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: PostgreSQL
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq postgresql > /dev/null
+      - name: Migratsiyalar va SQL testlar
+        run: |
+          set -e
+          for t in supabase/tests/[1-9]*_test.sql; do
+            out=$(sudo sh supabase/tests/run.sh "$t" 2>&1)
+            echo "$out" | grep -E "PASS|FAIL|MIGRATSIYA" || true
+            if echo "$out" | grep -qE "FAIL|MIGRATSIYA XATOSI"; then echo "::error::$t"; exit 1; fi
+          done

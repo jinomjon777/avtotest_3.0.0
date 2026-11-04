@@ -7,17 +7,7 @@ BEGIN RAISE NOTICE '% | %', CASE WHEN coalesce(cond,false) THEN 'PASS' ELSE 'FAI
 GRANT EXECUTE ON FUNCTION public.__t(text, boolean) TO anon, authenticated;
 INSERT INTO auth.users (id, email) VALUES (:A,'a@t.uz'),(:B,'b@t.uz'),(:C,'c@t.uz') ON CONFLICT DO NOTHING;
 
--- Qulfdan OLDIN: repodagi FOR ALL siyosati tufayli A o'z natijasini soxtalashtira oladi (muammoning isboti)
-SELECT set_config('request.jwt.claim.sub', :A, false);
-SET ROLE authenticated;
-DO $$ BEGIN
-  INSERT INTO public.test_results (user_id, variant, correct_answers, total_questions) VALUES ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 0, 20, 20);
-  PERFORM public.__t('QULFDAN OLDIN: to''g''ridan-to''g''ri soxta 20/20 yozish mumkin edi (muammo tasdiqlandi)', true);
-EXCEPTION WHEN OTHERS THEN PERFORM public.__t('QULFDAN OLDIN: to''g''ridan-to''g''ri yozish', false); END $$;
-RESET ROLE;
-
-\ir ../post-deploy/001_lock_test_results_writes.sql
-\ir ../post-deploy/001_lock_test_results_writes.sql
+-- Qulf endi 20261104000000_security_hardening.sql migratsiyasida (avval post-deploy/001 edi).
 
 -- Qulfdan KEYIN
 SELECT set_config('request.jwt.claim.sub', :A, false);

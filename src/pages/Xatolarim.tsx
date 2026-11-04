@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { errorMessage } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
 import { CheckCircle2 } from "lucide-react";
 import { SEO } from "@/components/SEO";
@@ -44,7 +45,7 @@ export default function Xatolarim() {
 
   const attach = useCallback(
     async (list: MistakeItem[]) => {
-      const m = await resolveQuestions(list.map((x) => x.question_key), questionLang as any);
+      const m = await resolveQuestions(list.map((x) => x.question_key), questionLang);
       setQmap((prev) => new Map([...prev, ...m]));
     },
     [questionLang],
@@ -95,8 +96,8 @@ export default function Xatolarim() {
     try {
       const r = await toggleSaved(k);
       setSavedLocal((s) => ({ ...s, [k]: r.saved }));
-    } catch (e: any) {
-      toast({ title: e?.message === "limit_reached" ? tl("saved.limit") : tl("common.error"), variant: "destructive" });
+    } catch (e) {
+      toast({ title: errorMessage(e, "") === "limit_reached" ? tl("saved.limit") : tl("common.error"), variant: "destructive" });
     }
   };
 

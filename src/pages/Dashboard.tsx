@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAccessState } from "@/hooks/useAccessState";
 import { useNavigate } from "react-router-dom";
 import { Bookmark, ChevronRight, Crown, ListX, Settings2, TrendingDown } from "lucide-react";
 import { SEO } from "@/components/SEO";
@@ -26,6 +27,7 @@ const LANG = { "uz-lat": "uz_lat", uz: "uz_cyr", ru: "ru" } as const;
 
 export default function Dashboard() {
   const { user, profile, isLoading } = useAuth();
+  const { isPremium } = useAccessState();
   const { language } = useLanguage();
   const tl = useLearnT();
   const nav = useNavigate();
@@ -71,7 +73,6 @@ export default function Dashboard() {
     : s.days_to_exam === 0 ? tl("dash.examToday") : tl("dash.examPassed");
 
   const days = activity.data ?? [];
-  const goalPct = s && s.daily_goal ? Math.min(100, (s.today_answers / s.daily_goal) * 100) : 0;
 
   return (
     <MainLayout>
@@ -79,7 +80,7 @@ export default function Dashboard() {
       <div className="max-w-3xl mx-auto px-4 py-6 md:py-10 space-y-4">
         <div className="flex items-center justify-between gap-3">
           <h1 className="text-xl md:text-2xl font-bold text-foreground truncate">{tl("dash.hello", { name })}</h1>
-          {profile?.is_pro && (
+          {isPremium && (
             <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
               <Crown className="w-3.5 h-3.5" />{tl("dash.premiumActive")}
             </span>
@@ -230,7 +231,7 @@ export default function Dashboard() {
 
         <InstallPrompt />
 
-        {!profile?.is_pro && (
+        {!isPremium && (
           <Card className="p-4 border-primary/30 bg-primary/5 flex items-center justify-between gap-3">
             <div className="flex items-center gap-3 min-w-0">
               <Crown className="w-5 h-5 text-primary shrink-0" />

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useAccessState } from "@/hooks/useAccessState";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,11 +7,12 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { 
-  BookOpen, ListChecks, Target, Lightbulb, Play, FileText, Crown, CheckCircle, Info
+  BookOpen, ListChecks, Target, Lightbulb, Play, FileText, Crown, Info
 } from "lucide-react";
 
 export default function Qoshimcha() {
   const { user, profile } = useAuth();
+  const { isPremium } = useAccessState();
   const { t } = useLanguage();
 
   const cards = [
@@ -74,10 +76,10 @@ export default function Qoshimcha() {
               <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                 {t("qoshimcha.premiumDesc")}
               </p>
-              {user && profile?.is_pro ? (
+              {user && isPremium ? (
                 <div className="flex items-center gap-3 bg-primary/10 border border-primary/25 rounded-xl px-5 py-3 w-fit">
                   <Crown className="w-5 h-5 text-[hsl(250_70%_75%)]" />
-                  <span className="font-semibold text-foreground">{profile.full_name || profile.username || 'PREMIUM'}</span>
+                  <span className="font-semibold text-foreground">{profile?.full_name || profile?.username || 'PREMIUM'}</span>
                   <span className="text-xs bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white px-2 py-0.5 rounded-full font-bold">PREMIUM</span>
                 </div>
               ) : (

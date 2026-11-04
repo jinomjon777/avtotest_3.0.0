@@ -15,11 +15,12 @@ interface TopicMap {
 }
 
 /** Xom (JSON'dagi) savol obyektidan barqaror kalit. Yangi va eski bepul baza formatlari. */
-export function rawQuestionKey(q: any): string | undefined {
+export function rawQuestionKey(q: unknown): string | undefined {
+  const o = q as { content?: { uz_lat?: unknown }; question?: unknown; choises?: unknown } | null;
   try {
-    if (q?.content?.uz_lat) return questionKeyFromTask(q) ?? undefined;
-    if (Array.isArray(q?.choises)) {
-      return questionKey(q.question ?? "", q.choises.map((c: any) => c?.text ?? "")) ?? undefined;
+    if (o?.content?.uz_lat) return questionKeyFromTask(o) ?? undefined;
+    if (Array.isArray(o?.choises)) {
+      return questionKey(typeof o.question === "string" ? o.question : "", (o.choises as { text?: string }[]).map((c) => c?.text ?? "")) ?? undefined;
     }
   } catch {
     /* kalit bo'lmasa ham test ishlayveradi */

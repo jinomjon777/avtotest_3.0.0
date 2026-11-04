@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { errorMessage } from "@/lib/utils";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -168,7 +169,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
         setError(null);
         
         // Variantlar premium: faqat get-questions funksiyasi orqali (public/ da yo'q)
-        const raw: any = await fetchQuestionFile(`v:v${variant}`).catch((e) => {
+        const raw: unknown = await fetchQuestionFile(`v:v${variant}`).catch((e) => {
           throw new Error(e?.code === "premium_required"
             ? "Bu variantni ishlash uchun PREMIUM obuna kerak."
             : t("test.errorLoadingData"));
@@ -223,7 +224,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
           if (!variantData.data || variantData.data.length === 0) {
             throw new Error(t("test.noQuestionsFound"));
           }
-          const resolveImage = (obj: any) => {
+          const resolveImage = (obj: { media?: { exist?: boolean; name?: string }; photo?: string | null; image?: string | null }) => {
             if (obj?.media?.exist && obj.media.name) return `/images/${obj.media.name}.png`;
             if (obj?.photo) return `/images/${obj.photo}`;
             if (obj?.image) return `/images/${obj.image}`;
@@ -234,7 +235,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
             const answers = q.answers?.answer?.[answerLang] || q.answers?.answer?.uz || [];
             return {
               id: idx + 1,
-              text: (q.question as any)?.[questionLang] || q.question?.uz || "",
+              text: (q.question as Record<string, string | undefined> | undefined)?.[questionLang] || q.question?.uz || "",
               image: resolveImage(q),
               correctAnswer: q.answers?.status ?? 1,
               answers: answers.map((answerText: string, ansIdx: number) => ({
@@ -261,16 +262,16 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
         } else {
           setQuestions(transformedQuestions);
         }
-      } catch (err: any) {
+      } catch (err) {
         console.error('Error fetching test data:', err);
-        setError(err.message || t("test.errorLoadingData"));
+        setError(errorMessage(err) || t("test.errorLoadingData"));
       } finally {
         setLoading(false);
       }
     };
 
     fetchTestData();
-  }, [variant, questionLang, t]);
+  }, [variant, questionLang, t, storageKey]);
 
   // Timer – restarted whenever timerKey changes (e.g. after onTryAgain)
   useEffect(() => {
@@ -396,7 +397,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
     setShowResults(true);
   };
 
-  const getTestStats = () => {
+  const getTestStats = useCallback(() => {
     let correct = 0;
     let incorrect = 0;
     
@@ -406,7 +407,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
     });
     
     return { correct, incorrect };
-  };
+  }, [correctAnswers]);
 
   const handleSwipe = () => {
     const swipeThreshold = 60;
@@ -442,7 +443,8 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
       );
       setResultSaved(true);
     }
-  }, [showResults, user, resultSaved]);
+  // resultSaved — natija faqat bir marta saqlanadi
+  }, [showResults, user, resultSaved, correctAnswers, getTestStats, isPremiumSession, questions, saveTestResult, selectedAnswers, sessionId, testStartTime, totalQuestions, variant]);
 
   // Show results screen
   if (showResults) {
@@ -525,7 +527,7 @@ export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSess
               className={`h-7 px-2 md:h-8 md:px-3 text-xs ${autoAdvance ? 'bg-primary/10 text-primary border-primary/30' : 'text-muted-foreground'}`}
               onClick={() => setAutoAdvance(prev => {
                 const next = !prev;
-                try { localStorage.setItem('autoAdvance', String(next)); } catch {}
+                try { localStorage.setItem('autoAdvance', String(next)); } catch { /* ixtiyoriy: xato e'tiborsiz qoldiriladi */ }
                 return next;
               })}
               title={autoAdvance ? "Avto-o'tish yoqilgan" : "Avto-o'tish o'chirilgan"}

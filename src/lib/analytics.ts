@@ -11,7 +11,7 @@ export function trackEvent(name: TrackedEvent): void {
     try {
       const { data } = await supabase.auth.getSession();
       if (!data.session) return;
-      await (supabase as any).rpc("track_event", { p_name: name });
+      await supabase.rpc("track_event", { p_name: name });
     } catch {
       /* analitika xatosi foydalanuvchiga ta'sir qilmasin */
     }

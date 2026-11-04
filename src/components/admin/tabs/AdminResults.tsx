@@ -1,21 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
+import { errorMessage } from "@/lib/utils";
+import { adminApi, selectAll } from "@/lib/adminApi";
 import { supabase } from "@/integrations/supabase/client";
-import { Trophy, Clock, User, ChevronDown, ChevronUp, Search, RefreshCw, Activity } from "lucide-react";
+import { Trophy, Clock, User, ChevronDown, ChevronUp, Search, RefreshCw, Activity, type LucideIcon } from "lucide-react";
 
-const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-premium`;
-
-async function adminApi(action: string, payload: Record<string, unknown> = {}) {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) throw new Error("Sessiya tugagan, qayta kiring");
-  const res = await fetch(EDGE_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
-    body: JSON.stringify({ action, ...payload }),
-  });
-  const data = await res.json();
-  if (!res.ok || data.error) throw new Error(data.error || "Server xatosi");
-  return data;
-}
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface TestResult {
@@ -76,7 +64,7 @@ export default function AdminResults() {
         {([
           { id: "results",  label: "Test natijalari", icon: Trophy },
           { id: "activity", label: "Faollik",          icon: Activity },
-        ] as { id: View; label: string; icon: any }[]).map(({ id, label, icon: Icon }) => (
+        ] as { id: View; label: string; icon: LucideIcon }[]).map(({ id, label, icon: Icon }) => (
           <button key={id} onClick={() => setView(id)}
             style={{
               display: "flex", alignItems: "center", gap: 6,
@@ -112,18 +100,18 @@ function ResultsTab() {
     try {
       const [resultsRes, profilesRes] = await Promise.all([
         supabase.from("test_results").select("*").order("created_at", { ascending: false }).limit(500),
-        supabase.from("profiles").select("id, full_name, email"),
+        selectAll((f, t) => supabase.from("profiles").select("id, full_name, email").order("created_at", { ascending: false }).range(f, t)),
       ]);
       if (resultsRes.error) throw resultsRes.error;
       if (profilesRes.error) throw profilesRes.error;
 
       const profileMap: Record<string, { full_name: string | null; email: string | null }> = {};
-      (profilesRes.data ?? []).forEach((p: any) => { profileMap[p.id] = { full_name: p.full_name, email: p.email }; });
+      (profilesRes.data ?? []).forEach((p) => { profileMap[p.id] = { full_name: p.full_name, email: p.email }; });
 
-      const merged = (resultsRes.data ?? []).map((r: any) => ({ ...r, profile: profileMap[r.user_id] }));
+      const merged = (resultsRes.data ?? []).map((r) => ({ ...r, profile: profileMap[r.user_id] }));
       setRows(merged as TestResult[]);
-    } catch (e: any) {
-      setError(e.message ?? "Ma'lumotlarni yuklashda xatolik");
+    } catch (e) {
+      setError(errorMessage(e, "Ma'lumotlarni yuklashda xatolik"));
     } finally {
       setLoading(false);
     }
@@ -143,7 +131,7 @@ function ResultsTab() {
     .sort((a, b) => {
       const v = sortBy === "created_at"
         ? new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
-        : (a as any)[sortBy] - (b as any)[sortBy];
+        : Number(a[sortBy as keyof TestResult]) - Number(b[sortBy as keyof TestResult]);
       return sortAsc ? v : -v;
     });
 
@@ -196,7 +184,7 @@ function ResultsTab() {
                   { col: "created_at",      label: "Sana" },
                 ].map(({ col, label }, i) => (
                   <th key={i} style={{ padding: "10px 14px", textAlign: "left", fontWeight: 600, color: C.sub, borderBottom: `1px solid ${C.border}`, whiteSpace: "nowrap" }}>
-                    {col ? <SortBtn col={col as any} label={label} /> : label}
+                    {col ? <SortBtn col={col as typeof sortBy} label={label} /> : label}
                   </th>
                 ))}
               </tr>
@@ -289,29 +277,29 @@ function ActivityTab() {
     setLoading(true); setError("");
     try {
       const [profilesRes, statsRes] = await Promise.all([
-        supabase.from("profiles").select("id, full_name, email, created_at"),
-        supabase.from("test_results").select("user_id, correct_answers, total_questions"),
+        selectAll((f, t) => supabase.from("profiles").select("id, full_name, email, created_at").order("created_at", { ascending: false }).range(f, t)),
+        selectAll((f, t) => supabase.from("test_results").select("user_id, correct_answers, total_questions").order("created_at", { ascending: false }).range(f, t)),
       ]);
       if (profilesRes.error) throw profilesRes.error;
       if (statsRes.error) throw statsRes.error;
 
-      let authMap: Record<string, string> = {};
+      const authMap: Record<string, string> = {};
       try {
         const { data: activity } = await adminApi("list_user_activity");
-        (activity ?? []).forEach((u: any) => { if (u.last_sign_in_at) authMap[u.id] = u.last_sign_in_at; });
+        (activity ?? []).forEach((u: { id: string; last_sign_in_at: string | null }) => { if (u.last_sign_in_at) authMap[u.id] = u.last_sign_in_at; });
       } catch (_e) {
         // Oxirgi kirish ma'lumoti ixtiyoriy — bo'lmasa ham jadval ko'rsatiladi
       }
 
       const statMap: Record<string, { count: number; best: number }> = {};
-      (statsRes.data ?? []).forEach((s: any) => {
+      (statsRes.data ?? []).forEach((s) => {
         if (!statMap[s.user_id]) statMap[s.user_id] = { count: 0, best: 0 };
         statMap[s.user_id].count++;
         const p = pct(s.correct_answers, s.total_questions);
         if (p > statMap[s.user_id].best) statMap[s.user_id].best = p;
       });
 
-      const result: UserActivity[] = (profilesRes.data ?? []).map((p: any) => ({
+      const result: UserActivity[] = (profilesRes.data ?? []).map((p) => ({
         user_id:         p.id,
         full_name:       p.full_name,
         email:           p.email,
@@ -328,8 +316,8 @@ function ActivityTab() {
       });
 
       setRows(result);
-    } catch (e: any) {
-      setError(e.message ?? "Ma'lumotlarni yuklashda xatolik");
+    } catch (e) {
+      setError(errorMessage(e, "Ma'lumotlarni yuklashda xatolik"));
     } finally {
       setLoading(false);
     }

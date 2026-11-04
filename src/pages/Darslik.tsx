@@ -9,7 +9,7 @@ import { getOrderedChapters } from "@/data/videoDarslar";
 import { ChapterAccordion } from "@/components/darslik/ChapterAccordion";
 
 export default function Darslik() {
-  const { user, profile, isLoading } = useAuth();
+  const { user, isLoading } = useAuth();
   const { hasAccess, loading: accessLoading } = useProAccess();
   const { t } = useLanguage();
   const chapters = getOrderedChapters();

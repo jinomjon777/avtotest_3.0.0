@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { useAccessState } from "@/hooks/useAccessState";
 import { Home, Car, Crown, User, FileText, LayoutDashboard, ListChecks, PenLine } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -7,7 +8,8 @@ import { cn } from "@/lib/utils";
 
 export function BottomNav() {
   const location = useLocation();
-  const { user, profile } = useAuth();
+  const { user } = useAuth();
+  const { isPremium } = useAccessState();
   const { t } = useLanguage();
   const tl = useLearnT();
 
@@ -18,7 +20,7 @@ export function BottomNav() {
         { path: "/test-ishlash", icon: PenLine, labelKey: "", label: tl("nav.test") },
         { path: "/xatolarim", icon: ListChecks, labelKey: "", label: tl("nav.mistakes") },
         { path: "/dashboard", icon: LayoutDashboard, labelKey: "", label: tl("dash.title") },
-        profile?.is_pro
+        isPremium
           ? { path: "/profile", icon: User, labelKey: "nav.profil", label: "" }
           : { path: "/pro", icon: Crown, labelKey: "nav.premium", label: "" },
       ]

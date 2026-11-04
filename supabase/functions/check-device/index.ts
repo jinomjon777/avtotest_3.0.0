@@ -1,112 +1,115 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+// Supabase Edge Function (Deno): qurilma cheklovi (bitta hisob — ko'pi bilan MAX_DEVICES qurilma).
+//
+//   register_device {device_id, device_info} — kirishda va har sessiya tiklanganda (Google ham).
+//                     Limit to'lgan bo'lsa 409 DEVICE_LIMIT_EXCEEDED + faol qurilmalar ro'yxati.
+//   list_devices                             — faol qurilmalar (joriysi belgilangan).
+//   remove_device   {device_id}              — shu qurilmadan chiqish.
+//   revoke_device   {target_device_id}       — boshqa qurilmani chiqarish (haftasiga ko'pi bilan 3 marta:
+//                                              hisobni navbatma-navbat "ulashish"ning oldini oladi).
+//
+// Cheklov haqiqatan server tomonida: premium kontent (get-questions, get-video-url) faqat
+// ro'yxatdagi qurilmaga beriladi. STALE_DAYS kun ko'rinmagan qurilma avtomatik bo'shaydi.
 
-const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
-const SUPABASE_SERVICE_KEY = Deno.env.get("SB_SERVICE_ROLE_KEY")!;
-const MAX_DEVICES = 2;
+import { jsonResponse, preflight } from "../_shared/cors.ts";
+import { adminClient, getUser } from "../_shared/supabase.ts";
+import { isValidDeviceId, MAX_DEVICES, STALE_DAYS } from "../_shared/device.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": Deno.env.get("ALLOWED_ORIGIN") ?? "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+const MAX_REVOKES_PER_WEEK = 3;
 
-function json(data: unknown, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { ...corsHeaders, "Content-Type": "application/json" },
-  });
-}
+type DeviceRow = { device_id: string; device_info: string | null; last_seen: string; created_at: string };
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
-
-  const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
-
-  // JWT tekshirish
-  const authHeader = req.headers.get("Authorization");
-  if (!authHeader?.startsWith("Bearer ")) return json({ error: "Ruxsat yo'q" }, 401);
-
-  const token = authHeader.replace("Bearer ", "");
-  const { data: { user }, error: authError } = await supabase.auth.getUser(token);
-  if (authError || !user) return json({ error: "Token yaroqsiz" }, 401);
+  const pf = preflight(req);
+  if (pf) return pf;
+  if (req.method !== "POST") return jsonResponse(req, { error: "method_not_allowed" }, 405);
 
   try {
-    const { action, device_id, device_info } = await req.json();
+    const user = await getUser(req);
+    if (!user) return jsonResponse(req, { error: "not_authenticated" }, 401);
+    const sb = adminClient();
 
-    // ── Qurilmani ro'yxatdan o'tkazish (login paytida) ──
-    if (action === "register_device") {
-      if (!device_id) return json({ error: "device_id kerak" }, 400);
+    let body: Record<string, unknown>;
+    try { body = await req.json(); } catch { return jsonResponse(req, { error: "bad_request" }, 400); }
+    const action = String(body.action ?? "");
+    const deviceId = body.device_id;
+    const info = typeof body.device_info === "string" ? body.device_info.slice(0, 160) : null;
 
-      // Mavjud qurilmalar sonini sanash (bu qurilmadan tashqari)
-      const { data: sessions, error: fetchErr } = await supabase
-        .from("user_sessions")
-        .select("device_id, last_seen")
-        .eq("user_id", user.id)
-        .neq("device_id", device_id)
-        .order("last_seen", { ascending: false });
+    // Eskirgan qurilmalarni bo'shatish
+    await sb.from("user_sessions").delete().eq("user_id", user.id)
+      .lt("last_seen", new Date(Date.now() - STALE_DAYS * 86_400_000).toISOString());
 
-      if (fetchErr) throw fetchErr;
-
-      // Bu qurilma allaqachon ro'yxatda bormi?
-      const { data: existing } = await supabase
-        .from("user_sessions")
-        .select("id")
-        .eq("user_id", user.id)
-        .eq("device_id", device_id)
-        .maybeSingle();
-
-      if (!existing) {
-        // Yangi qurilma — limit tekshirish
-        if (sessions && sessions.length >= MAX_DEVICES) {
-          return json({
-            error: `Bu akkaunt allaqachon ${MAX_DEVICES} ta qurilmada ochiq. Boshqa qurilmadan chiqib, qayta kirging.`,
-            code: "DEVICE_LIMIT_EXCEEDED",
-            active_devices: sessions.length,
-          }, 403);
-        }
-      }
-
-      // Qurilmani qo'sh yoki yangilab qo'y
-      const { error: upsertErr } = await supabase
-        .from("user_sessions")
-        .upsert({
-          user_id: user.id,
-          device_id,
-          device_info: device_info || null,
-          last_seen: new Date().toISOString(),
-        }, { onConflict: "user_id,device_id" });
-
-      if (upsertErr) throw upsertErr;
-
-      return json({ success: true, message: "Qurilma ro'yxatga olindi" });
-    }
-
-    // ── Qurilmani o'chirish (chiqish paytida) ──
-    if (action === "remove_device") {
-      if (!device_id) return json({ error: "device_id kerak" }, 400);
-
-      await supabase
-        .from("user_sessions")
-        .delete()
-        .eq("user_id", user.id)
-        .eq("device_id", device_id);
-
-      return json({ success: true });
-    }
-
-    // ── Faol qurilmalar ro'yxati ──
-    if (action === "list_devices") {
-      const { data: sessions, error } = await supabase
-        .from("user_sessions")
+    const listDevices = async (): Promise<DeviceRow[]> => {
+      const { data, error } = await sb.from("user_sessions")
         .select("device_id, device_info, last_seen, created_at")
         .eq("user_id", user.id)
         .order("last_seen", { ascending: false });
-
       if (error) throw error;
-      return json({ success: true, devices: sessions });
+      return (data ?? []) as DeviceRow[];
+    };
+    const publicList = (rows: DeviceRow[], current: unknown) =>
+      rows.map((r) => ({ ...r, current: r.device_id === current }));
+
+    if (action === "register_device") {
+      if (!isValidDeviceId(deviceId)) return jsonResponse(req, { error: "bad_device_id" }, 400);
+      const rows = await listDevices();
+      const known = rows.some((r) => r.device_id === deviceId);
+      if (!known && rows.length >= MAX_DEVICES) {
+        return jsonResponse(req, {
+          error: `Bu hisob allaqachon ${MAX_DEVICES} ta qurilmada ochiq.`,
+          code: "DEVICE_LIMIT_EXCEEDED",
+          max_devices: MAX_DEVICES,
+          devices: publicList(rows, deviceId),
+        }, 409);
+      }
+      const { error } = await sb.from("user_sessions").upsert({
+        user_id: user.id,
+        device_id: deviceId,
+        device_info: info,
+        last_seen: new Date().toISOString(),
+      }, { onConflict: "user_id,device_id" });
+      if (error) throw error;
+      return jsonResponse(req, { success: true });
     }
 
-    return json({ error: "Noma'lum action" }, 400);
-  } catch (e: any) {
-    return json({ error: e.message }, 500);
+    if (action === "list_devices") {
+      return jsonResponse(req, { success: true, max_devices: MAX_DEVICES, devices: publicList(await listDevices(), deviceId) });
+    }
+
+    if (action === "remove_device") {
+      if (!isValidDeviceId(deviceId)) return jsonResponse(req, { error: "bad_device_id" }, 400);
+      const { error } = await sb.from("user_sessions").delete().eq("user_id", user.id).eq("device_id", deviceId);
+      if (error) throw error;
+      return jsonResponse(req, { success: true });
+    }
+
+    if (action === "revoke_device") {
+      const target = body.target_device_id;
+      if (!isValidDeviceId(target)) return jsonResponse(req, { error: "bad_device_id" }, 400);
+      if (target === deviceId) return jsonResponse(req, { error: "use_remove_device" }, 400);
+
+      const since = new Date(Date.now() - 7 * 86_400_000).toISOString();
+      const { count, error: cErr } = await sb.from("device_removals")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", user.id).gte("created_at", since);
+      if (cErr) throw cErr;
+      if ((count ?? 0) >= MAX_REVOKES_PER_WEEK) {
+        return jsonResponse(req, {
+          error: "Bu hafta boshqa qurilmalarni chiqarish limiti tugadi. Qurilmaning o'zidan chiqing yoki keyinroq urinib ko'ring.",
+          code: "REVOKE_LIMIT",
+        }, 429);
+      }
+      const { data: del, error } = await sb.from("user_sessions").delete()
+        .eq("user_id", user.id).eq("device_id", target).select("device_id");
+      if (error) throw error;
+      if (del && del.length > 0) {
+        await sb.from("device_removals").insert({ user_id: user.id, device_id: target });
+      }
+      return jsonResponse(req, { success: true, removed: (del ?? []).length });
+    }
+
+    return jsonResponse(req, { error: "unknown_action" }, 400);
+  } catch (e) {
+    console.error("check-device:", e);
+    return jsonResponse(req, { error: "server_error" }, 500);
   }
 });

@@ -1,1 +1,9 @@
 project_id = "lvdndseuobzbgzrarygu"
+
+# Telegram webhook JWT yubormaydi — himoya X-Telegram-Bot-Api-Secret-Token orqali (funksiya ichida).
+[functions.telegram-bot]
+verify_jwt = false
+
+# pg_cron chaqiradi (JWT'siz) — himoya x-cron-secret orqali; "test" amali JWT'ni o'zi tekshiradi.
+[functions.send-reminders]
+verify_jwt = false

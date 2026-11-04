@@ -1,24 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { errorMessage } from "@/lib/utils";
+import { adminApi, openReceipt, CHEK_STATUS_LABEL, type ChekRow, type ChekStatus } from "@/lib/adminApi";
 import {
   FileText, CheckCircle, Clock, Wallet, Search, RefreshCw,
   ExternalLink, Edit3, Trash2, X, Save, Plus,
 } from "lucide-react";
 
-const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-premium`;
-
-async function adminApi(action: string, payload: Record<string, unknown> = {}) {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) throw new Error("Sessiya tugagan, qayta kiring");
-  const res = await fetch(EDGE_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
-    body: JSON.stringify({ action, ...payload }),
-  });
-  const data = await res.json();
-  if (!res.ok || data.error) throw new Error(data.error || "Server xatosi");
-  return data;
-}
 
 const C = {
   card: "#FFFFFF", surface: "#F8FAFC", border: "#E2E8F0", borderFocus: "#A5B4FC",
@@ -26,11 +13,7 @@ const C = {
   text: "#0F172A", muted: "#64748B", hint: "#94A3B8",
 };
 
-interface Chek {
-  id: string; email: string | null; chek_link: string | null; created_at: string;
-  amount: number | null; tariff_days: number | null; processed: boolean;
-  source?: string; telegram_username?: string | null; telegram_chat_id?: number | null;
-}
+type Chek = ChekRow;
 
 type PeriodFilter = "all" | 7 | 30 | 90;
 
@@ -42,17 +25,16 @@ function fmtSom(n: number | null | undefined) {
 function EditModal({ chek, onClose, onSaved }: { chek: Chek; onClose: () => void; onSaved: () => void }) {
   const [amount, setAmount] = useState(chek.amount ?? 0);
   const [days, setDays] = useState(chek.tariff_days ?? 0);
-  const [processed, setProcessed] = useState(chek.processed);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
 
   const save = async () => {
     setLoading(true); setErr("");
     try {
-      await adminApi("update_chek", { chekId: chek.id, amount, tariff_days: days, processed });
+      await adminApi("update_chek", { chekId: chek.id, amount, tariff_days: days || null });
       onSaved(); onClose();
-    } catch (e: any) {
-      setErr(e.message);
+    } catch (e) {
+      setErr(errorMessage(e));
     } finally {
       setLoading(false);
     }
@@ -72,7 +54,7 @@ function EditModal({ chek, onClose, onSaved }: { chek: Chek; onClose: () => void
         </div>
 
         {chek.chek_link && (
-          <a href={chek.chek_link} target="_blank" rel="noopener noreferrer"
+          <a href="#" onClick={(e) => { e.preventDefault(); void openReceipt(chek.id); }}
             style={{ display: "inline-flex", alignItems: "center", gap: 5, color: C.accent, fontSize: 13, textDecoration: "none", marginBottom: 16 }}>
             <ExternalLink size={12} /> Chekni ko'rish
           </a>
@@ -92,13 +74,9 @@ function EditModal({ chek, onClose, onSaved }: { chek: Chek; onClose: () => void
           ))}
         </div>
 
-        <label style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer", marginBottom: 18 }}>
-          <div onClick={() => setProcessed(v => !v)}
-            style={{ width: 38, height: 21, borderRadius: 11, background: processed ? C.green : "#CBD5E1", position: "relative", cursor: "pointer", flexShrink: 0 }}>
-            <div style={{ position: "absolute", top: 3, left: processed ? 19 : 3, width: 15, height: 15, borderRadius: "50%", background: "#fff", transition: "left 0.2s" }} />
-          </div>
-          <span style={{ fontSize: 13, fontWeight: 600, color: C.text }}>Yuklangan (ko'rib chiqilgan)</span>
-        </label>
+        <p style={{ fontSize: 12, color: C.muted, margin: "0 0 18px" }}>
+          Holat: <b>{CHEK_STATUS_LABEL[chek.status] ?? chek.status}</b>. Tasdiqlash / rad etish — "To'lovlar" bo'limida.
+        </p>
 
         {err && <div style={{ marginBottom: 12, padding: "8px 12px", borderRadius: 9, background: "#FEE2E2", fontSize: 13, color: C.accentC }}>{err}</div>}
 
@@ -119,7 +97,6 @@ function AddChekModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =
   const [link, setLink] = useState("");
   const [amount, setAmount] = useState(0);
   const [days, setDays] = useState(7);
-  const [processed, setProcessed] = useState(true);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
 
@@ -138,11 +115,10 @@ function AddChekModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =
         link: trimmedLink,
         amount,
         tariff_days: days,
-        processed,
       });
       onSaved(); onClose();
-    } catch (e: any) {
-      setErr(e.message);
+    } catch (e) {
+      setErr(errorMessage(e));
     } finally {
       setLoading(false);
     }
@@ -179,13 +155,6 @@ function AddChekModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =
           ))}
         </div>
 
-        <label style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer", marginBottom: 18 }}>
-          <div onClick={() => setProcessed(v => !v)}
-            style={{ width: 38, height: 21, borderRadius: 11, background: processed ? C.green : "#CBD5E1", position: "relative", cursor: "pointer", flexShrink: 0 }}>
-            <div style={{ position: "absolute", top: 3, left: processed ? 19 : 3, width: 15, height: 15, borderRadius: "50%", background: "#fff", transition: "left 0.2s" }} />
-          </div>
-          <span style={{ fontSize: 13, fontWeight: 600, color: C.text }}>Yuklangan (ko'rib chiqilgan) deb belgilash</span>
-        </label>
 
         {err && <div style={{ marginBottom: 12, padding: "8px 12px", borderRadius: 9, background: "#FEE2E2", fontSize: 13, color: C.accentC }}>{err}</div>}
 
@@ -205,7 +174,7 @@ export default function AdminChek() {
   const [cheks, setCheks] = useState<Chek[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [statusFilter, setStatusFilter] = useState<"all" | "processed" | "pending">("all");
+  const [statusFilter, setStatusFilter] = useState<"all" | ChekStatus>("all");
   const [period, setPeriod] = useState<PeriodFilter>("all");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
@@ -219,8 +188,8 @@ export default function AdminChek() {
     try {
       const { data } = await adminApi("list_chek");
       setCheks(data ?? []);
-    } catch (e: any) {
-      setErr(e.message);
+    } catch (e) {
+      setErr(errorMessage(e));
     } finally {
       setLoading(false);
     }
@@ -233,8 +202,8 @@ export default function AdminChek() {
     try {
       await adminApi("delete_chek", { chekId: id });
       setCheks(prev => prev.filter(c => c.id !== id));
-    } catch (e: any) {
-      alert(e.message);
+    } catch (e) {
+      alert(errorMessage(e));
     } finally {
       setDeleting(null);
     }
@@ -255,8 +224,7 @@ export default function AdminChek() {
     return cheks.filter(c => {
       const q = search.toLowerCase();
       if (search && !(c.email?.toLowerCase().includes(q) || c.telegram_username?.toLowerCase().includes(q))) return false;
-      if (statusFilter === "processed" && !c.processed) return false;
-      if (statusFilter === "pending" && c.processed) return false;
+      if (statusFilter !== "all" && c.status !== statusFilter) return false;
       if (period !== "all" && c.tariff_days !== period) return false;
       if (dateFrom && new Date(c.created_at) < new Date(dateFrom)) return false;
       if (dateTo && new Date(c.created_at) > new Date(dateTo + "T23:59:59")) return false;
@@ -264,9 +232,10 @@ export default function AdminChek() {
     });
   }, [cheks, search, statusFilter, period, dateFrom, dateTo]);
 
-  const totalAmount = cheks.reduce((s, c) => s + (c.amount ?? 0), 0);
-  const processedCount = cheks.filter(c => c.processed).length;
-  const pendingCount = cheks.length - processedCount;
+  // Faqat tasdiqlangan to'lovlar daromad hisoblanadi
+  const totalAmount = cheks.filter(c => c.status === "approved").reduce((s, c) => s + (c.amount ?? 0), 0);
+  const processedCount = cheks.filter(c => c.status === "approved").length;
+  const pendingCount = cheks.filter(c => c.status === "pending").length;
 
   return (
     <div>
@@ -289,9 +258,9 @@ export default function AdminChek() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(180px,1fr))", gap: 12, marginBottom: 14 }}>
         {[
           { label: "Jami cheklar", value: cheks.length, icon: <FileText size={19} color={C.accent} />, iconBg: "#EEF2FF" },
-          { label: "Yuklangan", value: processedCount, icon: <CheckCircle size={19} color={C.green} />, iconBg: "#DCFCE7" },
-          { label: "Yuklanmagan", value: pendingCount, icon: <Clock size={19} color={C.gold} />, iconBg: "#FEF3C7" },
-          { label: "Jami to'lov", value: fmtSom(totalAmount), icon: <Wallet size={19} color={C.accentB} />, iconBg: "#CFFAFE", big: true },
+          { label: "Tasdiqlangan", value: processedCount, icon: <CheckCircle size={19} color={C.green} />, iconBg: "#DCFCE7" },
+          { label: "Kutilmoqda", value: pendingCount, icon: <Clock size={19} color={C.gold} />, iconBg: "#FEF3C7" },
+          { label: "Tasdiqlangan to'lov", value: fmtSom(totalAmount), icon: <Wallet size={19} color={C.accentB} />, iconBg: "#CFFAFE", big: true },
         ].map((s, i) => (
           <div key={i} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 13, padding: "16px 18px", display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ width: 42, height: 42, borderRadius: 11, background: s.iconBg, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{s.icon}</div>
@@ -323,11 +292,12 @@ export default function AdminChek() {
             style={{ width: "100%", padding: "9px 12px 9px 33px", background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, color: C.text, fontSize: 13, outline: "none", boxSizing: "border-box" }}
             onFocus={e => (e.target.style.borderColor = C.borderFocus)} onBlur={e => (e.target.style.borderColor = C.border)} />
         </div>
-        <select value={statusFilter} onChange={e => setStatusFilter(e.target.value as any)}
+        <select value={statusFilter} onChange={e => setStatusFilter(e.target.value as "all" | ChekStatus)}
           style={{ padding: "9px 12px", background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, color: C.text, fontSize: 13 }}>
           <option value="all">Barchasi</option>
-          <option value="processed">Yuklangan</option>
-          <option value="pending">Yuklanmagan</option>
+          <option value="approved">Tasdiqlangan</option>
+          <option value="pending">Kutilmoqda</option>
+          <option value="rejected">Rad etilgan</option>
         </select>
         <select value={period === "all" ? "all" : String(period)} onChange={e => setPeriod(e.target.value === "all" ? "all" : Number(e.target.value) as PeriodFilter)}
           style={{ padding: "9px 12px", background: C.card, border: `1px solid ${C.border}`, borderRadius: 10, color: C.text, fontSize: 13 }}>
@@ -375,8 +345,9 @@ export default function AdminChek() {
                     <td style={{ padding: "12px 16px", fontSize: 13, fontWeight: 600, color: C.text }}>{c.email || (c.telegram_username ? `@${c.telegram_username}` : "—")}</td>
                     <td style={{ padding: "12px 16px" }}>
                       <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "3px 9px", borderRadius: 100, fontSize: 11, fontWeight: 600,
-                        color: c.processed ? C.green : C.gold, background: c.processed ? "#DCFCE7" : "#FEF3C7", border: `1px solid ${c.processed ? "#BBF7D0" : "#FDE68A"}` }}>
-                        {c.processed ? "Yuklangan" : "Yuklanmagan"}
+                        color: c.status === "approved" ? C.green : c.status === "rejected" ? C.accentC : C.gold,
+                        background: c.status === "approved" ? "#DCFCE7" : c.status === "rejected" ? "#FEE2E2" : "#FEF3C7" }}>
+                        {CHEK_STATUS_LABEL[c.status] ?? c.status}
                       </span>
                     </td>
                     <td style={{ padding: "12px 16px", fontSize: 13 }}>
@@ -386,7 +357,7 @@ export default function AdminChek() {
                     </td>
                     <td style={{ padding: "12px 16px" }}>
                       {c.chek_link ? (
-                        <a href={c.chek_link} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 4, color: C.accent, fontSize: 13, textDecoration: "none" }}>
+                        <a href="#" onClick={(e) => { e.preventDefault(); void openReceipt(c.id); }} style={{ display: "inline-flex", alignItems: "center", gap: 4, color: C.accent, fontSize: 13, textDecoration: "none" }}>
                           <ExternalLink size={12} /> Ko'rish
                         </a>
                       ) : <span style={{ color: C.hint }}>—</span>}

@@ -12,10 +12,10 @@ interface BIPEvent extends Event {
 }
 
 function isStandalone() {
-  return window.matchMedia?.("(display-mode: standalone)").matches || (navigator as any).standalone === true;
+  return window.matchMedia?.("(display-mode: standalone)").matches || (navigator as Navigator & { standalone?: boolean }).standalone === true;
 }
 function isIos() {
-  return /iphone|ipad|ipod/i.test(navigator.userAgent) && !(window as any).MSStream;
+  return /iphone|ipad|ipod/i.test(navigator.userAgent) && !("MSStream" in window);
 }
 function wasDismissed() {
   try { return localStorage.getItem(KEY) === "1"; } catch { return false; }

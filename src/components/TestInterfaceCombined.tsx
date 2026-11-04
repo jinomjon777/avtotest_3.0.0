@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { errorMessage } from "@/lib/utils";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -22,30 +23,12 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Clock, ChevronLeft, ChevronRight, X, Check, SkipForward } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
-import { fetchQuestionSource } from "@/lib/fetchQuestionSource";
+import { loadQuestions, type NormalizedQuestion, type QuestionLang } from "@/lib/questionFormat";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
-import { rawQuestionKey, buildAnswerPayload } from "@/lib/answerTracking";
+import { buildAnswerPayload } from "@/lib/answerTracking";
 
-interface QuestionDataFormat2 {
-  id: number;
-  question: string;
-  choises: Array<{
-    text: string;
-    answer: boolean;
-  }>;
-  image?: string;
-  media?: { exist: boolean; name: string };
-}
-
-interface Question {
-  id: number;
-  text: string;
-  image?: string;
-  correctAnswer: number;
-  answers: { id: number; text: string }[];
-  qkey?: string;
-}
+type Question = NormalizedQuestion;
 
 interface TestInterfaceCombinedProps {
   onExit: () => void;
@@ -57,14 +40,6 @@ interface TestInterfaceCombinedProps {
   imagePrefix?: string;
 }
 
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
 
 export const TestInterfaceCombined = ({ 
   onExit, 
@@ -114,80 +89,12 @@ export const TestInterfaceCombined = ({
       setLoading(true);
       setError(null);
 
-      // Fetch all data sources in parallel
-      const responses = await Promise.all(
-        dataSources.map(source => fetchQuestionSource(source).then(res => res.json()))
-      );
-
-      // Merge all questions from all sources
-      let allQuestions: any[] = [];
-      responses.forEach(jsonData => {
-        let rawArray: any[] = [];
-        if (jsonData.data && Array.isArray(jsonData.data)) {
-          rawArray = jsonData.data;
-        } else if (Array.isArray(jsonData)) {
-          rawArray = jsonData;
-        } else if (jsonData.questions && Array.isArray(jsonData.questions)) {
-          rawArray = jsonData.questions;
-        }
-        allQuestions = [...allQuestions, ...rawArray];
+      const transformedQuestions = await loadQuestions(dataSources, questionCount, {
+        randomize, lang: questionLang as QuestionLang, imagePrefix,
       });
-
-      if (allQuestions.length === 0) {
+      if (transformedQuestions.length === 0) {
         throw new Error(t("test.noQuestionsFound"));
       }
-
-      // Randomize and take required count
-      const selectedQuestions = randomize
-        ? shuffleArray(allQuestions).slice(0, questionCount)
-        : allQuestions.slice(0, questionCount);
-
-      // Transform to Question format
-      const transformedQuestions: Question[] = selectedQuestions.map((q, idx) => {
-        // Format 3: New format (barcha.json)
-        if (q.content && (q.content.uz_lat || q.content.uz_cyr || q.content.ru)) {
-          const langKey = questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
-          const langContent = q.content[langKey] || q.content.uz_lat || q.content.uz_cyr || q.content.ru;
-          const correctOption = langContent.options.find((o: any) => o.is_correct);
-          const correctAnswer = correctOption ? correctOption.id : 1;
-          let imagePath: string | undefined;
-          if (q.media_url?.trim()) {
-            imagePath = q.media_url.startsWith('http') ? q.media_url : `${imagePrefix}${q.media_url}`;
-          }
-          return {
-            id: idx + 1,
-            text: langContent.text,
-            image: imagePath,
-            correctAnswer,
-            qkey: rawQuestionKey(q),
-            answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
-          };
-        }
-
-        if (q.choises && Array.isArray(q.choises)) {
-          const correctIndex = q.choises.findIndex((c: { answer: boolean }) => c.answer === true);
-          let imagePath: string | undefined;
-          if (q.media?.exist && q.media?.name) {
-            imagePath = `${imagePrefix}${q.media.name}.png`;
-          } else if (q.image) {
-            imagePath = `${imagePrefix}${q.image}`;
-          }
-          return {
-            id: idx + 1,
-            text: q.question,
-            image: imagePath,
-            correctAnswer: correctIndex + 1,
-            qkey: rawQuestionKey(q),
-            answers: q.choises.map((choice: { text: string }, ansIdx: number) => ({
-              id: ansIdx + 1,
-              text: choice.text,
-            })),
-          };
-        }
-
-        // Fallback for other formats
-        return { id: idx + 1, text: q.question || '', image: undefined, correctAnswer: 1, answers: [] };
-      });
 
       // Restore from localStorage – use saved questions to preserve randomisation
       const saved = getSavedTestState(storageKey);
@@ -200,9 +107,9 @@ export const TestInterfaceCombined = ({
       } else {
         setQuestions(transformedQuestions);
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error('Error fetching test data:', err);
-      setError(err.message || t("test.errorLoadingData"));
+      setError(errorMessage(err) || t("test.errorLoadingData"));
     } finally {
       setLoading(false);
     }
@@ -350,7 +257,7 @@ export const TestInterfaceCombined = ({
     setShowResults(true);
   };
 
-  const getTestStats = () => {
+  const getTestStats = useCallback(() => {
     let correct = 0;
     let incorrect = 0;
     
@@ -360,7 +267,7 @@ export const TestInterfaceCombined = ({
     });
     
     return { correct, incorrect };
-  };
+  }, [correctAnswers]);
 
   // Natijani ma'lumotlar bazasiga saqlash — avval bu umuman ishlamas edi,
   // shuning uchun "Test ishlash" orqali yechilgan testlar hech qayerda
@@ -374,7 +281,8 @@ export const TestInterfaceCombined = ({
       );
       setResultSaved(true);
     }
-  }, [showResults, user, resultSaved, totalQuestions]);
+  // resultSaved — natija faqat bir marta saqlanadi
+  }, [showResults, user, resultSaved, totalQuestions, correctAnswers, getTestStats, questions, saveTestResult, selectedAnswers, testStartTime]);
 
   if (showResults) {
     const stats = getTestStats();
@@ -456,7 +364,7 @@ export const TestInterfaceCombined = ({
               className={`h-7 px-2 md:h-8 md:px-3 text-xs ${autoAdvance ? 'bg-primary/10 text-primary border-primary/30' : 'text-muted-foreground'}`}
               onClick={() => setAutoAdvance(prev => {
                 const next = !prev;
-                try { localStorage.setItem('autoAdvance', String(next)); } catch {}
+                try { localStorage.setItem('autoAdvance', String(next)); } catch { /* ixtiyoriy: xato e'tiborsiz qoldiriladi */ }
                 return next;
               })}
               title={autoAdvance ? "Avto-o'tish yoqilgan" : "Avto-o'tish o'chirilgan"}

@@ -2,6 +2,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { useState, useEffect, useCallback } from 'react';
 import type { AnswerPayload } from '@/lib/answerTracking';
+import type { Json } from '@/integrations/supabase/types';
 
 interface VariantResult {
   variant: number;
@@ -53,7 +54,7 @@ export const useTestResults = () => {
 
   /**
    * Natijani serverdagi submit_test RPC orqali saqlaydi (javoblar bilan birga).
-   * RPC hali bazada yo'q bo'lsa (migratsiya qo'llanmagan), eski usulga qaytadi.
+   * test_results jadvaliga to'g'ridan-to'g'ri yozish bazada yopilgan — boshqa yo'l yo'q.
    */
   const saveTestResult = async (
     variant: number,
@@ -66,48 +67,34 @@ export const useTestResults = () => {
   ): Promise<{ success: boolean; error?: string }> => {
     if (!user) return { success: false, error: 'User not authenticated' };
 
+    const submit = (sid: string | null) => supabase.rpc('submit_test', {
+      p_session_id:   sid as string,
+      p_variant:      variant,
+      p_correct:      correctAnswers,
+      p_total:        totalQuestions,
+      p_time_seconds: Math.max(0, Math.round(timeTakenSeconds)),
+      p_answers:      answers as unknown as Json,
+    });
+
     try {
-      const { data, error } = await (supabase as any).rpc('submit_test', {
-        p_session_id:   sessionId,
-        p_variant:      variant,
-        p_correct:      correctAnswers,
-        p_total:        totalQuestions,
-        p_time_seconds: timeTakenSeconds,
-        p_answers:      answers,
-      });
-
-      if (error) {
-        const missingRpc = error.code === 'PGRST202' || error.code === '42883' || /submit_test/.test(error.message || '');
-        if (!missingRpc) {
-          console.error('submit_test error:', error);
-          return { success: false, error: error.message };
-        }
-        // Zaxira yo'l: migratsiya qo'llanguncha eski to'g'ridan-to'g'ri insert
-        const { error: insErr } = await supabase.from('test_results').insert({
-          user_id:            user.id,
-          variant,
-          correct_answers:    correctAnswers,
-          total_questions:    totalQuestions,
-          time_taken_seconds: timeTakenSeconds,
-        });
-        if (insErr) return { success: false, error: insErr.message };
-      } else if (data && data.ok === false && sessionId && (data.error === 'session_not_found' || data.error === 'session_already_completed')) {
-        // Eskirgan sessiya (localStorage'dan): natijani sessiyasiz saqlaymiz
-        const retry = await (supabase as any).rpc('submit_test', {
-          p_session_id: null, p_variant: variant, p_correct: correctAnswers,
-          p_total: totalQuestions, p_time_seconds: timeTakenSeconds, p_answers: answers,
-        });
-        if (retry.error || retry.data?.ok === false) {
-          return { success: false, error: retry.error?.message || retry.data?.error };
-        }
-      } else if (data && data.ok === false) {
-        console.error('submit_test rejected:', data.error);
-        return { success: false, error: data.error };
+      let { data, error } = await submit(sessionId);
+      const res = data as { ok?: boolean; error?: string } | null;
+      // Eskirgan sessiya (localStorage'dan): natijani sessiyasiz saqlaymiz
+      if (!error && res?.ok === false && sessionId && (res.error === 'session_not_found' || res.error === 'session_already_completed')) {
+        ({ data, error } = await submit(null));
       }
-
+      if (error) {
+        console.error('submit_test error:', error.message);
+        return { success: false, error: error.message };
+      }
+      const final = data as { ok?: boolean; error?: string } | null;
+      if (final?.ok === false) {
+        console.error('submit_test rejected:', final.error);
+        return { success: false, error: final.error };
+      }
       await fetchVariantResults();
       return { success: true };
-    } catch (err: any) {
+    } catch (err) {
       console.error('Save test result error:', err);
       return { success: false, error: 'Failed to save result' };
     }

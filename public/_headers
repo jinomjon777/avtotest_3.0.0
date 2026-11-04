@@ -1,13 +1,14 @@
-# Cloudflare (Workers Assets / Pages) sarlavhalari. netlify.toml faqat Netlify'da ishlaydi.
+# Cloudflare (Workers Assets) javob sarlavhalari — build paytida dist/ ga nusxalanadi.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
-  Strict-Transport-Security: max-age=31536000
-  # Avval FAQAT kuzatuv rejimida (hech narsani to'smaydi). Brauzer konsolidagi "CSP" ogohlantirishlar toza
-  # bo'lgach, "Content-Security-Policy-Report-Only" ni "Content-Security-Policy" ga almashtiring.
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' blob: https://*.r2.dev; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://t.me; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; manifest-src 'self'
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  # CSP endi MAJBURIY. Yangi tashqi manba (skript, API, video CDN) qo'shsangiz — shu ro'yxatga qo'shing.
+  # media-src: premium videolar R2 imzolangan havolalari (*.r2.cloudflarestorage.com) va o'tish davri (*.r2.dev).
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' blob: https://*.r2.cloudflarestorage.com https://*.r2.dev; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; worker-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests
 
 # Vite xeshli fayllar: o'zgarmaydi, bir yil keshlanadi
 /assets/*

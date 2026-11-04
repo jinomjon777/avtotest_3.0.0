@@ -1,88 +1,87 @@
-// @ts-nocheck
-// Supabase Edge Function (Deno). VSCode'dagi "Deno topilmadi" kabi xatolar shu sababli — e'tibor bermang.
+// Supabase Edge Function (Deno).
 //
-// MAQSAD: premium savollar (mavzuli testlar va variantlar) endi public/ papkasida EMAS.
-// Ular shu funksiya ichida turadi va faqat quyidagi qoidalar bilan beriladi:
+// Premium savollar (mavzuli testlar, variantlar, "barcha savollar") faqat shu funksiya orqali beriladi:
 //
 //   action "file"   {file:"m:31"|"v:v12"}             — butun fayl. FAQAT premium.
-//   action "sample" {source:"all"|"<mavzu>", n, kind} — tasodifiy n ta savol (n<=40).
+//   action "sample" {source:"all"|"barcha"|"<mavzu>", n, kind} — tasodifiy n ta savol (bepul n<=40, premium n<=60).
 //                    premium — cheksiz; bepul — bugun shu tur uchun claim_free_session olingan
-//                    bo'lsa, kuniga ko'pi bilan 5 ta to'plam (consume_free_sample).
+//                    bo'lsa, ko'pi bilan 3 ta to'plam (consume_free_sample).
 //   action "keys"   {keys:[...]}                      — aniq savollar (Xatolarim, saqlanganlar).
-//                    premium — istalgan; bepul — faqat o'zi javob bergan/saqlagan savollar.
+//                    premium — istalgan; bepul — faqat SERVER ILGARI BERGAN savollar (served_questions).
 //
-// Premium ta'rifi bazadagi is_premium_now() bilan bir xil (faol tarif yoki faol sinov).
-// Manba fayllar: supabase/question-data/{m,v}. Paket (data/bank.gz.json, files.json, locator.json)
-// `node scripts/build-question-index.mjs` bilan yaratiladi — savollarni o'zgartirgach qayta ishga tushiring.
+// Bepul foydalanuvchiga berilgan har bir savol kaliti served_questions'ga yoziladi. Avval egalik
+// "saqlangan/javob berilgan" savollar bo'yicha aniqlanardi va bu ochiq question_locator.json'dagi
+// kalitlar bilan butun premium bazani olishga imkon berardi.
+//
+// Har so'rovda: JWT, qurilma (x-device-id) va premium holati (bazadagi access_state()) tekshiriladi.
+// Paket (data/*.json) `node scripts/build-question-index.mjs` bilan yaratiladi.
 
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import locator from "./data/locator.json" with { type: "json" };
 import bankPacked from "./data/bank.gz.json" with { type: "json" };
 import fileIndex from "./data/files.json" with { type: "json" };
+import bankKeysJson from "./data/bank_keys.json" with { type: "json" };
+import { jsonResponse, preflight } from "../_shared/cors.ts";
+import { accessState, adminClient, getUser } from "../_shared/supabase.ts";
+import { checkDevice } from "../_shared/device.ts";
 
-const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
-const SUPABASE_SERVICE_KEY = Deno.env.get("SB_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-
-const corsHeaders = {
-  "Access-Control-Allow-Origin": Deno.env.get("ALLOWED_ORIGIN") ?? "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
-
-function json(data: unknown, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { ...corsHeaders, "Content-Type": "application/json", "Cache-Control": "private, no-store" },
-  });
-}
+type Raw = Record<string, unknown>;
+type Item = { raw: Raw; key: string | null };
 
 const KEY_RE = /^[0-9a-f]{16}$/;
 const MAX_KEYS = 300;
-const MAX_SAMPLE = 40;
+const MAX_SAMPLE_FREE = 40;
+const MAX_SAMPLE_PREMIUM = 60; // "Test ishlash" 50 talik rejimi
 const FREE_KINDS = new Set(["practice", "topic", "exam"]);
 
 // files.json: { "m:31": [[bankIndeks, task_info?], ...] } — asl fayl tartibi saqlanadi
-const files = fileIndex as Record<string, [number, unknown?][]>;
-const fileCache = new Map<string, unknown[]>();
+const files = fileIndex as unknown as Record<string, [number, unknown?][]>;
+const bankKeys = bankKeysJson as unknown as (string | null)[];
+const loc = locator as unknown as Record<string, string>;
+
 function hasFile(id: string): boolean {
   return Object.prototype.hasOwnProperty.call(files, id);
 }
+
 // bank.gz.json: { gz: base64(gzip(JSON)) } — deploy hajmi uchun siqilgan; birinchi so'rovda bir marta ochiladi
-let bankPromise: Promise<any[]> | null = null;
-function getBank(): Promise<any[]> {
+let bankPromise: Promise<Raw[]> | null = null;
+function getBank(): Promise<Raw[]> {
   if (!bankPromise) {
     bankPromise = (async () => {
       const bin = Uint8Array.from(atob((bankPacked as { gz: string }).gz), (c) => c.charCodeAt(0));
       const stream = new Blob([bin]).stream().pipeThrough(new DecompressionStream("gzip"));
-      return JSON.parse(await new Response(stream).text());
+      return JSON.parse(await new Response(stream).text()) as Raw[];
     })();
   }
   return bankPromise;
 }
 
-async function loadFile(id: string): Promise<unknown[] | null> {
-  if (fileCache.has(id)) return fileCache.get(id)!;
+const fileCache = new Map<string, Item[]>();
+async function loadFile(id: string): Promise<Item[] | null> {
+  const hit = fileCache.get(id);
+  if (hit) return hit;
   if (!hasFile(id)) return null;
   const bank = await getBank();
-  const arr = files[id].map(([i, ti]) => (ti === undefined ? bank[i] : { task_info: ti, ...bank[i] }));
+  const arr: Item[] = files[id].map(([i, ti]) => ({
+    raw: ti === undefined ? bank[i] : { task_info: ti, ...bank[i] },
+    key: bankKeys[i] ?? null,
+  }));
   fileCache.set(id, arr);
   return arr;
 }
 
 // "all" = barcha mavzu fayllari birlashmasi (31.json "Barcha savollar" EMAS: unda izohlar yo'q).
-// Bir xil savol bir nechta faylda bo'lsa, bir marta olinadi.
-let allPool: unknown[] | null = null;
-async function loadAll(): Promise<unknown[]> {
+// Bir xil savol (kalit) bir nechta faylda bo'lsa, bir marta olinadi.
+let allPool: Item[] | null = null;
+async function loadAll(): Promise<Item[]> {
   if (allPool) return allPool;
   const seen = new Set<string>();
-  const out: unknown[] = [];
+  const out: Item[] = [];
   for (const id of Object.keys(files).filter((k) => k.startsWith("m:") && k !== "m:31").sort()) {
-    for (const q of (await loadFile(id)) as any[]) {
-      const c = q?.content?.uz_lat;
-      const sig = JSON.stringify([c?.text, (c?.options ?? []).map((o: any) => o.text)]);
+    for (const it of (await loadFile(id)) ?? []) {
+      const sig = it.key ?? JSON.stringify(it.raw);
       if (seen.has(sig)) continue;
       seen.add(sig);
-      out.push(q);
+      out.push(it);
     }
   }
   allPool = out;
@@ -91,6 +90,7 @@ async function loadAll(): Promise<unknown[]> {
 
 function topicFileId(source: string): string | null {
   if (source === "all") return "all";
+  if (source === "barcha") return hasFile("b:barcha") ? "b:barcha" : null;
   if (!/^[0-9a-z]{1,12}$/.test(source)) return null;
   const id = source === "34" ? "m:34tengaxamiyatli" : `m:${source}`;
   return hasFile(id) ? id : null;
@@ -105,75 +105,96 @@ function sample<T>(arr: T[], n: number): T[] {
   return a.slice(0, n);
 }
 
+async function recordServed(uid: string, items: Item[]): Promise<void> {
+  const keys = [...new Set(items.map((i) => i.key).filter((k): k is string => !!k && KEY_RE.test(k)))];
+  if (keys.length === 0) return;
+  const { error } = await adminClient().rpc("record_served_questions", { p_uid: uid, p_keys: keys });
+  if (error) throw error;
+}
+
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
-  if (req.method !== "POST") return json({ error: "method_not_allowed" }, 405);
+  const pf = preflight(req);
+  if (pf) return pf;
+  if (req.method !== "POST") return jsonResponse(req, { error: "method_not_allowed" }, 405);
 
-  const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+  try {
+    // ── 1. Foydalanuvchi va qurilma ────────────────────────────────────
+    const user = await getUser(req);
+    if (!user) return jsonResponse(req, { error: "not_authenticated" }, 401);
 
-  // ── 1. Foydalanuvchi ──────────────────────────────────────────────
-  const authHeader = req.headers.get("Authorization") ?? "";
-  if (!authHeader.startsWith("Bearer ")) return json({ error: "not_authenticated" }, 401);
-  const { data: { user }, error: authError } = await supabase.auth.getUser(authHeader.slice(7));
-  if (authError || !user) return json({ error: "not_authenticated" }, 401);
+    const sb = adminClient();
+    const device = await checkDevice(sb, user.id, req);
+    if (device !== "ok") return jsonResponse(req, { error: device }, 403);
 
-  let body: any;
-  try { body = await req.json(); } catch { return json({ error: "bad_request" }, 400); }
-  const action = body?.action;
-
-  // ── 2. Premium holati (server vaqti bilan) ─────────────────────────
-  const { data: premium, error: premErr } = await supabase.rpc("is_premium_now", { p_uid: user.id });
-  if (premErr) return json({ error: "server_error" }, 500);
-
-  // ── 3. Butun fayl: faqat premium ───────────────────────────────────
-  if (action === "file") {
-    const id = String(body.file ?? "");
-    if (!hasFile(id)) return json({ error: "not_found" }, 404);
-    if (!premium) return json({ error: "premium_required" }, 403);
-    return json({ ok: true, items: await loadFile(id) });
-  }
-
-  // ── 4. Tasodifiy to'plam: premium yoki bugungi bepul limit ─────────
-  if (action === "sample") {
-    const id = topicFileId(String(body.source ?? ""));
-    if (!id) return json({ error: "not_found" }, 404);
-    const n = Math.min(Math.max(Number(body.n) || 20, 1), MAX_SAMPLE);
-    if (!premium) {
-      const kind = String(body.kind ?? "");
-      if (!FREE_KINDS.has(kind)) return json({ error: "premium_required" }, 403);
-      const { data: allowed, error } = await supabase.rpc("consume_free_sample", { p_uid: user.id, p_kind: kind });
-      if (error) return json({ error: "server_error" }, 500);
-      if (!allowed) return json({ error: "daily_limit" }, 429);
+    let body: Record<string, unknown>;
+    try {
+      body = await req.json();
+    } catch {
+      return jsonResponse(req, { error: "bad_request" }, 400);
     }
-    const arr = id === "all" ? await loadAll() : ((await loadFile(id)) ?? []);
-    return json({ ok: true, items: sample(arr, n) });
-  }
+    const action = body?.action;
 
-  // ── 5. Aniq savollar: premium — hammasi; bepul — faqat ko'rganlari ──
-  if (action === "keys") {
-    const keys: string[] = Array.isArray(body.keys)
-      ? [...new Set(body.keys.filter((k: unknown) => typeof k === "string" && KEY_RE.test(k)))].slice(0, MAX_KEYS)
-      : [];
-    if (keys.length === 0) return json({ ok: true, items: {} });
+    // ── 2. Premium holati (server vaqti, yagona ta'rif) ────────────────
+    const premium = (await accessState(user.id)).is_premium;
 
-    let allowed = keys;
-    if (!premium) {
-      const { data, error } = await supabase.rpc("owned_question_keys", { p_uid: user.id, p_keys: keys });
-      if (error) return json({ error: "server_error" }, 500);
-      allowed = Array.isArray(data) ? data : [];
+    // ── 3. Butun fayl: faqat premium ───────────────────────────────────
+    if (action === "file") {
+      const id = String(body.file ?? "");
+      if (!hasFile(id)) return jsonResponse(req, { error: "not_found" }, 404);
+      if (!premium) return jsonResponse(req, { error: "premium_required" }, 403);
+      const items = (await loadFile(id)) ?? [];
+      await recordServed(user.id, items);
+      return jsonResponse(req, { ok: true, items: items.map((i) => i.raw) });
     }
 
-    const items: Record<string, { kind: string; raw: unknown }> = {};
-    for (const key of allowed) {
-      const spec: string | undefined = (locator as Record<string, string>)[key];
-      if (!spec) continue;
-      const [kind, stem, idx] = spec.split(":");
-      const arr = await loadFile(`${kind}:${stem}`);
-      const raw = arr?.[Number(idx)];
-      if (raw) items[key] = { kind, raw };
+    // ── 4. Tasodifiy to'plam: premium yoki bugungi bepul limit ─────────
+    if (action === "sample") {
+      const id = topicFileId(String(body.source ?? ""));
+      if (!id) return jsonResponse(req, { error: "not_found" }, 404);
+      const n = Math.min(Math.max(Math.floor(Number(body.n)) || 20, 1), premium ? MAX_SAMPLE_PREMIUM : MAX_SAMPLE_FREE);
+      if (!premium) {
+        const kind = String(body.kind ?? "");
+        if (!FREE_KINDS.has(kind)) return jsonResponse(req, { error: "premium_required" }, 403);
+        const { data: allowed, error } = await sb.rpc("consume_free_sample", { p_uid: user.id, p_kind: kind });
+        if (error) throw error;
+        if (!allowed) return jsonResponse(req, { error: "daily_limit" }, 429);
+      }
+      const pool = id === "all" ? await loadAll() : ((await loadFile(id)) ?? []);
+      const picked = sample(pool, n);
+      await recordServed(user.id, picked);
+      return jsonResponse(req, { ok: true, items: picked.map((i) => i.raw) });
     }
-    return json({ ok: true, items });
-  }
 
-  return json({ error: "bad_request" }, 400);
+    // ── 5. Aniq savollar: premium — hammasi; bepul — faqat ilgari berilganlari ──
+    if (action === "keys") {
+      const keys: string[] = Array.isArray(body.keys)
+        ? [...new Set((body.keys as unknown[]).filter((k): k is string => typeof k === "string" && KEY_RE.test(k)))].slice(0, MAX_KEYS)
+        : [];
+      if (keys.length === 0) return jsonResponse(req, { ok: true, items: {} });
+
+      let allowed = keys;
+      if (!premium) {
+        const { data, error } = await sb.rpc("owned_question_keys", { p_uid: user.id, p_keys: keys });
+        if (error) throw error;
+        allowed = Array.isArray(data) ? data : [];
+      }
+
+      const items: Record<string, { kind: string; raw: Raw }> = {};
+      for (const key of allowed) {
+        const spec = loc[key];
+        if (!spec) continue;
+        const [kind, stem, idx] = spec.split(":");
+        const arr = await loadFile(`${kind}:${stem}`);
+        const it = arr?.[Number(idx)];
+        if (it) items[key] = { kind, raw: it.raw };
+      }
+      if (premium) await recordServed(user.id, Object.keys(items).map((key) => ({ key, raw: {} })));
+      return jsonResponse(req, { ok: true, items });
+    }
+
+    return jsonResponse(req, { error: "bad_request" }, 400);
+  } catch (e) {
+    console.error("get-questions:", e);
+    return jsonResponse(req, { error: "server_error" }, 500);
+  }
 });

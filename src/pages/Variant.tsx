@@ -6,7 +6,6 @@ import { useTestSession } from "@/hooks/useTestSession";
 import { SEO } from "@/components/SEO";
 import { TestStartPage } from "@/components/TestStartPage";
 import { TestInterface } from "@/components/TestInterface";
-import { AlertTriangle } from "lucide-react";
 
 export default function Variant() {
   const variantStorageKey = 'variant_activeTest';
@@ -41,7 +40,7 @@ export default function Variant() {
   const [sessionId, setSessionId]             = useState<string | null>(initial.sessionId);
   const [startError, setStartError]           = useState<string | null>(null);
 
-  const { user, isLoading } = useAuth();
+  const { isLoading } = useAuth();
   const { hasAccess, loading: accessLoading } = useProAccess();
   const { starting, startSession } = useTestSession();
 

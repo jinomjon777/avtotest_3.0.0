@@ -63,7 +63,7 @@ export default function KunlikReja() {
       return <TestInterface onExit={onExit} variant={running.variant} sessionId={null} isPremiumSession />;
     }
     // ?reja — test holati oddiy "Test ishlash" bilan aralashmasligi uchun alohida kalit
-    const file = language === "uz-lat" ? "/700baza2.json?reja" : "/700baza.json?reja";
+    const file = language === "uz-lat" ? "/700baza2.json?reja" : language === "ru" ? "/700baza_ru.json?reja" : "/700baza.json?reja";
     return (
       <TestInterfaceBase
         onExit={onExit}

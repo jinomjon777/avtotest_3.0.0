@@ -1,4 +1,5 @@
 import { MainLayout } from "@/components/layout/MainLayout";
+import { usePlans, formatSom } from "@/hooks/usePlans";
 import { SEO } from "@/components/SEO";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -123,18 +124,28 @@ export default function Pro() {
     { icon: Star,        label: t("pro.feat8"),    pro: true, free: false },
   ];
 
-  const PLANS: Plan[] = [
-    { id: "weekly",    name: t("pro.planWeeklyName"),    price: "15 000", period: t("pro.planWeeklyPeriod"),    highlight: false },
-    { id: "monthly",   name: t("pro.planMonthlyName"),   price: "33 000", period: t("pro.planMonthlyPeriod"),   badge: t("pro.planBadge"), highlight: true },
-    { id: "quarterly", name: t("pro.planQuarterlyName"), price: "83 000", period: t("pro.planQuarterlyPeriod"), savings: t("pro.planSavings"), highlight: false },
-  ];
+  const plans = usePlans();
+  const NAME_BY_DAYS: Record<number, { name: string; period: string; badge?: string; savings?: string; highlight: boolean }> = {
+    7: { name: t("pro.planWeeklyName"), period: t("pro.planWeeklyPeriod"), highlight: false },
+    30: { name: t("pro.planMonthlyName"), period: t("pro.planMonthlyPeriod"), badge: t("pro.planBadge"), highlight: true },
+    90: { name: t("pro.planQuarterlyName"), period: t("pro.planQuarterlyPeriod"), savings: t("pro.planSavings"), highlight: false },
+  };
+  const PLANS: Plan[] = plans.map((p) => {
+    const meta = NAME_BY_DAYS[p.days];
+    return {
+      id: p.id,
+      name: meta?.name ?? p.label,
+      price: formatSom(p.amount),
+      period: meta?.period ?? `${p.days} kun`,
+      badge: meta?.badge,
+      savings: meta?.savings,
+      highlight: meta?.highlight ?? false,
+    };
+  });
 
-  const PLAN_DAYS: Record<string, number> = { weekly: 7, monthly: 30, quarterly: 90 };
-
+  // Bot to'g'ridan-to'g'ri shu tarifni ochadi (/start plan_<id>)
   const handleSelect = (plan: Plan) => {
-    const days = PLAN_DAYS[plan.id];
-    const startParam = days ? `plan_${days}` : "";
-    window.open(`https://t.me/avtotestsPremium_bot${startParam ? `?start=${startParam}` : ""}`, "_blank");
+    window.open(`https://t.me/avtotestsPremium_bot?start=${encodeURIComponent(plan.id)}`, "_blank", "noopener,noreferrer");
   };
 
   if (isLoading) {

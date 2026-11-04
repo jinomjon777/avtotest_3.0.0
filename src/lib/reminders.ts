@@ -1,15 +1,20 @@
 // Kunlik reja eslatmalari: Telegram ulash, push-obuna, kalendar fayllari.
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 
 export const BOT_USERNAME = "avtotestsPremium_bot";
 export const PLAN_TARGET = 5;
 /** Bepul foydalanuvchining "Kunlik reja" testlari shu variant raqami bilan saqlanadi (bazada 97 hisoblanadi). */
 export const PLAN_FREE_VARIANT = 97;
 
-async function rpc<T>(name: string, args?: Record<string, unknown>): Promise<T> {
-  const { data, error } = await (supabase as any).rpc(name, args ?? {});
+type RpcName = keyof Database["public"]["Functions"];
+
+async function rpc<T>(name: RpcName, args?: Record<string, unknown>): Promise<T> {
+  // Argumentlar har bir chaqiriqda funksiya imzosiga mos; umumiy o'ram uchun tur bu yerda toraytiriladi
+  const { data, error } = await supabase.rpc(name, (args ?? {}) as never);
   if (error) throw error;
-  if (data && data.ok === false) throw new Error(data.error || "rpc_failed");
+  const d = data as { ok?: boolean; error?: string } | null;
+  if (d && typeof d === "object" && d.ok === false) throw new Error(d.error || "rpc_failed");
   return data as T;
 }
 
@@ -40,7 +45,7 @@ export type PushSupport = "ok" | "unsupported" | "ios-needs-install" | "denied";
 export function pushSupport(): PushSupport {
   if (typeof window === "undefined") return "unsupported";
   const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  const standalone = window.matchMedia?.("(display-mode: standalone)").matches || (navigator as any).standalone === true;
+  const standalone = window.matchMedia?.("(display-mode: standalone)").matches || (navigator as Navigator & { standalone?: boolean }).standalone === true;
   if (!("serviceWorker" in navigator) || !("PushManager" in window) || !("Notification" in window)) {
     return ios && !standalone ? "ios-needs-install" : "unsupported";
   }

@@ -1,10 +1,8 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
-import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { TrialTimer } from "@/components/TrialTimer";
 import { AppSidebar } from "./AppSidebar";
 import { BottomNav } from "./BottomNav";
@@ -25,8 +23,6 @@ export function MainLayout({ children }: MainLayoutProps) {
   const langBtnRefDesktop = useRef<HTMLButtonElement | null>(null);
 
   const location = useLocation();
-  const navigate = useNavigate();
-  const { user, profile } = useAuth();
 
   useEffect(() => { setMobileMenuOpen(false); }, [location.pathname]);
 
@@ -94,10 +90,6 @@ export function MainLayout({ children }: MainLayoutProps) {
     [location.pathname]
   );
 
-  const getInitials = useCallback((name: string | null | undefined) => {
-    if (!name) return "U";
-    return name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
-  }, []);
 
   if (isMavzuliSection) {
     return <div className="min-h-screen bg-background">{children}</div>;

@@ -1,11 +1,10 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Home, Car, BookOpen, Phone, Info, Crown, User, LogOut, 
-  FileText, Layers, Sun, Moon, 
+  FileText, Layers, 
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useTheme } from "@/contexts/ThemeContext";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -16,7 +15,6 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const { user, profile, signOut } = useAuth();
   const { t } = useLanguage();
-  const { isDark, toggleTheme } = useTheme();
 
 
   const mainNav = [

@@ -1,24 +1,12 @@
 import { useEffect, useState } from "react";
+import { errorMessage } from "@/lib/utils";
+import { adminApi } from "@/lib/adminApi";
 import { supabase } from "@/integrations/supabase/client";
 import {
   User, Lock, CreditCard, Activity, Archive, Plus, Trash2,
-  RefreshCw, Save, Database, ShieldCheck,
+  RefreshCw, Save, Database, ShieldCheck, Crown,
 } from "lucide-react";
 
-const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-premium`;
-
-async function adminApi(action: string, payload: Record<string, unknown> = {}) {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) throw new Error("Sessiya tugagan, qayta kiring");
-  const res = await fetch(EDGE_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
-    body: JSON.stringify({ action, ...payload }),
-  });
-  const data = await res.json();
-  if (!res.ok || data.error) throw new Error(data.error || "Server xatosi");
-  return data;
-}
 
 const C = {
   card: "#FFFFFF", surface: "#F8FAFC", border: "#E2E8F0", borderFocus: "#A5B4FC",
@@ -35,6 +23,7 @@ const card: React.CSSProperties = { background: C.card, border: `1px solid ${C.b
 
 const SUBTABS = [
   { id: "profil", label: "Profil", icon: User },
+  { id: "tarif", label: "Tariflar", icon: Crown },
   { id: "tolov", label: "To'lov turlari", icon: CreditCard },
   { id: "audit", label: "Audit", icon: Activity },
   { id: "arxiv", label: "Arxiv", icon: Archive },
@@ -63,15 +52,15 @@ function ProfilTab() {
 
   const changePassword = async () => {
     setMsg(null);
-    if (newPass.length < 6) return setMsg({ type: "err", text: "Yangi parol kamida 6 belgi bo'lishi kerak" });
+    if (newPass.length < 10) return setMsg({ type: "err", text: "Yangi parol kamida 10 belgi bo'lishi kerak" });
     if (newPass !== confirmPass) return setMsg({ type: "err", text: "Parollar mos kelmadi" });
     setSaving(true);
     try {
       await adminApi("change_admin_password", { newPassword: newPass });
       setMsg({ type: "ok", text: "✓ Parol muvaffaqiyatli o'zgartirildi" });
       setOldPass(""); setNewPass(""); setConfirmPass("");
-    } catch (e: any) {
-      setMsg({ type: "err", text: e.message });
+    } catch (e) {
+      setMsg({ type: "err", text: errorMessage(e) });
     } finally {
       setSaving(false);
     }
@@ -151,8 +140,8 @@ function TolovTurlariTab() {
     try {
       const { data } = await adminApi("list_payment_methods");
       setMethods(data ?? []);
-    } catch (e: any) {
-      setErr(e.message);
+    } catch (e) {
+      setErr(errorMessage(e));
     } finally { setLoading(false); }
   };
   useEffect(() => { fetchMethods(); }, []);
@@ -166,8 +155,8 @@ function TolovTurlariTab() {
       const { data } = await adminApi("add_payment_method", { name: trimmed });
       setNewName("");
       setMethods(prev => [...prev, data]);
-    } catch (e: any) {
-      setErr(e.message);
+    } catch (e) {
+      setErr(errorMessage(e));
     } finally { setAdding(false); }
   };
 
@@ -176,8 +165,8 @@ function TolovTurlariTab() {
     try {
       await adminApi("delete_payment_method", { methodId: id });
       setMethods(prev => prev.filter(m => m.id !== id));
-    } catch (e: any) {
-      setErr(e.message);
+    } catch (e) {
+      setErr(errorMessage(e));
     }
   };
 
@@ -239,7 +228,7 @@ function TolovTurlariTab() {
 }
 
 // ───────────────────────── AUDIT ─────────────────────────
-interface AuditEntry { id: string; user_id: string; action: string; details: any; created_at: string; }
+interface AuditEntry { id: string; user_id: string; action: string; details: Record<string, unknown> | null; created_at: string; }
 
 const ACTION_LABELS: Record<string, string> = {
   give_premium: "Premium berildi", revoke_premium: "Premium bekor qilindi",
@@ -259,8 +248,8 @@ function AuditTab() {
     try {
       const { data } = await adminApi("list_audit");
       setLogs(data ?? []);
-    } catch (e: any) {
-      setErr(e.message);
+    } catch (e) {
+      setErr(errorMessage(e));
     } finally { setLoading(false); }
   };
   useEffect(() => { fetchLogs(); }, []);
@@ -324,8 +313,8 @@ function ArxivTab() {
     try {
       const { data } = await adminApi("list_audit");
       setLogs((data ?? []).filter((l: AuditEntry) => l.action === "delete_user" || l.action === "delete_chek"));
-    } catch (e: any) {
-      setErr(e.message);
+    } catch (e) {
+      setErr(errorMessage(e));
     } finally { setLoading(false); }
   };
   useEffect(() => { fetchArchive(); }, []);
@@ -358,7 +347,7 @@ function ArxivTab() {
                 <Archive size={15} color={C.muted} />
                 <div>
                   <div style={{ fontSize: 13, fontWeight: 600, color: C.text }}>{ACTION_LABELS[l.action] ?? l.action}</div>
-                  <div style={{ fontSize: 12, color: C.muted }}>{l.details?.email ?? l.details?.full_name ?? "—"}</div>
+                  <div style={{ fontSize: 12, color: C.muted }}>{String(l.details?.email ?? l.details?.full_name ?? "—")}</div>
                 </div>
               </div>
               <div style={{ fontSize: 12, color: C.hint }}>{new Date(l.created_at).toLocaleDateString("uz-UZ")}</div>
@@ -371,6 +360,77 @@ function ArxivTab() {
 }
 
 // ───────────────────────── MAIN ─────────────────────────
+// ───────────────────────── TARIFLAR ─────────────────────────
+// Narxlar yagona manbasi (public.plans): Premium sahifasi, Telegram bot va moliya shu yerdan oladi.
+interface PlanRow { id: string; days: number; amount: number; label: string; sort: number; is_active: boolean }
+
+function TariflarTab() {
+  const [plans, setPlans] = useState<PlanRow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState<string | null>(null);
+  const [msg, setMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+
+  const load = async () => {
+    setLoading(true);
+    try {
+      const { data } = await adminApi<{ data: PlanRow[] }>("list_plans");
+      setPlans(data ?? []);
+    } catch (e) {
+      setMsg({ type: "err", text: e instanceof Error ? e.message : "Xatolik" });
+    }
+    setLoading(false);
+  };
+  useEffect(() => { void load(); }, []);
+
+  const update = (id: string, patch: Partial<PlanRow>) =>
+    setPlans(prev => prev.map(p => (p.id === id ? { ...p, ...patch } : p)));
+
+  const save = async (p: PlanRow) => {
+    setSaving(p.id);
+    setMsg(null);
+    try {
+      await adminApi("update_plan", { id: p.id, amount: p.amount, days: p.days, label: p.label, is_active: p.is_active });
+      setMsg({ type: "ok", text: `"${p.label}" saqlandi` });
+    } catch (e) {
+      setMsg({ type: "err", text: e instanceof Error ? e.message : "Xatolik" });
+    }
+    setSaving(null);
+  };
+
+  return (
+    <div style={card}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+        <div>
+          <div style={{ fontWeight: 700, fontSize: 14, color: C.text }}>Premium tariflari</div>
+          <div style={{ fontSize: 12, color: C.muted }}>Narx o'zgarishi saytda va Telegram botda darhol ko'rinadi</div>
+        </div>
+        <button onClick={load} style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 12px", background: C.surface, border: `1px solid ${C.border}`, borderRadius: 9, color: C.muted, cursor: "pointer", fontSize: 12 }}>
+          <RefreshCw size={13} /> Yangilash
+        </button>
+      </div>
+      {loading ? <div style={{ color: C.muted, fontSize: 13 }}>Yuklanmoqda...</div> : (
+        <div style={{ display: "grid", gap: 12 }}>
+          {plans.map(p => (
+            <div key={p.id} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(130px,1fr))", gap: 10, alignItems: "end", padding: 12, border: `1px solid ${C.border}`, borderRadius: 12 }}>
+              <div><label style={lbl}>Nomi</label><input style={inp} value={p.label} maxLength={40} onChange={e => update(p.id, { label: e.target.value })} /></div>
+              <div><label style={lbl}>Kun</label><input style={inp} type="number" min={1} max={3650} value={p.days} onChange={e => update(p.id, { days: Math.max(1, Number(e.target.value) || 1) })} /></div>
+              <div><label style={lbl}>Narx (so'm)</label><input style={inp} type="number" min={0} step={1000} value={p.amount} onChange={e => update(p.id, { amount: Math.max(0, Number(e.target.value) || 0) })} /></div>
+              <label style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: C.text, paddingBottom: 9 }}>
+                <input type="checkbox" checked={p.is_active} onChange={e => update(p.id, { is_active: e.target.checked })} /> Faol
+              </label>
+              <button onClick={() => save(p)} disabled={saving === p.id}
+                style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "9px 14px", borderRadius: 10, border: "none", background: C.accent, color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer", opacity: saving === p.id ? 0.7 : 1 }}>
+                <Save size={14} /> {saving === p.id ? "..." : "Saqlash"}
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+      {msg && <div role="status" style={{ marginTop: 12, padding: "8px 12px", borderRadius: 9, fontSize: 13, background: msg.type === "ok" ? "#DCFCE7" : "#FEE2E2", color: msg.type === "ok" ? C.green : C.accentC }}>{msg.text}</div>}
+    </div>
+  );
+}
+
 export default function AdminSettings() {
   const [tab, setTab] = useState("profil");
 
@@ -392,6 +452,7 @@ export default function AdminSettings() {
       </div>
 
       {tab === "profil" && <ProfilTab />}
+      {tab === "tarif" && <TariflarTab />}
       {tab === "tolov" && <TolovTurlariTab />}
       {tab === "audit" && <AuditTab />}
       {tab === "arxiv" && <ArxivTab />}

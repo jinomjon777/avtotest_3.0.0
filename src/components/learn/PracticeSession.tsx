@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { errorMessage } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
 import { Bookmark, BookmarkCheck, Check, ChevronLeft, ChevronRight, Lightbulb, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -87,8 +88,8 @@ export function PracticeSession({ questions, title, onAgain, onExit }: Props) {
     try {
       const r = await toggleSaved(q.key);
       setSavedLocal((s) => ({ ...s, [q.key]: r.saved }));
-    } catch (e: any) {
-      toast({ title: e?.message === "limit_reached" ? tl("saved.limit") : tl("common.error"), variant: "destructive" });
+    } catch (e) {
+      toast({ title: errorMessage(e, "") === "limit_reached" ? tl("saved.limit") : tl("common.error"), variant: "destructive" });
     }
   };
 

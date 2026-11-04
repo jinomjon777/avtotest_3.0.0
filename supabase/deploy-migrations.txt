@@ -1,0 +1,4 @@
+# "Deploy production" workflow shu ro'yxatdagi migratsiyalarni production bazaga psql bilan qo'llaydi.
+# Faqat IDEMPOTENT (qayta ishga tushirish xavfsiz) fayllar. Yangi migratsiya qo'shsangiz — shu yerga yozing.
+# Oldingi migratsiyalar production'da allaqachon qo'llangan (qo'lda, SQL Editor orqali).
+20261104000000_security_hardening.sql

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { errorMessage } from "@/lib/utils";
+import { selectAll } from "@/lib/adminApi";
 import { supabase as supabaseAdmin } from "@/integrations/supabase/client";
 import { Users, Crown, Clock, MessageSquare, TrendingUp, Activity, AlertCircle, RefreshCw } from "lucide-react";
 
@@ -73,9 +75,9 @@ export default function AdminDashboard() {
       // Fetch all three tables in parallel — each handled independently so one failure
       // doesn't block the others
       const [profilesRes, testsRes, messagesRes] = await Promise.all([
-        supabaseAdmin.from("profiles").select("id, tariff_days, tariff_end_date, tariff_start_date, is_trial_used, trial_end_date, created_at, full_name, email"),
-        supabaseAdmin.from("test_results").select("correct_answers, total_questions"),
-        supabaseAdmin.from("contact_messages").select("id"),
+        selectAll((f, t) => supabaseAdmin.from("profiles").select("id, tariff_days, tariff_end_date, tariff_start_date, is_trial_used, trial_end_date, created_at, full_name, email").order("created_at", { ascending: false }).range(f, t)),
+        selectAll((f, t) => supabaseAdmin.from("test_results").select("correct_answers, total_questions").order("created_at", { ascending: false }).range(f, t)),
+        selectAll((f, t) => supabaseAdmin.from("contact_messages").select("id").order("created_at", { ascending: false }).range(f, t)),
       ]);
 
       // Log errors for debugging but keep going with empty arrays
@@ -121,9 +123,9 @@ export default function AdminDashboard() {
           .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
           .slice(0, 8)
       );
-    } catch (e: any) {
+    } catch (e) {
       console.error("Dashboard fetch error:", e);
-      setError("Ma'lumotlarni yuklashda xatolik: " + (e?.message || "noma'lum xato"));
+      setError("Ma'lumotlarni yuklashda xatolik: " + errorMessage(e, "noma'lum xato"));
     }
     setLoading(false);
   };

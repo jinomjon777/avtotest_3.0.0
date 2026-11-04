@@ -5,7 +5,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  { ignores: ["dist", "supabase/functions"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],
@@ -19,7 +19,11 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+      // Kontekst hook'lari va shadcn yordamchilari komponent bilan birga eksport qilinadi (HMR uchun xavfsiz)
+      "react-refresh/only-export-components": ["warn", {
+        allowConstantExport: true,
+        allowExportNames: ["useAuth", "useLanguage", "useTheme", "buttonVariants", "toast", "DARK", "LIGHT", "SEO_LANDINGS"],
+      }],
       "@typescript-eslint/no-unused-vars": "off",
     },
   },

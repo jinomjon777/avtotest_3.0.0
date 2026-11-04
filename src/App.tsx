@@ -8,6 +8,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { lazy, Suspense, Component, ReactNode } from "react";
 import Home from "./pages/Home";
+import { DeviceLimitGate } from "@/components/account/DeviceLimitGate";
 
 interface EBState { hasError: boolean; }
 class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
@@ -88,6 +89,7 @@ const App = () => (
             <TooltipProvider>
               <Toaster />
               <Sonner />
+              <DeviceLimitGate />
               <Suspense fallback={
                 <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <div style={{ width: '40px', height: '40px', border: '3px solid #e5e7eb', borderTopColor: '#7C6FFF', borderRadius: '50%', animation: 'spin 0.6s linear infinite' }} />

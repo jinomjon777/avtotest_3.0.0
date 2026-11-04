@@ -36,14 +36,14 @@ export default function Imtihon() {
     try {
       const c = await claimFreeSession("exam", isPremium);
       if (c === "ok" || c === "ok_free") {
-        const pool = await loadAllPool(questionLang as any, EXAM_QUESTIONS, "exam");
+        const pool = await loadAllPool(questionLang, EXAM_QUESTIONS, "exam");
         setQs(shuffle(pool).slice(0, EXAM_QUESTIONS));
         trackEvent("exam_start");
         setStarted(true);
       }
       setClaim(c);
-    } catch (e: any) {
-      setClaim(e?.code === "daily_limit" ? "limit" : "error");
+    } catch (e) {
+      setClaim((e as { code?: string } | null)?.code === "daily_limit" ? "limit" : "error");
     } finally {
       setClaiming(false);
     }

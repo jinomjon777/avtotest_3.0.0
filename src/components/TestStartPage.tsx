@@ -4,7 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import { Button } from "@/components/ui/button";
-import { Home, BookOpen, Car, FileText, Clock, CheckCircle, HelpCircle, User, LogIn, Globe, Play, AlertTriangle } from "lucide-react";
+import { Home, User, LogIn, Play, AlertTriangle } from "lucide-react";
 
 interface TestStartPageProps {
   onStartTest: (variant: number) => void;
@@ -22,10 +22,10 @@ const variants = Array.from({ length: TOTAL_VARIANTS }, (_, i) => i + 1);
 
 export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) => {
   const [selectedVariant, setSelectedVariant] = useState<number | null>(null);
-  const [showAllVariants, setShowAllVariants] = useState(false);
+  const [showAllVariants] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const { user, profile } = useAuth();
-  const { getVariantStatus, loading: resultsLoading } = useTestResults();
+  const { getVariantStatus } = useTestResults();
   const navigate = useNavigate();
 
   const handleStartTest = () => {

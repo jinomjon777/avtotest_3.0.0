@@ -1,4 +1,6 @@
 import { useEffect, useState, Fragment } from "react";
+import { errorMessage } from "@/lib/utils";
+import { adminApi, selectAll } from "@/lib/adminApi";
 import { supabase } from "@/integrations/supabase/client";
 import {
   Search, Crown, Clock, ChevronDown, ChevronUp,
@@ -10,24 +12,6 @@ import {
 // Statik secret o'rniga joriy admin sessiyasining haqiqiy JWT'si
 // yuboriladi — edge function uni server tomonda tekshiradi va
 // profiles.role === 'admin' ekanini tasdiqlaydi.
-const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/admin-premium`;
-
-async function adminApi(action: string, payload: Record<string, unknown>) {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) throw new Error("Sessiya tugagan, qayta kiring");
-
-  const res = await fetch(EDGE_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${session.access_token}`,
-    },
-    body: JSON.stringify({ action, ...payload }),
-  });
-  const data = await res.json();
-  if (!res.ok || data.error) throw new Error(data.error || "Server xatosi");
-  return data;
-}
 
 const C = {
   bg: "#F1F5F9", card: "#FFFFFF", surface: "#F8FAFC",
@@ -107,7 +91,7 @@ function PremiumConfig({ value, onChange }: { value: { enabled: boolean; days: n
           <div style={{ display: "flex", gap: 5, flexWrap: "wrap", marginBottom: 9 }}>
             {[7, 30, 90, 180, 365].map(d => (
               <button key={d} type="button" onClick={() => onChange({ ...value, days: d })}
-                style={{ padding: "4px 12px", borderRadius: 7, cursor: "pointer", fontSize: 12, fontWeight: 700, background: value.days === d ? C.accent : "#fff", color: value.days === d ? "#fff" : C.muted, border: `1px solid ${value.days === d ? C.accent : C.border}` } as any}>
+                style={{ padding: "4px 12px", borderRadius: 7, cursor: "pointer", fontSize: 12, fontWeight: 700, background: value.days === d ? C.accent : "#fff", color: value.days === d ? "#fff" : C.muted, border: `1px solid ${value.days === d ? C.accent : C.border}` }}>
                 {d} kun
               </button>
             ))}
@@ -159,17 +143,15 @@ function CreateModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
       const em = email.trim().toLowerCase();
       const { data: ex2 } = await supabase.from("profiles").select("id").eq("email", em).limit(1).maybeSingle();
       if (ex2) { setError("Bu email allaqachon ro'yxatdan o'tgan"); setSaving(false); return; }
-      const { data, error: rpcErr } = await (supabase as any).rpc("admin_create_user", { p_email: em, p_password: password.trim(), p_name: fullName.trim() || null, p_username: uname || null });
-      if (rpcErr) { setError(rpcErr.message); setSaving(false); return; }
-      if ((data as any)?.error) { setError((data as any).error); setSaving(false); return; }
-      const userId = (data as any)?.id ?? (data as any)?.user_id ?? (typeof data === "string" ? data : null);
-      if (premium.enabled && userId) {
-        try {
-          await adminApi("give_premium", { userId, days: premium.days });
-        } catch (e: any) { console.warn("Premium berish xatosi:", e.message); }
-      }
+      await adminApi("create_user", {
+        email: em,
+        password: password.trim(),
+        full_name: fullName.trim() || null,
+        username: uname || null,
+        days: premium.enabled ? premium.days : null,
+      });
       onSaved(); onClose();
-    } catch (e: any) { setError(e.message || "Xatolik yuz berdi"); }
+    } catch (e) { setError(errorMessage(e, "Xatolik yuz berdi")); }
     setSaving(false);
   };
 
@@ -228,7 +210,7 @@ function EditModal({ user, onClose, onSaved }: { user: Profile; onClose: () => v
     try {
       await adminApi("update_profile", { userId: user.id, full_name: fullName.trim() || null, username: username.trim() || null });
       onSaved(); onClose();
-    } catch (e: any) { setError(e.message); setSaving(false); }
+    } catch (e) { setError(errorMessage(e)); setSaving(false); }
   };
 
   return (
@@ -262,17 +244,10 @@ function DeleteModal({ user, onClose, onDeleted }: { user: Profile; onClose: () 
   const handleDelete = async () => {
     setDeleting(true);
     try {
-      // Avval RPC orqali auth user ni o'chirish
-      try {
-        const { error: rpcErr } = await (supabase as any).rpc("admin_delete_user", { p_user_id: user.id });
-        if (rpcErr) console.warn("admin_delete_user RPC xatosi:", rpcErr.message);
-      } catch {
-        // RPC xatosi bo'lsa ham davom etamiz
-      }
-      // Keyin profile ni o'chirish
+      // Auth hisob + profil + bog'liq ma'lumotlar server tomonida (admin-premium) o'chiriladi
       await adminApi("delete_user", { userId: user.id });
       onDeleted(); onClose();
-    } catch (e: any) { setError(e.message); setDeleting(false); }
+    } catch (e) { setError(errorMessage(e)); setDeleting(false); }
   };
   return (
     <ModalWrap onClose={onClose}>
@@ -312,7 +287,7 @@ function PremiumPanel({ userId, users, onSaved }: { userId: string; users: Profi
       const endDate = new Date(result.endDate);
       setMsg(`✓ ${d} kun premium berildi (${endDate.toLocaleDateString("uz-UZ")} gacha)`);
       onSaved();
-    } catch (e: any) { setMsg("Xatolik: " + e.message); }
+    } catch (e) { setMsg("Xatolik: " + errorMessage(e)); }
     setSaving(false);
   };
   const revokePremium = async () => {
@@ -320,7 +295,7 @@ function PremiumPanel({ userId, users, onSaved }: { userId: string; users: Profi
     try {
       await adminApi("revoke_premium", { userId: user.id });
       setMsg("✓ Premium bekor qilindi"); onSaved();
-    } catch (e: any) { setMsg("Xatolik: " + e.message); }
+    } catch (e) { setMsg("Xatolik: " + errorMessage(e)); }
     setSaving(false);
   };
 
@@ -383,12 +358,12 @@ export default function AdminUsers() {
 
   const fetchUsers = async () => {
     setLoading(true);
-    const { data } = await supabase.from("profiles").select("*").order("created_at", { ascending: false });
+    const { data } = await selectAll((f, t) => supabase.from("profiles").select("*").order("created_at", { ascending: false }).range(f, t));
     setUsers(data ?? []);
     try {
       const { data: activity } = await adminApi("list_user_activity", {});
       const map: Record<string, string | null> = {};
-      (activity ?? []).forEach((a: any) => { map[a.id] = a.last_sign_in_at ?? null; });
+      (activity ?? []).forEach((a: { id: string; last_sign_in_at: string | null }) => { map[a.id] = a.last_sign_in_at ?? null; });
       setLastSignInMap(map);
     } catch {
       // Bugungi faollik ma'lumoti ixtiyoriy — bo'lmasa ham jadval ko'rsatiladi
@@ -463,7 +438,7 @@ export default function AdminUsers() {
               background: filter === f ? C.accent : C.card,
               color:      filter === f ? "#fff" : C.muted,
               border:     `1px solid ${filter === f ? C.accent : C.border}`,
-            } as any}>
+            }}>
             {{ all: "Hammasi", premium: "Premium", trial: "Trial", free: "Bepul", expired: "Muddati tugagan" }[f]}
             <span style={{ marginLeft: 5, fontSize: 11, opacity: 0.8 }}>({counts[f]})</span>
           </button>
@@ -490,7 +465,7 @@ export default function AdminUsers() {
                 {paginated.length === 0 && (
                   <tr><td colSpan={7} style={{ textAlign: "center", padding: 36, color: C.muted, fontSize: 14 }}>Foydalanuvchi topilmadi</td></tr>
                 )}
-                {paginated.map((u, idx) => {
+                {paginated.map((u) => {
                   const status = getStatus(u);
                   const isOpen = expanded === u.id;
                   const daysLeft = u.tariff_end_date

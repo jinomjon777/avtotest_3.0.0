@@ -2,12 +2,17 @@
 // uchun React Query o'ramalari. Migratsiya qo'llanmagan bo'lsa, `isSetupMissing(error)` true bo'ladi.
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 import { useAuth } from "@/contexts/AuthContext";
 
-async function rpc<T>(name: string, args?: Record<string, unknown>): Promise<T> {
-  const { data, error } = await (supabase as any).rpc(name, args ?? {});
+type RpcName = keyof Database["public"]["Functions"];
+
+async function rpc<T>(name: RpcName, args?: Record<string, unknown>): Promise<T> {
+  // Argumentlar har bir chaqiriqda funksiya imzosiga mos; umumiy o'ram uchun tur bu yerda toraytiriladi
+  const { data, error } = await supabase.rpc(name, (args ?? {}) as never);
   if (error) throw error;
-  if (data && data.ok === false) throw new Error(data.error || "rpc_failed");
+  const d = data as { ok?: boolean; error?: string } | null;
+  if (d && typeof d === "object" && d.ok === false) throw new Error(d.error || "rpc_failed");
   return data as T;
 }
 
@@ -139,7 +144,7 @@ export function useSavedKeys() {
   return useQuery({
     queryKey: ["learn", "saved", user?.id],
     queryFn: async () => {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from("saved_questions")
         .select("question_key, created_at")
         .order("created_at", { ascending: false })
@@ -170,7 +175,7 @@ export function useSaveGoals() {
   const { user } = useAuth();
   return async (values: { exam_date: string | null; daily_goal: number }) => {
     if (!user) throw new Error("not_authenticated");
-    const { error } = await (supabase as any).from("profiles").update(values).eq("id", user.id);
+    const { error } = await supabase.from("profiles").update(values).eq("id", user.id);
     if (error) throw error;
     qc.invalidateQueries({ queryKey: ["learn", "dashboard", user.id] });
   };
@@ -178,7 +183,7 @@ export function useSaveGoals() {
 
 /** Berilgan mavzudagi savollardan foydalanuvchi ilgari javob bergan kalitlar. */
 export async function fetchAnsweredKeys(topicId: string): Promise<Set<string>> {
-  const { data, error } = await (supabase as any)
+  const { data, error } = await supabase
     .from("user_answers")
     .select("question_key")
     .eq("topic_id", topicId)

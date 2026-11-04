@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { selectAll } from "@/lib/adminApi";
 import { supabase } from "@/integrations/supabase/client";
 import { MessageSquare, Search, RefreshCw, Trash2, ChevronDown, ChevronUp, Phone, User } from "lucide-react";
 
@@ -20,13 +21,16 @@ export default function AdminMessages() {
   useEffect(() => { fetchMsgs(); }, []);
   const fetchMsgs = async () => {
     setLoading(true);
-    const { data } = await supabase.from("contact_messages").select("*").order("created_at", { ascending: false });
+    const { data } = await selectAll((f, t) => supabase.from("contact_messages").select("*").order("created_at", { ascending: false }).range(f, t));
     setMsgs(data ?? []); setLoading(false);
   };
   const deleteMsg = async (id: string) => {
     if (!confirm("Xabarni o'chirishni tasdiqlaysizmi?")) return;
-    setDel(id); await supabase.from("contact_messages").delete().eq("id", id);
-    setMsgs(prev => prev.filter(m => m.id !== id)); setDel(null);
+    setDel(id);
+    const { error } = await supabase.from("contact_messages").delete().eq("id", id);
+    if (error) alert("O'chirib bo'lmadi: " + error.message);
+    else setMsgs(prev => prev.filter(m => m.id !== id));
+    setDel(null);
   };
   const filtered = msgs.filter(m => !search || m.name.toLowerCase().includes(search.toLowerCase()) || m.subject.toLowerCase().includes(search.toLowerCase()) || (m.phone && m.phone.includes(search)));
   const todayCount = msgs.filter(m => new Date(m.created_at) > new Date(Date.now() - 86400000)).length;

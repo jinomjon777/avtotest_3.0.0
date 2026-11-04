@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, useMemo, ReactNode } from 'react';
 import uzLatTranslations from '@/locales/uz-lat.json';
 import uzTranslations from '@/locales/uz.json';
 import ruTranslations from '@/locales/ru.json';
@@ -6,7 +6,7 @@ import ruTranslations from '@/locales/ru.json';
 type Language = 'uz-lat' | 'uz' | 'ru';
 
 interface Translations {
-  [key: string]: any;
+  [key: string]: string | Translations;
 }
 
 interface LanguageContextType {
@@ -57,13 +57,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
-    try { document.documentElement.setAttribute('data-app-language', lang); } catch {}
-    try { (window as any).__setAppLanguage = (l: Language) => setLanguageState(l); } catch {}
+    try { document.documentElement.setAttribute('data-app-language', lang); } catch { /* ixtiyoriy: xato e'tiborsiz qoldiriladi */ }
+    try { (window as Window & { __setAppLanguage?: (l: Language) => void }).__setAppLanguage = (l: Language) => setLanguageState(l); } catch { /* ixtiyoriy: xato e'tiborsiz qoldiriladi */ }
   }, []);
 
   const t = useCallback((key: string): string => {
     const keys = key.split('.');
-    let result: any = translations[language];
+    let result: string | Translations | undefined = translations[language] as Translations;
     
     for (const k of keys) {
       if (result && typeof result === 'object' && k in result) {

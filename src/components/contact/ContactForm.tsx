@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label";
 import { Phone, MessageCircle, Send, User, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 type ContactMethod = "phone" | "telegram";
@@ -19,7 +18,6 @@ export function ContactForm() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
-  const { user } = useAuth();
   const { t } = useLanguage();
 
   const formatPhone = (v: string) => setPhone(v.replace(/\D/g, "").substring(0, 9));
@@ -40,7 +38,12 @@ export function ContactForm() {
       toast({ title: t("contact.toastSuccess"), description: t("contact.toastSuccessDesc") });
       setName(""); setPhone(""); setTelegram(""); setMessage("");
     } catch (err) {
-      toast({ title: t("contact.toastError"), description: t("contact.toastErrorDesc"), variant: "destructive" });
+      const limited = /rate_limited/.test(err instanceof Error ? err.message : String((err as { message?: string })?.message ?? ""));
+      toast({
+        title: t("contact.toastError"),
+        description: limited ? "Juda ko'p xabar yuborildi. Bir daqiqadan keyin qayta urinib ko'ring." : t("contact.toastErrorDesc"),
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -70,6 +73,7 @@ export function ContactForm() {
               <Input
                 id="name"
                 value={name}
+                maxLength={120}
                 onChange={(e) => setName(e.target.value)}
                 placeholder={t("contact.placeholderName")}
                 className="pl-10 h-11 bg-muted/30 focus:ring-2 focus:ring-primary/20"
@@ -114,6 +118,7 @@ export function ContactForm() {
             <Input
               type={contactMethod === "phone" ? "tel" : "text"}
               value={contactMethod === "phone" ? phone : telegram}
+              maxLength={contactMethod === "phone" ? 9 : 40}
               onChange={(e) => contactMethod === "phone" ? formatPhone(e.target.value) : setTelegram(e.target.value)}
               placeholder={contactMethod === "phone" ? t("contact.placeholderPhone") : t("contact.placeholderTelegram")}
               className="rounded-l-none h-11 bg-muted/30 focus:ring-2 focus:ring-primary/20"
@@ -127,6 +132,7 @@ export function ContactForm() {
           <Textarea
             id="message"
             value={message}
+            maxLength={4000}
             onChange={(e) => setMessage(e.target.value)}
             placeholder={t("contact.placeholderMessage")}
             className="min-h-[120px] bg-muted/30 resize-none focus:ring-2 focus:ring-primary/20 p-3"

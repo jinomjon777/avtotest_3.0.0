@@ -20,19 +20,19 @@ import {
 } from "lucide-react";
 import { TestInterfaceBase } from "@/components/TestInterfaceBase";
 import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
-import { PREMIUM_QUESTIONS_URL } from "@/lib/fetchQuestionSource";
+import { PREMIUM_SOURCE } from "@/lib/questionFormat";
 
-// Premium fayl ("barcha.json") endi public papkada emas — faqat
-// get-premium-questions Edge Function orqali, server tomonida
-// tasdiqlangan premium foydalanuvchiga beriladi.
+// Premium baza ("barcha") brauzerga butunlay yuklanmaydi: get-questions faqat kerakli
+// miqdordagi tasodifiy savolni beradi. Bepul bazalar — public/ dagi statik fayllar.
 function resolveDataSource(file: string): string {
-  return file === "barcha.json" ? PREMIUM_QUESTIONS_URL : `/${file}`;
+  return file === "barcha.json" ? PREMIUM_SOURCE : `/${file}`;
 }
 
+// Bepul baza tillari: lotin, kirill va rus (rus — bepul savollarning rus tarjimasi, 700baza_ru.json).
 const languages = [
   { id: "uz-lat" as const, label: "Lotin", file: "700baza2.json", proFile: "barcha.json" },
   { id: "uz" as const, label: "Кирилл", file: "700baza.json", proFile: "barcha.json" },
-  { id: "ru" as const, label: "Русский", file: "700baza.json", proFile: "barcha.json" },
+  { id: "ru" as const, label: "Русский", file: "700baza_ru.json", proFile: "barcha.json" },
 ];
 
 const FREE_VARIANT = 99;
@@ -193,7 +193,7 @@ export default function TestIshlash() {
               {languages.map((lang) => (
                 <button
                   key={lang.id}
-                  onClick={() => setLanguage(lang.id as any)}
+                  onClick={() => setLanguage(lang.id)}
                   className={`px-2 sm:px-4 py-1.5 rounded-md text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap ${
                     language === lang.id
                       ? "bg-gradient-to-r from-[hsl(250_70%_56%)] to-[hsl(190_80%_45%)] text-white shadow-sm"

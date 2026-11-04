@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { errorMessage } from "@/lib/utils";
 import { RefreshCw } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { isSetupMissing } from "@/hooks/useLearning";
@@ -50,15 +51,17 @@ export default function AdminAnalytics() {
   const load = useCallback(async () => {
     setLoading(true); setError(null);
     try {
-      const { data: r, error: e } = await (supabase as any).rpc("get_admin_analytics", { p_days: days });
+      const { data: raw, error: e } = await supabase.rpc("get_admin_analytics", { p_days: days });
+      const r = raw as (Analytics & { ok?: boolean; error?: string }) | null;
       if (e) throw e;
-      if (r?.ok === false) throw new Error(r.error === "forbidden" ? "Ruxsat yo'q (admin emas)" : r.error);
+      if (!r) throw new Error("Bo'sh javob");
+      if (r.ok === false) throw new Error(r.error === "forbidden" ? "Ruxsat yo'q (admin emas)" : r.error);
       setData(r as Analytics);
       const keys = (r.hard_questions ?? []).map((q: { question_key: string }) => q.question_key);
       if (keys.length) resolveQuestions(keys, "oz").then(setQmap).catch(() => undefined);
-    } catch (e: any) {
+    } catch (e) {
       setData(null);
-      setError(isSetupMissing(e) ? "Analitika migratsiyasi (20260803000000_admin_analytics.sql) hali qo'llanmagan." : e?.message || "Xatolik");
+      setError(isSetupMissing(e) ? "Analitika migratsiyasi (20260803000000_admin_analytics.sql) hali qo'llanmagan." : errorMessage(e, "Xatolik"));
     } finally {
       setLoading(false);
     }

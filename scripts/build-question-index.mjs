@@ -154,7 +154,7 @@ for (const id of AGGREGATE) { const f = P(MAVZULI_DIR, `${id}.json`); if (fs.exi
 runBank("mavzuli-aggregate", aggItems);
 
 // premium baza (barcha.json) — repoda bo'lsa
-const barchaPath = P("supabase/functions/get-premium-questions/barcha.json");
+const barchaPath = P("supabase/question-data/barcha.json");
 if (fs.existsSync(barchaPath)) runBank("barcha(premium)", readJson(barchaPath).map(newFmt));
 
 // bepul baza: 700baza2.json (lotin). id -> kalit
@@ -228,6 +228,34 @@ if (process.argv.includes("--samples")) { console.log("Birlashtirilgan so'z juft
       });
     }
   }
+  // Premium "Test ishlash" bazasi (barcha.json) — butun fayl brauzerga EMAS, faqat tasodifiy to'plam
+  if (fs.existsSync(barchaPath)) {
+    files["b:barcha"] = readJson(barchaPath).map((q) => {
+      const { task_info, ...rest } = q;
+      const s = JSON.stringify(rest);
+      if (!bankIdx.has(s)) { bankIdx.set(s, bank.length); bank.push(rest); }
+      return task_info === undefined ? [bankIdx.get(s)] : [bankIdx.get(s), task_info];
+    });
+  }
+
+  // Har bank savolining kanonik kaliti (served_questions uchun: server bergan savolni yozib qo'yadi)
+  const bankKeys = bank.map((q) => { const { stem, opts } = newFmt(q); const own = questionKey(stem, opts); return own ? effKey(own) : null; });
+  fs.writeFileSync(P(FN, "data/bank_keys.json"), JSON.stringify(bankKeys));
+
+  // Rus tilidagi BEPUL baza: bepul bazadagi (700baza2) savollarning premium bankdagi rus tarjimasi.
+  // Faqat bepul bazada allaqachon bor savollar — premium kontent ochilmaydi.
+  const freeKeySet = new Set(Object.values(freeKeys));
+  const ruSeen = new Set();
+  const ruFree = [];
+  bank.forEach((q, i) => {
+    const k = bankKeys[i];
+    if (!k || !freeKeySet.has(k) || ruSeen.has(k) || !q?.content?.ru?.options?.length) return;
+    ruSeen.add(k);
+    ruFree.push(q);
+  });
+  fs.writeFileSync(P("public/700baza_ru.json"), JSON.stringify(ruFree));
+  console.log(`700baza_ru.json: ${ruFree.length} ta bepul savol (rus tilida)`);
+
   // bank gzip + base64 holida JSON ichida (statik import faqat JSON'ni qabul qiladi; ~4 barobar kichik)
   const gz = zlib.gzipSync(Buffer.from(JSON.stringify(bank), "utf8"), { level: 9 }).toString("base64");
   fs.writeFileSync(P(FN, "data/bank.gz.json"), JSON.stringify({ format: "gzip-base64-json", gz }));
