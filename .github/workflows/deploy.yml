@@ -40,8 +40,8 @@ jobs:
     if: ${{ github.event.inputs.confirm == 'DEPLOY' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm
@@ -68,7 +68,7 @@ jobs:
       SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
       PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Secret'lar borligini tekshirish
         run: |
           for v in SUPABASE_ACCESS_TOKEN SUPABASE_DB_URL PROJECT_REF; do
@@ -100,7 +100,7 @@ jobs:
     env:
       HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: main'ga yuborish (Cloudflare Git integratsiyasi saytni deploy qiladi)
