@@ -1,0 +1,120 @@
+# Bir tugma bilan production: GitHub → Actions → "Deploy production" → Run workflow.
+#
+# Tartib (xavfsiz ketma-ketlik):
+#   1. To'liq tekshiruv (turlar, lint, SQL testlar, build)
+#   2. Supabase: migratsiyalar (db push)
+#   3. Supabase: Edge Functions deploy (+ eskirgan funksiyalarni o'chirish)
+#   4. Kod main'ga yuboriladi → Cloudflare saytni avtomatik build/deploy qiladi
+#      (CLOUDFLARE_API_TOKEN berilgan bo'lsa — shu yerning o'zida wrangler bilan)
+#
+# Kerakli GitHub secrets (Settings → Secrets and variables → Actions):
+#   SUPABASE_ACCESS_TOKEN  — supabase.com/dashboard/account/tokens
+#   SUPABASE_PROJECT_REF   — loyiha identifikatori (masalan: lvdndseuobzbgzrarygu)
+#   SUPABASE_DB_URL        — Project Settings → Database → Connection string (URI, "Session pooler"), parol bilan
+#
+# Migratsiyalar: production bazasi repodagi migratsiyalar tarixidan farq qiladi (schema drift), shuning uchun
+# `supabase db push` ishlatilmaydi — faqat supabase/deploy-migrations.txt da sanalgan IDEMPOTENT fayllar
+# psql bilan (har biri bitta tranzaksiyada, birinchi xatoda to'xtab) qo'llanadi.
+# Ixtiyoriy: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, VITE_SUPABASE_URL, VITE_SUPABASE_PUBLISHABLE_KEY
+#
+# Edge Function secret'lari (bot tokeni, R2 kalitlari va h.k.) Supabase Dashboard'da turadi — docs/DEPLOY.md.
+name: Deploy production
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Tasdiqlash uchun DEPLOY deb yozing"
+        required: true
+        default: ""
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    if: ${{ github.event.inputs.confirm == 'DEPLOY' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || 'https://example.supabase.co' }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY || 'ci-placeholder' }}
+      - name: SQL testlar (bo'sh Postgres)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq postgresql > /dev/null
+          for t in supabase/tests/[1-9]*_test.sql; do
+            out=$(sudo sh supabase/tests/run.sh "$t" 2>&1)
+            if echo "$out" | grep -qE "FAIL|MIGRATSIYA XATOSI"; then echo "$out"; echo "::error::$t"; exit 1; fi
+          done
+
+  supabase:
+    needs: verify
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+      PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Secret'lar borligini tekshirish
+        run: |
+          for v in SUPABASE_ACCESS_TOKEN SUPABASE_DB_URL PROJECT_REF; do
+            if [ -z "$(printenv $v)" ]; then echo "::error::$v GitHub secret'i sozlanmagan (docs/DEPLOY.md)"; exit 1; fi
+          done
+      - name: Migratsiyalar (idempotent, ro'yxat bo'yicha)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client > /dev/null
+          grep -vE '^\s*(#|$)' supabase/deploy-migrations.txt | while read -r f; do
+            echo "→ $f"
+            psql "$SUPABASE_DB_URL" -v ON_ERROR_STOP=1 -1 -q -f "supabase/migrations/$f"
+          done
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - name: Edge Functions
+        run: |
+          sed -i "s/^project_id = .*/project_id = \"$PROJECT_REF\"/" supabase/config.toml
+          supabase functions deploy --project-ref "$PROJECT_REF"
+          # Vazifasi yangi funksiyalar va bazaga o'tgan eski funksiyalar
+          for f in get-premium-questions get-user-access auto-confirm-signup; do
+            supabase functions delete "$f" --project-ref "$PROJECT_REF" || true
+          done
+
+  site:
+    needs: supabase
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: main'ga yuborish (Cloudflare Git integratsiyasi saytni deploy qiladi)
+        if: ${{ github.ref_name != 'main' }}
+        run: |
+          git push origin "HEAD:refs/heads/main"
+      - name: Cloudflare'ga to'g'ridan-to'g'ri deploy (ixtiyoriy)
+        if: ${{ env.HAS_CF == 'true' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          npm ci
+          npm run build
+          npx wrangler@3 deploy
