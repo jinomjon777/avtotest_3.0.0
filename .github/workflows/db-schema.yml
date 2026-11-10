@@ -1,0 +1,20 @@
+# Vaqtinchalik diagnostika: production sxemasining TUZILISHI (ma'lumotsiz) — migratsiyani moslash uchun.
+name: DB schema snapshot
+on:
+  workflow_dispatch:
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sxema
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client > /dev/null
+          psql "$SUPABASE_DB_URL" -At -c "SELECT 'COL '||table_name||'.'||column_name||' '||udt_name||' '||is_nullable FROM information_schema.columns WHERE table_schema='public' ORDER BY table_name, ordinal_position"
+          psql "$SUPABASE_DB_URL" -At -c "SELECT 'TYPE '||n.nspname||'.'||t.typname||' '||coalesce((SELECT string_agg(enumlabel,',') FROM pg_enum WHERE enumtypid=t.oid),'') FROM pg_type t JOIN pg_namespace n ON n.oid=t.typnamespace WHERE t.typtype='e'"
+          psql "$SUPABASE_DB_URL" -At -c "SELECT 'FN '||p.proname||'('||pg_get_function_identity_arguments(p.oid)||') -> '||format_type(p.prorettype,NULL) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='public' AND NOT EXISTS (SELECT 1 FROM pg_depend d WHERE d.objid=p.oid AND d.deptype='e') ORDER BY 1"
+          psql "$SUPABASE_DB_URL" -At -c "SELECT 'POL '||tablename||' '||policyname||' '||cmd FROM pg_policies WHERE schemaname='public' ORDER BY 1"
+          psql "$SUPABASE_DB_URL" -At -c "SELECT 'TRG '||event_object_schema||'.'||event_object_table||' '||trigger_name FROM information_schema.triggers WHERE event_object_schema IN ('public','auth') ORDER BY 1"
+          psql "$SUPABASE_DB_URL" -At -c "SELECT 'BUCKET '||id||' public='||public FROM storage.buckets"
+          psql "$SUPABASE_DB_URL" -At -c "SELECT 'EXT '||extname FROM pg_extension"
