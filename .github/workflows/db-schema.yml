@@ -1,7 +1,10 @@
 # Vaqtinchalik diagnostika: production sxemasining TUZILISHI (ma'lumotsiz) — migratsiyani moslash uchun.
+# run: 2
 name: DB schema snapshot
 on:
-  workflow_dispatch:
+  push:
+    branches: [release/3.1.0]
+    paths: [.github/workflows/db-schema.yml]
 jobs:
   schema:
     runs-on: ubuntu-latest
