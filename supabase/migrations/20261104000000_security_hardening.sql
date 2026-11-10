@@ -50,6 +50,61 @@ REVOKE ALL ON FUNCTION public.current_user_email() FROM PUBLIC, anon;
 GRANT EXECUTE ON FUNCTION public.current_user_email() TO authenticated, service_role;
 
 -- ─────────────────────────────────────────────────────────────
+-- 0b. SCHEMA DRIFT himoyasi: production bazasi repodagi migratsiyalardan farq qiladi
+--     (ba'zi jadvallar qo'lda yaratilgan). Quyida ishlatiladigan barcha ustun/jadvallar
+--     mavjudligi kafolatlanadi — bor bo'lsa hech narsa o'zgarmaydi.
+-- ─────────────────────────────────────────────────────────────
+ALTER TABLE public.profiles
+  ADD COLUMN IF NOT EXISTS full_name  text,
+  ADD COLUMN IF NOT EXISTS username   text,
+  ADD COLUMN IF NOT EXISTS created_at timestamptz NOT NULL DEFAULT now();
+
+CREATE TABLE IF NOT EXISTS public.contact_messages (
+  id         uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+ALTER TABLE public.contact_messages
+  ADD COLUMN IF NOT EXISTS user_id    uuid REFERENCES auth.users(id) ON DELETE SET NULL,
+  ADD COLUMN IF NOT EXISTS name       text,
+  ADD COLUMN IF NOT EXISTS phone      text,
+  ADD COLUMN IF NOT EXISTS subject    text,
+  ADD COLUMN IF NOT EXISTS message    text,
+  ADD COLUMN IF NOT EXISTS created_at timestamptz NOT NULL DEFAULT now();
+ALTER TABLE public.contact_messages ENABLE ROW LEVEL SECURITY;
+
+CREATE TABLE IF NOT EXISTS public.chek (
+  id         uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+ALTER TABLE public.chek
+  ADD COLUMN IF NOT EXISTS email       text,
+  ADD COLUMN IF NOT EXISTS chek_link   text,
+  ADD COLUMN IF NOT EXISTS amount      integer,
+  ADD COLUMN IF NOT EXISTS tariff_days integer,
+  ADD COLUMN IF NOT EXISTS processed   boolean NOT NULL DEFAULT false,
+  ADD COLUMN IF NOT EXISTS created_at  timestamptz NOT NULL DEFAULT now();
+
+CREATE TABLE IF NOT EXISTS public.rate_limits (
+  id         bigserial PRIMARY KEY,
+  identifier text NOT NULL,
+  action     text NOT NULL,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS rate_limits_lookup_idx ON public.rate_limits (identifier, action, created_at);
+
+CREATE TABLE IF NOT EXISTS public.telegram_bot_sessions (
+  chat_id    bigint PRIMARY KEY,
+  username   text,
+  first_name text,
+  step       text NOT NULL DEFAULT 'idle',
+  plan_days  integer,
+  plan_amount integer,
+  site_email text,
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+ALTER TABLE public.telegram_bot_sessions ENABLE ROW LEVEL SECURITY;
+
+-- ─────────────────────────────────────────────────────────────
 -- 1. PROFILES: himoyalangan maydonlar
 -- ─────────────────────────────────────────────────────────────
 ALTER TABLE public.profiles
@@ -262,14 +317,22 @@ REVOKE ALL ON public.served_questions FROM PUBLIC, anon, authenticated;
 
 -- Bir martalik: shu migratsiyagacha haqiqatan ishlangan savollar egalikda qoladi
 -- (eski "Xatolarim" ro'yxatlari yo'qolmasligi uchun).
-INSERT INTO public.served_questions (user_id, question_key, served_at)
-SELECT user_id, question_key, min(answered_at)
-  FROM public.user_answers
- GROUP BY user_id, question_key
-ON CONFLICT DO NOTHING;
-INSERT INTO public.served_questions (user_id, question_key, served_at)
-SELECT user_id, question_key, created_at FROM public.saved_questions
-ON CONFLICT DO NOTHING;
+DO $$ BEGIN
+  IF to_regclass('public.user_answers') IS NOT NULL THEN
+    INSERT INTO public.served_questions (user_id, question_key, served_at)
+    SELECT user_id, question_key, min(answered_at)
+      FROM public.user_answers
+     WHERE question_key ~ '^[0-9a-f]{16}$'
+     GROUP BY user_id, question_key
+    ON CONFLICT DO NOTHING;
+  END IF;
+  IF to_regclass('public.saved_questions') IS NOT NULL THEN
+    INSERT INTO public.served_questions (user_id, question_key, served_at)
+    SELECT user_id, question_key, created_at FROM public.saved_questions
+     WHERE question_key ~ '^[0-9a-f]{16}$'
+    ON CONFLICT DO NOTHING;
+  END IF;
+END $$;
 
 CREATE OR REPLACE FUNCTION public.record_served_questions(p_uid uuid, p_keys text[])
 RETURNS integer
@@ -538,6 +601,11 @@ CREATE TABLE IF NOT EXISTS public.user_sessions (
   last_seen   timestamptz NOT NULL DEFAULT now(),
   created_at  timestamptz NOT NULL DEFAULT now()
 );
+-- Jadval production'da qo'lda yaratilgan bo'lishi mumkin: kerakli ustunlar kafolatlanadi
+ALTER TABLE public.user_sessions
+  ADD COLUMN IF NOT EXISTS device_info text,
+  ADD COLUMN IF NOT EXISTS last_seen   timestamptz NOT NULL DEFAULT now(),
+  ADD COLUMN IF NOT EXISTS created_at  timestamptz NOT NULL DEFAULT now();
 DO $$ BEGIN
   IF NOT EXISTS (
     SELECT 1 FROM pg_indexes WHERE schemaname = 'public' AND tablename = 'user_sessions'
@@ -567,6 +635,13 @@ REVOKE ALL ON public.device_removals FROM PUBLIC, anon, authenticated;
 -- 9. TELEGRAM BOT: suhbat holatiga kutilayotgan chek va email urinishlari
 -- ─────────────────────────────────────────────────────────────
 ALTER TABLE public.telegram_bot_sessions
+  ADD COLUMN IF NOT EXISTS username         text,
+  ADD COLUMN IF NOT EXISTS first_name       text,
+  ADD COLUMN IF NOT EXISTS step             text NOT NULL DEFAULT 'idle',
+  ADD COLUMN IF NOT EXISTS plan_days        integer,
+  ADD COLUMN IF NOT EXISTS plan_amount      integer,
+  ADD COLUMN IF NOT EXISTS site_email       text,
+  ADD COLUMN IF NOT EXISTS updated_at       timestamptz NOT NULL DEFAULT now(),
   ADD COLUMN IF NOT EXISTS receipt_file_id  text,
   ADD COLUMN IF NOT EXISTS receipt_url      text,
   ADD COLUMN IF NOT EXISTS pending_chek_id  uuid,
