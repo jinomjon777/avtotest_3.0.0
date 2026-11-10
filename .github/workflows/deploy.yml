@@ -81,7 +81,7 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client > /dev/null
           grep -vE '^\s*(#|$)' supabase/deploy-migrations.txt | while read -r f; do
             echo "→ $f"
-            psql "$SUPABASE_DB_URL" -v ON_ERROR_STOP=1 -1 -q -f "supabase/migrations/$f"
+            psql "$SUPABASE_DB_URL" -v ON_ERROR_STOP=1 -1 -q -f "supabase/migrations/$f" || exit 1
           done
       - uses: supabase/setup-cli@v1
         with:
@@ -89,10 +89,11 @@ jobs:
       - name: Edge Functions
         run: |
           sed -i "s/^project_id = .*/project_id = \"$PROJECT_REF\"/" supabase/config.toml
-          supabase functions deploy --project-ref "$PROJECT_REF"
+          # CI'da terminal yo'q: --yes tasdiqlashsiz deploy qiladi
+          supabase functions deploy --project-ref "$PROJECT_REF" --yes
           # Vazifasi yangi funksiyalar va bazaga o'tgan eski funksiyalar
           for f in get-premium-questions get-user-access auto-confirm-signup; do
-            supabase functions delete "$f" --project-ref "$PROJECT_REF" || true
+            supabase functions delete "$f" --project-ref "$PROJECT_REF" --yes || true
           done
 
   site:
