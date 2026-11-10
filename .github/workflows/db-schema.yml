@@ -1,5 +1,5 @@
 # Vaqtinchalik diagnostika: production sxemasining TUZILISHI (ma'lumotsiz) — migratsiyani moslash uchun.
-# run: 2
+# run: 3
 name: DB schema snapshot
 on:
   push:
@@ -9,15 +9,23 @@ jobs:
   schema:
     runs-on: ubuntu-latest
     steps:
-      - name: Sxema
+      - name: Sxema (pg_dump --schema-only)
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client > /dev/null
-          psql "$SUPABASE_DB_URL" -At -c "SELECT 'COL '||table_name||'.'||column_name||' '||udt_name||' '||is_nullable FROM information_schema.columns WHERE table_schema='public' ORDER BY table_name, ordinal_position"
-          psql "$SUPABASE_DB_URL" -At -c "SELECT 'TYPE '||n.nspname||'.'||t.typname||' '||coalesce((SELECT string_agg(enumlabel,',') FROM pg_enum WHERE enumtypid=t.oid),'') FROM pg_type t JOIN pg_namespace n ON n.oid=t.typnamespace WHERE t.typtype='e'"
-          psql "$SUPABASE_DB_URL" -At -c "SELECT 'FN '||p.proname||'('||pg_get_function_identity_arguments(p.oid)||') -> '||format_type(p.prorettype,NULL) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='public' AND NOT EXISTS (SELECT 1 FROM pg_depend d WHERE d.objid=p.oid AND d.deptype='e') ORDER BY 1"
-          psql "$SUPABASE_DB_URL" -At -c "SELECT 'POL '||tablename||' '||policyname||' '||cmd FROM pg_policies WHERE schemaname='public' ORDER BY 1"
-          psql "$SUPABASE_DB_URL" -At -c "SELECT 'TRG '||event_object_schema||'.'||event_object_table||' '||trigger_name FROM information_schema.triggers WHERE event_object_schema IN ('public','auth') ORDER BY 1"
-          psql "$SUPABASE_DB_URL" -At -c "SELECT 'BUCKET '||id||' public='||public FROM storage.buckets"
-          psql "$SUPABASE_DB_URL" -At -c "SELECT 'EXT '||extname FROM pg_extension"
+          sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-common > /dev/null
+          sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y > /dev/null 2>&1
+          sudo apt-get install -y -qq postgresql-client-17 > /dev/null
+          mkdir out
+          /usr/lib/postgresql/17/bin/psql "$SUPABASE_DB_URL" -At -c "select version()" > out/version.txt
+          /usr/lib/postgresql/17/bin/pg_dump "$SUPABASE_DB_URL" --schema-only --no-owner -n public > out/public.sql
+          /usr/lib/postgresql/17/bin/psql "$SUPABASE_DB_URL" -At -c "SELECT schemaname, tablename, policyname, cmd, roles::text, qual, with_check FROM pg_policies WHERE schemaname='storage'" > out/storage_policies.txt
+          /usr/lib/postgresql/17/bin/psql "$SUPABASE_DB_URL" -At -c "SELECT tgname, tgrelid::regclass, pg_get_triggerdef(oid) FROM pg_trigger WHERE tgrelid='auth.users'::regclass AND NOT tgisinternal" > out/auth_triggers.txt
+          /usr/lib/postgresql/17/bin/psql "$SUPABASE_DB_URL" -At -c "SELECT jobid, schedule, jobname, left(command,300) FROM cron.job" > out/cron.txt 2>&1 || true
+          /usr/lib/postgresql/17/bin/psql "$SUPABASE_DB_URL" -At -c "SELECT role, count(*) FROM public.user_roles GROUP BY 1" > out/roles.txt 2>&1 || true
+          wc -l out/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: schema
+          path: out/
+          retention-days: 1
