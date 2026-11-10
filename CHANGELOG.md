@@ -3,10 +3,12 @@
 ## 3.1.0 — 2026-11-04 · To'liq xavfsizlik va sifat auditi
 
 ### Xavfsizlik (kritik)
+- **Hisoblarni o'chirish/yaratish RPC'lari yopildi.** Production bazada `admin_delete_user` va `admin_create_user` anon kalit bilan, admin tekshiruvisiz chaqirilardi: istalgan kishi istalgan hisobni o'chira olardi. Funksiyalar o'chirildi, bu amallar `admin-premium` funksiyasida (admin tekshiruvi bilan).
+- **Profillar oshkor bo'lmaydi.** "Anyone can read profiles" siyosati barcha foydalanuvchilarning email va tariflarini ochiq qilardi. Endi foydalanuvchi faqat o'z profilini, admin esa hammasini ko'radi.
 - **Premium savollarni o'g'irlash yopildi.** Bepul hisob ochiq `question_locator.json` dagi kalitlarni "saqlab" (`toggle_saved_question`) yoki soxta javob yuborib (`submit_test`) butun premium bazani `get-questions → keys` orqali olishi mumkin edi. Endi egalik faqat server haqiqatan bergan savollar asosida aniqlanadi (`served_questions`).
 - **Premium videolar yopildi.** 209 ta ommaviy `r2.dev` havolasi sayt paketidan va `public/malumotlar.json` dan olib tashlandi. Havolani endi `get-video-url` beradi: premium va qurilma tekshiruvidan keyin, imzolangan va muddatli holda.
 - **Aloqa xabarlari himoyalandi.** `contact_own_select` siyosati anon kalit bilan barcha ism, telefon va xabarlarni o'qishga ruxsat berardi. Endi ularni faqat admin o'qiydi.
-- **To'lov cheklari yopildi.** `receipts` bucket endi ommaviy emas; admin chekni 10 daqiqalik imzolangan havola orqali ko'radi.
+- **To'lov cheklari yopildi.** `receipts` va eski `cheklar` bucket'lari endi ommaviy emas; admin chekni 10 daqiqalik imzolangan havola orqali ko'radi.
 
 ### Xavfsizlik (yuqori va o'rta)
 - **Telegram bot:**
@@ -41,7 +43,7 @@
 - **To'lovlar:** holatlar (kutilmoqda, tasdiqlangan, rad etilgan), tasdiqlash va rad etish, chekni imzolangan havola bilan ko'rish.
 - **Tariflar narxi** "Sozlamalar → Tariflar"dan o'zgartiriladi. Premium sahifasi, bot va moliya bitta manbadan (`plans`) oladi.
 - **1000 qator chegarasi:** barcha ro'yxatlar sahifalab to'liq o'qiladi.
-- **Bazada bo'lmagan RPC'lar** (`admin_create_user`, `admin_delete_user`) edge funksiyaga ko'chirildi.
+- **Foydalanuvchi yaratish/o'chirish** (`admin_create_user`, `admin_delete_user`) edge funksiyaga ko'chirildi.
 
 ### Foydalanuvchi uchun
 - **Premium "Test ishlash"** butun bazani (~3.5 MB) emas, faqat kerakli savollarni yuklaydi.
@@ -60,4 +62,6 @@
 - `index.html` dagi global `!important` CSS qatlamlari olib tashlandi.
 - Savol formatlari bitta modulda (`questionFormat.ts`).
 - Ishlatilmaydigan kod o'chirildi: 95 ta fayl (shundan 59 tasi `src/` da), 33 ta npm paket, eski `mavzuli/` ilovasi, `avtotest/`, `netlify.toml`, `bun.lock`.
-- CI: turlar, lint, build, Deno check va SQL testlar. SQL testlar soni 174 tadan 208 taga yetdi.
+- CI: turlar, lint, build, Deno check va SQL testlar. SQL testlar soni 174 tadan 231 taga yetdi.
+- **Production sxemasi testi:** migratsiya production bazasining haqiqiy tuzilishida (`supabase/tests/prod/schema.sql`) ikki marta qo'llanib tekshiriladi (`npm run test:db:prod`, 55 ta test). Production repodagi migratsiyalardan farq qiladi (masalan, `user_roles.role` turi `text`), migratsiya shunga moslashadi.
+- **"Deploy production" workflow:** bir tugma bilan tekshiruv → migratsiya → Edge Functions → sayt.

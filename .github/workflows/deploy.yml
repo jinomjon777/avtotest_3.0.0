@@ -2,14 +2,14 @@
 #
 # Tartib (xavfsiz ketma-ketlik):
 #   1. To'liq tekshiruv (turlar, lint, SQL testlar, build)
-#   2. Supabase: migratsiyalar (db push)
+#   2. Supabase: migratsiyalar (deploy-migrations.txt, psql)
 #   3. Supabase: Edge Functions deploy (+ eskirgan funksiyalarni o'chirish)
 #   4. Kod main'ga yuboriladi → Cloudflare saytni avtomatik build/deploy qiladi
 #      (CLOUDFLARE_API_TOKEN berilgan bo'lsa — shu yerning o'zida wrangler bilan)
 #
 # Kerakli GitHub secrets (Settings → Secrets and variables → Actions):
 #   SUPABASE_ACCESS_TOKEN  — supabase.com/dashboard/account/tokens
-#   SUPABASE_PROJECT_REF   — loyiha identifikatori (masalan: lvdndseuobzbgzrarygu)
+#   SUPABASE_PROJECT_REF   — loyiha identifikatori (Project Settings → General → Project ID)
 #   SUPABASE_DB_URL        — Project Settings → Database → Connection string (URI, "Session pooler"), parol bilan
 #
 # Migratsiyalar: production bazasi repodagi migratsiyalar tarixidan farq qiladi (schema drift), shuning uchun
@@ -58,6 +58,8 @@ jobs:
             out=$(sudo sh supabase/tests/run.sh "$t" 2>&1)
             if echo "$out" | grep -qE "FAIL|MIGRATSIYA XATOSI"; then echo "$out"; echo "::error::$t"; exit 1; fi
           done
+          out=$(sudo sh supabase/tests/run-prod.sh 2>&1)
+          if echo "$out" | grep -qE "FAIL|MIGRATSIYA XATOSI"; then echo "$out"; echo "::error::production sxemasi testi"; exit 1; fi
 
   supabase:
     needs: verify

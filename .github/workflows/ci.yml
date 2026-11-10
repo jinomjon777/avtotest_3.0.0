@@ -63,3 +63,8 @@ jobs:
             echo "$out" | grep -E "PASS|FAIL|MIGRATSIYA" || true
             if echo "$out" | grep -qE "FAIL|MIGRATSIYA XATOSI"; then echo "::error::$t"; exit 1; fi
           done
+      - name: Production sxemasida deploy migratsiyalari (schema drift, idempotentlik)
+        run: |
+          out=$(sudo sh supabase/tests/run-prod.sh 2>&1)
+          echo "$out" | grep -E "PASS|FAIL|MIGRATSIYA|==" || true
+          if echo "$out" | grep -qE "FAIL|MIGRATSIYA XATOSI"; then echo "::error::run-prod.sh"; exit 1; fi

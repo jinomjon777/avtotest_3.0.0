@@ -14,7 +14,8 @@
     "questions": "node scripts/build-question-index.mjs",
     "sitemap": "node scripts/prerender.mjs --sitemap-only",
     "db:types": "python3 scripts/gen-db-types.py",
-    "test:db": "sh supabase/tests/run.sh"
+    "test:db": "sh supabase/tests/run.sh",
+    "test:db:prod": "sh supabase/tests/run-prod.sh"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",

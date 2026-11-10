@@ -17,6 +17,7 @@
 -- 10. check_rate_limit(): faqat service_role, search_path bilan
 -- 11. test_results: to'g'ridan-to'g'ri yozish yopildi (avvalgi post-deploy/001 shu yerga ko'chdi)
 -- 12. Eski, ishlatilmaydigan public.admin jadvali o'chirildi
+-- 14. Production drift: ochiq admin_* RPC'lar, "Anyone can read profiles", ochiq cheklar bucket
 -- ============================================================
 
 -- ─────────────────────────────────────────────────────────────
@@ -651,18 +652,34 @@ ALTER TABLE public.telegram_bot_sessions
 -- ─────────────────────────────────────────────────────────────
 -- 10. has_role(): oddiy foydalanuvchi FAQAT o'zining rolini tekshira oladi
 -- ─────────────────────────────────────────────────────────────
-CREATE OR REPLACE FUNCTION public.has_role(_user_id uuid, _role app_role)
-RETURNS boolean
-LANGUAGE sql
-STABLE
-SECURITY DEFINER
-SET search_path = public, pg_temp
-AS $$
-  SELECT CASE
-    WHEN public.is_client_context() AND _user_id IS DISTINCT FROM auth.uid() THEN false
-    ELSE EXISTS (SELECT 1 FROM public.user_roles WHERE user_id = _user_id AND role = _role)
-  END;
-$$;
+-- Production'da user_roles.role turi app_role emas, text bo'lishi mumkin (schema drift) va mavjud
+-- storage siyosatlari has_role(uuid, text) ga bog'langan. Shuning uchun funksiya ustun turi bilan
+-- (DROP qilinmasdan) qayta yoziladi: imzo o'zgarmaydi, bog'liq siyosatlar buzilmaydi.
+DO $do$
+DECLARE
+  v_type text;
+BEGIN
+  SELECT format_type(a.atttypid, a.atttypmod) INTO v_type
+    FROM pg_attribute a
+   WHERE a.attrelid = 'public.user_roles'::regclass AND a.attname = 'role' AND NOT a.attisdropped;
+  IF v_type IS NULL THEN
+    RAISE EXCEPTION 'public.user_roles.role ustuni topilmadi';
+  END IF;
+  EXECUTE format($f$
+    CREATE OR REPLACE FUNCTION public.has_role(_user_id uuid, _role %s)
+    RETURNS boolean
+    LANGUAGE sql
+    STABLE
+    SECURITY DEFINER
+    SET search_path = public, pg_temp
+    AS $b$
+      SELECT CASE
+        WHEN public.is_client_context() AND _user_id IS DISTINCT FROM auth.uid() THEN false
+        ELSE EXISTS (SELECT 1 FROM public.user_roles WHERE user_id = _user_id AND role::text = _role::text)
+      END;
+    $b$$f$, v_type);
+END
+$do$;
 
 -- ─────────────────────────────────────────────────────────────
 -- 11. RATE LIMIT yordamchilari: faqat server
@@ -754,5 +771,71 @@ END $$;
 -- 13. Eski admin jadvali (endi admin = user_roles + Supabase Auth). Kodda ishlatilmaydi.
 -- ─────────────────────────────────────────────────────────────
 DROP TABLE IF EXISTS public.admin;
+
+-- ─────────────────────────────────────────────────────────────
+-- 14. PRODUCTION DRIFT: qo'lda yaratilgan, haddan tashqari keng huquqlar
+--     (production sxemasi repodagi migratsiyalardan farq qiladi — quyidagilar u yerda topilgan)
+-- ─────────────────────────────────────────────────────────────
+-- admin_create_user / admin_delete_user: SECURITY DEFINER, anon'ga ochiq va admin tekshiruvisiz edi —
+-- istalgan kishi istalgan hisobni o'chira yoki tasdiqlangan hisob yarata olardi.
+-- Bu amallar endi admin-premium edge funksiyasida (admin tekshiruvi bilan).
+DROP FUNCTION IF EXISTS public.admin_create_user(text, text, text, text);
+DROP FUNCTION IF EXISTS public.admin_delete_user(uuid);
+
+-- profiles: "Anyone can read profiles" (USING true) barcha email va tariflarni oshkor qilardi.
+-- Barcha siyosatlar yagona to'plamga keltiriladi: o'z qatori + admin o'qishi.
+DO $$
+DECLARE r record;
+BEGIN
+  FOR r IN SELECT policyname FROM pg_policies WHERE schemaname = 'public' AND tablename = 'profiles'
+  LOOP
+    EXECUTE format('DROP POLICY %I ON public.profiles', r.policyname);
+  END LOOP;
+  -- user_sessions: brauzer to'g'ridan-to'g'ri o'qimaydi/yozmaydi (check-device funksiyasi orqali)
+  FOR r IN SELECT policyname FROM pg_policies WHERE schemaname = 'public' AND tablename = 'user_sessions'
+  LOOP
+    EXECUTE format('DROP POLICY %I ON public.user_sessions', r.policyname);
+  END LOOP;
+END $$;
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "profiles_select_own" ON public.profiles
+  FOR SELECT USING (auth.uid() = id);
+CREATE POLICY "profiles_insert_own" ON public.profiles
+  FOR INSERT WITH CHECK (auth.uid() = id);
+CREATE POLICY "profiles_update_own" ON public.profiles
+  FOR UPDATE USING (auth.uid() = id) WITH CHECK (auth.uid() = id);
+CREATE POLICY "admins_select_all_profiles" ON public.profiles
+  FOR SELECT USING (public.has_role(auth.uid(), 'admin'));
+REVOKE DELETE, TRUNCATE ON public.profiles FROM anon, authenticated;
+
+-- Faqat SECURITY DEFINER funksiyalar yozadigan jadvallar: brauzerga yozish huquqi kerak emas
+-- (Supabase standart huquqlari yangi jadvallarga anon/authenticated uchun ALL beradi; RLS — yagona to'siq edi).
+DO $$
+DECLARE t text;
+BEGIN
+  -- faqat server (service_role / SECURITY DEFINER) ishlatadigan jadvallar: brauzerga hech qanday huquq yo'q
+  FOREACH t IN ARRAY ARRAY['analytics_events', 'free_daily_usage', 'push_subscriptions', 'reminder_log',
+                           'reminder_settings', 'telegram_link_tokens', 'telegram_links', 'user_roles',
+                           'audit_log', 'payment_methods', 'telegram_bot_sessions']
+  LOOP
+    IF to_regclass('public.' || t) IS NOT NULL THEN
+      EXECUTE format('ALTER TABLE public.%I ENABLE ROW LEVEL SECURITY', t);
+      EXECUTE format('REVOKE ALL ON public.%I FROM anon, authenticated', t);
+    END IF;
+  END LOOP;
+  -- brauzer faqat o'qiydi (RLS: o'z qatorlari), yozish — RPC orqali
+  FOREACH t IN ARRAY ARRAY['saved_questions', 'user_answers']
+  LOOP
+    IF to_regclass('public.' || t) IS NOT NULL THEN
+      EXECUTE format('ALTER TABLE public.%I ENABLE ROW LEVEL SECURITY', t);
+      EXECUTE format('REVOKE ALL ON public.%I FROM anon', t);
+      EXECUTE format('REVOKE INSERT, UPDATE, DELETE, TRUNCATE ON public.%I FROM authenticated', t);
+    END IF;
+  END LOOP;
+END $$;
+
+-- "cheklar" bucket (eski admin panel cheklari): ommaviy o'qish yopiladi, admin imzolangan havola oladi
+UPDATE storage.buckets SET public = false WHERE id = 'cheklar';
+DROP POLICY IF EXISTS "cheklar_public_read" ON storage.objects;
 
 NOTIFY pgrst, 'reload schema';

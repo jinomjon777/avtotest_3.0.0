@@ -31,12 +31,15 @@ function fmtDate(iso: string) {
   return new Date(iso).toLocaleDateString("uz-UZ", { timeZone: "Asia/Tashkent", day: "2-digit", month: "2-digit", year: "numeric" });
 }
 
-/** chek_link → receipts bucket ichidagi yo'l (eski ommaviy URL yoki yangi "receipts/<yo'l>" formati). */
-function receiptPath(link: string | null): string | null {
+/** chek_link → yopiq bucket va undagi yo'l. Bot cheklari: "receipts", eski admin panel cheklari: "cheklar".
+ *  Formatlar: "receipts/<yo'l>" yoki eski ommaviy/imzolangan Storage URL. Tashqi havola → null. */
+const RECEIPT_BUCKETS = ["receipts", "cheklar"] as const;
+function receiptPath(link: string | null): { bucket: string; path: string } | null {
   if (!link) return null;
-  if (link.startsWith("receipts/")) return link.slice("receipts/".length);
-  const m = /\/storage\/v1\/object\/(?:public|sign|authenticated)\/receipts\/([^?]+)/.exec(link);
-  return m ? decodeURIComponent(m[1]) : null;
+  if (link.startsWith("receipts/")) return { bucket: "receipts", path: link.slice("receipts/".length) };
+  const m = /\/storage\/v1\/object\/(?:public|sign|authenticated)\/([^/?]+)\/([^?]+)/.exec(link);
+  if (!m || !(RECEIPT_BUCKETS as readonly string[]).includes(m[1])) return null;
+  return { bucket: m[1], path: decodeURIComponent(m[2]) };
 }
 
 function reqUuid(v: unknown, name: string): string {
@@ -260,8 +263,8 @@ Deno.serve(async (req) => {
       const { data: oldChek } = await sb.from("chek").select("*").eq("id", chekId).maybeSingle();
       const { error } = await sb.from("chek").delete().eq("id", chekId);
       if (error) throw error;
-      const path = receiptPath(oldChek?.chek_link ?? null);
-      if (path) await sb.storage.from("receipts").remove([path]);
+      const loc = receiptPath(oldChek?.chek_link ?? null);
+      if (loc) await sb.storage.from(loc.bucket).remove([loc.path]);
       await logAction("delete_chek", oldChek ?? { chekId });
       return jsonResponse(req, { success: true });
     }
@@ -271,9 +274,9 @@ Deno.serve(async (req) => {
       const { data: chek, error } = await sb.from("chek").select("chek_link").eq("id", chekId).maybeSingle();
       if (error) throw error;
       if (!chek?.chek_link) throw new HttpError(404, "Chek havolasi yo'q");
-      const path = receiptPath(chek.chek_link);
-      if (!path) return jsonResponse(req, { success: true, url: chek.chek_link }); // tashqi (soliq.uz) havola
-      const { data: signed, error: sErr } = await sb.storage.from("receipts").createSignedUrl(path, 600);
+      const loc = receiptPath(chek.chek_link);
+      if (!loc) return jsonResponse(req, { success: true, url: chek.chek_link }); // tashqi (soliq.uz) havola
+      const { data: signed, error: sErr } = await sb.storage.from(loc.bucket).createSignedUrl(loc.path, 600);
       if (sErr) throw sErr;
       return jsonResponse(req, { success: true, url: signed.signedUrl });
     }
